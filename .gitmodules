@@ -1,0 +1,3 @@
+[submodule "generator/vita-headers"]
+	path = generator/vita-headers
+	url = https://github.com/vitasdk/vita-headers.git

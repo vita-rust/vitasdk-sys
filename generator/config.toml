@@ -1,0 +1,224 @@
+# This file is documented at `src/config.rs`. Look there if you're looking to tweak it.
+
+# Allow all types, functions and variables in the `SceModuleName` format, case insensitive. Multiple `_` and a single `k` are also allowed at the start. Note that the module names are derived from header (.h) files will have all underscores removed.
+# This is applied unless `exclude_default` is true.
+default_allowlists = ["(?i)_*k?Sce{}.*"]
+
+# In psp/types there's no prefix other than `Sce`.
+[[lists]]
+files = ["psp2/types.h"]
+allowlists = ["(?i)_*k?sce.*"]
+
+# In psp2/types there's a single type.
+[[lists]]
+files = ["psp2kern/types.h"]
+allowlists_type = ["SceKernelPARange"]
+
+# json is a C++ library, while it is possible to support them, using serde is probably a better option.
+# Open a PR if you need this.
+[[lists]]
+files = ["psp2/json.h"]
+skip = true
+
+# # vitasdk/align has a single macro and is being skipped.
+# [[lists]]
+# files = ["vitasdk/align.h"]
+# skip = true
+#
+# # kernel/utils, kernel/sysclib, kernel/sysmem and kernel/threadmgr allowlists has to be implemented yet.
+# [[lists]]
+# files = ["psp2kern/kernel/utils.h", "psp2kern/kernel/sysclib.h", "psp2kern/kernel/sysmem.h", "psp2kern/kernel/threadmgr.h"]
+# skip = true
+
+# In compat, there is a single struct (SceCtrlDataPsp) that does not follow the convention
+[[lists]]
+files = ["psp2/compat.h"]
+allowlists_type = ["SceCtrlDataPsp"]
+
+# In defs, only the sdk version is included, can it cause problems if the actual SDK version is different than the one in the crate?
+[[lists]]
+files = ["psp2/defs.h"]
+allowlists = ["PSP2.*"]
+
+# In dmac5, the prefix is actually SceSblDmac5
+[[lists]]
+files = ["psp2/dmac5.h"]
+allowlists = ["(?i)_*SceSbl{}.*"]
+allowlists_var = ["(?i)_*SCE_SBL_{}.*"]
+
+# In ime_dialog, dialog is not always included in the prefix.
+[[lists]]
+files = ["psp2/ime_dialog.h"]
+allowlists = ["(?i)_*k?SceIme.*"]
+
+# In libdbg, lib is not included in the prefix.
+[[lists]]
+files = ["psp2/libdbg.h"]
+allowlists = ["(?i)_*k?SceDbg.*"]
+
+# In libssl, lib is not included in the prefix.
+[[lists]]
+files = ["psp2/libssl.h"]
+allowlists = ["(?i)_*k?SceSsl.*"]
+
+# In message_dialog, the prefix is actually msg.
+[[lists]]
+files = ["psp2/message_dialog.h"]
+allowlists = ["(?i)_*k?SceMsg.*"]
+
+# notificationutil has misspell.
+[[lists]]
+files = ["psp2/notificationutil.h"]
+allowlists_type = ["SceNotificationUitlErrorCode"]
+
+# netcheck_dialog has single disrespecting type.
+[[lists]]
+files = ["psp2/netcheck_dialog.h"]
+allowlists_type = ["SceNpCommunicationId"]
+
+# paf also uses sce_paf prefix (with underscore) and va_list.
+[[lists]]
+files = ["psp2/paf.h"]
+allowlists = ["(?i)_*k?sce_paf.*", "(?i).*va_list.*"]
+
+# pgf actually uses SceFont (and an error: SceSceFont).
+[[lists]]
+files = ["psp2/pgf.h"]
+allowlists = ["(?i)_*k?SceFont.*", "(?i)_*k?SceSceFont.*"]
+
+# pspnet_adhoc also has SceNetAdhoc.
+[[lists]]
+files = ["psp2/pspnet_adhoc.h"]
+allowlists = ["(?i)_*k?SceNetAdhoc.*"]
+
+# pspnet_adhocctl also has SceNetAdhocctl.
+[[lists]]
+files = ["psp2/pspnet_adhocctl.h"]
+allowlists = ["(?i)_*k?SceNetAdhocctl.*"]
+
+# registrymgr actually uses SceRegMgr.
+[[lists]]
+files = ["psp2/registrymgr.h", "psp2kern/registrymgr.h"]
+allowlists = ["(?i)_*k?SceRegMgr.*"]
+
+# rtc uses time_t.
+[[lists]]
+files = ["psp2/rtc.h"]
+allowlists_type = ["time_t"]
+
+# vshbridge uses no Vsh (with no Sce).
+[[lists]]
+files = ["psp2/vshbridge.h"]
+allowlists = ["(?i)_*k?Vsh.*"]
+
+# In musicexport, videoexport and photoexport, sce is optional
+[[lists]]
+files = ["psp2/musicexport.h", "psp2/videoexport.h", "psp2/photoexport.h"]
+allowlists = ["(?i)_*k?(:?sce)?{}.*"]
+
+# Files in io use SceIo instead of file prefix.
+[[lists]]
+files = ["psp2/io/devctl.h", "psp2/io/fcntl.h", "psp2/io/stat.h", "psp2kern/io/devctl.h", "psp2kern/io/fcntl.h", "psp2kern/io/stat.h"]
+allowlists = ["(?i)_*k?sceio.*"]
+
+# io/dirent also includes stat, so we must avoid generating them by allowlisting SceIoD.
+[[lists]]
+files = ["psp2/io/dirent.h", "psp2kern/io/dirent.h"]
+allowlists = ["(?i)_*k?sceiod.*"]
+
+# clib uses va_list.
+[[lists]]
+files = ["psp2/kernel/clib.h"]
+allowlists = ["(?i).*va_list.*"]
+
+# kernel/error uses SceKernelError.
+[[lists]]
+files = ["psp2/kernel/error.h"]
+allowlists = ["(?i)_*k?scekernel{}.*"]
+
+# loadcore has SceLibraryEntryTable.
+[[lists]]
+files = ["psp2/kernel/loadcore.h"]
+allowlists_type = ["SceLibraryEntryTable"]
+
+# modulemgr, openpsid, processmgr, rng, sysmem, threadmgr, rng use SceKernel and SCE_KERNEL.
+[[lists]]
+files = ["psp2/kernel/modulemgr.h", "psp2/kernel/openpsid.h", "psp2/kernel/processmgr.h", "psp2/kernel/rng.h", "psp2/kernel/sysmem.h", "psp2/kernel/threadmgr.h", "psp2kern/kernel/modulemgr.h"]
+allowlists = ["(?i)_*k?sce_?kernel.*"]
+
+# net/net_syscalls uses SceNetSyscall (singular)...
+[[lists]]
+files = ["psp2/net/net_syscalls.h"]
+allowlists = ["(?i)_*k?SceNetSyscall.*"]
+
+# fios2 actually uses SceFios.
+[[lists]]
+files = ["psp2kern/fios2.h"]
+allowlists = ["(?i)_*k?SceFios.*"]
+
+# gpu_es4 has 2 custom functions with almost no pattern.
+[[lists]]
+files = ["psp2kern/gpu_es4.h"]
+allowlists_function = ["PVRSRVGetMiscInfoKM"]
+allowlists = ["(?i)_*k?SceGpu.*"]
+
+# pfsmgr actually uses only ScePfs.
+[[lists]]
+files = ["psp2kern/pfsmgr.h"]
+allowlists = ["(?i)_*k?ScePfs.*"]
+
+# In kernel/cpu, there are 2 SYSCALL macros and Kernel appears before cpu
+[[lists]]
+files = ["psp2kern/kernel/cpu.h"]
+allowlists = ["(?i)_*k?sce(:?Kernel)?{}.*"]
+
+# In kernel/debug, sometimes Kernel appears before debug, and it also uses va_list
+[[lists]]
+files = ["psp2kern/kernel/debug.h"]
+allowlists = ["(?i)_*k?sce(:?Kernel)?{}.*", "(?i).*va_list.*"]
+
+# In kernel/intrmgr, SceKernel is the prefix and there's always Intr somewhere
+[[lists]]
+files = ["psp2kern/kernel/intrmgr.h"]
+allowlists = ["(?i)_*k?sce(:?Kernel).*Intr.*"]
+
+# In kernel/iofilemgr, SceIo but it imports many files from io... So we allow individually...
+[[lists]]
+files = ["psp2kern/kernel/iofilemgr.h"]
+allowlists = ["SceIoFdInfo", "ksceIoGetGUIDFdListForDebugger", "ksceIoGetGUIDFdList", "ksceIoGetPUIDFdListForDebugger", "ksceIoGetPUIDFdList", "SceIofileInfo", "ksceIoGetFileInfo", "ksceIoMount", "ksceIoUmount", "ksceIoGetRemoteKPLSData"]
+
+# In kernel/processmgr, SceKernelProcess is the prefix.
+[[lists]]
+files = ["psp2kern/kernel/processmgr.h"]
+allowlists = ["(?i)_*k?sceKernelProcess.*"]
+
+# In ssmgr there's no prefix other than `Sce`. We need to filter specifically by what's there to avoid including imported types.
+[[lists]]
+files = ["psp2kern/kernel/ssmgr.h"]
+allowlists = ["(?i)_*k?sce(:?ConsoleId)|(:?OpenPsId)|(:?PsCode)|(:?Sbl)|(:?PortabilityData).*"]
+
+# In kernel/suspend, SceKernelPower is the prefix for most of it.
+[[lists]]
+files = ["psp2kern/kernel/suspend.h"]
+allowlists = ["(?i)_*k?sceKernelPower.*", "SceSysEventHandler", "ksceKernelRegisterSysEventHandler"]
+
+# In kernel/sysroot SceKernel is generally used and there's single function with no prefix.
+[[lists]]
+files = ["psp2kern/kernel/sysroot.h"]
+allowlists = ["(?i)_*k?sce(:?Kernel)?{}|(:?GetSystemSwVersionFunc).*"]
+
+# In kernel/excpmgr, mgr is optional
+[[lists]]
+files = ["psp2kern/kernel/excpmgr.h"]
+allowlists = ["(?i)_*k?sceexcp.*"]
+
+# kernel/threadmgr, uses SceKernel or Sce*Thread.
+# This allowlist is missing some types.
+[[lists]]
+files = ["psp2kern/kernel/processmgr.h"]
+allowlists = ["(?i)_*k?SceKernel.*", "(?i)_*k?Sce.*Thread.*"]
+
+# vitasdk/utils use vitasdk*.
+[[lists]]
+files = ["vitasdk/utils.h"]
+allowlists = ["vitasdk.*"]
