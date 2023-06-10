@@ -36,7 +36,7 @@ $ cd generator/vita-headers
 $ git pull
 ```
 
-Then generate by following the procedure above.
+Then generate by following the procedure above. Depending on upstream changes you may need to tweak `generator/config.toml` for the new headers to work. In case you need to, feel free to contribute by opening a pull request.
 
 ## Versioning
 
@@ -46,3 +46,4 @@ Even though usual `semver` rules apply for this crate, I believe that `vitasdk` 
 
 - [**VitaSDK team**](http://vitasdk.org/) for the toolchain, vitasdk itself, etc.
 - [rust-bindgen contributors](https://github.com/rust-lang/rust-bindgen) for allowing auto generated bindings.
+- [Martin Larralde](https://github.com/althonos) for [psp2-sys](https://github.com/vita-rust/psp2-sys), which I believe originally inspired me to create this crate.
