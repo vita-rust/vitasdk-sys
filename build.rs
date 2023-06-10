@@ -3,9 +3,12 @@ use std::fs;
 use std::path::PathBuf;
 
 // Libraries to be excluded
-static LIBRARY_BLOCKLSIT: [&str; 1] = [
+static LIBRARY_BLOCKLSIT: [&str; 2] = [
     // Defines `__aeabi_uidiv`, which is also defined by compiler_builtins.
     "libSceSysclibForDriver_stub.a",
+    // Defines `__aeabi_unwind_cpp_pr0` and probably other symbols that seem
+    // to collide with std.
+    "libSceLibc_stub.a",
 ];
 
 fn main() {

@@ -1,7 +1,7 @@
 pub mod clib;
+pub mod cpu;
 pub mod dmac;
 pub mod error;
-pub mod loadcore;
 pub mod modulemgr;
 pub mod openpsid;
 pub mod processmgr;

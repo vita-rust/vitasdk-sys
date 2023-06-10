@@ -3,6 +3,7 @@ use std::fs::{self, OpenOptions};
 use std::io::{self, Write};
 use std::path::Path;
 
+use bindgen::{Builder, EnumVariation};
 use lazy_static::lazy_static;
 
 mod config;
@@ -12,7 +13,8 @@ const LIB_RS_PRELUDE: &str = "\
     #![no_std]\n\
     #![allow(non_camel_case_types)]\n\
     #![allow(non_snake_case)]\n\
-    #![allow(non_upper_case_globals)]\n\n\
+    #![allow(non_upper_case_globals)]\n\
+    \n\
 ";
 
 lazy_static! {
@@ -62,11 +64,12 @@ fn generate_mod_rs(path: &Path, modules: &[String]) {
 fn generate_all_modules() {
     let base = "vita-headers/include";
     let mut modules = Vec::new();
+    let dst_dir: &Path = "../src".as_ref();
     for entry in fs::read_dir(base).unwrap() {
         let entry = entry.unwrap();
         // Ignoring vitasdk.h and vitasdkkern.h for now
         if entry.metadata().unwrap().is_dir() {
-            generate_module(&entry.path(), "../src".as_ref(), base.as_ref());
+            generate_module(&entry.path(), dst_dir);
             #[rustfmt::skip]
             modules.push(
                 entry
@@ -79,9 +82,10 @@ fn generate_all_modules() {
     }
     modules.sort();
     generate_lib_rs(&modules);
+    merge_module_roots(dst_dir);
 }
 
-fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
+fn generate_module(path: &Path, dst_dir: &Path) -> bool {
     if path.is_dir() {
         let new_dst_dir = dst_dir.join(path.file_name().unwrap());
         // Two spaces used to align output
@@ -89,9 +93,9 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
         fs::create_dir(&new_dst_dir).ok();
 
         let mut modules = Vec::new();
-        for entry in fs::read_dir(&path).unwrap() {
+        for entry in fs::read_dir(path).unwrap() {
             let entry = entry.unwrap();
-            if generate_module(&entry.path(), &new_dst_dir, base) {
+            if generate_module(&entry.path(), &new_dst_dir) {
                 #[rustfmt::skip]
                 modules.push(
                     entry
@@ -103,6 +107,9 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
             }
         }
         modules.sort();
+        // Needed because sometimes there are .h and directories with the same name
+        // These duplicated files will be found and merged later on merge_module_roots
+        modules.dedup();
         generate_mod_rs(&new_dst_dir, &modules);
     } else {
         let module_name = path.file_stem().unwrap().to_str().unwrap().replace('_', "");
@@ -113,7 +120,7 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
             .join("arm-vita-eabi")
             .join("include");
 
-        let mut builder = bindgen::Builder::default()
+        let mut builder = Builder::default()
             .header(path.to_str().unwrap().to_owned())
             .detect_include_paths(false)
             .clang_args(&["-target", "arm-vita-eabi"])
@@ -122,12 +129,11 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
             .use_core()
             .size_t_is_usize(true)
             .ctypes_prefix("crate::ctypes")
-            .rustfmt_bindings(true)
             .layout_tests(false)
             .allowlist_recursively(false)
             .prepend_enum_name(false)
             .generate_comments(false)
-            .constified_enum_module(".*");
+            .default_enum_style(EnumVariation::ModuleConsts);
 
         let includes = get_includes(path);
         if !includes.is_empty() {
@@ -159,13 +165,7 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
                 return false;
             }
             if !lists.exclude_default {
-                for allowlist in CONFIG.default_allowlists.iter() {
-                    let specific_pattern = allowlist.replace("{}", &module_name);
-                    builder = builder
-                        .allowlist_type(&specific_pattern)
-                        .allowlist_function(&specific_pattern)
-                        .allowlist_var(&specific_pattern);
-                }
+                builder = builder.allowlist_file(path.to_str().expect("path not valid utf-8"));
             }
 
             for allowlist in lists.allowlists.iter() {
@@ -192,13 +192,7 @@ fn generate_module(path: &Path, dst_dir: &Path, base: &Path) -> bool {
             }
         } else {
             // List not in config, use just default
-            for allowlist in CONFIG.default_allowlists.iter() {
-                let specific_pattern = allowlist.replace("{}", &module_name);
-                builder = builder
-                    .allowlist_type(&specific_pattern)
-                    .allowlist_function(&specific_pattern)
-                    .allowlist_var(&specific_pattern);
-            }
+            builder = builder.allowlist_file(path.to_str().expect("path not valid utf-8"));
         }
 
         let bindings = builder.generate().expect("Unable to generate bindings");
@@ -235,16 +229,15 @@ fn get_includes(path: &Path) -> Vec<Vec<String>> {
         let has_types = includes.iter().any(|include| {
             let mut iter = include.iter().rev();
             iter.next().map(|s| &s[..]) == Some("types")
-                && iter.next().map(|s| &s[..]) == Some("psp2")
+                && iter.next().map(|s| &s[..]) == Some("psp2common")
         });
         if !has_types {
             match path.iter().nth(2).and_then(|os_str| os_str.to_str()) {
-                Some("psp2") | Some("psp2kern") => {
+                Some("psp2") | Some("psp2kern") | Some("psp2common") | Some("vitasdk") => {
                     if path.file_stem().unwrap().to_str().unwrap() != "types" {
-                        includes.push(vec!["psp2".to_owned(), "types".to_owned()]);
+                        includes.push(vec!["psp2common".to_owned(), "types".to_owned()]);
                     }
                 }
-                Some("vitasdk") => (),
                 Some(dir) => panic!("Unknown dir \"{}\", please hardcode it", dir),
                 None => panic!("No dir?"),
             }
@@ -255,8 +248,48 @@ fn get_includes(path: &Path) -> Vec<Vec<String>> {
     includes
 }
 
+/// Sometimes there is both a directory with the same name as a header file,
+/// such as psp2/paf.h and psp2/paf/. As we're using mod.rs as a convention,
+/// we're generating at least two filesin that case : psp2/paf.rs and
+/// psp2/paf/mod.rs, which is ambiguous because both refer to the same module.
+///
+/// This function finds all of those cases inside dst_dir and merges both files
+/// into mod.rs.
+fn merge_module_roots(dst_dir: &Path) {
+    for entry in fs::read_dir(dst_dir).unwrap() {
+        let entry = entry.unwrap();
+        let path = entry.path();
+        if path.is_dir() {
+            let new_dst_dir = dst_dir.join(path.file_name().unwrap());
+            println!("Merging files inside directory {:?}", &new_dst_dir);
+            merge_module_roots(&new_dst_dir);
+        } else {
+            let module_name = path.file_stem().unwrap();
+            let mod_rs_path = dst_dir.join(module_name).join("mod.rs");
+            if mod_rs_path.exists() {
+                println!(
+                    "Merging files {} and {}",
+                    path.display(),
+                    mod_rs_path.display()
+                );
+                merge(path.as_ref(), mod_rs_path.as_ref()).expect("error merging files");
+            }
+        }
+    }
+}
+
+fn merge(from: &Path, into: &Path) -> Result<(), io::Error> {
+    let mut from_file = fs::OpenOptions::new().read(true).open(from)?;
+
+    let mut into_file = fs::OpenOptions::new().append(true).open(into)?;
+
+    let _count = io::copy(&mut from_file, &mut into_file)?;
+    fs::remove_file(from)?;
+    Ok(())
+}
+
 fn copy_dir(from: &Path, to: &Path) -> Result<(), io::Error> {
-    match fs::create_dir(&to) {
+    match fs::create_dir(to) {
         Ok(_) => (),
         Err(err) if err.kind() == io::ErrorKind::AlreadyExists => (),
         Err(err) => return Err(err),

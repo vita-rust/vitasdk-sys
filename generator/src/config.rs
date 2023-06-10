@@ -8,9 +8,6 @@ use serde::Deserialize;
 /// functions in bindgen.
 #[derive(Deserialize)]
 pub struct Config {
-    /// These allowlists are used for types, functions and variables for any
-    /// file in vita-headers which's not tagged with `exclude_default`.
-    pub default_allowlists: Vec<String>,
     /// The lists array contain file-specific allowlists to be used. Multiple
     /// files can use the same lists, but specifying the same file muliple times
     /// is invalid.
@@ -39,7 +36,7 @@ pub struct Lists {
     /// allowlists will also be included unless `exclude_default` is set.
     #[serde(default)]
     pub allowlists_var: Vec<String>,
-    /// Whether or not to exlude (not use) the `default_allowlists` for these
+    /// Whether or not to exlude (not use) the default allowlist_file for these
     /// files.
     #[serde(default)]
     pub exclude_default: bool,

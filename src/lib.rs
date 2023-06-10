@@ -5,5 +5,6 @@
 
 pub mod ctypes;
 pub mod psp2;
+pub mod psp2common;
 pub mod psp2kern;
 pub mod vitasdk;
