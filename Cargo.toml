@@ -3,5 +3,13 @@ name = "vitasdk-sys"
 version = "0.1.0"
 authors = ["Aphek <bilkow@tutanota.com>"]
 edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/pheki/vitasdk-sys"
+homepage = "https://github.com/pheki/vitasdk-sys"
+description = "Raw bindings to vitasdk"
+keywords = ["vitasdk", "psvita", "vita", "ffi"]
+categories = ["external-ffi-bindings"]
+links = "vitasdk_stubs"
+exclude = [".gitmodules", ".gitignore"]
 
 [dependencies]
