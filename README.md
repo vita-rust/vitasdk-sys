@@ -47,3 +47,7 @@ Even though usual `semver` rules apply for this crate, I believe that `vitasdk` 
 - [**VitaSDK team**](http://vitasdk.org/) for the toolchain, vitasdk itself, etc.
 - [rust-bindgen contributors](https://github.com/rust-lang/rust-bindgen) for allowing auto generated bindings.
 - [Martin Larralde](https://github.com/althonos) for [psp2-sys](https://github.com/vita-rust/psp2-sys), which I believe originally inspired me to create this crate.
+
+## License
+
+This crate (library) is distributed under the terms of the Apache License (Version 2.0). See LICENSE for terms.
