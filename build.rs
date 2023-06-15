@@ -3,12 +3,15 @@ use std::fs;
 use std::path::PathBuf;
 
 // Libraries to be excluded
-static LIBRARY_BLOCKLSIT: [&str; 2] = [
+static LIBRARY_BLOCKLIST: [&str; 3] = [
     // Defines `__aeabi_uidiv`, which is also defined by compiler_builtins.
     "libSceSysclibForDriver_stub.a",
     // Defines `__aeabi_unwind_cpp_pr0` and probably other symbols that seem
     // to collide with std.
     "libSceLibc_stub.a",
+    // This one overrides pthread_getspecific and friends, which makes the app
+    // crash when using thread locals...
+    "libSceLibMonoBridge_stub.a",
 ];
 
 fn main() {
@@ -27,7 +30,7 @@ fn main() {
                 let name = e.ok()?.file_name().into_string().ok()?;
                 if name.ends_with("_stub.a")
                     && name.starts_with("libSce")
-                    && !LIBRARY_BLOCKLSIT.contains(&&name[..])
+                    && !LIBRARY_BLOCKLIST.contains(&&name[..])
                 {
                     name.strip_suffix(".a")
                         .and_then(|n| n.strip_prefix("lib"))
