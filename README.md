@@ -54,4 +54,5 @@ Even though usual `semver` rules apply for this crate, I believe that `vitasdk` 
 
 ## License
 
-This crate (library) is distributed under the terms of the Apache License (Version 2.0). See LICENSE for terms.
+This crate (library) is distributed under terms of MIT license or Apache License (Version 2.0), at your option.
+See `LICENSE-MIT` and `LICENSE-APACHE` for terms.
