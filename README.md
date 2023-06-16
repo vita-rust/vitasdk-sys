@@ -1,8 +1,12 @@
 # vitasdk-sys
 
-This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to all its libraries. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers.git) repository.
+This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to all of its stubs libraries. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers.git) repository.
 
-To be able to use it, you need vitasdk available and the environment variable `VITASDK` set to its location, as this library will statically link to the required stub files. 
+To be able to use it, you need vitasdk available and the environment variable `VITASDK` set to its location. e.g.:
+
+```
+$ export VITASDK=/opt/vitasdk
+```
 
 ## Manually generating the bindings
 
