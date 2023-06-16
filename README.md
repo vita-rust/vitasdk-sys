@@ -8,6 +8,8 @@ To be able to use it, you need vitasdk available and the environment variable `V
 $ export VITASDK=/opt/vitasdk
 ```
 
+There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world). 
+
 ## Manually generating the bindings
 
 Clone the repository with submodules (the C headers):
