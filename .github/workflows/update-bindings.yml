@@ -1,0 +1,99 @@
+name: Update bindings
+
+on: workflow_dispatch
+
+jobs:
+  install-vitasdk:
+    name: Install Vita SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache vitasdk
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: /opt/vitasdk
+          # Don't really know a good key to use here, but the cache will be
+          # deleted automatically if it's not used for a week.
+          key: ${{ runner.os }}-vitasdk
+
+      - name: Checkout VPDM
+        uses: actions/checkout@v3
+        with:
+          repository: vitasdk/vdpm
+
+      - name: Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          VITASDK: /opt/vitasdk
+        run: |
+          ./bootstrap-vitasdk.sh
+          ./install-all.sh
+
+  update-and-regenrate:
+    name: Update and regenerate
+    runs-on: ubuntu-latest
+    needs: install-vitasdk
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Restore vitasdk cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /opt/vitasdk
+          key: ${{ runner.os }}-vitasdk
+          fail-on-cache-miss: true
+
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "14"
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
+      - name: Cache generator depenedencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            generator/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('generator/Cargo.lock') }}
+
+      - name: Update vita-headers
+        run: |
+          git submodule update --recursive --remote generator/vita-headers
+
+      - name: Regenerate bindings
+        env:
+          VITASDK: /opt/vitasdk
+          # From clang-sys
+          LIBCLANG_PATH: ${{ runner.temp }}/llvm/lib
+          LLVM_CONFIG_PATH: ${{ runner.temp }}/llvm/bin/llvm-config
+        run: |
+          cd generator
+          cargo run
+          cd ..
+          cargo fmt
+
+      - name: Commit
+        # Do not fail when there's nothing to commit
+        continue-on-error: true
+        run: |
+          git add .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          VITA_HEADERS_HASH=$(git submodule status | grep generator/vita-headers | cut -d ' ' -f 2)
+          git commit -m "Update vita-headers to $VITA_HEADERS_HASH"
+          git push
