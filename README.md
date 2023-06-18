@@ -1,5 +1,9 @@
 # vitasdk-sys
 
+[![Crates.io](https://img.shields.io/crates/v/vitasdk-sys.svg)](https://crates.io/crates/vitasdk-sys)
+![License: MIT](https://img.shields.io/crates/l/vitasdk-sys.svg)
+
+
 This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to all of its stubs libraries. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers.git) repository.
 
 To be able to use it, you need vitasdk available and the environment variable `VITASDK` set to its location. e.g.:
