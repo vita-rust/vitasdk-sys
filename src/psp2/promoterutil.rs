@@ -8,6 +8,7 @@ use crate::psp2common::types::*;
 pub mod ScePromoterUtilityPackageType {
     pub type Type = crate::ctypes::c_uint;
     pub const SCE_PKG_TYPE_VITA: Type = 1;
+    pub const SCE_PKG_TYPE_PSP: Type = 1;
     pub const SCE_PKG_TYPE_PSM: Type = 3;
 }
 #[repr(C)]

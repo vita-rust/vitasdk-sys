@@ -62,6 +62,58 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    pub fn _vshNpDrmEbootSigVerify(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        eboot_signature: *const crate::ctypes::c_char,
+        eboot_signature_header: *mut *mut crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmPspEbootVerify(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        eboot_signature: *const crate::ctypes::c_char,
+        eboot_signature_header: *mut *mut crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmPspEbootSigGen(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        eboot_sha256: *const crate::ctypes::c_void,
+        eboot_signature: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmEbootSigConvert(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        old_eboot_signature: *const crate::ctypes::c_void,
+        new_eboot_signature: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmEbootSigGenPsp(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        eboot_sha256: *const crate::ctypes::c_void,
+        eboot_signature: *mut crate::ctypes::c_void,
+        sw_version: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmEbootSigGenPs1(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        eboot_sha256: *const crate::ctypes::c_void,
+        eboot_signature: *mut crate::ctypes::c_void,
+        sw_version: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn _vshNpDrmEbootSigGenMultiDisc(
+        eboot_pbp_path: *const crate::ctypes::c_char,
+        sce_discinfo: *const crate::ctypes::c_void,
+        eboot_signature: *mut crate::ctypes::c_void,
+        sw_version: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     pub fn vshSblAimgrIsCEX() -> crate::ctypes::c_int;
 }
 extern "C" {
