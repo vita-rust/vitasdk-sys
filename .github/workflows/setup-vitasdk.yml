@@ -1,0 +1,36 @@
+name: Setup Vita SDK
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        required: true
+        type: string
+
+jobs:
+  # This job is also on update-bindings.yml. If you
+  install-vitasdk:
+    name: Install Vita SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache vitasdk
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ inputs.path }}
+          # Don't really know a good key to use here, but the cache will be
+          # deleted automatically if it's not used for a week.
+          key: ${{ runner.os }}-vitasdk
+
+      - name: Checkout VPDM
+        uses: actions/checkout@v3
+        with:
+          repository: vitasdk/vdpm
+
+      - name: Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          VITASDK: ${{ inputs.path }}
+        run: |
+          ./bootstrap-vitasdk.sh
+          ./install-all.sh

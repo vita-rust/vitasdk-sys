@@ -1,0 +1,83 @@
+name: Build example
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  install-vitasdk:
+    uses: ./.github/workflows/setup-vitasdk.yml
+    with:
+      path: /opt/vitasdk
+
+  build-example:
+    name: Build example
+    runs-on: ubuntu-latest
+    needs: install-vitasdk
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Restore vitasdk cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /opt/vitasdk
+          key: ${{ runner.os }}-vitasdk
+          fail-on-cache-miss: true
+
+      - name: Cache generator depenedencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            example/std-hello-world/target/
+          key: ${{ runner.os }}-cargo-example-${{ hashFiles('example/std-hello-world/Cargo.lock') }}
+
+      - name: Install cargo-make
+        # Installation fails if cargo-make is cached
+        continue-on-error: true
+        run: |
+          cargo install cargo-make
+
+      - name: Install rust nightly
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          components: rust-src
+
+      - name: Add Vita SDK tools to path
+        run: |
+          echo "/opt/vitasdk/bin" >> $GITHUB_PATH
+
+      - name: Build example in debug mode
+        env:
+          VITASDK: /opt/vitasdk
+        run: |
+          cd examples/std-hello-world
+          cargo +nightly make vpk
+
+      - name: Build example in release mode
+        env:
+          VITASDK: /opt/vitasdk
+        run: |
+          cd examples/std-hello-world
+          cargo +nightly make --profile release vpk
+
+      - name: Upload debug build
+        uses: actions/upload-artifact@v3
+        with:
+          name: std-hello-world-debug-build
+          path: examples/std-hello-world/target/armv7-sony-vita-newlibeabihf/debug/std-hello-world.*
+          if-no-files-found: error
+
+      - name: Upload release build
+        uses: actions/upload-artifact@v3
+        with:
+          name: std-hello-world-release-build
+          path: examples/std-hello-world/target/armv7-sony-vita-newlibeabihf/release/std-hello-world.*
+          if-no-files-found: error

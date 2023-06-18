@@ -4,30 +4,9 @@ on: workflow_dispatch
 
 jobs:
   install-vitasdk:
-    name: Install Vita SDK
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache vitasdk
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: /opt/vitasdk
-          # Don't really know a good key to use here, but the cache will be
-          # deleted automatically if it's not used for a week.
-          key: ${{ runner.os }}-vitasdk
-
-      - name: Checkout VPDM
-        uses: actions/checkout@v3
-        with:
-          repository: vitasdk/vdpm
-
-      - name: Install
-        if: steps.cache.outputs.cache-hit != 'true'
-        env:
-          VITASDK: /opt/vitasdk
-        run: |
-          ./bootstrap-vitasdk.sh
-          ./install-all.sh
+    uses: ./.github/workflows/setup-vitasdk.yml
+    with:
+      path: /opt/vitasdk
 
   update-and-regenrate:
     name: Update and regenerate
@@ -69,7 +48,7 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             generator/target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('generator/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-generator-${{ hashFiles('generator/Cargo.lock') }}
 
       - name: Update vita-headers
         run: |
@@ -88,6 +67,9 @@ jobs:
           cargo fmt
 
       - name: Commit
+        env:
+          # Required by Github CLI (`gh`)
+          GH_TOKEN: ${{ github.token }}
         # Do not fail when there's nothing to commit
         continue-on-error: true
         run: |
@@ -97,3 +79,4 @@ jobs:
           VITA_HEADERS_HASH=$(git submodule status | grep generator/vita-headers | cut -d ' ' -f 2)
           git commit -m "Update vita-headers to $VITA_HEADERS_HASH"
           git push
+          gh workflow run build-example.yml --ref ${GITHUB_REF}
