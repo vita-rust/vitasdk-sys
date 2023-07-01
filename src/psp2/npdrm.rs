@@ -20,6 +20,14 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    pub fn _sceNpDrmCheckActData(
+        act_type: *mut crate::ctypes::c_int,
+        version_flag: *mut crate::ctypes::c_int,
+        account_id: *mut SceUInt64,
+        act_exp_time: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     pub fn _sceNpDrmGetRifNameForInstall(
         rif_name: *mut crate::ctypes::c_char,
         rif_data: *const crate::ctypes::c_void,

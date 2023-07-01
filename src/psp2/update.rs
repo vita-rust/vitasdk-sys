@@ -4,6 +4,8 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_UPDATE_MODE_SWU_GUI: u32 = 16;
 pub const SCE_UPDATE_MODE_SWU_CUI: u32 = 48;

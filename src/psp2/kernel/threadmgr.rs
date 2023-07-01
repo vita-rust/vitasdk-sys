@@ -6,6 +6,8 @@ use crate::psp2::kernel::cpu::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT: u32 = 0;
 pub type SceKernelThreadEntry = ::core::option::Option<
