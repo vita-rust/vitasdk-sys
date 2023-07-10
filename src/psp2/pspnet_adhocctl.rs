@@ -6,8 +6,6 @@ use crate::psp2::net::net::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_NET_ADHOCCTL_ADHOCID_LEN: u32 = 9;
 pub const SCE_NET_ADHOCCTL_GROUPNAME_LEN: u32 = 8;

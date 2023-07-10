@@ -2,25 +2,7 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceNpDrmActivationData {
-    pub act_type: SceInt16,
-    pub version_flag: SceInt16,
-    pub version: SceInt32,
-    pub account_id: SceUInt64,
-    pub primary_key_table: [[SceUInt8; 16usize]; 128usize],
-    pub unk1: [SceUInt8; 64usize],
-    pub openpsid: [SceUInt8; 16usize],
-    pub unk2: [SceUInt8; 16usize],
-    pub unk3: [SceUInt8; 16usize],
-    pub secondary_key_table: [[SceUInt8; 16usize]; 101usize],
-    pub rsa_signature: [SceUInt8; 256usize],
-    pub unk_sigmature: [SceUInt8; 64usize],
-    pub ecdsa_signature: [SceUInt8; 40usize],
-}
 #[repr(C)]
 pub struct SceNpDrmLicense {
     pub version: SceInt16,

@@ -20,18 +20,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> crate::ctypes::c_int;
-}
-extern "C" {
-    pub fn ksceNpDrmCheckActData(
-        act_type: *mut crate::ctypes::c_int,
-        version_flag: *mut crate::ctypes::c_int,
-        account_id: *mut SceUInt64,
-        act_start_time: *mut SceUInt64,
-        act_end_time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
     pub fn ksceNpDrmGetRifVitaKey(
         license: *const crate::ctypes::c_void,
         klicense: *mut crate::ctypes::c_void,

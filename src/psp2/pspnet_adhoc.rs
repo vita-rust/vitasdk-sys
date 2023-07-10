@@ -8,8 +8,6 @@ use crate::psp2::pspnet_adhocctl::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_NET_ADHOC_PDP_MFS: u32 = 1444;
 pub const SCE_NET_ADHOC_PDP_MTU: u32 = 65523;

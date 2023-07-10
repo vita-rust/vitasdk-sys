@@ -12,8 +12,6 @@ use crate::psp2kern::io::fcntl::*;
 use crate::psp2kern::io::stat::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 pub struct SceIoFdInfo {

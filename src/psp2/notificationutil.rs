@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_NOTIFICATIONUTIL_TEXT_MAX: u32 = 63;
 pub mod SceNotificationUitlErrorCode {

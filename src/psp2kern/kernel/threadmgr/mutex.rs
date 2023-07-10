@@ -4,8 +4,6 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_KERNEL_MUTEX_ATTR_RECURSIVE: u32 = 2;
 #[repr(C)]

@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub type SceFiosKernelOverlayDH = i32;
 pub type SceFiosKernelOverlayID = i32;

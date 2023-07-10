@@ -4,8 +4,6 @@
 use crate::psp2::net::net::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 pub struct __BindgenUnionField<T>(::core::marker::PhantomData<T>);

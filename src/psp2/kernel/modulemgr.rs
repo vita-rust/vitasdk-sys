@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_KERNEL_START_SUCCESS: u32 = 0;
 pub const SCE_KERNEL_START_RESIDENT: u32 = 0;

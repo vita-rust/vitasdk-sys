@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_HID_MAX_REPORT: u32 = 16;
 pub const SCE_HID_MAX_DEVICE_COUNT: u32 = 8;
@@ -14,8 +12,7 @@ pub struct SceHidKeyboardReport {
     pub reserved: SceUInt8,
     pub modifiers: [SceUInt8; 2usize],
     pub keycodes: [SceUInt8; 6usize],
-    pub reserved2: [SceUInt8; 7usize],
-    pub timestamp: SceUInt64,
+    pub unk1: [SceUInt8; 15usize],
 }
 #[repr(C)]
 pub struct SceHidMouseReport {
@@ -33,13 +30,6 @@ extern "C" {
 }
 extern "C" {
     pub fn sceHidKeyboardRead(
-        handle: SceUInt32,
-        reports: *mut *mut SceHidKeyboardReport,
-        nReports: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    pub fn sceHidKeyboardPeek(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,

@@ -4,8 +4,6 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub type SceKernelThreadEntry = ::core::option::Option<
     unsafe extern "C" fn(args: SceSize, argp: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,

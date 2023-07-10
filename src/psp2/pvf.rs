@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_PVF_MAX_OPEN: u32 = 18;
 pub const SCE_PVF_FONTNAME_LENGTH: u32 = 64;

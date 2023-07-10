@@ -6,8 +6,6 @@ use crate::psp2::audiodec::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_ATRAC_ALIGNMENT_SIZE: u32 = 256;
 pub const SCE_ATRAC_TYPE_AT9: u32 = 8195;

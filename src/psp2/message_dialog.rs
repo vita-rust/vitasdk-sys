@@ -3,13 +3,9 @@
 #[allow(unused_imports)]
 use crate::psp2::common_dialog::*;
 #[allow(unused_imports)]
-use crate::psp2::kernel::clib::*;
-#[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_MSG_DIALOG_USER_MSG_SIZE: u32 = 512;
 pub mod SceMsgDialogErrorCode {

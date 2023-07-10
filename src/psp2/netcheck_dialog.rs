@@ -3,8 +3,6 @@
 #[allow(unused_imports)]
 use crate::psp2::common_dialog::*;
 #[allow(unused_imports)]
-use crate::psp2::kernel::clib::*;
-#[allow(unused_imports)]
 use crate::psp2::net::net::*;
 #[allow(unused_imports)]
 use crate::psp2::pspnet_adhocctl::*;
@@ -12,8 +10,6 @@ use crate::psp2::pspnet_adhocctl::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_NETCHECK_DIALOG_LEAST_HTTP_POOL_SIZE: u32 = 36864;
 pub const SCE_NETCHECK_DIALOG_LEAST_SSL_POOL_SIZE: u32 = 98304;

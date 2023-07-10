@@ -4,8 +4,6 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub type SceKernelCallbackFunction = ::core::option::Option<
     unsafe extern "C" fn(

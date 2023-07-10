@@ -4,8 +4,6 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_SCREENSHOT_MAX_FS_PATH: u32 = 1024;
 pub const SCE_SCREENSHOT_MAX_PHOTO_TITLE_LEN: u32 = 64;

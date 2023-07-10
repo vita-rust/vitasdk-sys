@@ -4,8 +4,6 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_SHA1_BLOCK_SIZE: u32 = 64;
 pub const SCE_SHA1_DIGEST_SIZE: u32 = 20;

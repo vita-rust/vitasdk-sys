@@ -6,8 +6,6 @@ use crate::psp2common::types::*;
 use crate::psp2kern::kernel::threadmgr::lw_mutex::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 pub struct SceKernelLwCondWork {

@@ -5,20 +5,28 @@ use crate::psp2::kernel::threadmgr::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
-use crate::psp2common::kernel::processmgr::*;
-#[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceKernelTimeval {
-    pub sec: SceInt32,
-    pub usec: SceInt32,
+pub type SceKernelClock = SceUInt64;
+pub type SceKernelTime = SceUInt32;
+pub mod SceKernelProcessPrioritySystem {
+    pub type Type = crate::ctypes::c_uint;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_SYSTEM_HIGH: Type = 32;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_SYSTEM_DEFAULT: Type = 96;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_SYSTEM_LOW: Type = 159;
 }
-#[repr(C)]
-pub struct SceKernelTimezone {
-    pub value: SceUInt64,
+pub mod SceKernelProcessPriorityUser {
+    pub type Type = crate::ctypes::c_uint;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_USER_HIGH: Type = 64;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_USER_DEFAULT: Type = 96;
+    pub const SCE_KERNEL_PROCESS_PRIORITY_USER_LOW: Type = 127;
+}
+pub mod SceKernelPowerTickType {
+    pub type Type = crate::ctypes::c_uint;
+    pub const SCE_KERNEL_POWER_TICK_DEFAULT: Type = 0;
+    pub const SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND: Type = 1;
+    pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF: Type = 4;
+    pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_DIMMING: Type = 6;
 }
 extern "C" {
     pub fn sceKernelExitProcess(res: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -67,6 +75,15 @@ extern "C" {
 }
 extern "C" {
     pub fn sceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
+}
+#[repr(C)]
+pub struct SceKernelTimeval {
+    pub sec: SceInt32,
+    pub usec: SceInt32,
+}
+#[repr(C)]
+pub struct SceKernelTimezone {
+    pub value: SceUInt64,
 }
 extern "C" {
     pub fn sceKernelLibcGettimeofday(

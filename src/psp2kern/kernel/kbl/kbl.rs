@@ -8,8 +8,6 @@ use crate::psp2kern::kernel::dipsw::*;
 use crate::psp2kern::kernel::ssmgr::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 #[repr(C, packed)]
 pub struct SceKblParam {

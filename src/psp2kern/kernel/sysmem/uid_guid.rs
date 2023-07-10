@@ -6,8 +6,6 @@ use crate::psp2common::types::*;
 use crate::psp2kern::kernel::sysmem::uid_class::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 pub struct __BindgenUnionField<T>(::core::marker::PhantomData<T>);

@@ -2,8 +2,6 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub mod _bindgen_ty_2 {
     pub type Type = crate::ctypes::c_uint;

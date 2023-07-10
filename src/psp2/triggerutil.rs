@@ -8,8 +8,6 @@ use crate::psp2::rtc::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_TRIGGER_UTIL_VERSION: u32 = 52428800;
 pub mod SceTriggerUtilDays {
@@ -58,7 +56,7 @@ pub struct SceTriggerUtilUserAppInfo {
 pub struct SceTriggerUtilSystemAppInfo {
     pub name: [SceWChar16; 256usize],
     pub iconPath: [SceChar8; 1024usize],
-    pub reserved: [crate::ctypes::c_char; 2usize],
+    pub reserved: [crate::ctypes::c_char; 258usize],
 }
 extern "C" {
     pub fn sceTriggerUtilRegisterDailyEvent(

@@ -4,13 +4,7 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceKernelEventFlagOptParam {
-    pub size: SceSize,
-}
 #[repr(C)]
 pub struct SceKernelEventFlagInfo {
     pub size: SceSize,
@@ -20,6 +14,10 @@ pub struct SceKernelEventFlagInfo {
     pub initPattern: SceUInt,
     pub currentPattern: SceUInt,
     pub numWaitThreads: crate::ctypes::c_int,
+}
+#[repr(C)]
+pub struct SceKernelEventFlagOptParam {
+    pub size: SceSize,
 }
 pub mod SceEventFlagAttributes {
     pub type Type = crate::ctypes::c_uint;

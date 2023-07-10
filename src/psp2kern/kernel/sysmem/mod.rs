@@ -31,8 +31,6 @@ use crate::psp2kern::kernel::sysmem::uid_puid::*;
 use crate::psp2kern::kernel::sysroot::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub mod SceKernelMemoryRefPerm {
     pub type Type = crate::ctypes::c_uint;

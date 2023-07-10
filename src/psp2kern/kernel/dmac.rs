@@ -4,8 +4,6 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
-#[allow(unused_imports)]
-use crate::vitasdk::build_utils::*;
 
 pub const SCE_KERNEL_DMAC_CMD_OP_COPY: u32 = 0;
 pub const SCE_KERNEL_DMAC_CMD_OP_SET: u32 = 12;
