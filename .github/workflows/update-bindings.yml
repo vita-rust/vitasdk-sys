@@ -55,8 +55,8 @@ jobs:
 
       - name: Update vita-headers
         run: |
-          git submodule update --recursive --remote generator/vita-headers
           echo "VITA_HEADERS_HASH=$(git submodule status | grep generator/vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
+          git submodule update --recursive --remote generator/vita-headers
 
       - name: Regenerate bindings
         env:
