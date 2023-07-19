@@ -3,6 +3,8 @@
 #[allow(unused_imports)]
 use crate::psp2::gxm::*;
 #[allow(unused_imports)]
+use crate::psp2::kernel::clib::*;
+#[allow(unused_imports)]
 use crate::psp2::system_param::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
@@ -10,6 +12,8 @@ use crate::psp2::types::*;
 use crate::psp2common::defs::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_COMMON_DIALOG_MAGIC_NUMBER: u32 = 3234963721;
 pub mod SceCommonDialogErrorCode {

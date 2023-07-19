@@ -8,6 +8,8 @@ use crate::psp2::libime::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_IME_DIALOG_MAX_TITLE_LENGTH: u32 = 128;
 pub const SCE_IME_DIALOG_MAX_TEXT_LENGTH: u32 = 2048;

@@ -2,6 +2,8 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_CST_MODE: u32 = 1;
 pub const SCE_CST_SIZE: u32 = 4;

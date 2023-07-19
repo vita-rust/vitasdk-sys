@@ -6,6 +6,8 @@ use crate::psp2::types::*;
 use crate::psp2common::defs::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
