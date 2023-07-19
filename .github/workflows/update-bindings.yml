@@ -86,4 +86,4 @@ jobs:
           # Required by Github CLI (`gh`)
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh workflow run build-example.yml --ref ${{ steps.create-pull-request.outputs.pull-request-head-sha }}
+          gh workflow run build-example.yml --ref update-bindings
