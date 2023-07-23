@@ -2,6 +2,8 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_FIOS2_OVERLAY_PATH_SIZE: u32 = 292;
 pub const SCE_FIOS2_OVERLAY_PATH_MAX_LENGTH: u32 = 291;

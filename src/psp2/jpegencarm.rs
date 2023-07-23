@@ -4,6 +4,8 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_JPEGENCARM_MIN_COMP_RATIO: u32 = 1;
 pub const SCE_JPEGENCARM_DEFAULT_COMP_RATIO: u32 = 64;

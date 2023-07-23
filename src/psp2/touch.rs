@@ -4,6 +4,8 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_TOUCH_MAX_REPORT: u32 = 8;
 pub mod SceTouchErrorCode {

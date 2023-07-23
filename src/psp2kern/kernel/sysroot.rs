@@ -10,6 +10,8 @@ use crate::psp2kern::kernel::cpu::*;
 use crate::psp2kern::kernel::kbl::kbl::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_SYSROOT_INIT_CALLBACK_MAX_FUNC: u32 = 9;
 pub const SCE_SYSROOT_INIT_CALLBACK_MAX_SLOT: u32 = 8;

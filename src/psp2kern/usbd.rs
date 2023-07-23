@@ -2,6 +2,8 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -287,7 +289,7 @@ pub struct SceUsbdHidDescriptor {
     pub bNumDescriptors: u8,
     pub SubDescriptorInfo: __IncompleteArrayField<SceUsbdHidSubDescriptorInfo>,
 }
-#[repr(C)]
+#[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdDeviceAddress {
     pub unk0: u32,

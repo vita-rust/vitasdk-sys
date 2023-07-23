@@ -6,6 +6,8 @@ use crate::psp2::apputil::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_APPMGR_MAX_APP_NAME_LENGTH: u32 = 31;
 pub mod SceAppMgrErrorCode {
@@ -63,6 +65,7 @@ pub struct SceAppMgrSaveDataData {
     pub fileNum: crate::ctypes::c_int,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
     pub requiredSizeKB: *mut crate::ctypes::c_uint,
+    pub unk_0x48: crate::ctypes::c_int,
 }
 #[repr(C)]
 pub struct SceAppMgrSaveDataDataDelete {
@@ -81,6 +84,7 @@ pub struct SceAppMgrSaveDataSlot {
     pub slotParam: SceAppUtilSaveDataSlotParam,
     pub reserved: [u8; 116usize],
     pub mountPoint: SceAppUtilSaveDataMountPoint,
+    pub reserved2: [u8; 64usize],
 }
 #[repr(C)]
 pub struct SceAppMgrSaveDataSlotDelete {
@@ -126,7 +130,7 @@ pub struct SceAppMgrLaunchAppOptParam {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct sceAppMgrLoadExecOptParam {
+pub struct SceAppMgrLoadExecOptParam {
     pub reserved: [crate::ctypes::c_int; 64usize],
 }
 extern "C" {

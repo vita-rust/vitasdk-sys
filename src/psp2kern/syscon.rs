@@ -4,6 +4,8 @@
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_SYSCON_PACKET_TX_CMD_LO: u32 = 0;
 pub const SCE_SYSCON_PACKET_TX_CMD_HI: u32 = 1;
