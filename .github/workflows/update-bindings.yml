@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 1 */2 *'
+env:
+  PR_BRANCH: update-bindings
 
 jobs:
   install-vitasdk:
@@ -76,7 +78,7 @@ jobs:
         with:
           title: Update vita-headers bindings
           body: Created by the action at [/.workflows/update-bindings.yml](../tree/main/.workflows/update-bindings.yml)
-          branch: update-bindings
+          branch: ${{ env.PR_BRANCH }}
           delete-branch: true
           commit-message: Update vita-headers to ${{ env.VITA_HEADERS_HASH }}
           assignees: pheki
@@ -86,4 +88,4 @@ jobs:
           # Required by Github CLI (`gh`)
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh workflow run build-example.yml --ref update-bindings
+          gh workflow run build-example.yml --ref ${{ env.PR_BRANCH }}
