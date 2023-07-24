@@ -88,4 +88,4 @@ jobs:
           # Required by Github CLI (`gh`)
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh workflow run build-example.yml --ref ${{ env.PR_BRANCH }}
+          gh workflow run build.yml --ref ${{ env.PR_BRANCH }}
