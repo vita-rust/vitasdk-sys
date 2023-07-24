@@ -12,9 +12,15 @@ To be able to use it, you need vitasdk available and the environment variable `V
 $ export VITASDK=/opt/vitasdk
 ```
 
-There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world). 
+There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world).
 
 ## Manually generating the bindings
+
+## Updating
+
+To update the headers, we have a job that runs on GitHub Actions yearly or on demand that will create a PR. If you want to update manually, you can follow these steps:
+
+### Manually
 
 Clone the repository with submodules (the C headers):
 
@@ -28,6 +34,14 @@ If the repository is already cloned, update the submodules with:
 $ git submodule update --init --recursive
 ```
 
+To update the headers, go to the vita-headers submodule and update by the usual means:
+
+```
+$ cd generator/vita-headers
+$ git pull
+$ cd ../..
+```
+
 Generate the bindings with:
 
 ```sh
@@ -35,18 +49,9 @@ $ cd generator
 $ cargo run
 ```
 
-Note that `$VITASDK` must me set, if its not, follow the instructions at https://vitasdk.org/. It's required because of the platform includes.
+Note that `VITASDK` must me set as explained at the top of this README. It's required to generate bindings because of the platform includes.
 
-## Updating
-
-To update the headers, go to the vita-headers submodule and update by the usual means:
-
-```
-$ cd generator/vita-headers
-$ git pull
-```
-
-Then generate by following the procedure above. Depending on upstream changes you may need to tweak `generator/config.toml` (documented at `generator/src/config.rs`) for the new headers to work. In case you need to, feel free to contribute by opening a pull request.
+Depending on upstream changes you may need to tweak `generator/config.toml` (documented at `generator/src/config.rs`) for the new headers to work. In case you need to, feel free to contribute by opening a pull request.
 
 ## Versioning
 

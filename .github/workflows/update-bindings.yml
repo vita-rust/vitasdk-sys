@@ -1,9 +1,12 @@
-name: Update bindings
+name: Create PR to update bindings
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 */2 *'
+    - cron: '0 0 2 5 *'
+
+env:
+  PR_BRANCH: update-bindings
 
 jobs:
   install-vitasdk:
@@ -55,6 +58,7 @@ jobs:
 
       - name: Update vita-headers
         run: |
+          echo "VITA_HEADERS_HASH=$(git submodule status | grep generator/vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
           git submodule update --recursive --remote generator/vita-headers
 
       - name: Regenerate bindings
@@ -69,17 +73,20 @@ jobs:
           cd ..
           cargo fmt
 
-      - name: Commit
+      - name: Commit and create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: Update vita-headers bindings
+          body: Created by the action at [/.workflows/update-bindings.yml](../tree/main/.workflows/update-bindings.yml)
+          branch: ${{ env.PR_BRANCH }}
+          delete-branch: true
+          commit-message: Update vita-headers to ${{ env.VITA_HEADERS_HASH }}
+          assignees: pheki
+
+      - name: Trigger build
         env:
           # Required by Github CLI (`gh`)
           GH_TOKEN: ${{ github.token }}
-        # Do not fail when there's nothing to commit
-        continue-on-error: true
         run: |
-          git add .
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          VITA_HEADERS_HASH=$(git submodule status | grep generator/vita-headers | cut -d ' ' -f 2)
-          git commit -m "Update vita-headers to $VITA_HEADERS_HASH"
-          git push
-          gh workflow run build-example.yml --ref ${GITHUB_REF}
+          gh workflow run build.yml --ref ${{ env.PR_BRANCH }}
