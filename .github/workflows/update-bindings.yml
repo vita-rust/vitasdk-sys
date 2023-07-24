@@ -3,7 +3,8 @@ name: Create PR to update bindings
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 */2 *'
+    - cron: '0 0 2 5 *'
+
 env:
   PR_BRANCH: update-bindings
 
