@@ -4,6 +4,8 @@
 use crate::psp2::gxm::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub mod SceGxtErrorCode {
     pub type Type = crate::ctypes::c_uint;

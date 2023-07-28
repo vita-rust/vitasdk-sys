@@ -8,6 +8,8 @@ use crate::psp2kern::kernel::sysclib::*;
 use crate::psp2kern::kernel::sysmem::mmu::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 extern "C" {
     pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);

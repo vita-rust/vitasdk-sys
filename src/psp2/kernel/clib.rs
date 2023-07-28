@@ -4,6 +4,8 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub type va_list = u32;
 pub type SceClibMspace = *mut crate::ctypes::c_void;

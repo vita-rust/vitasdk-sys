@@ -4,6 +4,8 @@
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub type SceFontLibHandle = *mut crate::ctypes::c_void;
 pub type SceFontHandle = *mut crate::ctypes::c_void;

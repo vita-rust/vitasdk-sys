@@ -26,16 +26,32 @@ extern "C" {
     pub fn sceKernelAtomicSet64(store: *mut SceInt64, value: SceInt64);
 }
 extern "C" {
-    pub fn sceKernelAtomicCompareAndSet8(store: *mut SceInt8, value: SceInt8);
+    pub fn sceKernelAtomicCompareAndSet8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        new_value: SceInt8,
+    ) -> SceInt8;
 }
 extern "C" {
-    pub fn sceKernelAtomicCompareAndSet16(store: *mut SceInt16, value: SceInt16);
+    pub fn sceKernelAtomicCompareAndSet16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        new_value: SceInt16,
+    ) -> SceInt16;
 }
 extern "C" {
-    pub fn sceKernelAtomicCompareAndSet32(store: *mut SceInt32, value: SceInt32);
+    pub fn sceKernelAtomicCompareAndSet32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        new_value: SceInt32,
+    ) -> SceInt32;
 }
 extern "C" {
-    pub fn sceKernelAtomicCompareAndSet64(store: *mut SceInt64, value: SceInt64);
+    pub fn sceKernelAtomicCompareAndSet64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        new_value: SceInt64,
+    ) -> SceInt64;
 }
 extern "C" {
     pub fn sceKernelAtomicAddAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;

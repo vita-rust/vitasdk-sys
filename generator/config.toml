@@ -10,14 +10,23 @@ files = [
 ]
 allowlists = ["va_list"]
 
-# rtc uses time_t.
 [[lists]]
 files = ["psp2/rtc.h"]
+# rtc uses time_t from time.h.
 allowlists = ["time_t"]
+# Some modules import only psp2/rtc.h expecting SceRtcTick to exist.
+extra_lines = ["pub use crate::psp2common::kernel::rtc::SceRtcTick;"]
 
 # SceIoDevInfo is actually defined in psp2common/kernel/iofilemgr.h, but it's
 # included via transitive dependency only (psp2/io/devctl.h)
-# TODO: way to add include / use statement?
 [[lists]]
 files = ["psp2/compat.h"]
-allowlists = ["SceIoDevInfo"]
+extra_lines = ["use crate::psp2common::kernel::iofilemgr::*;"]
+
+[[lists]]
+files = ["psp2/paf/misc.h"]
+extra_lines = ["use crate::psp2::kernel::threadmgr::lw_mutex::*;"]
+
+[[lists]]
+files = ["psp2/vshbridge.h"]
+extra_lines = ["use crate::psp2common::kernel::modulemgr::*;"]

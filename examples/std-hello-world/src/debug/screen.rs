@@ -4,11 +4,10 @@ use core::mem::size_of;
 use core::ptr;
 
 use psp2::display::sceDisplaySetFrameBuf;
-use psp2::display::SceDisplayFrameBuf;
-use psp2::display::SceDisplaySetBufSync::SCE_DISPLAY_SETBUF_NEXTFRAME;
 use psp2::kernel::sysmem::{
     sceKernelAllocMemBlock, sceKernelFreeMemBlock, sceKernelGetMemBlockBase,
 };
+use psp2common::display::{SceDisplayFrameBuf, SceDisplaySetBufSync::SCE_DISPLAY_SETBUF_NEXTFRAME};
 use psp2common::kernel::sysmem::SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW;
 use psp2common::types::SceUID;
 use vitasdk_sys::{psp2, psp2common};

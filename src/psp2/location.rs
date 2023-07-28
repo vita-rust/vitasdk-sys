@@ -6,6 +6,8 @@ use crate::psp2::rtc::*;
 use crate::psp2::types::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_LOCATION_DATA_INVALID: f64 = -9999.0;
 pub mod SceLocationErrorCode {
@@ -41,12 +43,14 @@ pub mod SceLocationDialogStatus {
     pub const SCE_LOCATION_DIALOG_STATUS_IDLE: Type = 0;
     pub const SCE_LOCATION_DIALOG_STATUS_RUNNING: Type = 1;
     pub const SCE_LOCATION_DIALOG_STATUS_FINISHED: Type = 2;
+    pub const __SCE_LOCATION_DIALOG_STATUS: Type = 4294967295;
 }
 pub mod SceLocationDialogResult {
     pub type Type = crate::ctypes::c_uint;
     pub const SCE_LOCATION_DIALOG_RESULT_NONE: Type = 0;
     pub const SCE_LOCATION_DIALOG_RESULT_DISABLE: Type = 1;
     pub const SCE_LOCATION_DIALOG_RESULT_ENABLE: Type = 2;
+    pub const __SCE_LOCATION_DIALOG_RESULT: Type = 4294967295;
 }
 pub mod SceLocationPermissionApplicationStatus {
     pub type Type = crate::ctypes::c_uint;
@@ -54,11 +58,13 @@ pub mod SceLocationPermissionApplicationStatus {
     pub const SCE_LOCATION_PERMISSION_APPLICATION_INIT: Type = 1;
     pub const SCE_LOCATION_PERMISSION_APPLICATION_DENY: Type = 2;
     pub const SCE_LOCATION_PERMISSION_APPLICATION_ALLOW: Type = 3;
+    pub const __SCE_LOCATION_PERMISSION_APPLICATION: Type = 4294967295;
 }
 pub mod SceLocationPermissionStatus {
     pub type Type = crate::ctypes::c_uint;
     pub const SCE_LOCATION_PERMISSION_DENY: Type = 0;
     pub const SCE_LOCATION_PERMISSION_ALLOW: Type = 1;
+    pub const __SCE_LOCATION_PERMISSION: Type = 4294967295;
 }
 pub mod SceLocationLocationMethod {
     pub type Type = crate::ctypes::c_uint;
@@ -68,6 +74,7 @@ pub mod SceLocationLocationMethod {
     pub const SCE_LOCATION_LMETHOD_WIFI: Type = 3;
     pub const SCE_LOCATION_LMETHOD_3G: Type = 4;
     pub const SCE_LOCATION_LMETHOD_GPS: Type = 5;
+    pub const __SCE_LOCATION_LMETHOD: Type = 4294967295;
 }
 pub mod SceLocationHeadingMethod {
     pub type Type = crate::ctypes::c_uint;
@@ -76,6 +83,7 @@ pub mod SceLocationHeadingMethod {
     pub const SCE_LOCATION_HMETHOD_VERTICAL: Type = 2;
     pub const SCE_LOCATION_HMETHOD_HORIZONTAL: Type = 3;
     pub const SCE_LOCATION_HMETHOD_CAMERA: Type = 4;
+    pub const __SCE_LOCATION_HMETHOD: Type = 4294967295;
 }
 #[repr(C)]
 pub struct SceLocationLocationInfo {
@@ -120,6 +128,8 @@ pub struct SceLocationPermissionInfo {
     pub parentalstatus: SceLocationPermissionStatus::Type,
     pub mainstatus: SceLocationPermissionStatus::Type,
     pub applicationstatus: SceLocationPermissionApplicationStatus::Type,
+    pub unk_0x0C: crate::ctypes::c_int,
+    pub unk_0x10: crate::ctypes::c_int,
 }
 extern "C" {
     pub fn sceLocationOpen(

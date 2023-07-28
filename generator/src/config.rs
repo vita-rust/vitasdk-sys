@@ -20,6 +20,10 @@ pub struct Lists {
     /// File paths for which these allowlists apply. Relative to the
     /// `vita-headers/include` directory.
     pub files: Vec<String>,
+    /// Extra lines to be added to the top of the rust file (after imports).
+    /// Mostly used for missing imports.
+    #[serde(default)]
+    pub extra_lines: Vec<String>,
     /// Allowlists specific for these files. Note that the default allowlists
     /// will also be included unless `exclude_default` is set.
     #[serde(default)]

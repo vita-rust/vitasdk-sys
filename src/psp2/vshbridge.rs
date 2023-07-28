@@ -4,6 +4,7 @@
 use crate::psp2::kernel::modulemgr::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
+use crate::psp2common::kernel::modulemgr::*;
 #[allow(unused_imports)]
 use crate::psp2common::kernel::msif::*;
 #[allow(unused_imports)]

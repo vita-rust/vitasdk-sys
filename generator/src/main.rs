@@ -14,6 +14,10 @@ const LIB_RS_PRELUDE: &str = "\
     #![allow(non_camel_case_types)]\n\
     #![allow(non_snake_case)]\n\
     #![allow(non_upper_case_globals)]\n\
+    #![allow(clippy::missing_safety_doc)]\n\
+    #![allow(clippy::useless_transmute)]\n\
+    #![allow(clippy::too_many_arguments)]\n\
+    #![allow(clippy::len_without_is_empty)]\n\
     \n\
 ";
 
@@ -166,6 +170,17 @@ fn generate_module(path: &Path, dst_dir: &Path) -> bool {
             }
             if !lists.exclude_default {
                 builder = builder.allowlist_file(path.to_str().expect("path not valid utf-8"));
+            }
+
+            let raw_lines = lists.extra_lines.iter().fold(String::new(), |acc, import| {
+                if acc.is_empty() {
+                    import.to_owned()
+                } else {
+                    acc + "\n" + import
+                }
+            });
+            if !raw_lines.is_empty() {
+                builder = builder.raw_line(raw_lines);
             }
 
             for allowlist in lists.allowlists.iter() {

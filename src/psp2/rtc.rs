@@ -2,40 +2,15 @@
 
 #[allow(unused_imports)]
 use crate::psp2::types::*;
+pub use crate::psp2common::kernel::rtc::SceRtcTick;
+#[allow(unused_imports)]
+use crate::psp2common::kernel::rtc::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub type time_t = crate::ctypes::c_long;
-pub mod SceRtcErrorCode {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_RTC_ERROR_INVALID_VALUE: Type = 2149912576;
-    pub const SCE_RTC_ERROR_INVALID_POINTER: Type = 2149912577;
-    pub const SCE_RTC_ERROR_NOT_INITIALIZED: Type = 2149912578;
-    pub const SCE_RTC_ERROR_ALREADY_REGISTERD: Type = 2149912579;
-    pub const SCE_RTC_ERROR_NOT_FOUND: Type = 2149912580;
-    pub const SCE_RTC_ERROR_BAD_PARSE: Type = 2149912704;
-    pub const SCE_RTC_ERROR_INVALID_YEAR: Type = 2149912705;
-    pub const SCE_RTC_ERROR_INVALID_MONTH: Type = 2149912706;
-    pub const SCE_RTC_ERROR_INVALID_DAY: Type = 2149912707;
-    pub const SCE_RTC_ERROR_INVALID_HOUR: Type = 2149912708;
-    pub const SCE_RTC_ERROR_INVALID_MINUTE: Type = 2149912709;
-    pub const SCE_RTC_ERROR_INVALID_SECOND: Type = 2149912710;
-    pub const SCE_RTC_ERROR_INVALID_MICROSECOND: Type = 2149912711;
-}
-pub mod SceRtcDayOfWeek {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_RTC_DAYOFWEEK_SUNDAY: Type = 0;
-    pub const SCE_RTC_DAYOFWEEK_MONDAY: Type = 1;
-    pub const SCE_RTC_DAYOFWEEK_TUESDAY: Type = 2;
-    pub const SCE_RTC_DAYOFWEEK_WEDNESDAY: Type = 3;
-    pub const SCE_RTC_DAYOFWEEK_THURSDAY: Type = 4;
-    pub const SCE_RTC_DAYOFWEEK_FRIDAY: Type = 5;
-    pub const SCE_RTC_DAYOFWEEK_SATURDAY: Type = 6;
-}
-#[repr(C)]
-pub struct SceRtcTick {
-    pub tick: SceUInt64,
-}
 extern "C" {
     pub fn sceRtcGetTickResolution() -> crate::ctypes::c_uint;
 }

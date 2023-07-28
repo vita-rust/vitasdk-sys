@@ -6,16 +6,12 @@ use crate::psp2::io::devctl::*;
 use crate::psp2::rtc::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
+use crate::psp2common::kernel::iofilemgr::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceIoDevInfo {
-    pub max_size: SceOff,
-    pub free_size: SceOff,
-    pub cluster_size: SceSize,
-    pub unk: *mut crate::ctypes::c_void,
-}
 pub mod SceCompatCacheMode {
     pub type Type = crate::ctypes::c_uint;
     pub const SCE_COMPAT_CACHE_NONE: Type = 0;

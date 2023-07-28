@@ -2,6 +2,8 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::vitasdk::build_utils::*;
 
 pub const SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_L1WBWA_RW: u32 = 155205728;
 pub const SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_R: u32 = 155222080;
