@@ -13,3 +13,7 @@ links = "vitasdk_stubs"
 exclude = [".gitmodules", ".gitignore"]
 
 [dependencies]
+
+[workspace]
+members = ["generator"]
+exclude = ["examples/std-hello-world"]
