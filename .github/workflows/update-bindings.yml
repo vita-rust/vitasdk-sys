@@ -83,6 +83,8 @@ jobs:
           delete-branch: true
           commit-message: Update vita-headers to ${{ env.VITA_HEADERS_HASH }}
           assignees: pheki
+          committer: Aphek <bilkow@tutanota.com>
+          author: Aphek <bilkow@tutanota.com>
 
       - name: Trigger build
         env:
