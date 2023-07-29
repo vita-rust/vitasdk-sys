@@ -6,6 +6,7 @@
 #![allow(clippy::useless_transmute)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::len_without_is_empty)]
+#![allow(clippy::module_inception)]
 
 pub mod ctypes;
 pub mod psp2;

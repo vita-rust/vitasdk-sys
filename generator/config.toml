@@ -9,6 +9,7 @@ lib_rs_prelude = """\
     #![allow(clippy::useless_transmute)]\n\
     #![allow(clippy::too_many_arguments)]\n\
     #![allow(clippy::len_without_is_empty)]\n\
+    #![allow(clippy::module_inception)]\n\
     \n\
 """
 
