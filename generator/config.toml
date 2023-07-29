@@ -1,5 +1,17 @@
 # This file is documented at `src/config.rs`. Look there if you're looking to tweak it.
 
+lib_rs_prelude = """\
+    #![no_std]\n\
+    #![allow(non_camel_case_types)]\n\
+    #![allow(non_snake_case)]\n\
+    #![allow(non_upper_case_globals)]\n\
+    #![allow(clippy::missing_safety_doc)]\n\
+    #![allow(clippy::useless_transmute)]\n\
+    #![allow(clippy::too_many_arguments)]\n\
+    #![allow(clippy::len_without_is_empty)]\n\
+    \n\
+"""
+
 # clib, sysclib, kernel/debug all use va_list.
 [[lists]]
 files = [

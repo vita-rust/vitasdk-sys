@@ -8,6 +8,8 @@ use serde::Deserialize;
 /// functions in bindgen.
 #[derive(Deserialize)]
 pub struct Config {
+    /// Lines to add to the start of the generated lib.rs.
+    pub lib_rs_prelude: String,
     /// The lists array contain file-specific allowlists to be used. Multiple
     /// files can use the same lists, but specifying the same file muliple times
     /// is invalid.
