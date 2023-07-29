@@ -14,6 +14,7 @@ jobs:
     name: Build example
     runs-on: ubuntu-latest
     needs: install-vitasdk
+    timeout-minutes: 20
     steps:
       - name: Set commit status as pending
         uses: myrotvorets/set-commit-status-action@v1.1.7
@@ -97,4 +98,114 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
           context: Build example
+          sha: ${{ github.sha }}
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Clippy
+          sha: ${{ github.sha }}
+
+      - uses: actions/checkout@v3
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: clippy
+          profile: minimal
+          override: true
+
+      - name: Run clippy
+        run: |
+          cargo clippy --tests --workspace -- -Dclippy::all -Dwarnings
+          cd examples/std-hello-world
+          cargo clippy --tests -- -Dclippy::all -Dwarnings
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Clippy
+          sha: ${{ github.sha }}
+
+  rustfmt:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Rustfmt
+          sha: ${{ github.sha }}
+
+      - uses: actions/checkout@v3
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt
+          profile: minimal
+          override: true
+
+      - name: Run rustfmt
+        run: |
+          cargo fmt --check
+          cd examples/std-hello-world
+          cargo fmt --check
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Rustfmt
+          sha: ${{ github.sha }}
+
+
+  doc:
+    name: Doc
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RUSTDOCFLAGS: -D warnings
+    steps:
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Doc
+          sha: ${{ github.sha }}
+
+      - uses: actions/checkout@v3
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rust-docs
+          profile: minimal
+          override: true
+      - name: Run cargo doc
+        run: cargo doc --no-deps --all-features
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Doc
           sha: ${{ github.sha }}
