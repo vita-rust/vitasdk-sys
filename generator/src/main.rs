@@ -9,18 +9,6 @@ use lazy_static::lazy_static;
 mod config;
 use config::Config;
 
-const LIB_RS_PRELUDE: &str = "\
-    #![no_std]\n\
-    #![allow(non_camel_case_types)]\n\
-    #![allow(non_snake_case)]\n\
-    #![allow(non_upper_case_globals)]\n\
-    #![allow(clippy::missing_safety_doc)]\n\
-    #![allow(clippy::useless_transmute)]\n\
-    #![allow(clippy::too_many_arguments)]\n\
-    #![allow(clippy::len_without_is_empty)]\n\
-    \n\
-";
-
 lazy_static! {
     static ref CONFIG: Config = {
         let config_string = String::from_utf8(fs::read("config.toml").unwrap()).unwrap();
@@ -37,7 +25,7 @@ fn main() {
 }
 
 fn generate_lib_rs(modules: &[String]) {
-    let mut lib = String::from(LIB_RS_PRELUDE);
+    let mut lib = CONFIG.lib_rs_prelude.clone();
     lib.push_str("pub mod ctypes;\n");
     for module in modules {
         lib.push_str(&format!("pub mod {};\n", module));
