@@ -5,7 +5,7 @@ TITLEID = "RUST00001"
 # Directory holding static files. There should be at least a "sce_sys" directory in there for app metadata (title, icons, description...)
 # You can find sample assets for that on $VITASDK/share/gcc-arm-vita-eabi/samples/hello_world/sce_sys/
 STATIC_DIR = "static"   # Folder where static assets should be placed (sce_sys folder is at $STATIC_DIR/sce_sys)
-CARGO_TARGET_DIR = { script = ["echo ${CARGO_TARGET_DIR:=target}"] }
+CARGO_TARGET_DIR = { script = ["echo ${CARGO_TARGET_DIR:=../../target}"] }
 # Map `dev` profile to the `debug` directory
 CARGO_PROFILE_TARGET_DIR = { source = "${CARGO_MAKE_CARGO_PROFILE}", default_value = "${CARGO_MAKE_CARGO_PROFILE}", mapping = {"dev" = "debug"}}
 RUST_TARGET = "armv7-sony-vita-newlibeabihf"
@@ -23,16 +23,16 @@ command = "arm-vita-eabi-strip"
 args = ["-g", '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.elf']
 
 [tasks.velf]
-description = "Build an VELF executable from the obtained ELF file."
+description = "Build a VELF executable from the obtained ELF file."
 dependencies = ["strip"]
 command = "vita-elf-create"
 args = ['${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.elf', '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.velf']
 
-[tasks.eboot-bin]
-description = "Build an `eboot.bin` file from the obtained VELF file."
+[tasks.self]
+description = "Build a SELF file from the obtained VELF file."
 dependencies = ["velf"]
 command = "vita-make-fself"
-args = ["-s", '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.velf', '${CARGO_OUT_DIR}/eboot.bin']
+args = ["-s", '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.velf', '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.self']
 
 [tasks.param-sfo]
 description = "Build the `param.sfo` manifest using with given TITLE and TITLEID."
@@ -54,7 +54,7 @@ script = [
 
 [tasks.vpk]
 description = "Build a VPK distribution of the project executable and resources."
-dependencies = ["eboot-bin", "param-sfo", "manifest"]
+dependencies = ["self", "param-sfo", "manifest"]
 script_runner = "@rust"
 script = [
     '''
@@ -69,7 +69,7 @@ script = [
 
       let mut cmd = ::std::process::Command::new("vita-pack-vpk");
       cmd.arg("-s").arg(out_dir.join("param.sfo"));
-      cmd.arg("-b").arg(out_dir.join("eboot.bin"));
+      cmd.arg("-b").arg(out_dir.join(&crate_name).with_extension("self"));
 
       // Add files from MANIFEST
       if let Ok(file) = File::open(out_dir.join("MANIFEST")) {
