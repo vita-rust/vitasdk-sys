@@ -27,6 +27,8 @@ cargo install cargo-vita
 
 You'll need to customize TITLE and TITLEID when making your own app / game.
 
+For more details on tools requirements and usage see the tools [README](https://github.com/vita-rust/cargo-vita) page.
+
 # Building and running
 
 To create a debug build, just run:
@@ -41,13 +43,16 @@ To create a release build, run:
 cargo vita build vpk --release
 ```
 
-You can also upload the built vpk to ux0:/download using `--upload` flag:
+You can also upload the built vpk to ux0:/download. To do that you must run an ftp server on your VITA
+either by using [VitaShell](https://github.com/TheOfficialFloW/VitaShell) or [vitacompanion](https://github.com/devnoname120/vitacompanion).
+
+When a server is running use `--upload` flag:
 
 ```
 cargo vita build vpk --upload --release
 ```
 
-Or update the `eboot.bin` of an already installed vpk and run it:
+Or update the `eboot.bin` of an already installed vpk and run it. Running requires [vitacompanion](https://github.com/devnoname120/vitacompanion) installed.
 
 ```
 cargo vita build eboot --update --run --release
