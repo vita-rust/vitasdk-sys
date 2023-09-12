@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
 
-      - name: Cache generator depenedencies
+      - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: |
@@ -45,7 +45,7 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             target/
-          key: ${{ runner.os }}-cargo-example-${{ hashFiles('Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
 
       - name: Install cargo-vita
         continue-on-error: true
