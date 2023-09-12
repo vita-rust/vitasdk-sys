@@ -2,6 +2,7 @@ name: Build
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -43,8 +44,8 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-            example/std-hello-world/target/
-          key: ${{ runner.os }}-cargo-example-${{ hashFiles('example/std-hello-world/Cargo.lock') }}
+            target/
+          key: ${{ runner.os }}-cargo-example-${{ hashFiles('Cargo.lock') }}
 
       - name: Install cargo-make
         # Installation fails if cargo-make is cached
@@ -81,14 +82,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: std-hello-world-debug-build
-          path: examples/std-hello-world/target/armv7-sony-vita-newlibeabihf/debug/std-hello-world.*
+          path: target/armv7-sony-vita-newlibeabihf/debug/std-hello-world.*
           if-no-files-found: error
 
       - name: Upload release build
         uses: actions/upload-artifact@v3
         with:
           name: std-hello-world-release-build
-          path: examples/std-hello-world/target/armv7-sony-vita-newlibeabihf/release/std-hello-world.*
+          path: target/armv7-sony-vita-newlibeabihf/release/std-hello-world.*
           if-no-files-found: error
 
       - name: Set final commit status
@@ -125,8 +126,6 @@ jobs:
       - name: Run clippy
         run: |
           cargo clippy --tests --workspace -- -Dclippy::all -Dwarnings
-          cd examples/std-hello-world
-          cargo clippy --tests -- -Dclippy::all -Dwarnings
 
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@v1.1.7
@@ -161,9 +160,7 @@ jobs:
 
       - name: Run rustfmt
         run: |
-          cargo fmt --check
-          cd examples/std-hello-world
-          cargo fmt --check
+          cargo fmt --check --all
 
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@v1.1.7

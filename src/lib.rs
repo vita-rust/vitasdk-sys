@@ -1,13 +1,15 @@
 #![no_std]
-#![allow(non_camel_case_types)]
-#![allow(non_snake_case)]
-#![allow(non_upper_case_globals)]
-#![allow(clippy::missing_safety_doc)]
-#![allow(clippy::useless_transmute)]
-#![allow(clippy::too_many_arguments)]
-#![allow(clippy::len_without_is_empty)]
-#![allow(clippy::module_inception)]
-
+#![allow(
+    non_camel_case_types,
+    non_snake_case,
+    non_upper_case_globals,
+    clippy::missing_safety_doc,
+    clippy::useless_transmute,
+    clippy::too_many_arguments,
+    clippy::len_without_is_empty,
+    clippy::module_inception,
+    clippy::incorrect_clone_impl_on_copy_type
+)]
 pub mod ctypes;
 pub mod psp2;
 pub mod psp2common;
