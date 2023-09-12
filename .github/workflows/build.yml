@@ -47,11 +47,10 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-example-${{ hashFiles('Cargo.lock') }}
 
-      - name: Install cargo-make
-        # Installation fails if cargo-make is cached
+      - name: Install cargo-vita
         continue-on-error: true
         run: |
-          cargo install cargo-make
+          cargo install cargo-vita
 
       - name: Install rust nightly
         uses: actions-rs/toolchain@v1
@@ -69,14 +68,14 @@ jobs:
           VITASDK: /opt/vitasdk
         run: |
           cd examples/std-hello-world
-          cargo +nightly make vpk
+          cargo +nightly vita build vpk
 
       - name: Build example in release mode
         env:
           VITASDK: /opt/vitasdk
         run: |
           cd examples/std-hello-world
-          cargo +nightly make --profile release vpk
+          cargo +nightly vita build vpk --release
 
       - name: Upload debug build
         uses: actions/upload-artifact@v3

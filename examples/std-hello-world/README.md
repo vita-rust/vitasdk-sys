@@ -18,29 +18,37 @@ To install the nightly toolchain with rust-src run:
 $ rustup toolchain install nightly-x86_64-unknown-linux-gnu --component rust-src
 ```
 
-## cargo-make
+## cargo-vita
 
-We use `cargo-make` to strip the elf, build the velf and the vpk. To install it
-follow the instructions at the
-[cargo-make](https://github.com/sagiegurari/cargo-make) repository.
+We use [cargo-vita](https://github.com/vita-rust/cargo-vita) to build the vpk. To install cargo vita run
+```sh
+cargo install cargo-vita
+```
 
-The instructions for cargo-make are at Makefile.toml. You'll need to customize
-TITLE and TITLEID when making your own app / game.
+You'll need to customize TITLE and TITLEID when making your own app / game.
 
 # Building and running
 
 To create a debug build, just run:
 
 ```
-$ cargo make vpk
+cargo vita build vpk
 ```
 
 To create a release build, run:
 
 ```
-$ cargo make --profile release vpk
+cargo vita build vpk --release
 ```
 
-The vpk will be at `target/armv7-sony-vita-newlibeabihf/debug/std-hello-world.vpk`
-or `target/armv7-sony-vita-newlibeabihf/release/std-hello-world.vpk`, depending
-on the profile.
+You can also upload the built vpk to ux0:/download using `--upload` flag:
+
+```
+cargo vita build vpk --upload --release
+```
+
+Or update the `eboot.bin` of an already installed vpk and run it:
+
+```
+cargo vita build eboot --update --run --release
+```

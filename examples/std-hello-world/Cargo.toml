@@ -8,3 +8,11 @@ publish = false
 # Change the following line to require the current version of vitasdk-sys
 vitasdk-sys = { path = "../.." }
 rand = "0.8.5"
+
+[profile.release]
+# lto = true
+
+[package.metadata.vita]
+title_id = "RUST00001"
+title_name = "Rust Hello World"
+assets = "./static"
