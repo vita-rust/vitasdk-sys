@@ -179,12 +179,14 @@ impl DebugScreen {
                     mask >>= 1;
                 }
 
+                #[allow(clippy::reversed_empty_ranges)]
                 for col in DEBUG_FONT.width..DEBUG_FONT.size_w {
                     self.framebuffer
                         .set(current_offset + row * SCREEN_FB_WIDTH + col, self.color_bg)
                 }
             }
 
+            #[allow(clippy::reversed_empty_ranges)]
             for row in DEBUG_FONT.height..DEBUG_FONT.size_h {
                 for col in 0..DEBUG_FONT.size_w {
                     self.framebuffer

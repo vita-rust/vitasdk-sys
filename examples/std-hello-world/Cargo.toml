@@ -8,6 +8,3 @@ publish = false
 # Change the following line to require the current version of vitasdk-sys
 vitasdk-sys = { path = "../.." }
 rand = "0.8.5"
-
-[profile.release]
-lto = true

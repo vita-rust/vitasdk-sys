@@ -12,8 +12,9 @@ categories = ["external-ffi-bindings"]
 links = "vitasdk_stubs"
 exclude = [".gitmodules", ".gitignore"]
 
-[dependencies]
-
 [workspace]
-members = ["generator"]
-exclude = ["examples/std-hello-world"]
+members = ["examples/*"]
+exclude = ["generator"]
+
+[profile.release]
+lto = true

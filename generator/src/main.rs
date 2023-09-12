@@ -2,8 +2,9 @@ use std::env;
 use std::fs::{self, OpenOptions};
 use std::io::{self, Write};
 use std::path::Path;
+use std::process::Command;
 
-use bindgen::{Builder, EnumVariation};
+use bindgen::EnumVariation;
 use lazy_static::lazy_static;
 
 mod config;
@@ -22,6 +23,13 @@ fn main() {
 
     generate_all_modules();
     copy_dir("../static".as_ref(), "../src".as_ref()).expect("Could not copy ../static to ../src");
+    let cargo = env::var_os("CARGO");
+    let status = Command::new(cargo.as_deref().unwrap_or_else(|| "cargo".as_ref()))
+        .arg("fmt")
+        .arg("--manifest-path=../Cargo.toml")
+        .status()
+        .expect("Spawning `cargo fmt` on generated bindings");
+    assert!(status.success(), "Failed `cargo fmt` command: {status:?}");
 }
 
 fn generate_lib_rs(modules: &[String]) {
@@ -112,7 +120,7 @@ fn generate_module(path: &Path, dst_dir: &Path) -> bool {
             .join("arm-vita-eabi")
             .join("include");
 
-        let mut builder = Builder::default()
+        let mut builder = bindgen::builder()
             .header(path.to_str().unwrap().to_owned())
             .detect_include_paths(false)
             .clang_args(&["-target", "arm-vita-eabi"])
@@ -125,6 +133,7 @@ fn generate_module(path: &Path, dst_dir: &Path) -> bool {
             .allowlist_recursively(false)
             .prepend_enum_name(false)
             .generate_comments(false)
+            .formatter(bindgen::Formatter::None) // We run `cargo fmt` later
             .default_enum_style(EnumVariation::ModuleConsts);
 
         let includes = get_includes(path);

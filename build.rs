@@ -3,7 +3,7 @@ use std::fs;
 use std::path::PathBuf;
 
 // Libraries to be excluded
-static LIBRARY_BLOCKLIST: [&str; 3] = [
+static LIBRARY_BLOCKLIST: [&str; 4] = [
     // Defines `__aeabi_uidiv`, which is also defined by compiler_builtins.
     "libSceSysclibForDriver_stub.a",
     // Defines `__aeabi_unwind_cpp_pr0` and probably other symbols that seem
@@ -12,6 +12,8 @@ static LIBRARY_BLOCKLIST: [&str; 3] = [
     // This one overrides pthread_getspecific and friends, which makes the app
     // crash when using thread locals...
     "libSceLibMonoBridge_stub.a",
+    // Conflicts with compiler_builtins
+    "libSceRtabi_stub.a",
 ];
 
 fn main() {
