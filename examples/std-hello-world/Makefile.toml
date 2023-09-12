@@ -37,7 +37,7 @@ args = ["-s", '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.velf', '${CARGO_OUT_DIR
 [tasks.param-sfo]
 description = "Build the `param.sfo` manifest using with given TITLE and TITLEID."
 command = "vita-mksfoex"
-args = ["-s", 'TITLE_ID=${TITLEID}', '${TITLE}', '${CARGO_OUT_DIR}/param.sfo']
+args = ["-s", 'TITLE_ID=${TITLEID}', '${TITLE}', '${CARGO_OUT_DIR}/${CARGO_MAKE_CRATE_NAME}.sfo']
 
 [tasks.manifest]
 description = "List all static resources into a manifest file."
@@ -68,7 +68,7 @@ script = [
       let out_dir = std::path::PathBuf::from(env!("CARGO_OUT_DIR"));
 
       let mut cmd = ::std::process::Command::new("vita-pack-vpk");
-      cmd.arg("-s").arg(out_dir.join("param.sfo"));
+      cmd.arg("-s").arg(out_dir.join(&crate_name).with_extension("sfo"));
       cmd.arg("-b").arg(out_dir.join(&crate_name).with_extension("self"));
 
       // Add files from MANIFEST
