@@ -126,8 +126,6 @@ jobs:
       - name: Run clippy
         run: |
           cargo clippy --tests --workspace -- -Dclippy::all -Dwarnings
-          cd generator
-          cargo clippy --tests -- -Dclippy::all -Dwarnings
 
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@v1.1.7
@@ -162,9 +160,7 @@ jobs:
 
       - name: Run rustfmt
         run: |
-          cargo fmt --check
-          cd generator
-          cargo fmt --check
+          cargo fmt --check --all
 
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@v1.1.7
