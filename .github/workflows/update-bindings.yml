@@ -45,7 +45,7 @@ jobs:
           directory: ${{ runner.temp }}/llvm
           cached: ${{ steps.cache-llvm.outputs.cache-hit }}
 
-      - name: Cache generator depenedencies
+      - name: Cache generator dependencies
         uses: actions/cache@v3
         with:
           path: |
@@ -53,8 +53,8 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-            generator/target/
-          key: ${{ runner.os }}-cargo-generator-${{ hashFiles('generator/Cargo.lock') }}
+            target/
+          key: ${{ runner.os }}-cargo-generator-${{ hashFiles('Cargo.lock') }}
 
       - name: Update vita-headers
         run: |
@@ -70,8 +70,6 @@ jobs:
         run: |
           cd generator
           cargo run
-          cd ..
-          cargo fmt
 
       - name: Commit and create pull request
         id: create-pull-request

@@ -48,6 +48,7 @@ pub mod npdrm;
 pub mod npdrmpackage;
 pub mod paf;
 pub mod pamgr;
+pub mod perf;
 pub mod pgf;
 pub mod photoexport;
 pub mod power;

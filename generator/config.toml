@@ -10,8 +10,7 @@ lib_rs_prelude = """\
     clippy::useless_transmute,
     clippy::too_many_arguments,
     clippy::len_without_is_empty,
-    clippy::module_inception,
-    clippy::incorrect_clone_impl_on_copy_type
+    clippy::module_inception
 )]
 """
 
@@ -40,8 +39,12 @@ extra_lines = ["use crate::psp2common::kernel::iofilemgr::*;"]
 
 [[lists]]
 files = ["psp2/paf/misc.h"]
-extra_lines = ["use crate::psp2::kernel::threadmgr::lw_mutex::*;"]
+extra_lines = ["use crate::psp2common::kernel::threadmgr::*;"]
 
 [[lists]]
 files = ["psp2/vshbridge.h"]
 extra_lines = ["use crate::psp2common::kernel::modulemgr::*;"]
+
+[[lists]]
+files = ["psp2/net/netctl.h", "psp2/netcheck_dialog.h", "psp2/pspnet_adhoc.h", "psp2/pspnet_adhocctl.h"]
+extra_lines = ["use crate::psp2common::net::*;"]
