@@ -3,18 +3,12 @@
 #[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
+use crate::psp2common::kernel::threadmgr::*;
+#[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceKernelLwMutexWork {
-    pub data: [SceInt64; 4usize],
-}
-#[repr(C)]
-pub struct SceKernelLwMutexOptParam {
-    pub size: SceSize,
-}
 extern "C" {
     pub fn sceKernelCreateLwMutex(
         pWork: *mut SceKernelLwMutexWork,

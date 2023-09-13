@@ -3,29 +3,12 @@
 #[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
+use crate::psp2common::kernel::threadmgr::*;
+#[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
 
-pub type SceKernelCallbackFunction = ::core::option::Option<
-    unsafe extern "C" fn(
-        notifyId: crate::ctypes::c_int,
-        notifyCount: crate::ctypes::c_int,
-        notifyArg: crate::ctypes::c_int,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
->;
-#[repr(C)]
-pub struct SceKernelCallbackInfo {
-    pub size: SceSize,
-    pub callbackId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub threadId: SceUID,
-    pub callback: SceKernelCallbackFunction,
-    pub common: *mut crate::ctypes::c_void,
-    pub notifyCount: crate::ctypes::c_int,
-    pub notifyArg: crate::ctypes::c_int,
-}
 extern "C" {
     pub fn sceKernelCreateCallback(
         name: *const crate::ctypes::c_char,

@@ -7,8 +7,7 @@
     clippy::useless_transmute,
     clippy::too_many_arguments,
     clippy::len_without_is_empty,
-    clippy::module_inception,
-    clippy::incorrect_clone_impl_on_copy_type
+    clippy::module_inception
 )]
 pub mod ctypes;
 pub mod psp2;

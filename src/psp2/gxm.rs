@@ -134,6 +134,7 @@ pub mod SceGxmErrorCode {
     pub const SCE_GXM_ERROR_INVALID_TEXTURE: Type = 2153447448;
     pub const SCE_GXM_ERROR_INVALID_TEXTURE_DATA_POINTER: Type = 2153447449;
     pub const SCE_GXM_ERROR_INVALID_TEXTURE_PALETTE_POINTER: Type = 2153447450;
+    pub const SCE_GXM_ERROR_OUT_OF_RENDER_TARGETS: Type = 2153447463;
 }
 pub type SceGxmDisplayQueueCallback =
     ::core::option::Option<unsafe extern "C" fn(callbackData: *const crate::ctypes::c_void)>;

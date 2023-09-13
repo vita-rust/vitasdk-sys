@@ -2,6 +2,7 @@ pub mod callback;
 pub mod cond;
 pub mod debugger;
 pub mod event_flags;
+pub mod fast_mutex;
 pub mod lw_cond;
 pub mod lw_mutex;
 pub mod misc;
@@ -22,6 +23,8 @@ use crate::psp2kern::kernel::threadmgr::cond::*;
 use crate::psp2kern::kernel::threadmgr::debugger::*;
 #[allow(unused_imports)]
 use crate::psp2kern::kernel::threadmgr::event_flags::*;
+#[allow(unused_imports)]
+use crate::psp2kern::kernel::threadmgr::fast_mutex::*;
 #[allow(unused_imports)]
 use crate::psp2kern::kernel::threadmgr::lw_cond::*;
 #[allow(unused_imports)]

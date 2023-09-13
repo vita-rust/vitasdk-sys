@@ -3,6 +3,8 @@
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
+use crate::psp2common::udcd::*;
+#[allow(unused_imports)]
 use crate::psp2kern::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
@@ -102,25 +104,6 @@ pub mod SceUdcdHidProtocol {
     pub const HID_PROTOCOL_NONE: Type = 0;
     pub const HID_PROTOCOL_KEYBOARD: Type = 1;
     pub const HID_PROTOCOL_MOUSE: Type = 2;
-}
-pub mod SceUdcdStatus {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_UDCD_STATUS_CONNECTION_NEW: Type = 1;
-    pub const SCE_UDCD_STATUS_CONNECTION_ESTABLISHED: Type = 2;
-    pub const SCE_UDCD_STATUS_CONNECTION_SUSPENDED: Type = 4;
-    pub const SCE_UDCD_STATUS_CABLE_DISCONNECTED: Type = 16;
-    pub const SCE_UDCD_STATUS_CABLE_CONNECTED: Type = 32;
-    pub const SCE_UDCD_STATUS_DEACTIVATED: Type = 256;
-    pub const SCE_UDCD_STATUS_ACTIVATED: Type = 512;
-    pub const SCE_UDCD_STATUS_IS_CHARGING: Type = 1024;
-    pub const SCE_UDCD_STATUS_USE_USB_CHARGING: Type = 2048;
-    pub const SCE_UDCD_STATUS_UNKNOWN_1000: Type = 4096;
-    pub const SCE_UDCD_STATUS_UNKNOWN_2000: Type = 8192;
-}
-pub mod SceUdcdStatusDriver {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_UDCD_STATUS_DRIVER_STARTED: Type = 1;
-    pub const SCE_UDCD_STATUS_DRIVER_REGISTERED: Type = 2;
 }
 pub mod SceUdcdRetcode {
     pub type Type = crate::ctypes::c_int;
@@ -360,21 +343,6 @@ pub struct SceUdcdDriverName {
     pub size: crate::ctypes::c_int,
     pub name: [crate::ctypes::c_char; 32usize],
     pub flags: crate::ctypes::c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SceUdcdDeviceInfo {
-    pub info: [crate::ctypes::c_uchar; 64usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SceUdcdWaitParam {
-    pub unk_00: crate::ctypes::c_int,
-    pub status: crate::ctypes::c_int,
-    pub unk_08: crate::ctypes::c_int,
-    pub unk_0C: crate::ctypes::c_int,
-    pub unk_10: crate::ctypes::c_int,
-    pub driverName: *const crate::ctypes::c_char,
 }
 extern "C" {
     pub fn ksceUdcdWaitBusInitialized(

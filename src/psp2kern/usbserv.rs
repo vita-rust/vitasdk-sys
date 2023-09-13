@@ -2,14 +2,9 @@
 
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
+#[allow(unused_imports)]
+use crate::psp2common::usbserv::*;
 
-pub mod SceUsbservErrorCode {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_USBSERV_ERROR_UNAVAILABLE: Type = 2149875714;
-    pub const SCE_USBSERV_ERROR_INVALID_PARAM: Type = 2149875715;
-    pub const SCE_USBSERV_ERROR_NOT_SUPPORTED: Type = 2149875716;
-    pub const SCE_USBSERV_ERROR_FATAL: Type = 2149875967;
-}
 extern "C" {
     pub fn ksceUsbServEtherEnable() -> crate::ctypes::c_int;
 }

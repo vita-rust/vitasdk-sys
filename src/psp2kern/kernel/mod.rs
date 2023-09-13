@@ -13,6 +13,7 @@ pub mod pm_mgr;
 pub mod proc_event;
 pub mod processmgr;
 pub mod rtc;
+pub mod sm_comm;
 pub mod ssmgr;
 pub mod suspend;
 pub mod sysclib;

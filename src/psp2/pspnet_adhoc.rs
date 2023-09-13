@@ -6,6 +6,7 @@ use crate::psp2::net::net::*;
 use crate::psp2::pspnet_adhocctl::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
+use crate::psp2common::net::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]

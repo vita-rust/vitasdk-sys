@@ -3,25 +3,12 @@
 #[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
+use crate::psp2common::kernel::threadmgr::*;
+#[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceKernelSemaOptParam {
-    pub size: SceSize,
-}
-#[repr(C)]
-pub struct SceKernelSemaInfo {
-    pub size: SceSize,
-    pub semaId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub attr: SceUInt,
-    pub initCount: crate::ctypes::c_int,
-    pub currentCount: crate::ctypes::c_int,
-    pub maxCount: crate::ctypes::c_int,
-    pub numWaitThreads: crate::ctypes::c_int,
-}
 extern "C" {
     pub fn sceKernelCreateSema(
         name: *const crate::ctypes::c_char,

@@ -37,10 +37,3 @@ use crate::psp2::kernel::threadmgr::thread::*;
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
-
-pub mod SceKernelWaitableAttribute {
-    pub type Type = crate::ctypes::c_uint;
-    pub const SCE_KERNEL_ATTR_THREAD_FIFO: Type = 0;
-    pub const SCE_KERNEL_ATTR_THREAD_PRIO: Type = 8192;
-    pub const SCE_KERNEL_ATTR_OPENABLE: Type = 128;
-}

@@ -5,18 +5,12 @@ use crate::psp2::kernel::threadmgr::lw_mutex::*;
 #[allow(unused_imports)]
 use crate::psp2::types::*;
 #[allow(unused_imports)]
+use crate::psp2common::kernel::threadmgr::*;
+#[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
 use crate::vitasdk::build_utils::*;
 
-#[repr(C)]
-pub struct SceKernelLwCondWork {
-    pub data: [SceInt32; 4usize],
-}
-#[repr(C)]
-pub struct SceKernelLwCondOptParam {
-    pub size: SceSize,
-}
 extern "C" {
     pub fn sceKernelCreateLwCond(
         pWork: *mut SceKernelLwCondWork,

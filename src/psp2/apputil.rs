@@ -232,6 +232,12 @@ extern "C" {
     pub fn sceAppUtilPhotoUmount() -> crate::ctypes::c_int;
 }
 extern "C" {
+    pub fn sceAppUtilCacheMount() -> crate::ctypes::c_int;
+}
+extern "C" {
+    pub fn sceAppUtilCacheUmount() -> crate::ctypes::c_int;
+}
+extern "C" {
     pub fn sceAppUtilSystemParamGetInt(
         paramId: crate::ctypes::c_uint,
         value: *mut crate::ctypes::c_int,

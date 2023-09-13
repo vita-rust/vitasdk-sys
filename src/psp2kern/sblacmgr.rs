@@ -33,5 +33,11 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    pub fn ksceSblACMgrGetMediaType(
+        path: *const crate::ctypes::c_char,
+        media_type: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     pub fn ksceSblACMgrIsDevelopmentMode() -> crate::ctypes::c_int;
 }

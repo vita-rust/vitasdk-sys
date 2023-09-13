@@ -119,6 +119,15 @@ pub struct SceSelfAuthInfo {
     pub attribute: [u8; 32usize],
     pub secret: SceSharedSecret,
 }
+#[repr(C)]
+pub struct SceAuthInfo {
+    pub unk_0x00: SceUInt32,
+    pub self_type: SceUInt32,
+    pub request: SceSelfAuthInfo,
+    pub response: SceSelfAuthInfo,
+    pub media_type: SceUInt32,
+    pub unk_0x12C: SceUInt32,
+}
 pub type SceKernelSpinlock = crate::ctypes::c_int;
 pub type SceKernelRWSpinlock = crate::ctypes::c_int;
 pub type SceKernelIntrStatus = crate::ctypes::c_int;

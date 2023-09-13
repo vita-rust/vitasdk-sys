@@ -12,8 +12,6 @@ use crate::psp2common::kernel::sysmem::*;
 #[allow(unused_imports)]
 use crate::psp2common::types::*;
 #[allow(unused_imports)]
-use crate::psp2kern::kernel::debug::*;
-#[allow(unused_imports)]
 use crate::psp2kern::kernel::sysmem::data_transfers::*;
 #[allow(unused_imports)]
 use crate::psp2kern::kernel::sysmem::heap::*;
@@ -27,8 +25,6 @@ use crate::psp2kern::kernel::sysmem::uid_class::*;
 use crate::psp2kern::kernel::sysmem::uid_guid::*;
 #[allow(unused_imports)]
 use crate::psp2kern::kernel::sysmem::uid_puid::*;
-#[allow(unused_imports)]
-use crate::psp2kern::kernel::sysroot::*;
 #[allow(unused_imports)]
 use crate::psp2kern::types::*;
 #[allow(unused_imports)]
