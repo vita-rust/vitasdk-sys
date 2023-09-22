@@ -1,12 +1,12 @@
 use std::{env, fs, io, process};
 
-use build_util::link_visitor::{
-    syn::{self, visit_mut::VisitMut},
-    Link,
-};
 use camino::{Utf8Path, Utf8PathBuf};
 use quote::ToTokens;
 use regex::Regex;
+use vitasdk_sys_build_util::link_visitor::{
+    syn::{self, visit_mut::VisitMut},
+    Link,
+};
 
 fn main() {
     env_logger::init();

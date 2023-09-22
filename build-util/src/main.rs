@@ -3,7 +3,9 @@ use std::{
     process::ExitCode,
 };
 
-use build_util::vita_headers_db::{missing_features_filter, missing_libs_filter, VitaDb};
+use vitasdk_sys_build_util::vita_headers_db::{
+    missing_features_filter, missing_libs_filter, VitaDb,
+};
 
 const VITA_HEADERS_DB_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../vita-headers/db");
 
@@ -13,7 +15,7 @@ fn print_help() {
 Build utilities for vitasdk-sys crate
 
 USAGE:
-    build-util [OPTIONS] <COMMAND>
+    vitasdk-sys-build-util [OPTIONS] <COMMAND>
 
 Commands:
     stub-libs   Print all stub lib names
@@ -49,7 +51,7 @@ fn stub_libs() -> ExitCode {
 Print stub lib names
 
 USAGE:
-    build-util stub-libs [OPTIONS]
+    vitasdk-sys-build-util stub-libs [OPTIONS]
 
 Options:
     -h, --help          Print help
