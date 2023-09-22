@@ -118,7 +118,7 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
                     _ => Err(e),
                 })
                 .unwrap();
-            for entry in dbg!(original_include).read_dir_utf8().unwrap() {
+            for entry in original_include.read_dir_utf8().unwrap() {
                 let entry = entry.unwrap();
                 let local_entry = local_include.join(entry.file_name());
                 let original_entry = entry.path();
