@@ -72,11 +72,11 @@ fn main() {
 
     log::info!("Running formatting command: {fmt_cmd:?}");
     let exit_status = fmt_cmd.status().unwrap();
-    assert!(
-        exit_status.success(),
-        "Formatting command failed with status: {exit_status:?}"
-    );
-    log::info!("Formatting command finished");
+    if exit_status.success() {
+        log::info!("Formatting command finished");
+    } else {
+        log::info!("Formatting command failed with status: {exit_status:?}");
+    }
 }
 
 fn generate_preprocessed_bindings(include: &Utf8Path) -> String {
