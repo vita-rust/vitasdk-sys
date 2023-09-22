@@ -3,14 +3,11 @@ use core::fmt::{Result, Write};
 use core::mem::size_of;
 use core::ptr;
 
-use psp2::display::sceDisplaySetFrameBuf;
-use psp2::kernel::sysmem::{
-    sceKernelAllocMemBlock, sceKernelFreeMemBlock, sceKernelGetMemBlockBase,
+use vitasdk_sys::{
+    sceDisplaySetFrameBuf, sceKernelAllocMemBlock, sceKernelFreeMemBlock, sceKernelGetMemBlockBase,
+    SceDisplayFrameBuf, SceUID, SCE_DISPLAY_SETBUF_NEXTFRAME,
+    SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW,
 };
-use psp2common::display::{SceDisplayFrameBuf, SceDisplaySetBufSync::SCE_DISPLAY_SETBUF_NEXTFRAME};
-use psp2common::kernel::sysmem::SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW;
-use psp2common::types::SceUID;
-use vitasdk_sys::{psp2, psp2common};
 
 use super::font::DEBUG_FONT;
 
@@ -45,7 +42,7 @@ impl Framebuffer {
         let mut base: *mut c_void = ::core::ptr::null_mut();
         let block_uid = unsafe {
             let block_uid: SceUID = sceKernelAllocMemBlock(
-                b"display\0".as_ptr() as *const i8,
+                b"display\0".as_ptr(),
                 SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW,
                 SCREEN_FB_SIZE as u32,
                 ::core::ptr::null_mut(),
