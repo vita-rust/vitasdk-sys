@@ -11,7 +11,8 @@ use vitasdk_sys_build_util::link_visitor::{
 fn main() {
     env_logger::init();
 
-    let vita_headers_submodule = Utf8Path::new("vita-headers");
+    let vita_headers_submodule =
+        Utf8Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/vita-headers"));
 
     let original_include = vita_headers_submodule.join("include");
     println!("cargo:rerun-if-changed={original_include}");
@@ -21,8 +22,9 @@ fn main() {
 
     localize_bindings(&original_include, &include);
 
-    println!("cargo:rerun-if-changed=src/headers");
-    for entry in Utf8Path::new("src/headers").read_dir_utf8().unwrap() {
+    let headers = &Utf8Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/src/headers"));
+    println!("cargo:rerun-if-changed={headers}");
+    for entry in headers.read_dir_utf8().unwrap() {
         let entry = entry.unwrap();
         fs::copy(entry.path(), include.join(entry.file_name())).unwrap();
     }
@@ -102,7 +104,7 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
                     _ => Err(e),
                 })
                 .unwrap();
-            for entry in dbg!(original_include).read_dir_utf8().unwrap() {
+            for entry in original_include.read_dir_utf8().unwrap() {
                 let entry = entry.unwrap();
                 let local_entry = local_include.join(entry.file_name());
                 let original_entry = entry.path();
