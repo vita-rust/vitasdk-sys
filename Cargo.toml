@@ -30,6 +30,9 @@ regex = { version = "1.9.5", default-features = false, features = ["std", "perf"
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
+default-target = "armv7-sony-vita-newlibeabihf"
+targets = []
+cargo-args = ["-Z", "build-std"]
 
 [features]
 vitasdk-utils = []

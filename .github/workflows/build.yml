@@ -259,13 +259,13 @@ jobs:
           profile: minimal
           override: true
       - name: Run cargo doc
-        run: RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features
+        run: RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --target armv7-sony-vita-newlibeabihf -Z build-std
 
       - name: Upload docs
         uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: target/doc
+          path: target/armv7-sony-vita-newlibeabihf/doc
           if-no-files-found: error
 
       - name: Set final commit status
