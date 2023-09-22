@@ -11,21 +11,6 @@ use vitasdk_sys_build_util::link_visitor::{
 fn main() {
     env_logger::init();
 
-    println!("cargo:rerun-if-env-changed=VITASDK");
-    let vitasdk = Utf8PathBuf::from(env::var("VITASDK").expect(
-        "Vitasdk isn't installed or VITASDK environment variable isn't set to a valid unicode",
-    ));
-    let sysroot = vitasdk.join("arm-vita-eabi");
-
-    assert!(
-        sysroot.exists(),
-        "VITASDK's sysroot does not exist, please install or update vitasdk first"
-    );
-
-    let lib = sysroot.join("lib");
-    assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
-    println!("cargo:rustc-link-search=native={lib}");
-
     let vita_headers_submodule = Utf8Path::new("vita-headers");
 
     let original_include = vita_headers_submodule.join("include");
