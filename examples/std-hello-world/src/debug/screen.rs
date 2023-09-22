@@ -42,7 +42,7 @@ impl Framebuffer {
         let mut base: *mut c_void = ::core::ptr::null_mut();
         let block_uid = unsafe {
             let block_uid: SceUID = sceKernelAllocMemBlock(
-                b"display\0".as_ptr(),
+                b"display\0".as_ptr() as *const i8,
                 SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW,
                 SCREEN_FB_SIZE as u32,
                 ::core::ptr::null_mut(),
