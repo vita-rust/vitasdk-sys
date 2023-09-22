@@ -262,6 +262,13 @@ jobs:
       - name: Run cargo doc
         run: RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features
 
+      - name: Upload docs
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: target/doc
+          if-no-files-found: error
+
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@v1.1.7
         if: always()
