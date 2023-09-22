@@ -36,6 +36,21 @@ jobs:
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
 
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "14"
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -123,6 +138,21 @@ jobs:
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
 
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "14"
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -203,6 +233,21 @@ jobs:
           path: /opt/vitasdk
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
+
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "14"
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
 
       - uses: actions-rs/toolchain@v1
         with:
