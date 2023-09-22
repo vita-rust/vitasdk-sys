@@ -130,6 +130,8 @@ jobs:
           sha: ${{ github.sha }}
 
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - name: Restore vitasdk cache
         uses: actions/cache/restore@v3
@@ -187,6 +189,8 @@ jobs:
           sha: ${{ github.sha }}
 
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - uses: actions-rs/toolchain@v1
         with:
