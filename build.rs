@@ -11,8 +11,22 @@ use vitasdk_sys_build_util::link_visitor::{
 fn main() {
     env_logger::init();
 
-    let vita_headers_submodule =
-        Utf8Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/vita-headers"));
+    println!("cargo:rerun-if-env-changed=VITASDK");
+    let vitasdk = Utf8PathBuf::from(env::var("VITASDK").expect(
+        "Vitasdk isn't installed or VITASDK environment variable isn't set to a valid unicode",
+    ));
+    let sysroot = vitasdk.join("arm-vita-eabi");
+
+    assert!(
+        sysroot.exists(),
+        "VITASDK's sysroot does not exist, please install or update vitasdk first"
+    );
+
+    let lib = sysroot.join("lib");
+    assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
+    println!("cargo:rustc-link-search=native={lib}");
+
+    let vita_headers_submodule = Utf8Path::new("vita-headers");
 
     let original_include = vita_headers_submodule.join("include");
     println!("cargo:rerun-if-changed={original_include}");
@@ -22,7 +36,7 @@ fn main() {
 
     localize_bindings(&original_include, &include);
 
-    let headers = &Utf8Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/src/headers"));
+    let headers = Utf8Path::new("src/headers");
     println!("cargo:rerun-if-changed={headers}");
     for entry in headers.read_dir_utf8().unwrap() {
         let entry = entry.unwrap();
@@ -104,7 +118,7 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
                     _ => Err(e),
                 })
                 .unwrap();
-            for entry in original_include.read_dir_utf8().unwrap() {
+            for entry in dbg!(original_include).read_dir_utf8().unwrap() {
                 let entry = entry.unwrap();
                 let local_entry = local_include.join(entry.file_name());
                 let original_entry = entry.path();
