@@ -162,6 +162,8 @@ jobs:
           override: true
 
       - name: Run clippy
+        env:
+          VITASDK: /opt/vitasdk
         run: |
           cargo clippy --tests --workspace -- -Dclippy::all -Dwarnings
 

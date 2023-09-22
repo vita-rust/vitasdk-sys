@@ -12,19 +12,28 @@ fn main() {
     env_logger::init();
 
     println!("cargo:rerun-if-env-changed=VITASDK");
-    let vitasdk = Utf8PathBuf::from(env::var("VITASDK").expect(
-        "Vitasdk isn't installed or VITASDK environment variable isn't set to a valid unicode",
-    ));
-    let sysroot = vitasdk.join("arm-vita-eabi");
+    match env::var("VITASDK") {
+        Ok(vitasdk) => {
+            let sysroot = Utf8PathBuf::from(vitasdk).join("arm-vita-eabi");
 
-    assert!(
-        sysroot.exists(),
-        "VITASDK's sysroot does not exist, please install or update vitasdk first"
-    );
+            assert!(
+                sysroot.exists(),
+                "VITASDK's sysroot does not exist, please install or update vitasdk first"
+            );
 
-    let lib = sysroot.join("lib");
-    assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
-    println!("cargo:rustc-link-search=native={lib}");
+            let lib = sysroot.join("lib");
+            assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
+            println!("cargo:rustc-link-search=native={lib}");
+        }
+        Err(env::VarError::NotPresent) => {
+            if env::var("DOCS_RS").is_err() {
+                panic!("VITASDK env var is not set")
+            }
+        }
+        Err(env::VarError::NotUnicode(s)) => {
+            panic!("VITASDK env var is not a valid unicode but got: {s:?}")
+        }
+    }
 
     let vita_headers_submodule = Utf8Path::new("vita-headers");
 
