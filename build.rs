@@ -85,7 +85,7 @@ fn main() {
     if exit_status.success() {
         log::info!("Formatting command finished");
     } else {
-        log::info!("Formatting command failed with status: {exit_status:?}");
+        log::warn!("Formatting command failed with status: {exit_status:?}");
     }
 }
 
