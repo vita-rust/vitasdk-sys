@@ -257,10 +257,13 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
-          components: rust-docs
+          components: rust-docs, rust-src
           profile: minimal
           override: true
+
       - name: Run cargo doc
+        env:
+          VITASDK: /opt/vitasdk
         run: RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --target armv7-sony-vita-newlibeabihf -Z build-std
 
       - name: Upload docs
