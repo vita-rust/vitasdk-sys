@@ -23,7 +23,6 @@ const DEFAULT_FG: u32 = 0xFFFFFFFF;
 const DEFAULT_BG: u32 = 0xFF000000;
 
 pub struct DebugScreen {
-    // TODO: rename to pixel array or something like that
     framebuffer: Framebuffer,
     coord_x: usize,
     coord_y: usize,
