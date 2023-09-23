@@ -216,7 +216,7 @@ jobs:
     name: Doc
     runs-on: ubuntu-latest
     needs: install-vitasdk
-    timeout-minutes: 10
+    timeout-minutes: 20
     env:
       RUSTDOCFLAGS: -D warnings
     steps:
@@ -262,7 +262,7 @@ jobs:
           override: true
 
       - name: Run cargo doc
-        run: DOCS_RS=1 RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --no-deps --target armv7-sony-vita-newlibeabihf -Z build-std
+        run: DOCS_RS=1 RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --target armv7-sony-vita-newlibeabihf -Z build-std
 
       - name: Upload docs
         uses: actions/upload-artifact@v3
