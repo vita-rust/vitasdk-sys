@@ -62,6 +62,7 @@ Options:
     --missing-features  Print only undefined vitasdk-sys features
     --as-features       Print stub libs as cargo features
     --missing-libs      Print only stub libs which do not exist in `$VITASDK/arm-vita-eabi/lib`
+    --fail-if-any       Fail if any stub lib is printed
 "
         )
     }
@@ -76,6 +77,7 @@ Options:
         MissingFeatures,
         AsFeatures,
         MissingLibs,
+        FailIfAny,
     }
 
     #[derive(Debug)]
@@ -94,6 +96,7 @@ Options:
                 "--missing-features" => Ok(Flag::MissingFeatures),
                 "--as-features" => Ok(Flag::AsFeatures),
                 "--missing-libs" => Ok(Flag::MissingLibs),
+                "--fail-if-any" => Ok(Flag::FailIfAny),
                 _ => Err(ParseFlagError),
             }
         }
@@ -153,6 +156,10 @@ Options:
             .for_each(|stub_lib| println!("{stub_lib} = []"));
     } else {
         stub_libs.iter().for_each(|stub_lib| println!("{stub_lib}"));
+    }
+
+    if !stub_libs.is_empty() && options.contains(&Flag::FailIfAny) {
+        return ExitCode::FAILURE;
     }
 
     ExitCode::SUCCESS
