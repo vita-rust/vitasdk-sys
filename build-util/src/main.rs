@@ -104,6 +104,7 @@ Options:
 
     let Some(options) = std::env::args()
         .skip(2)
+        .filter(|a| !a.is_empty())
         .map(|op| op.parse())
         .collect::<Result<HashSet<Flag>, ParseFlagError>>()
         .ok()
