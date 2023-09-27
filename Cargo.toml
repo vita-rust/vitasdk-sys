@@ -17,6 +17,10 @@ members = ["examples/*"]
 [profile.release]
 lto = true
 
+[profile.build-util]
+inherits = "dev"
+debug = false
+
 [build-dependencies]
 bindgen = "0.68.1"
 vitasdk-sys-build-util = { path = "build-util", features = ["link-visitor"] }

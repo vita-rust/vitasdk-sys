@@ -212,6 +212,67 @@ jobs:
           sha: ${{ github.sha }}
 
 
+  missing-libs:
+    name: Check missing libs
+    runs-on: ubuntu-latest
+    needs: install-vitasdk
+    timeout-minutes: 10
+    steps:
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Check missing libs
+          sha: ${{ github.sha }}
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Restore vitasdk cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /opt/vitasdk
+          key: ${{ runner.os }}-vitasdk
+          fail-on-cache-miss: true
+
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "16"
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      - name: Run build-util
+        env:
+          VITASDK: /opt/vitasdk
+        run: |
+          cargo run --profile build-util -p vitasdk-sys-build-util -- stub-libs --missing-libs --fail-if-any
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Check missing libs
+          sha: ${{ github.sha }}
+
   doc:
     name: Doc
     runs-on: ubuntu-latest
