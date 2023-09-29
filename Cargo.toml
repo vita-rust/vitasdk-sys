@@ -9,7 +9,6 @@ homepage = "https://github.com/vita-rust/vitasdk-sys"
 description = "Raw bindings to vitasdk"
 keywords = ["vitasdk", "psvita", "vita", "ffi"]
 categories = ["external-ffi-bindings"]
-exclude = [".gitmodules", ".gitignore"]
 
 [workspace]
 members = ["examples/*"]
