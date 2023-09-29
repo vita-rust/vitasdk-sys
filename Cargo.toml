@@ -11,7 +11,7 @@ keywords = ["vitasdk", "psvita", "vita", "ffi"]
 categories = ["external-ffi-bindings"]
 
 [workspace]
-members = ["examples/*"]
+members = ["examples/*", "build-util"]
 
 [profile.release]
 lto = true
