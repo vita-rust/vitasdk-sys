@@ -8,6 +8,10 @@ use vitasdk_sys_build_util::link_visitor::{
     Link,
 };
 
+fn vitasdk_sys_manifest() -> Utf8PathBuf {
+    Utf8PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join("Cargo.toml")
+}
+
 fn main() {
     env_logger::init();
 
@@ -61,7 +65,7 @@ fn main() {
     let db = vita_headers_submodule.join("db");
 
     log::info!("Loading vita-headers metadata yaml files from \"{db}\"");
-    let mut link = Link::load(db.as_ref());
+    let mut link = Link::load(db.as_ref(), vitasdk_sys_manifest().as_ref());
     link.visit_file_mut(&mut bindings);
 
     let bindings = bindings.into_token_stream();

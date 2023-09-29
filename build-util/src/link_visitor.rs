@@ -26,7 +26,7 @@ pub struct Link {
 }
 
 impl Link {
-    pub fn load(db: &Path) -> Self {
+    pub fn load(db: &Path, vitasdk_sys_manifest: &Path) -> Self {
         let mut link = Link {
             function: DEFINED_ELSEWHERE_FUNCTIONS
                 .into_iter()
@@ -41,7 +41,7 @@ impl Link {
 
         let mut db = VitaDb::load(db);
 
-        let mut predicate = missing_features_filter();
+        let mut predicate = missing_features_filter(vitasdk_sys_manifest);
 
         for imports in db.imports_by_firmware.values() {
             for (mod_name, mod_data) in &imports.modules {

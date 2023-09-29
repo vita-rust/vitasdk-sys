@@ -104,16 +104,14 @@ impl VitaDb {
     }
 }
 
-pub fn missing_features_filter() -> impl FnMut(&String) -> bool {
-    const VITASDK_SYS_MANIFEST: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../Cargo.toml");
-
+pub fn missing_features_filter(vitasdk_sys_manifest: &Path) -> impl FnMut(&String) -> bool {
     #[derive(Debug, serde::Deserialize)]
     struct CargoManifest {
         #[serde(default)]
         features: HashMap<String, Vec<String>>,
     }
 
-    let manifest = fs::read_to_string(VITASDK_SYS_MANIFEST).unwrap();
+    let manifest = fs::read_to_string(vitasdk_sys_manifest).unwrap();
     let manifest: CargoManifest = toml::from_str(&manifest).unwrap();
 
     move |stub_lib| !manifest.features.contains_key(stub_lib)
