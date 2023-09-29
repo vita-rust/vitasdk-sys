@@ -3,6 +3,11 @@ name = "vitasdk-sys-build-util"
 version = "0.1.0"
 edition = "2021"
 authors = ["Daria Sukhonina <dariasukhonina@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/vita-rust/vitasdk-sys"
+homepage = "https://github.com/vita-rust/vitasdk-sys"
+description = "Internal build utilities for raw bindings to vitasdk"
+keywords = ["vitasdk", "psvita", "vita"]
 
 [features]
 link-visitor = ["dep:syn"]
