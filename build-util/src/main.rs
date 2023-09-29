@@ -1,18 +1,39 @@
 use std::{
     collections::{BTreeSet, HashSet},
-    process::ExitCode,
+    env,
+    path::PathBuf,
+    process::{self, Command, ExitCode},
 };
 
 use vitasdk_sys_build_util::vita_headers_db::{
     missing_features_filter, missing_libs_filter, VitaDb,
 };
 
-const VITA_HEADERS_DB_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../vita-headers/db");
+fn vitasdk_sys_manifest() -> PathBuf {
+    let cargo = env::var_os("CARGO");
+    let output = Command::new(cargo.as_deref().unwrap_or("cargo".as_ref()))
+        .args(["locate-project", "--message-format", "plain", "--workspace"])
+        .stderr(process::Stdio::inherit())
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "Could not cargo locate-project; perhaps running outside from workspace directory?"
+    );
+    String::from_utf8(output.stdout).unwrap().trim().into()
+}
+
+fn vita_headers_db_path() -> PathBuf {
+    vitasdk_sys_manifest()
+        .parent()
+        .unwrap()
+        .join("vita-headers/db")
+}
 
 fn print_help() {
     eprintln!(
         "\
-Build utilities for vitasdk-sys crate
+Internal build utilities for vitasdk-sys crate
 
 USAGE:
     vitasdk-sys-build-util [OPTIONS] <COMMAND>
@@ -119,7 +140,7 @@ Options:
         return ExitCode::SUCCESS;
     }
 
-    let mut db = VitaDb::load(VITA_HEADERS_DB_PATH.as_ref());
+    let mut db = VitaDb::load(&vita_headers_db_path());
     if options.contains(&Flag::Conflicting) {
         db = db.split_conflicting();
     } else if !options.contains(&Flag::WithConflicting) {
@@ -132,10 +153,11 @@ Options:
         db = db.split_kernel();
     }
 
+    let vitasdk_sys_manifest = vitasdk_sys_manifest();
     let stub_libs: BTreeSet<_> = {
         let mut missing_features_filter = options
             .contains(&Flag::MissingFeatures)
-            .then(missing_features_filter);
+            .then(|| missing_features_filter(&vitasdk_sys_manifest));
         let mut missing_libs_filter = options
             .contains(&Flag::MissingLibs)
             .then(missing_libs_filter);
