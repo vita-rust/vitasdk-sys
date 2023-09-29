@@ -23,7 +23,7 @@ debug = false
 
 [build-dependencies]
 bindgen = "0.68.1"
-vitasdk-sys-build-util = { path = "build-util", features = ["link-visitor"] }
+vitasdk-sys-build-util = { path = "build-util", version = "0.1.0", features = ["link-visitor"] }
 camino = "1.1.6"
 env_logger = "0.10.0"
 log = "0.4.20"
