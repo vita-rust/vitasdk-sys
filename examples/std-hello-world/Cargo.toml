@@ -5,9 +5,15 @@ edition = "2021"
 publish = false
 
 [dependencies]
-# Change the following line to require the current version of vitasdk-sys
-vitasdk-sys = { path = "../.." }
 rand = "0.8.5"
+
+[dependencies.vitasdk-sys]
+# Change the following line to require the current version of vitasdk-sys
+path = "../.."
+features = [
+    "SceSysmem_stub",
+    "SceDisplay_stub",
+]
 
 [package.metadata.vita]
 title_id = "RUST00001"

@@ -3,7 +3,9 @@ use std::{
     process::ExitCode,
 };
 
-use build_util::vita_headers_db::{missing_features_filter, missing_libs_filter, VitaDb};
+use vitasdk_sys_build_util::vita_headers_db::{
+    missing_features_filter, missing_libs_filter, VitaDb,
+};
 
 const VITA_HEADERS_DB_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../vita-headers/db");
 
@@ -13,7 +15,7 @@ fn print_help() {
 Build utilities for vitasdk-sys crate
 
 USAGE:
-    build-util [OPTIONS] <COMMAND>
+    vitasdk-sys-build-util [OPTIONS] <COMMAND>
 
 Commands:
     stub-libs   Print all stub lib names
@@ -49,7 +51,7 @@ fn stub_libs() -> ExitCode {
 Print stub lib names
 
 USAGE:
-    build-util stub-libs [OPTIONS]
+    vitasdk-sys-build-util stub-libs [OPTIONS]
 
 Options:
     -h, --help          Print help
@@ -60,6 +62,7 @@ Options:
     --missing-features  Print only undefined vitasdk-sys features
     --as-features       Print stub libs as cargo features
     --missing-libs      Print only stub libs which do not exist in `$VITASDK/arm-vita-eabi/lib`
+    --fail-if-any       Fail if any stub lib is printed
 "
         )
     }
@@ -74,6 +77,7 @@ Options:
         MissingFeatures,
         AsFeatures,
         MissingLibs,
+        FailIfAny,
     }
 
     #[derive(Debug)]
@@ -92,6 +96,7 @@ Options:
                 "--missing-features" => Ok(Flag::MissingFeatures),
                 "--as-features" => Ok(Flag::AsFeatures),
                 "--missing-libs" => Ok(Flag::MissingLibs),
+                "--fail-if-any" => Ok(Flag::FailIfAny),
                 _ => Err(ParseFlagError),
             }
         }
@@ -99,6 +104,7 @@ Options:
 
     let Some(options) = std::env::args()
         .skip(2)
+        .filter(|a| !a.is_empty())
         .map(|op| op.parse())
         .collect::<Result<HashSet<Flag>, ParseFlagError>>()
         .ok()
@@ -151,6 +157,10 @@ Options:
             .for_each(|stub_lib| println!("{stub_lib} = []"));
     } else {
         stub_libs.iter().for_each(|stub_lib| println!("{stub_lib}"));
+    }
+
+    if !stub_libs.is_empty() && options.contains(&Flag::FailIfAny) {
+        return ExitCode::FAILURE;
     }
 
     ExitCode::SUCCESS

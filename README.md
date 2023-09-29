@@ -4,7 +4,9 @@
 ![License: MIT](https://img.shields.io/crates/l/vitasdk-sys.svg)
 
 
-This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to all of its stubs libraries. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers.git) repository.
+This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to its stubs libraries based on enabled features. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers) repository. Which features required for which functions can be found on https://docs.rs/vitasdk-sys.
+
+There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world).
 
 To be able to use it, you need vitasdk available and the environment variable `VITASDK` set to its location. e.g.:
 
@@ -12,9 +14,10 @@ To be able to use it, you need vitasdk available and the environment variable `V
 $ export VITASDK=/opt/vitasdk
 ```
 
-There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world).
+You also need [bindgen's requirements](https://rust-lang.github.io/rust-bindgen/requirements.html), which may already be on your system.
 
-## Manually generating the bindings
+
+## Manually updating the submodule
 
 ## Updating
 
@@ -37,25 +40,16 @@ $ git submodule update --init --recursive
 To update the headers, go to the vita-headers submodule and update by the usual means:
 
 ```
-$ cd generator/vita-headers
+$ cd vita-headers
 $ git pull
-$ cd ../..
+$ cd ..
 ```
 
-Generate the bindings with:
-
-```sh
-$ cd generator
-$ cargo run
-```
-
-Note that `VITASDK` must me set as explained at the top of this README. It's required to generate bindings because of the platform includes.
-
-Depending on upstream changes you may need to tweak `generator/config.toml` (documented at `generator/src/config.rs`) for the new headers to work. In case you need to, feel free to contribute by opening a pull request.
+Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.
 
 ## Versioning
 
-Even though usual `semver` rules apply for this crate, I believe that `vitasdk` has some sort of versioning and we're not following it right now. We're just keeping updated with the latest version of `vita-headers` and generating bindings for them. If you need bindings for newer versions or wish to improve the current situation, feel free to open an issue.
+Usual `semver` rules apply for this crate, but note that there may be differences between the version of the headers used to generate the bindings and the vitasdk version installed on your machine.
 
 ## Credits
 

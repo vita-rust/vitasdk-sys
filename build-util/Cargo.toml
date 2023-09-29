@@ -1,7 +1,8 @@
 [package]
-name = "build-util"
+name = "vitasdk-sys-build-util"
 version = "0.1.0"
 edition = "2021"
+authors = ["Daria Sukhonina <dariasukhonina@gmail.com>"]
 
 [features]
 link-visitor = ["dep:syn"]

@@ -41,18 +41,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b4682ae6287fcf752ecaabbfcc7b6f9b72aa33933dc23a554d853aea8eea8635"
 
 [[package]]
-name = "build-util"
-version = "0.1.0"
-dependencies = [
- "env_logger",
- "log",
- "serde",
- "serde_yaml",
- "syn",
- "toml",
-]
-
-[[package]]
 name = "camino"
 version = "1.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -526,15 +514,27 @@ checksum = "f28467d3e1d3c6586d8f25fa243f544f5800fec42d97032474e17222c2b75cfa"
 
 [[package]]
 name = "vitasdk-sys"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "bindgen",
- "build-util",
  "camino",
  "env_logger",
  "log",
  "quote",
  "regex",
+ "vitasdk-sys-build-util",
+]
+
+[[package]]
+name = "vitasdk-sys-build-util"
+version = "0.1.0"
+dependencies = [
+ "env_logger",
+ "log",
+ "serde",
+ "serde_yaml",
+ "syn",
+ "toml",
 ]
 
 [[package]]
