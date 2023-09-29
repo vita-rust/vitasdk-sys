@@ -1,30 +1,39 @@
 use std::{env, fs, io, process};
 
-use build_util::link_visitor::{
-    syn::{self, visit_mut::VisitMut},
-    Link,
-};
 use camino::{Utf8Path, Utf8PathBuf};
 use quote::ToTokens;
 use regex::Regex;
+use vitasdk_sys_build_util::link_visitor::{
+    syn::{self, visit_mut::VisitMut},
+    Link,
+};
 
 fn main() {
     env_logger::init();
 
     println!("cargo:rerun-if-env-changed=VITASDK");
-    let vitasdk = Utf8PathBuf::from(env::var("VITASDK").expect(
-        "Vitasdk isn't installed or VITASDK environment variable isn't set to a valid unicode",
-    ));
-    let sysroot = vitasdk.join("arm-vita-eabi");
+    match env::var("VITASDK") {
+        Ok(vitasdk) => {
+            let sysroot = Utf8PathBuf::from(vitasdk).join("arm-vita-eabi");
 
-    assert!(
-        sysroot.exists(),
-        "VITASDK's sysroot does not exist, please install or update vitasdk first"
-    );
+            assert!(
+                sysroot.exists(),
+                "VITASDK's sysroot does not exist, please install or update vitasdk first"
+            );
 
-    let lib = sysroot.join("lib");
-    assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
-    println!("cargo:rustc-link-search=native={lib}");
+            let lib = sysroot.join("lib");
+            assert!(lib.exists(), "VITASDK's `lib` directory does not exist");
+            println!("cargo:rustc-link-search=native={lib}");
+        }
+        Err(env::VarError::NotPresent) => {
+            if env::var("DOCS_RS").is_err() {
+                panic!("VITASDK env var is not set")
+            }
+        }
+        Err(env::VarError::NotUnicode(s)) => {
+            panic!("VITASDK env var is not a valid unicode but got: {s:?}")
+        }
+    }
 
     let vita_headers_submodule = Utf8Path::new("vita-headers");
 
@@ -36,8 +45,9 @@ fn main() {
 
     localize_bindings(&original_include, &include);
 
-    println!("cargo:rerun-if-changed=src/headers");
-    for entry in Utf8Path::new("src/headers").read_dir_utf8().unwrap() {
+    let headers = Utf8Path::new("src/headers");
+    println!("cargo:rerun-if-changed={headers}");
+    for entry in headers.read_dir_utf8().unwrap() {
         let entry = entry.unwrap();
         fs::copy(entry.path(), include.join(entry.file_name())).unwrap();
     }
@@ -72,11 +82,11 @@ fn main() {
 
     log::info!("Running formatting command: {fmt_cmd:?}");
     let exit_status = fmt_cmd.status().unwrap();
-    assert!(
-        exit_status.success(),
-        "Formatting command failed with status: {exit_status:?}"
-    );
-    log::info!("Formatting command finished");
+    if exit_status.success() {
+        log::info!("Formatting command finished");
+    } else {
+        log::warn!("Formatting command failed with status: {exit_status:?}");
+    }
 }
 
 fn generate_preprocessed_bindings(include: &Utf8Path) -> String {
@@ -117,7 +127,7 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
                     _ => Err(e),
                 })
                 .unwrap();
-            for entry in dbg!(original_include).read_dir_utf8().unwrap() {
+            for entry in original_include.read_dir_utf8().unwrap() {
                 let entry = entry.unwrap();
                 let local_entry = local_include.join(entry.file_name());
                 let original_entry = entry.path();

@@ -3,14 +3,11 @@ use core::fmt::{Result, Write};
 use core::mem::size_of;
 use core::ptr;
 
-use psp2::display::sceDisplaySetFrameBuf;
-use psp2::kernel::sysmem::{
-    sceKernelAllocMemBlock, sceKernelFreeMemBlock, sceKernelGetMemBlockBase,
+use vitasdk_sys::{
+    sceDisplaySetFrameBuf, sceKernelAllocMemBlock, sceKernelFreeMemBlock, sceKernelGetMemBlockBase,
+    SceDisplayFrameBuf, SceUID, SCE_DISPLAY_SETBUF_NEXTFRAME,
+    SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW,
 };
-use psp2common::display::{SceDisplayFrameBuf, SceDisplaySetBufSync::SCE_DISPLAY_SETBUF_NEXTFRAME};
-use psp2common::kernel::sysmem::SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW;
-use psp2common::types::SceUID;
-use vitasdk_sys::{psp2, psp2common};
 
 use super::font::DEBUG_FONT;
 
@@ -26,7 +23,6 @@ const DEFAULT_FG: u32 = 0xFFFFFFFF;
 const DEFAULT_BG: u32 = 0xFF000000;
 
 pub struct DebugScreen {
-    // TODO: rename to pixel array or something like that
     framebuffer: Framebuffer,
     coord_x: usize,
     coord_y: usize,
