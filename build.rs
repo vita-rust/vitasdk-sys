@@ -102,7 +102,6 @@ fn generate_preprocessed_bindings(include: &Utf8Path) -> String {
         .ctypes_prefix("crate::ctypes")
         .generate_comments(false)
         .prepend_enum_name(false)
-        .detect_include_paths(false)
         .formatter(bindgen::Formatter::None)
         .generate()
         .expect("Bindgen failed")
