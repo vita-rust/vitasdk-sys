@@ -1,8 +1,14 @@
 # Changelog
 
-The format is based on [Common Changelog](https://common-changelog.org/) and [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+The format is based on [Common Changelog](https://common-changelog.org/) and [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.3.0] - Unreleased
+## [0.3.1] - Unreleased
+
+### Fixed
+
+- Fixed build script on docs.rs and possibly other environments by enabling include path detection (#15).
+
+## [0.3.0] - 2023-09-29
 
 _This release includes a rewrite of the whole binding generation process by @ZetaNumbers._
 
