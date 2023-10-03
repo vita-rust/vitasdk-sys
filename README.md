@@ -1,5 +1,6 @@
 # vitasdk-sys
 
+[![docs.rs](https://docs.rs/vitasdk-sys/badge.svg)](https://docs.rs/vitasdk-sys/)
 [![Crates.io](https://img.shields.io/crates/v/vitasdk-sys.svg)](https://crates.io/crates/vitasdk-sys)
 ![License: MIT](https://img.shields.io/crates/l/vitasdk-sys.svg)
 
