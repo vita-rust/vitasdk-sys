@@ -1,4 +1,4 @@
-use std::{env, fs, io, process};
+use std::{env, fs, io, path::PathBuf, process};
 
 use camino::{Utf8Path, Utf8PathBuf};
 use quote::ToTokens;
@@ -97,7 +97,7 @@ fn generate_preprocessed_bindings(include: &Utf8Path) -> String {
     bindgen::Builder::default()
         .header(include.join("all.h"))
         .clang_args(&["-target", "armv7a-none-eabihf"])
-        .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+        .parse_callbacks(Box::new(BindgenCallbacks::new()))
         .use_core()
         .ctypes_prefix("crate::ctypes")
         .generate_comments(false)
@@ -158,6 +158,7 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
             let new_include = self.include_regex.replace_all(
                 &original_include,
                 |captures: &regex::Captures<'_>| {
+                    // Do not replace if it's one of these include paths
                     if let "stddef.h" | "stdint.h" | "stdarg.h" = &captures[1] {
                         return captures[0].to_owned();
                     }
@@ -166,17 +167,40 @@ fn localize_bindings(original_include: &Utf8Path, localized_include: &Utf8Path) 
                 },
             );
 
-            let changed = match fs::read_to_string(local_include) {
-                Ok(old_include) => old_include != new_include,
-                Err(e) if e.kind() == io::ErrorKind::NotFound => true,
-                Err(e) => panic!("Failed to read old local include `{local_include}`: {e:?}"),
-            };
-
-            if changed {
-                fs::write(local_include, new_include.as_ref()).unwrap();
-            }
+            fs::write(local_include, new_include.as_ref()).unwrap();
         }
     }
 
     Localizer::new(localized_include).localize_dir(original_include, localized_include);
+}
+
+#[derive(Debug)]
+struct BindgenCallbacks {
+    out_dir: PathBuf,
+}
+
+impl BindgenCallbacks {
+    fn new() -> Self {
+        BindgenCallbacks {
+            out_dir: PathBuf::from(env::var_os("OUT_DIR").unwrap())
+                .canonicalize()
+                .unwrap(),
+        }
+    }
+}
+
+impl bindgen::callbacks::ParseCallbacks for BindgenCallbacks {
+    fn include_file(&self, filename: &str) {
+        if !Utf8Path::new(filename)
+            .canonicalize()
+            .unwrap()
+            .starts_with(&self.out_dir)
+        {
+            println!("cargo:rerun-if-changed={filename}")
+        }
+    }
+
+    fn read_env_var(&self, key: &str) {
+        println!("cargo:rerun-if-env-changed={key}");
+    }
 }
