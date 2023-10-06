@@ -2,7 +2,13 @@
 
 The format is based on [Common Changelog](https://common-changelog.org/) and [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.3.1] - Unreleased
+## [0.3.2] - 2023-10-06
+
+### Fixed
+
+- Fixed spurious build script reruns (#18).
+
+## [0.3.1] - 2023-10-03
 
 ### Fixed
 
