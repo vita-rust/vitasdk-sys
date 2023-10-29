@@ -25,7 +25,7 @@ pub fn generate(
         "Loading vita-headers metadata yaml files from \"{}\"",
         db.to_string_lossy()
     );
-    let mut link = Link::load(db.as_ref(), vitasdk_sys_manifest);
+    let mut link = Link::load(db, vitasdk_sys_manifest);
     link.visit_file_mut(&mut bindings);
 
     // We sort items here so generated bindings don't depend on the included order.
@@ -38,7 +38,7 @@ pub fn generate(
             "Writing postprocessed bindings into {}",
             bindings_output.to_string_lossy()
         );
-        let mut bindings_output = io::BufWriter::new(fs::File::create(&bindings_output).unwrap());
+        let mut bindings_output = io::BufWriter::new(fs::File::create(bindings_output).unwrap());
         use std::io::Write;
         write!(bindings_output, "{bindings}").unwrap();
     }
@@ -117,7 +117,7 @@ fn sort_items(items: &mut [Item]) {
                     i.ident
                         .as_ref()
                         .map(|i| i.to_string())
-                        .unwrap_or_else(|| String::new()),
+                        .unwrap_or_else(String::new),
                 ),
                 Item::Static(i) => (4, i.ident.to_string()),
                 Item::Const(i) => (4, i.ident.to_string()),
