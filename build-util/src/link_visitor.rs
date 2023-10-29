@@ -1,5 +1,5 @@
 use std::{
-    collections::{HashMap, HashSet},
+    collections::{BTreeMap, BTreeSet},
     path::Path,
     rc::Rc,
 };
@@ -19,10 +19,10 @@ pub use syn;
 
 pub struct Link {
     /// link.function[function_name] = stub_library_name
-    function: HashMap<String, Vec<Rc<str>>>,
+    function: BTreeMap<String, Vec<Rc<str>>>,
     /// link.variable[variable_name] = stub_library_name
-    variable: HashMap<String, Vec<Rc<str>>>,
-    stub_libs: HashSet<Rc<str>>,
+    variable: BTreeMap<String, Vec<Rc<str>>>,
+    stub_libs: BTreeSet<Rc<str>>,
 }
 
 impl Link {
@@ -36,7 +36,7 @@ impl Link {
                 .into_iter()
                 .map(|(var, feat)| (var.into(), vec![Rc::from(feat.to_owned())]))
                 .collect(),
-            stub_libs: HashSet::new(),
+            stub_libs: BTreeSet::new(),
         };
 
         let mut db = VitaDb::load(db);

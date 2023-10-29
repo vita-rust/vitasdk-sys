@@ -40,6 +40,7 @@ USAGE:
 
 Commands:
     stub-libs   Print all stub lib names
+    bindgen     Generate vitasdk-sys bindings
     help        Print help
 
 Options
@@ -54,6 +55,7 @@ fn main() -> ExitCode {
     let cmd = std::env::args().nth(1);
     match cmd.as_deref() {
         Some("stub-libs") => stub_libs(),
+        Some("bindgen") => bindgen(),
         Some("help" | "--help" | "-h") => {
             print_help();
             ExitCode::SUCCESS
@@ -184,6 +186,25 @@ Options:
     if !stub_libs.is_empty() && options.contains(&Flag::FailIfAny) {
         return ExitCode::FAILURE;
     }
+
+    ExitCode::SUCCESS
+}
+
+fn bindgen() -> ExitCode {
+    let vitasdk_sys_manifest = vitasdk_sys_manifest();
+    let vita_headers = vitasdk_sys_manifest.parent().unwrap().join("vita-headers");
+    let output = vitasdk_sys_manifest
+        .parent()
+        .unwrap()
+        .join("src")
+        .join("bindings.rs");
+    vitasdk_sys_build_util::bindgen::generate(
+        &vita_headers.join("include"),
+        &vita_headers.join("db"),
+        &output,
+        &vitasdk_sys_manifest,
+        false,
+    );
 
     ExitCode::SUCCESS
 }
