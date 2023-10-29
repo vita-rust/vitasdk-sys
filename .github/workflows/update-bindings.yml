@@ -7,6 +7,7 @@ on:
 
 env:
   PR_BRANCH: update-bindings
+  LLVM_VERSION: "16"
 
 jobs:
   install-vitasdk:
@@ -14,8 +15,8 @@ jobs:
     with:
       path: /opt/vitasdk
 
-  update:
-    name: Update
+  update-and-regenrate:
+    name: Update and regenerate
     runs-on: ubuntu-latest
     needs: install-vitasdk
     steps:
@@ -30,21 +31,57 @@ jobs:
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
 
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: ${{ env.LLVM_VERSION }}
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
+      - name: Cache build-util dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-build-util-${{ hashFiles('Cargo.lock') }}
+
       - name: Update vita-headers
         run: |
           echo "VITA_HEADERS_HASH=$(git submodule status | grep vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
           git submodule update --recursive --remote vita-headers
 
+      - name: Regenerate bindings
+        env:
+          VITASDK: /opt/vitasdk
+          # From clang-sys
+          LIBCLANG_PATH: ${{ runner.temp }}/llvm/lib
+          LLVM_CONFIG_PATH: ${{ runner.temp }}/llvm/bin/llvm-config
+        run: |
+          cd build-util
+          cargo run -- bindgen
+
       - name: Commit and create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@v5
         with:
-          title: Update vita-headers
+          title: Update vita-headers bindings
           body: Created by the action at [/.workflows/update-bindings.yml](../tree/main/.workflows/update-bindings.yml)
           branch: ${{ env.PR_BRANCH }}
           delete-branch: true
           commit-message: Update vita-headers to ${{ env.VITA_HEADERS_HASH }}
-          assignees: pheki
+          assignees: pheki,ZetaNumbers
           committer: Aphek <bilkow@tutanota.com>
           author: Aphek <bilkow@tutanota.com>
 
