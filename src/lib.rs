@@ -28,8 +28,8 @@ mod ctypes {
 
 pub use ctypes::*;
 
-#[cfg(not(feature = "bindgen"))]
+#[cfg(any(not(feature = "bindgen"), docsrs))]
 include!("bindings.rs");
 
-#[cfg(feature = "bindgen")]
+#[cfg(all(feature = "bindgen", not(docsrs)))]
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
