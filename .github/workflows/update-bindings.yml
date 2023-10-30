@@ -62,6 +62,13 @@ jobs:
           echo "VITA_HEADERS_HASH=$(git submodule status | grep vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
           git submodule update --recursive --remote vita-headers
 
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt
+          profile: minimal
+          override: true
+
       - name: Regenerate bindings
         env:
           VITASDK: /opt/vitasdk
