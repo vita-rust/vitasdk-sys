@@ -84,7 +84,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           title: Update vita-headers bindings
-          body: Created by the action at [/.workflows/update-bindings.yml](../tree/main/.workflows/update-bindings.yml)
+          body: Created by the action at [.github/workflows/update-bindings.yml](../tree/main/.github/workflows/update-bindings.yml)
           branch: ${{ env.PR_BRANCH }}
           delete-branch: true
           commit-message: Update vita-headers to ${{ env.VITA_HEADERS_HASH }}
