@@ -300,6 +300,9 @@ extern "C" {}
 #[cfg(feature = "SceIntrmgrForDriver_stub")]
 #[link(name = "SceIntrmgrForDriver_stub", kind = "static")]
 extern "C" {}
+#[cfg(feature = "SceIntrmgrForKernel_363_stub")]
+#[link(name = "SceIntrmgrForKernel_363_stub", kind = "static")]
+extern "C" {}
 #[cfg(feature = "SceIntrmgrForKernel_stub")]
 #[link(name = "SceIntrmgrForKernel_stub", kind = "static")]
 extern "C" {}
@@ -1463,34 +1466,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
-}
-extern "C" {
     #[cfg(feature = "SceDebugLedForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
     pub fn ksceDebugLedInvokeHandle0(
@@ -1537,65 +1512,6 @@ extern "C" {
             ),
         >,
     );
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceDebugRegisterPutcharHandler(
-        func: ::core::option::Option<
-            unsafe extern "C" fn(
-                args: *mut crate::ctypes::c_void,
-                c: crate::ctypes::c_char,
-            ) -> crate::ctypes::c_int,
-        >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceDebugSetHandlers(
-        func: ::core::option::Option<
-            unsafe extern "C" fn(
-                unk: crate::ctypes::c_int,
-                format: *const crate::ctypes::c_char,
-                args: va_list,
-            ) -> crate::ctypes::c_int,
-        >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceKernelUtilsForDriver_stub")]
@@ -2096,8 +2012,35 @@ extern "C" {
     pub fn ksceGUIDClose(guid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceGUIDGetObjectWithClass(
+        uid: SceUID,
+        pClass: *mut SceClass,
+        obj: *mut *mut SceObjectBase,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
     pub fn ksceGUIDGetUIDVectorByClass(
         cls: *mut SceClass,
         vis_level: crate::ctypes::c_int,
@@ -2118,12 +2061,45 @@ extern "C" {
             feature = "SceSysmemForKernel_363_stub"
         )))
     )]
+    pub fn ksceGUIDKernelCreateWithAttr(
+        pClass: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt32,
+        ppEntry: *mut *mut SceObjectBase,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
     pub fn ksceGUIDKernelCreateWithOpt(
         sce_class: *mut SceClass,
         name: *const crate::ctypes::c_char,
         opt: *mut SceGUIDKernelCreateOpt,
         obj: *mut *mut SceObjectBase,
     ) -> SceUID;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceGUIDOpenByGUID(guid: SceUID) -> SceUID;
 }
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
@@ -2596,8 +2572,88 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelAddressSpaceFreeAllMemBlock(guid: SceUID) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelAddressSpaceSetPhyMemPart(
+        guid: SceUID,
+        index: SceUInt32,
+        pPhyMemPart: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelAddressSpaceUnmap(
+        uid: SceUID,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelAddressSpaceVAtoPA(
+        pAS: *mut crate::ctypes::c_void,
+        mode: SceUInt32,
+        pVA: *mut crate::ctypes::c_void,
+        pPA: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
 }
 extern "C" {
@@ -2625,6 +2681,26 @@ extern "C" {
     ) -> SceUID;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelAllocPartitionMemBlock(
+        part: SceUID,
+        name: *const crate::ctypes::c_char,
+        type_: SceKernelMemBlockType,
+        size: SceSize,
+        pOpt: *const SceKernelAllocMemBlockOptKernel,
+    ) -> SceUID;
+}
+extern "C" {
     #[cfg(feature = "SceDebugForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
     pub fn ksceKernelAssert(
@@ -2642,6 +2718,482 @@ extern "C" {
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
     );
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicAdd32AndGet64InHiLoRange(
+        val: *mut SceUInt64,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicAdd32AndGet64InRange(
+        val: *mut SceUInt64,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicAddAndGetPositive32InRange(
+        val: *mut SceInt32,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddUnless16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        cmpv: SceInt16,
+    ) -> SceBool;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddUnless32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        cmpv: SceInt32,
+    ) -> SceBool;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddUnless64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        cmpv: SceInt64,
+    ) -> SceBool;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAddUnless8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        cmpv: SceInt8,
+    ) -> SceBool;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAndAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAndAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAndAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicAndAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearMask16(store: *mut SceInt16, value: SceInt16);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearMask32(store: *mut SceInt32, value: SceInt32);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearMask64(store: *mut SceInt64, value: SceInt64);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicClearMask8(store: *mut SceInt8, value: SceInt8);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicCompareAndSet16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        new_value: SceInt16,
+    ) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicCompareAndSet32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        new_value: SceInt32,
+    ) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicCompareAndSet64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        new_value: SceInt64,
+    ) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicCompareAndSet8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        new_value: SceInt8,
+    ) -> SceInt8;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicDecIfLowPositive32(addr: *mut SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicDecIfPositive16(store: *mut SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicDecIfPositive32(store: *mut SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicDecIfPositive64(store: *mut SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicDecIfPositive8(store: *mut SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicGet32AndSet64(result: *mut SceUInt64, src: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicGet32AndSet64_2(result: *mut SceUInt64, src: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAdd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAdd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAdd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAdd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAnd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAnd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAnd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndAnd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndClear16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndClear32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndClear64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndClear8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndOr16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndOr32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndOr64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndOr8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSub16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSub32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSub64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndSub8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndXor16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndXor32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndXor64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicGetAndXor8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicIncrementHighwaterCounter(counter: *mut SceUInt32) -> SceUInt32;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicLimit64(result: *mut SceUInt64, limit: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicOrAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicOrAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicOrAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicOrAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSet16(store: *mut SceInt16, value: SceInt16);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSet32(store: *mut SceInt32, value: SceInt32);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSet64(store: *mut SceInt64, value: SceInt64);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSet8(store: *mut SceInt8, value: SceInt8);
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSubAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSubAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSubAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicSubAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelAtomicSubIfGreater64(a1: *mut SceUInt64, a2: SceUInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicXorAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicXorAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicXorAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -2711,6 +3263,118 @@ extern "C" {
     pub fn ksceKernelClearIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyFromToUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyFromToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyFromUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyFromUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyToUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelCopyToUserDomain(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelCopyToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelCopyToUserProcTextDomain(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelCopyToUserTextDomain(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
     #[cfg_attr(
         docsrs,
@@ -2735,22 +3399,12 @@ extern "C" {
     pub fn ksceKernelCorelockUnlock(ctx: *mut SceCorelockContext);
 }
 extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelCpuBranchPredictorInvalidateAll();
 }
 extern "C" {
     #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
@@ -2758,59 +3412,30 @@ extern "C" {
         docsrs,
         doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
     )]
-    pub fn ksceKernelCpuDcacheInvalidateAll();
+    pub fn ksceKernelCpuBranchPredictorInvalidateAllIS();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelCpuGetCONTEXTIDR() -> SceUInt8;
 }
 extern "C" {
     #[cfg(feature = "SceCpuForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackAll();
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
+    pub fn ksceKernelCpuId() -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceCpuForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuResumeIntr(prev_state: SceKernelIntrStatus) -> SceKernelIntrStatus;
 }
 extern "C" {
     #[cfg(feature = "SceCpuForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
+    pub fn ksceKernelCpuSuspendIntr() -> SceKernelIntrStatus;
 }
 extern "C" {
     #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
@@ -2818,26 +3443,26 @@ extern "C" {
         docsrs,
         doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
     )]
-    pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
+    pub fn ksceKernelCpuUpdateSCTLR();
 }
 extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
     #[cfg_attr(
         docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
     )]
-    pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCreateAddressSpace(
+        pid: SceUID,
+        name: *const crate::ctypes::c_char,
+        type_: SceUInt32,
+        pOpt: *mut crate::ctypes::c_void,
+    ) -> SceUID;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -2847,18 +3472,6 @@ extern "C" {
         attr: crate::ctypes::c_uint,
         func: SceKernelCallbackFunction,
         arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelCreateClass(
-        cls: *mut SceClass,
-        name: *const crate::ctypes::c_char,
-        uidclass: *mut crate::ctypes::c_void,
-        itemsize: SceSize,
-        create: SceClassCallback,
-        destroy: SceClassCallback,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -2912,8 +3525,17 @@ extern "C" {
     ) -> SceUID;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelCreateProcess(
         titleid: *const crate::ctypes::c_char,
         type_: SceKernelProcessType,
@@ -2954,6 +3576,68 @@ extern "C" {
     ) -> SceUID;
 }
 extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheCleanInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheCleanInvalidateRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheCleanRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheCleanRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelDcacheInvalidateRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelDebugResumeThread(
@@ -2978,6 +3662,20 @@ extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelDeleteAddressSpace(guid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -3114,6 +3812,20 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelEnableCrashDump(enable: SceBool) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceIntrmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelEnableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -3142,6 +3854,20 @@ extern "C" {
     pub fn ksceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelExitProcess(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -3151,6 +3877,20 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex)
         -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelFinalizeKbl();
 }
 extern "C" {
     #[cfg(any(
@@ -3180,15 +3920,24 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelFindMemBlockByAddrForPid(
+    pub fn ksceKernelFindProcMemBlockByAddr(
         pid: SceUID,
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3205,6 +3954,20 @@ extern "C" {
     pub fn ksceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelFreeSimpleMemBlock(a1: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceDebugForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
     pub fn ksceKernelGetAssertLevel() -> crate::ctypes::c_int;
@@ -3213,6 +3976,20 @@ extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetDebugPutcharHandler() -> *mut crate::ctypes::c_void;
 }
 extern "C" {
     #[cfg(feature = "SceDipswForDriver_stub")]
@@ -3228,11 +4005,47 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetExportedLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelGetFastMutexInfo(
         fast_mutex: *mut SceKernelFastMutex,
         info: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetFixedHeapInfoByPointer(
+        pFixedHeap: *mut crate::ctypes::c_void,
+        pInfo: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3244,6 +4057,60 @@ extern "C" {
     #[cfg(feature = "SceDebugLedForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
     pub fn ksceKernelGetGPO() -> SceUInt32;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetHeapInfo(
+        heapid: SceUID,
+        level: SceUInt32,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetHeapInfoByPtr(
+        pObject: *mut crate::ctypes::c_void,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetImportedLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceIntrmgrForDriver_stub")]
@@ -3262,12 +4129,169 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLibEntCBListForSyslibtrace(
+        ppList: *mut *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLibraryClientList(
+        pid: SceUID,
+        library_id: SceUID,
+        modids: *mut SceUID,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLibraryDBFlags(
+        pid: SceUID,
+        pFlags: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLibraryExportInfoForDebugger(
+        pid: SceUID,
+        library_id: SceUID,
+        list: *mut SceKernelModuleExportEntry,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetLibraryInfoForDebugger(
         pid: SceUID,
         library_id: SceUID,
         info: *mut SceKernelModuleLibraryInfo,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLibraryList(
+        pid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLostLibraryInfo(
+        pid: SceUID,
+        modid: SceUID,
+        libnid: SceNID,
+        info: *mut SceKernelModuleImportNonlinkedInfo,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLostLibraryList(
+        pid: SceUID,
+        a2: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetLostLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        pList: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3320,16 +4344,53 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetMetaDataForDebugger(
+        pid: SceUID,
+        uModuleId: SceUID,
+        start: *mut *mut crate::ctypes::c_void,
+        stop: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleCB(
         modid: SceUID,
         info: *mut *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleCBByAddr(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
@@ -3337,16 +4398,65 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetModuleEntryPoint(modid: SceUID) -> *mut crate::ctypes::c_void;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetModuleFingerprint(
+        moduleId: SceUID,
+        pFingerprint: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleIdByAddrForDebugger(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
     ) -> SceUID;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
 }
 extern "C" {
@@ -3368,8 +4478,17 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleInfoForDebugger(
         pid: SceUID,
         infolists: *mut SceKernelModuleListInfo,
@@ -3377,14 +4496,40 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModuleInfoMinByAddr(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
         module_nid: *mut u32,
         program_text_addr: *mut *const crate::ctypes::c_void,
         module_name: *mut SceKernelModuleName,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetModuleIsSharedByAddr(
+        pid: SceUID,
+        addr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3408,8 +4553,17 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetModulePath(
         modid: SceUID,
         path: *mut crate::ctypes::c_char,
@@ -3430,14 +4584,6 @@ extern "C" {
     pub fn ksceKernelGetMutexInfo(
         mutexid: SceUID,
         info: *mut SceKernelMutexInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelGetPidContext(
-        pid: SceUID,
-        ctx: *mut *mut SceKernelProcessContext,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3490,18 +4636,45 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelGetProcessSelfAuthInfo(
         pid: SceUID,
         self_auth_info: *mut SceSelfAuthInfo,
@@ -3516,11 +4689,85 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetProgramIdentificationInfo(
+        path: *const crate::ctypes::c_char,
+        pAuthid: *mut SceUInt64,
+        pInfo: *mut SceSelfAppInfo,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelGetSemaInfo(
         semaid: SceUID,
         info: *mut SceKernelSemaInfo,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetStubInfoForDebugger(
+        pid: SceUID,
+        stubid: SceUID,
+        a3: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetStubList(
+        pid: SceUID,
+        stub: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetStubNidTableForDebugger(
+        pid: SceUID,
+        stubid: SceUID,
+        a3: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -3633,22 +4880,63 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelGetUidClass() -> *mut SceClass;
+    pub fn ksceKernelGetUIDClass() -> *mut SceClass;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetUIDDLinkClass() -> *mut SceClass;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetUIDHeapClass() -> *mut SceClass;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetUIDMemBlockClass() -> *mut SceClass;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelGetUIDProcessClass() -> *mut SceClass;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -3662,6 +4950,25 @@ extern "C" {
         thid: SceUID,
         pVfpRegister: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelGetVmaccessRange(pRangeStart: *mut SceUIntPtr, pRangeEnd: *mut SceUIntPtr);
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelIcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -3703,6 +5010,150 @@ extern "C" {
     pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(feature = "SceCpuForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelIsUncacheAddressInTmpFsGame(address: *mut crate::ctypes::c_void) -> SceBool;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheClean(start: *mut crate::ctypes::c_void);
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheCleanAll();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheCleanInvalidate(start: *mut crate::ctypes::c_void);
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheCleanInvalidateAll();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheCleanInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheCleanRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheInvalidate(start: *mut crate::ctypes::c_void);
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheInvalidateAll();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1DcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1IcacheInvalidateEntire();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1IcacheInvalidateEntireAllCore();
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelL1IcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelLibcGettimeofday(
+        tv: *mut SceKernelTimeval,
+        tz: *mut SceKernelTimezone,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
+}
+extern "C" {
     #[cfg(feature = "SceModulemgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
     pub fn ksceKernelLoadModule(
@@ -3729,6 +5180,66 @@ extern "C" {
         flags: crate::ctypes::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelLoadPreloadingModules(
+        pid: SceUID,
+        pParam: *const SceLoadProcessParam,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelLoadProcessImage(
+        pid: SceUID,
+        path: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        auth_info: *mut SceSelfAuthInfo,
+        param: *mut SceLoadProcessParam,
+        shim_info: *mut SceKernelCompatibilityShimInfo,
+    ) -> SceUID;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelLoadPtLoadSegForFwloader(
+        path: *const crate::ctypes::c_char,
+        e_phnum: crate::ctypes::c_int,
+        buffer: *mut crate::ctypes::c_void,
+        bufsize: SceSize,
+        zero_unk: crate::ctypes::c_int,
+        bytes_read: *mut SceSize,
+    ) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceModulemgrForDriver_stub")]
@@ -3785,67 +5296,7 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMapBlockUserVisible(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMapUserBlock(
-        name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
-        size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
-        kernel_size: *mut SceSize,
-        kernel_offset: *mut crate::ctypes::c_uint,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemBlockRelease(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemcpyFromUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemcpyToUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelMemcpyToUserRo(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelMemcpyToUserRx(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeRelease(
+    pub fn ksceKernelLockRange(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
@@ -3853,7 +5304,7 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeReleaseForPid(
+    pub fn ksceKernelLockRangeProc(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
@@ -3862,7 +5313,7 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeReleaseWithPerm(
+    pub fn ksceKernelLockRangeWithMode(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
@@ -3871,28 +5322,60 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeRetain(
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelMapMemBlock(uid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeRetainForPid(
-        pid: SceUID,
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
+    pub fn ksceKernelMapMemBlockWithFlag(
+        uid: SceUID,
+        flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemRangeRetainWithPerm(
-        perm: SceKernelMemoryRefPerm,
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelMMUGetMemoryType(vaddr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelMMUVAtoPA(
+        va: *mut crate::ctypes::c_void,
+        pa: *mut SceUIntPtr,
     ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelMMUVAtoPAWithMode(
+        mode: crate::ctypes::c_int,
+        va: *mut crate::ctypes::c_void,
+        pa: *mut SceUIntPtr,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelModuleUnloadMySelf() -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(any(
@@ -3911,6 +5394,20 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelNameHeapGetInfo(pInfo: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int)
@@ -3923,6 +5420,14 @@ extern "C" {
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
     ) -> !;
+}
+extern "C" {
+    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
+    )]
+    pub fn ksceKernelPleFlushRequest();
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -4021,74 +5526,6 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcMemcpyFromUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcMemcpyToUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceSysmemForKernel_stub",
-        feature = "SceSysmemForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceSysmemForKernel_stub",
-            feature = "SceSysmemForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelProcMemcpyToUserRx(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcStrncpyFromUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcStrncpyToUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcStrnlenUser(
-        pid: SceUID,
-        s: *const crate::ctypes::c_char,
-        n: SceSize,
-    ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcUserMap(
         pid: SceUID,
         name: *const crate::ctypes::c_char,
@@ -4101,13 +5538,21 @@ extern "C" {
     ) -> SceUID;
 }
 extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcUserMemcpy(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
+    #[cfg(any(
+        feature = "SceIntrmgrForKernel_stub",
+        feature = "SceIntrmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceIntrmgrForKernel_stub",
+            feature = "SceIntrmgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelQueryIntrHandlerInfo(
+        intr_code: crate::ctypes::c_uint,
+        a2: crate::ctypes::c_uint,
+        a3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -4120,6 +5565,28 @@ extern "C" {
         unk1: crate::ctypes::c_int,
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelRegisterDebugPutcharHandler(
+        handler: ::core::option::Option<
+            unsafe extern "C" fn(
+                argp: *mut crate::ctypes::c_void,
+                c: crate::ctypes::c_char,
+            ) -> crate::ctypes::c_int,
+        >,
+        argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -4137,8 +5604,40 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelRegisterKprintfHandler(
+        handler: ::core::option::Option<
+            unsafe extern "C" fn(
+                unk: crate::ctypes::c_int,
+                format: *const crate::ctypes::c_char,
+                args: va_list,
+            ) -> crate::ctypes::c_int,
+        >,
+        argp: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelRegisterModulesAfterBoot();
 }
 extern "C" {
@@ -4162,8 +5661,17 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
 }
 extern "C" {
@@ -4191,7 +5699,10 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
+    pub fn ksceKernelRemapMemBlock(
+        uid: SceUID,
+        type_: SceKernelMemBlockType,
+    ) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceIntrmgrForDriver_stub")]
@@ -4202,8 +5713,17 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -4313,6 +5833,20 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceDebugForKernel_stub",
+        feature = "SceDebugForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceDebugForKernel_stub",
+            feature = "SceDebugForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelSetAssertLevel(level: SceUInt32) -> SceUInt32;
+}
+extern "C" {
     #[cfg(feature = "SceDipswForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
     pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
@@ -4350,11 +5884,6 @@ extern "C" {
         intr_code: crate::ctypes::c_int,
         cpu_target_list: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForKernel_stub")))]
-    pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -4404,12 +5933,12 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceCpuForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
+    pub fn ksceKernelSpinlockLowTrylock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceCpuForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelSpinlockLowTryLockCpuSuspendIntr(
+    pub fn ksceKernelSpinlockLowTrylockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
 }
@@ -4459,6 +5988,20 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelStartPreloadingModules(pid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
@@ -4553,6 +6096,16 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelStrncpyFromUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelStrncpyToUser(
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
@@ -4562,7 +6115,26 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
+    pub fn ksceKernelStrncpyToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelStrnlenFromUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelStrnlenFromUserProc(
+        pid: SceUID,
+        s: *const crate::ctypes::c_char,
+        n: SceSize,
+    ) -> SceSSize;
 }
 extern "C" {
     #[cfg(feature = "SceIntrmgrForDriver_stub")]
@@ -4573,17 +6145,21 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
+    #[cfg(any(
+        feature = "SceProcessmgrForKernel_stub",
+        feature = "SceProcessmgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceProcessmgrForKernel_stub",
+            feature = "SceProcessmgrForKernel_363_stub"
+        )))
+    )]
     pub fn ksceKernelSuspendProcess(
         pid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceSysrootForKernel_stub")]
@@ -4766,6 +6342,23 @@ extern "C" {
 }
 extern "C" {
     #[cfg(any(
+        feature = "SceSysmemForKernel_stub",
+        feature = "SceSysmemForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceSysmemForKernel_stub",
+            feature = "SceSysmemForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelUIDEntryHeapGetInfo(
+        entryHeapId: SceUID,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
+}
+extern "C" {
+    #[cfg(any(
         feature = "SceModulemgrForKernel_stub",
         feature = "SceModulemgrForKernel_363_stub"
     ))]
@@ -4807,6 +6400,20 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
+    #[cfg(any(
+        feature = "SceModulemgrForKernel_stub",
+        feature = "SceModulemgrForKernel_363_stub"
+    ))]
+    #[cfg_attr(
+        docsrs,
+        doc(cfg(any(
+            feature = "SceModulemgrForKernel_stub",
+            feature = "SceModulemgrForKernel_363_stub"
+        )))
+    )]
+    pub fn ksceKernelUnloadProcessModules(pid: SceUID) -> crate::ctypes::c_int;
+}
+extern "C" {
     #[cfg(feature = "SceThreadmgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
     pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
@@ -4818,6 +6425,37 @@ extern "C" {
         mutexid: SceUID,
         unlockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelUnlockRange(
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelUnlockRangeProc(
+        pid: SceUID,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelUnlockRangeWithMode(
+        perm: SceKernelMemoryRefPerm,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelUnmapMemBlock(uid: SceUID) -> crate::ctypes::c_int;
 }
 extern "C" {
     #[cfg(feature = "SceProcEventForDriver_stub")]
@@ -4840,10 +6478,28 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSysmemForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelUserMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelUserMapWithFlags(
+        name: *const crate::ctypes::c_char,
+        permission: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+        user_buf: *const crate::ctypes::c_void,
+        size: SceSize,
+        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_size: *mut SceSize,
+        kernel_offset: *mut crate::ctypes::c_uint,
+    ) -> SceUID;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelUserUnmap(uid: SceUID) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceKernelVARangeToPARange(
+        va_range: *const SceKernelVARange,
+        pa_range: *mut SceKernelPARange,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -6596,6 +8252,18 @@ extern "C" {
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+extern "C" {
+    #[cfg(feature = "SceSysmemForDriver_stub")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
+    pub fn ksceUIDClassInitClass(
+        cls: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        uidclass: *mut crate::ctypes::c_void,
+        itemsize: SceSize,
+        create: SceClassCallback,
+        destroy: SceClassCallback,
     ) -> crate::ctypes::c_int;
 }
 extern "C" {
@@ -11411,6 +13079,183 @@ pub const SCE_EXCP_RESET: SceExcpKind = 0;
 pub const SCE_EXCP_SVC: SceExcpKind = 2;
 pub const SCE_EXCP_UNDEF_INSTRUCTION: SceExcpKind = 1;
 pub const SCE_EXCP_UNUSED: SceExcpKind = 5;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsDateTime {
+    pub year: SceUInt16,
+    pub month: SceUInt16,
+    pub day: SceUInt16,
+    pub hour: SceUInt16,
+    pub minute: SceUInt16,
+    pub second: SceUInt16,
+}
+pub type SceExfatfsDateTime = _SceExfatfsDateTime;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsDrive {
+    pub state: SceUInt32,
+    pub unk_0x04: [crate::ctypes::c_int; 47usize],
+    pub assignName: *const crate::ctypes::c_char,
+    pub unk_0xC4: [crate::ctypes::c_int; 71usize],
+    pub fastmutex: SceKernelFastMutex,
+    pub VfsMount2: *mut SceVfsMount2,
+    pub vp: *mut crate::ctypes::c_void,
+    pub unk_0x228: *mut crate::ctypes::c_void,
+    pub unk_0x22C: crate::ctypes::c_int,
+}
+pub type SceExfatfsDrive = _SceExfatfsDrive;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFile {
+    pub fnode: *mut SceExfatfsFnode,
+    pub mode: crate::ctypes::c_int,
+    pub Position: SceOff,
+    pub Buf: *mut crate::ctypes::c_void,
+    pub BufTop: *mut crate::ctypes::c_void,
+    pub Cluster: SceUInt32,
+    pub clusterIndex: SceUInt32,
+    pub unk_0x20: crate::ctypes::c_int,
+    pub unk_0x24: crate::ctypes::c_int,
+    pub cacheIndex: SceUInt64,
+    pub unk_0x30: crate::ctypes::c_int,
+    pub unk_0x34: crate::ctypes::c_int,
+}
+pub type SceExfatfsFile = _SceExfatfsFile;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFileSystem {
+    pub devname: *const crate::ctypes::c_char,
+    pub unk_4: crate::ctypes::c_int,
+    pub unk_8: crate::ctypes::c_int,
+    pub rsvd_sector: crate::ctypes::c_int,
+    pub unk_10: crate::ctypes::c_int,
+    pub available_clusters: crate::ctypes::c_int,
+    pub PBRBuf: *mut crate::ctypes::c_void,
+    pub unk_1C: crate::ctypes::c_int,
+    pub unk_20: crate::ctypes::c_int,
+    pub unk_24: crate::ctypes::c_int,
+    pub unk_28: *mut crate::ctypes::c_void,
+    pub unk_2C: crate::ctypes::c_int,
+    pub unk_30: crate::ctypes::c_int,
+    pub unk_34: *mut crate::ctypes::c_void,
+    pub unk_38: *mut crate::ctypes::c_void,
+    pub unk_3C: crate::ctypes::c_int,
+    pub unk_40: crate::ctypes::c_int,
+    pub unk_44: crate::ctypes::c_int,
+    pub unk_48: crate::ctypes::c_int,
+    pub unk_4C: crate::ctypes::c_int,
+    pub unk_50: *mut crate::ctypes::c_void,
+    pub unk_54: *mut crate::ctypes::c_void,
+    pub unk_58: crate::ctypes::c_int,
+    pub unk_5C: crate::ctypes::c_int,
+    pub unk_60: crate::ctypes::c_int,
+    pub unk_64: crate::ctypes::c_int,
+    pub unk_68: crate::ctypes::c_int,
+    pub unk_6C: crate::ctypes::c_int,
+    pub unk_70: crate::ctypes::c_int,
+    pub unk_74: crate::ctypes::c_int,
+    pub unk_78: crate::ctypes::c_int,
+    pub unk_7C: crate::ctypes::c_int,
+    pub unk_80: crate::ctypes::c_int,
+    pub unk_84: crate::ctypes::c_int,
+    pub unk_88: crate::ctypes::c_int,
+    pub unk_8C: crate::ctypes::c_int,
+    pub unk_90: crate::ctypes::c_int,
+    pub unk_94: crate::ctypes::c_int,
+    pub unk_98: crate::ctypes::c_int,
+    pub unk_9C: crate::ctypes::c_int,
+    pub unk_A0: crate::ctypes::c_int,
+    pub unk_A4: crate::ctypes::c_int,
+    pub unk_A8: crate::ctypes::c_int,
+    pub drive: *mut SceExfatfsDrive,
+    pub mount_mode: SceUInt32,
+    pub unk_B4: crate::ctypes::c_int,
+    pub unk_B8: crate::ctypes::c_int,
+    pub sectorSize: SceSize,
+    pub clusterSectorCount: SceUInt32,
+    pub firstClusterOfRoot: SceUInt32,
+    pub devSectors: SceUInt32,
+    pub unk_CC: crate::ctypes::c_int,
+    pub data_0xD0: [crate::ctypes::c_char; 72usize],
+    pub file: SceExfatfsFile,
+    pub fnode: SceExfatfsFnode,
+    pub rootFastMutex: *mut SceKernelFastMutex,
+    pub unk_0x3E4: *mut crate::ctypes::c_void,
+    pub unk_0x3E8: SceUID,
+    pub unk_0x3EC: *mut crate::ctypes::c_void,
+    pub fastmutex: SceKernelFastMutex,
+}
+pub type SceExfatfsFileSystem = _SceExfatfsFileSystem;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFnode {
+    pub FilePath: [SceUInt16; 260usize],
+    pub FileName: *mut SceUInt16,
+    pub fileSystem: *mut _SceExfatfsFileSystem,
+    pub Stat: _SceExfatfsFnode__bindgen_ty_1,
+    pub DirCluster: SceUInt32,
+    pub data_0x254: crate::ctypes::c_int,
+    pub DirOffset: SceOff,
+    pub DirOffClust: SceUInt32,
+    pub data_0x264: crate::ctypes::c_int,
+    pub dirSize: SceSize,
+    pub dirGeneralSecondaryFlags: SceUInt8,
+    pub data_0x26D: SceUInt8,
+    pub data_0x26E: SceUInt8,
+    pub data_0x26F: SceUInt8,
+    pub refCount: SceUInt16,
+    pub fdCount: SceUInt16,
+    pub data_0x274: crate::ctypes::c_int,
+    pub cache_element_count: SceUInt32,
+    pub cluster_cache_array: *mut crate::ctypes::c_void,
+    pub tailCluster: SceUInt32,
+    pub tailIndex: SceUInt32,
+    pub clusterCount: SceUInt32,
+    pub chunkCount: SceUInt32,
+}
+pub type SceExfatfsFnode = _SceExfatfsFnode;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFnode__bindgen_ty_1 {
+    pub st_mode: SceUInt16,
+    pub st_type: SceUInt16,
+    pub st_dev: SceUInt16,
+    pub st_uid: SceUInt16,
+    pub Size: SceOff,
+    pub ctime: SceExfatfsDateTime,
+    pub atime: SceExfatfsDateTime,
+    pub mtime: SceExfatfsDateTime,
+    pub StartCluster: SceUInt32,
+    pub data_0x248: SceUInt8,
+    pub data_0x249: SceUInt8,
+    pub data_0x24A: SceUInt8,
+    pub data_0x24B: SceUInt8,
+    pub data_0x24C: crate::ctypes::c_int,
+}
+pub const SCE_EXFATFS_MAX_FILE_SYSTEM: u32 = 15;
+pub const SCE_EXFATFS_MAX_FNODE: u32 = 4096;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceExfatfsMbr {
+    pub data: [crate::ctypes::c_char; 512usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsSharedResource {
+    pub fileSystem: [SceExfatfsFileSystem; 15usize],
+    pub mbr: [SceExfatfsMbr; 15usize],
+    pub data_0x5CD0: *mut crate::ctypes::c_void,
+    pub data_0x5CD4: crate::ctypes::c_int,
+    pub fnode: [SceExfatfsFnode; 4096usize],
+    pub data_0x295CD8: [crate::ctypes::c_int; 30usize],
+    pub data_0x295D50: crate::ctypes::c_int,
+    pub data_0x295D54: crate::ctypes::c_int,
+    pub data_0x295D58: crate::ctypes::c_int,
+    pub data_0x295D5C: crate::ctypes::c_int,
+}
+pub type SceExfatfsSharedResource = _SceExfatfsSharedResource;
+pub const SCE_EXFATFS_TYPE_EXFAT: u32 = 2;
+pub const SCE_EXFATFS_TYPE_FAT: u32 = 1;
 pub const SCE_FALSE: _bindgen_ty_1 = 0;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12318,12 +14163,6 @@ pub const SCE_GUID_PHYMEM_PART_TOOL: _bindgen_ty_2 = 65553;
 pub const SCE_GUID_PROCESS_BUDGET_FULL_GAME: _bindgen_ty_2 = 65629;
 pub const SCE_GUID_PROCESS_BUDGET_KERNEL: _bindgen_ty_2 = 65625;
 pub const SCE_GUID_PROCESS_BUDGET_SHELL: _bindgen_ty_2 = 65627;
-pub const SCE_GUID_RESERVED_29: _bindgen_ty_2 = 65577;
-pub const SCE_GUID_RESERVED_2D: _bindgen_ty_2 = 65581;
-pub const SCE_GUID_RESERVED_2F: _bindgen_ty_2 = 65583;
-pub const SCE_GUID_RESERVED_31: _bindgen_ty_2 = 65585;
-pub const SCE_GUID_RESERVED_49: _bindgen_ty_2 = 65609;
-pub const SCE_GUID_RESERVED_5F: _bindgen_ty_2 = 65631;
 pub const SCE_GUID_SYSROOT: _bindgen_ty_2 = 65537;
 pub const SCE_GUID_THREAD_ID_PROCESS_ALL: _bindgen_ty_2 = 65575;
 pub const SCE_GUID_THREAD_ID_SYSTEM_ALL: _bindgen_ty_2 = 65573;
@@ -17962,6 +19801,7 @@ pub const SCE_KERNEL_64MiB: u32 = 67108864;
 pub const SCE_KERNEL_8GiB: u64 = 8589934592;
 pub const SCE_KERNEL_8KiB: u32 = 8192;
 pub const SCE_KERNEL_8MiB: u32 = 8388608;
+pub const SCE_KERNEL_ADDRESS_SPACE_ID: _bindgen_ty_2 = 65543;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelAddrPair {
@@ -18029,6 +19869,8 @@ pub struct SceKernelAllocMemBlockOpt {
     pub flags: crate::ctypes::c_int,
     pub reserved: [crate::ctypes::c_int; 10usize],
 }
+pub type SceKernelAllocMemBlockOptKernel = SceKernelAllocMemBlockKernelOpt;
+pub const SCE_KERNEL_ALL_PROCESS_ID: _bindgen_ty_2 = 65569;
 pub type SceKernelAssertLevel = crate::ctypes::c_uint;
 pub const SCE_KERNEL_ASSERT_LEVEL_0: SceKernelAssertLevel = 0;
 pub const SCE_KERNEL_ASSERT_LEVEL_1: SceKernelAssertLevel = 1;
@@ -18516,6 +20358,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
 }
+pub const SCE_KERNEL_CLEANER_THREAD_ID: _bindgen_ty_2 = 65559;
 extern "C" {
     #[cfg(feature = "SceKernelThreadMgr_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
@@ -18565,6 +20408,15 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
     pub fn sceKernelCloseVMDomain() -> crate::ctypes::c_int;
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceKernelCompatibilityShimInfo {
+    pub title_id: *const crate::ctypes::c_char,
+    pub unk_04: SceUInt32,
+    pub library_shims_count: SceUInt32,
+    pub library_shims: *mut SceKernelLibraryShimInfo,
+}
+pub type SceKernelCompatibilityShimInfo = _SceKernelCompatibilityShimInfo;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelCondInfo {
@@ -19039,6 +20891,8 @@ pub struct SceKernelDmaOpTag {
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_ADDR: SceKernelDmaOpFlag = 17;
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_DST_ADDR: SceKernelDmaOpFlag = 16;
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_SRC_ADDR: SceKernelDmaOpFlag = 1;
+pub const SCE_KERNEL_DUMMY_PROCESS_GAME_ID: _bindgen_ty_2 = 65555;
+pub const SCE_KERNEL_DUMMY_PROCESS_SYSTEM_ID: _bindgen_ty_2 = 65557;
 pub const SCE_KERNEL_ERROR_ADDRESS_SPACE_CANNOT_FIND_PARTITION_BY_ADDR: SceKernelErrorCode =
     2147633667;
 pub const SCE_KERNEL_ERROR_ALARM_CAN_NOT_CANCEL: SceKernelErrorCode = 2147647682;
@@ -19404,6 +21258,14 @@ extern "C" {
     pub fn sceKernelFindMemBlockByAddr(addr: *const crate::ctypes::c_void, size: SceSize)
         -> SceUID;
 }
+pub const SCE_KERNEL_FIXED_HEAP_128B_ID: _bindgen_ty_2 = 65595;
+pub const SCE_KERNEL_FIXED_HEAP_16B_ID: _bindgen_ty_2 = 65587;
+pub const SCE_KERNEL_FIXED_HEAP_256B_ID: _bindgen_ty_2 = 65597;
+pub const SCE_KERNEL_FIXED_HEAP_32B_ID: _bindgen_ty_2 = 65589;
+pub const SCE_KERNEL_FIXED_HEAP_48B_ID: _bindgen_ty_2 = 65591;
+pub const SCE_KERNEL_FIXED_HEAP_512B_ID: _bindgen_ty_2 = 65599;
+pub const SCE_KERNEL_FIXED_HEAP_64B_ID: _bindgen_ty_2 = 65593;
+pub const SCE_KERNEL_FIXED_HEAP_L2_OBJECT_ID: _bindgen_ty_2 = 65601;
 extern "C" {
     #[cfg(feature = "SceSysmem_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
@@ -19417,6 +21279,13 @@ pub struct SceKernelFreeMemorySizeInfo {
     pub size_cdram: crate::ctypes::c_int,
     pub size_phycont: crate::ctypes::c_int,
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceKernelFunctionShimInfo {
+    pub replaced_function_nid: SceNID,
+    pub replacing_function_nid: SceNID,
+}
+pub type SceKernelFunctionShimInfo = _SceKernelFunctionShimInfo;
 pub type SceKernelFwInfo = SceKernelSystemSwVersion;
 extern "C" {
     #[cfg(feature = "SceKernelModulemgr_stub")]
@@ -19701,6 +21570,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
 }
+pub const SCE_KERNEL_GLOBAL_WORK_QUEUE_ID: _bindgen_ty_2 = 65571;
+pub const SCE_KERNEL_GUID_ENTRY_HEAP_ID: _bindgen_ty_2 = 65539;
 pub type SceKernelHeapAttr = crate::ctypes::c_uint;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_AUTO_EXTEND: SceKernelHeapAttr = 1;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_MEMORY_TYPE: SceKernelHeapAttr = 1024;
@@ -19721,6 +21592,13 @@ pub union SceKernelHeapCreateOpt__bindgen_ty_1 {
     pub attr: SceUInt32,
     pub uselock: SceUInt32,
 }
+pub const SCE_KERNEL_HEAP_ID: _bindgen_ty_2 = 65547;
+pub const SCE_KERNEL_HEAP_TOOL_ID: _bindgen_ty_2 = 65579;
+pub const SCE_KERNEL_HEAP_UNCACHE_ID: _bindgen_ty_2 = 65549;
+pub const SCE_KERNEL_IDLE_THREAD_0_ID: _bindgen_ty_2 = 65561;
+pub const SCE_KERNEL_IDLE_THREAD_1_ID: _bindgen_ty_2 = 65563;
+pub const SCE_KERNEL_IDLE_THREAD_2_ID: _bindgen_ty_2 = 65565;
+pub const SCE_KERNEL_IDLE_THREAD_3_ID: _bindgen_ty_2 = 65567;
 pub type SceKernelIdListType = crate::ctypes::c_uint;
 pub type SceKernelIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19806,6 +21684,15 @@ extern "C" {
 pub struct SceKernelLibraryInfo {
     _unused: [u8; 0],
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceKernelLibraryShimInfo {
+    pub library_name: *const crate::ctypes::c_char,
+    pub unk_04: SceUInt32,
+    pub function_shims_count: SceUInt32,
+    pub function_shims: *mut SceKernelFunctionShimInfo,
+}
+pub type SceKernelLibraryShimInfo = _SceKernelLibraryShimInfo;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelLMOption {
@@ -20084,6 +21971,26 @@ pub const SCE_KERNEL_MEMORY_TYPE_NORMAL_NC: SceKernelMemoryType = 128;
 pub type SceKernelModel = crate::ctypes::c_uint;
 pub const SCE_KERNEL_MODEL_VITA: SceKernelModel = 65536;
 pub const SCE_KERNEL_MODEL_VITATV: SceKernelModel = 131072;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceKernelModuleExportEntry {
+    pub libnid: SceNID,
+    pub entry: *mut crate::ctypes::c_void,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceKernelModuleImportNonlinkedInfo {
+    pub size: SceSize,
+    pub modid: SceUID,
+    pub libnid: SceNID,
+    pub libname: [crate::ctypes::c_char; 256usize],
+    pub data_0x10C: crate::ctypes::c_int,
+    pub data_0x110: crate::ctypes::c_int,
+    pub data_0x114: crate::ctypes::c_int,
+    pub data_0x118: crate::ctypes::c_int,
+    pub data_0x11C: crate::ctypes::c_int,
+    pub data_0x120: crate::ctypes::c_int,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelModuleInfo {
@@ -20399,6 +22306,17 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
     pub fn sceKernelPaRemoveGpuTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
+pub const SCE_KERNEL_PARTITION_CDRAM_ID: _bindgen_ty_2 = 65607;
+pub const SCE_KERNEL_PARTITION_IO_ID: _bindgen_ty_2 = 65605;
+pub const SCE_KERNEL_PARTITION_KMP_ID: _bindgen_ty_2 = 65615;
+pub const SCE_KERNEL_PARTITION_ROOT_ID: _bindgen_ty_2 = 65545;
+pub const SCE_KERNEL_PARTITION_ROOT_TOOL_ID: _bindgen_ty_2 = 65621;
+pub const SCE_KERNEL_PARTITION_ROOT_TOOL_UNCACHE_ID: _bindgen_ty_2 = 65623;
+pub const SCE_KERNEL_PARTITION_ROOT_UNCACHE_GPU_GAME_ID: _bindgen_ty_2 = 65617;
+pub const SCE_KERNEL_PARTITION_ROOT_UNCACHE_ID: _bindgen_ty_2 = 65613;
+pub const SCE_KERNEL_PARTITION_TMP_FS_GAME_ID: _bindgen_ty_2 = 65619;
+pub const SCE_KERNEL_PARTITION_TMP_ID: _bindgen_ty_2 = 65611;
+pub const SCE_KERNEL_PARTITION_USER_SHARED_ID: _bindgen_ty_2 = 65603;
 extern "C" {
     #[cfg(feature = "ScePamgr_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
@@ -20507,6 +22425,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
     pub fn sceKernelPerfArmPmonStop(threadId: SceUID) -> crate::ctypes::c_int;
 }
+pub const SCE_KERNEL_PHYMEMPART_ID: _bindgen_ty_2 = 65551;
+pub const SCE_KERNEL_PHYMEMPART_TOOL_ID: _bindgen_ty_2 = 65553;
 extern "C" {
     #[cfg(feature = "SceLibKernel_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
@@ -20554,6 +22474,9 @@ pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBPVF: SceKernelPreloadInhibit = 16777216;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBSCEFT2: SceKernelPreloadInhibit = 8388608;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBSHELLSVC: SceKernelPreloadInhibit = 524288;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_NONE: SceKernelPreloadInhibit = 0;
+pub const SCE_KERNEL_PROCESS_BUDGET_FULL_GAME_ID: _bindgen_ty_2 = 65629;
+pub const SCE_KERNEL_PROCESS_BUDGET_KERNEL_ID: _bindgen_ty_2 = 65625;
+pub const SCE_KERNEL_PROCESS_BUDGET_SHELL_ID: _bindgen_ty_2 = 65627;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelProcessContext {
@@ -20561,6 +22484,7 @@ pub struct SceKernelProcessContext {
     pub DACR: SceUInt32,
     pub CONTEXTIDR: SceUInt32,
 }
+pub const SCE_KERNEL_PROCESS_ID: _bindgen_ty_2 = 65541;
 pub const SCE_KERNEL_PROCESS_ID_SELF: u32 = 0;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -20608,6 +22532,12 @@ extern "C" {
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
 }
+pub const SCE_KERNEL_RESERVED_GUID_29: _bindgen_ty_2 = 65577;
+pub const SCE_KERNEL_RESERVED_GUID_2D: _bindgen_ty_2 = 65581;
+pub const SCE_KERNEL_RESERVED_GUID_2F: _bindgen_ty_2 = 65583;
+pub const SCE_KERNEL_RESERVED_GUID_31: _bindgen_ty_2 = 65585;
+pub const SCE_KERNEL_RESERVED_GUID_49: _bindgen_ty_2 = 65609;
+pub const SCE_KERNEL_RESERVED_GUID_5F: _bindgen_ty_2 = 65631;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelRWLockInfo {
@@ -20828,6 +22758,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 pub type SceKernelSysClock = SceUInt64;
+pub const SCE_KERNEL_SYSROOT_ID: _bindgen_ty_2 = 65537;
 pub type SceKernelSysrootSelfIndex = crate::ctypes::c_uint;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_ENCDEC_W_PORTABILITY_SM: SceKernelSysrootSelfIndex = 2;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_GCAUTHMGR_SM: SceKernelSysrootSelfIndex = 0;
@@ -20871,7 +22802,9 @@ pub const SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT: u32 = 0;
 pub type SceKernelThreadEntry = ::core::option::Option<
     unsafe extern "C" fn(args: SceSize, argp: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+pub const SCE_KERNEL_THREAD_ID_PROCESS_ALL_ID: _bindgen_ty_2 = 65575;
 pub const SCE_KERNEL_THREAD_ID_SELF: u32 = 0;
+pub const SCE_KERNEL_THREAD_ID_SYSTEM_ALL_ID: _bindgen_ty_2 = 65573;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelThreadInfo {
@@ -20905,6 +22838,11 @@ pub struct SceKernelThreadInfo {
 pub struct SceKernelThreadOptParam {
     pub size: SceSize,
     pub attr: SceUInt32,
+    pub kStackMemType: SceUInt32,
+    pub uStackMemType: SceUInt32,
+    pub uTLSMemType: SceUInt32,
+    pub uStackMemid: SceUInt32,
+    pub data_0x18: SceUInt32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21149,6 +23087,21 @@ extern "C" {
 pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
     unsafe extern "C" fn(args: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceLoadProcessParam {
+    pub sysver: SceUInt32,
+    pub thread_name: [crate::ctypes::c_char; 32usize],
+    pub initial_thread_priority: SceUInt32,
+    pub initial_thread_stack_size: SceSize,
+    pub unk_0x2C: SceUInt32,
+    pub unk_0x30: SceUInt32,
+    pub threadOptParam: SceKernelThreadOptParam,
+    pub unk_0x50: crate::ctypes::c_int,
+    pub process_name: [crate::ctypes::c_char; 32usize],
+    pub preload_disabled: SceUInt32,
+    pub module_proc_param: *mut crate::ctypes::c_void,
+}
 extern "C" {
     #[cfg(feature = "SceLocation_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
@@ -26887,9 +28840,112 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
     pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> crate::ctypes::c_int;
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorFd {
+    pub fastmutex: SceKernelFastMutex,
+    pub unk_40: SceUInt32,
+    pub start_lba: SceUInt32,
+    pub n_sectors: SceUInt32,
+    pub flags: crate::ctypes::c_int,
+    pub pentry: *mut SceSdstorPartitionEntry,
+    pub sddev: *mut SceSdstorSddev,
+}
+pub type SceSdstorFd = _SceSdstorFd;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorOpHandle {
+    pub pentry: *mut SceSdstorPartitionEntry,
+    pub sddev: *mut SceSdstorSddev,
+    pub unk_0x08: crate::ctypes::c_int,
+}
+pub type SceSdstorOpHandle = _SceSdstorOpHandle;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorPartitionEntry {
+    pub start_lba: SceUInt32,
+    pub n_sectors: SceUInt32,
+    pub sdpart: *mut _SceSdstorSdpart,
+    pub partition_entry: *mut crate::ctypes::c_void,
+    pub numeric_name: [crate::ctypes::c_char; 4usize],
+    pub type_: SceUInt8,
+    pub flag: SceUInt8,
+    pub acl: SceUInt16,
+    pub unused: SceUInt16,
+    pub unk: SceUInt16,
+}
+pub type SceSdstorPartitionEntry = _SceSdstorPartitionEntry;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSddev {
+    pub fastmutex: SceKernelFastMutex,
+    pub kind: SceUInt8,
+    pub port: SceSdstorSdpartPort,
+    pub stat: SceUInt8,
+    pub prev_stat: SceUInt8,
+    pub unk_44: SceUInt32,
+    pub unk_48: SceUInt32,
+    pub unk_4C: SceUInt32,
+    pub sdif_ctx: *mut crate::ctypes::c_void,
+}
+pub type SceSdstorSddev = _SceSdstorSddev;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSdintr {
+    pub unk_0x00: crate::ctypes::c_int,
+    pub request_id: SceUID,
+    pub op_sync_id: SceUID,
+    pub unk_0x0C: crate::ctypes::c_int,
+    pub unk_0x10: crate::ctypes::c_int,
+    pub mediaid: [SceUInt32; 4usize],
+    pub port: SceSdstorSdpartPort,
+    pub stat: SceUInt8,
+    pub unk_0x26: SceUInt8,
+    pub unk_0x27: SceUInt8,
+}
+pub type SceSdstorSdintr = _SceSdstorSdintr;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSdpart {
+    pub fastmutex: SceKernelFastMutex,
+    pub unk_40: SceUInt32,
+    pub sddev: *mut SceSdstorSddev,
+    pub unk_48: SceUInt32,
+    pub unk_4C: SceUInt32,
+    pub unk_50: SceUInt32,
+    pub mbr_ptr: *mut crate::ctypes::c_void,
+    pub pentry: [SceSdstorPartitionEntry; 17usize],
+    pub stat: SceUInt8,
+    pub prev_stat: SceUInt8,
+    pub unk_236: SceUInt8,
+    pub unk_237: SceUInt8,
+}
+pub type SceSdstorSdpart = _SceSdstorSdpart;
+pub type SceSdstorSdpartKind = crate::ctypes::c_uint;
+pub const SCE_SDSTOR_SDPART_KIND_GC: SceSdstorSdpartKind = 1;
+pub const SCE_SDSTOR_SDPART_KIND_INVALID: SceSdstorSdpartKind = 0;
+pub const SCE_SDSTOR_SDPART_KIND_RM: SceSdstorSdpartKind = 2;
+pub const SCE_SDSTOR_SDPART_KIND_USD: SceSdstorSdpartKind = 3;
+pub type SceSdstorSdpartPort = crate::ctypes::c_uint;
+pub const SCE_SDSTOR_SDPART_PORT_EMMC: SceSdstorSdpartPort = 0;
+pub const SCE_SDSTOR_SDPART_PORT_GC: SceSdstorSdpartPort = 1;
+pub const SCE_SDSTOR_SDPART_PORT_PSUDO_MC: SceSdstorSdpartPort = 255;
+pub const SCE_SDSTOR_SDPART_PORT_RM: SceSdstorSdpartPort = 2;
+pub const SCE_SDSTOR_SDPART_PORT_UMA: SceSdstorSdpartPort = 3;
+pub const SCE_SDSTOR_SDPART_PORT_USD: SceSdstorSdpartPort = 4;
+pub type SceSdstorSdpartStat = crate::ctypes::c_uint;
+pub const SCE_SDSTOR_SDPART_STAT_ACT: SceSdstorSdpartStat = 1;
+pub const SCE_SDSTOR_SDPART_STAT_IGN: SceSdstorSdpartStat = 2;
+pub const SCE_SDSTOR_SDPART_STAT_INA: SceSdstorSdpartStat = 0;
 pub const SCE_SEEK_CUR: SceIoSeekMode = 1;
 pub const SCE_SEEK_END: SceIoSeekMode = 2;
 pub const SCE_SEEK_SET: SceIoSeekMode = 0;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceSelfAppInfo {
+    pub vendor_id: crate::ctypes::c_int,
+    pub self_type: crate::ctypes::c_int,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSelfAuthInfo {
@@ -29313,6 +31369,11 @@ pub type SceUsbstorVstorType = crate::ctypes::c_uint;
 pub const SCE_USBSTOR_VSTOR_TYPE_CDROM: SceUsbstorVstorType = 5;
 pub const SCE_USBSTOR_VSTOR_TYPE_FAT: SceUsbstorVstorType = 0;
 pub type SceUShort16 = u16;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsMount2 {
+    pub _address: u8,
+}
 pub const SCE_VIDEODEC_ERROR_ALREADY_USED: SceVideodecErrorCode = 2153908232;
 pub type SceVideodecErrorCode = crate::ctypes::c_uint;
 pub const SCE_VIDEODEC_ERROR_ES_BUFFER_FULL: SceVideodecErrorCode = 2153908234;
