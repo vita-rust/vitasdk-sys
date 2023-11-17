@@ -76,8 +76,7 @@ jobs:
           LIBCLANG_PATH: ${{ runner.temp }}/llvm/lib
           LLVM_CONFIG_PATH: ${{ runner.temp }}/llvm/bin/llvm-config
         run: |
-          cd build-util
-          cargo run -- bindgen
+          cargo run -p vitasdk-sys-build-util -- bindgen
 
       - name: Commit and create pull request
         id: create-pull-request
