@@ -7490,16 +7490,6 @@ extern "C" {
 extern "C" {
     #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
     #[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
-    pub fn ksceSblRSA2048CreateSignature(
-        rsa_signature: *mut SceSblRsaDataParam,
-        hash: *mut SceSblRsaDataParam,
-        private_key: *mut SceSblRsaPrivateKeyParam,
-        type_: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
     pub fn ksceSblRSA2048VerifySignature(
         rsa_signature: *mut SceSblRsaDataParam,
         hash: *mut SceSblRsaDataParam,
