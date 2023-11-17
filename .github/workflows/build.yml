@@ -243,6 +243,74 @@ jobs:
           context: Check missing libs
           sha: ${{ github.sha }}
 
+  # Checks if there's no diff when regenerating bindings 
+  check-bindings:
+    name: Check bindings
+    runs-on: ubuntu-latest
+    needs: install-vitasdk
+    timeout-minutes: 10
+    steps:
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Check bindings
+          sha: ${{ github.sha }}
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Restore vitasdk cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /opt/vitasdk
+          key: ${{ runner.os }}-vitasdk
+          fail-on-cache-miss: true
+
+      - name: Cache LLVM and Clang
+        id: cache-llvm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ runner.temp }}/llvm
+          key: llvm
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: ${{ env.LLVM_VERSION }}
+          directory: ${{ runner.temp }}/llvm
+          cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      - name: Regenerate bindings
+        env:
+          VITASDK: /opt/vitasdk
+          # From clang-sys
+          LIBCLANG_PATH: ${{ runner.temp }}/llvm/lib
+          LLVM_CONFIG_PATH: ${{ runner.temp }}/llvm/bin/llvm-config
+        run: |
+          cargo run -p vitasdk-sys-build-util -- bindgen
+
+      - name: Check diff
+        run: |
+          git add . && git diff --quiet && git diff --cached --quiet
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@v1.1.7
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Check bindings
+          sha: ${{ github.sha }}
+
   doc:
     name: Doc
     runs-on: ubuntu-latest
