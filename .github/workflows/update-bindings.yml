@@ -59,8 +59,8 @@ jobs:
 
       - name: Update vita-headers
         run: |
-          echo "VITA_HEADERS_HASH=$(git submodule status | grep vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
           git submodule update --recursive --remote vita-headers
+          echo "VITA_HEADERS_HASH=$(git submodule status | grep vita-headers | cut -d ' ' -f 2)" >> $GITHUB_ENV
 
       - uses: actions-rs/toolchain@v1
         with:
