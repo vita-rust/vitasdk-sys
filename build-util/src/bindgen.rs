@@ -107,7 +107,7 @@ impl bindgen::callbacks::ParseCallbacks for BindgenCallbacks {
 /// Bindgen items will be moved to the start.
 fn sort_items(items: &mut [Item]) {
     items.sort_by_cached_key(|item| {
-        let (key_0, key_1) =
+        let (precedence, ident) =
             match item {
                 Item::ExternCrate(i) => (0, i.ident.to_string()),
                 Item::Use(_i) => (1, String::new()),
@@ -178,7 +178,7 @@ fn sort_items(items: &mut [Item]) {
                     (10, String::new())
                 }
             };
-        consider_bindgen((key_0, normalize_str(&key_1)))
+        consider_bindgen((precedence, normalize_str(&ident)))
     });
 }
 
@@ -187,11 +187,12 @@ fn normalize_str(input: &str) -> String {
 }
 
 fn consider_bindgen(keys: (i32, String)) -> (i32, String) {
-    let new_key_0 = if keys.1.starts_with("bindgen") {
+    let (precedence, ident) = keys;
+    let new_precedence = if ident.starts_with("bindgen") {
         // Move bindgen items to the start of the file
-        keys.0 - 16
+        precedence - 16
     } else {
-        keys.0
+        precedence
     };
-    (new_key_0, keys.1)
+    (new_precedence, ident)
 }
