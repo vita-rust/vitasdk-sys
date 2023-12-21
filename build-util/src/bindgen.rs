@@ -49,11 +49,25 @@ pub fn generate(
     fmt_cmd.arg(bindings_output);
 
     log::info!("Running formatting command: {fmt_cmd:?}");
-    let exit_status = fmt_cmd.status().unwrap();
-    if exit_status.success() {
-        log::info!("Formatting command finished");
-    } else {
-        log::warn!("Formatting command failed with status: {exit_status:?}");
+
+    let fmt_result = fmt_cmd.status();
+    match fmt_result {
+        Ok(status) => {
+            if status.success() {
+                log::info!("Formatting command finished");
+            } else if is_build_rs {
+                log::warn!("Formatting command failed with status: {status:?}");
+            } else {
+                panic!("Formatting command failed with status: {status:?}");
+            }
+        }
+        Err(error) => {
+            if is_build_rs {
+                log::warn!("Formatting command failed with error: {error:?}");
+            } else {
+                panic!("Formatting command failed with error: {error:?}");
+            }
+        }
     }
 }
 
