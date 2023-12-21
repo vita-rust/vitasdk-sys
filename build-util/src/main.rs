@@ -198,12 +198,14 @@ fn bindgen() -> ExitCode {
         .unwrap()
         .join("src")
         .join("bindings.rs");
+    let is_build_rs = false;
+
     vitasdk_sys_build_util::bindgen::generate(
         &vita_headers.join("include"),
         &vita_headers.join("db"),
         &output,
         &vitasdk_sys_manifest,
-        false,
+        is_build_rs,
     );
 
     ExitCode::SUCCESS

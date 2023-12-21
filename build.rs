@@ -50,12 +50,14 @@ fn main() {
         );
         assert!(db.exists(), "VITASDK's `db` directory does not exist");
 
+        let is_build_rs = true;
+
         vitasdk_sys_build_util::bindgen::generate(
             &vita_headers_include,
             &db,
             &bindings_output,
             &vitasdk_sys_manifest(),
-            true,
+            is_build_rs,
         );
     }
 }
