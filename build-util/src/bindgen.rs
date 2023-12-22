@@ -90,31 +90,12 @@ fn generate_preprocessed_bindings(
         .formatter(bindgen::Formatter::None);
 
     let builder = if is_build_rs {
-        builder.parse_callbacks(Box::new(BindgenCallbacks::new()))
+        builder.parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
     } else {
         builder
     };
 
     builder.generate().expect("bindgen failed").to_string()
-}
-
-#[derive(Debug)]
-struct BindgenCallbacks;
-
-impl BindgenCallbacks {
-    fn new() -> Self {
-        BindgenCallbacks
-    }
-}
-
-impl bindgen::callbacks::ParseCallbacks for BindgenCallbacks {
-    fn include_file(&self, filename: &str) {
-        println!("cargo:rerun-if-changed={filename}")
-    }
-
-    fn read_env_var(&self, key: &str) {
-        println!("cargo:rerun-if-env-changed={key}");
-    }
 }
 
 /// Sorts items on alphabetical order based on normalized identifier.
