@@ -29,7 +29,7 @@ env_logger = { version = "0.10.1", optional = true }
 
 [build-dependencies.vitasdk-sys-build-util]
 path = "build-util"
-version = "0.1.0"
+version = "0.2.0"
 optional = true
 
 [package.metadata.docs.rs]
