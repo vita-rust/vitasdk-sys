@@ -847,80 +847,167 @@ pub type int_least32_t = i32;
 pub type int_least64_t = i64;
 pub type int_least8_t = i8;
 pub type intmax_t = crate::ctypes::c_longlong;
+#[cfg(feature = "SceKernelUtilsForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesDecrypt1(
         ctx: *mut SceAesContext,
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesDecrypt2(
         ctx: *mut SceAesContext,
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesEncrypt1(
         ctx: *mut SceAesContext,
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesEncrypt2(
         ctx: *mut SceAesContext,
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesInit1(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
         key: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesInit2(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
         key: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
     pub fn ksceAesInit3(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
         key: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn ksceDeflateDecompress(
+        dst: *mut crate::ctypes::c_void,
+        dst_size: SceSize,
+        src: *const crate::ctypes::c_void,
+        next: *mut *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceDeflateDecompressPartial(
+        dst: *mut crate::ctypes::c_void,
+        dst_size: SceSize,
+        src: *const crate::ctypes::c_void,
+        next: *mut *const crate::ctypes::c_void,
+        cbInfo: *mut SceDeflatePartialInputParam,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGzipDecompress(
+        dst: *mut crate::ctypes::c_void,
+        dst_size: SceSize,
+        src: *const crate::ctypes::c_void,
+        crc32: *mut u32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGzipGetComment(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
+    pub fn ksceGzipGetCompressedData(
+        src: *const crate::ctypes::c_void,
+    ) -> *const crate::ctypes::c_void;
+    pub fn ksceGzipGetInfo(
+        src: *const crate::ctypes::c_void,
+        extra: *mut *const crate::ctypes::c_void,
+        name: *mut *const crate::ctypes::c_char,
+        comment: *mut *const crate::ctypes::c_char,
+        crc: *mut crate::ctypes::c_ushort,
+        data: *mut *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGzipGetName(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
+    pub fn ksceGzipIsValid(src: *const crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceHmacSha1Digest(
+        key: *const crate::ctypes::c_void,
+        key_len: SceSize,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceHmacSha224Digest(
+        key: *const crate::ctypes::c_void,
+        key_len: SceSize,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceHmacSha256Digest(
+        key: *const crate::ctypes::c_void,
+        key_len: SceSize,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha1BlockInit(ctx: *mut SceSha1Context) -> crate::ctypes::c_int;
+    pub fn ksceSha1BlockResult(
+        ctx: *mut SceSha1Context,
+        result: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha1BlockUpdate(
+        ctx: *mut SceSha1Context,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha1Digest(
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha224BlockInit(ctx: *mut SceSha224Context) -> crate::ctypes::c_int;
+    pub fn ksceSha224BlockResult(
+        ctx: *mut SceSha224Context,
+        result: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha224BlockUpdate(
+        ctx: *mut SceSha224Context,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha224Digest(
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha256BlockInit(ctx: *mut SceSha256Context) -> crate::ctypes::c_int;
+    pub fn ksceSha256BlockResult(
+        ctx: *mut SceSha256Context,
+        result: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha256BlockUpdate(
+        ctx: *mut SceSha256Context,
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSha256Digest(
+        plain: *const crate::ctypes::c_void,
+        len: SceSize,
+        digest: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceZlibDecompress(
+        dst: *mut crate::ctypes::c_void,
+        dst_size: SceSize,
+        src: *const crate::ctypes::c_void,
+        adler32: *mut u32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceZlibGetCompressedData(
+        src: *const crate::ctypes::c_void,
+    ) -> *const crate::ctypes::c_void;
+    pub fn ksceZlibGetInfo(
+        src: *const crate::ctypes::c_void,
+        cmf: *mut crate::ctypes::c_uchar,
+        flg: *mut crate::ctypes::c_uchar,
+        dictid: *mut crate::ctypes::c_uint,
+        data: *mut *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceAppMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAppMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgrForDriver_stub")))]
     pub fn ksceAppMgrKillProcess(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgrForDriver_stub")))]
     pub fn ksceAppMgrLaunchAppByPath(
         path: *const crate::ctypes::c_char,
         args: *const crate::ctypes::c_char,
@@ -930,478 +1017,258 @@ extern "C" {
         unk: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceBtForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtAvrcpReadVolume(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtAvrcpSendButton(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtAvrcpSendVolume(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtAvrcpSetPlayStatus(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtAvrcpSetTitle(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtDeleteRegisteredInfo(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtFreqAudio(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetConfiguration() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetConnectingInfo(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetDeviceName(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         name: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetInfoForTest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetLastError() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetRegisteredInfo(
         device: crate::ctypes::c_int,
         unk: crate::ctypes::c_int,
         info: *mut SceBtRegisteredInfo,
         info_size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetStatusForTest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtGetVidPid(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         vid_pid: *mut crate::ctypes::c_ushort,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtHfpGetCurrentPhoneNumber(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtHfpRequest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtHidGetReportDescriptor(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         buffer: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtHidTransfer(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         request: *mut SceBtHidRequest,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtPushBip(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtPushOpp(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtReadEvent(
         events: *mut SceBtEvent,
         num_events: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtRecvAudio(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtRecvBip(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtRecvOpp(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtRecvSpp(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtRegisterCallback(
         cb: SceUID,
         unused: crate::ctypes::c_int,
         flags1: crate::ctypes::c_int,
         flags2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtReplyPinCode(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         code: *mut crate::ctypes::c_uchar,
         length: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtReplyUserConfirmation(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
         unk: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSendAudio(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSendL2capEchoRequestForTest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSendSpp(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetConfiguration(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetContentProtection(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetInquiryResultForTest(arg1: *mut crate::ctypes::c_uchar)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetInquiryScan(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetL2capEchoResponseBufferForTest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtSetStatusForTest(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStartAudio(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStartConnect(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStartDisconnect(
         mac0: crate::ctypes::c_uint,
         mac1: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStartInquiry() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStopAudio(
         r0: crate::ctypes::c_int,
         r1: crate::ctypes::c_int,
         r2: crate::ctypes::c_int,
         r3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtStopInquiry() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceBtForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
     pub fn ksceBtUnregisterCallback(cb: SceUID) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceCtrlForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlGetMaskForAll(mask: *mut u32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlGetMaskForNonShell(mask: *mut u32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlGetSamplingMode(pMode: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlPeekBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlPeekBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlReadBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlReadBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlRegisterVirtualControllerDriver(
         driver: *mut SceCtrlVirtualControllerDriver,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlSetAnalogEmulation(
         port: crate::ctypes::c_uint,
         slot: crate::ctypes::c_uchar,
@@ -1415,10 +1282,6 @@ extern "C" {
         kernel_rY: crate::ctypes::c_uchar,
         uiMake: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlSetButtonEmulation(
         port: crate::ctypes::c_uint,
         slot: crate::ctypes::c_uchar,
@@ -1426,144 +1289,37 @@ extern "C" {
         kernelButtons: crate::ctypes::c_uint,
         uiMake: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlSetRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
         pRule: *const SceCtrlRapidFireRule,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlSetSamplingMode(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlUpdateMaskForAll(
         clear_mask: crate::ctypes::c_int,
         set_mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrlForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
     pub fn ksceCtrlUpdateMaskForNonShell(
         clear_mask: crate::ctypes::c_int,
         set_mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(any(
+    feature = "SceDebugForKernel_363_stub",
+    feature = "SceDebugForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceDebugForKernel_363_stub",
+        feature = "SceDebugForKernel_stub"
+    )))
+)]
 extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
     pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
     pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceDebugLedInvokeHandle0(
-        a1: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceDebugLedInvokeHandle1(
-        a1: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceDebugLedRegisterHandle0(
-        func: ::core::option::Option<
-            unsafe extern "C" fn(
-                a1: crate::ctypes::c_int,
-                a2: crate::ctypes::c_int,
-                a3: crate::ctypes::c_int,
-                a4: crate::ctypes::c_int,
-            ),
-        >,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceDebugLedRegisterHandle1(
-        func: ::core::option::Option<
-            unsafe extern "C" fn(
-                a1: crate::ctypes::c_int,
-                a2: crate::ctypes::c_int,
-                a3: crate::ctypes::c_int,
-                a4: crate::ctypes::c_int,
-            ),
-        >,
-    );
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
     pub fn ksceDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
     pub fn ksceDebugRegisterPutcharHandler(
         func: ::core::option::Option<
             unsafe extern "C" fn(
@@ -1573,19 +1329,6 @@ extern "C" {
         >,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceDebugForKernel_stub",
-        feature = "SceDebugForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceDebugForKernel_stub",
-            feature = "SceDebugForKernel_363_stub"
-        )))
-    )]
     pub fn ksceDebugSetHandlers(
         func: ::core::option::Option<
             unsafe extern "C" fn(
@@ -1597,381 +1340,326 @@ extern "C" {
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDebugLedForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceDeflateDecompress(
-        dst: *mut crate::ctypes::c_void,
-        dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        next: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceDebugLedInvokeHandle0(
+        a1: crate::ctypes::c_int,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+        a4: crate::ctypes::c_int,
+    );
+    pub fn ksceDebugLedInvokeHandle1(
+        a1: crate::ctypes::c_int,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+        a4: crate::ctypes::c_int,
+    );
+    pub fn ksceDebugLedRegisterHandle0(
+        func: ::core::option::Option<
+            unsafe extern "C" fn(
+                a1: crate::ctypes::c_int,
+                a2: crate::ctypes::c_int,
+                a3: crate::ctypes::c_int,
+                a4: crate::ctypes::c_int,
+            ),
+        >,
+    );
+    pub fn ksceDebugLedRegisterHandle1(
+        func: ::core::option::Option<
+            unsafe extern "C" fn(
+                a1: crate::ctypes::c_int,
+                a2: crate::ctypes::c_int,
+                a3: crate::ctypes::c_int,
+                a4: crate::ctypes::c_int,
+            ),
+        >,
+    );
+    pub fn ksceKernelGetGPI() -> SceUInt32;
+    pub fn ksceKernelGetGPO() -> SceUInt32;
+    pub fn ksceKernelSetGPI(gpi: SceUInt32);
+    pub fn ksceKernelSetGPO(gpo: SceUInt32);
 }
+#[cfg(feature = "SceDisplayForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceDeflateDecompressPartial(
-        dst: *mut crate::ctypes::c_void,
-        dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        next: *mut *const crate::ctypes::c_void,
-        cbInfo: *mut SceDeflatePartialInputParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayGetMaximumFrameBufResolution(
         width: *mut crate::ctypes::c_int,
         height: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayGetProcFrameBufInternal(
         pid: SceUID,
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         info: *mut SceDisplayFrameBufInfo,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayRegisterFrameBufCallback(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayRegisterFrameBufCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayRegisterVblankStartCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplaySetFrameBufInternal(
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         pParam: *const SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplaySetInvertColors(
         display: crate::ctypes::c_int,
         enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplaySetOwner(
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         pid: SceUID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayUnregisterVblankStartCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartCBInternal(
         display: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartInternal(
         display: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartMultiCBInternal(
         display: crate::ctypes::c_int,
         vcount: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplayForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
     pub fn ksceDisplayWaitVblankStartMultiInternal(
         display: crate::ctypes::c_int,
         vcount: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDmacmgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
     pub fn ksceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
     pub fn ksceDmacMemset(
         dst: *mut crate::ctypes::c_void,
         c: crate::ctypes::c_int,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpAlloc(name: *const crate::ctypes::c_char) -> SceKernelDmaOpId;
+    pub fn ksceKernelDmaOpAssign(
+        opid: SceKernelDmaOpId,
+        dmac: SceKernelDmacId,
+        channel: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpConcatenate(
+        opid: SceKernelDmaOpId,
+        pTag: *mut SceKernelDmaOpTag,
+        flag: SceKernelDmaOpFlag,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpDeQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpEnQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpFree(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpQuit(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpSetCallback(
+        opid: SceKernelDmaOpId,
+        callback: SceKernelDmaOpCallback,
+        pUserData: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpSetupChain(
+        opid: SceKernelDmaOpId,
+        pTag: *mut SceKernelDmaOpTag,
+        pParam: *mut SceKernelDmaOpChainParam,
+        flag: SceKernelDmaOpFlag,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpSetupDirect(
+        opid: SceKernelDmaOpId,
+        pParam: *mut SceKernelDmaOpDirectParam,
+        flag: SceKernelDmaOpFlag,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDmaOpSync(
+        opid: SceKernelDmaOpId,
+        syncMode: SceKernelDmaOpSyncMode,
+        pTimeout: *mut SceUInt32,
+        ppErrorTag: *mut *mut SceKernelDmaOpTag,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDsiForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiDcsRead(
         head: crate::ctypes::c_int,
         param: crate::ctypes::c_ushort,
         buff: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiDcsShortWrite(
         head: crate::ctypes::c_int,
         param0: crate::ctypes::c_ushort,
         param1: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiDisableHead(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiEnableHead(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiGenericReadRequest(
         head: crate::ctypes::c_int,
         param: crate::ctypes::c_int,
         buff: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiGenericShortWrite(
         head: crate::ctypes::c_int,
         param0: crate::ctypes::c_int,
         param1: crate::ctypes::c_int,
         param2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiGetPixelClock(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiGetVicResolution(
         vic: crate::ctypes::c_int,
         width: *mut crate::ctypes::c_int,
         height: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiSendBlankingPacket(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiSetLanesAndPixelSize(
         head: crate::ctypes::c_int,
         lanes: crate::ctypes::c_int,
         pixelsize: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDsiForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
     pub fn ksceDsiSetVic(
         head: crate::ctypes::c_int,
         vic: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDebugForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
     pub fn ksceEventLogGetInfo(
         buf: *mut crate::ctypes::c_void,
         buf_size: SceSize,
         read_blocks: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelAssert(
+        condition: SceBool,
+        dbginfo: *const SceKernelDebugInfo,
+        lr: *const crate::ctypes::c_void,
+    );
+    pub fn ksceKernelAssertLevel(
+        level: SceUInt32,
+        condition: SceBool,
+        dbginfo: *const SceKernelDebugInfo,
+        lr: *const crate::ctypes::c_void,
+    );
+    pub fn ksceKernelGetAssertLevel() -> crate::ctypes::c_int;
+    pub fn ksceKernelGetTtyInfo(
+        buf: *mut crate::ctypes::c_char,
+        buf_size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelPanic(
+        dbginfo: *const SceKernelDebugInfo,
+        lr: *const crate::ctypes::c_void,
+    ) -> !;
+    pub fn ksceKernelPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
+    pub fn ksceKernelPrintfAssertLevel(
+        level: SceUInt32,
+        condition: SceBool,
+        dbginfo: *const SceKernelDebugInfo,
+        lr: *const crate::ctypes::c_void,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    );
+    pub fn ksceKernelPrintfLevel(
+        level: SceUInt32,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelPrintfLevelWithInfo(
+        level: SceUInt32,
+        flags: SceUInt32,
+        dbginfo: *const SceKernelDebugInfo,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelPrintfPanic(
+        dbginfo: *const SceKernelDebugInfo,
+        lr: *const crate::ctypes::c_void,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> !;
+    pub fn ksceKernelPrintfWithInfo(
+        flags: SceUInt32,
+        dbginfo: *const SceKernelDebugInfo,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelVprintf(
+        fmt: *const crate::ctypes::c_char,
+        arg: va_list,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelVprintfLevel(
+        level: SceUInt32,
+        fmt: *const crate::ctypes::c_char,
+        arg: va_list,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(any(
+    feature = "SceExcpmgrForKernel_363_stub",
+    feature = "SceExcpmgrForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceExcpmgrForKernel_363_stub",
+        feature = "SceExcpmgrForKernel_stub"
+    )))
+)]
 extern "C" {
-    #[cfg(any(
-        feature = "SceExcpmgrForKernel_stub",
-        feature = "SceExcpmgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceExcpmgrForKernel_stub",
-            feature = "SceExcpmgrForKernel_363_stub"
-        )))
-    )]
     pub fn ksceExcpmgrGetData() -> *mut SceExcpmgrData;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceExcpmgrForKernel_stub",
-        feature = "SceExcpmgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceExcpmgrForKernel_stub",
-            feature = "SceExcpmgrForKernel_363_stub"
-        )))
-    )]
     pub fn ksceExcpmgrRegisterHandler(
         kind: SceExcpKind,
         priority: crate::ctypes::c_int,
         handler: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceFios2KernelForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceFios2KernelForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
     pub fn ksceFiosKernelOverlayAdd(
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2KernelForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
     pub fn ksceFiosKernelOverlayAddForProcess(
         pid: SceUID,
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2KernelForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
     pub fn ksceFiosKernelOverlayRemoveForProcess(
         pid: SceUID,
         id: SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2KernelForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
     pub fn ksceFiosKernelOverlayResolveSync(
         pid: SceUID,
         resolveFlag: crate::ctypes::c_int,
@@ -1980,878 +1668,84 @@ extern "C" {
         maxPath: SceSize,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceGpioForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioAcquireIntr(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioGetIntrMode(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioGetPortMode(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioPortClear(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioPortRead(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioPortReset(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioPortSet(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioQueryIntr(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioSetIntrMode(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
         intr_mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpioForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
     pub fn ksceGpioSetPortMode(
         bus: crate::ctypes::c_int,
         port: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSysmemForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceGpuEs4ForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
-    pub fn ksceGpuGetRegisterDump(
-        dst: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpuEs4ForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
-    pub fn ksceGpuMmuMapMemory(
-        mmuContext: *mut crate::ctypes::c_void,
-        vaddr: u32,
-        base: *mut crate::ctypes::c_void,
-        size: u32,
-        flags: u32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGpuEs4ForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
-    pub fn ksceGpuMmuUnmapMemory(
-        mmuContext: *mut crate::ctypes::c_void,
-        vaddr: u32,
-        size: u32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceGUIDClose(guid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceGUIDGetUIDVectorByClass(
-        cls: *mut SceClass,
-        vis_level: crate::ctypes::c_int,
-        vector: *mut SceUID,
-        num: SceSize,
-        ret_num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceSysmemForKernel_stub",
-        feature = "SceSysmemForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceSysmemForKernel_stub",
-            feature = "SceSysmemForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceGUIDKernelCreateWithOpt(
-        sce_class: *mut SceClass,
-        name: *const crate::ctypes::c_char,
-        opt: *mut SceGUIDKernelCreateOpt,
-        obj: *mut *mut SceObjectBase,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceGUIDReferObject(
         guid: SceUID,
         object: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceGUIDReferObjectWithClass(
         guid: SceUID,
         sce_class: *mut SceClass,
         object: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceGUIDReferObjectWithClassLevel(
         guid: SceUID,
         pClass: *mut SceClass,
         level: SceUInt32,
         entry: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceGUIDReleaseObject(guid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipDecompress(
-        dst: *mut crate::ctypes::c_void,
-        dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        crc32: *mut u32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipGetComment(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipGetCompressedData(
-        src: *const crate::ctypes::c_void,
-    ) -> *const crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipGetInfo(
-        src: *const crate::ctypes::c_void,
-        extra: *mut *const crate::ctypes::c_void,
-        name: *mut *const crate::ctypes::c_char,
-        comment: *mut *const crate::ctypes::c_char,
-        crc: *mut crate::ctypes::c_ushort,
-        data: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipGetName(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceGzipIsValid(src: *const crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceHmacSha1Digest(
-        key: *const crate::ctypes::c_void,
-        key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceHmacSha224Digest(
-        key: *const crate::ctypes::c_void,
-        key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceHmacSha256Digest(
-        key: *const crate::ctypes::c_void,
-        key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cInit(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cReset(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cSetDebugHandlers(
-        bus: crate::ctypes::c_int,
-        debug_handlers: *mut SceI2cDebugHandlers,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cTransferRead(
-        bus: crate::ctypes::c_int,
-        addr: crate::ctypes::c_uint,
-        buffer: *mut crate::ctypes::c_uchar,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cTransferWrite(
-        bus: crate::ctypes::c_int,
-        addr: crate::ctypes::c_uint,
-        buffer: *const crate::ctypes::c_uchar,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceI2cForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
-    pub fn ksceI2cTransferWriteRead(
-        bus: crate::ctypes::c_int,
-        write_addr: crate::ctypes::c_uint,
-        write_buffer: *mut crate::ctypes::c_uchar,
-        write_size: crate::ctypes::c_int,
-        read_addr: crate::ctypes::c_uint,
-        read_buffer: *mut crate::ctypes::c_uchar,
-        read_size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIdStorageForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIdStorageForDriver_stub")))]
-    pub fn ksceIdStorageReadLeaf(
-        leafnum: SceSize,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIdStorageForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIdStorageForDriver_stub")))]
-    pub fn ksceIdStorageWriteLeaf(
-        leafnum: SceSize,
-        buf: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIftuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIftuForDriver_stub")))]
-    pub fn ksceIftuCsc(
-        dst: *mut SceIftuFrameBuf,
-        src: *mut SceIftuPlaneState,
-        params: *mut SceIftuConvParams,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoChstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoChstatByFd(
-        fd: SceUID,
-        stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoClose(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoDevctl(
-        dev: *const crate::ctypes::c_char,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetFileInfo(
-        fd: SceUID,
-        pid: SceUID,
-        info: *mut SceIofileInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetGUIDFdListForDebugger(
-        vis_level: crate::ctypes::c_int,
-        dst: *mut SceIoFdInfo,
-        max_size: SceSize,
-        res_size: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetPUIDFdListForDebugger(
-        vis_level: crate::ctypes::c_int,
-        dst: *mut SceIoFdInfo,
-        max_size: SceSize,
-        res_size: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetRemoteKPLSData(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoMount(
-        id: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-        a6: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoOpen(
-        file: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-        mode: SceMode,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoPread(
-        fd: SceUID,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoPwrite(
-        fd: SceUID,
-        data: *const crate::ctypes::c_void,
-        size: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoRead(
-        fd: SceUID,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoRename(
-        oldname: *const crate::ctypes::c_char,
-        newname: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoSync(
-        device: *const crate::ctypes::c_char,
-        unk: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoSyncByFd(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoUmount(
-        id: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
-    pub fn ksceIoWrite(
-        fd: SceUID,
-        data: *const crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderCsc(
-        context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        inBuffer: *const crate::ctypes::c_void,
-        inPitch: crate::ctypes::c_int,
-        inPixelFormat: SceJpegEncoderPixelFormat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderEncode(
-        context: SceJpegEncoderContext,
-        inBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderInit(
-        context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
-        pixelformat: SceJpegEncoderPixelFormat,
-        outBuffer: *mut crate::ctypes::c_void,
-        outSize: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderSetCompressionRatio(
-        context: SceJpegEncoderContext,
-        ratio: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderSetHeaderMode(
-        context: SceJpegEncoderContext,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderSetOutputAddr(
-        context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        outSize: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvcodecForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
-    pub fn ksceJpegEncoderSetValidRegion(
-        context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelAllocHeapMemory(uid: SceUID, size: SceSize) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelAllocHeapMemoryWithOption(
         heapid: SceUID,
         len: SceSize,
         opt: *mut SceAllocOpt,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelAllocMemBlock(
         name: *const crate::ctypes::c_char,
         type_: SceKernelMemBlockType,
         size: SceSize,
         opt: *mut SceKernelAllocMemBlockKernelOpt,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelAssert(
-        condition: SceBool,
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelAssertLevel(
-        level: SceUInt32,
-        condition: SceBool,
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCancelMsgPipe(
-        uid: SceUID,
-        psend: *mut crate::ctypes::c_int,
-        precv: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCancelMutex(
-        mutexid: SceUID,
-        newCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelChangeThreadPriority(
-        thid: SceUID,
-        priority: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelChangeThreadSuspendStatus(
-        thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCheckCallback() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDipswForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
-    pub fn ksceKernelCheckDipsw(bit: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDipswForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
-    pub fn ksceKernelClearDipsw(bit: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelClearEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelClearIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCorelockInitialize(ctx: *mut SceCorelockContext);
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCorelockLock(ctx: *mut SceCorelockContext, core: SceUInt32);
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCorelockUnlock(ctx: *mut SceCorelockContext);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheInvalidateAll();
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackAll();
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceCpuForKernel_stub", feature = "SceCpuForKernel_363_stub")))
-    )]
-    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateCallback(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
-        func: SceKernelCallbackFunction,
-        arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelCreateClass(
         cls: *mut SceClass,
         name: *const crate::ctypes::c_char,
@@ -2860,936 +1754,40 @@ extern "C" {
         create: SceClassCallback,
         destroy: SceClassCallback,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateCond(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        mutexId: SceUID,
-        option: *const SceKernelCondOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateEventFlag(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        bits: crate::ctypes::c_int,
-        opt: *mut SceKernelEventFlagOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelCreateHeap(
         name: *const crate::ctypes::c_char,
         size: SceSize,
         opt: *mut SceKernelHeapCreateOpt,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateMsgPipe(
-        name: *const crate::ctypes::c_char,
-        type_: crate::ctypes::c_int,
-        attr: crate::ctypes::c_int,
-        bufSize: SceSize,
-        opt: *mut crate::ctypes::c_void,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateMutex(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        initCount: crate::ctypes::c_int,
-        option: *mut SceKernelMutexOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelCreateProcess(
-        titleid: *const crate::ctypes::c_char,
-        type_: SceKernelProcessType,
-        path: *const crate::ctypes::c_char,
-        opt: *mut crate::ctypes::c_void,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
-    pub fn ksceKernelCreateProcessLocalStorage(
-        name: *const crate::ctypes::c_char,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateSema(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        initVal: crate::ctypes::c_int,
-        maxVal: crate::ctypes::c_int,
-        option: *mut SceKernelSemaOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelCreateThread(
-        name: *const crate::ctypes::c_char,
-        entry: SceKernelThreadEntry,
-        initPriority: crate::ctypes::c_int,
-        stackSize: SceSize,
-        attr: SceUInt,
-        cpuAffinityMask: crate::ctypes::c_int,
-        option: *const SceKernelThreadOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDebugResumeThread(
-        thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDebugSuspendThread(
-        thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteEventFlag(evfid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelDeleteHeap(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelDisableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelDisableSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpAlloc(name: *const crate::ctypes::c_char) -> SceKernelDmaOpId;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpAssign(
-        opid: SceKernelDmaOpId,
-        dmac: SceKernelDmacId,
-        channel: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpConcatenate(
-        opid: SceKernelDmaOpId,
-        pTag: *mut SceKernelDmaOpTag,
-        flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpDeQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpEnQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpFree(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpQuit(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpSetCallback(
-        opid: SceKernelDmaOpId,
-        callback: SceKernelDmaOpCallback,
-        pUserData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpSetupChain(
-        opid: SceKernelDmaOpId,
-        pTag: *mut SceKernelDmaOpTag,
-        pParam: *mut SceKernelDmaOpChainParam,
-        flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpSetupDirect(
-        opid: SceKernelDmaOpId,
-        pParam: *mut SceKernelDmaOpDirectParam,
-        flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDmacmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
-    pub fn ksceKernelDmaOpSync(
-        opid: SceKernelDmaOpId,
-        syncMode: SceKernelDmaOpSyncMode,
-        pTimeout: *mut SceUInt32,
-        ppErrorTag: *mut *mut SceKernelDmaOpTag,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelEnableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelEnableSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelEnqueueWorkQueue(
-        uid: SceUID,
-        name: *const crate::ctypes::c_char,
-        work: SceKernelWorkQueueWorkFunction,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceSysmemForKernel_stub",
-        feature = "SceSysmemForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceSysmemForKernel_stub",
-            feature = "SceSysmemForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelFindClassByName(
-        name: *const crate::ctypes::c_char,
-        cls: *mut *mut SceClass,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelFindMemBlockByAddr(
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelFindMemBlockByAddrForPid(
         pid: SceUID,
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelFreeHeapMemory(
         uid: SceUID,
         ptr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelGetAssertLevel() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDipswForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
-    pub fn ksceKernelGetDipswInfo(idx: crate::ctypes::c_uint) -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetEventFlagInfo(
-        evfid: SceUID,
-        info: *mut SceKernelEventFlagInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetFastMutexInfo(
-        fast_mutex: *mut SceKernelFastMutex,
-        info: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceKernelGetGPI() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceKernelGetGPO() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelGetIntrPriority(
-        intr_code: crate::ctypes::c_int,
-        priority: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelGetIntrTarget(
-        intr_code: crate::ctypes::c_int,
-        cpu_target_list: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetLibraryInfoForDebugger(
-        pid: SceUID,
-        library_id: SceUID,
-        info: *mut SceKernelModuleLibraryInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetLwCondInfo(
-        lwcond_id: SceUID,
-        info: *mut SceKernelLwCondInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetLwMutexInfo(
-        lwmtxid: SceUID,
-        info: *mut SceKernelLwMutexInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelGetMemBlockAllocMapSize(
         memid: SceUID,
         alloc_map_size: *mut SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelGetMemBlockBase(
         uid: SceUID,
         base: *mut *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceSysmemForKernel_stub",
-        feature = "SceSysmemForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceSysmemForKernel_stub",
-            feature = "SceSysmemForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelGetMemBlockType(
-        uid: SceUID,
-        type_: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleCB(
-        modid: SceUID,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleCBByAddr(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleIdByAddrForDebugger(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelGetModuleInfo(
-        pid: SceUID,
-        modid: SceUID,
-        info: *mut SceKernelModuleInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleInfoForDebugger(
-        pid: SceUID,
-        infolists: *mut SceKernelModuleListInfo,
-        num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModuleInfoMinByAddr(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-        module_nid: *mut u32,
-        program_text_addr: *mut *const crate::ctypes::c_void,
-        module_name: *mut SceKernelModuleName,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelGetModuleList(
-        pid: SceUID,
-        flags1: crate::ctypes::c_int,
-        flags2: crate::ctypes::c_int,
-        modids: *mut SceUID,
-        num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelGetModulePath(
-        modid: SceUID,
-        path: *mut crate::ctypes::c_char,
-        pathlen: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetMsgPipeInfo(
-        msgpipe_id: SceUID,
-        info: *mut SceKernelMsgPipeInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetMutexInfo(
-        mutexid: SceUID,
-        info: *mut SceKernelMutexInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelGetPidContext(
         pid: SceUID,
         ctx: *mut *mut SceKernelProcessContext,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessId() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessIdFromTLS() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessInfo(
-        pid: SceUID,
-        info: *mut SceKernelProcessInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceProcessmgrForKernel_stub",
-        feature = "SceProcessmgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceProcessmgrForKernel_stub",
-            feature = "SceProcessmgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessLocalStorageAddr(
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessLocalStorageAddrForPid(
-        pid: SceUID,
-        key: crate::ctypes::c_int,
-        out_addr: *mut *mut crate::ctypes::c_void,
-        create_if_doesnt_exist: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelGetProcessSelfAuthInfo(
-        pid: SceUID,
-        self_auth_info: *mut SceSelfAuthInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
-    pub fn ksceKernelGetProcessStatus(
-        pid: SceUID,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetSemaInfo(
-        semaid: SceUID,
-        info: *mut SceKernelSemaInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetSystemTimeLow() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetSystemTimeWide() -> SceInt64;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceThreadmgrForKernel_stub",
-        feature = "SceThreadmgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceThreadmgrForKernel_stub",
-            feature = "SceThreadmgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelGetThreadContextInfo(
-        pInfo: *mut SceKernelThreadContextInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadCpuRegisters(
-        thid: SceUID,
-        registers: *mut SceThreadCpuRegisters,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadId() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadIdList(
-        pid: SceUID,
-        ids: *mut SceUID,
-        n: crate::ctypes::c_int,
-        copy_count: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadInfo(
-        thid: SceUID,
-        info: *mut SceKernelThreadInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadInfoForDebugger(
-        thid: SceUID,
-        a2: crate::ctypes::c_int,
-        pInfo: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetThreadTLSAddr(
-        thid: SceUID,
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelGetTtyInfo(
-        buf: *mut crate::ctypes::c_char,
-        buf_size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelGetUidClass() -> *mut SceClass;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetUserThreadId(thid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelGetVfpRegisterForDebugger(
-        thid: SceUID,
-        pVfpRegister: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelInitializeFastMutex(
-        fast_mutex: *mut SceKernelFastMutex,
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        opt: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcEventForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcEventForDriver_stub")))]
-    pub fn ksceKernelInvokeProcEventHandler(
-        pid: SceUID,
-        event_id: crate::ctypes::c_int,
-        event_type: crate::ctypes::c_int,
-        param: *mut crate::ctypes::c_void,
-        a5: *mut crate::ctypes::c_void,
-        a6: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelIsIntrAllowedInCurrentContext(
-        intr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelIsIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelLoadModule(
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelLoadModuleForPid(
-        pid: SceUID,
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelLoadStartModule(
-        path: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelLoadStartModuleForPid(
-        pid: SceUID,
-        path: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelLoadStartSharedModuleForPid(
-        pid: SceUID,
-        path: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMapBlockUserVisible(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMapUserBlock(
         name: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
@@ -3800,295 +1798,74 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut crate::ctypes::c_uint,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemBlockRelease(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemcpyFromUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelMemcpyToUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelMemcpyToUserRo(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
-    pub fn ksceKernelMemcpyToUserRx(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeRelease(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeReleaseForPid(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeReleaseWithPerm(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeRetain(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeRetainForPid(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelMemRangeRetainWithPerm(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelMountBootfs(
-        bootImagePath: *const crate::ctypes::c_char,
+    pub fn ksceKernelMemcpyFromUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPanic(
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-    ) -> !;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelPollEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
+    pub fn ksceKernelMemcpyToUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelSuspendForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelSuspendForDriver_stub")))]
-    pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintfAssertLevel(
-        level: SceUInt32,
-        condition: SceBool,
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintfLevel(
-        level: SceUInt32,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintfLevelWithInfo(
-        level: SceUInt32,
-        flags: SceUInt32,
-        dbginfo: *const SceKernelDebugInfo,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintfPanic(
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> !;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelPrintfWithInfo(
-        flags: SceUInt32,
-        dbginfo: *const SceKernelDebugInfo,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcessGetContext(
-        pid: SceUID,
-        ctx: *mut *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelProcessSwitchContext(
-        new_context: *const SceKernelProcessContext,
-        prev_context: *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcMemcpyFromUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcMemcpyToUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceSysmemForKernel_stub",
-        feature = "SceSysmemForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceSysmemForKernel_stub",
-            feature = "SceSysmemForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelProcMemcpyToUserRx(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcStrncpyFromUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcStrncpyToUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcStrnlenUser(
         pid: SceUID,
         s: *const crate::ctypes::c_char,
         n: SceSize,
     ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcUserMap(
         pid: SceUID,
         name: *const crate::ctypes::c_char,
@@ -4099,20 +1876,509 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
     pub fn ksceKernelProcUserMemcpy(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelProcessGetContext(
+        pid: SceUID,
+        ctx: *mut *mut SceKernelProcessContext,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelProcessSwitchContext(
+        new_context: *const SceKernelProcessContext,
+        prev_context: *mut SceKernelProcessContext,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
+    pub fn ksceKernelStrncpyFromUser(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+    pub fn ksceKernelStrncpyToUser(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+    pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
+    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelUserMap(
+        name: *const crate::ctypes::c_char,
+        permission: crate::ctypes::c_int,
+        user_buf: *const crate::ctypes::c_void,
+        size: SceSize,
+        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_size: *mut SceSize,
+        kernel_offset: *mut SceUInt32,
+    ) -> SceUID;
+    pub fn ksceKernelUserMemcpy(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelVARangeToPAVector(
+        va_range: *const SceKernelVARange,
+        pa_vector: *mut SceKernelPAVector,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelVAtoPA(
+        va: *const crate::ctypes::c_void,
+        pa: *mut usize,
+    ) -> crate::ctypes::c_int;
+    pub fn kscePUIDClose(pid: SceUID, puid: SceUID) -> crate::ctypes::c_int;
+    pub fn kscePUIDOpenByGUID(pid: SceUID, guid: SceUID) -> SceUID;
+    pub fn kscePUIDtoGUID(pid: SceUID, puid: SceUID) -> SceUID;
 }
+#[cfg(feature = "SceSysmemForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
+    pub fn ksceGUIDGetUIDVectorByClass(
+        cls: *mut SceClass,
+        vis_level: crate::ctypes::c_int,
+        vector: *mut SceUID,
+        num: SceSize,
+        ret_num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
+    pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
+    pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
+    pub fn ksceKernelMemcpyToUserRo(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelMemcpyToUserRx(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(any(
+    feature = "SceSysmemForKernel_363_stub",
+    feature = "SceSysmemForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceSysmemForKernel_363_stub",
+        feature = "SceSysmemForKernel_stub"
+    )))
+)]
+extern "C" {
+    pub fn ksceGUIDKernelCreateWithOpt(
+        sce_class: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        opt: *mut SceGUIDKernelCreateOpt,
+        obj: *mut *mut SceObjectBase,
+    ) -> SceUID;
+    pub fn ksceKernelFindClassByName(
+        name: *const crate::ctypes::c_char,
+        cls: *mut *mut SceClass,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetMemBlockType(
+        uid: SceUID,
+        type_: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelProcMemcpyToUserRx(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceI2cForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
+extern "C" {
+    pub fn ksceI2cInit(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceI2cReset(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceI2cSetDebugHandlers(
+        bus: crate::ctypes::c_int,
+        debug_handlers: *mut SceI2cDebugHandlers,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceI2cTransferRead(
+        bus: crate::ctypes::c_int,
+        addr: crate::ctypes::c_uint,
+        buffer: *mut crate::ctypes::c_uchar,
+        size: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceI2cTransferWrite(
+        bus: crate::ctypes::c_int,
+        addr: crate::ctypes::c_uint,
+        buffer: *const crate::ctypes::c_uchar,
+        size: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceI2cTransferWriteRead(
+        bus: crate::ctypes::c_int,
+        write_addr: crate::ctypes::c_uint,
+        write_buffer: *mut crate::ctypes::c_uchar,
+        write_size: crate::ctypes::c_int,
+        read_addr: crate::ctypes::c_uint,
+        read_buffer: *mut crate::ctypes::c_uchar,
+        read_size: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceIdStorageForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIdStorageForDriver_stub")))]
+extern "C" {
+    pub fn ksceIdStorageReadLeaf(
+        leafnum: SceSize,
+        buf: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIdStorageWriteLeaf(
+        leafnum: SceSize,
+        buf: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceIftuForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIftuForDriver_stub")))]
+extern "C" {
+    pub fn ksceIftuCsc(
+        dst: *mut SceIftuFrameBuf,
+        src: *mut SceIftuPlaneState,
+        params: *mut SceIftuConvParams,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceIofilemgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
+extern "C" {
+    pub fn ksceIoChstat(
+        file: *const crate::ctypes::c_char,
+        stat: *mut SceIoStat,
+        bits: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoChstatByFd(
+        fd: SceUID,
+        stat: *mut SceIoStat,
+        bits: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoClose(fd: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceIoDevctl(
+        dev: *const crate::ctypes::c_char,
+        cmd: crate::ctypes::c_uint,
+        indata: *mut crate::ctypes::c_void,
+        inlen: crate::ctypes::c_int,
+        outdata: *mut crate::ctypes::c_void,
+        outlen: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
+    pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
+    pub fn ksceIoGetFileInfo(
+        fd: SceUID,
+        pid: SceUID,
+        info: *mut SceIofileInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoGetGUIDFdListForDebugger(
+        vis_level: crate::ctypes::c_int,
+        dst: *mut SceIoFdInfo,
+        max_size: SceSize,
+        res_size: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoGetPUIDFdListForDebugger(
+        vis_level: crate::ctypes::c_int,
+        dst: *mut SceIoFdInfo,
+        max_size: SceSize,
+        res_size: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoGetRemoteKPLSData(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoGetstat(
+        file: *const crate::ctypes::c_char,
+        stat: *mut SceIoStat,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
+    pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
+    pub fn ksceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+    pub fn ksceIoMount(
+        id: crate::ctypes::c_int,
+        path: *const crate::ctypes::c_char,
+        permission: crate::ctypes::c_int,
+        a4: crate::ctypes::c_int,
+        a5: crate::ctypes::c_int,
+        a6: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoOpen(
+        file: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        mode: SceMode,
+    ) -> SceUID;
+    pub fn ksceIoPread(
+        fd: SceUID,
+        data: *mut crate::ctypes::c_void,
+        size: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoPwrite(
+        fd: SceUID,
+        data: *const crate::ctypes::c_void,
+        size: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoRead(
+        fd: SceUID,
+        data: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn ksceIoRename(
+        oldname: *const crate::ctypes::c_char,
+        newname: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn ksceIoSync(
+        device: *const crate::ctypes::c_char,
+        unk: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoSyncByFd(fd: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceIoUmount(
+        id: crate::ctypes::c_int,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+        a4: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceIoWrite(
+        fd: SceUID,
+        data: *const crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceAvcodecForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
+extern "C" {
+    pub fn ksceJpegEncoderCsc(
+        context: SceJpegEncoderContext,
+        outBuffer: *mut crate::ctypes::c_void,
+        inBuffer: *const crate::ctypes::c_void,
+        inPitch: crate::ctypes::c_int,
+        inPixelFormat: SceJpegEncoderPixelFormat,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderEncode(
+        context: SceJpegEncoderContext,
+        inBuffer: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderInit(
+        context: SceJpegEncoderContext,
+        inWidth: crate::ctypes::c_int,
+        inHeight: crate::ctypes::c_int,
+        pixelformat: SceJpegEncoderPixelFormat,
+        outBuffer: *mut crate::ctypes::c_void,
+        outSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderSetCompressionRatio(
+        context: SceJpegEncoderContext,
+        ratio: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderSetHeaderMode(
+        context: SceJpegEncoderContext,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderSetOutputAddr(
+        context: SceJpegEncoderContext,
+        outBuffer: *mut crate::ctypes::c_void,
+        outSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceJpegEncoderSetValidRegion(
+        context: SceJpegEncoderContext,
+        inWidth: crate::ctypes::c_int,
+        inHeight: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceThreadmgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
+extern "C" {
+    pub fn ksceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelCancelMsgPipe(
+        uid: SceUID,
+        psend: *mut crate::ctypes::c_int,
+        precv: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCancelMutex(
+        mutexid: SceUID,
+        newCount: crate::ctypes::c_int,
+        numWaitThreads: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelChangeThreadPriority(
+        thid: SceUID,
+        priority: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelChangeThreadSuspendStatus(
+        thid: SceUID,
+        status: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCheckCallback() -> crate::ctypes::c_int;
+    pub fn ksceKernelClearEventFlag(
+        evfid: SceUID,
+        bits: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCreateCallback(
+        name: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_uint,
+        func: SceKernelCallbackFunction,
+        arg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCreateCond(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        mutexId: SceUID,
+        option: *const SceKernelCondOptParam,
+    ) -> SceUID;
+    pub fn ksceKernelCreateEventFlag(
+        name: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_int,
+        bits: crate::ctypes::c_int,
+        opt: *mut SceKernelEventFlagOptParam,
+    ) -> SceUID;
+    pub fn ksceKernelCreateMsgPipe(
+        name: *const crate::ctypes::c_char,
+        type_: crate::ctypes::c_int,
+        attr: crate::ctypes::c_int,
+        bufSize: SceSize,
+        opt: *mut crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn ksceKernelCreateMutex(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        initCount: crate::ctypes::c_int,
+        option: *mut SceKernelMutexOptParam,
+    ) -> SceUID;
+    pub fn ksceKernelCreateSema(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        initVal: crate::ctypes::c_int,
+        maxVal: crate::ctypes::c_int,
+        option: *mut SceKernelSemaOptParam,
+    ) -> SceUID;
+    pub fn ksceKernelCreateThread(
+        name: *const crate::ctypes::c_char,
+        entry: SceKernelThreadEntry,
+        initPriority: crate::ctypes::c_int,
+        stackSize: SceSize,
+        attr: SceUInt,
+        cpuAffinityMask: crate::ctypes::c_int,
+        option: *const SceKernelThreadOptParam,
+    ) -> SceUID;
+    pub fn ksceKernelDebugResumeThread(
+        thid: SceUID,
+        status: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDebugSuspendThread(
+        thid: SceUID,
+        status: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
+    pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteEventFlag(evfid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelEnqueueWorkQueue(
+        uid: SceUID,
+        name: *const crate::ctypes::c_char,
+        work: SceKernelWorkQueueWorkFunction,
+        args: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex)
+        -> crate::ctypes::c_int;
+    pub fn ksceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetEventFlagInfo(
+        evfid: SceUID,
+        info: *mut SceKernelEventFlagInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetFastMutexInfo(
+        fast_mutex: *mut SceKernelFastMutex,
+        info: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLwCondInfo(
+        lwcond_id: SceUID,
+        info: *mut SceKernelLwCondInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLwMutexInfo(
+        lwmtxid: SceUID,
+        info: *mut SceKernelLwMutexInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetMsgPipeInfo(
+        msgpipe_id: SceUID,
+        info: *mut SceKernelMsgPipeInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetMutexInfo(
+        mutexid: SceUID,
+        info: *mut SceKernelMutexInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProcessId() -> SceUID;
+    pub fn ksceKernelGetProcessIdFromTLS() -> SceUID;
+    pub fn ksceKernelGetSemaInfo(
+        semaid: SceUID,
+        info: *mut SceKernelSemaInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetSystemTimeLow() -> SceUInt32;
+    pub fn ksceKernelGetSystemTimeWide() -> SceInt64;
+    pub fn ksceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetThreadCpuRegisters(
+        thid: SceUID,
+        registers: *mut SceThreadCpuRegisters,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadId() -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadIdList(
+        pid: SceUID,
+        ids: *mut SceUID,
+        n: crate::ctypes::c_int,
+        copy_count: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadInfo(
+        thid: SceUID,
+        info: *mut SceKernelThreadInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadInfoForDebugger(
+        thid: SceUID,
+        a2: crate::ctypes::c_int,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetThreadTLSAddr(
+        thid: SceUID,
+        key: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
+    pub fn ksceKernelGetUserThreadId(thid: SceUID) -> SceUID;
+    pub fn ksceKernelGetVfpRegisterForDebugger(
+        thid: SceUID,
+        pVfpRegister: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelInitializeFastMutex(
+        fast_mutex: *mut SceKernelFastMutex,
+        name: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_int,
+        opt: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    pub fn ksceKernelLockMutex(
+        mutexid: SceUID,
+        lockCount: crate::ctypes::c_int,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int)
+        -> crate::ctypes::c_int;
+    pub fn ksceKernelPollEventFlag(
+        evfid: SceUID,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int)
+        -> crate::ctypes::c_int;
     pub fn ksceKernelReceiveMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeRecvData,
@@ -4121,10 +2387,131 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRunWithStack(
+        stack_size: SceSize,
+        to_call: ::core::option::Option<
+            unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
+        >,
+        args: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSendMsgPipeVector(
+        uid: SceUID,
+        v: *const MsgPipeSendData,
+        n: crate::ctypes::c_uint,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSetEventFlag(
+        evfid: SceUID,
+        bits: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSetPermission(value: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelSetProcessIdToTLS(pid: SceUID) -> SceUID;
+    pub fn ksceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelSignalSema(
+        semaid: SceUID,
+        signal: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelStartThread(
+        thid: SceUID,
+        arglen: SceSize,
+        argp: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelTryLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    pub fn ksceKernelTryLockMutex(
+        mutexid: SceUID,
+        lockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelTryReceiveMsgPipeVector(
+        uid: SceUID,
+        v: *const MsgPipeRecvData,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelTrySendMsgPipeVector(
+        uid: SceUID,
+        v: *const MsgPipeSendData,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnlockMutex(
+        mutexid: SceUID,
+        unlockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitCond(
+        condId: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitEventFlag(
+        evfid: SceUID,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitEventFlagCB(
+        evfid: SceUID,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitSema(
+        semaid: SceUID,
+        signal: crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitThreadEnd(
+        thid: SceUID,
+        stat: *mut crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelWaitThreadEndCB(
+        thid: SceUID,
+        stat: *mut crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDipswForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
+    pub fn ksceKernelCheckDipsw(bit: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn ksceKernelClearDipsw(bit: crate::ctypes::c_uint);
+    pub fn ksceKernelGetDipswInfo(idx: crate::ctypes::c_uint) -> SceUInt32;
+    pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
+}
+#[cfg(feature = "SceIntrmgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
+extern "C" {
+    pub fn ksceKernelClearIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelDisableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelDisableSubIntr(
+        intr_code: crate::ctypes::c_int,
+        subintr_code: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelEnableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelEnableSubIntr(
+        intr_code: crate::ctypes::c_int,
+        subintr_code: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetIntrPriority(
+        intr_code: crate::ctypes::c_int,
+        priority: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetIntrTarget(
+        intr_code: crate::ctypes::c_int,
+        cpu_target_list: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelIsIntrAllowedInCurrentContext(
+        intr_code: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelIsIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceKernelRegisterIntrHandler(
         intr_code: crate::ctypes::c_int,
         name: *const crate::ctypes::c_char,
@@ -4135,24 +2522,6 @@ extern "C" {
         target_cpu: crate::ctypes::c_int,
         opt: *mut SceKernelIntrOptParam,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelRegisterModulesAfterBoot();
-}
-extern "C" {
-    #[cfg(feature = "SceProcEventForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcEventForDriver_stub")))]
-    pub fn ksceKernelRegisterProcEventHandler(
-        name: *const crate::ctypes::c_char,
-        handler: *const SceProcEventHandler,
-        a3: crate::ctypes::c_int,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelRegisterSubIntrHandler(
         intr_code: crate::ctypes::c_int,
         subintr_code: crate::ctypes::c_int,
@@ -4160,296 +2529,240 @@ extern "C" {
         handler: SceKernelSubIntrHandler,
         register_arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
-    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
-}
-extern "C" {
-    #[cfg(feature = "SceKernelSuspendForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelSuspendForDriver_stub")))]
-    pub fn ksceKernelRegisterSysEventHandler(
-        name: *const crate::ctypes::c_char,
-        handler: SceSysEventHandler,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelReleaseIntrHandler(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelReleaseSubIntrHandler(
         intr_code: crate::ctypes::c_int,
         subintr_code: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelResumeIntr(
         intr_code: crate::ctypes::c_int,
         enabled: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelRunWithStack(
-        stack_size: SceSize,
-        to_call: ::core::option::Option<
-            unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
-        >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowReadLock(lock: *mut SceKernelRWSpinlock);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowReadLockCpuSuspendIntr(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowReadUnlock(lock: *mut SceKernelRWSpinlock);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowReadUnlockCpuResumeIntr(
-        lock: *mut SceKernelRWSpinlock,
-        intr_status: SceKernelIntrStatus,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowTryReadLock(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowTryWriteLock(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowWriteLock(lock: *mut SceKernelRWSpinlock);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowWriteLockCpuSuspendIntr(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowWriteUnlock(lock: *mut SceKernelRWSpinlock);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelRWSpinlockLowWriteUnlockCpuResumeIntr(
-        lock: *mut SceKernelRWSpinlock,
-        intr_status: SceKernelIntrStatus,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelSearchModuleByName(module_name: *const crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSendMsgPipeVector(
-        uid: SceUID,
-        v: *const MsgPipeSendData,
-        n: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDipswForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
-    pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSetEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceKernelSetGPI(gpi: SceUInt32);
-}
-extern "C" {
-    #[cfg(feature = "SceDebugLedForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
-    pub fn ksceKernelSetGPO(gpo: SceUInt32);
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelSetIntrPriority(
         intr_code: crate::ctypes::c_int,
         priority: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
     pub fn ksceKernelSetIntrTarget(
         intr_code: crate::ctypes::c_int,
         cpu_target_list: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDebugForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForKernel_stub")))]
-    pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSetPermission(value: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSetProcessIdToTLS(pid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelSignalSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
+    pub fn ksceKernelSuspendIntr(
+        intr_code: crate::ctypes::c_int,
+        enabled: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelTriggerSGI(
+        intr_code: crate::ctypes::c_int,
+        target_list_filter: crate::ctypes::c_uint,
+        cpu_target_list: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelTriggerSubIntr(
+        intr_code: crate::ctypes::c_int,
+        subintr_code: crate::ctypes::c_int,
+        subintr_arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub"))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub")))
+)]
 extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
-    pub fn ksceKernelSpinlockLowLock(lock: *mut SceKernelSpinlock);
+    pub fn ksceKernelCorelockInitialize(ctx: *mut SceCorelockContext);
+    pub fn ksceKernelCorelockLock(ctx: *mut SceCorelockContext, core: SceUInt32);
+    pub fn ksceKernelCorelockUnlock(ctx: *mut SceCorelockContext);
+    pub fn ksceKernelCpuDcacheInvalidateAll();
+    pub fn ksceKernelCpuDcacheWritebackAll();
+    pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
+    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
+        ptr: *const crate::ctypes::c_void,
+        len: SceSize,
+    );
+    pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
+        ptr: *const crate::ctypes::c_void,
+        len: SceSize,
+    );
+    pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
+    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
 }
+#[cfg(feature = "SceCpuForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
+    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
+        ptr: *const crate::ctypes::c_void,
+        len: SceSize,
+    );
+    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
+    pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
+    pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
+    pub fn ksceKernelRWSpinlockLowReadLock(lock: *mut SceKernelRWSpinlock);
+    pub fn ksceKernelRWSpinlockLowReadLockCpuSuspendIntr(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> SceKernelIntrStatus;
+    pub fn ksceKernelRWSpinlockLowReadUnlock(lock: *mut SceKernelRWSpinlock);
+    pub fn ksceKernelRWSpinlockLowReadUnlockCpuResumeIntr(
+        lock: *mut SceKernelRWSpinlock,
+        intr_status: SceKernelIntrStatus,
+    );
+    pub fn ksceKernelRWSpinlockLowTryReadLock(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> SceKernelIntrStatus;
+    pub fn ksceKernelRWSpinlockLowTryWriteLock(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> SceKernelIntrStatus;
+    pub fn ksceKernelRWSpinlockLowWriteLock(lock: *mut SceKernelRWSpinlock);
+    pub fn ksceKernelRWSpinlockLowWriteLockCpuSuspendIntr(
+        lock: *mut SceKernelRWSpinlock,
+    ) -> SceKernelIntrStatus;
+    pub fn ksceKernelRWSpinlockLowWriteUnlock(lock: *mut SceKernelRWSpinlock);
+    pub fn ksceKernelRWSpinlockLowWriteUnlockCpuResumeIntr(
+        lock: *mut SceKernelRWSpinlock,
+        intr_status: SceKernelIntrStatus,
+    );
+    pub fn ksceKernelSpinlockLowLock(lock: *mut SceKernelSpinlock);
     pub fn ksceKernelSpinlockLowLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
     pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
     pub fn ksceKernelSpinlockLowTryLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
     pub fn ksceKernelSpinlockLowUnlock(lock: *mut SceKernelSpinlock);
-}
-extern "C" {
-    #[cfg(feature = "SceCpuForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
     pub fn ksceKernelSpinlockLowUnlockCpuResumeIntr(
         lock: *mut SceKernelSpinlock,
         intr_status: SceKernelIntrStatus,
     );
 }
+#[cfg(feature = "SceProcessmgrForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelStartModule(
-        modid: SceUID,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
+    pub fn ksceKernelCreateProcess(
+        titleid: *const crate::ctypes::c_char,
+        type_: SceKernelProcessType,
+        path: *const crate::ctypes::c_char,
+        opt: *mut crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
+    pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
+    pub fn ksceKernelGetProcessSelfAuthInfo(
+        pid: SceUID,
+        self_auth_info: *mut SceSelfAuthInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelSuspendProcess(
+        pid: SceUID,
+        status: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceProcessmgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
+extern "C" {
+    pub fn ksceKernelCreateProcessLocalStorage(
+        name: *const crate::ctypes::c_char,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProcessInfo(
+        pid: SceUID,
+        info: *mut SceKernelProcessInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProcessLocalStorageAddr(
+        key: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetProcessLocalStorageAddrForPid(
+        pid: SceUID,
+        key: crate::ctypes::c_int,
+        out_addr: *mut *mut crate::ctypes::c_void,
+        create_if_doesnt_exist: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProcessStatus(
+        pid: SceUID,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceModulemgrForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
 extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
+    pub fn ksceKernelGetLibraryInfoForDebugger(
+        pid: SceUID,
+        library_id: SceUID,
+        info: *mut SceKernelModuleLibraryInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleCB(
+        modid: SceUID,
+        info: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleCBByAddr(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+        info: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleIdByAddrForDebugger(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
+    pub fn ksceKernelGetModuleInfoForDebugger(
+        pid: SceUID,
+        infolists: *mut SceKernelModuleListInfo,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleInfoMinByAddr(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+        module_nid: *mut u32,
+        program_text_addr: *mut *const crate::ctypes::c_void,
+        module_name: *mut SceKernelModuleName,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModulePath(
+        modid: SceUID,
+        path: *mut crate::ctypes::c_char,
+        pathlen: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRegisterModulesAfterBoot();
+    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
+}
+#[cfg(any(
+    feature = "SceModulemgrForKernel_363_stub",
+    feature = "SceModulemgrForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceModulemgrForKernel_363_stub",
+        feature = "SceModulemgrForKernel_stub"
+    )))
+)]
+extern "C" {
+    pub fn ksceKernelGetModuleInfo(
+        pid: SceUID,
+        modid: SceUID,
+        info: *mut SceKernelModuleInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleList(
+        pid: SceUID,
+        flags1: crate::ctypes::c_int,
+        flags2: crate::ctypes::c_int,
+        modids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelLoadModuleForPid(
+        pid: SceUID,
+        path: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+    ) -> SceUID;
+    pub fn ksceKernelMountBootfs(
+        bootImagePath: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelStartModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -4459,40 +2772,6 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelStartThread(
-        thid: SceUID,
-        arglen: SceSize,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
-    pub fn ksceKernelStopModule(
-        modid: SceUID,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
     pub fn ksceKernelStopModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -4502,10 +2781,80 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUmountBootfs() -> crate::ctypes::c_int;
+    pub fn ksceKernelUnloadModuleForPid(
+        pid: SceUID,
+        modid: SceUID,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelULMOption,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(any(
+    feature = "SceProcessmgrForKernel_363_stub",
+    feature = "SceProcessmgrForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceProcessmgrForKernel_363_stub",
+        feature = "SceProcessmgrForKernel_stub"
+    )))
+)]
 extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
+    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
+}
+#[cfg(feature = "SceModulemgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
+extern "C" {
+    pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
+    pub fn ksceKernelLoadModule(
+        path: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+    ) -> SceUID;
+    pub fn ksceKernelLoadStartModule(
+        path: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> SceUID;
+    pub fn ksceKernelLoadStartModuleForPid(
+        pid: SceUID,
+        path: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> SceUID;
+    pub fn ksceKernelLoadStartSharedModuleForPid(
+        pid: SceUID,
+        path: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> SceUID;
+    pub fn ksceKernelSearchModuleByName(module_name: *const crate::ctypes::c_char) -> SceUID;
+    pub fn ksceKernelStartModule(
+        modid: SceUID,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelStopModule(
+        modid: SceUID,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelULMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelStopUnloadModule(
         modid: SceUID,
         args: SceSize,
@@ -4514,10 +2863,6 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
     pub fn ksceKernelStopUnloadModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -4527,10 +2872,6 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
     pub fn ksceKernelStopUnloadSharedModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -4540,450 +2881,162 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelStrncpyFromUser(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelStrncpyToUser(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelSuspendIntr(
-        intr_code: crate::ctypes::c_int,
-        enabled: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
-    pub fn ksceKernelSuspendProcess(
-        pid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceKernelSysrootGetKblParam() -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceKernelSysrootGetProcessTitleId(
-        pid: SceUID,
-        titleid: *mut crate::ctypes::c_char,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceKernelSysrootGetShellPid() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceKernelSysrootGetSystemSwVersion() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceKernelSysrootRegisterCoredumpTrigger(func: SceKernelCoredumpTriggerFunc);
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceKernelSysrootRegisterDbgpHandler(
-        handlers: *const SceSysrootDbgpHandler,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceKernelSysrootSetGetSystemSwVersionFunc(func: SceKernelGetSystemSwVersionFunc);
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceKernelSysrootSetProcessHandler(
-        handlers: *const SceSysrootProcessHandler,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceKernelSysrootSetSysroot(sysroot_uid: SceUID);
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceKernelSysrootUnregisterDbgpHandler();
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerAlloc(timerType: SceSysTimerType) -> SceSysTimerId;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerGetCount(
-        timerId: SceSysTimerId,
-        pCount: *mut SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerSetClockSource(
-        timerId: SceSysTimerId,
-        clockSource: SceSysTimerClockSource,
-        prescaleFactor: SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerSetCount(
-        timerId: SceSysTimerId,
-        count: SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerSetHandler(
-        timerId: SceSysTimerId,
-        callback: SceSysTimerCallback,
-        targetCPU: SceUInt32,
-        pUserData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerSetInterval(
-        timerId: SceSysTimerId,
-        interval: SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerStartCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSystimerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
-    pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelTriggerSGI(
-        intr_code: crate::ctypes::c_int,
-        target_list_filter: crate::ctypes::c_uint,
-        cpu_target_list: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIntrmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
-    pub fn ksceKernelTriggerSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-        subintr_arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelTryLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelTryLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelTryReceiveMsgPipeVector(
-        uid: SceUID,
-        v: *const MsgPipeRecvData,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelTrySendMsgPipeVector(
-        uid: SceUID,
-        v: *const MsgPipeSendData,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelUmountBootfs() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceModulemgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
     pub fn ksceKernelUnloadModule(
         modid: SceUID,
         flags: crate::ctypes::c_int,
         option: *mut SceKernelULMOption,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(any(
+    feature = "SceThreadmgrForKernel_363_stub",
+    feature = "SceThreadmgrForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceThreadmgrForKernel_363_stub",
+        feature = "SceThreadmgrForKernel_stub"
+    )))
+)]
 extern "C" {
-    #[cfg(any(
-        feature = "SceModulemgrForKernel_stub",
-        feature = "SceModulemgrForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceModulemgrForKernel_stub",
-            feature = "SceModulemgrForKernel_363_stub"
-        )))
-    )]
-    pub fn ksceKernelUnloadModuleForPid(
+    pub fn ksceKernelGetThreadContextInfo(
+        pInfo: *mut SceKernelThreadContextInfo,
+    ) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceProcEventForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceProcEventForDriver_stub")))]
+extern "C" {
+    pub fn ksceKernelInvokeProcEventHandler(
         pid: SceUID,
-        modid: SceUID,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelULMOption,
+        event_id: crate::ctypes::c_int,
+        event_type: crate::ctypes::c_int,
+        param: *mut crate::ctypes::c_void,
+        a5: *mut crate::ctypes::c_void,
+        a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelUnlockMutex(
-        mutexid: SceUID,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcEventForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcEventForDriver_stub")))]
+    pub fn ksceKernelRegisterProcEventHandler(
+        name: *const crate::ctypes::c_char,
+        handler: *const SceProcEventHandler,
+        a3: crate::ctypes::c_int,
+    ) -> SceUID;
     pub fn ksceKernelUnregisterProcEventHandler(uid: SceUID) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceKernelSuspendForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelSuspendForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelUserMap(
+    pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    pub fn ksceKernelRegisterSysEventHandler(
         name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
-        size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
-        kernel_size: *mut SceSize,
-        kernel_offset: *mut SceUInt32,
-    ) -> SceUID;
+        handler: SceSysEventHandler,
+        args: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceDebugForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelUserMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+    pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
+}
+#[cfg(feature = "SceSysrootForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
+extern "C" {
+    pub fn ksceKernelSysrootGetKblParam() -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelSysrootGetProcessTitleId(
+        pid: SceUID,
+        titleid: *mut crate::ctypes::c_char,
         len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelVARangeToPAVector(
-        va_range: *const SceKernelVARange,
-        pa_vector: *mut SceKernelPAVector,
+    pub fn ksceKernelSysrootRegisterDbgpHandler(
+        handlers: *const SceSysrootDbgpHandler,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn ksceKernelVAtoPA(
-        va: *const crate::ctypes::c_void,
-        pa: *mut usize,
+    pub fn ksceKernelSysrootSetSysroot(sysroot_uid: SceUID);
+    pub fn ksceKernelSysrootUnregisterDbgpHandler();
+    pub fn ksceSysrootGetSelfInfo(
+        index: SceKernelSysrootSelfIndex,
+        info: *mut SceKernelSysrootSelfInfo,
     ) -> crate::ctypes::c_int;
+    pub fn ksceSysrootGetSysroot() -> *mut SceSysroot;
+    pub fn ksceSysrootIsBsodReboot() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsExternalBootMode() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsManufacturingMode() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsNonRemovableCardMode() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsSafeMode() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsUpdateMode() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsUsbEnumWakeup() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSysrootForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelVprintf(
-        fmt: *const crate::ctypes::c_char,
-        arg: va_list,
+    pub fn ksceKernelSysrootGetShellPid() -> SceUID;
+    pub fn ksceKernelSysrootGetSystemSwVersion() -> crate::ctypes::c_int;
+    pub fn ksceKernelSysrootRegisterCoredumpTrigger(func: SceKernelCoredumpTriggerFunc);
+    pub fn ksceKernelSysrootSetGetSystemSwVersionFunc(func: SceKernelGetSystemSwVersionFunc);
+    pub fn ksceKernelSysrootSetProcessHandler(
+        handlers: *const SceSysrootProcessHandler,
     ) -> crate::ctypes::c_int;
+    pub fn ksceSysrootGetHardwareFlags(flags: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceSysrootUseExternalStorage() -> crate::ctypes::c_int;
+    pub fn ksceSysrootUseInternalStorage() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSystimerForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDebugForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
-    pub fn ksceKernelVprintfLevel(
-        level: SceUInt32,
-        fmt: *const crate::ctypes::c_char,
-        arg: va_list,
+    pub fn ksceKernelSysTimerAlloc(timerType: SceSysTimerType) -> SceSysTimerId;
+    pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    pub fn ksceKernelSysTimerGetCount(
+        timerId: SceSysTimerId,
+        pCount: *mut SceKernelSysClock,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitCond(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
+    pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    pub fn ksceKernelSysTimerSetClockSource(
+        timerId: SceSysTimerId,
+        clockSource: SceSysTimerClockSource,
+        prescaleFactor: SceUInt8,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-        timeout: *mut SceUInt,
+    pub fn ksceKernelSysTimerSetCount(
+        timerId: SceSysTimerId,
+        count: SceKernelSysClock,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitEventFlagCB(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-        timeout: *mut SceUInt,
+    pub fn ksceKernelSysTimerSetHandler(
+        timerId: SceSysTimerId,
+        callback: SceSysTimerCallback,
+        targetCPU: SceUInt32,
+        pUserData: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-        timeout: *mut SceUInt,
+    pub fn ksceKernelSysTimerSetInterval(
+        timerId: SceSysTimerId,
+        interval: SceKernelSysClock,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSysTimerStartCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceMsifForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceMsifForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitThreadEnd(
-        thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceThreadmgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
-    pub fn ksceKernelWaitThreadEndCB(
-        thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMsifForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMsifForDriver_stub")))]
     pub fn ksceMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceNetPsForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetAccept(
         s: crate::ctypes::c_int,
         addr: *mut SceNetSockaddr,
         addrlen: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetBind(
         s: crate::ctypes::c_int,
         addr: *const SceNetSockaddr,
         addrlen: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetConnect(
         s: crate::ctypes::c_int,
         name: *const SceNetSockaddr,
         namelen: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetListen(
         s: crate::ctypes::c_int,
         backlog: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetRecvfrom(
         s: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
@@ -4992,10 +3045,6 @@ extern "C" {
         from: *mut SceNetSockaddr,
         fromlen: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetSendto(
         s: crate::ctypes::c_int,
         msg: *const crate::ctypes::c_void,
@@ -5004,10 +3053,6 @@ extern "C" {
         to: *const SceNetSockaddr,
         tolen: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetSetsockopt(
         s: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
@@ -5015,10 +3060,6 @@ extern "C" {
         optval: *const crate::ctypes::c_void,
         optlen: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
     pub fn ksceNetSocket(
         name: *const crate::ctypes::c_char,
         domain: crate::ctypes::c_int,
@@ -5026,9 +3067,9 @@ extern "C" {
         protocol: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceNpDrmForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
@@ -5036,65 +3077,37 @@ extern "C" {
         act_start_time: *mut SceUInt64,
         act_end_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmEbootSigConvert(
         eboot_pbp_path: *const crate::ctypes::c_char,
         old_eboot_signature: *const crate::ctypes::c_void,
         new_eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmEbootSigGenMultiDisc(
         eboot_pbp_path: *const crate::ctypes::c_char,
         sce_discinfo: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmEbootSigGenPs1(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmEbootSigGenPsp(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmEbootSigVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmGetFixedRifName(
         name: *mut crate::ctypes::c_char,
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmGetRifInfo(
         license: *const crate::ctypes::c_void,
         license_size: SceSize,
@@ -5109,18 +3122,10 @@ extern "C" {
         lic_exp_time: *mut SceInt64,
         flags2: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmGetRifName(
         name: *mut crate::ctypes::c_char,
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmGetRifPspKey(
         license: *const crate::ctypes::c_void,
         klicense: *mut crate::ctypes::c_void,
@@ -5128,10 +3133,6 @@ extern "C" {
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmGetRifVitaKey(
         license: *const crate::ctypes::c_void,
         klicense: *mut crate::ctypes::c_void,
@@ -5140,191 +3141,75 @@ extern "C" {
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmPspEbootSigGen(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmPspEbootVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrmForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
     pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "ScePervasiveForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveDsiClockDisable(
         port: crate::ctypes::c_int,
         mask: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveDsiClockEnable(
         port: crate::ctypes::c_int,
         mask: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveDsiResetDisable(
         port: crate::ctypes::c_int,
         mask: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveDsiResetEnable(
         port: crate::ctypes::c_int,
         mask: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveDsiSetPixelClock(
         port: crate::ctypes::c_int,
         pixelclock: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveGetSoCRevision() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveGpioClockDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveGpioClockEnable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveGpioResetDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveGpioResetEnable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveMsifClockDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveMsifClockEnable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveMsifResetDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveMsifResetEnable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveMsifSetClock(clock: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveRemovableMemoryGetCardInsertState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveSpiClockDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveSpiClockEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveSpiResetDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveSpiResetEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveUartClockDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveUartClockEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveUartResetDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveUartResetEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePervasiveForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
     pub fn kscePervasiveUartSetBaudrate(
         port: crate::ctypes::c_int,
         baudrate: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "ScePfsMgrForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePfsMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
     pub fn kscePfsApprove(
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePfsMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
     pub fn kscePfsDisapprove(
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePfsMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
     pub fn kscePfsMount(
         path: *const crate::ctypes::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
@@ -5332,238 +3217,83 @@ extern "C" {
         klicensee: *const crate::ctypes::c_void,
         mode_index: u16,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePfsMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
     pub fn kscePfsMount2(
         path: *const crate::ctypes::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
         klicensee: *const crate::ctypes::c_void,
         mode_index: u16,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePfsMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
     pub fn kscePfsUnmount(rnd_drive_id: *const ScePfsRndDriveId) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "ScePmMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePmMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePmMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePmMgrForDriver_stub")))]
     pub fn kscePmMgrGetProductMode(result: *mut SceProductMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePmMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePmMgrForDriver_stub")))]
     pub fn kscePmMgrIsExternalBootMode() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "ScePowerForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetArmClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatterySOH() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryTemp() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBatteryVolt() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetBusClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerGetSysClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerIsBatteryCharging() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerIsLowBattery() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerIsPowerOnline() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerIsSuspendRequired() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRequestColdReset() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRequestDisplayOff() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRequestSoftReset() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRequestStandby() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerRequestSuspend() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerSetDisplayBrightness(brightness: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePowerForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
     pub fn kscePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceRegMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn kscePUIDClose(pid: SceUID, puid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn kscePUIDOpenByGUID(pid: SceUID, guid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmemForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
-    pub fn kscePUIDtoGUID(pid: SceUID, puid: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrGetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrGetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrGetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrSetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrSetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
     pub fn ksceRegMgrSetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
@@ -5571,222 +3301,57 @@ extern "C" {
         size: SceSize,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceRtcForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcConvertDateTimeToUnixTime(
         src: *const SceDateTime,
         dst: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcConvertTickToDateTime(
         dst: *mut SceDateTime,
         src: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentClock(
         time: *mut SceDateTime,
         time_zone: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcGetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcSetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcSetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcSetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtcForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
     pub fn ksceRtcSetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblACMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrGetMediaType(
         path: *const crate::ctypes::c_char,
         media_type: *mut SceUInt32,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrGetProcessProgramAuthId(
         pid: SceUID,
         authid: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsDevelopmentMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsFself(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsGameProgram(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsNonGameProgram(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsPspEmu(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsRootProgram(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsSceShell(pid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblACMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
     pub fn ksceSblACMgrIsSystemProgram(pid: SceUID) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblSsMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblAimgrGetConsoleId(cid: *mut SceConsoleId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblAimgrGetOpenPsId(open_psid: *mut SceOpenPsId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrGetProductCode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrGetProductSubCode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblAimgrGetPscode(pscode: *mut ScePsCode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsCEX() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsDEX() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsDolce() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsTest() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsTool() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
-    pub fn ksceSblAimgrIsVITA() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAuthMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAuthMgrForKernel_stub")))]
-    pub fn ksceSblAuthMgrClearDmac5Key(
-        slot_id: crate::ctypes::c_int,
-        val: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblAuthMgrForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblAuthMgrForKernel_stub")))]
-    pub fn ksceSblAuthMgrSetDmac5Key(
-        key: *const crate::ctypes::c_void,
-        keylen: SceSize,
-        slot_id: crate::ctypes::c_int,
-        key_id: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblDmac5AesCbcDec(
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
@@ -5796,10 +3361,6 @@ extern "C" {
         iv: *mut crate::ctypes::c_void,
         mask_enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblDmac5AesCbcEnc(
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
@@ -5809,10 +3370,6 @@ extern "C" {
         iv: *mut crate::ctypes::c_void,
         mask_enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblDmac5AesCtrDec(
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
@@ -5822,68 +3379,10 @@ extern "C" {
         iv: *mut crate::ctypes::c_void,
         mask_enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblRngPseudoRandomNumber(
         result: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
-    pub fn ksceSblRSA2048CreateSignature(
-        rsa_signature: *mut SceSblRsaDataParam,
-        hash: *mut SceSblRsaDataParam,
-        private_key: *mut SceSblRsaPrivateKeyParam,
-        type_: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
-    pub fn ksceSblRSA2048VerifySignature(
-        rsa_signature: *mut SceSblRsaDataParam,
-        hash: *mut SceSblRsaDataParam,
-        public_key: *mut SceSblRsaPublicKeyParam,
-        type_: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSmCommForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSmCommForKernel_stub")))]
-    pub fn ksceSblSmCommCallFunc(
-        id: SceSblSmCommId,
-        service_id: SceUInt32,
-        service_result: *mut SceUInt32,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSmCommForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSmCommForKernel_stub")))]
-    pub fn ksceSblSmCommStartSmFromFile(
-        priority: SceUInt32,
-        sm_path: *const crate::ctypes::c_char,
-        cmd_id: SceUInt32,
-        auth_info: *mut SceAuthInfo,
-        id: *mut SceSblSmCommId,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSmCommForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSmCommForKernel_stub")))]
-    pub fn ksceSblSmCommStopSm(
-        id: SceSblSmCommId,
-        result: *mut SceSblSmCommPair,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
     pub fn ksceSblSsDecryptWithPortability(
         key_type: SceUInt32,
         iv: *mut crate::ctypes::c_void,
@@ -5891,730 +3390,300 @@ extern "C" {
         dst: *mut ScePortabilityData,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblAIMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha1BlockInit(ctx: *mut SceSha1Context) -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrGetProductCode() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrGetProductSubCode() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsCEX() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsDEX() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsDolce() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsTest() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsTool() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrIsVITA() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblAuthMgrForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblAuthMgrForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha1BlockResult(
-        ctx: *mut SceSha1Context,
-        result: *mut crate::ctypes::c_void,
+    pub fn ksceSblAuthMgrClearDmac5Key(
+        slot_id: crate::ctypes::c_int,
+        val: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSblAuthMgrSetDmac5Key(
+        key: *const crate::ctypes::c_void,
+        keylen: SceSize,
+        slot_id: crate::ctypes::c_int,
+        key_id: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha1BlockUpdate(
-        ctx: *mut SceSha1Context,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceSblRSA2048CreateSignature(
+        rsa_signature: *mut SceSblRsaDataParam,
+        hash: *mut SceSblRsaDataParam,
+        private_key: *mut SceSblRsaPrivateKeyParam,
+        type_: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSblRSA2048VerifySignature(
+        rsa_signature: *mut SceSblRsaDataParam,
+        hash: *mut SceSblRsaDataParam,
+        public_key: *mut SceSblRsaPublicKeyParam,
+        type_: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSblSmCommForKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSmCommForKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha1Digest(
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
+    pub fn ksceSblSmCommCallFunc(
+        id: SceSblSmCommId,
+        service_id: SceUInt32,
+        service_result: *mut SceUInt32,
+        data: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSblSmCommStartSmFromFile(
+        priority: SceUInt32,
+        sm_path: *const crate::ctypes::c_char,
+        cmd_id: SceUInt32,
+        auth_info: *mut SceAuthInfo,
+        id: *mut SceSblSmCommId,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSblSmCommStopSm(
+        id: SceSblSmCommId,
+        result: *mut SceSblSmCommPair,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSysconForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha224BlockInit(ctx: *mut SceSha224Context) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha224BlockResult(
-        ctx: *mut SceSha224Context,
-        result: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha224BlockUpdate(
-        ctx: *mut SceSha224Context,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha224Digest(
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha256BlockInit(ctx: *mut SceSha256Context) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha256BlockResult(
-        ctx: *mut SceSha256Context,
-        result: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha256BlockUpdate(
-        ctx: *mut SceSha256Context,
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceSha256Digest(
-        plain: *const crate::ctypes::c_void,
-        len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconBeginConfigstorageTransaction() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconClearTemperatureLog(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCmdExec(
         packet: *mut SceSysconPacket,
         flags: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCmdExecAsync(
         packet: *mut SceSysconPacket,
         flags: crate::ctypes::c_uint,
         cb: SceSysconCmdExecAsyncCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCmdSync(
         packet: *mut SceSysconPacket,
         noWait: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCommitConfigstorageTransaction() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCtrlHdmiCecPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCtrlLED(
         led: crate::ctypes::c_int,
         enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCtrlManualChargeMode(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCtrlRMRPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconCtrlSdPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconEnableHibernateIO(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconEndConfigstorageTransaction() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetBaryonTimestamp() -> crate::ctypes::c_ulonglong;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetBaryonVersion() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetBatteryCalibData(
         arg1: *mut crate::ctypes::c_int,
         arg2: *mut crate::ctypes::c_int,
         arg3: *mut crate::ctypes::c_int,
         arg4: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetControlsInfo(ctrl: *mut SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetHardwareInfo() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetHardwareInfo2(
         arg1: *mut crate::ctypes::c_int,
         arg2: *mut crate::ctypes::c_int,
         arg3: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetLogInfo(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetManualChargeMode(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetManufacturesStatus(arg1: *mut crate::ctypes::c_int)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetTemperatureLog(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconGetUsbDetStatus(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconIduModeClear() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconIduModeSet() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconIsDownLoaderMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconLoadConfigstorageScript(
         arg1: crate::ctypes::c_ushort,
         buff: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconLogReadData(
         arg1: crate::ctypes::c_ushort,
         buff: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconLogStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconLogStartWaiting() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconReadCommand(
         cmd: crate::ctypes::c_ushort,
         buffer: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSendCommand(
         cmd: crate::ctypes::c_ushort,
         buffer: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSetAlarmCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSetDebugHandlers(
         handlers: *const SceSysconDebugHandlers,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSetLowBatteryCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSetPowerMode(
         type_: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconSetThermalAlertCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconShowModeClear() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconShowModeSet() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconVerifyConfigstorageScript(
         arg1: crate::ctypes::c_ushort,
         buff: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysconForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
     pub fn ksceSysconWaitInitialized() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceTouchForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceTouchForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceSysrootGetHardwareFlags(flags: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootGetSelfInfo(
-        index: SceKernelSysrootSelfIndex,
-        info: *mut SceKernelSysrootSelfInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootGetSysroot() -> *mut SceSysroot;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsBsodReboot() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsExternalBootMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsManufacturingMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsNonRemovableCardMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsSafeMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsUpdateMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
-    pub fn ksceSysrootIsUsbEnumWakeup() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceSysrootUseExternalStorage() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysrootForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
-    pub fn ksceSysrootUseInternalStorage() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTouchForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouchForDriver_stub")))]
     pub fn ksceTouchSetEnableFlag(port: SceUInt32, enable: SceBool) -> crate::ctypes::c_int;
 }
+#[cfg(any(
+    feature = "SceUartForKernel_363_stub",
+    feature = "SceUartForKernel_stub"
+))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(
+        feature = "SceUartForKernel_363_stub",
+        feature = "SceUartForKernel_stub"
+    )))
+)]
 extern "C" {
-    #[cfg(any(
-        feature = "SceUartForKernel_stub",
-        feature = "SceUartForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceUartForKernel_stub",
-            feature = "SceUartForKernel_363_stub"
-        )))
-    )]
     pub fn ksceUartInit(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceUartForKernel_stub",
-        feature = "SceUartForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceUartForKernel_stub",
-            feature = "SceUartForKernel_363_stub"
-        )))
-    )]
     pub fn ksceUartRead(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceUartForKernel_stub",
-        feature = "SceUartForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceUartForKernel_stub",
-            feature = "SceUartForKernel_363_stub"
-        )))
-    )]
     pub fn ksceUartReadAvailable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(
-        feature = "SceUartForKernel_stub",
-        feature = "SceUartForKernel_363_stub"
-    ))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(
-            feature = "SceUartForKernel_stub",
-            feature = "SceUartForKernel_363_stub"
-        )))
-    )]
     pub fn ksceUartWrite(
         port: crate::ctypes::c_int,
         data: crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceUdcdForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdActivate(productId: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdActivateInternal(
         productId: crate::ctypes::c_uint,
         bus_powered: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdClearFIFO(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdClearFIFOInternal(
         endp: *mut SceUdcdEndpoint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdDeactivate() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdDeactivateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDeviceInfoInternal(
         devInfo: *mut SceUdcdDeviceInfo,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDeviceState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDeviceStateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdGetDrvStateInternal(
         driverName: *const crate::ctypes::c_char,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdRegister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdRegisterInternal(
         drv: *mut SceUdcdDriver,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdReqCancelAll(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdReqRecv(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdReqRecvInternal(
         req: *mut SceUdcdDeviceRequest,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdReqSend(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdReqSendInternal(
         req: *mut SceUdcdDeviceRequest,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStall(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStallInternal(
         endp: *mut SceUdcdEndpoint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStart(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStartCurrentInternal(
         unused: crate::ctypes::c_int,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStartInternal(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStop(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStopCurrentInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdStopInternal(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdUnregister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdUnregisterInternal(
         drv: *mut SceUdcdDriver,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdWaitBusInitialized(
         timeout: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdWaitState(
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
     pub fn ksceUdcdWaitStateInternal(
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceUsbdForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbd_05073925(
-        device_id: SceUID,
-        unk1: *mut crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbd_7938DAC7(pipe_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdBulkTransfer(
         pipe_id: SceUID,
         buffer: *mut crate::ctypes::c_uchar,
@@ -6622,10 +3691,6 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdBulkTransfer2(
         pipe_id: crate::ctypes::c_int,
         buffer: *mut crate::ctypes::c_uchar,
@@ -6633,15 +3698,7 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdClosePipe(pipe_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdControlTransfer(
         pipe_id: SceUID,
         req: *const SceUsbdDeviceRequest,
@@ -6649,36 +3706,13 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-pub type ksceUsbdDoneCallback = ::core::option::Option<
-    unsafe extern "C" fn(result: i32, count: i32, arg: *mut crate::ctypes::c_void),
->;
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdGetDeviceLocation(device_id: SceUID, location: *mut u8) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdGetDeviceSpeed(
         device_id: crate::ctypes::c_int,
         speed: *mut u8,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdHostStart(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdHostStop(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
     pub fn ksceUsbdInterruptTransfer(
         pipe_id: SceUID,
         buffer: *mut crate::ctypes::c_uchar,
@@ -6686,7 +3720,45 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn ksceUsbdIsochronousTransfer(
+        pipe_id: SceUID,
+        transfer: *mut ksceUsbdIsochTransfer,
+        cb: ksceUsbdIsochDoneCallback,
+        user_data: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceUsbdOpenPipe(
+        device_id: crate::ctypes::c_int,
+        endpoint: *mut SceUsbdEndpointDescriptor,
+    ) -> SceUID;
+    pub fn ksceUsbdRegisterCompositeLdd(
+        driver: *const SceUsbdCompositeDriver,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceUsbdRegisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
+    pub fn ksceUsbdResume(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceUsbdScanStaticDescriptor(
+        device_id: SceUID,
+        start: *mut crate::ctypes::c_void,
+        type_: SceUsbdDescriptorType,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn ksceUsbdSuspend(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceUsbdSuspendPhase2(
+        port: crate::ctypes::c_int,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceUsbdUnregisterCompositeLdd(
+        driver: *const SceUsbdCompositeDriver,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceUsbdUnregisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
+    pub fn ksceUsbd_05073925(
+        device_id: SceUID,
+        unk1: *mut crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceUsbd_7938DAC7(pipe_id: SceUID) -> crate::ctypes::c_int;
 }
+pub type ksceUsbdDoneCallback = ::core::option::Option<
+    unsafe extern "C" fn(result: i32, count: i32, arg: *mut crate::ctypes::c_void),
+>;
 pub type ksceUsbdIsochDoneCallback = ::core::option::Option<
     unsafe extern "C" fn(
         result: i32,
@@ -6738,16 +3810,6 @@ impl ksceUsbdIsochPswLen {
         __bindgen_bitfield_unit
     }
 }
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdIsochronousTransfer(
-        pipe_id: SceUID,
-        transfer: *mut ksceUsbdIsochTransfer,
-        cb: ksceUsbdIsochDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ksceUsbdIsochTransfer {
@@ -6756,177 +3818,37 @@ pub struct ksceUsbdIsochTransfer {
     pub num_packets: i32,
     pub packets: [ksceUsbdIsochPswLen; 8usize],
 }
+#[cfg(feature = "SceUsbSerialForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdOpenPipe(
-        device_id: crate::ctypes::c_int,
-        endpoint: *mut SceUsbdEndpointDescriptor,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdRegisterCompositeLdd(
-        driver: *const SceUsbdCompositeDriver,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdRegisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdResume(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdScanStaticDescriptor(
-        device_id: SceUID,
-        start: *mut crate::ctypes::c_void,
-        type_: SceUsbdDescriptorType,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdSuspend(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdSuspendPhase2(
-        port: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdUnregisterCompositeLdd(
-        driver: *const SceUsbdCompositeDriver,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbdForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
-    pub fn ksceUsbdUnregisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialClose() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialRecv(
         buffer: *mut crate::ctypes::c_void,
         max_len: SceSize,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialSend(
         buffer: *const crate::ctypes::c_void,
         len: SceSize,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerialForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
     pub fn ksceUsbSerialStatus() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceUsbServForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServAccessoryActivate() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServDisableEtherSuspend() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServEtherDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServEtherEnable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServMacGet(usbPort: SceUInt) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
     pub fn ksceUsbServMacSelect(usbPort: SceUInt, clientMode: SceBool) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceZlibDecompress(
-        dst: *mut crate::ctypes::c_void,
-        dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        adler32: *mut u32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceZlibGetCompressedData(
-        src: *const crate::ctypes::c_void,
-    ) -> *const crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
-    pub fn ksceZlibGetInfo(
-        src: *const crate::ctypes::c_void,
-        cmf: *mut crate::ctypes::c_uchar,
-        flg: *mut crate::ctypes::c_uchar,
-        dictid: *mut crate::ctypes::c_uint,
-        data: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
-    pub fn look_ctype_table(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6934,95 +3856,133 @@ pub struct max_align_t {
     pub __clang_max_align_nonce1: crate::ctypes::c_longlong,
     pub __clang_max_align_nonce2: f64,
 }
+#[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
+)]
 extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
     pub fn memchr(
         src: *const crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
         n: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
     pub fn memcmp(
         s1: *const crate::ctypes::c_void,
         s2: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
     pub fn memcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    pub fn memmove(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: crate::ctypes::c_uint,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn memset(
+        dst: *mut crate::ctypes::c_void,
+        ch: crate::ctypes::c_int,
+        len: crate::ctypes::c_uint,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn snprintf(
+        dst: *mut crate::ctypes::c_char,
+        max: crate::ctypes::c_uint,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn strchr(
+        src: *const crate::ctypes::c_char,
+        ch: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn strcmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn strlen(s: *const crate::ctypes::c_char) -> crate::ctypes::c_uint;
+    pub fn strncmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+        n: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn strncpy(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        n: crate::ctypes::c_uint,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn strstr(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn strtol(
+        str_: *const crate::ctypes::c_char,
+        endptr: *mut *mut crate::ctypes::c_char,
+        base: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_long;
+    pub fn strtoll(
+        str_: *const crate::ctypes::c_char,
+        endptr: *mut *mut crate::ctypes::c_char,
+        base: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_longlong;
+    pub fn strtoul(
+        str_: *const crate::ctypes::c_char,
+        endptr: *mut *mut crate::ctypes::c_char,
+        base: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_ulong;
+    pub fn tolower(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn toupper(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn vsnprintf(
+        dst: *mut crate::ctypes::c_char,
+        max: crate::ctypes::c_uint,
+        fmt: *const crate::ctypes::c_char,
+        arg: u32,
+    ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceSysclibForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
     pub fn __memcpy_chk(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
         dst_len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn memmove(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
     pub fn __memmove_chk(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
         dst_len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn memset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
     pub fn __memset_chk(
         dst: *mut crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
         len: crate::ctypes::c_uint,
         dst_len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    pub fn __prnt(
+        callback: SceSysclibPrntCallback,
+        argp: *mut crate::ctypes::c_void,
+        fmt: *const crate::ctypes::c_char,
+        list: va_list,
+    );
+    pub fn __strncpy_chk(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        n: crate::ctypes::c_uint,
+        dst_len: crate::ctypes::c_uint,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn look_ctype_table(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
+    pub fn strnlen(
+        s: *const crate::ctypes::c_char,
+        n: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_uint;
+    pub fn timingsafe_memcmp(
+        s1: *const crate::ctypes::c_void,
+        s2: *const crate::ctypes::c_void,
+        n: usize,
+    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7064,63 +4024,45 @@ pub struct PhotoExportParam {
     pub gameComment: *const SceWChar32,
     pub reserved: [crate::ctypes::c_int; 8usize],
 }
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
-    pub fn __prnt(
-        callback: SceSysclibPrntCallback,
-        argp: *mut crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
-        list: va_list,
-    );
-}
 pub const __PSP2FILEHASH__: u32 = 0;
 pub const PSP2_SDK_VERSION: u32 = 56033297;
+#[cfg(feature = "SceLibMonoBridge_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
 extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_code_mem_alloc(arg1: *mut SceSize) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_code_mem_flush_icache(arg1: *const crate::ctypes::c_void, arg2: SceSize);
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_code_mem_lock();
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_code_mem_unlock();
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_crypto_close(handle: *mut ScePssCryptoHandle) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_crypto_open(
         handle: *mut ScePssCryptoHandle,
         path: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibMonoBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
     pub fn pss_crypto_read(
         handle: *mut ScePssCryptoHandle,
         mode: *mut crate::ctypes::c_int,
     ) -> *mut crate::ctypes::c_char;
 }
+#[cfg(feature = "SceGpuEs4ForDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceGpuEs4ForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
     pub fn PVRSRVGetMiscInfoKM(info: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceGpuGetRegisterDump(
+        dst: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGpuMmuMapMemory(
+        mmuContext: *mut crate::ctypes::c_void,
+        vaddr: u32,
+        base: *mut crate::ctypes::c_void,
+        size: u32,
+        flags: u32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGpuMmuUnmapMemory(
+        mmuContext: *mut crate::ctypes::c_void,
+        vaddr: u32,
+        size: u32,
+    ) -> crate::ctypes::c_int;
 }
 pub const RPT_PROTOCOL: SceUdcdProtocol = 1;
 #[repr(C)]
@@ -7137,28 +4079,6 @@ pub struct SceAllocOpt {
     pub data0C: crate::ctypes::c_int,
     pub data10: crate::ctypes::c_int,
 }
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrAcquireBgmPort() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrAppDataMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrAppDataMountById(
-        id: crate::ctypes::c_int,
-        titleid: *const crate::ctypes::c_char,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrAppInfo {
@@ -7168,16 +4088,6 @@ pub type SceAppMgrApplicationMode = crate::ctypes::c_uint;
 pub const SCE_APPMGR_APPLICATION_MODE_A: SceAppMgrApplicationMode = 2;
 pub const SCE_APPMGR_APPLICATION_MODE_B: SceAppMgrApplicationMode = 3;
 pub const SCE_APPMGR_APPLICATION_MODE_C: SceAppMgrApplicationMode = 4;
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrAppParamGetString(
-        pid: crate::ctypes::c_int,
-        param: crate::ctypes::c_int,
-        string: *mut crate::ctypes::c_char,
-        length: SceSize,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrAppState {
@@ -7206,15 +4116,6 @@ pub struct SceAppMgrBudgetInfo {
     pub free_cdram_mem: crate::ctypes::c_uint,
     pub reserved: [crate::ctypes::c_int; 9usize],
 }
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrConvertVs0UserDrivePath(
-        path: *mut crate::ctypes::c_char,
-        mount_point: *mut crate::ctypes::c_char,
-        unk: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrCoredumpState {
@@ -7229,26 +4130,6 @@ pub struct SceAppMgrCoredumpState {
     pub data_0x41C: crate::ctypes::c_int,
     pub data_0x420: crate::ctypes::c_int,
     pub data_0x424: crate::ctypes::c_int,
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrDestroyAppByAppId(appId: SceInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrDestroyAppByName(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrDestroyOtherApp() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrDrmOpen(param: *const SceAppMgrDrmOpenParam) -> SceInt32;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7269,104 +4150,146 @@ pub const SCE_APPMGR_ERROR_TOO_LONG_ARGV: SceAppMgrErrorCode = 2155880477;
 pub struct SceAppMgrExecOptParam {
     _unused: [u8; 0],
 }
+#[cfg(feature = "SceAppMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
+    pub fn _sceAppMgrGetAppState(
+        appState: *mut SceAppMgrAppState,
+        len: SceSize,
+        version: u32,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceSharedFbOpen(index: crate::ctypes::c_int, sysver: crate::ctypes::c_int) -> SceUID;
+    pub fn sceAppMgrAcquireBgmPort() -> crate::ctypes::c_int;
+    pub fn sceAppMgrAppDataMount(
+        id: crate::ctypes::c_int,
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrAppDataMountById(
+        id: crate::ctypes::c_int,
+        titleid: *const crate::ctypes::c_char,
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrAppParamGetString(
+        pid: crate::ctypes::c_int,
+        param: crate::ctypes::c_int,
+        string: *mut crate::ctypes::c_char,
+        length: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrConvertVs0UserDrivePath(
+        path: *mut crate::ctypes::c_char,
+        mount_point: *mut crate::ctypes::c_char,
+        unk: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrDestroyAppByAppId(appId: SceInt32) -> crate::ctypes::c_int;
+    pub fn sceAppMgrDestroyAppByName(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceAppMgrDestroyOtherApp() -> crate::ctypes::c_int;
+    pub fn sceAppMgrDrmOpen(param: *const SceAppMgrDrmOpenParam) -> SceInt32;
     pub fn sceAppMgrGameDataMount(
         app_path: *const crate::ctypes::c_char,
         patch_path: *const crate::ctypes::c_char,
         rif_path: *const crate::ctypes::c_char,
         mount_point: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetAppInfo(
         unk: *const crate::ctypes::c_char,
         state: *mut SceAppMgrAppState,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetAppParam(param: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn _sceAppMgrGetAppState(
-        appState: *mut SceAppMgrAppState,
-        len: SceSize,
-        version: u32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetBudgetInfo(info: *mut SceAppMgrBudgetInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetCoredumpStateForShell(
         state: *mut SceAppMgrCoredumpState,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetDevInfo(
         dev: *const crate::ctypes::c_char,
         max_size: *mut u64,
         free_size: *mut u64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetIdByName(
         pid: *mut SceUID,
         name: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetNameById(
         pid: SceUID,
         name: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetProcessIdByAppIdForShell(appId: SceInt32) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetRawPath(
         path: *mut crate::ctypes::c_char,
         resolved_path: *mut crate::ctypes::c_char,
         resolved_path_size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetRawPathOfApp0ByAppIdForShell(
         appId: crate::ctypes::c_int,
         resolved_path: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
     pub fn sceAppMgrGetRunningAppIdListForShell(
         appIds: *mut SceInt32,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrLaunchAppByName(
+        flags: crate::ctypes::c_int,
+        name: *const crate::ctypes::c_char,
+        param: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrLaunchAppByName2(
+        name: *const crate::ctypes::c_char,
+        param: *const crate::ctypes::c_char,
+        optParam: *mut SceAppMgrLaunchAppOptParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrLaunchAppByName2ForShell(
+        name: *const crate::ctypes::c_char,
+        param: *const crate::ctypes::c_char,
+        optParam: *mut SceAppMgrLaunchAppOptParam,
+    ) -> SceUID;
+    pub fn sceAppMgrLaunchAppByUri(
+        flags: crate::ctypes::c_int,
+        uri: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrLoadExec(
+        appPath: *const crate::ctypes::c_char,
+        argv: *const *mut crate::ctypes::c_char,
+        optParam: *const SceAppMgrExecOptParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrMmsMount(
+        id: crate::ctypes::c_int,
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrPspSaveDataRootMount(
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrReceiveSystemEvent(
+        systemEvent: *mut SceAppMgrSystemEvent,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrReleaseBgmPort() -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataDataRemove(
+        data: *mut SceAppMgrSaveDataDataDelete,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataDataSave(data: *mut SceAppMgrSaveDataData) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataSlotCreate(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataSlotDelete(
+        data: *mut SceAppMgrSaveDataSlotDelete,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataSlotGetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSaveDataSlotSetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    pub fn sceAppMgrSetInfobarState(
+        visibility: SceAppMgrInfoBarVisibility,
+        color: SceAppMgrInfoBarColor,
+        transparency: SceAppMgrInfoBarTransparency,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrUmount(mount_point: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceAppMgrWorkDirMount(
+        id: crate::ctypes::c_int,
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppMgrWorkDirMountById(
+        id: crate::ctypes::c_int,
+        titleid: *const crate::ctypes::c_char,
+        mount_point: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceSharedFbBegin(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
+    pub fn sceSharedFbClose(fb_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceSharedFbEnd(fb_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceSharedFbGetInfo(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
 }
 pub type SceAppMgrInfoBarColor = crate::ctypes::c_uint;
 pub const SCE_APPMGR_INFOBAR_COLOR_BLACK: SceAppMgrInfoBarColor = 0;
@@ -7377,41 +4300,6 @@ pub const SCE_APPMGR_INFOBAR_TRANSPARENCY_TRANSLUCENT: SceAppMgrInfoBarTranspare
 pub type SceAppMgrInfoBarVisibility = crate::ctypes::c_uint;
 pub const SCE_APPMGR_INFOBAR_VISIBILITY_INVISIBLE: SceAppMgrInfoBarVisibility = 0;
 pub const SCE_APPMGR_INFOBAR_VISIBILITY_VISIBLE: SceAppMgrInfoBarVisibility = 1;
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrLaunchAppByName(
-        flags: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrLaunchAppByName2(
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
-        optParam: *mut SceAppMgrLaunchAppOptParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrLaunchAppByName2ForShell(
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
-        optParam: *mut SceAppMgrLaunchAppOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrLaunchAppByUri(
-        flags: crate::ctypes::c_int,
-        uri: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrLaunchAppOptParam {
@@ -7434,48 +4322,12 @@ pub struct SceAppMgrLaunchParam {
     pub unk_2C: crate::ctypes::c_uint,
     pub unk_30: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrLoadExec(
-        appPath: *const crate::ctypes::c_char,
-        argv: *const *mut crate::ctypes::c_char,
-        optParam: *const SceAppMgrExecOptParam,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrLoadExecOptParam {
     pub reserved: [crate::ctypes::c_int; 64usize],
 }
 pub const SCE_APPMGR_MAX_APP_NAME_LENGTH: u32 = 31;
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrMmsMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrPspSaveDataRootMount(
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrReceiveSystemEvent(
-        systemEvent: *mut SceAppMgrSystemEvent,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrReleaseBgmPort() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataData {
@@ -7500,18 +4352,6 @@ pub struct SceAppMgrSaveDataDataDelete {
     pub fileNum: crate::ctypes::c_int,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
 }
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataDataRemove(
-        data: *mut SceAppMgrSaveDataDataDelete,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataDataSave(data: *mut SceAppMgrSaveDataData) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlot {
@@ -7522,43 +4362,12 @@ pub struct SceAppMgrSaveDataSlot {
     pub mountPoint: SceAppUtilSaveDataMountPoint,
     pub reserved2: [u8; 64usize],
 }
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataSlotCreate(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlotDelete {
     pub size: crate::ctypes::c_int,
     pub slotId: crate::ctypes::c_uint,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataSlotDelete(
-        data: *mut SceAppMgrSaveDataSlotDelete,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataSlotGetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSaveDataSlotSetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrSetInfobarState(
-        visibility: SceAppMgrInfoBarVisibility,
-        color: SceAppMgrInfoBarColor,
-        transparency: SceAppMgrInfoBarTransparency,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7571,57 +4380,96 @@ pub const SCE_APPMGR_SYSTEMEVENT_ON_RESUME: SceAppMgrSystemEventType = 268435459
 pub const SCE_APPMGR_SYSTEMEVENT_ON_STORE_PURCHASE: SceAppMgrSystemEventType = 268435460;
 pub const SCE_APPMGR_SYSTEMEVENT_ON_STORE_REDEMPTION: SceAppMgrSystemEventType = 268435462;
 pub type SceAppMgrSystemEventType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrUmount(mount_point: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrWorkDirMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceAppMgrWorkDirMountById(
-        id: crate::ctypes::c_int,
-        titleid: *const crate::ctypes::c_char,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilAppEventParam {
     pub type_: SceAppUtilAppEventType,
     pub dat: [u8; 1024usize],
 }
+#[cfg(feature = "SceAppUtil_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
     pub fn sceAppUtilAppEventParseLiveArea(
         eventParam: *const SceAppUtilAppEventParam,
         buffer: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-pub type SceAppUtilAppEventType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
     pub fn sceAppUtilAppParamGetInt(
         paramId: SceAppUtilAppParamId,
         value: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-pub type SceAppUtilAppParamId = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
     pub fn sceAppUtilBgdlGetStatus(stat: *mut SceAppUtilBgdlStatus) -> crate::ctypes::c_int;
+    pub fn sceAppUtilCacheMount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilCacheUmount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilInit(
+        initParam: *mut SceAppUtilInitParam,
+        bootParam: *mut SceAppUtilBootParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilLaunchWebBrowser(
+        param: *mut SceAppUtilWebBrowserParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilLoadSafeMemory(
+        buf: *mut crate::ctypes::c_void,
+        bufSize: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilMusicMount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilMusicUmount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilPhotoMount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilPhotoUmount() -> crate::ctypes::c_int;
+    pub fn sceAppUtilReceiveAppEvent(
+        eventParam: *mut SceAppUtilAppEventParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataDataRemove(
+        slot: *mut SceAppUtilSaveDataFileSlot,
+        files: *mut SceAppUtilSaveDataRemoveItem,
+        fileNum: crate::ctypes::c_uint,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataDataSave(
+        slot: *mut SceAppUtilSaveDataFileSlot,
+        files: *mut SceAppUtilSaveDataFile,
+        fileNum: crate::ctypes::c_uint,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+        requiredSizeKB: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataSlotCreate(
+        slotId: crate::ctypes::c_uint,
+        param: *mut SceAppUtilSaveDataSlotParam,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataSlotDelete(
+        slotId: crate::ctypes::c_uint,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataSlotGetParam(
+        slotId: crate::ctypes::c_uint,
+        param: *mut SceAppUtilSaveDataSlotParam,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveDataSlotSetParam(
+        slotId: crate::ctypes::c_uint,
+        param: *mut SceAppUtilSaveDataSlotParam,
+        mountPoint: *mut SceAppUtilSaveDataMountPoint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSaveSafeMemory(
+        buf: *mut crate::ctypes::c_void,
+        bufSize: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilShutdown() -> crate::ctypes::c_int;
+    pub fn sceAppUtilStoreBrowse(param: *mut SceAppUtilStoreBrowseParam) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSystemParamGetInt(
+        paramId: crate::ctypes::c_uint,
+        value: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAppUtilSystemParamGetString(
+        paramId: crate::ctypes::c_uint,
+        buf: *mut SceChar8,
+        bufSize: SceSize,
+    ) -> crate::ctypes::c_int;
 }
+pub type SceAppUtilAppEventType = crate::ctypes::c_uint;
+pub type SceAppUtilAppParamId = crate::ctypes::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilBgdlStatus {
@@ -7639,16 +4487,6 @@ pub struct SceAppUtilBootParam {
     pub attr: SceAppUtilBootAttribute,
     pub appVersion: crate::ctypes::c_uint,
     pub reserved: [u8; 32usize],
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilCacheMount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilCacheUmount() -> crate::ctypes::c_int;
 }
 pub const SCE_APPUTIL_ERROR_APPEVENT_PARSE_INVALID_DATA: SceAppUtilErrorCode = 2148533792;
 pub const SCE_APPUTIL_ERROR_BUSY: SceAppUtilErrorCode = 2148533763;
@@ -7668,91 +4506,19 @@ pub const SCE_APPUTIL_ERROR_SAVEDATA_NO_SPACE_QUOTA: SceAppUtilErrorCode = 21485
 pub const SCE_APPUTIL_ERROR_SAVEDATA_SLOT_EXISTS: SceAppUtilErrorCode = 2148533824;
 pub const SCE_APPUTIL_ERROR_SAVEDATA_SLOT_NOT_FOUND: SceAppUtilErrorCode = 2148533825;
 pub const SCE_APPUTIL_ERROR_STACKSIZE_TOO_SHORT: SceAppUtilErrorCode = 2148533920;
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilInit(
-        initParam: *mut SceAppUtilInitParam,
-        bootParam: *mut SceAppUtilBootParam,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilInitParam {
     pub workBufSize: SceSize,
     pub reserved: [u8; 60usize],
 }
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilLaunchWebBrowser(
-        param: *mut SceAppUtilWebBrowserParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilLoadSafeMemory(
-        buf: *mut crate::ctypes::c_void,
-        bufSize: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilMountPoint {
     pub data: [i8; 16usize],
 }
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilMusicMount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilMusicUmount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilPhotoMount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilPhotoUmount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilReceiveAppEvent(
-        eventParam: *mut SceAppUtilAppEventParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataDataRemove(
-        slot: *mut SceAppUtilSaveDataFileSlot,
-        files: *mut SceAppUtilSaveDataRemoveItem,
-        fileNum: crate::ctypes::c_uint,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_APPUTIL_SAVEDATA_DATA_REMOVE_MODE_DEFAULT: SceAppUtilSaveDataRemoveMode = 0;
 pub const SCE_APPUTIL_SAVEDATA_DATA_REMOVE_MODE_NO_SLOT: SceAppUtilSaveDataRemoveMode = 1;
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataDataSave(
-        slot: *mut SceAppUtilSaveDataFileSlot,
-        files: *mut SceAppUtilSaveDataFile,
-        fileNum: crate::ctypes::c_uint,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-        requiredSizeKB: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_APPUTIL_SAVEDATA_DATA_SAVE_MODE_DIRECTORY: SceAppUtilSaveDataSaveMode = 2;
 pub const SCE_APPUTIL_SAVEDATA_DATA_SAVE_MODE_FILE: SceAppUtilSaveDataSaveMode = 0;
 #[repr(C)]
@@ -7805,23 +4571,6 @@ pub struct SceAppUtilSaveDataSlot {
     pub userParam: crate::ctypes::c_int,
     pub emptyParam: *mut SceAppUtilSaveDataSlotEmptyParam,
 }
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataSlotCreate(
-        slotId: crate::ctypes::c_uint,
-        param: *mut SceAppUtilSaveDataSlotParam,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataSlotDelete(
-        slotId: crate::ctypes::c_uint,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSlotEmptyParam {
@@ -7830,15 +4579,6 @@ pub struct SceAppUtilSaveDataSlotEmptyParam {
     pub iconBuf: *mut crate::ctypes::c_void,
     pub iconBufSize: SceSize,
     pub reserved: [u8; 32usize],
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataSlotGetParam(
-        slotId: crate::ctypes::c_uint,
-        param: *mut SceAppUtilSaveDataSlotParam,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceAppUtilSaveDataSlotId = crate::ctypes::c_uint;
 #[repr(C)]
@@ -7854,57 +4594,12 @@ pub struct SceAppUtilSaveDataSlotParam {
     pub modifiedTime: SceDateTime,
     pub reserved: [u8; 48usize],
 }
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveDataSlotSetParam(
-        slotId: crate::ctypes::c_uint,
-        param: *mut SceAppUtilSaveDataSlotParam,
-        mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceAppUtilSaveDataSlotStatus = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSaveSafeMemory(
-        buf: *mut crate::ctypes::c_void,
-        bufSize: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilShutdown() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilStoreBrowse(param: *mut SceAppUtilStoreBrowseParam) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilStoreBrowseParam {
     pub type_: crate::ctypes::c_uint,
     pub id: *const crate::ctypes::c_char,
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSystemParamGetInt(
-        paramId: crate::ctypes::c_uint,
-        value: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
-    pub fn sceAppUtilSystemParamGetString(
-        paramId: crate::ctypes::c_uint,
-        buf: *mut SceChar8,
-        bufSize: SceSize,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7936,12 +4631,108 @@ pub struct SceArmCpuRegisters {
     pub cpsr: u32,
     pub fpscr: u32,
 }
+#[cfg(feature = "SceAtrac_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
     pub fn sceAtracAddStreamData(
         atracHandle: crate::ctypes::c_int,
         addSize: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracCreateDecoderGroup(
+        atracType: SceUInt32,
+        pDecoderGroup: *const SceAtracDecoderGroup,
+        pvWorkMem: *mut crate::ctypes::c_void,
+        initAudiodecFlag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracDecode(
+        atracHandle: crate::ctypes::c_int,
+        pOutputBuffer: *mut crate::ctypes::c_void,
+        pOutputSamples: *mut SceUInt32,
+        pDecoderStatus: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracDeleteDecoderGroup(
+        atracType: SceUInt32,
+        termAudiodecFlag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetContentInfo(
+        atracHandle: crate::ctypes::c_int,
+        pContentInfo: *mut SceAtracContentInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetDecoderGroupInfo(
+        atracType: SceUInt32,
+        pCreatedDecoder: *mut SceAtracDecoderGroup,
+        pAvailableDecoder: *mut SceAtracDecoderGroup,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetDecoderStatus(
+        atracHandle: crate::ctypes::c_int,
+        pDecoderStatus: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetInternalError(
+        atracHandle: crate::ctypes::c_int,
+        pInternalError: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetLoopInfo(
+        atracHandle: crate::ctypes::c_int,
+        pLoopNum: *mut crate::ctypes::c_int,
+        pLoopStatus: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetNextOutputPosition(
+        atracHandle: crate::ctypes::c_int,
+        pNextOutputSample: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetOutputSamples(
+        atracHandle: crate::ctypes::c_int,
+        pOutputSamples: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetOutputableSamples(
+        atracHandle: crate::ctypes::c_int,
+        pOutputableSamples: *mut SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetRemainSamples(
+        atracHandle: crate::ctypes::c_int,
+        pRemainSamples: *mut SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetStreamInfo(
+        atracHandle: crate::ctypes::c_int,
+        pStreamInfo: *mut SceAtracStreamInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetSubBufferInfo(
+        atracHandle: crate::ctypes::c_int,
+        pReadPosition: *mut SceUInt32,
+        pMinSubBufferSize: *mut SceUInt32,
+        pDataSize: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracGetVacantSize(
+        atracHandle: crate::ctypes::c_int,
+        pVacantSize: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracIsSubBufferNeeded(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceAtracQueryDecoderGroupMemSize(
+        atracType: SceUInt32,
+        pDecoderGroup: *const SceAtracDecoderGroup,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracReleaseHandle(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceAtracResetNextOutputPosition(
+        atracHandle: crate::ctypes::c_int,
+        resetSample: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracSetDataAndAcquireHandle(
+        pucBuffer: *mut SceUChar8,
+        uiReadSize: SceUInt32,
+        uiBufferSize: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracSetLoopNum(
+        atracHandle: crate::ctypes::c_int,
+        loopNum: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracSetOutputSamples(
+        atracHandle: crate::ctypes::c_int,
+        outputSamples: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAtracSetSubBuffer(
+        atracHandle: crate::ctypes::c_int,
+        pSubBuffer: *mut SceUChar8,
+        subBufferSize: SceUInt32,
     ) -> crate::ctypes::c_int;
 }
 pub const SCE_ATRAC_ALIGNMENT_SIZE: u32 = 256;
@@ -7967,26 +4758,6 @@ pub struct SceAtracContentInfo {
     pub loopBlockOffset: SceUInt32,
     pub loopBlockSize: SceUInt32,
 }
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracCreateDecoderGroup(
-        atracType: SceUInt32,
-        pDecoderGroup: *const SceAtracDecoderGroup,
-        pvWorkMem: *mut crate::ctypes::c_void,
-        initAudiodecFlag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracDecode(
-        atracHandle: crate::ctypes::c_int,
-        pOutputBuffer: *mut crate::ctypes::c_void,
-        pOutputSamples: *mut SceUInt32,
-        pDecoderStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAtracDecoderGroup {
@@ -7999,14 +4770,6 @@ pub const SCE_ATRAC_DECODER_STATUS_ALL_DATA_IS_ON_MEMORY: SceAtracDecoderStatus 
 pub const SCE_ATRAC_DECODER_STATUS_ALL_DATA_WAS_DECODED: SceAtracDecoderStatus = 1;
 pub const SCE_ATRAC_DECODER_STATUS_LOOP_PART_IS_ON_MEMORY: SceAtracDecoderStatus = 8;
 pub const SCE_ATRAC_DECODER_STATUS_NONLOOP_PART_IS_ON_MEMORY: SceAtracDecoderStatus = 4;
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracDeleteDecoderGroup(
-        atracType: SceUInt32,
-        termAudiodecFlag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_ATRAC_ERROR_ADDED_DATA_IS_TOO_BIG: SceAtracErrorCode = 2153971731;
 pub const SCE_ATRAC_ERROR_ALL_DATA_WAS_DECODED: SceAtracErrorCode = 2153971729;
 pub const SCE_ATRAC_ERROR_ALREADY_CREATED: SceAtracErrorCode = 2153971718;
@@ -8034,172 +4797,12 @@ pub const SCE_ATRAC_ERROR_REMAIN_VALID_HANDLE: SceAtracErrorCode = 2153971736;
 pub const SCE_ATRAC_ERROR_SHORTAGE_OF_CH: SceAtracErrorCode = 2153971720;
 pub const SCE_ATRAC_ERROR_SUB_BUFFER_SIZE_IS_TOO_SMALL: SceAtracErrorCode = 2153971727;
 pub const SCE_ATRAC_ERROR_UNSUPPORTED_DATA: SceAtracErrorCode = 2153971721;
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetContentInfo(
-        atracHandle: crate::ctypes::c_int,
-        pContentInfo: *mut SceAtracContentInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetDecoderGroupInfo(
-        atracType: SceUInt32,
-        pCreatedDecoder: *mut SceAtracDecoderGroup,
-        pAvailableDecoder: *mut SceAtracDecoderGroup,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetDecoderStatus(
-        atracHandle: crate::ctypes::c_int,
-        pDecoderStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetInternalError(
-        atracHandle: crate::ctypes::c_int,
-        pInternalError: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetLoopInfo(
-        atracHandle: crate::ctypes::c_int,
-        pLoopNum: *mut crate::ctypes::c_int,
-        pLoopStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetNextOutputPosition(
-        atracHandle: crate::ctypes::c_int,
-        pNextOutputSample: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetOutputableSamples(
-        atracHandle: crate::ctypes::c_int,
-        pOutputableSamples: *mut SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetOutputSamples(
-        atracHandle: crate::ctypes::c_int,
-        pOutputSamples: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetRemainSamples(
-        atracHandle: crate::ctypes::c_int,
-        pRemainSamples: *mut SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetStreamInfo(
-        atracHandle: crate::ctypes::c_int,
-        pStreamInfo: *mut SceAtracStreamInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetSubBufferInfo(
-        atracHandle: crate::ctypes::c_int,
-        pReadPosition: *mut SceUInt32,
-        pMinSubBufferSize: *mut SceUInt32,
-        pDataSize: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracGetVacantSize(
-        atracHandle: crate::ctypes::c_int,
-        pVacantSize: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_ATRAC_INFINITE_LOOP_NUM: i32 = -1;
 pub const SCE_ATRAC_INFINITE_SAMPLES: i32 = -1;
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracIsSubBufferNeeded(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub type SceAtracLoopStatus = crate::ctypes::c_uint;
 pub const SCE_ATRAC_LOOP_STATUS_NON_RESETABLE_PART: SceAtracLoopStatus = 0;
 pub const SCE_ATRAC_LOOP_STATUS_RESETABLE_PART: SceAtracLoopStatus = 1;
 pub const SCE_ATRAC_MAX_OUTPUT_SAMPLES: u32 = 2048;
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracQueryDecoderGroupMemSize(
-        atracType: SceUInt32,
-        pDecoderGroup: *const SceAtracDecoderGroup,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracReleaseHandle(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracResetNextOutputPosition(
-        atracHandle: crate::ctypes::c_int,
-        resetSample: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracSetDataAndAcquireHandle(
-        pucBuffer: *mut SceUChar8,
-        uiReadSize: SceUInt32,
-        uiBufferSize: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracSetLoopNum(
-        atracHandle: crate::ctypes::c_int,
-        loopNum: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracSetOutputSamples(
-        atracHandle: crate::ctypes::c_int,
-        outputSamples: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAtrac_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
-    pub fn sceAtracSetSubBuffer(
-        atracHandle: crate::ctypes::c_int,
-        pSubBuffer: *mut SceUChar8,
-        subBufferSize: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAtracStreamInfo {
@@ -8251,25 +4854,39 @@ pub const SCE_AUDIODEC_CELP_MAX_SAMPLES: u32 = 320;
 pub const SCE_AUDIODEC_CELP_MAX_STREAMS: u32 = 8;
 pub const SCE_AUDIODEC_CELP_MPE: u32 = 0;
 pub const SCE_AUDIODEC_CELP_SAMPLING_RATE_8KHZ: u32 = 8000;
+#[cfg(feature = "SceAudiodec_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
     pub fn sceAudiodecClearContext(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
     pub fn sceAudiodecCreateDecoder(pCtrl: *mut SceAudiodecCtrl, codecType: SceUInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
     pub fn sceAudiodecCreateDecoderExternal(
         pCtrl: *mut SceAudiodecCtrl,
         codecType: SceUInt32,
         vaContext: SceUIntVAddr,
         contextSize: SceUInt32,
     ) -> SceInt32;
+    pub fn sceAudiodecDecode(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
+    pub fn sceAudiodecDecodeNFrames(pCtrl: *mut SceAudiodecCtrl, nFrames: SceUInt32) -> SceInt32;
+    pub fn sceAudiodecDecodeNStreams(
+        pCtrls: *mut *mut SceAudiodecCtrl,
+        nStreams: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceAudiodecDeleteDecoder(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
+    pub fn sceAudiodecDeleteDecoderExternal(
+        pCtrl: *mut SceAudiodecCtrl,
+        pvaContext: *mut SceUIntVAddr,
+    ) -> SceInt32;
+    pub fn sceAudiodecGetContextSize(pCtrl: *mut SceAudiodecCtrl, codecType: SceUInt32)
+        -> SceInt32;
+    pub fn sceAudiodecGetInternalError(
+        pCtrl: *mut SceAudiodecCtrl,
+        pInternalError: *mut SceInt32,
+    ) -> SceInt32;
+    pub fn sceAudiodecInitLibrary(
+        codecType: SceUInt32,
+        pInitParam: *mut SceAudiodecInitParam,
+    ) -> SceInt32;
+    pub fn sceAudiodecTermLibrary(codecType: SceUInt32) -> SceInt32;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8284,37 +4901,6 @@ pub struct SceAudiodecCtrl {
     pub maxPcmSize: SceUInt32,
     pub wordLength: SceUInt32,
     pub pInfo: *mut SceAudiodecInfo,
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecDecode(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecDecodeNFrames(pCtrl: *mut SceAudiodecCtrl, nFrames: SceUInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecDecodeNStreams(
-        pCtrls: *mut *mut SceAudiodecCtrl,
-        nStreams: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecDeleteDecoder(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecDeleteDecoderExternal(
-        pCtrl: *mut SceAudiodecCtrl,
-        pvaContext: *mut SceUIntVAddr,
-    ) -> SceInt32;
 }
 pub const SCE_AUDIODEC_ERROR_A_HANDLE_IN_USE: SceAudiodecErrorCode = 2155806726;
 pub const SCE_AUDIODEC_ERROR_ALL_HANDLES_IN_USE: SceAudiodecErrorCode = 2155806727;
@@ -8337,20 +4923,6 @@ pub const SCE_AUDIODEC_ERROR_NOT_INITIALIZED: SceAudiodecErrorCode = 2155806725;
 pub const SCE_AUDIODEC_ERROR_OUT_OF_MEMORY: SceAudiodecErrorCode = 2155806724;
 pub const SCE_AUDIODEC_ERROR_SAME_HANDLES: SceAudiodecErrorCode = 2155806738;
 pub const SCE_AUDIODEC_ERROR_UNSUPPORTED: SceAudiodecErrorCode = 2155806734;
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecGetContextSize(pCtrl: *mut SceAudiodecCtrl, codecType: SceUInt32)
-        -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecGetInternalError(
-        pCtrl: *mut SceAudiodecCtrl,
-        pInternalError: *mut SceInt32,
-    ) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudiodecInfo {
@@ -8402,14 +4974,6 @@ pub struct SceAudiodecInitChParam {
     pub size: SceUInt32,
     pub totalCh: SceUInt32,
 }
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecInitLibrary(
-        codecType: SceUInt32,
-        pInitParam: *mut SceAudiodecInitParam,
-    ) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudiodecInitParam {
@@ -8439,11 +5003,6 @@ pub const SCE_AUDIODEC_MP3_MPEG_VERSION_2: SceAudiodecMpegVersion = 2;
 pub const SCE_AUDIODEC_MP3_MPEG_VERSION_2_5: SceAudiodecMpegVersion = 0;
 pub const SCE_AUDIODEC_MP3_MPEG_VERSION_RESERVED: SceAudiodecMpegVersion = 1;
 pub type SceAudiodecMpegVersion = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceAudiodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
-    pub fn sceAudiodecTermLibrary(codecType: SceUInt32) -> SceInt32;
-}
 pub type SceAudiodecType = crate::ctypes::c_uint;
 pub const SCE_AUDIODEC_TYPE_AAC: SceAudiodecType = 4101;
 pub const SCE_AUDIODEC_TYPE_AT9: SceAudiodecType = 4099;
@@ -8468,18 +5027,26 @@ pub const SCE_AUDIOENC_CELP_MAX_SAMPLES: u32 = 320;
 pub const SCE_AUDIOENC_CELP_MAX_STREAMS: u32 = 1;
 pub const SCE_AUDIOENC_CELP_MPE: u32 = 0;
 pub const SCE_AUDIOENC_CELP_SAMPLING_RATE_8KHZ: u32 = 8000;
+#[cfg(feature = "SceAudioenc_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
     pub fn sceAudioencClearContext(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
     pub fn sceAudioencCreateEncoder(
         pCtrl: *mut SceAudioencCtrl,
         codecType: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceAudioencDeleteEncoder(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+    pub fn sceAudioencEncode(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+    pub fn sceAudioencGetInternalError(
+        pCtrl: *mut SceAudioencCtrl,
+        pInternalError: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAudioencGetOptInfo(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+    pub fn sceAudioencInitLibrary(
+        codecType: crate::ctypes::c_int,
+        pInitParam: *mut SceAudioencInitParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAudioencTermLibrary(codecType: crate::ctypes::c_uint) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8495,16 +5062,6 @@ pub struct SceAudioencCtrl {
     pub wordLength: SceSize,
     pub pInfo: *mut SceAudioencInfo,
     pub pOptInfo: *mut SceAudioencOptInfo,
-}
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencDeleteEncoder(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencEncode(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
 }
 pub const SCE_AUDIOENC_ERROR_A_HANDLE_IN_USE: SceAudioencErrorCode = 2156265478;
 pub const SCE_AUDIOENC_ERROR_ALL_HANDLES_IN_USE: SceAudioencErrorCode = 2156265479;
@@ -8523,19 +5080,6 @@ pub const SCE_AUDIOENC_ERROR_NOT_HANDLE_IN_USE: SceAudioencErrorCode = 215626548
 pub const SCE_AUDIOENC_ERROR_NOT_INITIALIZED: SceAudioencErrorCode = 2156265477;
 pub const SCE_AUDIOENC_ERROR_OUT_OF_MEMORY: SceAudioencErrorCode = 2156265476;
 pub const SCE_AUDIOENC_ERROR_UNSUPPORTED: SceAudioencErrorCode = 2156265487;
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencGetInternalError(
-        pCtrl: *mut SceAudioencCtrl,
-        pInternalError: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencGetOptInfo(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudioencInfo {
@@ -8549,14 +5093,6 @@ pub struct SceAudioencInfoCelp {
     pub excitationMode: crate::ctypes::c_uint,
     pub samplingRate: crate::ctypes::c_uint,
     pub bitRate: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencInitLibrary(
-        codecType: crate::ctypes::c_int,
-        pInitParam: *mut SceAudioencInitParam,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -8584,11 +5120,6 @@ pub struct SceAudioencOptInfoCelp {
     pub headerSize: SceSize,
     pub encoderVersion: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceAudioenc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
-    pub fn sceAudioencTermLibrary(codecType: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
 pub const SCE_AUDIOENC_TYPE_CELP: u32 = 8198;
 pub const SCE_AUDIOENC_WORD_LENGTH_16BITS: u32 = 16;
 pub const SCE_AUDIO_IN_ERROR_BUSY: SceAudioInErrorCode = 2149974282;
@@ -8604,45 +5135,29 @@ pub const SCE_AUDIO_IN_ERROR_INVALID_SIZE: SceAudioInErrorCode = 2149974274;
 pub const SCE_AUDIO_IN_ERROR_NOT_OPENED: SceAudioInErrorCode = 2149974281;
 pub const SCE_AUDIO_IN_ERROR_OUT_OF_MEMORY: SceAudioInErrorCode = 2149974280;
 pub const SCE_AUDIO_IN_ERROR_PORT_FULL: SceAudioInErrorCode = 2149974279;
+#[cfg(feature = "SceAudioIn_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
     pub fn sceAudioInGetAdopt(portType: SceAudioInPortType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
     pub fn sceAudioInGetStatus(select: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-pub const SCE_AUDIO_IN_GETSTATUS_MUTE: SceAudioInParam = 1;
-extern "C" {
-    #[cfg(feature = "SceAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
     pub fn sceAudioInInput(
         port: crate::ctypes::c_int,
         destPtr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
     pub fn sceAudioInOpenPort(
         portType: SceAudioInPortType,
         grain: crate::ctypes::c_int,
         freq: crate::ctypes::c_int,
         param: SceAudioInParam,
     ) -> crate::ctypes::c_int;
+    pub fn sceAudioInReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
+pub const SCE_AUDIO_IN_GETSTATUS_MUTE: SceAudioInParam = 1;
 pub type SceAudioInParam = crate::ctypes::c_uint;
 pub const SCE_AUDIO_IN_PARAM_FORMAT_S16_MONO: SceAudioInParam = 0;
 pub type SceAudioInPortType = crate::ctypes::c_uint;
 pub const SCE_AUDIO_IN_PORT_TYPE_RAW: SceAudioInPortType = 2;
 pub const SCE_AUDIO_IN_PORT_TYPE_VOICE: SceAudioInPortType = 0;
-extern "C" {
-    #[cfg(feature = "SceAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
-    pub fn sceAudioInReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_AUDIO_MAX_LEN: u32 = 65472;
 pub const SCE_AUDIO_MIN_LEN: u32 = 64;
 pub type SceAudioOutAlcMode = crate::ctypes::c_uint;
@@ -8665,46 +5180,43 @@ pub const SCE_AUDIO_OUT_ERROR_INVALID_VOLUME: SceAudioOutErrorCode = 2149974025;
 pub const SCE_AUDIO_OUT_ERROR_NOT_OPENED: SceAudioOutErrorCode = 2149974017;
 pub const SCE_AUDIO_OUT_ERROR_OUT_OF_MEMORY: SceAudioOutErrorCode = 2149974029;
 pub const SCE_AUDIO_OUT_ERROR_PORT_FULL: SceAudioOutErrorCode = 2149974021;
+#[cfg(feature = "SceAudio_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
     pub fn sceAudioOutGetAdopt(type_: SceAudioOutPortType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
     pub fn sceAudioOutGetConfig(
         port: crate::ctypes::c_int,
         type_: SceAudioOutConfigType,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
     pub fn sceAudioOutGetRestSample(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-pub const SCE_AUDIO_OUT_MAX_VOL: u32 = 32768;
-pub type SceAudioOutMode = crate::ctypes::c_uint;
-pub const SCE_AUDIO_OUT_MODE_MONO: SceAudioOutMode = 0;
-pub const SCE_AUDIO_OUT_MODE_STEREO: SceAudioOutMode = 1;
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
     pub fn sceAudioOutOpenPort(
         type_: SceAudioOutPortType,
         len: crate::ctypes::c_int,
         freq: crate::ctypes::c_int,
         mode: SceAudioOutMode,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
     pub fn sceAudioOutOutput(
         port: crate::ctypes::c_int,
         buf: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn sceAudioOutReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceAudioOutSetAlcMode(mode: SceAudioOutAlcMode) -> crate::ctypes::c_int;
+    pub fn sceAudioOutSetConfig(
+        port: crate::ctypes::c_int,
+        len: SceSize,
+        freq: crate::ctypes::c_int,
+        mode: SceAudioOutMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAudioOutSetVolume(
+        port: crate::ctypes::c_int,
+        ch: SceAudioOutChannelFlag,
+        vol: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
 }
+pub const SCE_AUDIO_OUT_MAX_VOL: u32 = 32768;
+pub type SceAudioOutMode = crate::ctypes::c_uint;
+pub const SCE_AUDIO_OUT_MODE_MONO: SceAudioOutMode = 0;
+pub const SCE_AUDIO_OUT_MODE_STEREO: SceAudioOutMode = 1;
 pub type SceAudioOutParam = crate::ctypes::c_uint;
 pub const SCE_AUDIO_OUT_PARAM_FORMAT_S16_MONO: SceAudioOutParam = 0;
 pub const SCE_AUDIO_OUT_PARAM_FORMAT_S16_STEREO: SceAudioOutParam = 1;
@@ -8712,35 +5224,6 @@ pub type SceAudioOutPortType = crate::ctypes::c_uint;
 pub const SCE_AUDIO_OUT_PORT_TYPE_BGM: SceAudioOutPortType = 1;
 pub const SCE_AUDIO_OUT_PORT_TYPE_MAIN: SceAudioOutPortType = 0;
 pub const SCE_AUDIO_OUT_PORT_TYPE_VOICE: SceAudioOutPortType = 2;
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
-    pub fn sceAudioOutReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
-    pub fn sceAudioOutSetAlcMode(mode: SceAudioOutAlcMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
-    pub fn sceAudioOutSetConfig(
-        port: crate::ctypes::c_int,
-        len: SceSize,
-        freq: crate::ctypes::c_int,
-        mode: SceAudioOutMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAudio_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
-    pub fn sceAudioOutSetVolume(
-        port: crate::ctypes::c_int,
-        ch: SceAudioOutChannelFlag,
-        vol: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_AUDIO_VOLUME_0DB: u32 = 32768;
 pub const SCE_AUDIO_VOLUME_FLAG_L_CH: SceAudioOutChannelFlag = 1;
 pub const SCE_AUDIO_VOLUME_FLAG_R_CH: SceAudioOutChannelFlag = 2;
@@ -8774,14 +5257,30 @@ pub struct SceAvcdecBuf {
     pub pBuf: *mut crate::ctypes::c_void,
     pub size: u32,
 }
+#[cfg(feature = "SceVideodec_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
 extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
     pub fn sceAvcdecCreateDecoder(
         codec: SceVideodecType,
         decoder: *mut SceAvcdecCtrl,
         query: *const SceAvcdecQueryDecoderInfo,
     ) -> crate::ctypes::c_int;
+    pub fn sceAvcdecDecode(
+        decoder: *const SceAvcdecCtrl,
+        au: *const SceAvcdecAu,
+        array_picture: *mut SceAvcdecArrayPicture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAvcdecDeleteDecoder(decoder: *mut SceAvcdecCtrl) -> crate::ctypes::c_int;
+    pub fn sceAvcdecQueryDecoderMemSize(
+        codec: SceVideodecType,
+        query: *const SceAvcdecQueryDecoderInfo,
+        decoderInfo: *mut SceAvcdecDecoderInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceVideodecInitLibrary(
+        codec: SceVideodecType,
+        initInfo: *const SceVideodecQueryInitInfoHwAvcdec,
+    ) -> crate::ctypes::c_int;
+    pub fn sceVideodecTermLibrary(codec: SceVideodecType) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8789,24 +5288,10 @@ pub struct SceAvcdecCtrl {
     pub handle: u32,
     pub frameBuf: SceAvcdecBuf,
 }
-extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
-    pub fn sceAvcdecDecode(
-        decoder: *const SceAvcdecCtrl,
-        au: *const SceAvcdecAu,
-        array_picture: *mut SceAvcdecArrayPicture,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvcdecDecoderInfo {
     pub frameMemSize: u32,
-}
-extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
-    pub fn sceAvcdecDeleteDecoder(decoder: *mut SceAvcdecCtrl) -> crate::ctypes::c_int;
 }
 pub const SCE_AVCDEC_ERROR_ALREADY_USED: SceAvcdecErrorCode = 2153906184;
 pub type SceAvcdecErrorCode = crate::ctypes::c_uint;
@@ -8889,64 +5374,61 @@ pub struct SceAvcdecQueryDecoderInfo {
     pub vertical: u32,
     pub numOfRefFrames: u32,
 }
-extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
-    pub fn sceAvcdecQueryDecoderMemSize(
-        codec: SceVideodecType,
-        query: *const SceAvcdecQueryDecoderInfo,
-        decoderInfo: *mut SceAvcdecDecoderInfo,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceAVConfigColorSpaceMode = crate::ctypes::c_uint;
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_DEFAULT: SceAVConfigColorSpaceMode = 0;
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_HIGH_CONTRAST: SceAVConfigColorSpaceMode = 1;
+#[cfg(feature = "SceAVConfig_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigGetDisplayMaxBrightness(
         maxBrightness: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigGetShutterVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigGetSystemVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigMuteOn() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigSetDisplayBrightness(
         brightness: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigSetDisplayColorSpaceMode(csm: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAVConfig_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
     pub fn sceAVConfigSetSystemVol(volume: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceAvPlayer_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
 extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
     pub fn sceAvPlayerAddSource(
         handle: SceAvPlayerHandle,
         filename: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerClose(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerCurrentTime(handle: SceAvPlayerHandle) -> u64;
+    pub fn sceAvPlayerGetAudioData(
+        handle: SceAvPlayerHandle,
+        info: *mut SceAvPlayerFrameInfo,
+    ) -> SceBool;
+    pub fn sceAvPlayerGetStreamInfo(
+        handle: SceAvPlayerHandle,
+        id: u32,
+        info: *mut SceAvPlayerStreamInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerGetVideoData(
+        handle: SceAvPlayerHandle,
+        info: *mut SceAvPlayerFrameInfo,
+    ) -> SceBool;
+    pub fn sceAvPlayerInit(data: *mut SceAvPlayerInitData) -> SceAvPlayerHandle;
+    pub fn sceAvPlayerIsActive(handle: SceAvPlayerHandle) -> SceBool;
+    pub fn sceAvPlayerJumpToTime(handle: SceAvPlayerHandle, offset: u64) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerPause(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerResume(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerSetLooping(
+        handle: SceAvPlayerHandle,
+        looping: SceBool,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerSetTrickSpeed(
+        handle: SceAvPlayerHandle,
+        speed: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerStart(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerStop(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
 }
 pub type SceAvPlayerAlloc = ::core::option::Option<
     unsafe extern "C" fn(
@@ -8972,19 +5454,9 @@ pub struct SceAvPlayerAudio {
     pub size: u32,
     pub languageCode: u32,
 }
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerClose(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-}
 pub type SceAvPlayerCloseFile = ::core::option::Option<
     unsafe extern "C" fn(p: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerCurrentTime(handle: SceAvPlayerHandle) -> u64;
-}
 pub type SceAvPlayerErrorCode = crate::ctypes::c_uint;
 pub const SCE_AVPLAYER_ERROR_INVALID_PARAM: SceAvPlayerErrorCode = 2154430465;
 pub const SCE_AVPLAYER_ERROR_OUT_OF_MEMORY: SceAvPlayerErrorCode = 2154430467;
@@ -9025,37 +5497,7 @@ pub type SceAvPlayerFree = ::core::option::Option<
 pub type SceAvPlayerFreeFrame = ::core::option::Option<
     unsafe extern "C" fn(arg: *mut crate::ctypes::c_void, ptr: *mut crate::ctypes::c_void),
 >;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerGetAudioData(
-        handle: SceAvPlayerHandle,
-        info: *mut SceAvPlayerFrameInfo,
-    ) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerGetStreamInfo(
-        handle: SceAvPlayerHandle,
-        id: u32,
-        info: *mut SceAvPlayerStreamInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerGetVideoData(
-        handle: SceAvPlayerHandle,
-        info: *mut SceAvPlayerFrameInfo,
-    ) -> SceBool;
-}
 pub type SceAvPlayerHandle = crate::ctypes::c_int;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerInit(data: *mut SceAvPlayerInitData) -> SceAvPlayerHandle;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerInitData {
@@ -9068,16 +5510,6 @@ pub struct SceAvPlayerInitData {
     pub autoStart: SceBool,
     pub reserved: [u8; 3usize],
     pub defaultLanguage: *const crate::ctypes::c_char,
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerIsActive(handle: SceAvPlayerHandle) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerJumpToTime(handle: SceAvPlayerHandle, offset: u64) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -9094,11 +5526,6 @@ pub type SceAvPlayerOpenFile = ::core::option::Option<
         filename: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerPause(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-}
 pub type SceAvPlayerReadOffsetFile = ::core::option::Option<
     unsafe extern "C" fn(
         p: *mut crate::ctypes::c_void,
@@ -9107,39 +5534,8 @@ pub type SceAvPlayerReadOffsetFile = ::core::option::Option<
         length: u32,
     ) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerResume(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerSetLooping(
-        handle: SceAvPlayerHandle,
-        looping: SceBool,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerSetTrickSpeed(
-        handle: SceAvPlayerHandle,
-        speed: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceAvPlayerSizeFile =
     ::core::option::Option<unsafe extern "C" fn(p: *mut crate::ctypes::c_void) -> u64>;
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerStart(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAvPlayer_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
-    pub fn sceAvPlayerStop(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAvPlayerStreamDetails {
@@ -9196,9 +5592,9 @@ pub struct SceAvPlayerVideo {
 }
 pub type SceBgAppUtilErrorCode = crate::ctypes::c_uint;
 pub const SCE_BGAPP_UTIL_ERROR_INVALID_ARG: SceBgAppUtilErrorCode = 2148558082;
+#[cfg(feature = "SceBgAppUtil_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceBgAppUtil_stub")))]
 extern "C" {
-    #[cfg(feature = "SceBgAppUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceBgAppUtil_stub")))]
     pub fn sceBgAppUtilStartBgApp(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 pub type SceBool = crate::ctypes::c_int;
@@ -9505,10 +5901,177 @@ pub const SCE_CAMERA_ANTIFLICKER_AUTO: SceCameraAntiFlicker = 1;
 pub type SceCameraBacklight = crate::ctypes::c_uint;
 pub const SCE_CAMERA_BACKLIGHT_OFF: SceCameraBacklight = 0;
 pub const SCE_CAMERA_BACKLIGHT_ON: SceCameraBacklight = 1;
+#[cfg(feature = "SceCamera_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
     pub fn sceCameraClose(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCameraGetAntiFlicker(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetAutoControlHold(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetBacklight(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetBrightness(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetContrast(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetDeviceLocation(
+        devnum: crate::ctypes::c_int,
+        pLocation: *mut SceFVector3,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetEV(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetEffect(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetExposureCeiling(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetGain(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetISO(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetImageQuality(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetNightmode(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetNoiseReduction(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetReverse(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetSaturation(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetSharpness(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetSharpnessOff(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetWhiteBalance(
+        devnum: crate::ctypes::c_int,
+        pMode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraGetZoom(
+        devnum: crate::ctypes::c_int,
+        pLevel: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraIsActive(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCameraOpen(
+        devnum: crate::ctypes::c_int,
+        pInfo: *mut SceCameraInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraRead(
+        devnum: crate::ctypes::c_int,
+        pRead: *mut SceCameraRead,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetAntiFlicker(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetAutoControlHold(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetBacklight(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetBrightness(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetContrast(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetEV(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetEffect(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetExposureCeiling(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetGain(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetISO(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetImageQuality(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetNightmode(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetNoiseReduction(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetReverse(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetSaturation(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetSharpness(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetSharpnessOff(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetWhiteBalance(
+        devnum: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraSetZoom(
+        devnum: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCameraStart(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCameraStop(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 pub type SceCameraDevice = crate::ctypes::c_uint;
 pub const SCE_CAMERA_DEVICE_BACK: SceCameraDevice = 1;
@@ -9596,166 +6159,6 @@ pub const SCE_CAMERA_GAIN_7: SceCameraGain = 7;
 pub const SCE_CAMERA_GAIN_8: SceCameraGain = 8;
 pub const SCE_CAMERA_GAIN_9: SceCameraGain = 9;
 pub const SCE_CAMERA_GAIN_AUTO: SceCameraGain = 0;
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetAntiFlicker(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetAutoControlHold(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetBacklight(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetBrightness(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetContrast(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetDeviceLocation(
-        devnum: crate::ctypes::c_int,
-        pLocation: *mut SceFVector3,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetEffect(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetEV(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetExposureCeiling(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetGain(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetImageQuality(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetISO(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetNightmode(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetNoiseReduction(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetReverse(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetSaturation(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetSharpness(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetSharpnessOff(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetWhiteBalance(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraGetZoom(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCameraInfo {
@@ -9777,11 +6180,6 @@ pub struct SceCameraInfo {
     pub pitch: u16,
     pub buffer: u16,
 }
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraIsActive(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub type SceCameraISO = crate::ctypes::c_uint;
 pub const SCE_CAMERA_ISO_100: SceCameraISO = 100;
 pub const SCE_CAMERA_ISO_200: SceCameraISO = 200;
@@ -9792,14 +6190,6 @@ pub const SCE_CAMERA_NIGHTMODE_LESS10: SceCameraNightmode = 1;
 pub const SCE_CAMERA_NIGHTMODE_LESS100: SceCameraNightmode = 2;
 pub const SCE_CAMERA_NIGHTMODE_OFF: SceCameraNightmode = 0;
 pub const SCE_CAMERA_NIGHTMODE_OVER100: SceCameraNightmode = 3;
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraOpen(
-        devnum: crate::ctypes::c_int,
-        pInfo: *mut SceCameraInfo,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceCameraPriority = crate::ctypes::c_uint;
 pub const SCE_CAMERA_PRIORITY_EXCLUSIVE: SceCameraPriority = 1;
 pub const SCE_CAMERA_PRIORITY_SHARE: SceCameraPriority = 0;
@@ -9818,14 +6208,6 @@ pub struct SceCameraRead {
     pub pIBase: *mut crate::ctypes::c_void,
     pub pUBase: *mut crate::ctypes::c_void,
     pub pVBase: *mut crate::ctypes::c_void,
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraRead(
-        devnum: crate::ctypes::c_int,
-        pRead: *mut SceCameraRead,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceCameraResolution = crate::ctypes::c_uint;
 pub const SCE_CAMERA_RESOLUTION_0_0: SceCameraResolution = 0;
@@ -9848,173 +6230,11 @@ pub const SCE_CAMERA_SATURATION_20: SceCameraSaturation = 20;
 pub const SCE_CAMERA_SATURATION_30: SceCameraSaturation = 30;
 pub const SCE_CAMERA_SATURATION_40: SceCameraSaturation = 40;
 pub const SCE_CAMERA_SATURATION_5: SceCameraSaturation = 5;
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetAntiFlicker(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetAutoControlHold(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetBacklight(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetBrightness(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetContrast(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetEffect(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetEV(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetExposureCeiling(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetGain(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetImageQuality(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetISO(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetNightmode(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetNoiseReduction(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetReverse(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetSaturation(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetSharpness(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetSharpnessOff(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetWhiteBalance(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraSetZoom(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceCameraSharpness = crate::ctypes::c_uint;
 pub const SCE_CAMERA_SHARPNESS_100: SceCameraSharpness = 1;
 pub const SCE_CAMERA_SHARPNESS_200: SceCameraSharpness = 2;
 pub const SCE_CAMERA_SHARPNESS_300: SceCameraSharpness = 3;
 pub const SCE_CAMERA_SHARPNESS_400: SceCameraSharpness = 4;
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraStart(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCamera_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
-    pub fn sceCameraStop(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_CAMERA_WB_AUTO: SceCameraWhiteBalance = 0;
 pub const SCE_CAMERA_WB_CWF: SceCameraWhiteBalance = 2;
 pub const SCE_CAMERA_WB_DAY: SceCameraWhiteBalance = 1;
@@ -10040,151 +6260,625 @@ pub struct SceClass {
 pub type SceClassCallback = ::core::option::Option<
     unsafe extern "C" fn(item: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+#[cfg(feature = "SceLibKernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibAbort();
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibLookCtypeTable(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemchr(
         src: *const crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
         len: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemcmp(
         s1: *const crate::ctypes::c_void,
         s2: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemcpy_safe(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemmove(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMemset(
         dst: *mut crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
         len: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-pub type SceClibMspace = *mut crate::ctypes::c_void;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceCalloc(
         mspace: SceClibMspace,
         num: SceSize,
         size: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceCreate(
         memblock: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> SceClibMspace;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceDestroy(mspace: SceClibMspace);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceFree(mspace: SceClibMspace, ptr: *mut crate::ctypes::c_void);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceIsHeapEmpty(mspace: SceClibMspace) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceMalloc(mspace: SceClibMspace, size: SceSize) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceMallocStats(mspace: SceClibMspace, stats: *mut SceClibMspaceStats);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceMallocStatsFast(mspace: SceClibMspace, stats: *mut SceClibMspaceStats);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceMallocUsableSize(ptr: *mut crate::ctypes::c_void) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceMemalign(
         mspace: SceClibMspace,
         alignment: SceSize,
         size: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceRealloc(
         mspace: SceClibMspace,
         ptr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
     pub fn sceClibMspaceReallocalign(
         mspace: SceClibMspace,
         ptr: *mut crate::ctypes::c_void,
         size: SceSize,
         alignment: SceSize,
     ) -> *mut crate::ctypes::c_void;
+    pub fn sceClibPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
+    pub fn sceClibSnprintf(
+        dst: *mut crate::ctypes::c_char,
+        dst_max_size: SceSize,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn sceClibStrchr(
+        s: *const crate::ctypes::c_char,
+        ch: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sceClibStrcmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceClibStrncasecmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceClibStrncat(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sceClibStrncmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceClibStrncpy(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sceClibStrnlen(s1: *const crate::ctypes::c_char, max_len: SceSize) -> SceSize;
+    pub fn sceClibStrrchr(
+        src: *const crate::ctypes::c_char,
+        ch: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sceClibStrstr(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sceClibTolower(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceClibToupper(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceClibVsnprintf(
+        dst: *mut crate::ctypes::c_char,
+        dst_max_size: SceSize,
+        fmt: *const crate::ctypes::c_char,
+        args: va_list,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoChstat(
+        file: *const crate::ctypes::c_char,
+        stat: *mut SceIoStat,
+        bits: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoChstatByFd(
+        fd: SceUID,
+        buf: *const SceIoStat,
+        cbit: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoDevctl(
+        dev: *const crate::ctypes::c_char,
+        cmd: crate::ctypes::c_uint,
+        indata: *mut crate::ctypes::c_void,
+        inlen: crate::ctypes::c_int,
+        outdata: *mut crate::ctypes::c_void,
+        outlen: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
+    pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
+    pub fn sceIoGetstat(
+        file: *const crate::ctypes::c_char,
+        stat: *mut SceIoStat,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
+    pub fn sceIoIoctl(
+        fd: SceUID,
+        cmd: crate::ctypes::c_uint,
+        indata: *mut crate::ctypes::c_void,
+        inlen: crate::ctypes::c_int,
+        outdata: *mut crate::ctypes::c_void,
+        outlen: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoIoctlAsync(
+        fd: SceUID,
+        cmd: crate::ctypes::c_uint,
+        indata: *mut crate::ctypes::c_void,
+        inlen: crate::ctypes::c_int,
+        outdata: *mut crate::ctypes::c_void,
+        outlen: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
+    pub fn sceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+    pub fn sceIoOpen(
+        file: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        mode: SceMode,
+    ) -> SceUID;
+    pub fn sceIoPread(
+        fd: SceUID,
+        data: *mut crate::ctypes::c_void,
+        size: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoPwrite(
+        fd: SceUID,
+        data: *const crate::ctypes::c_void,
+        size: SceSize,
+        offset: SceOff,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceIoRename(
+        oldname: *const crate::ctypes::c_char,
+        newname: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceIoSync(
+        device: *const crate::ctypes::c_char,
+        unk: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelAtomicAddAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicAddAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicAddAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicAddAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicAddUnless16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        cmpv: SceInt16,
+    ) -> SceBool;
+    pub fn sceKernelAtomicAddUnless32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        cmpv: SceInt32,
+    ) -> SceBool;
+    pub fn sceKernelAtomicAddUnless64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        cmpv: SceInt64,
+    ) -> SceBool;
+    pub fn sceKernelAtomicAddUnless8(store: *mut SceInt8, value: SceInt8, cmpv: SceInt8)
+        -> SceBool;
+    pub fn sceKernelAtomicAndAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicAndAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicAndAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicAndAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicClearAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicClearAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicClearAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicClearAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicClearMask16(store: *mut SceInt16, value: SceInt16);
+    pub fn sceKernelAtomicClearMask32(store: *mut SceInt32, value: SceInt32);
+    pub fn sceKernelAtomicClearMask64(store: *mut SceInt64, value: SceInt64);
+    pub fn sceKernelAtomicClearMask8(store: *mut SceInt8, value: SceInt8);
+    pub fn sceKernelAtomicCompareAndSet16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        new_value: SceInt16,
+    ) -> SceInt16;
+    pub fn sceKernelAtomicCompareAndSet32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        new_value: SceInt32,
+    ) -> SceInt32;
+    pub fn sceKernelAtomicCompareAndSet64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        new_value: SceInt64,
+    ) -> SceInt64;
+    pub fn sceKernelAtomicCompareAndSet8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        new_value: SceInt8,
+    ) -> SceInt8;
+    pub fn sceKernelAtomicDecIfPositive16(store: *mut SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicDecIfPositive32(store: *mut SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicDecIfPositive64(store: *mut SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicDecIfPositive8(store: *mut SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndAdd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndAdd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndAdd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndAdd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndAnd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndAnd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndAnd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndAnd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndClear16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndClear32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndClear64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndClear8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndOr16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndOr32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndOr64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndOr8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndSet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndSet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndSet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndSet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndSub16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndSub32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndSub64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndSub8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicGetAndXor16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicGetAndXor32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicGetAndXor64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicGetAndXor8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicOrAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicOrAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicOrAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicOrAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicSet16(store: *mut SceInt16, value: SceInt16);
+    pub fn sceKernelAtomicSet32(store: *mut SceInt32, value: SceInt32);
+    pub fn sceKernelAtomicSet64(store: *mut SceInt64, value: SceInt64);
+    pub fn sceKernelAtomicSet8(store: *mut SceInt8, value: SceInt8);
+    pub fn sceKernelAtomicSubAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicSubAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicSubAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicSubAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelAtomicXorAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn sceKernelAtomicXorAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn sceKernelAtomicXorAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn sceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn sceKernelCancelMsgPipe(
+        uid: SceUID,
+        psend: *mut crate::ctypes::c_int,
+        precv: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelCancelMutex(
+        mutexid: SceUID,
+        newCount: crate::ctypes::c_int,
+        numWaitThreads: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelCancelSema(
+        semaid: SceUID,
+        setCount: crate::ctypes::c_int,
+        numWaitThreads: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelChangeCurrentThreadAttr(
+        clearAttr: SceUInt,
+        setAttr: SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
+    pub fn sceKernelCreateCond(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        mutexId: SceUID,
+        option: *const SceKernelCondOptParam,
+    ) -> SceUID;
+    pub fn sceKernelCreateEventFlag(
+        name: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_int,
+        bits: crate::ctypes::c_int,
+        opt: *mut SceKernelEventFlagOptParam,
+    ) -> SceUID;
+    pub fn sceKernelCreateLwCond(
+        pWork: *mut SceKernelLwCondWork,
+        pName: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_uint,
+        pLwMutex: *mut SceKernelLwMutexWork,
+        pOptParam: *const SceKernelLwCondOptParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelCreateLwMutex(
+        pWork: *mut SceKernelLwMutexWork,
+        pName: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_uint,
+        initCount: crate::ctypes::c_int,
+        pOptParam: *const SceKernelLwMutexOptParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelCreateMsgPipe(
+        name: *const crate::ctypes::c_char,
+        type_: crate::ctypes::c_int,
+        attr: crate::ctypes::c_int,
+        bufSize: crate::ctypes::c_uint,
+        opt: *mut crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn sceKernelCreateMutex(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        initCount: crate::ctypes::c_int,
+        option: *mut SceKernelMutexOptParam,
+    ) -> SceUID;
+    pub fn sceKernelCreateRWLock(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt32,
+        opt_param: *const SceKernelRWLockOptParam,
+    ) -> SceUID;
+    pub fn sceKernelCreateSema(
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt,
+        initVal: crate::ctypes::c_int,
+        maxVal: crate::ctypes::c_int,
+        option: *mut SceKernelSemaOptParam,
+    ) -> SceUID;
+    pub fn sceKernelCreateThread(
+        name: *const crate::ctypes::c_char,
+        entry: SceKernelThreadEntry,
+        initPriority: crate::ctypes::c_int,
+        stackSize: SceSize,
+        attr: SceUInt,
+        cpuAffinityMask: crate::ctypes::c_int,
+        option: *const SceKernelThreadOptParam,
+    ) -> SceUID;
+    pub fn sceKernelDeleteLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteLwMutex(pWork: *mut SceKernelLwMutexWork) -> crate::ctypes::c_int;
+    pub fn sceKernelExitProcess(res: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelGetCallbackInfo(
+        cb: SceUID,
+        infop: *mut SceKernelCallbackInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetEventFlagInfo(
+        event: SceUID,
+        info: *mut SceKernelEventFlagInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetMsgPipeInfo(
+        uid: SceUID,
+        info: *mut SceKernelMppInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetMutexInfo(
+        mutexid: SceUID,
+        info: *mut SceKernelMutexInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetOpenPsId(id: *mut SceKernelOpenPsId) -> crate::ctypes::c_int;
+    pub fn sceKernelGetProcessTime(pSysClock: *mut SceKernelSysClock) -> crate::ctypes::c_int;
+    pub fn sceKernelGetProcessTimeLow() -> SceUInt32;
+    pub fn sceKernelGetProcessTimeWide() -> SceUInt64;
+    pub fn sceKernelGetRWLockInfo(
+        rwlock_id: SceUID,
+        info: *mut SceKernelRWLockInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetRandomNumber(
+        output: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetSemaInfo(
+        semaid: SceUID,
+        info: *mut SceKernelSemaInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetSystemInfo(info: *mut SceKernelSystemInfo) -> crate::ctypes::c_int;
+    pub fn sceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
+    pub fn sceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadExitStatus(
+        thid: SceUID,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadId() -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadInfo(
+        thid: SceUID,
+        info: *mut SceKernelThreadInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadRunStatus(
+        thid: SceUID,
+        status: *mut SceKernelThreadRunStatus,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLoadModule(
+        path: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+    ) -> SceUID;
+    pub fn sceKernelLoadStartModule(
+        path: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelLMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> SceUID;
+    pub fn sceKernelLockLwMutex(
+        pWork: *mut SceKernelLwMutexWork,
+        lockCount: crate::ctypes::c_int,
+        pTimeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockMutex(
+        mutexid: SceUID,
+        lockCount: crate::ctypes::c_int,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockMutexCB(
+        mutexid: SceUID,
+        lockCount: crate::ctypes::c_int,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockReadRWLock(
+        rwlock_id: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockReadRWLockCB(
+        rwlock_id: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockWriteRWLock(
+        rwlock_id: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelLockWriteRWLockCB(
+        rwlock_id: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPollEventFlag(
+        evid: crate::ctypes::c_int,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelReceiveMsgPipe(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelReceiveMsgPipeCB(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelSendMsgPipe(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelSendMsgPipeCB(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalLwCondAll(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalLwCondTo(
+        pWork: *mut SceKernelLwCondWork,
+        threadId: SceUID,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelStartModule(
+        modid: SceUID,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut crate::ctypes::c_void,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelStartThread(
+        thid: SceUID,
+        arglen: SceSize,
+        argp: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelStopModule(
+        modid: SceUID,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut crate::ctypes::c_void,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelStopUnloadModule(
+        modid: SceUID,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelULMOption,
+        status: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelTryLockLwMutex(
+        pWork: *mut SceKernelLwMutexWork,
+        lockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelTryReceiveMsgPipe(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelTrySendMsgPipe(
+        uid: SceUID,
+        message: *mut crate::ctypes::c_void,
+        size: SceSize,
+        unk1: crate::ctypes::c_int,
+        unk2: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelUnloadModule(
+        modid: SceUID,
+        flags: crate::ctypes::c_int,
+        option: *mut SceKernelULMOption,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelUnlockLwMutex(
+        pWork: *mut SceKernelLwMutexWork,
+        unlockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitCond(
+        condId: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitCondCB(
+        condId: SceUID,
+        timeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitEventFlag(
+        evid: crate::ctypes::c_int,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitEventFlagCB(
+        evid: crate::ctypes::c_int,
+        bits: crate::ctypes::c_uint,
+        wait: crate::ctypes::c_uint,
+        outBits: *mut crate::ctypes::c_uint,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitLwCond(
+        pWork: *mut SceKernelLwCondWork,
+        pTimeout: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitSema(
+        semaid: SceUID,
+        signal: crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitSemaCB(
+        semaid: SceUID,
+        signal: crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitSignal(
+        unk0: SceUInt32,
+        delay: SceUInt32,
+        timeout: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitThreadEnd(
+        thid: SceUID,
+        stat: *mut crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelWaitThreadEndCB(
+        thid: SceUID,
+        stat: *mut crate::ctypes::c_int,
+        timeout: *mut SceUInt,
+    ) -> crate::ctypes::c_int;
+    pub fn sceSblACMgrIsGameProgram(result: *mut SceBool) -> SceInt32;
 }
+pub type SceClibMspace = *mut crate::ctypes::c_void;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceClibMspaceStats {
@@ -10192,114 +6886,6 @@ pub struct SceClibMspaceStats {
     pub unk: SceSize,
     pub peak_in_use: SceSize,
     pub current_in_use: SceSize,
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibSnprintf(
-        dst: *mut crate::ctypes::c_char,
-        dst_max_size: SceSize,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrncasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrncat(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrnlen(s1: *const crate::ctypes::c_char, max_len: SceSize) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrrchr(
-        src: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibStrstr(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibTolower(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibToupper(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceClibVsnprintf(
-        dst: *mut crate::ctypes::c_char,
-        dst_max_size: SceSize,
-        fmt: *const crate::ctypes::c_char,
-        args: va_list,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceCommonDialogBgColor = SceCommonDialogColor;
 #[repr(C)]
@@ -10377,24 +6963,51 @@ pub type SceCommonDialogResult = crate::ctypes::c_uint;
 pub const SCE_COMMON_DIALOG_RESULT_ABORTED: SceCommonDialogResult = 2;
 pub const SCE_COMMON_DIALOG_RESULT_OK: SceCommonDialogResult = 0;
 pub const SCE_COMMON_DIALOG_RESULT_USER_CANCELED: SceCommonDialogResult = 1;
+#[cfg(feature = "SceCommonDialog_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
     pub fn sceCommonDialogSetConfigParam(
         configParam: *const SceCommonDialogConfigParam,
     ) -> crate::ctypes::c_int;
+    pub fn sceCommonDialogUpdate(
+        updateParam: *const SceCommonDialogUpdateParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceImeDialogAbort() -> SceInt32;
+    pub fn sceImeDialogGetResult(result: *mut SceImeDialogResult) -> SceInt32;
+    pub fn sceImeDialogGetStatus() -> SceCommonDialogStatus;
+    pub fn sceImeDialogInit(param: *const SceImeDialogParam) -> SceInt32;
+    pub fn sceImeDialogTerm() -> SceInt32;
+    pub fn sceMsgDialogAbort() -> crate::ctypes::c_int;
+    pub fn sceMsgDialogClose() -> crate::ctypes::c_int;
+    pub fn sceMsgDialogGetResult(result: *mut SceMsgDialogResult) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogGetStatus() -> SceCommonDialogStatus;
+    pub fn sceMsgDialogInit(param: *const SceMsgDialogParam) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogProgressBarInc(
+        target: SceMsgDialogProgressBarTarget,
+        delta: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogProgressBarSetMsg(
+        target: SceMsgDialogProgressBarTarget,
+        barMsg: *const SceChar8,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogProgressBarSetValue(
+        target: SceMsgDialogProgressBarTarget,
+        rate: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogTerm() -> crate::ctypes::c_int;
+    pub fn sceNetCheckDialogAbort() -> SceInt32;
+    pub fn sceNetCheckDialogGetPS3ConnectInfo(
+        info: *mut SceNetCheckDialogPS3ConnectInfo,
+    ) -> SceInt32;
+    pub fn sceNetCheckDialogGetResult(result: *mut SceNetCheckDialogResult) -> SceInt32;
+    pub fn sceNetCheckDialogGetStatus() -> SceCommonDialogStatus;
+    pub fn sceNetCheckDialogInit(param: *mut SceNetCheckDialogParam) -> SceInt32;
+    pub fn sceNetCheckDialogTerm() -> SceInt32;
 }
 pub type SceCommonDialogStatus = crate::ctypes::c_uint;
 pub const SCE_COMMON_DIALOG_STATUS_FINISHED: SceCommonDialogStatus = 2;
 pub const SCE_COMMON_DIALOG_STATUS_NONE: SceCommonDialogStatus = 0;
 pub const SCE_COMMON_DIALOG_STATUS_RUNNING: SceCommonDialogStatus = 1;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceCommonDialogUpdate(
-        updateParam: *const SceCommonDialogUpdateParam,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCommonDialogUpdateParam {
@@ -10402,24 +7015,60 @@ pub struct SceCommonDialogUpdateParam {
     pub displaySyncObject: *mut SceGxmSyncObject,
     pub reserved: [SceUInt8; 32usize],
 }
+#[cfg(feature = "SceCompat_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
     pub fn sceCompatAllocCdramWithHole(cdram: *mut SceCompatCdram) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
     pub fn sceCompatAvailableColorSpaceSetting() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
     pub fn sceCompatCache(
         mode: crate::ctypes::c_int,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn sceCompatCheckPocketStation() -> crate::ctypes::c_int;
+    pub fn sceCompatFrameBufferInit(
+        framebuffer: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceCompatGetDevInf(info: *mut SceIoDevInfo) -> crate::ctypes::c_int;
+    pub fn sceCompatGetPeripheralState(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatGetPrimaryHead() -> crate::ctypes::c_int;
+    pub fn sceCompatGetPspSystemSoftwareVersion() -> crate::ctypes::c_int;
+    pub fn sceCompatGetStatus() -> crate::ctypes::c_int;
+    pub fn sceCompatGetTitleList(
+        buf: *mut crate::ctypes::c_void,
+        length: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatGetUpdateState() -> crate::ctypes::c_int;
+    pub fn sceCompatInitEx(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatInterrupt(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatIsPocketStationTitle() -> crate::ctypes::c_int;
+    pub fn sceCompatLCDCSync() -> crate::ctypes::c_int;
+    pub fn sceCompatReadShared32(
+        location: crate::ctypes::c_int,
+        value: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatSetDisplayConfig(
+        unk0: crate::ctypes::c_int,
+        unk1: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatSetRif(rif: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceCompatSetSuspendSema(semaid1: SceUID, semaid2: SceUID) -> crate::ctypes::c_int;
+    pub fn sceCompatSetUpdateState(state: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatStart() -> crate::ctypes::c_int;
+    pub fn sceCompatStop() -> crate::ctypes::c_int;
+    pub fn sceCompatSuspendResume(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatUninit() -> crate::ctypes::c_int;
+    pub fn sceCompatWaitAndGetRequest(
+        mode: crate::ctypes::c_int,
+        id: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatWaitSpecialRequest(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCompatWriteShared32(
+        location: crate::ctypes::c_int,
+        value: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCompatWriteSharedCtrl(pad_data: *mut SceCtrlDataPsp) -> crate::ctypes::c_int;
 }
 pub const SCE_COMPAT_CACHE_INVALIDATE: SceCompatCacheMode = 1;
 pub type SceCompatCacheMode = crate::ctypes::c_uint;
@@ -10431,163 +7080,11 @@ pub struct SceCompatCdram {
     pub cached_cdram: *mut crate::ctypes::c_void,
     pub uncached_cdram: *mut crate::ctypes::c_void,
 }
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatCheckPocketStation() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatFrameBufferInit(
-        framebuffer: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetDevInf(info: *mut SceIoDevInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetPeripheralState(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetPrimaryHead() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetPspSystemSoftwareVersion() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetStatus() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetTitleList(
-        buf: *mut crate::ctypes::c_void,
-        length: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatGetUpdateState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatInitEx(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatInterrupt(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatIsPocketStationTitle() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatLCDCSync() -> crate::ctypes::c_int;
-}
 pub const SCE_COMPAT_PERIPHERAL_HPREMOTE_IS_HEADPHONE_EXIST: SceCompatPeripheralMode = 4;
 pub type SceCompatPeripheralMode = crate::ctypes::c_uint;
 pub const SCE_COMPAT_PERIPHERAL_POWER_GET_BATTERY_LIFETIME: SceCompatPeripheralMode = 2;
 pub const SCE_COMPAT_PERIPHERAL_POWER_GET_BATTERY_PERCENT: SceCompatPeripheralMode = 3;
 pub const SCE_COMPAT_PERIPHERAL_POWER_IS_SUSPEND_REQUIRED: SceCompatPeripheralMode = 1;
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatReadShared32(
-        location: crate::ctypes::c_int,
-        value: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatSetDisplayConfig(
-        unk0: crate::ctypes::c_int,
-        unk1: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatSetRif(rif: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatSetSuspendSema(semaid1: SceUID, semaid2: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatSetUpdateState(state: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatStop() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatSuspendResume(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatUninit() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatWaitAndGetRequest(
-        mode: crate::ctypes::c_int,
-        id: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatWaitSpecialRequest(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatWriteShared32(
-        location: crate::ctypes::c_int,
-        value: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCompat_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
-    pub fn sceCompatWriteSharedCtrl(pad_data: *mut SceCtrlDataPsp) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceConsoleId {
@@ -10686,13 +7183,99 @@ pub struct SceCtrlActuator {
 }
 pub type SceCtrlButtons = crate::ctypes::c_uint;
 pub const SCE_CTRL_CIRCLE: SceCtrlButtons = 8192;
+#[cfg(feature = "SceCtrl_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
     pub fn sceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceCtrlGetBatteryInfo(
+        port: crate::ctypes::c_int,
+        batt: *mut SceUInt8,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
+    pub fn sceCtrlGetSamplingMode(pMode: *mut SceCtrlPadInputMode) -> crate::ctypes::c_int;
+    pub fn sceCtrlIsMultiControllerSupported() -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferNegative(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferNegative2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferPositive(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferPositive2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferPositiveExt(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlPeekBufferPositiveExt2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferNegative(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferNegative2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferPositive(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferPositive2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferPositiveExt(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlReadBufferPositiveExt2(
+        port: crate::ctypes::c_int,
+        pad_data: *mut SceCtrlData,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetActuator(
+        port: crate::ctypes::c_int,
+        pState: *const SceCtrlActuator,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetLightBar(
+        port: crate::ctypes::c_int,
+        r: SceUInt8,
+        g: SceUInt8,
+        b: SceUInt8,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetRapidFire(
+        port: crate::ctypes::c_int,
+        idx: crate::ctypes::c_int,
+        pRule: *const SceCtrlRapidFireRule,
+    ) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetSamplingMode(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
+    pub fn sceCtrlSetSamplingModeExt(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
 }
 pub const SCE_CTRL_CROSS: SceCtrlButtons = 16384;
 #[repr(C)]
@@ -10738,36 +7321,8 @@ pub const SCE_CTRL_ERROR_NO_DEVICE: SceCtrlErrorCode = 2150891552;
 pub const SCE_CTRL_ERROR_NOT_SUPPORTED: SceCtrlErrorCode = 2150891553;
 pub const SCE_CTRL_ERROR_PRIV_REQUIRED: SceCtrlErrorCode = 2150891522;
 pub type SceCtrlExternalInputMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlGetBatteryInfo(
-        port: crate::ctypes::c_int,
-        batt: *mut SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlGetSamplingMode(pMode: *mut SceCtrlPadInputMode) -> crate::ctypes::c_int;
-}
 pub const SCE_CTRL_HEADPHONE: SceCtrlButtons = 524288;
 pub const SCE_CTRL_INTERCEPTED: SceCtrlButtons = 65536;
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlIsMultiControllerSupported() -> crate::ctypes::c_int;
-}
 pub const SCE_CTRL_L1: SceCtrlButtons = 1024;
 pub const SCE_CTRL_L2: SceCtrlButtons = 256;
 pub const SCE_CTRL_L3: SceCtrlButtons = 2;
@@ -10777,60 +7332,6 @@ pub const SCE_CTRL_MODE_ANALOG: SceCtrlPadInputMode = 1;
 pub const SCE_CTRL_MODE_ANALOG_WIDE: SceCtrlPadInputMode = 2;
 pub const SCE_CTRL_MODE_DIGITAL: SceCtrlPadInputMode = 0;
 pub type SceCtrlPadInputMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferNegative(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferNegative2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferPositive(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferPositive2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferPositiveExt(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlPeekBufferPositiveExt2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlPortInfo {
@@ -10852,105 +7353,9 @@ pub struct SceCtrlRapidFireRule {
     pub Make: crate::ctypes::c_uint,
     pub Break: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferNegative(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferNegative2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferPositive(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferPositive2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferPositiveExt(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlReadBufferPositiveExt2(
-        port: crate::ctypes::c_int,
-        pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_CTRL_RIGHT: SceCtrlButtons = 32;
 pub const SCE_CTRL_RTRIGGER: SceCtrlButtons = 512;
 pub const SCE_CTRL_SELECT: SceCtrlButtons = 1;
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetActuator(
-        port: crate::ctypes::c_int,
-        pState: *const SceCtrlActuator,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetLightBar(
-        port: crate::ctypes::c_int,
-        r: SceUInt8,
-        g: SceUInt8,
-        b: SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetRapidFire(
-        port: crate::ctypes::c_int,
-        idx: crate::ctypes::c_int,
-        pRule: *const SceCtrlRapidFireRule,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetSamplingMode(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCtrl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
-    pub fn sceCtrlSetSamplingModeExt(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
-}
 pub const SCE_CTRL_SQUARE: SceCtrlButtons = 32768;
 pub const SCE_CTRL_START: SceCtrlButtons = 8;
 pub const SCE_CTRL_TRIANGLE: SceCtrlButtons = 4096;
@@ -11040,9 +7445,9 @@ pub struct SceDateTime {
     pub second: crate::ctypes::c_ushort,
     pub microsecond: crate::ctypes::c_uint,
 }
+#[cfg(feature = "SceLibDbg_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
 extern "C" {
-    #[cfg(feature = "SceLibDbg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
     pub fn sceDbgAssertionHandler(
         file: *const crate::ctypes::c_char,
         line: crate::ctypes::c_int,
@@ -11051,11 +7456,6 @@ extern "C" {
         msg: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
-}
-pub const SCE_DBG_BREAK_ON_ASSERT: u32 = 1;
-extern "C" {
-    #[cfg(feature = "SceLibDbg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
     pub fn sceDbgLoggingHandler(
         file: *const crate::ctypes::c_char,
         line: crate::ctypes::c_int,
@@ -11064,7 +7464,11 @@ extern "C" {
         msg: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    pub fn sceDbgSetBreakOnErrorState(breakOnError: SceBool);
+    pub fn sceDbgSetBreakOnWarningState(breakOnWarning: SceBool);
+    pub fn sceDbgSetMinimumLogLevel(level: SceDbgLogLevel);
 }
+pub const SCE_DBG_BREAK_ON_ASSERT: u32 = 1;
 pub type SceDbgLogLevel = crate::ctypes::c_uint;
 pub const SCE_DBG_LOG_LEVEL_DEBUG: SceDbgLogLevel = 1;
 pub const SCE_DBG_LOG_LEVEL_ERROR: SceDbgLogLevel = 4;
@@ -11072,21 +7476,6 @@ pub const SCE_DBG_LOG_LEVEL_INFO: SceDbgLogLevel = 2;
 pub const SCE_DBG_LOG_LEVEL_TRACE: SceDbgLogLevel = 0;
 pub const SCE_DBG_LOG_LEVEL_WARNING: SceDbgLogLevel = 3;
 pub const SCE_DBG_NUM_LOG_LEVELS: SceDbgLogLevel = 5;
-extern "C" {
-    #[cfg(feature = "SceLibDbg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
-    pub fn sceDbgSetBreakOnErrorState(breakOnError: SceBool);
-}
-extern "C" {
-    #[cfg(feature = "SceLibDbg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
-    pub fn sceDbgSetBreakOnWarningState(breakOnWarning: SceBool);
-}
-extern "C" {
-    #[cfg(feature = "SceLibDbg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
-    pub fn sceDbgSetMinimumLogLevel(level: SceDbgLogLevel);
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDeflatePartialInputParam {
@@ -11151,119 +7540,51 @@ pub struct SceDisplayFrameBufInfo {
     pub framebuf: SceDisplayFrameBuf,
     pub resolution: crate::ctypes::c_uint,
 }
+#[cfg(feature = "SceDisplay_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetMaximumFrameBufResolution(
         width: *mut crate::ctypes::c_int,
         height: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetRefreshRate(pFps: *mut f32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetVcount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-pub type SceDisplayPixelFormat = crate::ctypes::c_uint;
-pub const SCE_DISPLAY_PIXELFORMAT_A2B10G10R10: SceDisplayPixelFormat = 1619001344;
-pub const SCE_DISPLAY_PIXELFORMAT_A8B8G8R8: SceDisplayPixelFormat = 0;
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
-}
-pub const __SCE_DISPLAY_SETBUF: SceDisplaySetBufSync = 4294967295;
-pub const SCE_DISPLAY_SETBUF_IMMEDIATE: SceDisplaySetBufSync = 0;
-pub const SCE_DISPLAY_SETBUF_NEXTFRAME: SceDisplaySetBufSync = 1;
-pub type SceDisplaySetBufSync = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitVblankStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceDisplay_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
     pub fn sceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
 }
+pub type SceDisplayPixelFormat = crate::ctypes::c_uint;
+pub const SCE_DISPLAY_PIXELFORMAT_A2B10G10R10: SceDisplayPixelFormat = 1619001344;
+pub const SCE_DISPLAY_PIXELFORMAT_A8B8G8R8: SceDisplayPixelFormat = 0;
+pub const __SCE_DISPLAY_SETBUF: SceDisplaySetBufSync = 4294967295;
+pub const SCE_DISPLAY_SETBUF_IMMEDIATE: SceDisplaySetBufSync = 0;
+pub const SCE_DISPLAY_SETBUF_NEXTFRAME: SceDisplaySetBufSync = 1;
+pub type SceDisplaySetBufSync = crate::ctypes::c_uint;
+#[cfg(feature = "SceKernelDmacMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelDmacMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelDmacMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelDmacMgr_stub")))]
     pub fn sceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelDmacMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelDmacMgr_stub")))]
     pub fn sceDmacMemset(
         dst: *mut crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
@@ -11438,21 +7759,6 @@ pub const SCE_FIBER_ERROR_NULL: SceFiberErrorCode = 2153316353;
 pub const SCE_FIBER_ERROR_PERMISSION: SceFiberErrorCode = 2153316357;
 pub const SCE_FIBER_ERROR_RANGE: SceFiberErrorCode = 2153316355;
 pub const SCE_FIBER_ERROR_STATE: SceFiberErrorCode = 2153316358;
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberFinalize(fiber: *mut SceFiber) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberGetInfo(fiber: *mut SceFiber, fiberInfo: *mut SceFiberInfo) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberGetSelf(fiber: *mut SceFiber) -> SceInt32;
-}
 #[repr(C)]
 #[repr(align(8))]
 #[derive(Debug, Copy, Clone)]
@@ -11464,9 +7770,9 @@ pub struct SceFiberInfo {
     pub name: [crate::ctypes::c_char; 32usize],
     pub padding: [crate::ctypes::c_uint; 80usize],
 }
+#[cfg(feature = "SceFiber_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
 extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
     pub fn _sceFiberInitializeImpl(
         fiber: *mut SceFiber,
         name: *mut crate::ctypes::c_char,
@@ -11476,40 +7782,27 @@ extern "C" {
         sizeContext: SceSize,
         params: *mut SceFiberOptParam,
     ) -> SceInt32;
+    pub fn sceFiberFinalize(fiber: *mut SceFiber) -> SceInt32;
+    pub fn sceFiberGetInfo(fiber: *mut SceFiber, fiberInfo: *mut SceFiberInfo) -> SceInt32;
+    pub fn sceFiberGetSelf(fiber: *mut SceFiber) -> SceInt32;
+    pub fn sceFiberOptParamInitialize(optParam: *mut SceFiberOptParam) -> SceInt32;
+    pub fn sceFiberReturnToThread(argOnReturn: SceUInt32, argOnRun: *mut SceUInt32) -> SceInt32;
+    pub fn sceFiberRun(
+        fiber: *mut SceFiber,
+        argOnRunTo: SceUInt32,
+        argOnRun: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceFiberSwitch(
+        fiber: *mut SceFiber,
+        argOnRunTo: SceUInt32,
+        argOnRun: *mut SceUInt32,
+    ) -> SceInt32;
 }
 #[repr(C)]
 #[repr(align(8))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiberOptParam {
     pub reserved: [crate::ctypes::c_char; 128usize],
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberOptParamInitialize(optParam: *mut SceFiberOptParam) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberReturnToThread(argOnReturn: SceUInt32, argOnRun: *mut SceUInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberRun(
-        fiber: *mut SceFiber,
-        argOnRunTo: SceUInt32,
-        argOnRun: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceFiber_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
-    pub fn sceFiberSwitch(
-        fiber: *mut SceFiber,
-        argOnRunTo: SceUInt32,
-        argOnRun: *mut SceUInt32,
-    ) -> SceInt32;
 }
 pub const SCE_FIOS2_OVERLAY_PATH_MAX_LENGTH: u32 = 291;
 pub const SCE_FIOS2_OVERLAY_PATH_SIZE: u32 = 292;
@@ -11534,26 +7827,90 @@ pub struct SceFiosGetListSyscallArgs {
 pub struct SceFiosKernelOverlay {
     _unused: [u8; 0],
 }
+#[cfg(feature = "SceFios2Kernel_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
 extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
     pub fn _sceFiosKernelOverlayAdd(
         overlay: *const SceFiosKernelOverlay,
         out_id: *mut SceFiosKernelOverlayID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
     pub fn _sceFiosKernelOverlayAddForProcess(
         target_process: SceUID,
         overlay: *const SceFiosKernelOverlay,
         out_id: *mut SceFiosKernelOverlayID,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
+    pub fn _sceFiosKernelOverlayDHChstatSync(
+        dh: SceFiosKernelOverlayDH,
+        new_stat: *const SceFiosNativeStat,
+        cbit: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayDHCloseSync(dh: SceFiosKernelOverlayDH) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayDHOpenSync(
+        out_dh: *mut SceFiosKernelOverlayDH,
+        path: *const crate::ctypes::c_char,
+        from_order: SceUInt8,
+        args: *mut SceFiosDHOpenSyncSyscallArgs,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayDHReadSync(
+        dh: SceFiosKernelOverlayDH,
+        out_entry: *mut SceFiosNativeDirEntry,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayDHStatSync(
+        dh: SceFiosKernelOverlayDH,
+        out_stat: *mut SceFiosNativeStat,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayDHSyncSync(
+        dh: SceFiosKernelOverlayDH,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayGetInfo(
+        id: SceFiosKernelOverlayID,
+        out_overlay: *mut SceFiosKernelOverlay,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayGetInfoForProcess(
+        target_process: SceUID,
+        id: SceFiosKernelOverlayID,
+        out_overlay: *mut SceFiosKernelOverlay,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayGetList(
+        pid: SceUID,
+        min_order: SceUInt8,
+        max_order: SceUInt8,
+        args: *mut SceFiosGetListSyscallArgs,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayGetRecommendedScheduler(
+        avail: crate::ctypes::c_int,
+        partially_resolved_path: *const crate::ctypes::c_char,
+        a3: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayModify(
+        id: SceFiosKernelOverlayID,
+        new_value: *const SceFiosKernelOverlay,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayModifyForProcess(
+        target_process: SceUID,
+        id: SceFiosKernelOverlayID,
+        new_value: *const SceFiosKernelOverlay,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayRemove(id: SceFiosKernelOverlayID) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayRemoveForProcess(
+        target_process: SceUID,
+        id: SceFiosKernelOverlayID,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayResolveSync(
+        pid: SceUID,
+        resolve_flag: crate::ctypes::c_int,
+        in_path: *const crate::ctypes::c_char,
+        args: *mut SceFiosResolveSyncSyscallArgs,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayResolveWithRangeSync(
+        pid: SceUID,
+        resolve_flag: crate::ctypes::c_int,
+        in_path: *const crate::ctypes::c_char,
+        args: *mut SceFiosResolveWithRangeSyncSyscallArgs,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayThreadIsDisabled() -> crate::ctypes::c_int;
+    pub fn _sceFiosKernelOverlayThreadSetDisabled(disabled: SceInt32) -> crate::ctypes::c_int;
     pub fn sceFiosKernelOverlayAddForProcess02(
         pid: SceUID,
         overlay: *mut SceFiosOverlay,
@@ -11561,151 +7918,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 pub type SceFiosKernelOverlayDH = i32;
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHChstatSync(
-        dh: SceFiosKernelOverlayDH,
-        new_stat: *const SceFiosNativeStat,
-        cbit: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHCloseSync(dh: SceFiosKernelOverlayDH) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHOpenSync(
-        out_dh: *mut SceFiosKernelOverlayDH,
-        path: *const crate::ctypes::c_char,
-        from_order: SceUInt8,
-        args: *mut SceFiosDHOpenSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHReadSync(
-        dh: SceFiosKernelOverlayDH,
-        out_entry: *mut SceFiosNativeDirEntry,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHStatSync(
-        dh: SceFiosKernelOverlayDH,
-        out_stat: *mut SceFiosNativeStat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayDHSyncSync(
-        dh: SceFiosKernelOverlayDH,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayGetInfo(
-        id: SceFiosKernelOverlayID,
-        out_overlay: *mut SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayGetInfoForProcess(
-        target_process: SceUID,
-        id: SceFiosKernelOverlayID,
-        out_overlay: *mut SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayGetList(
-        pid: SceUID,
-        min_order: SceUInt8,
-        max_order: SceUInt8,
-        args: *mut SceFiosGetListSyscallArgs,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayGetRecommendedScheduler(
-        avail: crate::ctypes::c_int,
-        partially_resolved_path: *const crate::ctypes::c_char,
-        a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceFiosKernelOverlayID = i32;
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayModify(
-        id: SceFiosKernelOverlayID,
-        new_value: *const SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayModifyForProcess(
-        target_process: SceUID,
-        id: SceFiosKernelOverlayID,
-        new_value: *const SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayRemove(id: SceFiosKernelOverlayID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayRemoveForProcess(
-        target_process: SceUID,
-        id: SceFiosKernelOverlayID,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayResolveSync(
-        pid: SceUID,
-        resolve_flag: crate::ctypes::c_int,
-        in_path: *const crate::ctypes::c_char,
-        args: *mut SceFiosResolveSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayResolveWithRangeSync(
-        pid: SceUID,
-        resolve_flag: crate::ctypes::c_int,
-        in_path: *const crate::ctypes::c_char,
-        args: *mut SceFiosResolveWithRangeSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayThreadIsDisabled() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceFios2Kernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
-    pub fn _sceFiosKernelOverlayThreadSetDisabled(disabled: SceInt32) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiosNativeDirEntry {
@@ -11799,15 +8012,116 @@ pub struct SceFontCharInfo {
     pub shadowFlags: crate::ctypes::c_short,
     pub shadowId: crate::ctypes::c_short,
 }
+#[cfg(feature = "ScePgf_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
     pub fn sceFontClose(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
     pub fn sceFontDoneLib(libHandle: SceFontLibHandle) -> crate::ctypes::c_int;
+    pub fn sceFontFindFont(
+        libHandle: SceFontLibHandle,
+        fontStyle: *mut SceFontStyle,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontFindOptimumFont(
+        libHandle: SceFontLibHandle,
+        fontStyle: *mut SceFontStyle,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontFlush(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
+    pub fn sceFontGetCharGlyphImage(
+        fontHandle: SceFontHandle,
+        charCode: crate::ctypes::c_uint,
+        glyphImage: *mut SceFontGlyphImage,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetCharGlyphImage_Clip(
+        fontHandle: SceFontHandle,
+        charCode: crate::ctypes::c_uint,
+        glyphImage: *mut SceFontGlyphImage,
+        clipXPos: crate::ctypes::c_int,
+        clipYPos: crate::ctypes::c_int,
+        clipWidth: crate::ctypes::c_int,
+        clipHeight: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetCharImageRect(
+        fontHandle: SceFontHandle,
+        charCode: crate::ctypes::c_uint,
+        charRect: *mut SceFontImageRect,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetCharInfo(
+        fontHandle: SceFontHandle,
+        charCode: crate::ctypes::c_uint,
+        charInfo: *mut SceFontCharInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetFontInfo(
+        fontHandle: SceFontHandle,
+        fontInfo: *mut SceFontInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetFontInfoByIndexNumber(
+        libHandle: SceFontLibHandle,
+        fontStyle: *mut SceFontStyle,
+        unknown: crate::ctypes::c_int,
+        fontIndex: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetFontList(
+        libHandle: SceFontLibHandle,
+        fontStyle: *mut SceFontStyle,
+        numFonts: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontGetNumFontList(
+        libHandle: SceFontLibHandle,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontNewLib(
+        params: *mut SceFontNewLibParams,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> SceFontLibHandle;
+    pub fn sceFontOpen(
+        libHandle: SceFontLibHandle,
+        index: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> SceFontHandle;
+    pub fn sceFontOpenUserFile(
+        libHandle: SceFontLibHandle,
+        file: *mut crate::ctypes::c_char,
+        mode: crate::ctypes::c_int,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> SceFontHandle;
+    pub fn sceFontOpenUserMemory(
+        libHandle: SceFontLibHandle,
+        pMemoryFont: *mut crate::ctypes::c_void,
+        pMemoryFontSize: SceSize,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> SceFontHandle;
+    pub fn sceFontPixelToPointH(
+        libHandle: SceFontLibHandle,
+        fontPixelsH: f32,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> f32;
+    pub fn sceFontPixelToPointV(
+        libHandle: SceFontLibHandle,
+        fontPixelsV: f32,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> f32;
+    pub fn sceFontPointToPixelH(
+        libHandle: SceFontLibHandle,
+        fontPointsH: f32,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> f32;
+    pub fn sceFontPointToPixelV(
+        libHandle: SceFontLibHandle,
+        fontPointsV: f32,
+        errorCode: *mut crate::ctypes::c_uint,
+    ) -> f32;
+    pub fn sceFontSetAltCharacterCode(
+        libHandle: SceFontLibHandle,
+        charCode: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceFontSetResolution(
+        libHandle: SceFontLibHandle,
+        hRes: f32,
+        vRes: f32,
+    ) -> crate::ctypes::c_int;
 }
 pub type SceFontErrorCode = crate::ctypes::c_uint;
 pub const SCE_FONT_ERROR_HANDLER_OPEN_FAILED: SceFontErrorCode = 2152071173;
@@ -11821,104 +8135,6 @@ pub const SCE_FONT_FAMILY_DEFAULT: SceFontFamilyCode = 0;
 pub const SCE_FONT_FAMILY_ROUNDED: SceFontFamilyCode = 3;
 pub const SCE_FONT_FAMILY_SANS_SERIF: SceFontFamilyCode = 1;
 pub const SCE_FONT_FAMILY_SERIF: SceFontFamilyCode = 2;
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontFindFont(
-        libHandle: SceFontLibHandle,
-        fontStyle: *mut SceFontStyle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontFindOptimumFont(
-        libHandle: SceFontLibHandle,
-        fontStyle: *mut SceFontStyle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontFlush(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetCharGlyphImage(
-        fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
-        glyphImage: *mut SceFontGlyphImage,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetCharGlyphImage_Clip(
-        fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
-        glyphImage: *mut SceFontGlyphImage,
-        clipXPos: crate::ctypes::c_int,
-        clipYPos: crate::ctypes::c_int,
-        clipWidth: crate::ctypes::c_int,
-        clipHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetCharImageRect(
-        fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
-        charRect: *mut SceFontImageRect,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetCharInfo(
-        fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
-        charInfo: *mut SceFontCharInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetFontInfo(
-        fontHandle: SceFontHandle,
-        fontInfo: *mut SceFontInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetFontInfoByIndexNumber(
-        libHandle: SceFontLibHandle,
-        fontStyle: *mut SceFontStyle,
-        unknown: crate::ctypes::c_int,
-        fontIndex: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetFontList(
-        libHandle: SceFontLibHandle,
-        fontStyle: *mut SceFontStyle,
-        numFonts: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontGetNumFontList(
-        libHandle: SceFontLibHandle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontGlyphImage {
@@ -11977,14 +8193,6 @@ pub const SCE_FONT_LANGUAGE_JAPANESE: SceFontLanguageCode = 1;
 pub const SCE_FONT_LANGUAGE_KOREAN: SceFontLanguageCode = 3;
 pub const SCE_FONT_LANGUAGE_LATIN: SceFontLanguageCode = 2;
 pub type SceFontLibHandle = *mut crate::ctypes::c_void;
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontNewLib(
-        params: *mut SceFontNewLibParams,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> SceFontLibHandle;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontNewLibParams {
@@ -12007,95 +8215,12 @@ pub struct SceFontNewLibParams {
     pub errorFunc: *mut crate::ctypes::c_void,
     pub ioFinishFunc: *mut crate::ctypes::c_void,
 }
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontOpen(
-        libHandle: SceFontLibHandle,
-        index: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> SceFontHandle;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontOpenUserFile(
-        libHandle: SceFontLibHandle,
-        file: *mut crate::ctypes::c_char,
-        mode: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> SceFontHandle;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontOpenUserMemory(
-        libHandle: SceFontLibHandle,
-        pMemoryFont: *mut crate::ctypes::c_void,
-        pMemoryFontSize: SceSize,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> SceFontHandle;
-}
 pub const SCE_FONT_PIXELFORMAT_24: SceFontPixelFormatCode = 3;
 pub const SCE_FONT_PIXELFORMAT_32: SceFontPixelFormatCode = 4;
 pub const SCE_FONT_PIXELFORMAT_4: SceFontPixelFormatCode = 0;
 pub const SCE_FONT_PIXELFORMAT_4_REV: SceFontPixelFormatCode = 1;
 pub const SCE_FONT_PIXELFORMAT_8: SceFontPixelFormatCode = 2;
 pub type SceFontPixelFormatCode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontPixelToPointH(
-        libHandle: SceFontLibHandle,
-        fontPixelsH: f32,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> f32;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontPixelToPointV(
-        libHandle: SceFontLibHandle,
-        fontPixelsV: f32,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> f32;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontPointToPixelH(
-        libHandle: SceFontLibHandle,
-        fontPointsH: f32,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> f32;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontPointToPixelV(
-        libHandle: SceFontLibHandle,
-        fontPointsV: f32,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> f32;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontSetAltCharacterCode(
-        libHandle: SceFontLibHandle,
-        charCode: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePgf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
-    pub fn sceFontSetResolution(
-        libHandle: SceFontLibHandle,
-        hRes: f32,
-        vRes: f32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontStyle {
@@ -12178,88 +8303,48 @@ pub type SceGpioPortMasks = crate::ctypes::c_uint;
 pub type SceGpioPortMode = crate::ctypes::c_uint;
 pub const SCE_GPIO_PORT_MODE_INPUT: SceGpioPortMode = 1;
 pub const SCE_GPIO_PORT_MODE_OUTPUT: SceGpioPortMode = 0;
+#[cfg(feature = "SceGps_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
 extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsClose() -> crate::ctypes::c_int;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SceGpsDeviceInfo {
-    _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsGetData(
         pos: *mut SceGpsPositionData,
         sat: *mut SceGpsSatelliteData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsGetDeviceInfo(dev_info: *mut SceGpsDeviceInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsGetState(state: *mut SceGpsStatus) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsIoctl(
         ioctl_command: SceUInt32,
         arg: *mut SceVoid,
         arg_size: SceSize,
         a4: *mut SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsIsDevice() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
     pub fn _sceGpsOpen(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn _sceGpsResumeCallback() -> crate::ctypes::c_int;
+    pub fn _sceGpsSelectDevice(device_type: SceUInt32) -> crate::ctypes::c_int;
+    pub fn _sceGpsStart(mode: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn _sceGpsStop() -> crate::ctypes::c_int;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceGpsDeviceInfo {
+    _unused: [u8; 0],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGpsPositionData {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
-    pub fn _sceGpsResumeCallback() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGpsSatelliteData {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
-    pub fn _sceGpsSelectDevice(device_type: SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
-    pub fn _sceGpsStart(mode: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGpsStatus {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceGps_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
-    pub fn _sceGpsStop() -> crate::ctypes::c_int;
 }
 pub const SCE_GUID_ALL_PROCESS: _bindgen_ty_2 = 65569;
 pub const SCE_GUID_CLEANER_THREAD: _bindgen_ty_2 = 65559;
@@ -12349,14 +8434,10 @@ pub struct SceGxmAuxiliarySurface {
     pub stride: u32,
     pub data: *mut crate::ctypes::c_void,
 }
+#[cfg(feature = "SceGxm_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
 extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
     pub fn sceGxmBeginCommandList(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
     pub fn sceGxmBeginScene(
         context: *mut SceGxmContext,
         flags: crate::ctypes::c_uint,
@@ -12367,6 +8448,845 @@ extern "C" {
         colorSurface: *const SceGxmColorSurface,
         depthStencil: *const SceGxmDepthStencilSurface,
     ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceGetClip(
+        surface: *const SceGxmColorSurface,
+        xMin: *mut crate::ctypes::c_uint,
+        yMin: *mut crate::ctypes::c_uint,
+        xMax: *mut crate::ctypes::c_uint,
+        yMax: *mut crate::ctypes::c_uint,
+    );
+    pub fn sceGxmColorSurfaceGetData(
+        surface: *const SceGxmColorSurface,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmColorSurfaceGetDitherMode(
+        surface: *const SceGxmColorSurface,
+    ) -> SceGxmColorSurfaceDitherMode;
+    pub fn sceGxmColorSurfaceGetFormat(surface: *const SceGxmColorSurface) -> SceGxmColorFormat;
+    pub fn sceGxmColorSurfaceGetGammaMode(
+        surface: *const SceGxmColorSurface,
+    ) -> SceGxmColorSurfaceGammaMode;
+    pub fn sceGxmColorSurfaceGetScaleMode(
+        surface: *const SceGxmColorSurface,
+    ) -> SceGxmColorSurfaceScaleMode;
+    pub fn sceGxmColorSurfaceGetStrideInPixels(
+        surface: *const SceGxmColorSurface,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmColorSurfaceGetType(surface: *const SceGxmColorSurface) -> SceGxmColorSurfaceType;
+    pub fn sceGxmColorSurfaceInit(
+        surface: *mut SceGxmColorSurface,
+        colorFormat: SceGxmColorFormat,
+        surfaceType: SceGxmColorSurfaceType,
+        scaleMode: SceGxmColorSurfaceScaleMode,
+        outputRegisterSize: SceGxmOutputRegisterSize,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        strideInPixels: crate::ctypes::c_uint,
+        data: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceInitDisabled(surface: *mut SceGxmColorSurface)
+        -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceIsEnabled(surface: *const SceGxmColorSurface) -> SceBool;
+    pub fn sceGxmColorSurfaceSetClip(
+        surface: *mut SceGxmColorSurface,
+        xMin: crate::ctypes::c_uint,
+        yMin: crate::ctypes::c_uint,
+        xMax: crate::ctypes::c_uint,
+        yMax: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmColorSurfaceSetData(
+        surface: *mut SceGxmColorSurface,
+        data: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceSetDitherMode(
+        surface: *mut SceGxmColorSurface,
+        ditherMode: SceGxmColorSurfaceDitherMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceSetFormat(
+        surface: *mut SceGxmColorSurface,
+        format: SceGxmColorFormat,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceSetGammaMode(
+        surface: *mut SceGxmColorSurface,
+        gammaMode: SceGxmColorSurfaceGammaMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmColorSurfaceSetScaleMode(
+        surface: *mut SceGxmColorSurface,
+        scaleMode: SceGxmColorSurfaceScaleMode,
+    );
+    pub fn sceGxmCreateContext(
+        params: *const SceGxmContextParams,
+        context: *mut *mut SceGxmContext,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmCreateDeferredContext(
+        params: *const SceGxmDeferredContextParams,
+        context: *mut *mut SceGxmContext,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmCreateRenderTarget(
+        params: *const SceGxmRenderTargetParams,
+        renderTarget: *mut *mut SceGxmRenderTarget,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDepthStencilSurfaceGetBackgroundDepth(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> f32;
+    pub fn sceGxmDepthStencilSurfaceGetBackgroundStencil(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> crate::ctypes::c_uchar;
+    pub fn sceGxmDepthStencilSurfaceGetForceLoadMode(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> SceGxmDepthStencilForceLoadMode;
+    pub fn sceGxmDepthStencilSurfaceGetForceStoreMode(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> SceGxmDepthStencilForceStoreMode;
+    pub fn sceGxmDepthStencilSurfaceGetFormat(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> SceGxmDepthStencilFormat;
+    pub fn sceGxmDepthStencilSurfaceGetStrideInSamples(
+        surface: *const SceGxmDepthStencilSurface,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmDepthStencilSurfaceInit(
+        surface: *mut SceGxmDepthStencilSurface,
+        depthStencilFormat: SceGxmDepthStencilFormat,
+        surfaceType: SceGxmDepthStencilSurfaceType,
+        strideInSamples: crate::ctypes::c_uint,
+        depthData: *mut crate::ctypes::c_void,
+        stencilData: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDepthStencilSurfaceInitDisabled(
+        surface: *mut SceGxmDepthStencilSurface,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDepthStencilSurfaceIsEnabled(surface: *const SceGxmDepthStencilSurface)
+        -> SceBool;
+    pub fn sceGxmDepthStencilSurfaceSetBackgroundDepth(
+        surface: *mut SceGxmDepthStencilSurface,
+        backgroundDepth: f32,
+    );
+    pub fn sceGxmDepthStencilSurfaceSetBackgroundStencil(
+        surface: *mut SceGxmDepthStencilSurface,
+        backgroundStencil: crate::ctypes::c_uchar,
+    );
+    pub fn sceGxmDepthStencilSurfaceSetForceLoadMode(
+        surface: *mut SceGxmDepthStencilSurface,
+        forceLoad: SceGxmDepthStencilForceLoadMode,
+    );
+    pub fn sceGxmDepthStencilSurfaceSetForceStoreMode(
+        surface: *mut SceGxmDepthStencilSurface,
+        forceStore: SceGxmDepthStencilForceStoreMode,
+    );
+    pub fn sceGxmDestroyContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
+    pub fn sceGxmDestroyDeferredContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
+    pub fn sceGxmDestroyRenderTarget(renderTarget: *mut SceGxmRenderTarget)
+        -> crate::ctypes::c_int;
+    pub fn sceGxmDisplayQueueAddEntry(
+        oldBuffer: *mut SceGxmSyncObject,
+        newBuffer: *mut SceGxmSyncObject,
+        callbackData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDisplayQueueFinish() -> crate::ctypes::c_int;
+    pub fn sceGxmDraw(
+        context: *mut SceGxmContext,
+        primType: SceGxmPrimitiveType,
+        indexType: SceGxmIndexFormat,
+        indexData: *const crate::ctypes::c_void,
+        indexCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDrawInstanced(
+        context: *mut SceGxmContext,
+        primType: SceGxmPrimitiveType,
+        indexType: SceGxmIndexFormat,
+        indexData: *const crate::ctypes::c_void,
+        indexCount: crate::ctypes::c_uint,
+        indexWrap: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmDrawPrecomputed(
+        context: *mut SceGxmContext,
+        precomputedDraw: *const SceGxmPrecomputedDraw,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmEndCommandList(
+        context: *mut SceGxmContext,
+        list: *mut SceGxmCommandList,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmEndScene(
+        context: *mut SceGxmContext,
+        vertexNotification: *const SceGxmNotification,
+        fragmentNotification: *const SceGxmNotification,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmExecuteCommandList(
+        context: *mut SceGxmContext,
+        list: *mut SceGxmCommandList,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmFinish(context: *mut SceGxmContext);
+    pub fn sceGxmFragmentProgramGetProgram(
+        fragmentProgram: *const SceGxmFragmentProgram,
+    ) -> *const SceGxmProgram;
+    pub fn sceGxmGetNotificationRegion() -> *mut crate::ctypes::c_uint;
+    pub fn sceGxmGetPrecomputedDrawSize(
+        vertexProgram: *const SceGxmVertexProgram,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmGetPrecomputedFragmentStateSize(
+        fragmentProgram: *const SceGxmFragmentProgram,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmGetPrecomputedVertexStateSize(
+        vertexProgram: *const SceGxmVertexProgram,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmGetRenderTargetMemSize(
+        params: *const SceGxmRenderTargetParams,
+        driverMemSize: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
+    pub fn sceGxmMapFragmentUsseMemory(
+        base: *mut crate::ctypes::c_void,
+        size: SceSize,
+        offset: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmMapMemory(
+        base: *mut crate::ctypes::c_void,
+        size: SceSize,
+        attr: SceGxmMemoryAttribFlags,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmMapVertexUsseMemory(
+        base: *mut crate::ctypes::c_void,
+        size: SceSize,
+        offset: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmMidSceneFlush(
+        context: *mut SceGxmContext,
+        flags: crate::ctypes::c_uint,
+        vertexSyncObject: *mut SceGxmSyncObject,
+        vertexNotification: *const SceGxmNotification,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmNotificationWait(notification: *const SceGxmNotification) -> crate::ctypes::c_int;
+    pub fn sceGxmPadHeartbeat(
+        displaySurface: *const SceGxmColorSurface,
+        displaySyncObject: *mut SceGxmSyncObject,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPadTriggerGpuPaTrace() -> crate::ctypes::c_int;
+    pub fn sceGxmPopUserMarker(context: *mut SceGxmContext) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedDrawInit(
+        precomputedDraw: *mut SceGxmPrecomputedDraw,
+        vertexProgram: *const SceGxmVertexProgram,
+        memBlock: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedDrawSetAllVertexStreams(
+        precomputedDraw: *mut SceGxmPrecomputedDraw,
+        streamDataArray: *const *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedDrawSetParams(
+        precomputedDraw: *mut SceGxmPrecomputedDraw,
+        primType: SceGxmPrimitiveType,
+        indexType: SceGxmIndexFormat,
+        indexData: *const crate::ctypes::c_void,
+        indexCount: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmPrecomputedDrawSetParamsInstanced(
+        precomputedDraw: *mut SceGxmPrecomputedDraw,
+        primType: SceGxmPrimitiveType,
+        indexType: SceGxmIndexFormat,
+        indexData: *const crate::ctypes::c_void,
+        indexCount: crate::ctypes::c_uint,
+        indexWrap: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmPrecomputedDrawSetVertexStream(
+        precomputedDraw: *mut SceGxmPrecomputedDraw,
+        streamIndex: crate::ctypes::c_uint,
+        streamData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateGetDefaultUniformBuffer(
+        precomputedState: *const SceGxmPrecomputedFragmentState,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmPrecomputedFragmentStateInit(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        fragmentProgram: *const SceGxmFragmentProgram,
+        memBlock: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateSetAllAuxiliarySurfaces(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        auxSurfaceArray: *const SceGxmAuxiliarySurface,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateSetAllTextures(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        textureArray: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateSetAllUniformBuffers(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        bufferDataArray: *const *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateSetDefaultUniformBuffer(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        defaultBuffer: *mut crate::ctypes::c_void,
+    );
+    pub fn sceGxmPrecomputedFragmentStateSetTexture(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        textureIndex: crate::ctypes::c_uint,
+        texture: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedFragmentStateSetUniformBuffer(
+        precomputedState: *mut SceGxmPrecomputedFragmentState,
+        bufferIndex: crate::ctypes::c_uint,
+        bufferData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedVertexStateGetDefaultUniformBuffer(
+        precomputedState: *const SceGxmPrecomputedVertexState,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmPrecomputedVertexStateInit(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        vertexProgram: *const SceGxmVertexProgram,
+        memBlock: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedVertexStateSetAllTextures(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        textures: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedVertexStateSetAllUniformBuffers(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        bufferDataArray: *const *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedVertexStateSetDefaultUniformBuffer(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        defaultBuffer: *mut crate::ctypes::c_void,
+    );
+    pub fn sceGxmPrecomputedVertexStateSetTexture(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        textureIndex: crate::ctypes::c_uint,
+        texture: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmPrecomputedVertexStateSetUniformBuffer(
+        precomputedState: *mut SceGxmPrecomputedVertexState,
+        bufferIndex: crate::ctypes::c_uint,
+        bufferData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmProgramCheck(program: *const SceGxmProgram) -> crate::ctypes::c_int;
+    pub fn sceGxmProgramFindParameterByName(
+        program: *const SceGxmProgram,
+        name: *const crate::ctypes::c_char,
+    ) -> *const SceGxmProgramParameter;
+    pub fn sceGxmProgramFindParameterBySemantic(
+        program: *const SceGxmProgram,
+        semantic: SceGxmParameterSemantic,
+        index: crate::ctypes::c_uint,
+    ) -> *const SceGxmProgramParameter;
+    pub fn sceGxmProgramGetDefaultUniformBufferSize(
+        program: *const SceGxmProgram,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramGetParameter(
+        program: *const SceGxmProgram,
+        index: crate::ctypes::c_uint,
+    ) -> *const SceGxmProgramParameter;
+    pub fn sceGxmProgramGetParameterCount(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramGetSize(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramGetType(program: *const SceGxmProgram) -> SceGxmProgramType;
+    pub fn sceGxmProgramIsDepthReplaceUsed(program: *const SceGxmProgram) -> SceBool;
+    pub fn sceGxmProgramIsDiscardUsed(program: *const SceGxmProgram) -> SceBool;
+    pub fn sceGxmProgramIsSpriteCoordUsed(program: *const SceGxmProgram) -> SceBool;
+    pub fn sceGxmProgramParameterGetArraySize(
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetCategory(
+        parameter: *const SceGxmProgramParameter,
+    ) -> SceGxmParameterCategory;
+    pub fn sceGxmProgramParameterGetComponentCount(
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetContainerIndex(
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetIndex(
+        program: *const SceGxmProgram,
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetName(
+        parameter: *const SceGxmProgramParameter,
+    ) -> *const crate::ctypes::c_char;
+    pub fn sceGxmProgramParameterGetResourceIndex(
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetSemantic(
+        parameter: *const SceGxmProgramParameter,
+    ) -> SceGxmParameterSemantic;
+    pub fn sceGxmProgramParameterGetSemanticIndex(
+        parameter: *const SceGxmProgramParameter,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramParameterGetType(
+        parameter: *const SceGxmProgramParameter,
+    ) -> SceGxmParameterType;
+    pub fn sceGxmProgramParameterIsSamplerCube(parameter: *const SceGxmProgramParameter)
+        -> SceBool;
+    pub fn sceGxmPushUserMarker(
+        context: *mut SceGxmContext,
+        tag: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmRenderTargetGetDriverMemBlock(
+        renderTarget: *const SceGxmRenderTarget,
+        driverMemBlock: *mut SceUID,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmRenderTargetGetHostMem(
+        renderTarget: *const SceGxmRenderTarget,
+        hostMem: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmReserveFragmentDefaultUniformBuffer(
+        context: *mut SceGxmContext,
+        uniformBuffer: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmReserveVertexDefaultUniformBuffer(
+        context: *mut SceGxmContext,
+        uniformBuffer: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetAuxiliarySurface(
+        context: *mut SceGxmContext,
+        surfaceIndex: crate::ctypes::c_uint,
+        surface: *const SceGxmAuxiliarySurface,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetBackDepthBias(
+        context: *mut SceGxmContext,
+        factor: crate::ctypes::c_int,
+        units: crate::ctypes::c_int,
+    );
+    pub fn sceGxmSetBackDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
+    pub fn sceGxmSetBackDepthWriteEnable(context: *mut SceGxmContext, enable: SceGxmDepthWriteMode);
+    pub fn sceGxmSetBackFragmentProgramEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmFragmentProgramMode,
+    );
+    pub fn sceGxmSetBackLineFillLastPixelEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmLineFillLastPixelMode,
+    );
+    pub fn sceGxmSetBackPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
+    pub fn sceGxmSetBackPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
+    pub fn sceGxmSetBackStencilFunc(
+        context: *mut SceGxmContext,
+        func: SceGxmStencilFunc,
+        stencilFail: SceGxmStencilOp,
+        depthFail: SceGxmStencilOp,
+        depthPass: SceGxmStencilOp,
+        compareMask: crate::ctypes::c_uchar,
+        writeMask: crate::ctypes::c_uchar,
+    );
+    pub fn sceGxmSetBackStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
+    pub fn sceGxmSetBackVisibilityTestEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmVisibilityTestMode,
+    );
+    pub fn sceGxmSetBackVisibilityTestIndex(
+        context: *mut SceGxmContext,
+        index: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmSetBackVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
+    pub fn sceGxmSetCullMode(context: *mut SceGxmContext, mode: SceGxmCullMode);
+    pub fn sceGxmSetDefaultRegionClipAndViewport(
+        context: *mut SceGxmContext,
+        xMax: crate::ctypes::c_uint,
+        yMax: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmSetFragmentDefaultUniformBuffer(
+        context: *mut SceGxmContext,
+        uniformBuffer: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetFragmentProgram(
+        context: *mut SceGxmContext,
+        fragmentProgram: *const SceGxmFragmentProgram,
+    );
+    pub fn sceGxmSetFragmentTexture(
+        context: *mut SceGxmContext,
+        textureIndex: crate::ctypes::c_uint,
+        texture: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetFragmentUniformBuffer(
+        context: *mut SceGxmContext,
+        bufferIndex: crate::ctypes::c_uint,
+        bufferData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetFrontDepthBias(
+        context: *mut SceGxmContext,
+        factor: crate::ctypes::c_int,
+        units: crate::ctypes::c_int,
+    );
+    pub fn sceGxmSetFrontDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
+    pub fn sceGxmSetFrontDepthWriteEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmDepthWriteMode,
+    );
+    pub fn sceGxmSetFrontFragmentProgramEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmFragmentProgramMode,
+    );
+    pub fn sceGxmSetFrontLineFillLastPixelEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmLineFillLastPixelMode,
+    );
+    pub fn sceGxmSetFrontPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
+    pub fn sceGxmSetFrontPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
+    pub fn sceGxmSetFrontStencilFunc(
+        context: *mut SceGxmContext,
+        func: SceGxmStencilFunc,
+        stencilFail: SceGxmStencilOp,
+        depthFail: SceGxmStencilOp,
+        depthPass: SceGxmStencilOp,
+        compareMask: crate::ctypes::c_uchar,
+        writeMask: crate::ctypes::c_uchar,
+    );
+    pub fn sceGxmSetFrontStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
+    pub fn sceGxmSetFrontVisibilityTestEnable(
+        context: *mut SceGxmContext,
+        enable: SceGxmVisibilityTestMode,
+    );
+    pub fn sceGxmSetFrontVisibilityTestIndex(
+        context: *mut SceGxmContext,
+        index: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmSetFrontVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
+    pub fn sceGxmSetPrecomputedFragmentState(
+        context: *mut SceGxmContext,
+        precomputedState: *const SceGxmPrecomputedFragmentState,
+    );
+    pub fn sceGxmSetPrecomputedVertexState(
+        context: *mut SceGxmContext,
+        precomputedState: *const SceGxmPrecomputedVertexState,
+    );
+    pub fn sceGxmSetRegionClip(
+        context: *mut SceGxmContext,
+        mode: SceGxmRegionClipMode,
+        xMin: crate::ctypes::c_uint,
+        yMin: crate::ctypes::c_uint,
+        xMax: crate::ctypes::c_uint,
+        yMax: crate::ctypes::c_uint,
+    );
+    pub fn sceGxmSetTwoSidedEnable(context: *mut SceGxmContext, enable: SceGxmTwoSidedMode);
+    pub fn sceGxmSetUniformDataF(
+        uniformBuffer: *mut crate::ctypes::c_void,
+        parameter: *const SceGxmProgramParameter,
+        componentOffset: crate::ctypes::c_uint,
+        componentCount: crate::ctypes::c_uint,
+        sourceData: *const f32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetUserMarker(
+        context: *mut SceGxmContext,
+        tag: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetValidationEnable(context: *mut SceGxmContext, enable: SceBool);
+    pub fn sceGxmSetVertexDefaultUniformBuffer(
+        context: *mut SceGxmContext,
+        uniformBuffer: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetVertexProgram(
+        context: *mut SceGxmContext,
+        vertexProgram: *const SceGxmVertexProgram,
+    );
+    pub fn sceGxmSetVertexStream(
+        context: *mut SceGxmContext,
+        streamIndex: crate::ctypes::c_uint,
+        streamData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetVertexTexture(
+        context: *mut SceGxmContext,
+        textureIndex: crate::ctypes::c_uint,
+        texture: *const SceGxmTexture,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetVertexUniformBuffer(
+        context: *mut SceGxmContext,
+        bufferIndex: crate::ctypes::c_uint,
+        bufferData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetViewport(
+        context: *mut SceGxmContext,
+        xOffset: f32,
+        xScale: f32,
+        yOffset: f32,
+        yScale: f32,
+        zOffset: f32,
+        zScale: f32,
+    );
+    pub fn sceGxmSetViewportEnable(context: *mut SceGxmContext, enable: SceGxmViewportMode);
+    pub fn sceGxmSetVisibilityBuffer(
+        context: *mut SceGxmContext,
+        bufferBase: *mut crate::ctypes::c_void,
+        stridePerCore: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSetWBufferEnable(context: *mut SceGxmContext, enable: SceGxmWBufferMode);
+    pub fn sceGxmSetWClampEnable(context: *mut SceGxmContext, enable: SceGxmWClampMode);
+    pub fn sceGxmSetWClampValue(context: *mut SceGxmContext, clampValue: f32);
+    pub fn sceGxmSetYuvProfile(
+        context: *mut SceGxmContext,
+        index: crate::ctypes::c_uint,
+        profile: SceGxmYuvProfile,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherAddRefFragmentProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        fragmentProgram: *mut SceGxmFragmentProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherAddRefVertexProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        vertexProgram: *mut SceGxmVertexProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherCreate(
+        params: *const SceGxmShaderPatcherParams,
+        shaderPatcher: *mut *mut SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherCreateFragmentProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        programId: SceGxmShaderPatcherId,
+        outputFormat: SceGxmOutputRegisterFormat,
+        multisampleMode: SceGxmMultisampleMode,
+        blendInfo: *const SceGxmBlendInfo,
+        vertexProgram: *const SceGxmProgram,
+        fragmentProgram: *mut *mut SceGxmFragmentProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherCreateMaskUpdateFragmentProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        fragmentProgram: *mut *mut SceGxmFragmentProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherCreateVertexProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        programId: SceGxmShaderPatcherId,
+        attributes: *const SceGxmVertexAttribute,
+        attributeCount: crate::ctypes::c_uint,
+        streams: *const SceGxmVertexStream,
+        streamCount: crate::ctypes::c_uint,
+        vertexProgram: *mut *mut SceGxmVertexProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherDestroy(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherForceUnregisterProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        programId: SceGxmShaderPatcherId,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherGetBufferMemAllocated(
+        shaderPatcher: *const SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmShaderPatcherGetFragmentProgramRefCount(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        fragmentProgram: *mut SceGxmFragmentProgram,
+        count: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherGetFragmentUsseMemAllocated(
+        shaderPatcher: *const SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmShaderPatcherGetHostMemAllocated(
+        shaderPatcher: *const SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmShaderPatcherGetProgramFromId(
+        programId: SceGxmShaderPatcherId,
+    ) -> *const SceGxmProgram;
+    pub fn sceGxmShaderPatcherGetUserData(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmShaderPatcherGetVertexProgramRefCount(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        fragmentProgram: *mut SceGxmVertexProgram,
+        count: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherGetVertexUsseMemAllocated(
+        shaderPatcher: *const SceGxmShaderPatcher,
+    ) -> crate::ctypes::c_uint;
+    pub fn sceGxmShaderPatcherRegisterProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        programHeader: *const SceGxmProgram,
+        programId: *mut SceGxmShaderPatcherId,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherReleaseFragmentProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        fragmentProgram: *mut SceGxmFragmentProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherReleaseVertexProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        vertexProgram: *mut SceGxmVertexProgram,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherSetAuxiliarySurface(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        auxSurfaceIndex: crate::ctypes::c_uint,
+        auxSurface: *const SceGxmAuxiliarySurface,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherSetUserData(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        userData: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmShaderPatcherUnregisterProgram(
+        shaderPatcher: *mut SceGxmShaderPatcher,
+        programId: SceGxmShaderPatcherId,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmSyncObjectCreate(syncObject: *mut *mut SceGxmSyncObject) -> crate::ctypes::c_int;
+    pub fn sceGxmSyncObjectDestroy(syncObject: *mut SceGxmSyncObject) -> crate::ctypes::c_int;
+    pub fn sceGxmTerminate() -> crate::ctypes::c_int;
+    pub fn sceGxmTextureGetData(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmTextureGetFormat(texture: *const SceGxmTexture) -> SceGxmTextureFormat;
+    pub fn sceGxmTextureGetGammaMode(texture: *const SceGxmTexture) -> SceGxmTextureGammaMode;
+    pub fn sceGxmTextureGetHeight(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetLodBias(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetMagFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
+    pub fn sceGxmTextureGetMinFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
+    pub fn sceGxmTextureGetMipFilter(texture: *const SceGxmTexture) -> SceGxmTextureMipFilter;
+    pub fn sceGxmTextureGetMipmapCount(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetPalette(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmTextureGetStride(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetType(texture: *const SceGxmTexture) -> SceGxmTextureType;
+    pub fn sceGxmTextureGetUAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
+    pub fn sceGxmTextureGetVAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
+    pub fn sceGxmTextureGetWidth(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureInitCube(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureInitLinear(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureInitLinearStrided(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        byteStride: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureInitSwizzled(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureInitSwizzledArbitrary(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureInitTiled(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+        texFormat: SceGxmTextureFormat,
+        width: crate::ctypes::c_uint,
+        height: crate::ctypes::c_uint,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetData(
+        texture: *mut SceGxmTexture,
+        data: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetFormat(
+        texture: *mut SceGxmTexture,
+        texFormat: SceGxmTextureFormat,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetGammaMode(
+        texture: *mut SceGxmTexture,
+        gammaMode: SceGxmTextureGammaMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetHeight(
+        texture: *mut SceGxmTexture,
+        height: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetLodBias(
+        texture: *mut SceGxmTexture,
+        bias: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetMagFilter(
+        texture: *mut SceGxmTexture,
+        magFilter: SceGxmTextureFilter,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetMinFilter(
+        texture: *mut SceGxmTexture,
+        minFilter: SceGxmTextureFilter,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetMipFilter(
+        texture: *mut SceGxmTexture,
+        mipFilter: SceGxmTextureMipFilter,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetMipmapCount(
+        texture: *mut SceGxmTexture,
+        mipCount: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetPalette(
+        texture: *mut SceGxmTexture,
+        paletteData: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetStride(
+        texture: *mut SceGxmTexture,
+        byteStride: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetUAddrMode(
+        texture: *mut SceGxmTexture,
+        addrMode: SceGxmTextureAddrMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetVAddrMode(
+        texture: *mut SceGxmTexture,
+        addrMode: SceGxmTextureAddrMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureSetWidth(
+        texture: *mut SceGxmTexture,
+        width: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTextureValidate(texture: *const SceGxmTexture) -> crate::ctypes::c_int;
+    pub fn sceGxmTransferCopy(
+        width: u32,
+        height: u32,
+        colorKeyValue: u32,
+        colorKeyMask: u32,
+        colorKeyMode: SceGxmTransferColorKeyMode,
+        srcFormat: SceGxmTransferFormat,
+        srcType: SceGxmTransferType,
+        srcAddress: *const crate::ctypes::c_void,
+        srcX: u32,
+        srcY: u32,
+        srcStride: i32,
+        destFormat: SceGxmTransferFormat,
+        destType: SceGxmTransferType,
+        destAddress: *mut crate::ctypes::c_void,
+        destX: u32,
+        destY: u32,
+        destStride: i32,
+        syncObject: *mut SceGxmSyncObject,
+        syncFlags: u32,
+        notification: *const SceGxmNotification,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTransferDownscale(
+        srcFormat: SceGxmTransferFormat,
+        srcAddress: *const crate::ctypes::c_void,
+        srcX: crate::ctypes::c_uint,
+        srcY: crate::ctypes::c_uint,
+        srcWidth: crate::ctypes::c_uint,
+        srcHeight: crate::ctypes::c_uint,
+        srcStride: crate::ctypes::c_int,
+        destFormat: SceGxmTransferFormat,
+        destAddress: *mut crate::ctypes::c_void,
+        destX: crate::ctypes::c_uint,
+        destY: crate::ctypes::c_uint,
+        destStride: crate::ctypes::c_int,
+        syncObject: *mut SceGxmSyncObject,
+        syncFlags: crate::ctypes::c_uint,
+        notification: *const SceGxmNotification,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTransferFill(
+        color: u32,
+        destFormat: SceGxmTransferFormat,
+        destAddress: *mut crate::ctypes::c_void,
+        destX: u32,
+        destY: u32,
+        destWidth: u32,
+        destHeight: u32,
+        destStride: i32,
+        syncObject: *mut SceGxmSyncObject,
+        syncFlags: u32,
+        notification: *const SceGxmNotification,
+    ) -> crate::ctypes::c_int;
+    pub fn sceGxmTransferFinish() -> crate::ctypes::c_int;
+    pub fn sceGxmUnmapFragmentUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn sceGxmUnmapMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn sceGxmUnmapVertexUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn sceGxmVertexProgramGetProgram(
+        vertexProgram: *const SceGxmVertexProgram,
+    ) -> *const SceGxmProgram;
+    pub fn sceGxmVshInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
 }
 pub type SceGxmBlendFactor = crate::ctypes::c_uint;
 pub const SCE_GXM_BLEND_FACTOR_DST_ALPHA: SceGxmBlendFactor = 8;
@@ -12627,143 +9547,10 @@ pub const SCE_GXM_COLOR_SURFACE_GAMMA_GR: SceGxmColorSurfaceGammaMode = 12288;
 pub type SceGxmColorSurfaceGammaMode = crate::ctypes::c_uint;
 pub const SCE_GXM_COLOR_SURFACE_GAMMA_NONE: SceGxmColorSurfaceGammaMode = 0;
 pub const SCE_GXM_COLOR_SURFACE_GAMMA_R: SceGxmColorSurfaceGammaMode = 4096;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetClip(
-        surface: *const SceGxmColorSurface,
-        xMin: *mut crate::ctypes::c_uint,
-        yMin: *mut crate::ctypes::c_uint,
-        xMax: *mut crate::ctypes::c_uint,
-        yMax: *mut crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetData(
-        surface: *const SceGxmColorSurface,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetDitherMode(
-        surface: *const SceGxmColorSurface,
-    ) -> SceGxmColorSurfaceDitherMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetFormat(surface: *const SceGxmColorSurface) -> SceGxmColorFormat;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetGammaMode(
-        surface: *const SceGxmColorSurface,
-    ) -> SceGxmColorSurfaceGammaMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetScaleMode(
-        surface: *const SceGxmColorSurface,
-    ) -> SceGxmColorSurfaceScaleMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetStrideInPixels(
-        surface: *const SceGxmColorSurface,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceGetType(surface: *const SceGxmColorSurface) -> SceGxmColorSurfaceType;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceInit(
-        surface: *mut SceGxmColorSurface,
-        colorFormat: SceGxmColorFormat,
-        surfaceType: SceGxmColorSurfaceType,
-        scaleMode: SceGxmColorSurfaceScaleMode,
-        outputRegisterSize: SceGxmOutputRegisterSize,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        strideInPixels: crate::ctypes::c_uint,
-        data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceInitDisabled(surface: *mut SceGxmColorSurface)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceIsEnabled(surface: *const SceGxmColorSurface) -> SceBool;
-}
 pub const SCE_GXM_COLOR_SURFACE_LINEAR: SceGxmColorSurfaceType = 0;
 pub type SceGxmColorSurfaceScaleMode = crate::ctypes::c_uint;
 pub const SCE_GXM_COLOR_SURFACE_SCALE_MSAA_DOWNSCALE: SceGxmColorSurfaceScaleMode = 1;
 pub const SCE_GXM_COLOR_SURFACE_SCALE_NONE: SceGxmColorSurfaceScaleMode = 0;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetClip(
-        surface: *mut SceGxmColorSurface,
-        xMin: crate::ctypes::c_uint,
-        yMin: crate::ctypes::c_uint,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetData(
-        surface: *mut SceGxmColorSurface,
-        data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetDitherMode(
-        surface: *mut SceGxmColorSurface,
-        ditherMode: SceGxmColorSurfaceDitherMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetFormat(
-        surface: *mut SceGxmColorSurface,
-        format: SceGxmColorFormat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetGammaMode(
-        surface: *mut SceGxmColorSurface,
-        gammaMode: SceGxmColorSurfaceGammaMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmColorSurfaceSetScaleMode(
-        surface: *mut SceGxmColorSurface,
-        scaleMode: SceGxmColorSurfaceScaleMode,
-    );
-}
 pub const SCE_GXM_COLOR_SURFACE_SWIZZLED: SceGxmColorSurfaceType = 134217728;
 pub const SCE_GXM_COLOR_SURFACE_TILED: SceGxmColorSurfaceType = 67108864;
 pub type SceGxmColorSurfaceType = crate::ctypes::c_uint;
@@ -12808,30 +9595,6 @@ pub struct SceGxmContextParams {
     pub fragmentUsseRingBufferMem: *mut crate::ctypes::c_void,
     pub fragmentUsseRingBufferMemSize: SceSize,
     pub fragmentUsseRingBufferOffset: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmCreateContext(
-        params: *const SceGxmContextParams,
-        context: *mut *mut SceGxmContext,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmCreateDeferredContext(
-        params: *const SceGxmDeferredContextParams,
-        context: *mut *mut SceGxmContext,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmCreateRenderTarget(
-        params: *const SceGxmRenderTargetParams,
-        renderTarget: *mut *mut SceGxmRenderTarget,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_GXM_CULL_CCW: SceGxmCullMode = 2;
 pub const SCE_GXM_CULL_CW: SceGxmCullMode = 1;
@@ -12909,195 +9672,18 @@ pub struct SceGxmDepthStencilSurface {
     pub backgroundControl: crate::ctypes::c_uint,
 }
 pub const SCE_GXM_DEPTHSTENCIL_SURFACE_ALIGNMENT: u32 = 16;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetBackgroundDepth(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> f32;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetBackgroundStencil(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_uchar;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetForceLoadMode(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> SceGxmDepthStencilForceLoadMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetForceStoreMode(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> SceGxmDepthStencilForceStoreMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetFormat(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> SceGxmDepthStencilFormat;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceGetStrideInSamples(
-        surface: *const SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceInit(
-        surface: *mut SceGxmDepthStencilSurface,
-        depthStencilFormat: SceGxmDepthStencilFormat,
-        surfaceType: SceGxmDepthStencilSurfaceType,
-        strideInSamples: crate::ctypes::c_uint,
-        depthData: *mut crate::ctypes::c_void,
-        stencilData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceInitDisabled(
-        surface: *mut SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceIsEnabled(surface: *const SceGxmDepthStencilSurface)
-        -> SceBool;
-}
 pub const SCE_GXM_DEPTH_STENCIL_SURFACE_LINEAR: SceGxmDepthStencilSurfaceType = 0;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceSetBackgroundDepth(
-        surface: *mut SceGxmDepthStencilSurface,
-        backgroundDepth: f32,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceSetBackgroundStencil(
-        surface: *mut SceGxmDepthStencilSurface,
-        backgroundStencil: crate::ctypes::c_uchar,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceSetForceLoadMode(
-        surface: *mut SceGxmDepthStencilSurface,
-        forceLoad: SceGxmDepthStencilForceLoadMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDepthStencilSurfaceSetForceStoreMode(
-        surface: *mut SceGxmDepthStencilSurface,
-        forceStore: SceGxmDepthStencilForceStoreMode,
-    );
-}
 pub const SCE_GXM_DEPTH_STENCIL_SURFACE_TILED: SceGxmDepthStencilSurfaceType = 69632;
 pub type SceGxmDepthStencilSurfaceType = crate::ctypes::c_uint;
 pub const SCE_GXM_DEPTH_WRITE_DISABLED: SceGxmDepthWriteMode = 1048576;
 pub const SCE_GXM_DEPTH_WRITE_ENABLED: SceGxmDepthWriteMode = 0;
 pub type SceGxmDepthWriteMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDestroyContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDestroyDeferredContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDestroyRenderTarget(renderTarget: *mut SceGxmRenderTarget)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDisplayQueueAddEntry(
-        oldBuffer: *mut SceGxmSyncObject,
-        newBuffer: *mut SceGxmSyncObject,
-        callbackData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceGxmDisplayQueueCallback =
     ::core::option::Option<unsafe extern "C" fn(callbackData: *const crate::ctypes::c_void)>;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDisplayQueueFinish() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDraw(
-        context: *mut SceGxmContext,
-        primType: SceGxmPrimitiveType,
-        indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDrawInstanced(
-        context: *mut SceGxmContext,
-        primType: SceGxmPrimitiveType,
-        indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-        indexWrap: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmDrawPrecomputed(
-        context: *mut SceGxmContext,
-        precomputedDraw: *const SceGxmPrecomputedDraw,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_EDGE_ENABLE_01: SceGxmEdgeEnableFlags = 256;
 pub const SCE_GXM_EDGE_ENABLE_12: SceGxmEdgeEnableFlags = 512;
 pub const SCE_GXM_EDGE_ENABLE_20: SceGxmEdgeEnableFlags = 1024;
 pub type SceGxmEdgeEnableFlags = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmEndCommandList(
-        context: *mut SceGxmContext,
-        list: *mut SceGxmCommandList,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmEndScene(
-        context: *mut SceGxmContext,
-        vertexNotification: *const SceGxmNotification,
-        fragmentNotification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_ERROR_ALREADY_INITIALIZED: SceGxmErrorCode = 2153447425;
 pub type SceGxmErrorCode = crate::ctypes::c_uint;
 pub const SCE_GXM_ERROR_DRIVER: SceGxmErrorCode = 2153447447;
@@ -13126,19 +9712,6 @@ pub const SCE_GXM_ERROR_UNIFORM_BUFFER_NOT_RESERVED: SceGxmErrorCode = 215344744
 pub const SCE_GXM_ERROR_UNINITIALIZED: SceGxmErrorCode = 2153447424;
 pub const SCE_GXM_ERROR_UNSUPPORTED: SceGxmErrorCode = 2153447433;
 pub const SCE_GXM_ERROR_WITHIN_SCENE: SceGxmErrorCode = 2153447431;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmExecuteCommandList(
-        context: *mut SceGxmContext,
-        list: *mut SceGxmCommandList,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmFinish(context: *mut SceGxmContext);
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmFragmentProgram {
@@ -13147,48 +9720,7 @@ pub struct SceGxmFragmentProgram {
 pub const SCE_GXM_FRAGMENT_PROGRAM: SceGxmProgramType = 1;
 pub const SCE_GXM_FRAGMENT_PROGRAM_DISABLED: SceGxmFragmentProgramMode = 2097152;
 pub const SCE_GXM_FRAGMENT_PROGRAM_ENABLED: SceGxmFragmentProgramMode = 0;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmFragmentProgramGetProgram(
-        fragmentProgram: *const SceGxmFragmentProgram,
-    ) -> *const SceGxmProgram;
-}
 pub type SceGxmFragmentProgramMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmGetNotificationRegion() -> *mut crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmGetPrecomputedDrawSize(
-        vertexProgram: *const SceGxmVertexProgram,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmGetPrecomputedFragmentStateSize(
-        fragmentProgram: *const SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmGetPrecomputedVertexStateSize(
-        vertexProgram: *const SceGxmVertexProgram,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmGetRenderTargetMemSize(
-        params: *const SceGxmRenderTargetParams,
-        driverMemSize: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceGxmIndexFormat = crate::ctypes::c_uint;
 pub const SCE_GXM_INDEX_FORMAT_U16: SceGxmIndexFormat = 0;
 pub const SCE_GXM_INDEX_FORMAT_U32: SceGxmIndexFormat = 16777216;
@@ -13197,11 +9729,6 @@ pub const SCE_GXM_INDEX_SOURCE_INDEX_16BIT: SceGxmIndexSource = 0;
 pub const SCE_GXM_INDEX_SOURCE_INDEX_32BIT: SceGxmIndexSource = 1;
 pub const SCE_GXM_INDEX_SOURCE_INSTANCE_16BIT: SceGxmIndexSource = 2;
 pub const SCE_GXM_INDEX_SOURCE_INSTANCE_32BIT: SceGxmIndexSource = 3;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmInitializeParams {
@@ -13214,33 +9741,6 @@ pub struct SceGxmInitializeParams {
 pub const SCE_GXM_LINE_FILL_LAST_PIXEL_DISABLED: SceGxmLineFillLastPixelMode = 0;
 pub const SCE_GXM_LINE_FILL_LAST_PIXEL_ENABLED: SceGxmLineFillLastPixelMode = 524288;
 pub type SceGxmLineFillLastPixelMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmMapFragmentUsseMemory(
-        base: *mut crate::ctypes::c_void,
-        size: SceSize,
-        offset: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmMapMemory(
-        base: *mut crate::ctypes::c_void,
-        size: SceSize,
-        attr: SceGxmMemoryAttribFlags,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmMapVertexUsseMemory(
-        base: *mut crate::ctypes::c_void,
-        size: SceSize,
-        offset: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_MAX_AUXILIARY_SURFACES: u32 = 3;
 pub const SCE_GXM_MAX_TEXTURE_UNITS: u32 = 16;
 pub const SCE_GXM_MAX_UNIFORM_BUFFERS: u32 = 14;
@@ -13251,16 +9751,6 @@ pub const SCE_GXM_MEMORY_ATTRIB_READ: SceGxmMemoryAttribFlags = 1;
 pub const SCE_GXM_MEMORY_ATTRIB_RW: SceGxmMemoryAttribFlags = 3;
 pub const SCE_GXM_MEMORY_ATTRIB_WRITE: SceGxmMemoryAttribFlags = 2;
 pub type SceGxmMidSceneFlags = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmMidSceneFlush(
-        context: *mut SceGxmContext,
-        flags: crate::ctypes::c_uint,
-        vertexSyncObject: *mut SceGxmSyncObject,
-        vertexNotification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_MIDSCENE_PRESERVE_DEFAULT_UNIFORM_BUFFERS: SceGxmMidSceneFlags = 1;
 pub const SCE_GXM_MINIMUM_CONTEXT_HOST_MEM_SIZE: u32 = 2048;
 pub const SCE_GXM_MULTISAMPLE_2X: SceGxmMultisampleMode = 1;
@@ -13272,11 +9762,6 @@ pub const SCE_GXM_MULTISAMPLE_NONE: SceGxmMultisampleMode = 0;
 pub struct SceGxmNotification {
     pub address: *mut crate::ctypes::c_uint,
     pub value: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmNotificationWait(notification: *const SceGxmNotification) -> crate::ctypes::c_int;
 }
 pub type SceGxmOutputRegisterFormat = crate::ctypes::c_uint;
 pub const SCE_GXM_OUTPUT_REGISTER_FORMAT_CHAR4: SceGxmOutputRegisterFormat = 2;
@@ -13291,19 +9776,6 @@ pub const SCE_GXM_OUTPUT_REGISTER_FORMAT_USHORT2: SceGxmOutputRegisterFormat = 3
 pub type SceGxmOutputRegisterSize = crate::ctypes::c_uint;
 pub const SCE_GXM_OUTPUT_REGISTER_SIZE_32BIT: SceGxmOutputRegisterSize = 0;
 pub const SCE_GXM_OUTPUT_REGISTER_SIZE_64BIT: SceGxmOutputRegisterSize = 1;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPadHeartbeat(
-        displaySurface: *const SceGxmColorSurface,
-        displaySyncObject: *mut SceGxmSyncObject,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPadTriggerGpuPaTrace() -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_PALETTE_ALIGNMENT: u32 = 64;
 pub type SceGxmParameterCategory = crate::ctypes::c_uint;
 pub const SCE_GXM_PARAMETER_CATEGORY_ATTRIBUTE: SceGxmParameterCategory = 0;
@@ -13352,64 +9824,10 @@ pub const SCE_GXM_POLYGON_MODE_POINT_10UV: SceGxmPolygonMode = 65536;
 pub const SCE_GXM_POLYGON_MODE_TRIANGLE_FILL: SceGxmPolygonMode = 0;
 pub const SCE_GXM_POLYGON_MODE_TRIANGLE_LINE: SceGxmPolygonMode = 163840;
 pub const SCE_GXM_POLYGON_MODE_TRIANGLE_POINT: SceGxmPolygonMode = 196608;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPopUserMarker(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmPrecomputedDraw {
     pub data: [crate::ctypes::c_uint; 11usize],
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedDrawInit(
-        precomputedDraw: *mut SceGxmPrecomputedDraw,
-        vertexProgram: *const SceGxmVertexProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedDrawSetAllVertexStreams(
-        precomputedDraw: *mut SceGxmPrecomputedDraw,
-        streamDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedDrawSetParams(
-        precomputedDraw: *mut SceGxmPrecomputedDraw,
-        primType: SceGxmPrimitiveType,
-        indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedDrawSetParamsInstanced(
-        precomputedDraw: *mut SceGxmPrecomputedDraw,
-        primType: SceGxmPrimitiveType,
-        indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-        indexWrap: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedDrawSetVertexStream(
-        precomputedDraw: *mut SceGxmPrecomputedDraw,
-        streamIndex: crate::ctypes::c_uint,
-        streamData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_GXM_PRECOMPUTED_DRAW_WORD_COUNT: SceGxmPrecomputedWordCount = 11;
 #[repr(C)]
@@ -13417,135 +9835,11 @@ pub const SCE_GXM_PRECOMPUTED_DRAW_WORD_COUNT: SceGxmPrecomputedWordCount = 11;
 pub struct SceGxmPrecomputedFragmentState {
     pub data: [crate::ctypes::c_uint; 9usize],
 }
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateGetDefaultUniformBuffer(
-        precomputedState: *const SceGxmPrecomputedFragmentState,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateInit(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        fragmentProgram: *const SceGxmFragmentProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetAllAuxiliarySurfaces(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        auxSurfaceArray: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetAllTextures(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        textureArray: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetAllUniformBuffers(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        bufferDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetDefaultUniformBuffer(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        defaultBuffer: *mut crate::ctypes::c_void,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetTexture(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        textureIndex: crate::ctypes::c_uint,
-        texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedFragmentStateSetUniformBuffer(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_PRECOMPUTED_FRAGMENT_STATE_WORD_COUNT: SceGxmPrecomputedWordCount = 9;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmPrecomputedVertexState {
     pub data: [crate::ctypes::c_uint; 7usize],
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateGetDefaultUniformBuffer(
-        precomputedState: *const SceGxmPrecomputedVertexState,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateInit(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        vertexProgram: *const SceGxmVertexProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateSetAllTextures(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        textures: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateSetAllUniformBuffers(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        bufferDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateSetDefaultUniformBuffer(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        defaultBuffer: *mut crate::ctypes::c_void,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateSetTexture(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        textureIndex: crate::ctypes::c_uint,
-        texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPrecomputedVertexStateSetUniformBuffer(
-        precomputedState: *mut SceGxmPrecomputedVertexState,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_GXM_PRECOMPUTED_VERTEX_STATE_WORD_COUNT: SceGxmPrecomputedWordCount = 7;
 pub type SceGxmPrecomputedWordCount = crate::ctypes::c_uint;
@@ -13561,164 +9855,12 @@ pub type SceGxmPrimitiveType = crate::ctypes::c_uint;
 pub struct SceGxmProgram {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramCheck(program: *const SceGxmProgram) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramFindParameterByName(
-        program: *const SceGxmProgram,
-        name: *const crate::ctypes::c_char,
-    ) -> *const SceGxmProgramParameter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramFindParameterBySemantic(
-        program: *const SceGxmProgram,
-        semantic: SceGxmParameterSemantic,
-        index: crate::ctypes::c_uint,
-    ) -> *const SceGxmProgramParameter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramGetDefaultUniformBufferSize(
-        program: *const SceGxmProgram,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramGetParameter(
-        program: *const SceGxmProgram,
-        index: crate::ctypes::c_uint,
-    ) -> *const SceGxmProgramParameter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramGetParameterCount(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramGetSize(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramGetType(program: *const SceGxmProgram) -> SceGxmProgramType;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramIsDepthReplaceUsed(program: *const SceGxmProgram) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramIsDiscardUsed(program: *const SceGxmProgram) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramIsSpriteCoordUsed(program: *const SceGxmProgram) -> SceBool;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmProgramParameter {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetArraySize(
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetCategory(
-        parameter: *const SceGxmProgramParameter,
-    ) -> SceGxmParameterCategory;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetComponentCount(
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetContainerIndex(
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetIndex(
-        program: *const SceGxmProgram,
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetName(
-        parameter: *const SceGxmProgramParameter,
-    ) -> *const crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetResourceIndex(
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetSemantic(
-        parameter: *const SceGxmProgramParameter,
-    ) -> SceGxmParameterSemantic;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetSemanticIndex(
-        parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterGetType(
-        parameter: *const SceGxmProgramParameter,
-    ) -> SceGxmParameterType;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmProgramParameterIsSamplerCube(parameter: *const SceGxmProgramParameter)
-        -> SceBool;
-}
 pub type SceGxmProgramType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmPushUserMarker(
-        context: *mut SceGxmContext,
-        tag: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_REGION_CLIP_ALL: SceGxmRegionClipMode = 1073741824;
 pub const SCE_GXM_REGION_CLIP_INSIDE: SceGxmRegionClipMode = 3221225472;
 pub type SceGxmRegionClipMode = crate::ctypes::c_uint;
@@ -13736,22 +9878,6 @@ pub struct SceGxmRenderTarget {
 }
 pub const SCE_GXM_RENDER_TARGET_CUSTOM_MULTISAMPLE_LOCATIONS: SceGxmRenderTargetFlags = 1;
 pub type SceGxmRenderTargetFlags = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmRenderTargetGetDriverMemBlock(
-        renderTarget: *const SceGxmRenderTarget,
-        driverMemBlock: *mut SceUID,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmRenderTargetGetHostMem(
-        renderTarget: *const SceGxmRenderTarget,
-        hostMem: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmRenderTargetParams {
@@ -13763,426 +9889,15 @@ pub struct SceGxmRenderTargetParams {
     pub multisampleLocations: u32,
     pub driverMemBlock: SceUID,
 }
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmReserveFragmentDefaultUniformBuffer(
-        context: *mut SceGxmContext,
-        uniformBuffer: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmReserveVertexDefaultUniformBuffer(
-        context: *mut SceGxmContext,
-        uniformBuffer: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceGxmSceneFlags = crate::ctypes::c_uint;
 pub const SCE_GXM_SCENE_FRAGMENT_SET_DEPENDENCY: SceGxmSceneFlags = 1;
 pub const SCE_GXM_SCENE_FRAGMENT_TRANSFER_SYNC: SceGxmSceneFlags = 4;
 pub const SCE_GXM_SCENE_VERTEX_TRANSFER_SYNC: SceGxmSceneFlags = 8;
 pub const SCE_GXM_SCENE_VERTEX_WAIT_FOR_DEPENDENCY: SceGxmSceneFlags = 2;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetAuxiliarySurface(
-        context: *mut SceGxmContext,
-        surfaceIndex: crate::ctypes::c_uint,
-        surface: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackDepthBias(
-        context: *mut SceGxmContext,
-        factor: crate::ctypes::c_int,
-        units: crate::ctypes::c_int,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackDepthWriteEnable(context: *mut SceGxmContext, enable: SceGxmDepthWriteMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackFragmentProgramEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmFragmentProgramMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackLineFillLastPixelEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmLineFillLastPixelMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackStencilFunc(
-        context: *mut SceGxmContext,
-        func: SceGxmStencilFunc,
-        stencilFail: SceGxmStencilOp,
-        depthFail: SceGxmStencilOp,
-        depthPass: SceGxmStencilOp,
-        compareMask: crate::ctypes::c_uchar,
-        writeMask: crate::ctypes::c_uchar,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackVisibilityTestEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmVisibilityTestMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackVisibilityTestIndex(
-        context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetBackVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetCullMode(context: *mut SceGxmContext, mode: SceGxmCullMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetDefaultRegionClipAndViewport(
-        context: *mut SceGxmContext,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFragmentDefaultUniformBuffer(
-        context: *mut SceGxmContext,
-        uniformBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFragmentProgram(
-        context: *mut SceGxmContext,
-        fragmentProgram: *const SceGxmFragmentProgram,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFragmentTexture(
-        context: *mut SceGxmContext,
-        textureIndex: crate::ctypes::c_uint,
-        texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFragmentUniformBuffer(
-        context: *mut SceGxmContext,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontDepthBias(
-        context: *mut SceGxmContext,
-        factor: crate::ctypes::c_int,
-        units: crate::ctypes::c_int,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontDepthWriteEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmDepthWriteMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontFragmentProgramEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmFragmentProgramMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontLineFillLastPixelEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmLineFillLastPixelMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontStencilFunc(
-        context: *mut SceGxmContext,
-        func: SceGxmStencilFunc,
-        stencilFail: SceGxmStencilOp,
-        depthFail: SceGxmStencilOp,
-        depthPass: SceGxmStencilOp,
-        compareMask: crate::ctypes::c_uchar,
-        writeMask: crate::ctypes::c_uchar,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontVisibilityTestEnable(
-        context: *mut SceGxmContext,
-        enable: SceGxmVisibilityTestMode,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontVisibilityTestIndex(
-        context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetFrontVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetPrecomputedFragmentState(
-        context: *mut SceGxmContext,
-        precomputedState: *const SceGxmPrecomputedFragmentState,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetPrecomputedVertexState(
-        context: *mut SceGxmContext,
-        precomputedState: *const SceGxmPrecomputedVertexState,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetRegionClip(
-        context: *mut SceGxmContext,
-        mode: SceGxmRegionClipMode,
-        xMin: crate::ctypes::c_uint,
-        yMin: crate::ctypes::c_uint,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetTwoSidedEnable(context: *mut SceGxmContext, enable: SceGxmTwoSidedMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetUniformDataF(
-        uniformBuffer: *mut crate::ctypes::c_void,
-        parameter: *const SceGxmProgramParameter,
-        componentOffset: crate::ctypes::c_uint,
-        componentCount: crate::ctypes::c_uint,
-        sourceData: *const f32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetUserMarker(
-        context: *mut SceGxmContext,
-        tag: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetValidationEnable(context: *mut SceGxmContext, enable: SceBool);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVertexDefaultUniformBuffer(
-        context: *mut SceGxmContext,
-        uniformBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVertexProgram(
-        context: *mut SceGxmContext,
-        vertexProgram: *const SceGxmVertexProgram,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVertexStream(
-        context: *mut SceGxmContext,
-        streamIndex: crate::ctypes::c_uint,
-        streamData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVertexTexture(
-        context: *mut SceGxmContext,
-        textureIndex: crate::ctypes::c_uint,
-        texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVertexUniformBuffer(
-        context: *mut SceGxmContext,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetViewport(
-        context: *mut SceGxmContext,
-        xOffset: f32,
-        xScale: f32,
-        yOffset: f32,
-        yScale: f32,
-        zOffset: f32,
-        zScale: f32,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetViewportEnable(context: *mut SceGxmContext, enable: SceGxmViewportMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetVisibilityBuffer(
-        context: *mut SceGxmContext,
-        bufferBase: *mut crate::ctypes::c_void,
-        stridePerCore: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetWBufferEnable(context: *mut SceGxmContext, enable: SceGxmWBufferMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetWClampEnable(context: *mut SceGxmContext, enable: SceGxmWClampMode);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetWClampValue(context: *mut SceGxmContext, clampValue: f32);
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSetYuvProfile(
-        context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
-        profile: SceGxmYuvProfile,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmShaderPatcher {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherAddRefFragmentProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        fragmentProgram: *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherAddRefVertexProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        vertexProgram: *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceGxmShaderPatcherBufferAllocCallback = ::core::option::Option<
     unsafe extern "C" fn(
@@ -14193,123 +9908,6 @@ pub type SceGxmShaderPatcherBufferAllocCallback = ::core::option::Option<
 pub type SceGxmShaderPatcherBufferFreeCallback = ::core::option::Option<
     unsafe extern "C" fn(userData: *mut crate::ctypes::c_void, mem: *mut crate::ctypes::c_void),
 >;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherCreate(
-        params: *const SceGxmShaderPatcherParams,
-        shaderPatcher: *mut *mut SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherCreateFragmentProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        programId: SceGxmShaderPatcherId,
-        outputFormat: SceGxmOutputRegisterFormat,
-        multisampleMode: SceGxmMultisampleMode,
-        blendInfo: *const SceGxmBlendInfo,
-        vertexProgram: *const SceGxmProgram,
-        fragmentProgram: *mut *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherCreateMaskUpdateFragmentProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        fragmentProgram: *mut *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherCreateVertexProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        programId: SceGxmShaderPatcherId,
-        attributes: *const SceGxmVertexAttribute,
-        attributeCount: crate::ctypes::c_uint,
-        streams: *const SceGxmVertexStream,
-        streamCount: crate::ctypes::c_uint,
-        vertexProgram: *mut *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherDestroy(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherForceUnregisterProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        programId: SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetBufferMemAllocated(
-        shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetFragmentProgramRefCount(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        fragmentProgram: *mut SceGxmFragmentProgram,
-        count: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetFragmentUsseMemAllocated(
-        shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetHostMemAllocated(
-        shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetProgramFromId(
-        programId: SceGxmShaderPatcherId,
-    ) -> *const SceGxmProgram;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetUserData(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetVertexProgramRefCount(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        fragmentProgram: *mut SceGxmVertexProgram,
-        count: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherGetVertexUsseMemAllocated(
-        shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
-}
 pub type SceGxmShaderPatcherHostAllocCallback = ::core::option::Option<
     unsafe extern "C" fn(
         userData: *mut crate::ctypes::c_void,
@@ -14340,56 +9938,6 @@ pub struct SceGxmShaderPatcherParams {
     pub fragmentUsseMem: *mut crate::ctypes::c_void,
     pub fragmentUsseMemSize: SceSize,
     pub fragmentUsseOffset: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherRegisterProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        programHeader: *const SceGxmProgram,
-        programId: *mut SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherReleaseFragmentProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        fragmentProgram: *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherReleaseVertexProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        vertexProgram: *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherSetAuxiliarySurface(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        auxSurfaceIndex: crate::ctypes::c_uint,
-        auxSurface: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherSetUserData(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmShaderPatcherUnregisterProgram(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        programId: SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceGxmShaderPatcherUsseAllocCallback = ::core::option::Option<
     unsafe extern "C" fn(
@@ -14423,21 +9971,6 @@ pub const SCE_GXM_STENCIL_OP_ZERO: SceGxmStencilOp = 1;
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmSyncObject {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSyncObjectCreate(syncObject: *mut *mut SceGxmSyncObject) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmSyncObjectDestroy(syncObject: *mut SceGxmSyncObject) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTerminate() -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -15552,153 +11085,6 @@ pub const SCE_GXM_TEXTURE_GAMMA_GR: SceGxmTextureGammaMode = 402653184;
 pub type SceGxmTextureGammaMode = crate::ctypes::c_uint;
 pub const SCE_GXM_TEXTURE_GAMMA_NONE: SceGxmTextureGammaMode = 0;
 pub const SCE_GXM_TEXTURE_GAMMA_R: SceGxmTextureGammaMode = 134217728;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetData(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetFormat(texture: *const SceGxmTexture) -> SceGxmTextureFormat;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetGammaMode(texture: *const SceGxmTexture) -> SceGxmTextureGammaMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetHeight(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetLodBias(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetMagFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetMinFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetMipFilter(texture: *const SceGxmTexture) -> SceGxmTextureMipFilter;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetMipmapCount(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetPalette(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetStride(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetType(texture: *const SceGxmTexture) -> SceGxmTextureType;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetUAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetVAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureGetWidth(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitCube(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitLinear(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitLinearStrided(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        byteStride: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitSwizzled(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitSwizzledArbitrary(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureInitTiled(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-        texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_TEXTURE_LINEAR: SceGxmTextureType = 1610612736;
 pub const SCE_GXM_TEXTURE_LINEAR_STRIDED: SceGxmTextureType = 3221225472;
 pub type SceGxmTextureMipFilter = crate::ctypes::c_uint;
@@ -15707,118 +11093,6 @@ pub const SCE_GXM_TEXTURE_MIP_FILTER_ENABLED: SceGxmTextureMipFilter = 512;
 pub const SCE_GXM_TEXTURE_NORMALIZE_DISABLED: SceGxmTextureNormalizeMode = 0;
 pub const SCE_GXM_TEXTURE_NORMALIZE_ENABLED: SceGxmTextureNormalizeMode = 2147483648;
 pub type SceGxmTextureNormalizeMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetData(
-        texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetFormat(
-        texture: *mut SceGxmTexture,
-        texFormat: SceGxmTextureFormat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetGammaMode(
-        texture: *mut SceGxmTexture,
-        gammaMode: SceGxmTextureGammaMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetHeight(
-        texture: *mut SceGxmTexture,
-        height: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetLodBias(
-        texture: *mut SceGxmTexture,
-        bias: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetMagFilter(
-        texture: *mut SceGxmTexture,
-        magFilter: SceGxmTextureFilter,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetMinFilter(
-        texture: *mut SceGxmTexture,
-        minFilter: SceGxmTextureFilter,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetMipFilter(
-        texture: *mut SceGxmTexture,
-        mipFilter: SceGxmTextureMipFilter,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetMipmapCount(
-        texture: *mut SceGxmTexture,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetPalette(
-        texture: *mut SceGxmTexture,
-        paletteData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetStride(
-        texture: *mut SceGxmTexture,
-        byteStride: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetUAddrMode(
-        texture: *mut SceGxmTexture,
-        addrMode: SceGxmTextureAddrMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetVAddrMode(
-        texture: *mut SceGxmTexture,
-        addrMode: SceGxmTextureAddrMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureSetWidth(
-        texture: *mut SceGxmTexture,
-        width: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_TEXTURE_SWIZZLE1_000R: SceGxmTextureSwizzle1Mode = 4096;
 pub const SCE_GXM_TEXTURE_SWIZZLE1_0RRR: SceGxmTextureSwizzle1Mode = 16384;
 pub const SCE_GXM_TEXTURE_SWIZZLE1_111R: SceGxmTextureSwizzle1Mode = 8192;
@@ -15868,11 +11142,6 @@ pub const SCE_GXM_TEXTURE_SWIZZLE_YVYU_CSC0: SceGxmTextureSwizzleYUV422Mode = 40
 pub const SCE_GXM_TEXTURE_SWIZZLE_YVYU_CSC1: SceGxmTextureSwizzleYUV422Mode = 20480;
 pub const SCE_GXM_TEXTURE_TILED: SceGxmTextureType = 2147483648;
 pub type SceGxmTextureType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTextureValidate(texture: *const SceGxmTexture) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_TILE_SHIFTX: u32 = 5;
 pub const SCE_GXM_TILE_SHIFTY: u32 = 5;
 pub const SCE_GXM_TILE_SIZEX: u32 = 32;
@@ -15881,75 +11150,6 @@ pub type SceGxmTransferColorKeyMode = crate::ctypes::c_uint;
 pub const SCE_GXM_TRANSFER_COLORKEY_NONE: SceGxmTransferColorKeyMode = 0;
 pub const SCE_GXM_TRANSFER_COLORKEY_PASS: SceGxmTransferColorKeyMode = 1;
 pub const SCE_GXM_TRANSFER_COLORKEY_REJECT: SceGxmTransferColorKeyMode = 2;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTransferCopy(
-        width: u32,
-        height: u32,
-        colorKeyValue: u32,
-        colorKeyMask: u32,
-        colorKeyMode: SceGxmTransferColorKeyMode,
-        srcFormat: SceGxmTransferFormat,
-        srcType: SceGxmTransferType,
-        srcAddress: *const crate::ctypes::c_void,
-        srcX: u32,
-        srcY: u32,
-        srcStride: i32,
-        destFormat: SceGxmTransferFormat,
-        destType: SceGxmTransferType,
-        destAddress: *mut crate::ctypes::c_void,
-        destX: u32,
-        destY: u32,
-        destStride: i32,
-        syncObject: *mut SceGxmSyncObject,
-        syncFlags: u32,
-        notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTransferDownscale(
-        srcFormat: SceGxmTransferFormat,
-        srcAddress: *const crate::ctypes::c_void,
-        srcX: crate::ctypes::c_uint,
-        srcY: crate::ctypes::c_uint,
-        srcWidth: crate::ctypes::c_uint,
-        srcHeight: crate::ctypes::c_uint,
-        srcStride: crate::ctypes::c_int,
-        destFormat: SceGxmTransferFormat,
-        destAddress: *mut crate::ctypes::c_void,
-        destX: crate::ctypes::c_uint,
-        destY: crate::ctypes::c_uint,
-        destStride: crate::ctypes::c_int,
-        syncObject: *mut SceGxmSyncObject,
-        syncFlags: crate::ctypes::c_uint,
-        notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTransferFill(
-        color: u32,
-        destFormat: SceGxmTransferFormat,
-        destAddress: *mut crate::ctypes::c_void,
-        destX: u32,
-        destY: u32,
-        destWidth: u32,
-        destHeight: u32,
-        destStride: i32,
-        syncObject: *mut SceGxmSyncObject,
-        syncFlags: u32,
-        notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmTransferFinish() -> crate::ctypes::c_int;
-}
 pub type SceGxmTransferFlags = crate::ctypes::c_uint;
 pub type SceGxmTransferFormat = crate::ctypes::c_uint;
 pub const SCE_GXM_TRANSFER_FORMAT_RAW128: SceGxmTransferFormat = 1245184;
@@ -15977,21 +11177,6 @@ pub const SCE_GXM_TRANSFER_VERTEX_SYNC: SceGxmTransferFlags = 2;
 pub const SCE_GXM_TWO_SIDED_DISABLED: SceGxmTwoSidedMode = 0;
 pub const SCE_GXM_TWO_SIDED_ENABLED: SceGxmTwoSidedMode = 2048;
 pub type SceGxmTwoSidedMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmUnmapFragmentUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmUnmapMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmUnmapVertexUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmValidRegion {
@@ -16013,13 +11198,6 @@ pub struct SceGxmVertexProgram {
     _unused: [u8; 0],
 }
 pub const SCE_GXM_VERTEX_PROGRAM: SceGxmProgramType = 0;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmVertexProgramGetProgram(
-        vertexProgram: *const SceGxmVertexProgram,
-    ) -> *const SceGxmProgram;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmVertexStream {
@@ -16035,11 +11213,6 @@ pub type SceGxmVisibilityTestMode = crate::ctypes::c_uint;
 pub type SceGxmVisibilityTestOp = crate::ctypes::c_uint;
 pub const SCE_GXM_VISIBILITY_TEST_OP_INCREMENT: SceGxmVisibilityTestOp = 0;
 pub const SCE_GXM_VISIBILITY_TEST_OP_SET: SceGxmVisibilityTestOp = 262144;
-extern "C" {
-    #[cfg(feature = "SceGxm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
-    pub fn sceGxmVshInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
-}
 pub const SCE_GXM_WBUFFER_DISABLED: SceGxmWBufferMode = 0;
 pub const SCE_GXM_WBUFFER_ENABLED: SceGxmWBufferMode = 16384;
 pub type SceGxmWBufferMode = crate::ctypes::c_uint;
@@ -16081,29 +11254,30 @@ pub struct SceGxtTextureInfo {
     pub mipCount: u8,
     pub pad: [u8; 3usize],
 }
+#[cfg(feature = "SceHid_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
 extern "C" {
-    #[cfg(feature = "SceHid_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
     pub fn sceHidKeyboardEnumerate(
         handle: *mut crate::ctypes::c_int,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHid_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
     pub fn sceHidKeyboardPeek(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHid_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
     pub fn sceHidKeyboardRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
+        nReports: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHidMouseEnumerate(
+        handle: *mut crate::ctypes::c_int,
+        count: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHidMouseRead(
+        handle: SceUInt32,
+        reports: *mut *mut SceHidMouseReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
@@ -16118,23 +11292,6 @@ pub struct SceHidKeyboardReport {
 }
 pub const SCE_HID_MAX_DEVICE_COUNT: u32 = 8;
 pub const SCE_HID_MAX_REPORT: u32 = 16;
-extern "C" {
-    #[cfg(feature = "SceHid_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
-    pub fn sceHidMouseEnumerate(
-        handle: *mut crate::ctypes::c_int,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHid_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
-    pub fn sceHidMouseRead(
-        handle: SceUInt32,
-        reports: *mut *mut SceHidMouseReport,
-        nReports: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHidMouseReport {
@@ -16146,31 +11303,242 @@ pub struct SceHidMouseReport {
     pub tilt: SceInt8,
     pub timestamp: SceUInt64,
 }
+#[cfg(feature = "SceHttp_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
 extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
     pub fn sceHttpAbortRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
     pub fn sceHttpAddCookie(
         url: *const crate::ctypes::c_char,
         cookie: *const crate::ctypes::c_char,
         cookieLength: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-pub type SceHttpAddHeaderMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
     pub fn sceHttpAddRequestHeader(
         id: crate::ctypes::c_int,
         name: *const crate::ctypes::c_char,
         value: *const crate::ctypes::c_char,
         mode: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    pub fn sceHttpCreateConnection(
+        tmplId: crate::ctypes::c_int,
+        serverName: *const crate::ctypes::c_char,
+        scheme: *const crate::ctypes::c_char,
+        port: crate::ctypes::c_ushort,
+        enableKeepalive: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpCreateConnectionWithURL(
+        tmplId: crate::ctypes::c_int,
+        url: *const crate::ctypes::c_char,
+        enableKeepalive: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpCreateRequest(
+        connId: crate::ctypes::c_int,
+        method: crate::ctypes::c_int,
+        path: *const crate::ctypes::c_char,
+        contentLength: crate::ctypes::c_ulonglong,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpCreateRequestWithURL(
+        connId: crate::ctypes::c_int,
+        method: crate::ctypes::c_int,
+        url: *const crate::ctypes::c_char,
+        contentLength: crate::ctypes::c_ulonglong,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpCreateTemplate(
+        userAgent: *const crate::ctypes::c_char,
+        httpVer: crate::ctypes::c_int,
+        autoProxyConf: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpDeleteConnection(connId: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceHttpDeleteRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceHttpDeleteTemplate(tmplId: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceHttpGetAllResponseHeaders(
+        reqId: crate::ctypes::c_int,
+        header: *mut *mut crate::ctypes::c_char,
+        headerSize: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetAuthEnabled(
+        id: crate::ctypes::c_int,
+        enable: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetAutoRedirect(
+        id: crate::ctypes::c_int,
+        enable: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetCookie(
+        url: *const crate::ctypes::c_char,
+        cookie: *mut crate::ctypes::c_char,
+        cookieLength: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+        secure: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetCookieEnabled(
+        id: crate::ctypes::c_int,
+        enable: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetMemoryPoolStats(
+        currentStat: *mut SceHttpMemoryPoolStats,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetResponseContentLength(
+        reqId: crate::ctypes::c_int,
+        contentLength: *mut crate::ctypes::c_ulonglong,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpGetStatusCode(
+        reqId: crate::ctypes::c_int,
+        statusCode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpInit(poolSize: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn sceHttpParseResponseHeader(
+        header: *const crate::ctypes::c_char,
+        headerLen: crate::ctypes::c_uint,
+        fieldStr: *const crate::ctypes::c_char,
+        fieldValue: *mut *const crate::ctypes::c_char,
+        valueLen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpParseStatusLine(
+        statusLine: *const crate::ctypes::c_char,
+        lineLen: crate::ctypes::c_uint,
+        httpMajorVer: *mut crate::ctypes::c_int,
+        httpMinorVer: *mut crate::ctypes::c_int,
+        responseCode: *mut crate::ctypes::c_int,
+        reasonPhrase: *mut *const crate::ctypes::c_char,
+        phraseLen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpReadData(
+        reqId: crate::ctypes::c_int,
+        data: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpRemoveRequestHeader(
+        id: crate::ctypes::c_int,
+        name: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSendRequest(
+        reqId: crate::ctypes::c_int,
+        postData: *const crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetAuthEnabled(
+        id: crate::ctypes::c_int,
+        enable: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetAuthInfoCallback(
+        id: crate::ctypes::c_int,
+        cbfunc: SceHttpAuthInfoCallback,
+        userArg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetAutoRedirect(
+        id: crate::ctypes::c_int,
+        enable: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetConnectTimeOut(
+        id: crate::ctypes::c_int,
+        usec: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetCookieEnabled(
+        id: crate::ctypes::c_int,
+        enable: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetCookieRecvCallback(
+        id: crate::ctypes::c_int,
+        cbfunc: SceHttpCookieRecvCallback,
+        userArg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetCookieSendCallback(
+        id: crate::ctypes::c_int,
+        cbfunc: SceHttpCookieSendCallback,
+        userArg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetRecvTimeOut(
+        id: crate::ctypes::c_int,
+        usec: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetRedirectCallback(
+        id: crate::ctypes::c_int,
+        cbfunc: SceHttpRedirectCallback,
+        userArg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetRequestContentLength(
+        id: crate::ctypes::c_int,
+        contentLength: crate::ctypes::c_ulonglong,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetResolveRetry(
+        id: crate::ctypes::c_int,
+        retry: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetResolveTimeOut(
+        id: crate::ctypes::c_int,
+        usec: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetResponseHeaderMaxSize(
+        id: crate::ctypes::c_int,
+        headerSize: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpSetSendTimeOut(
+        id: crate::ctypes::c_int,
+        usec: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpTerm() -> crate::ctypes::c_int;
+    pub fn sceHttpUriBuild(
+        out: *mut crate::ctypes::c_char,
+        require: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+        srcElement: *const SceHttpUriElement,
+        option: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpUriEscape(
+        out: *mut crate::ctypes::c_char,
+        require: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+        in_: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpUriMerge(
+        mergedUrl: *mut crate::ctypes::c_char,
+        url: *const crate::ctypes::c_char,
+        relativeUrl: *const crate::ctypes::c_char,
+        require: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+        option: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpUriParse(
+        out: *mut SceHttpUriElement,
+        srcUrl: *const crate::ctypes::c_char,
+        pool: *mut crate::ctypes::c_void,
+        require: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpUriSweepPath(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        srcSize: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpUriUnescape(
+        out: *mut crate::ctypes::c_char,
+        require: *mut crate::ctypes::c_uint,
+        prepare: crate::ctypes::c_uint,
+        in_: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpsDisableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn sceHttpsEnableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn sceHttpsFreeCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
+    pub fn sceHttpsGetCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
+    pub fn sceHttpsGetSslError(
+        id: crate::ctypes::c_int,
+        errNum: *mut crate::ctypes::c_int,
+        detail: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpsLoadCert(
+        caCertNum: crate::ctypes::c_int,
+        caList: *mut *const SceHttpsData,
+        cert: *const SceHttpsData,
+        privKey: *const SceHttpsData,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpsSetSslCallback(
+        id: crate::ctypes::c_int,
+        cbfunc: SceHttpsCallback,
+        userArg: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceHttpsUnloadCert() -> crate::ctypes::c_int;
 }
+pub type SceHttpAddHeaderMode = crate::ctypes::c_uint;
 pub const SCE_HTTP_AUTH_BASIC: SceHttpAuthType = 0;
 pub const SCE_HTTP_AUTH_DIGEST: SceHttpAuthType = 1;
 pub type SceHttpAuthInfoCallback = ::core::option::Option<
@@ -16208,55 +11576,6 @@ pub type SceHttpCookieSendCallback = ::core::option::Option<
         userArg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpCreateConnection(
-        tmplId: crate::ctypes::c_int,
-        serverName: *const crate::ctypes::c_char,
-        scheme: *const crate::ctypes::c_char,
-        port: crate::ctypes::c_ushort,
-        enableKeepalive: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpCreateConnectionWithURL(
-        tmplId: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        enableKeepalive: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpCreateRequest(
-        connId: crate::ctypes::c_int,
-        method: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpCreateRequestWithURL(
-        connId: crate::ctypes::c_int,
-        method: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpCreateTemplate(
-        userAgent: *const crate::ctypes::c_char,
-        httpVer: crate::ctypes::c_int,
-        autoProxyConf: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTP_DEFAULT_CONNECT_TIMEOUT: u32 = 30000000;
 pub const SCE_HTTP_DEFAULT_RECV_BLOCK_SIZE: u32 = 1500;
 pub const SCE_HTTP_DEFAULT_RECV_TIMEOUT: u32 = 120000000;
@@ -16266,21 +11585,6 @@ pub const SCE_HTTP_DEFAULT_RESOLVER_TIMEOUT: u32 = 1000000;
 pub const SCE_HTTP_DEFAULT_RESPONSE_HEADER_MAX: u32 = 5000;
 pub const SCE_HTTP_DEFAULT_SEND_TIMEOUT: u32 = 120000000;
 pub const SCE_HTTP_DEFAULT_TRY_AUTH_MAX: u32 = 6;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpDeleteConnection(connId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpDeleteRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpDeleteTemplate(tmplId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTP_DISABLE: u32 = 0;
 pub const SCE_HTTP_ENABLE: u32 = 1;
 pub const SCE_HTTP_ERROR_ABORTED: SceHttpErrorCode = 2151878784;
@@ -16323,80 +11627,8 @@ pub const SCE_HTTP_ERROR_UNKNOWN: SceHttpErrorCode = 2151878785;
 pub const SCE_HTTP_ERROR_UNKNOWN_METHOD: SceHttpErrorCode = 2151878763;
 pub const SCE_HTTP_ERROR_UNKNOWN_SCHEME: SceHttpErrorCode = 2151878753;
 pub const SCE_HTTP_ERROR_UNKOWN_AUTH_TYPE: SceHttpErrorCode = 2151878761;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetAllResponseHeaders(
-        reqId: crate::ctypes::c_int,
-        header: *mut *mut crate::ctypes::c_char,
-        headerSize: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetAuthEnabled(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetAutoRedirect(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetCookie(
-        url: *const crate::ctypes::c_char,
-        cookie: *mut crate::ctypes::c_char,
-        cookieLength: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        secure: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetCookieEnabled(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetMemoryPoolStats(
-        currentStat: *mut SceHttpMemoryPoolStats,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetResponseContentLength(
-        reqId: crate::ctypes::c_int,
-        contentLength: *mut crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpGetStatusCode(
-        reqId: crate::ctypes::c_int,
-        statusCode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTP_HEADER_ADD: SceHttpAddHeaderMode = 1;
 pub const SCE_HTTP_HEADER_OVERWRITE: SceHttpAddHeaderMode = 0;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpInit(poolSize: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTP_INVALID_ID: u32 = 0;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16415,43 +11647,10 @@ pub const SCE_HTTP_METHOD_POST: SceHttpMethods = 1;
 pub const SCE_HTTP_METHOD_PUT: SceHttpMethods = 4;
 pub type SceHttpMethods = crate::ctypes::c_uint;
 pub const SCE_HTTP_METHOD_TRACE: SceHttpMethods = 6;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpParseResponseHeader(
-        header: *const crate::ctypes::c_char,
-        headerLen: crate::ctypes::c_uint,
-        fieldStr: *const crate::ctypes::c_char,
-        fieldValue: *mut *const crate::ctypes::c_char,
-        valueLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpParseStatusLine(
-        statusLine: *const crate::ctypes::c_char,
-        lineLen: crate::ctypes::c_uint,
-        httpMajorVer: *mut crate::ctypes::c_int,
-        httpMinorVer: *mut crate::ctypes::c_int,
-        responseCode: *mut crate::ctypes::c_int,
-        reasonPhrase: *mut *const crate::ctypes::c_char,
-        phraseLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTP_PASSWORD_MAX_SIZE: u32 = 256;
 pub const SCE_HTTP_PROXY_AUTO: SceHttpProxyMode = 0;
 pub const SCE_HTTP_PROXY_MANUAL: SceHttpProxyMode = 1;
 pub type SceHttpProxyMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpReadData(
-        reqId: crate::ctypes::c_int,
-        data: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceHttpRedirectCallback = ::core::option::Option<
     unsafe extern "C" fn(
         request: crate::ctypes::c_int,
@@ -16461,14 +11660,6 @@ pub type SceHttpRedirectCallback = ::core::option::Option<
         userArg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpRemoveRequestHeader(
-        id: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHttpsCaList {
@@ -16489,25 +11680,6 @@ pub struct SceHttpsData {
     pub ptr: *mut crate::ctypes::c_char,
     pub size: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsDisableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsEnableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSendRequest(
-        reqId: crate::ctypes::c_int,
-        postData: *const crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_HTTPS_ERROR_CERT: SceHttpsErrorCode = 2151895136;
 pub type SceHttpsErrorCode = crate::ctypes::c_uint;
 pub const SCE_HTTPS_ERROR_HANDSHAKE: SceHttpsErrorCode = 2151895137;
@@ -16520,122 +11692,6 @@ pub const SCE_HTTPS_ERROR_SSL_INVALID_CERT: SceHttpsSslErrorCode = 2;
 pub const SCE_HTTPS_ERROR_SSL_NOT_AFTER_CHECK: SceHttpsSslErrorCode = 8;
 pub const SCE_HTTPS_ERROR_SSL_NOT_BEFORE_CHECK: SceHttpsSslErrorCode = 16;
 pub const SCE_HTTPS_ERROR_SSL_UNKNOWN_CA: SceHttpsSslErrorCode = 32;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetAuthEnabled(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetAuthInfoCallback(
-        id: crate::ctypes::c_int,
-        cbfunc: SceHttpAuthInfoCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetAutoRedirect(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetConnectTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetCookieEnabled(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetCookieRecvCallback(
-        id: crate::ctypes::c_int,
-        cbfunc: SceHttpCookieRecvCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetCookieSendCallback(
-        id: crate::ctypes::c_int,
-        cbfunc: SceHttpCookieSendCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetRecvTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetRedirectCallback(
-        id: crate::ctypes::c_int,
-        cbfunc: SceHttpRedirectCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetRequestContentLength(
-        id: crate::ctypes::c_int,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetResolveRetry(
-        id: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetResolveTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetResponseHeaderMaxSize(
-        id: crate::ctypes::c_int,
-        headerSize: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpSetSendTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceHttpsFlag = crate::ctypes::c_uint;
 pub const SCE_HTTPS_FLAG_CLIENT_VERIFY: SceHttpsFlag = 2;
 pub const SCE_HTTPS_FLAG_CN_CHECK: SceHttpsFlag = 4;
@@ -16643,44 +11699,6 @@ pub const SCE_HTTPS_FLAG_KNOWN_CA_CHECK: SceHttpsFlag = 32;
 pub const SCE_HTTPS_FLAG_NOT_AFTER_CHECK: SceHttpsFlag = 8;
 pub const SCE_HTTPS_FLAG_NOT_BEFORE_CHECK: SceHttpsFlag = 16;
 pub const SCE_HTTPS_FLAG_SERVER_VERIFY: SceHttpsFlag = 1;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsFreeCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsGetCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsGetSslError(
-        id: crate::ctypes::c_int,
-        errNum: *mut crate::ctypes::c_int,
-        detail: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsLoadCert(
-        caCertNum: crate::ctypes::c_int,
-        caList: *mut *const SceHttpsData,
-        cert: *const SceHttpsData,
-        privKey: *const SceHttpsData,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsSetSslCallback(
-        id: crate::ctypes::c_int,
-        cbfunc: SceHttpsCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceHttpSslVersion = crate::ctypes::c_uint;
 pub type SceHttpsSslErrorCode = crate::ctypes::c_uint;
 pub const SCE_HTTPS_SSLV2: SceHttpSslVersion = 1;
@@ -16735,27 +11753,6 @@ pub const SCE_HTTP_STATUS_CODE_UNSUPPORTED_MEDIA_TYPE: SceHttpStatusCode = 415;
 pub const SCE_HTTP_STATUS_CODE_UPGRADE_REQUIRED: SceHttpStatusCode = 426;
 pub const SCE_HTTP_STATUS_CODE_USE_PROXY: SceHttpStatusCode = 305;
 pub const SCE_HTTPS_TLSV1: SceHttpSslVersion = 3;
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpsUnloadCert() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpTerm() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriBuild(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        srcElement: *const SceHttpUriElement,
-        option: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceHttpUriBuildType = crate::ctypes::c_uint;
 pub const SCE_HTTP_URI_BUILD_WITH_ALL: SceHttpUriBuildType = 65535;
 pub const SCE_HTTP_URI_BUILD_WITH_FRAGMENT: SceHttpUriBuildType = 128;
@@ -16779,58 +11776,6 @@ pub struct SceHttpUriElement {
     pub fragment: *mut crate::ctypes::c_char,
     pub port: crate::ctypes::c_ushort,
     pub reserved: [crate::ctypes::c_uchar; 10usize],
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriEscape(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        in_: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriMerge(
-        mergedUrl: *mut crate::ctypes::c_char,
-        url: *const crate::ctypes::c_char,
-        relativeUrl: *const crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        option: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriParse(
-        out: *mut SceHttpUriElement,
-        srcUrl: *const crate::ctypes::c_char,
-        pool: *mut crate::ctypes::c_void,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriSweepPath(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        srcSize: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceHttp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
-    pub fn sceHttpUriUnescape(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        in_: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_HTTP_USERNAME_MAX_SIZE: u32 = 256;
 pub type SceHttpVersion = crate::ctypes::c_uint;
@@ -16999,15 +11944,15 @@ pub struct SceImeCaret {
     pub height: SceUInt32,
     pub index: SceUInt32,
 }
+#[cfg(feature = "SceIme_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
 extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
     pub fn sceImeClose() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceImeDialogAbort() -> SceInt32;
+    pub fn sceImeOpen(param: *const SceImeParam) -> SceInt32;
+    pub fn sceImeSetCaret(caret: *const SceImeCaret) -> SceInt32;
+    pub fn sceImeSetPreeditGeometry(preedit: *const SceImePreeditGeometry) -> SceInt32;
+    pub fn sceImeSetText(text: *const SceWChar16, length: SceUInt32) -> SceInt32;
+    pub fn sceImeUpdate() -> SceInt32;
 }
 pub type SceImeDialogButton = crate::ctypes::c_uint;
 pub const SCE_IME_DIALOG_BUTTON_CLOSE: SceImeDialogButton = 1;
@@ -17022,21 +11967,6 @@ pub const SCE_IME_DIALOG_ERROR_INVALID_DIALOG_MODE: SceImeDialogErrorCode = 2148
 pub const SCE_IME_DIALOG_ERROR_INVALID_TEXT_BOX_MODE: SceImeDialogErrorCode = 2148540420;
 pub const SCE_IME_DIALOG_ERROR_INVALID_TITLE: SceImeDialogErrorCode = 2148540421;
 pub const SCE_IME_DIALOG_ERROR_PARAM: SceImeDialogErrorCode = 2148540417;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceImeDialogGetResult(result: *mut SceImeDialogResult) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceImeDialogGetStatus() -> SceCommonDialogStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceImeDialogInit(param: *const SceImeDialogParam) -> SceInt32;
-}
 pub const SCE_IME_DIALOG_MAX_TEXT_LENGTH: u32 = 2048;
 pub const SCE_IME_DIALOG_MAX_TITLE_LENGTH: u32 = 128;
 #[repr(C)]
@@ -17065,11 +11995,6 @@ pub struct SceImeDialogResult {
     pub result: SceInt32,
     pub button: SceInt32,
     pub reserved: [SceChar8; 28usize],
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceImeDialogTerm() -> SceInt32;
 }
 pub type SceImeDialogTextboxMode = crate::ctypes::c_uint;
 pub const SCE_IME_DIALOG_TEXTBOX_MODE_DEFAULT: SceImeDialogTextboxMode = 0;
@@ -17159,11 +12084,6 @@ pub const SCE_IME_LANGUAGE_TRADITIONAL_CHINESE: SceImeLanguage = 65536;
 pub const SCE_IME_LANGUAGE_TURKISH: SceImeLanguage = 524288;
 pub const SCE_IME_MAX_PREEDIT_LENGTH: u32 = 30;
 pub const SCE_IME_MAX_TEXT_LENGTH: u32 = 2048;
-extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
-    pub fn sceImeOpen(param: *const SceImeParam) -> SceInt32;
-}
 pub type SceImeOption = crate::ctypes::c_uint;
 pub const SCE_IME_OPTION_MULTILINE: SceImeOption = 1;
 pub const SCE_IME_OPTION_NO_ASSISTANCE: SceImeOption = 4;
@@ -17202,21 +12122,6 @@ pub struct SceImeRect {
     pub width: SceUInt32,
     pub height: SceUInt32,
 }
-extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
-    pub fn sceImeSetCaret(caret: *const SceImeCaret) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
-    pub fn sceImeSetPreeditGeometry(preedit: *const SceImePreeditGeometry) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
-    pub fn sceImeSetText(text: *const SceWChar16, length: SceUInt32) -> SceInt32;
-}
 pub type SceImeTextFilter = ::core::option::Option<
     unsafe extern "C" fn(
         outText: *mut SceWChar16,
@@ -17232,43 +12137,23 @@ pub const SCE_IME_TYPE_EXTENDED_NUMBER: SceImeType = 3;
 pub const SCE_IME_TYPE_MAIL: SceImeType = 5;
 pub const SCE_IME_TYPE_NUMBER: SceImeType = 2;
 pub const SCE_IME_TYPE_URL: SceImeType = 4;
-extern "C" {
-    #[cfg(feature = "SceIme_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
-    pub fn sceImeUpdate() -> SceInt32;
-}
 pub const SCE_IME_WORK_BUFFER_SIZE: u32 = 20480;
 pub const SCE_INCOMING_DIALOG_ACCEPTED: SceIncomingDialogStatus = 1;
 pub const SCE_INCOMING_DIALOG_BUSY: SceIncomingDialogStatus = 5;
+#[cfg(feature = "SceIncomingDialog_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
 extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
     pub fn sceIncomingDialogClose() -> SceInt32;
+    pub fn sceIncomingDialogFinish() -> SceInt32;
+    pub fn sceIncomingDialogGetStatus() -> SceInt32;
+    pub fn sceIncomingDialogInitialize(init_type: crate::ctypes::c_int) -> SceInt32;
+    pub fn sceIncomingDialogOpen(dialogParam: *mut SceIncomingDialogParam) -> SceInt32;
+    pub fn sceIncomingDialogSwitchToDialog() -> SceInt32;
 }
 pub const SCE_INCOMING_DIALOG_CLOSED: SceIncomingDialogStatus = 4;
 pub type SceIncomingDialogErrorCode = crate::ctypes::c_uint;
 pub const SCE_INCOMINGDIALOG_ERROR_INVALID_ARG: SceIncomingDialogErrorCode = 2148557313;
-extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
-    pub fn sceIncomingDialogFinish() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
-    pub fn sceIncomingDialogGetStatus() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
-    pub fn sceIncomingDialogInitialize(init_type: crate::ctypes::c_int) -> SceInt32;
-}
 pub const SCE_INCOMING_DIALOG_NOT_RUNNING: SceIncomingDialogStatus = 0;
-extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
-    pub fn sceIncomingDialogOpen(dialogParam: *mut SceIncomingDialogParam) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIncomingDialogParam {
@@ -17288,11 +12173,6 @@ pub struct SceIncomingDialogParam {
 pub const SCE_INCOMING_DIALOG_REJECTED: SceIncomingDialogStatus = 3;
 pub const SCE_INCOMING_DIALOG_RUNNING: SceIncomingDialogStatus = 2;
 pub type SceIncomingDialogStatus = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceIncomingDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
-    pub fn sceIncomingDialogSwitchToDialog() -> SceInt32;
-}
 pub const SCE_INCOMING_DIALOG_TIMEOUT: SceIncomingDialogStatus = 6;
 pub type SceInt = i32;
 pub type SceInt16 = i16;
@@ -17301,50 +12181,26 @@ pub type SceInt64 = i64;
 pub type SceInt8 = i8;
 pub type SceIntPtr = crate::ctypes::c_int;
 pub type SceIoAccessMode = crate::ctypes::c_uint;
+#[cfg(feature = "SceIofilemgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
     pub fn sceIoCancel(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoChstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoChstatByFd(
-        fd: SceUID,
-        buf: *const SceIoStat,
-        cbit: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
     pub fn sceIoClose(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
     pub fn sceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoDevctl(
-        dev: *const crate::ctypes::c_char,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+    pub fn sceIoGetPriority(fd: SceUID) -> crate::ctypes::c_int;
+    pub fn sceIoGetProcessDefaultPriority() -> crate::ctypes::c_int;
+    pub fn sceIoGetThreadDefaultPriority() -> crate::ctypes::c_int;
+    pub fn sceIoLseek32(
+        fd: SceUID,
+        offset: crate::ctypes::c_long,
+        whence: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_long;
+    pub fn sceIoRead(fd: SceUID, buf: *mut crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
+    pub fn sceIoSetPriority(fd: SceUID, priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceIoSetProcessDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceIoSetThreadDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceIoSyncByFd(fd: SceUID, flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceIoWrite(fd: SceUID, buf: *const crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17362,16 +12218,6 @@ pub struct SceIoDirent {
     pub d_name: [crate::ctypes::c_char; 256usize],
     pub d_private: *mut crate::ctypes::c_void,
     pub dummy: crate::ctypes::c_int,
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17396,146 +12242,8 @@ pub struct SceIofileInfo {
     pub data_0x824: crate::ctypes::c_int,
 }
 pub type SceIoFileMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoGetPriority(fd: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoGetProcessDefaultPriority() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoGetstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoGetThreadDefaultPriority() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoIoctl(
-        fd: SceUID,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoIoctlAsync(
-        fd: SceUID,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoLseek32(
-        fd: SceUID,
-        offset: crate::ctypes::c_long,
-        whence: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_long;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
-}
 pub type SceIoMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoOpen(
-        file: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-        mode: SceMode,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoPread(
-        fd: SceUID,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoPwrite(
-        fd: SceUID,
-        data: *const crate::ctypes::c_void,
-        size: SceSize,
-        offset: SceOff,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoRead(fd: SceUID, buf: *mut crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoRename(
-        oldname: *const crate::ctypes::c_char,
-        newname: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
 pub type SceIoSeekMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoSetPriority(fd: SceUID, priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoSetProcessDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoSetThreadDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIoStat {
@@ -17546,24 +12254,6 @@ pub struct SceIoStat {
     pub st_atime: SceDateTime,
     pub st_mtime: SceDateTime,
     pub st_private: [crate::ctypes::c_uint; 6usize],
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceIoSync(
-        device: *const crate::ctypes::c_char,
-        unk: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoSyncByFd(fd: SceUID, flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceIofilemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
-    pub fn sceIoWrite(fd: SceUID, buf: *const crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17586,9 +12276,9 @@ pub struct SceIVector4 {
     pub z: SceInt,
     pub w: SceInt,
 }
+#[cfg(feature = "SceJpegArm_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegArm_stub")))]
 extern "C" {
-    #[cfg(feature = "SceJpegArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegArm_stub")))]
     pub fn sceJpegArmDecodeMJpeg(
         pJpeg: *const SceUInt8,
         isize_: SceSize,
@@ -17598,10 +12288,6 @@ extern "C" {
         pCoefBuffer: *mut crate::ctypes::c_void,
         coefBufferSize: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegArm_stub")))]
     pub fn sceJpegArmDecodeMJpegYCbCr(
         pJpeg: *const SceUInt8,
         isize_: SceSize,
@@ -17611,78 +12297,6 @@ extern "C" {
         pCoefBuffer: *mut crate::ctypes::c_void,
         coefBufferSize: SceSize,
     ) -> crate::ctypes::c_int;
-}
-pub type SceJpegArmEncoderContext = *mut crate::ctypes::c_void;
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderEncode(
-        context: SceJpegArmEncoderContext,
-        inBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderEnd(context: SceJpegArmEncoderContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderGetContextSize() -> SceSize;
-}
-pub type SceJpegArmEncoderHeaderMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderInit(
-        context: SceJpegArmEncoderContext,
-        inWidth: SceUInt16,
-        inHeight: SceUInt16,
-        pixelformat: SceJpegArmEncoderPixelFormat,
-        outBuffer: *mut crate::ctypes::c_void,
-        outSize: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-pub type SceJpegArmEncoderPixelFormat = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderSetCompressionRatio(
-        context: SceJpegArmEncoderContext,
-        ratio: SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderSetHeaderMode(
-        context: SceJpegArmEncoderContext,
-        mode: SceJpegArmEncoderHeaderMode,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderSetOutputAddr(
-        context: SceJpegArmEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        outSize: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEncArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
-    pub fn sceJpegArmEncoderSetValidRegion(
-        context: SceJpegArmEncoderContext,
-        regionWidth: SceUInt16,
-        regionHeight: SceUInt16,
-    ) -> crate::ctypes::c_int;
-}
-pub type SceJpegArmErrorCode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegArm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegArm_stub")))]
     pub fn sceJpegArmGetOutputInfo(
         pJpeg: *const SceUInt8,
         isize_: SceSize,
@@ -17691,10 +12305,50 @@ extern "C" {
         pOutputInfo: *mut SceJpegOutputInfo,
     ) -> crate::ctypes::c_int;
 }
-pub const SCE_JPEG_ARM_OK: SceJpegArmErrorCode = 0;
+pub type SceJpegArmEncoderContext = *mut crate::ctypes::c_void;
+#[cfg(feature = "SceJpegEncArm_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
 extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
+    pub fn sceJpegArmEncoderEncode(
+        context: SceJpegArmEncoderContext,
+        inBuffer: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderEnd(context: SceJpegArmEncoderContext) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderGetContextSize() -> SceSize;
+    pub fn sceJpegArmEncoderInit(
+        context: SceJpegArmEncoderContext,
+        inWidth: SceUInt16,
+        inHeight: SceUInt16,
+        pixelformat: SceJpegArmEncoderPixelFormat,
+        outBuffer: *mut crate::ctypes::c_void,
+        outSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderSetCompressionRatio(
+        context: SceJpegArmEncoderContext,
+        ratio: SceUInt8,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderSetHeaderMode(
+        context: SceJpegArmEncoderContext,
+        mode: SceJpegArmEncoderHeaderMode,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderSetOutputAddr(
+        context: SceJpegArmEncoderContext,
+        outBuffer: *mut crate::ctypes::c_void,
+        outSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegArmEncoderSetValidRegion(
+        context: SceJpegArmEncoderContext,
+        regionWidth: SceUInt16,
+        regionHeight: SceUInt16,
+    ) -> crate::ctypes::c_int;
+}
+pub type SceJpegArmEncoderHeaderMode = crate::ctypes::c_uint;
+pub type SceJpegArmEncoderPixelFormat = crate::ctypes::c_uint;
+pub type SceJpegArmErrorCode = crate::ctypes::c_uint;
+pub const SCE_JPEG_ARM_OK: SceJpegArmErrorCode = 0;
+#[cfg(feature = "SceJpeg_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
+extern "C" {
     pub fn sceJpegDecodeMJpegYCbCr(
         jpegData: *const SceUInt8,
         jpegSize: SceSize,
@@ -17703,6 +12357,24 @@ extern "C" {
         outputSize: SceSize,
         buffer: *mut crate::ctypes::c_void,
         bufferSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegFinishMJpeg() -> crate::ctypes::c_int;
+    pub fn sceJpegGetOutputInfo(
+        jpegData: *const SceUInt8,
+        jpegSize: SceSize,
+        format: SceInt32,
+        mode: SceInt32,
+        output: *mut SceJpegOutputInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegInitMJpeg(decoderCount: SceInt32) -> crate::ctypes::c_int;
+    pub fn sceJpegInitMJpegWithParam(params: *const SceJpegMJpegInitParam) -> crate::ctypes::c_int;
+    pub fn sceJpegMJpegCsc(
+        rgba: *mut SceUInt8,
+        yuv: *const SceUInt8,
+        yuvSize: SceSize,
+        imageWidth: SceInt32,
+        format: SceInt32,
+        sampling: SceInt32,
     ) -> crate::ctypes::c_int;
 }
 pub const SCE_JPEGENCARM_DEFAULT_COMP_RATIO: u32 = 64;
@@ -17732,9 +12404,9 @@ pub const SCE_JPEGENC_HEADER_MODE_MJPEG: SceJpegEncoderHeaderMode = 1;
 pub const SCE_JPEGENC_INIT_PARAM_OPTION_LPDDR2_MEMORY: SceJpegEncoderInitParamOption = 1;
 pub const SCE_JPEGENC_INIT_PARAM_OPTION_NONE: SceJpegEncoderInitParamOption = 0;
 pub type SceJpegEncoderContext = *mut crate::ctypes::c_void;
+#[cfg(feature = "SceJpegEnc_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
 extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
     pub fn sceJpegEncoderCsc(
         context: SceJpegEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
@@ -17742,29 +12414,12 @@ extern "C" {
         inPitch: crate::ctypes::c_int,
         inPixelFormat: SceJpegEncoderPixelFormat,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
     pub fn sceJpegEncoderEncode(
         context: SceJpegEncoderContext,
         inBuffer: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
     pub fn sceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
     pub fn sceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
-}
-pub type SceJpegEncoderHeaderMode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
     pub fn sceJpegEncoderInit(
         context: SceJpegEncoderContext,
         inWidth: crate::ctypes::c_int,
@@ -17773,7 +12428,30 @@ extern "C" {
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn sceJpegEncoderInitWithParam(
+        context: SceJpegEncoderContext,
+        initParam: *const SceJpegEncoderInitParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegEncoderSetCompressionRatio(
+        context: SceJpegEncoderContext,
+        ratio: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegEncoderSetHeaderMode(
+        context: SceJpegEncoderContext,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegEncoderSetOutputAddr(
+        context: SceJpegEncoderContext,
+        outBuffer: *mut crate::ctypes::c_void,
+        outSize: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceJpegEncoderSetValidRegion(
+        context: SceJpegEncoderContext,
+        inWidth: crate::ctypes::c_int,
+        inHeight: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
 }
+pub type SceJpegEncoderHeaderMode = crate::ctypes::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceJpegEncoderInitParam {
@@ -17786,91 +12464,11 @@ pub struct SceJpegEncoderInitParam {
     pub option: crate::ctypes::c_int,
 }
 pub type SceJpegEncoderInitParamOption = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
-    pub fn sceJpegEncoderInitWithParam(
-        context: SceJpegEncoderContext,
-        initParam: *const SceJpegEncoderInitParam,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceJpegEncoderPixelFormat = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
-    pub fn sceJpegEncoderSetCompressionRatio(
-        context: SceJpegEncoderContext,
-        ratio: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
-    pub fn sceJpegEncoderSetHeaderMode(
-        context: SceJpegEncoderContext,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
-    pub fn sceJpegEncoderSetOutputAddr(
-        context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        outSize: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpegEnc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
-    pub fn sceJpegEncoderSetValidRegion(
-        context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_JPEGENC_PIXELFORMAT_ARGB8888: SceJpegEncoderPixelFormat = 0;
 pub const SCE_JPEGENC_PIXELFORMAT_CSC_ARGB_YCBCR: SceJpegEncoderPixelFormat = 16;
 pub const SCE_JPEGENC_PIXELFORMAT_YCBCR420: SceJpegEncoderPixelFormat = 8;
 pub const SCE_JPEGENC_PIXELFORMAT_YCBCR422: SceJpegEncoderPixelFormat = 9;
-extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
-    pub fn sceJpegFinishMJpeg() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
-    pub fn sceJpegGetOutputInfo(
-        jpegData: *const SceUInt8,
-        jpegSize: SceSize,
-        format: SceInt32,
-        mode: SceInt32,
-        output: *mut SceJpegOutputInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
-    pub fn sceJpegInitMJpeg(decoderCount: SceInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
-    pub fn sceJpegInitMJpegWithParam(params: *const SceJpegMJpegInitParam) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceJpeg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
-    pub fn sceJpegMJpegCsc(
-        rgba: *mut SceUInt8,
-        yuv: *const SceUInt8,
-        yuvSize: SceSize,
-        imageWidth: SceInt32,
-        format: SceInt32,
-        sampling: SceInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceJpegMJpegInitParam {
@@ -17968,15 +12566,52 @@ pub struct SceKernelAddrPair {
     pub addr: u32,
     pub length: u32,
 }
+#[cfg(feature = "SceSysmem_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
     pub fn sceKernelAllocMemBlock(
         name: *const crate::ctypes::c_char,
         type_: SceKernelMemBlockType,
         size: SceSize,
         opt: *mut SceKernelAllocMemBlockOpt,
     ) -> SceUID;
+    pub fn sceKernelAllocMemBlockForVM(name: *const crate::ctypes::c_char, size: SceSize)
+        -> SceUID;
+    pub fn sceKernelCloseMemBlock(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCloseVMDomain() -> crate::ctypes::c_int;
+    pub fn sceKernelFindMemBlockByAddr(addr: *const crate::ctypes::c_void, size: SceSize)
+        -> SceUID;
+    pub fn sceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelGetCpuId() -> crate::ctypes::c_int;
+    pub fn sceKernelGetFreeMemorySize(
+        info: *mut SceKernelFreeMemorySizeInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetMemBlockBase(
+        uid: SceUID,
+        base: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetMemBlockInfoByAddr(
+        base: *mut crate::ctypes::c_void,
+        info: *mut SceKernelMemBlockInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetMemBlockInfoByRange(
+        base: *mut crate::ctypes::c_void,
+        size: SceSize,
+        info: *mut SceKernelMemBlockInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetModel() -> crate::ctypes::c_int;
+    pub fn sceKernelGetModelForCDialog() -> crate::ctypes::c_int;
+    pub fn sceKernelIsPSVitaTV() -> crate::ctypes::c_int;
+    pub fn sceKernelOpenMemBlock(
+        name: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelOpenVMDomain() -> crate::ctypes::c_int;
+    pub fn sceKernelSyncVMDomain(
+        uid: SceUID,
+        data: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
 }
 pub type SceKernelAllocMemBlockAttr = crate::ctypes::c_uint;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_ALLOW_PARTIAL_OP: SceKernelAllocMemBlockAttr = 67108864;
@@ -17986,12 +12621,6 @@ pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PADDR: SceKernelAllocMemBlockAttr =
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PADDR_LIST: SceKernelAllocMemBlockAttr = 4096;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PID: SceKernelAllocMemBlockAttr = 128;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_PHYCONT: SceKernelAllocMemBlockAttr = 2097152;
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelAllocMemBlockForVM(name: *const crate::ctypes::c_char, size: SceSize)
-        -> SceUID;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelAllocMemBlockKernelOpt {
@@ -18033,395 +12662,6 @@ pub type SceKernelAssertLevel = crate::ctypes::c_uint;
 pub const SCE_KERNEL_ASSERT_LEVEL_0: SceKernelAssertLevel = 0;
 pub const SCE_KERNEL_ASSERT_LEVEL_1: SceKernelAssertLevel = 1;
 pub const SCE_KERNEL_ASSERT_LEVEL_2: SceKernelAssertLevel = 2;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddUnless16(
-        store: *mut SceInt16,
-        value: SceInt16,
-        cmpv: SceInt16,
-    ) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddUnless32(
-        store: *mut SceInt32,
-        value: SceInt32,
-        cmpv: SceInt32,
-    ) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddUnless64(
-        store: *mut SceInt64,
-        value: SceInt64,
-        cmpv: SceInt64,
-    ) -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAddUnless8(store: *mut SceInt8, value: SceInt8, cmpv: SceInt8)
-        -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAndAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAndAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAndAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicAndAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearMask16(store: *mut SceInt16, value: SceInt16);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearMask32(store: *mut SceInt32, value: SceInt32);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearMask64(store: *mut SceInt64, value: SceInt64);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicClearMask8(store: *mut SceInt8, value: SceInt8);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicCompareAndSet16(
-        store: *mut SceInt16,
-        value: SceInt16,
-        new_value: SceInt16,
-    ) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicCompareAndSet32(
-        store: *mut SceInt32,
-        value: SceInt32,
-        new_value: SceInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicCompareAndSet64(
-        store: *mut SceInt64,
-        value: SceInt64,
-        new_value: SceInt64,
-    ) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicCompareAndSet8(
-        store: *mut SceInt8,
-        value: SceInt8,
-        new_value: SceInt8,
-    ) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicDecIfPositive16(store: *mut SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicDecIfPositive32(store: *mut SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicDecIfPositive64(store: *mut SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicDecIfPositive8(store: *mut SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAdd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAdd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAdd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAdd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAnd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAnd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAnd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndAnd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndClear16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndClear32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndClear64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndClear8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndOr16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndOr32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndOr64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndOr8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSub16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSub32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSub64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndSub8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndXor16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndXor32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndXor64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicGetAndXor8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicOrAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicOrAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicOrAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicOrAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSet16(store: *mut SceInt16, value: SceInt16);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSet32(store: *mut SceInt32, value: SceInt32);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSet64(store: *mut SceInt64, value: SceInt64);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSet8(store: *mut SceInt8, value: SceInt8);
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSubAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSubAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSubAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicSubAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicXorAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicXorAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicXorAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
-}
 pub const SCE_KERNEL_ATTR_OPENABLE: SceKernelWaitableAttribute = 128;
 pub const SCE_KERNEL_ATTR_THREAD_FIFO: SceKernelWaitableAttribute = 0;
 pub const SCE_KERNEL_ATTR_THREAD_PRIO: SceKernelWaitableAttribute = 8192;
@@ -18450,120 +12690,148 @@ pub struct SceKernelCallbackInfo {
     pub notifyCount: crate::ctypes::c_int,
     pub notifyArg: crate::ctypes::c_int,
 }
+#[cfg(feature = "SceKernelThreadMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
     pub fn sceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCancelMsgPipe(
-        uid: SceUID,
-        psend: *mut crate::ctypes::c_int,
-        precv: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCancelMutex(
-        mutexid: SceUID,
-        newCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCancelSema(
-        semaid: SceUID,
-        setCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelChangeCurrentThreadAttr(
-        clearAttr: SceUInt,
-        setAttr: SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
     pub fn sceKernelChangeThreadCpuAffinityMask(
         thid: SceUID,
         mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
     pub fn sceKernelChangeThreadPriority(
         thid: SceUID,
         priority: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
     pub fn sceKernelCheckCallback() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
     pub fn sceKernelClearEventFlag(
         evid: SceUID,
         bits: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    pub fn sceKernelCloseCond(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCloseMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCloseSema(semaid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCreateCallback(
+        name: *const crate::ctypes::c_char,
+        attr: crate::ctypes::c_uint,
+        func: SceKernelCallbackFunction,
+        userData: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
+    pub fn sceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteEventFlag(evid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelGetProcessId() -> SceUID;
+    pub fn sceKernelGetSystemTimeWide() -> SceInt64;
+    pub fn sceKernelGetThreadCpuAffinityMask(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelGetThreadTLSAddr(
+        thid: SceUID,
+        key: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
+    pub fn sceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelOpenCond(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceKernelOpenMutex(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceKernelOpenRWLock(name: *const crate::ctypes::c_char) -> SceUID;
+    pub fn sceKernelOpenSema(name: *const crate::ctypes::c_char) -> SceUID;
+    pub fn sceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelSendSignal(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelSetEventFlag(evid: SceUID, bits: crate::ctypes::c_uint)
+        -> crate::ctypes::c_int;
+    pub fn sceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelSignalSema(
+        semaid: SceUID,
+        signal: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelTryLockMutex(
+        mutexid: SceUID,
+        lockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelTryLockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelTryLockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelUnlockMutex(
+        mutexid: SceUID,
+        unlockCount: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
 }
 pub type SceKernelClock = SceUInt64;
+#[cfg(feature = "SceKernelModulemgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelCloseCond(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelCloseMemBlock(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
     pub fn _sceKernelCloseModule(
         modid: SceUID,
         args: SceSize,
         argp: *const crate::ctypes::c_void,
         flags: SceUInt32,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelCloseMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelCloseSema(semaid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelCloseVMDomain() -> crate::ctypes::c_int;
+    pub fn _sceKernelLoadModule(
+        module_filename: *const crate::ctypes::c_char,
+        flags: SceUInt32,
+        option: *const SceKernelLoadModuleOption,
+    ) -> SceUID;
+    pub fn _sceKernelLoadStartModule(
+        module_filename: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *const crate::ctypes::c_void,
+        flags: SceUInt32,
+    ) -> SceUID;
+    pub fn _sceKernelOpenModule(
+        module_filename: *const crate::ctypes::c_char,
+        args: SceSize,
+        argp: *const crate::ctypes::c_void,
+        flags: SceUInt32,
+    ) -> SceUID;
+    pub fn _sceKernelStopModule(
+        uid: SceUID,
+        args: SceSize,
+        argp: *const crate::ctypes::c_void,
+        flags: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceKernelStopUnloadModule(
+        uid: SceUID,
+        args: SceSize,
+        argp: *const crate::ctypes::c_void,
+        flags: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceKernelUnloadModule(
+        uid: SceUID,
+        flags: SceUInt32,
+        option: *const SceKernelUnloadModuleOption,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetAllowedSdkVersionOnSystem() -> SceUInt32;
+    pub fn sceKernelGetLibraryInfoByNID(
+        modid: SceUID,
+        libnid: SceNID,
+        info: *mut SceKernelLibraryInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetModuleIdByAddr(addr: *mut crate::ctypes::c_void) -> SceUID;
+    pub fn sceKernelGetModuleInfo(
+        uid: SceUID,
+        info: *mut SceKernelModuleInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetModuleList(
+        type_: SceUInt8,
+        uids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelGetSystemSwVersion(
+        version: *mut SceKernelSystemSwVersion,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelIsCalledFromSysModule(lr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -18610,112 +12878,6 @@ pub const SCE_KERNEL_CPU_MASK_USER_0: u32 = 65536;
 pub const SCE_KERNEL_CPU_MASK_USER_1: u32 = 131072;
 pub const SCE_KERNEL_CPU_MASK_USER_2: u32 = 262144;
 pub const SCE_KERNEL_CPU_MASK_USER_ALL: u32 = 458752;
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelCreateCallback(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
-        func: SceKernelCallbackFunction,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateCond(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        mutexId: SceUID,
-        option: *const SceKernelCondOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateEventFlag(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        bits: crate::ctypes::c_int,
-        opt: *mut SceKernelEventFlagOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateLwCond(
-        pWork: *mut SceKernelLwCondWork,
-        pName: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
-        pLwMutex: *mut SceKernelLwMutexWork,
-        pOptParam: *const SceKernelLwCondOptParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateLwMutex(
-        pWork: *mut SceKernelLwMutexWork,
-        pName: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
-        initCount: crate::ctypes::c_int,
-        pOptParam: *const SceKernelLwMutexOptParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateMsgPipe(
-        name: *const crate::ctypes::c_char,
-        type_: crate::ctypes::c_int,
-        attr: crate::ctypes::c_int,
-        bufSize: crate::ctypes::c_uint,
-        opt: *mut crate::ctypes::c_void,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateMutex(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        initCount: crate::ctypes::c_int,
-        option: *mut SceKernelMutexOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateRWLock(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt32,
-        opt_param: *const SceKernelRWLockOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateSema(
-        name: *const crate::ctypes::c_char,
-        attr: SceUInt,
-        initVal: crate::ctypes::c_int,
-        maxVal: crate::ctypes::c_int,
-        option: *mut SceKernelSemaOptParam,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelCreateThread(
-        name: *const crate::ctypes::c_char,
-        entry: SceKernelThreadEntry,
-        initPriority: crate::ctypes::c_int,
-        stackSize: SceSize,
-        attr: SceUInt,
-        cpuAffinityMask: crate::ctypes::c_int,
-        option: *const SceKernelThreadOptParam,
-    ) -> SceUID;
-}
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
 pub struct SceKernelDebugEventLog {
@@ -18801,119 +12963,31 @@ pub const SCE_KERNEL_DEBUG_LEVEL_ALWAYS: SceKernelDebugLevel = 0;
 pub const SCE_KERNEL_DEBUG_LEVEL_DEBUG: SceKernelDebugLevel = 1;
 pub const SCE_KERNEL_DEBUG_LEVEL_TRACE: SceKernelDebugLevel = 2;
 pub type SceKernelDebugMessageContext = SceKernelDebugInfo;
+#[cfg(feature = "SceDeci4pUserp_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
 extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pClose(socketid: SceUID) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pDisableWatchpoint() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pEnableWatchpoint() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pIsProcessAttached() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pOpen(
         protoname: *const crate::ctypes::c_char,
         protonum: SceUInt32,
         bufsize: SceSize,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pRead(
         socketid: SceUID,
         buffer: *mut crate::ctypes::c_void,
         size: SceSize,
         reserved: SceUInt32,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pRegisterCallback(socketid: SceUID, cbid: SceUID) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceDeci4pUserp_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
     pub fn sceKernelDeci4pWrite(
         socketid: SceUID,
         buffer: *const crate::ctypes::c_void,
         size: SceSize,
         reserved: SceUInt32,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteEventFlag(evid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelDeleteLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelDeleteLwMutex(pWork: *mut SceKernelLwMutexWork) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
 }
 pub const SCE_KERNEL_DMAC_BLOCKSIZE_DST_MASK: u32 = 4294901760;
 pub const SCE_KERNEL_DMAC_BLOCKSIZE_DST_SHIFT: u32 = 16;
@@ -19372,21 +13446,6 @@ pub struct SceKernelEventFlagInfo {
 pub struct SceKernelEventFlagOptParam {
     pub size: SceSize,
 }
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelExitProcess(res: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelFastMutex {
@@ -19398,17 +13457,6 @@ pub struct SceKernelFaultingProcessInfo {
     pub pid: SceUID,
     pub faultingThreadId: SceUID,
 }
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelFindMemBlockByAddr(addr: *const crate::ctypes::c_void, size: SceSize)
-        -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelFreeMemorySizeInfo {
@@ -19418,289 +13466,30 @@ pub struct SceKernelFreeMemorySizeInfo {
     pub size_phycont: crate::ctypes::c_int,
 }
 pub type SceKernelFwInfo = SceKernelSystemSwVersion;
+#[cfg(feature = "SceProcessmgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetAllowedSdkVersionOnSystem() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetCallbackInfo(
-        cb: SceUID,
-        infop: *mut SceKernelCallbackInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetCpuId() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetCurrentProcess() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetEventFlagInfo(
-        event: SceUID,
-        info: *mut SceKernelEventFlagInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetFreeMemorySize(
-        info: *mut SceKernelFreeMemorySizeInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetLibraryInfoByNID(
-        modid: SceUID,
-        libnid: SceNID,
-        info: *mut SceKernelLibraryInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetMemBlockBase(
-        uid: SceUID,
-        base: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetMemBlockInfoByAddr(
-        base: *mut crate::ctypes::c_void,
-        info: *mut SceKernelMemBlockInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetMemBlockInfoByRange(
-        base: *mut crate::ctypes::c_void,
-        size: SceSize,
-        info: *mut SceKernelMemBlockInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetModel() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelGetModelForCDialog() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetModuleIdByAddr(addr: *mut crate::ctypes::c_void) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetModuleInfo(
-        uid: SceUID,
-        info: *mut SceKernelModuleInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetModuleList(
-        type_: SceUInt8,
-        uids: *mut SceUID,
-        num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetMsgPipeInfo(
-        uid: SceUID,
-        info: *mut SceKernelMppInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetMutexInfo(
-        mutexid: SceUID,
-        info: *mut SceKernelMutexInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetOpenPsId(id: *mut SceKernelOpenPsId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetProcessId() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetProcessParam() -> *const crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetProcessTime(pSysClock: *mut SceKernelSysClock) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetProcessTimeLow() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetProcessTimeWide() -> SceUInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetRandomNumber(
-        output: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetRemoteProcessTime(
         processId: SceUID,
         pClock: *mut SceKernelSysClock,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetRWLockInfo(
-        rwlock_id: SceUID,
-        info: *mut SceKernelRWLockInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetSemaInfo(
-        semaid: SceUID,
-        info: *mut SceKernelSemaInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetStderr() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetStdin() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
     pub fn sceKernelGetStdout() -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetSystemInfo(info: *mut SceKernelSystemInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelGetSystemSwVersion(
-        version: *mut SceKernelSystemSwVersion,
+    pub fn sceKernelLibcClock() -> SceKernelClock;
+    pub fn sceKernelLibcGettimeofday(
+        tv: *mut SceKernelTimeval,
+        tz: *mut SceKernelTimezone,
     ) -> crate::ctypes::c_int;
+    pub fn sceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
+    pub fn sceKernelPowerLock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    pub fn sceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    pub fn sceKernelPowerUnlock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
 }
 pub type SceKernelGetSystemSwVersionFunc =
     ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>;
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetSystemTimeWide() -> SceInt64;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetThreadCpuAffinityMask(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetThreadExitStatus(
-        thid: SceUID,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetThreadId() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetThreadInfo(
-        thid: SceUID,
-        info: *mut SceKernelThreadInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetThreadRunStatus(
-        thid: SceUID,
-        status: *mut SceKernelThreadRunStatus,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelGetThreadTLSAddr(
-        thid: SceUID,
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
-}
 pub type SceKernelHeapAttr = crate::ctypes::c_uint;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_AUTO_EXTEND: SceKernelHeapAttr = 1;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_MEMORY_TYPE: SceKernelHeapAttr = 1024;
@@ -19773,34 +13562,6 @@ pub struct SceKernelIntrOptParam {
     pub unk_10: u32,
 }
 pub type SceKernelIntrStatus = crate::ctypes::c_int;
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn sceKernelIsCalledFromSysModule(lr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelIsPSVitaTV() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelLibcClock() -> SceKernelClock;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelLibcGettimeofday(
-        tv: *mut SceKernelTimeval,
-        tz: *mut SceKernelTimezone,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelLibraryInfo {
@@ -19811,109 +13572,10 @@ pub struct SceKernelLibraryInfo {
 pub struct SceKernelLMOption {
     pub size: SceSize,
 }
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLoadModule(
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelLoadModule(
-        module_filename: *const crate::ctypes::c_char,
-        flags: SceUInt32,
-        option: *const SceKernelLoadModuleOption,
-    ) -> SceUID;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelLoadModuleOption {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLoadStartModule(
-        path: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelLoadStartModule(
-        module_filename: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *const crate::ctypes::c_void,
-        flags: SceUInt32,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockLwMutex(
-        pWork: *mut SceKernelLwMutexWork,
-        lockCount: crate::ctypes::c_int,
-        pTimeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockMutexCB(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockReadRWLock(
-        rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockReadRWLockCB(
-        rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockWriteRWLock(
-        rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelLockWriteRWLockCB(
-        rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -20228,83 +13890,72 @@ pub struct SceKernelMutexOptParam {
     pub size: SceSize,
     pub ceilingPriority: crate::ctypes::c_int,
 }
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_KERNEL_OK: SceKernelErrorCode = 0;
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelOpenCond(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelOpenMemBlock(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelOpenModule(
-        module_filename: *const crate::ctypes::c_char,
-        args: SceSize,
-        argp: *const crate::ctypes::c_void,
-        flags: SceUInt32,
-    ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelOpenMutex(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelOpenPsId {
     pub id: [crate::ctypes::c_char; 16usize],
 }
+#[cfg(feature = "ScePamgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelOpenRWLock(name: *const crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelOpenSema(name: *const crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelOpenVMDomain() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
     pub fn _sceKernelPaAddArmTraceByKey(
         key: crate::ctypes::c_int,
         param: *const SceKernelPaArmTraceParam,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
     pub fn _sceKernelPaAddCounterTraceByKey(
         key: crate::ctypes::c_int,
         param: *const SceKernelPaCounterTraceParam,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
     pub fn _sceKernelPaAddGpuTraceByKey(
         key: crate::ctypes::c_int,
         param: *const SceKernelPaGpuTraceParam,
     ) -> crate::ctypes::c_int;
+    pub fn _sceKernelPaGetGpuSampledData(
+        data: *mut SceKernelPaGpuSampledData,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceKernelPaSetupTraceBufferByKey(
+        key: crate::ctypes::c_int,
+        param: *const SceKernelPaTraceBufferParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPaGetIoBaseAddress() -> SceUInt32;
+    pub fn sceKernelPaGetTimebaseFrequency() -> SceUInt32;
+    pub fn sceKernelPaGetTimebaseValue() -> SceUInt64;
+    pub fn sceKernelPaGetTraceBufferSize(type_: SceUInt32) -> SceSize;
+    pub fn sceKernelPaGetTraceBufferStatus() -> SceUInt32;
+    pub fn sceKernelPaGetWritePointer() -> SceUInt32;
+    pub fn sceKernelPaInsertBookmark(
+        fifo: SceUInt32,
+        channel: SceUInt32,
+        data: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPaRegister() -> crate::ctypes::c_int;
+    pub fn sceKernelPaRemoveArmTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPaRemoveCounterTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPaRemoveGpuTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPaSetBookmarkChannelEnableByKey(
+        key: crate::ctypes::c_int,
+        fifo: SceUInt32,
+        mask: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPaStartByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPaStopByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPaUnregister(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonClose() -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonOpen() -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonReset(threadId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonSelectEvent(
+        threadId: SceUID,
+        counter: SceUInt32,
+        eventCode: SceUInt8,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonSetCounterValue(
+        threadId: SceUID,
+        counter: SceUInt32,
+        value: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonStart(threadId: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelPerfArmPmonStop(threadId: SceUID) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -20317,43 +13968,6 @@ pub struct SceKernelPaCounterTraceParam {
     _unused: [u8; 0],
 }
 pub type SceKernelPaddrList = SceKernelPAVector;
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn _sceKernelPaGetGpuSampledData(
-        data: *mut SceKernelPaGpuSampledData,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetIoBaseAddress() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetTimebaseFrequency() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetTimebaseValue() -> SceUInt64;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetTraceBufferSize(type_: SceUInt32) -> SceSize;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetTraceBufferStatus() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaGetWritePointer() -> SceUInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelPaGpuSampledData {
@@ -20364,77 +13978,16 @@ pub struct SceKernelPaGpuSampledData {
 pub struct SceKernelPaGpuTraceParam {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaInsertBookmark(
-        fifo: SceUInt32,
-        channel: SceUInt32,
-        data: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelPARange {
     pub addr: u32,
     pub size: SceSize,
 }
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaRegister() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaRemoveArmTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaRemoveCounterTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaRemoveGpuTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaSetBookmarkChannelEnableByKey(
-        key: crate::ctypes::c_int,
-        fifo: SceUInt32,
-        mask: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn _sceKernelPaSetupTraceBufferByKey(
-        key: crate::ctypes::c_int,
-        param: *const SceKernelPaTraceBufferParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaStartByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaStopByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelPaTraceBufferParam {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPaUnregister(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -20464,85 +14017,12 @@ pub struct SceKernelPAVector__bindgen_ty_1__bindgen_ty_2 {
     pub ret_count: u32,
     pub list: *mut SceKernelAddrPair,
 }
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonClose() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonOpen() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonReset(threadId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonSelectEvent(
-        threadId: SceUID,
-        counter: SceUInt32,
-        eventCode: SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonSetCounterValue(
-        threadId: SceUID,
-        counter: SceUInt32,
-        value: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonStart(threadId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePamgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
-    pub fn sceKernelPerfArmPmonStop(threadId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelPollEventFlag(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelPowerLock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-}
 pub const SCE_KERNEL_POWER_TICK_DEFAULT: SceKernelPowerTickType = 0;
 pub const __SCE_KERNEL_POWER_TICK_DISABLE: SceKernelPowerTickType = 4294967295;
 pub const SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND: SceKernelPowerTickType = 1;
 pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_DIMMING: SceKernelPowerTickType = 6;
 pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF: SceKernelPowerTickType = 4;
 pub type SceKernelPowerTickType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceProcessmgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
-    pub fn sceKernelPowerUnlock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-}
 pub type SceKernelPreloadInhibit = crate::ctypes::c_uint;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_APPUTIL: SceKernelPreloadInhibit = 4194304;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBC: SceKernelPreloadInhibit = 65536;
@@ -20584,30 +14064,6 @@ pub const SCE_KERNEL_PROCESS_PRIORITY_USER_DEFAULT: SceKernelProcessPriorityUser
 pub const SCE_KERNEL_PROCESS_PRIORITY_USER_HIGH: SceKernelProcessPriorityUser = 64;
 pub const SCE_KERNEL_PROCESS_PRIORITY_USER_LOW: SceKernelProcessPriorityUser = 127;
 pub type SceKernelProcessType = SceUInt32;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelReceiveMsgPipe(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelReceiveMsgPipeCB(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelRWLockInfo {
@@ -20662,155 +14118,14 @@ pub struct SceKernelSemaInfo {
 pub struct SceKernelSemaOptParam {
     pub size: SceSize,
 }
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelSendMsgPipe(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelSendMsgPipeCB(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSendSignal(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSetEventFlag(evid: SceUID, bits: crate::ctypes::c_uint)
-        -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelSignalLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelSignalLwCondAll(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelSignalLwCondTo(
-        pWork: *mut SceKernelLwCondWork,
-        threadId: SceUID,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelSignalSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceKernelSpinlock = crate::ctypes::c_int;
 pub const SCE_KERNEL_START_FAILED: u32 = 2;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelStartModule(
-        modid: SceUID,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut crate::ctypes::c_void,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_KERNEL_START_NO_RESIDENT: u32 = 1;
 pub const SCE_KERNEL_START_RESIDENT: u32 = 0;
 pub const SCE_KERNEL_START_SUCCESS: u32 = 0;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelStartThread(
-        thid: SceUID,
-        arglen: SceSize,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_KERNEL_STOP_CANCEL: u32 = 1;
 pub const SCE_KERNEL_STOP_FAIL: u32 = 1;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelStopModule(
-        modid: SceUID,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut crate::ctypes::c_void,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelStopModule(
-        uid: SceUID,
-        args: SceSize,
-        argp: *const crate::ctypes::c_void,
-        flags: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_KERNEL_STOP_SUCCESS: u32 = 0;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelStopUnloadModule(
-        modid: SceUID,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelStopUnloadModule(
-        uid: SceUID,
-        args: SceSize,
-        argp: *const crate::ctypes::c_void,
-        flags: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceKernelSubIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
         subintr_arg: *mut crate::ctypes::c_void,
@@ -20818,15 +14133,6 @@ pub type SceKernelSubIntrHandler = ::core::option::Option<
         intr_priority: crate::ctypes::c_uchar,
     ) -> crate::ctypes::c_int,
 >;
-extern "C" {
-    #[cfg(feature = "SceSysmem_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
-    pub fn sceKernelSyncVMDomain(
-        uid: SceUID,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceKernelSysClock = SceUInt64;
 pub type SceKernelSysrootSelfIndex = crate::ctypes::c_uint;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_ENCDEC_W_PORTABILITY_SM: SceKernelSysrootSelfIndex = 2;
@@ -20946,107 +14252,15 @@ pub const SCE_KERNEL_TMID_Thread: SceKernelIdListType = 1;
 pub const SCE_KERNEL_TMID_ThreadEventHandler: SceKernelIdListType = 9;
 pub const SCE_KERNEL_TMID_Vpl: SceKernelIdListType = 5;
 pub const SCE_KERNEL_TMID_VTimer: SceKernelIdListType = 11;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelTryLockLwMutex(
-        pWork: *mut SceKernelLwMutexWork,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelTryLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelTryLockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelTryLockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelTryReceiveMsgPipe(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelTrySendMsgPipe(
-        uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelULMOption {
     pub size: SceSize,
 }
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelUnloadModule(
-        modid: SceUID,
-        flags: crate::ctypes::c_int,
-        option: *mut SceKernelULMOption,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelModulemgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
-    pub fn _sceKernelUnloadModule(
-        uid: SceUID,
-        flags: SceUInt32,
-        option: *const SceKernelUnloadModuleOption,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelUnloadModuleOption {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelUnlockLwMutex(
-        pWork: *mut SceKernelLwMutexWork,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelUnlockMutex(
-        mutexid: SceUID,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceKernelThreadMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
-    pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21055,135 +14269,66 @@ pub struct SceKernelVARange {
     pub size: SceSize,
 }
 pub type SceKernelWaitableAttribute = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitCond(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitCondCB(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitEventFlag(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitEventFlagCB(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitLwCond(
-        pWork: *mut SceKernelLwCondWork,
-        pTimeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitSemaCB(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitSignal(
-        unk0: SceUInt32,
-        delay: SceUInt32,
-        timeout: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitThreadEnd(
-        thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceKernelWaitThreadEndCB(
-        thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
-        timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
     unsafe extern "C" fn(args: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+#[cfg(feature = "SceLocation_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
 extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationCancelGetLocation(handle: SceLocationHandle) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationClose(handle: SceLocationHandle) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationConfirm(handle: SceLocationHandle) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationConfirmAbort(handle: SceLocationHandle) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationConfirmGetResult(
         handle: SceLocationHandle,
         result: *mut SceLocationDialogResult,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
     pub fn sceLocationConfirmGetStatus(
         handle: SceLocationHandle,
         status: *mut SceLocationDialogStatus,
     ) -> SceInt32;
+    pub fn sceLocationGetHeading(
+        handle: SceLocationHandle,
+        headingInfo: *mut SceLocationHeadingInfo,
+    ) -> SceInt32;
+    pub fn sceLocationGetLocation(
+        handle: SceLocationHandle,
+        locationInfo: *mut SceLocationLocationInfo,
+    ) -> SceInt32;
+    pub fn sceLocationGetMethod(
+        handle: SceLocationHandle,
+        locateMethod: *mut SceLocationLocationMethod,
+        headingMethod: *mut SceLocationHeadingMethod,
+    ) -> SceInt32;
+    pub fn sceLocationGetPermission(
+        handle: SceLocationHandle,
+        info: *mut SceLocationPermissionInfo,
+    ) -> SceInt32;
+    pub fn sceLocationOpen(
+        handle: *mut SceLocationHandle,
+        locateMethod: SceLocationLocationMethod,
+        headingMethod: SceLocationHeadingMethod,
+    ) -> SceInt32;
+    pub fn sceLocationReopen(
+        handle: SceLocationHandle,
+        locateMethod: SceLocationLocationMethod,
+        headingMethod: SceLocationHeadingMethod,
+    ) -> SceInt32;
+    pub fn sceLocationSetGpsEmulationFile(filename: *mut crate::ctypes::c_uchar) -> SceInt32;
+    pub fn sceLocationStartHeadingCallback(
+        handle: SceLocationHandle,
+        difference: SceUInt32,
+        callback: SceLocationHeadingInfoCallback,
+        userdata: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
+    pub fn sceLocationStartLocationCallback(
+        handle: SceLocationHandle,
+        distance: SceUInt32,
+        callback: SceLocationLocationInfoCallback,
+        userdata: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
+    pub fn sceLocationStopHeadingCallback(handle: SceLocationHandle) -> SceInt32;
+    pub fn sceLocationStopLocationCallback(handle: SceLocationHandle) -> SceInt32;
 }
 pub const SCE_LOCATION_DATA_INVALID: f64 = -9999.0;
 pub const __SCE_LOCATION_DIALOG_RESULT: SceLocationDialogResult = 4294967295;
@@ -21216,39 +14361,6 @@ pub const SCE_LOCATION_ERROR_PROVIDER_UNAVAILABLE: SceLocationErrorCode = 214853
 pub const SCE_LOCATION_ERROR_TIME_OUT: SceLocationErrorCode = 2148536964;
 pub const SCE_LOCATION_ERROR_TOO_MANY_HANDLES: SceLocationErrorCode = 2148536839;
 pub const SCE_LOCATION_ERROR_UNAUTHORIZED: SceLocationErrorCode = 2148536960;
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationGetHeading(
-        handle: SceLocationHandle,
-        headingInfo: *mut SceLocationHeadingInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationGetLocation(
-        handle: SceLocationHandle,
-        locationInfo: *mut SceLocationLocationInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationGetMethod(
-        handle: SceLocationHandle,
-        locateMethod: *mut SceLocationLocationMethod,
-        headingMethod: *mut SceLocationHeadingMethod,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationGetPermission(
-        handle: SceLocationHandle,
-        info: *mut SceLocationPermissionInfo,
-    ) -> SceInt32;
-}
 pub type SceLocationHandle = SceUInt32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21308,15 +14420,6 @@ pub type SceLocationLocationInfoCallback = ::core::option::Option<
     ),
 >;
 pub type SceLocationLocationMethod = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationOpen(
-        handle: *mut SceLocationHandle,
-        locateMethod: SceLocationLocationMethod,
-        headingMethod: SceLocationHeadingMethod,
-    ) -> SceInt32;
-}
 pub const __SCE_LOCATION_PERMISSION: SceLocationPermissionStatus = 4294967295;
 pub const SCE_LOCATION_PERMISSION_ALLOW: SceLocationPermissionStatus = 1;
 pub const __SCE_LOCATION_PERMISSION_APPLICATION: SceLocationPermissionApplicationStatus =
@@ -21337,50 +14440,6 @@ pub struct SceLocationPermissionInfo {
     pub unk_0x10: crate::ctypes::c_int,
 }
 pub type SceLocationPermissionStatus = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationReopen(
-        handle: SceLocationHandle,
-        locateMethod: SceLocationLocationMethod,
-        headingMethod: SceLocationHeadingMethod,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationSetGpsEmulationFile(filename: *mut crate::ctypes::c_uchar) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationStartHeadingCallback(
-        handle: SceLocationHandle,
-        difference: SceUInt32,
-        callback: SceLocationHeadingInfoCallback,
-        userdata: *mut crate::ctypes::c_void,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationStartLocationCallback(
-        handle: SceLocationHandle,
-        distance: SceUInt32,
-        callback: SceLocationLocationInfoCallback,
-        userdata: *mut crate::ctypes::c_void,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationStopHeadingCallback(handle: SceLocationHandle) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceLocation_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
-    pub fn sceLocationStopLocationCallback(handle: SceLocationHandle) -> SceInt32;
-}
 pub const SCE_LOCATION_SUCCESS: SceLocationErrorCode = 0;
 pub type SceLong64 = i64;
 pub type SceMode = crate::ctypes::c_int;
@@ -21414,102 +14473,78 @@ pub struct SceMotionDevDeviceInfo {
 pub struct SceMotionDevDeviceLocation {
     _unused: [u8; 0],
 }
+#[cfg(feature = "SceMotionDev_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
 extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetAccCalibData(data: *mut SceMotionDevAccCalibData)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetAccCalibData2(
         port: crate::ctypes::c_int,
         data: *mut SceMotionDevAccCalibData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetCalibrationData(
         block_id: SceUInt32,
         data: *mut SceMotionDevCalibrationData,
         data_num: SceUInt32,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetCalibrationHeader(
         block_id: SceUInt32,
         calib_header: *mut SceMotionDevCalibrationHeader,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetCurrentMagnCalibData(
         data: *mut SceMotionDevMagnCalibData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetCurrentMagnStabilityLevel(level: *mut SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetDeviceInfo(
         device_info: *mut SceMotionDevDeviceInfo,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetDeviceLocation(
         location: *mut SceMotionDevDeviceLocation,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetFactoryMagnCalibData(
         data: *mut SceMotionDevMagnCalibData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetGyroBias(bias: *mut SceMotionDevGyroBiasData) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetGyroBias2(
         port: crate::ctypes::c_int,
         bias: *mut SceMotionDevGyroBiasData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetGyroCalibData(
         data: *mut SceMotionDevGyroCalibData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetGyroCalibData2(
         port: crate::ctypes::c_int,
         data: *mut SceMotionDevGyroCalibData,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
     pub fn sceMotionDevGetMeasMode(mode_info: *mut SceMotionDevModeInfo) -> crate::ctypes::c_int;
+    pub fn sceMotionDevIsReady() -> crate::ctypes::c_int;
+    pub fn sceMotionDevMagnSamplingStart() -> crate::ctypes::c_int;
+    pub fn sceMotionDevMagnSamplingStop() -> crate::ctypes::c_int;
+    pub fn sceMotionDevRead(
+        data: *mut SceMotionDevData,
+        data_num: crate::ctypes::c_int,
+        info: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMotionDevRead2(
+        port: crate::ctypes::c_int,
+        data: *mut SceMotionDevData,
+        data_num: crate::ctypes::c_int,
+        info: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMotionDevReadForMagnCalib(
+        data: *mut SceMotionDevData,
+        data_num: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMotionDevSamplingStart() -> crate::ctypes::c_int;
+    pub fn sceMotionDevSamplingStart2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMotionDevSamplingStop() -> crate::ctypes::c_int;
+    pub fn sceMotionDevSamplingStop2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMotionDevSetSamplingMode(mode: SceUInt32) -> crate::ctypes::c_int;
+    pub fn sceMotionDevUpdateMagnCalibData(
+        data: *const SceMotionDevMagnCalibData,
+        tag: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceMotionDevUpdateMagnStabilityLevel(level: SceUInt32) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21528,95 +14563,15 @@ pub struct SceMotionDeviceLocation {
     pub gyro: SceFVector3,
     pub reserved: [u8; 24usize],
 }
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevIsReady() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionDevMagnCalibData {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevMagnSamplingStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevMagnSamplingStop() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionDevModeInfo {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevRead(
-        data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
-        info: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevRead2(
-        port: crate::ctypes::c_int,
-        data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
-        info: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevReadForMagnCalib(
-        data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevSamplingStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevSamplingStart2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevSamplingStop() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevSamplingStop2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevSetSamplingMode(mode: SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevUpdateMagnCalibData(
-        data: *const SceMotionDevMagnCalibData,
-        tag: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotionDev_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
-    pub fn sceMotionDevUpdateMagnStabilityLevel(level: SceUInt32) -> crate::ctypes::c_int;
 }
 pub const SCE_MOTION_ERROR_ALREADY_SAMPLING: SceMotionErrorCode = 2151023111;
 pub const SCE_MOTION_ERROR_CALIB_READ_FAIL: SceMotionErrorCode = 2151023108;
@@ -21628,81 +14583,39 @@ pub const SCE_MOTION_ERROR_NOT_SAMPLING: SceMotionErrorCode = 2151023110;
 pub const SCE_MOTION_ERROR_OUT_OF_BOUNDS: SceMotionErrorCode = 2151023109;
 pub const SCE_MOTION_ERROR_READING: SceMotionErrorCode = 2151023105;
 pub const SCE_MOTION_ERROR_STATE_INVALID: SceMotionErrorCode = 2151023107;
+#[cfg(feature = "SceMotion_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
 extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetAngleThreshold() -> f32;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetBasicOrientation(basicOrientation: *mut SceFVector3)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetDeadband() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetDeviceLocation(
         deviceLocation: *mut SceMotionDeviceLocation,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetGyroBiasCorrection() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetMagnetometerState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetSensorState(
         sensorState: *mut SceMotionSensorState,
         numRecords: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetState(motionState: *mut SceMotionState) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
     pub fn sceMotionGetTiltCorrection() -> crate::ctypes::c_int;
+    pub fn sceMotionMagnetometerOff() -> crate::ctypes::c_int;
+    pub fn sceMotionMagnetometerOn() -> crate::ctypes::c_int;
+    pub fn sceMotionReset() -> crate::ctypes::c_int;
+    pub fn sceMotionRotateYaw(radians: f32) -> crate::ctypes::c_int;
+    pub fn sceMotionSetAngleThreshold(angle: f32) -> crate::ctypes::c_int;
+    pub fn sceMotionSetDeadband(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMotionSetGyroBiasCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMotionSetTiltCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMotionStartSampling() -> crate::ctypes::c_int;
+    pub fn sceMotionStopSampling() -> crate::ctypes::c_int;
 }
 pub type SceMotionMagFieldStability = crate::ctypes::c_uint;
 pub const SCE_MOTION_MAGFIELD_STABLE: SceMotionMagFieldStability = 2;
 pub const SCE_MOTION_MAGFIELD_UNSTABLE: SceMotionMagFieldStability = 0;
 pub const SCE_MOTION_MAGFIELD_UNUSED: SceMotionMagFieldStability = 1;
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionMagnetometerOff() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionMagnetometerOn() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionReset() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionRotateYaw(radians: f32) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionSensorState {
@@ -21715,31 +14628,6 @@ pub struct SceMotionSensorState {
     pub hostTimestamp: SceULong64,
     pub unknown: u8,
     pub reserved3: [u8; 7usize],
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionSetAngleThreshold(angle: f32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionSetDeadband(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionSetGyroBiasCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionSetTiltCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionStartSampling() -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21758,16 +14646,6 @@ pub struct SceMotionState {
     pub magFieldStability: u8,
     pub unknown: u8,
     pub reserved4: [u8; 2usize],
-}
-extern "C" {
-    #[cfg(feature = "SceMotion_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
-    pub fn sceMotionStopSampling() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogAbort() -> crate::ctypes::c_int;
 }
 pub type SceMsgDialogButtonId = crate::ctypes::c_uint;
 pub const SCE_MSG_DIALOG_BUTTON_ID_BUTTON1: SceMsgDialogButtonId = 1;
@@ -21796,11 +14674,6 @@ pub const SCE_MSG_DIALOG_BUTTON_TYPE_NONE: SceMsgDialogButtonType = 2;
 pub const SCE_MSG_DIALOG_BUTTON_TYPE_OK: SceMsgDialogButtonType = 0;
 pub const SCE_MSG_DIALOG_BUTTON_TYPE_OK_CANCEL: SceMsgDialogButtonType = 3;
 pub const SCE_MSG_DIALOG_BUTTON_TYPE_YESNO: SceMsgDialogButtonType = 1;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogClose() -> crate::ctypes::c_int;
-}
 pub type SceMsgDialogEnvFlag = crate::ctypes::c_uint;
 pub const SCE_MSG_DIALOG_ENV_FLAG_DEFAULT: SceMsgDialogEnvFlag = 0;
 pub type SceMsgDialogErrorCode = crate::ctypes::c_uint;
@@ -21814,21 +14687,6 @@ pub const SCE_MSG_DIALOG_ERROR_PARAM: SceMsgDialogErrorCode = 2148534785;
 pub type SceMsgDialogFontSize = crate::ctypes::c_uint;
 pub const SCE_MSG_DIALOG_FONT_SIZE_DEFAULT: SceMsgDialogFontSize = 0;
 pub const SCE_MSG_DIALOG_FONT_SIZE_SMALL: SceMsgDialogFontSize = 1;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogGetResult(result: *mut SceMsgDialogResult) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogGetStatus() -> SceCommonDialogStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogInit(param: *const SceMsgDialogParam) -> crate::ctypes::c_int;
-}
 pub type SceMsgDialogMode = crate::ctypes::c_uint;
 pub const SCE_MSG_DIALOG_MODE_ERROR_CODE: SceMsgDialogMode = 3;
 pub const SCE_MSG_DIALOG_MODE_INVALID: SceMsgDialogMode = 0;
@@ -21848,14 +14706,6 @@ pub struct SceMsgDialogParam {
     pub flag: SceInt32,
     pub reserved: [SceChar8; 32usize],
 }
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogProgressBarInc(
-        target: SceMsgDialogProgressBarTarget,
-        delta: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogProgressBarParam {
@@ -21863,22 +14713,6 @@ pub struct SceMsgDialogProgressBarParam {
     pub sysMsgParam: SceMsgDialogSystemMessageParam,
     pub msg: *const SceChar8,
     pub reserved: [SceInt32; 8usize],
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogProgressBarSetMsg(
-        target: SceMsgDialogProgressBarTarget,
-        barMsg: *const SceChar8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogProgressBarSetValue(
-        target: SceMsgDialogProgressBarTarget,
-        rate: SceUInt32,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceMsgDialogProgressBarTarget = crate::ctypes::c_uint;
 pub const SCE_MSG_DIALOG_PROGRESSBAR_TARGET_BAR_DEFAULT: SceMsgDialogProgressBarTarget = 0;
@@ -21914,11 +14748,6 @@ pub struct SceMsgDialogSystemMessageParam {
     pub reserved: [SceChar8; 32usize],
 }
 pub type SceMsgDialogSystemMessageType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceMsgDialogTerm() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogUserMessageParam {
@@ -21943,19 +14772,15 @@ pub struct SceMsInfo {
     pub unk_0x2C: SceUInt32,
     pub id: [SceUInt8; 16usize],
 }
+#[cfg(feature = "SceMtpIfDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceMtpIfDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceMtpIfDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMtpIfDriver_stub")))]
     pub fn sceMtpIfStartDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceMtpIfDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMtpIfDriver_stub")))]
     pub fn sceMtpIfStopDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceMusicExport_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceMusicExport_stub")))]
 extern "C" {
-    #[cfg(feature = "SceMusicExport_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceMusicExport_stub")))]
     pub fn sceMusicExportFromFile(
         path: *const crate::ctypes::c_char,
         param: *const MusicExportParam,
@@ -21970,14 +14795,246 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 pub type SceName = *mut crate::ctypes::c_char;
+#[cfg(feature = "SceNet_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
     pub fn sceNetAccept(
         s: crate::ctypes::c_int,
         addr: *mut SceNetSockaddr,
         addrlen: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    pub fn sceNetBind(
+        s: crate::ctypes::c_int,
+        addr: *const SceNetSockaddr,
+        addrlen: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetClearDnsCache(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetConnect(
+        s: crate::ctypes::c_int,
+        name: *const SceNetSockaddr,
+        namelen: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetDumpAbort(
+        id: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetDumpCreate(
+        name: *const crate::ctypes::c_char,
+        len: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetDumpDestroy(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetDumpRead(
+        id: crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+        len: crate::ctypes::c_int,
+        pflags: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEmulationGet(
+        param: *mut SceNetEmulationParam,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEmulationSet(
+        param: *mut SceNetEmulationParam,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEpollAbort(
+        eid: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEpollControl(
+        eid: crate::ctypes::c_int,
+        op: crate::ctypes::c_int,
+        id: crate::ctypes::c_int,
+        event: *mut SceNetEpollEvent,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEpollCreate(
+        name: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEpollDestroy(eid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetEpollWait(
+        eid: crate::ctypes::c_int,
+        events: *mut SceNetEpollEvent,
+        maxevents: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEpollWaitCB(
+        eid: crate::ctypes::c_int,
+        events: *mut SceNetEpollEvent,
+        maxevents: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetErrnoLoc() -> *mut crate::ctypes::c_int;
+    pub fn sceNetEtherNtostr(
+        n: *const SceNetEtherAddr,
+        str_: *mut crate::ctypes::c_char,
+        len: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetEtherStrton(
+        str_: *const crate::ctypes::c_char,
+        n: *mut SceNetEtherAddr,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetMacAddress(
+        addr: *mut SceNetEtherAddr,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetSockIdInfo(
+        fds: *mut SceNetFdSet,
+        sockinfoflags: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetSockInfo(
+        s: crate::ctypes::c_int,
+        info: *mut SceNetSockInfo,
+        n: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetStatisticsInfo(
+        info: *mut SceNetStatisticsInfo,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetpeername(
+        s: crate::ctypes::c_int,
+        name: *mut SceNetSockaddr,
+        namelen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetsockname(
+        s: crate::ctypes::c_int,
+        name: *mut SceNetSockaddr,
+        namelen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetGetsockopt(
+        s: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+        optname: crate::ctypes::c_int,
+        optval: *mut crate::ctypes::c_void,
+        optlen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetHtonl(host32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
+    pub fn sceNetHtonll(host64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
+    pub fn sceNetHtons(host16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
+    pub fn sceNetInetNtop(
+        af: crate::ctypes::c_int,
+        src: *const crate::ctypes::c_void,
+        dst: *mut crate::ctypes::c_char,
+        size: crate::ctypes::c_uint,
+    ) -> *const crate::ctypes::c_char;
+    pub fn sceNetInetPton(
+        af: crate::ctypes::c_int,
+        src: *const crate::ctypes::c_char,
+        dst: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetInit(param: *mut SceNetInitParam) -> crate::ctypes::c_int;
+    pub fn sceNetListen(
+        s: crate::ctypes::c_int,
+        backlog: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetNtohl(net32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
+    pub fn sceNetNtohll(net64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
+    pub fn sceNetNtohs(net16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
+    pub fn sceNetRecv(
+        s: crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+        len: crate::ctypes::c_uint,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetRecvfrom(
+        s: crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+        len: crate::ctypes::c_uint,
+        flags: crate::ctypes::c_int,
+        from: *mut SceNetSockaddr,
+        fromlen: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetRecvmsg(
+        s: crate::ctypes::c_int,
+        msg: *mut SceNetMsghdr,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetResolverAbort(
+        rid: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetResolverCreate(
+        name: *const crate::ctypes::c_char,
+        param: *mut SceNetResolverParam,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetResolverDestroy(rid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetResolverGetError(
+        rid: crate::ctypes::c_int,
+        result: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetResolverStartAton(
+        rid: crate::ctypes::c_int,
+        addr: *const SceNetInAddr,
+        hostname: *mut crate::ctypes::c_char,
+        len: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_int,
+        retry: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetResolverStartNtoa(
+        rid: crate::ctypes::c_int,
+        hostname: *const crate::ctypes::c_char,
+        addr: *mut SceNetInAddr,
+        timeout: crate::ctypes::c_int,
+        retry: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSend(
+        s: crate::ctypes::c_int,
+        msg: *const crate::ctypes::c_void,
+        len: crate::ctypes::c_uint,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSendmsg(
+        s: crate::ctypes::c_int,
+        msg: *const SceNetMsghdr,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSendto(
+        s: crate::ctypes::c_int,
+        msg: *const crate::ctypes::c_void,
+        len: crate::ctypes::c_uint,
+        flags: crate::ctypes::c_int,
+        to: *const SceNetSockaddr,
+        tolen: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSetDnsInfo(
+        info: *mut SceNetDnsInfo,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSetsockopt(
+        s: crate::ctypes::c_int,
+        level: crate::ctypes::c_int,
+        optname: crate::ctypes::c_int,
+        optval: *const crate::ctypes::c_void,
+        optlen: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetShowIfconfig(
+        p: *mut crate::ctypes::c_void,
+        b: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetShowNetstat() -> crate::ctypes::c_int;
+    pub fn sceNetShowRoute() -> crate::ctypes::c_int;
+    pub fn sceNetShutdown(
+        s: crate::ctypes::c_int,
+        how: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSocket(
+        name: *const crate::ctypes::c_char,
+        domain: crate::ctypes::c_int,
+        type_: crate::ctypes::c_int,
+        protocol: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSocketAbort(
+        s: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetSocketClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetTerm() -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21997,68 +15054,12 @@ pub struct SceNetAdhocctlBSSId {
     pub padding: [SceUChar8; 2usize],
 }
 pub const SCE_NET_ADHOCCTL_BSSID_LEN: u32 = 6;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetAddrByName(
-        nickname: *const SceNetAdhocctlNickname,
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetAdhocId(adhocId: *mut SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetEtherAddr(addr: *mut SceNetEtherAddr) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetNameByAddr(
-        addr: *const SceNetEtherAddr,
-        nickname: *mut SceNetAdhocctlNickname,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetParameter(
-        parameter: *mut SceNetAdhocctlParameter,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetPeerInfo(
-        addr: *const SceNetEtherAddr,
-        size: crate::ctypes::c_int,
-        peerInfo: *mut SceNetAdhocctlPeerInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlGetPeerList(
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocctlGroupName {
     pub data: [SceChar8; 8usize],
 }
 pub const SCE_NET_ADHOCCTL_GROUPNAME_LEN: u32 = 8;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlInit(adhocId: *const SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocctlNickname {
@@ -22082,11 +15083,6 @@ pub struct SceNetAdhocctlPeerInfo {
     pub padding: [SceUChar8; 6usize],
     pub lastRecv: SceUInt64,
 }
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocctlTerm() -> crate::ctypes::c_int;
-}
 pub const SCE_NET_ADHOC_EV_ACCEPT: ScePspnetAdhocEvent = 8;
 pub const SCE_NET_ADHOC_EV_ALERT: ScePspnetAdhocEvent = 1024;
 pub const SCE_NET_ADHOC_EV_CONNECT: ScePspnetAdhocEvent = 4;
@@ -22103,58 +15099,32 @@ pub const SCE_NET_ADHOC_F_ALERTPOLL: ScePspnetAdhocFlags = 64;
 pub const SCE_NET_ADHOC_F_ALERTRECV: ScePspnetAdhocFlags = 32;
 pub const SCE_NET_ADHOC_F_ALERTSEND: ScePspnetAdhocFlags = 16;
 pub const SCE_NET_ADHOC_F_NONBLOCK: ScePspnetAdhocFlags = 1;
+#[cfg(feature = "ScePspnetAdhoc_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocGetPdpStat(
         buflen: *mut crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocGetPtpStat(
         buflen: *mut crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocGetSocketAlert(
         id: crate::ctypes::c_int,
         flag: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocInit() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocPdpCreate(
         saddr: *const SceNetEtherAddr,
         sport: SceUShort16,
         bufsize: crate::ctypes::c_uint,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocPdpDelete(
         id: crate::ctypes::c_int,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-pub const SCE_NET_ADHOC_PDP_MFS: u32 = 1444;
-pub const SCE_NET_ADHOC_PDP_MTU: u32 = 65523;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocPdpRecv(
         id: crate::ctypes::c_int,
         saddr: *mut SceNetEtherAddr,
@@ -22164,10 +15134,6 @@ extern "C" {
         timeout: crate::ctypes::c_uint,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
     pub fn sceNetAdhocPdpSend(
         id: crate::ctypes::c_int,
         daddr: *const SceNetEtherAddr,
@@ -22177,7 +15143,99 @@ extern "C" {
         timeout: crate::ctypes::c_uint,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPollSocket(
+        sds: *mut SceNetAdhocPollSd,
+        nsds: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpAccept(
+        id: crate::ctypes::c_int,
+        addr: *mut SceNetEtherAddr,
+        port: *mut SceUShort16,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpClose(
+        id: crate::ctypes::c_int,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpConnect(
+        id: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpFlush(
+        id: crate::ctypes::c_int,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpListen(
+        saddr: *const SceNetEtherAddr,
+        sport: SceUShort16,
+        bufsize: crate::ctypes::c_uint,
+        rexmt_int: crate::ctypes::c_uint,
+        rexmt_cnt: crate::ctypes::c_int,
+        backlog: crate::ctypes::c_int,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpOpen(
+        saddr: *const SceNetEtherAddr,
+        sport: SceUShort16,
+        daddr: *const SceNetEtherAddr,
+        dport: SceUShort16,
+        bufsize: crate::ctypes::c_uint,
+        rexmt_int: crate::ctypes::c_uint,
+        rexmt_cnt: crate::ctypes::c_int,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpRecv(
+        id: crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+        len: *mut crate::ctypes::c_int,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocPtpSend(
+        id: crate::ctypes::c_int,
+        data: *const crate::ctypes::c_void,
+        len: *mut crate::ctypes::c_int,
+        timeout: crate::ctypes::c_uint,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocSetSocketAlert(
+        id: crate::ctypes::c_int,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocTerm() -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetAddrByName(
+        nickname: *const SceNetAdhocctlNickname,
+        buflen: *mut crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetAdhocId(adhocId: *mut SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetEtherAddr(addr: *mut SceNetEtherAddr) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetNameByAddr(
+        addr: *const SceNetEtherAddr,
+        nickname: *mut SceNetAdhocctlNickname,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetParameter(
+        parameter: *mut SceNetAdhocctlParameter,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetPeerInfo(
+        addr: *const SceNetEtherAddr,
+        size: crate::ctypes::c_int,
+        peerInfo: *mut SceNetAdhocctlPeerInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlGetPeerList(
+        buflen: *mut crate::ctypes::c_int,
+        buf: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlInit(adhocId: *const SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocctlTerm() -> crate::ctypes::c_int;
 }
+pub const SCE_NET_ADHOC_PDP_MFS: u32 = 1444;
+pub const SCE_NET_ADHOC_PDP_MTU: u32 = 65523;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocPdpStat {
@@ -22194,104 +15252,8 @@ pub struct SceNetAdhocPollSd {
     pub events: crate::ctypes::c_int,
     pub revents: crate::ctypes::c_int,
 }
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPollSocket(
-        sds: *mut SceNetAdhocPollSd,
-        nsds: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_ADHOC_PORT: u32 = 3658;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpAccept(
-        id: crate::ctypes::c_int,
-        addr: *mut SceNetEtherAddr,
-        port: *mut SceUShort16,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpClose(
-        id: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpConnect(
-        id: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpFlush(
-        id: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpListen(
-        saddr: *const SceNetEtherAddr,
-        sport: SceUShort16,
-        bufsize: crate::ctypes::c_uint,
-        rexmt_int: crate::ctypes::c_uint,
-        rexmt_cnt: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_ADHOC_PTP_MSS: u32 = 1444;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpOpen(
-        saddr: *const SceNetEtherAddr,
-        sport: SceUShort16,
-        daddr: *const SceNetEtherAddr,
-        dport: SceUShort16,
-        bufsize: crate::ctypes::c_uint,
-        rexmt_int: crate::ctypes::c_uint,
-        rexmt_cnt: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpRecv(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: *mut crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocPtpSend(
-        id: crate::ctypes::c_int,
-        data: *const crate::ctypes::c_void,
-        len: *mut crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocPtpStat {
@@ -22310,35 +15272,8 @@ pub const SCE_NET_ADHOC_PTP_STATE_ESTABLISHED: ScePspnetAdhocPtpState = 4;
 pub const SCE_NET_ADHOC_PTP_STATE_LISTEN: ScePspnetAdhocPtpState = 1;
 pub const SCE_NET_ADHOC_PTP_STATE_SYN_RCVD: ScePspnetAdhocPtpState = 3;
 pub const SCE_NET_ADHOC_PTP_STATE_SYN_SENT: ScePspnetAdhocPtpState = 2;
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocSetSocketAlert(
-        id: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePspnetAdhoc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
-    pub fn sceNetAdhocTerm() -> crate::ctypes::c_int;
-}
 pub const SCE_NET_AF_INET: u32 = 2;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetBind(
-        s: crate::ctypes::c_int,
-        addr: *const SceNetSockaddr,
-        addrlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetCheckDialoErrorCode = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogAbort() -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetCheckDialogAgeRestriction {
@@ -22359,28 +15294,6 @@ pub const SCE_NETCHECK_DIALOG_ERROR_LATEST_PATCH_PKG_EXIST: SceNetCheckDialoErro
 pub const SCE_NETCHECK_DIALOG_ERROR_PARAM: SceNetCheckDialoErrorCode = 2148535297;
 pub const SCE_NETCHECK_DIALOG_ERROR_PSN_AGE_RESTRICTION: SceNetCheckDialoErrorCode = 2148535305;
 pub const SCE_NETCHECK_DIALOG_ERROR_SIGN_OUT: SceNetCheckDialoErrorCode = 2148535302;
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogGetPS3ConnectInfo(
-        info: *mut SceNetCheckDialogPS3ConnectInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogGetResult(result: *mut SceNetCheckDialogResult) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogGetStatus() -> SceCommonDialogStatus;
-}
-extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogInit(param: *mut SceNetCheckDialogParam) -> SceInt32;
-}
 pub const SCE_NETCHECK_DIALOG_INITIAL_AGE_RESTRICTION: i32 = -1;
 pub const SCE_NETCHECK_DIALOG_LEAST_HTTP_POOL_SIZE: u32 = 36864;
 pub const SCE_NETCHECK_DIALOG_LEAST_SSL_POOL_SIZE: u32 = 98304;
@@ -22435,55 +15348,45 @@ pub struct SceNetCheckDialogResult {
     pub psnModeSucceeded: SceBool,
     pub reserved: [SceUInt8; 124usize],
 }
+#[cfg(feature = "SceNetCtl_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
 extern "C" {
-    #[cfg(feature = "SceCommonDialog_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
-    pub fn sceNetCheckDialogTerm() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetClearDnsCache(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetConnect(
-        s: crate::ctypes::c_int,
-        name: *const SceNetSockaddr,
-        namelen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
     pub fn sceNetCtlAdhocDisconnect() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
     pub fn sceNetCtlAdhocGetInAddr(inaddr: *mut SceNetInAddr) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
     pub fn sceNetCtlAdhocGetPeerList(
         buflen: *mut crate::ctypes::c_uint,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
     pub fn sceNetCtlAdhocGetResult(
         eventType: crate::ctypes::c_int,
         errorCode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
     pub fn sceNetCtlAdhocGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetCtlAdhocRegisterCallback(
+        func: SceNetCtlCallback,
+        arg: *mut crate::ctypes::c_void,
+        cid: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetCtlAdhocUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetCtlCheckCallback() -> crate::ctypes::c_int;
+    pub fn sceNetCtlGetNatInfo(natinfo: *mut SceNetCtlNatInfo) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInetGetInfo(
+        code: crate::ctypes::c_int,
+        info: *mut SceNetCtlInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInetGetResult(
+        eventType: crate::ctypes::c_int,
+        errorCode: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInetGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInetRegisterCallback(
+        func: SceNetCtlCallback,
+        arg: *mut crate::ctypes::c_void,
+        cid: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInetUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetCtlInit() -> crate::ctypes::c_int;
+    pub fn sceNetCtlTerm();
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -22491,71 +15394,12 @@ pub struct SceNetCtlAdhocPeerInfo {
     pub next: *mut SceNetCtlAdhocPeerInfo,
     pub inet_addr: SceNetInAddr,
 }
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlAdhocRegisterCallback(
-        func: SceNetCtlCallback,
-        arg: *mut crate::ctypes::c_void,
-        cid: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlAdhocUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub type SceNetCtlCallback = ::core::option::Option<
     unsafe extern "C" fn(
         event_type: crate::ctypes::c_int,
         arg: *mut crate::ctypes::c_void,
     ) -> *mut crate::ctypes::c_void,
 >;
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlCheckCallback() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlGetNatInfo(natinfo: *mut SceNetCtlNatInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInetGetInfo(
-        code: crate::ctypes::c_int,
-        info: *mut SceNetCtlInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInetGetResult(
-        eventType: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInetGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInetRegisterCallback(
-        func: SceNetCtlCallback,
-        arg: *mut crate::ctypes::c_void,
-        cid: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInetUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceNetCtlInfo {
@@ -22607,11 +15451,6 @@ pub const SCE_NETCTL_INFO_GET_SSID: SceNetCtlInfoType = 7;
 pub const SCE_NETCTL_INFO_GET_WIFI_SECURITY: SceNetCtlInfoType = 8;
 pub const SCE_NETCTL_INFO_SSID_LEN_MAX: u32 = 32;
 pub type SceNetCtlInfoType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlInit() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetCtlNatInfo {
@@ -22625,53 +15464,16 @@ pub const SCE_NETCTL_STATE_CONNECTED: SceNetCtlState = 3;
 pub const SCE_NETCTL_STATE_CONNECTING: SceNetCtlState = 1;
 pub const SCE_NETCTL_STATE_DISCONNECTED: SceNetCtlState = 0;
 pub const SCE_NETCTL_STATE_FINALIZING: SceNetCtlState = 2;
-extern "C" {
-    #[cfg(feature = "SceNetCtl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
-    pub fn sceNetCtlTerm();
-}
 pub const SCE_NET_DEBUG_NAME_LEN_MAX: u32 = 31;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetDnsInfo {
     pub dns_addr: [SceNetInAddr; 2usize],
 }
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetDumpAbort(
-        id: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_DUMP_ABORT_FLAG_PRESERVATION: SceNetDumpType = 1;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetDumpCreate(
-        name: *const crate::ctypes::c_char,
-        len: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetDumpDestroy(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_DUMP_DONTWAIT: SceNetDumpType = 32;
 pub const SCE_NET_DUMP_OVERFLOW: SceNetDumpType = 64;
 pub const SCE_NET_DUMP_PEEK: SceNetDumpType = 16;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetDumpRead(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_int,
-        pflags: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetDumpType = crate::ctypes::c_uint;
 pub const SCE_NET_E2BIG: SceNetKernelErrorCode = 7;
 pub const SCE_NET_EACCES: SceNetKernelErrorCode = 13;
@@ -22738,14 +15540,6 @@ pub struct SceNetEmulationData {
 pub type SceNetEmulationFlag = crate::ctypes::c_uint;
 pub const SCE_NET_EMULATION_FLAG_ETH0: SceNetEmulationFlag = 1;
 pub const SCE_NET_EMULATION_FLAG_WLAN0: SceNetEmulationFlag = 2;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEmulationGet(
-        param: *mut SceNetEmulationParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEmulationParam {
@@ -22759,14 +15553,6 @@ pub struct SceNetEmulationParam {
     pub recv: SceNetEmulationData,
     pub seed: crate::ctypes::c_uint,
     pub reserved: [crate::ctypes::c_uchar; 44usize],
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEmulationSet(
-        param: *mut SceNetEmulationParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_NET_ENAMETOOLONG: SceNetKernelErrorCode = 63;
 pub const SCE_NET_ENEEDAUTH: SceNetKernelErrorCode = 81;
@@ -22802,34 +15588,8 @@ pub const SCE_NET_EOVERFLOW: SceNetKernelErrorCode = 84;
 pub const SCE_NET_EPERM: SceNetKernelErrorCode = 1;
 pub const SCE_NET_EPFNOSUPPORT: SceNetKernelErrorCode = 46;
 pub const SCE_NET_EPIPE: SceNetKernelErrorCode = 32;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollAbort(
-        eid: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_EPOLL_ABORT_FLAG_PRESERVATION: u32 = 1;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollControl(
-        eid: crate::ctypes::c_int,
-        op: crate::ctypes::c_int,
-        id: crate::ctypes::c_int,
-        event: *mut SceNetEpollEvent,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetEpollControlFlag = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollCreate(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_EPOLL_CTL_ADD: SceNetEpollControlFlag = 1;
 pub const SCE_NET_EPOLL_CTL_DEL: SceNetEpollControlFlag = 3;
 pub const SCE_NET_EPOLL_CTL_MOD: SceNetEpollControlFlag = 2;
@@ -22849,11 +15609,6 @@ pub struct SceNetEpollDataExt {
     pub u32_: crate::ctypes::c_uint,
 }
 pub const SCE_NET_EPOLLDESCID: SceNetEpollEventType = 65536;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollDestroy(eid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_EPOLLERR: SceNetEpollEventType = 8;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -22872,26 +15627,6 @@ pub const SCE_NET_EPOLLOUT: SceNetEpollEventType = 2;
 pub struct SceNetEpollSystemData {
     pub system: [crate::ctypes::c_uint; 4usize],
 }
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollWait(
-        eid: crate::ctypes::c_int,
-        events: *mut SceNetEpollEvent,
-        maxevents: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEpollWaitCB(
-        eid: crate::ctypes::c_int,
-        events: *mut SceNetEpollEvent,
-        maxevents: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_EPROCLIM: SceNetKernelErrorCode = 67;
 pub const SCE_NET_EPROCUNAVAIL: SceNetKernelErrorCode = 76;
 pub const SCE_NET_EPROGMISMATCH: SceNetKernelErrorCode = 75;
@@ -22904,11 +15639,6 @@ pub const SCE_NET_ERESUME: SceNetKernelErrorCode = 162;
 pub const SCE_NET_ERETURN: SceNetLibnetErrorCode = 205;
 pub const SCE_NET_EROFS: SceNetKernelErrorCode = 30;
 pub const SCE_NET_ERPCMISMATCH: SceNetKernelErrorCode = 73;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetErrnoLoc() -> *mut crate::ctypes::c_int;
-}
 pub type SceNetErrorCode = crate::ctypes::c_uint;
 pub const SCE_NET_ERROR_E2BIG: SceNetErrorCode = 2151743751;
 pub const SCE_NET_ERROR_EACCES: SceNetErrorCode = 2151743757;
@@ -23037,23 +15767,6 @@ pub const SCE_NET_ESTALE: SceNetKernelErrorCode = 70;
 pub struct SceNetEtherAddr {
     pub data: [crate::ctypes::c_uchar; 6usize],
 }
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEtherNtostr(
-        n: *const SceNetEtherAddr,
-        str_: *mut crate::ctypes::c_char,
-        len: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetEtherStrton(
-        str_: *const crate::ctypes::c_char,
-        n: *mut SceNetEtherAddr,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_ETIME: SceNetKernelErrorCode = 92;
 pub const SCE_NET_ETIMEDOUT: SceNetKernelErrorCode = 60;
 pub const SCE_NET_ETLS: SceNetLibnetErrorCode = 202;
@@ -23066,85 +15779,6 @@ pub const SCE_NET_EXDEV: SceNetKernelErrorCode = 18;
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetFdSet {
     pub bits: [crate::ctypes::c_uint; 32usize],
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetMacAddress(
-        addr: *mut SceNetEtherAddr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetpeername(
-        s: crate::ctypes::c_int,
-        name: *mut SceNetSockaddr,
-        namelen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetSockIdInfo(
-        fds: *mut SceNetFdSet,
-        sockinfoflags: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetSockInfo(
-        s: crate::ctypes::c_int,
-        info: *mut SceNetSockInfo,
-        n: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetsockname(
-        s: crate::ctypes::c_int,
-        name: *mut SceNetSockaddr,
-        namelen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetsockopt(
-        s: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-        optname: crate::ctypes::c_int,
-        optval: *mut crate::ctypes::c_void,
-        optlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetGetStatisticsInfo(
-        info: *mut SceNetStatisticsInfo,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetHtonl(host32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetHtonll(host64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetHtons(host16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
 }
 pub type SceNetIcmpCode = crate::ctypes::c_uint;
 pub const SCE_NET_ICMP_CODE_DEST_UNREACH_DST_HOST_UNKNOWN: SceNetIcmpCode = 7;
@@ -23217,30 +15851,6 @@ pub const SCE_NET_INADDR_LOOPBACK: u32 = 2130706433;
 pub const SCE_NET_INADDR_UNSPEC_GROUP: u32 = 3758096384;
 pub const SCE_NET_IN_AUTOIP_NET: u32 = 4294901760;
 pub const SCE_NET_IN_CLASSD_NET: u32 = 4026531840;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetInetNtop(
-        af: crate::ctypes::c_int,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_char,
-        size: crate::ctypes::c_uint,
-    ) -> *const crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetInetPton(
-        af: crate::ctypes::c_int,
-        src: *const crate::ctypes::c_char,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetInit(param: *mut SceNetInitParam) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetInitParam {
@@ -23316,14 +15926,6 @@ pub struct SceNetLinger {
     pub l_onoff: crate::ctypes::c_int,
     pub l_linger: crate::ctypes::c_int,
 }
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetListen(
-        s: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_MSG_DONTWAIT: SceNetMsgFlag = 128;
 pub type SceNetMsgFlag = crate::ctypes::c_uint;
 #[repr(C)]
@@ -23341,79 +15943,11 @@ pub const SCE_NET_MSG_PEEK: SceNetMsgFlag = 2;
 pub const SCE_NET_MSG_USECRYPTO: SceNetMsgFlag = 1024;
 pub const SCE_NET_MSG_USESIGNATURE: SceNetMsgFlag = 2048;
 pub const SCE_NET_MSG_WAITALL: SceNetMsgFlag = 64;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetNtohl(net32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetNtohll(net64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetNtohs(net16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
-}
 pub type SceNetProtocol = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetRecv(
-        s: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetRecvfrom(
-        s: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-        from: *mut SceNetSockaddr,
-        fromlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetRecvmsg(
-        s: crate::ctypes::c_int,
-        msg: *mut SceNetMsghdr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverAbort(
-        rid: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetResolverAbortFlag = crate::ctypes::c_uint;
 pub const SCE_NET_RESOLVER_ABORT_FLAG_ATON_PRESERVATION: SceNetResolverAbortFlag = 2;
 pub const SCE_NET_RESOLVER_ABORT_FLAG_NTOA_PRESERVATION: SceNetResolverAbortFlag = 1;
 pub const SCE_NET_RESOLVER_ASYNC: SceNetResolverFlag = 1;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverCreate(
-        name: *const crate::ctypes::c_char,
-        param: *mut SceNetResolverParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverDestroy(rid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_RESOLVER_EALIGNMENT: SceNetResolverErrorCode = 234;
 pub const SCE_NET_RESOLVER_EBUSY: SceNetResolverErrorCode = 221;
 pub const SCE_NET_RESOLVER_EFORMAT: SceNetResolverErrorCode = 228;
@@ -23447,14 +15981,6 @@ pub type SceNetResolverFunctionFree = ::core::option::Option<
         user: *mut crate::ctypes::c_void,
     ),
 >;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverGetError(
-        rid: crate::ctypes::c_int,
-        result: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_RESOLVER_HOSTNAME_LEN_MAX: u32 = 255;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -23464,108 +15990,7 @@ pub struct SceNetResolverParam {
     pub user: *mut crate::ctypes::c_void,
 }
 pub const SCE_NET_RESOLVER_PORT: u32 = 53;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverStartAton(
-        rid: crate::ctypes::c_int,
-        addr: *const SceNetInAddr,
-        hostname: *mut crate::ctypes::c_char,
-        len: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetResolverStartNtoa(
-        rid: crate::ctypes::c_int,
-        hostname: *const crate::ctypes::c_char,
-        addr: *mut SceNetInAddr,
-        timeout: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_NET_RESOLVER_START_NTOA_DISABLE_IPADDRESS: SceNetResolverFlag = 65536;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSend(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSendmsg(
-        s: crate::ctypes::c_int,
-        msg: *const SceNetMsghdr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSendto(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-        to: *const SceNetSockaddr,
-        tolen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSetDnsInfo(
-        info: *mut SceNetDnsInfo,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSetsockopt(
-        s: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-        optname: crate::ctypes::c_int,
-        optval: *const crate::ctypes::c_void,
-        optlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetShowIfconfig(
-        p: *mut crate::ctypes::c_void,
-        b: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetShowNetstat() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetShowRoute() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetShutdown(
-        s: crate::ctypes::c_int,
-        how: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetShutdownFlag = crate::ctypes::c_uint;
 pub const SCE_NET_SHUT_RD: SceNetShutdownFlag = 0;
 pub const SCE_NET_SHUT_RDWR: SceNetShutdownFlag = 2;
@@ -23590,32 +16015,9 @@ pub struct SceNetSockaddrIn {
 }
 pub const SCE_NET_SOCK_DGRAM: SceNetSocketType = 2;
 pub const SCE_NET_SOCK_DGRAM_P2P: SceNetSocketType = 6;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSocket(
-        name: *const crate::ctypes::c_char,
-        domain: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        protocol: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSocketAbort(
-        s: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceNetSocketAbortFlag = crate::ctypes::c_uint;
 pub const SCE_NET_SOCKET_ABORT_FLAG_RCV_PRESERVATION: SceNetSocketAbortFlag = 1;
 pub const SCE_NET_SOCKET_ABORT_FLAG_SND_PRESERVATION: SceNetSocketAbortFlag = 2;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetSocketClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub type SceNetSocketOption = crate::ctypes::c_uint;
 pub type SceNetSocketType = crate::ctypes::c_uint;
 #[repr(C)]
@@ -23696,282 +16098,145 @@ pub struct SceNetStatisticsInfo {
     pub libnet_mem_free_size: crate::ctypes::c_int,
     pub libnet_mem_free_min: crate::ctypes::c_int,
 }
+#[cfg(feature = "SceNetPs_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallAccept(
         s: crate::ctypes::c_int,
         addr: *mut crate::ctypes::c_void,
         addrlen: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallBind(
         s: crate::ctypes::c_int,
         addr: *const crate::ctypes::c_void,
         addrlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallConnect(
         s: crate::ctypes::c_int,
         name: *const crate::ctypes::c_void,
         namelen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallControl(
         if_index: crate::ctypes::c_int,
         code: crate::ctypes::c_int,
         ptr: *mut crate::ctypes::c_void,
         len: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDescriptorClose(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDescriptorCreate(
         name: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDescriptorCtl(
         id: crate::ctypes::c_int,
         op: crate::ctypes::c_int,
         s: crate::ctypes::c_int,
         info: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDumpAbort(
         id: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDumpClose(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDumpCreate(
         name: *const crate::ctypes::c_char,
         len: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallDumpRead(
         id: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
         len: crate::ctypes::c_int,
         pflags: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallEpollAbort(
         eid: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallEpollClose(eid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallEpollCreate(
         name: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallEpollCtl(
         eid: crate::ctypes::c_int,
         op: crate::ctypes::c_int,
         id: crate::ctypes::c_int,
         event: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallEpollWait(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallGetIfList(
         list: *mut crate::ctypes::c_void,
         n: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
-    pub fn sceNetSyscallGetpeername(
-        s: crate::ctypes::c_int,
-        name: *mut crate::ctypes::c_void,
-        namelen: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallGetSockinfo(
         s: crate::ctypes::c_int,
         ptr: *mut crate::ctypes::c_void,
         n: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
+    pub fn sceNetSyscallGetpeername(
+        s: crate::ctypes::c_int,
+        name: *mut crate::ctypes::c_void,
+        namelen: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
     pub fn sceNetSyscallGetsockname(
         s: crate::ctypes::c_int,
         name: *mut crate::ctypes::c_void,
         namelen: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallGetsockopt(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallIcmConnect(
         s: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallIoctl(
         s: crate::ctypes::c_int,
         com: crate::ctypes::c_uint,
         data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallListen(
         s: crate::ctypes::c_int,
         backlog: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SceNetSyscallParameter {
-    _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallRecvfrom(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallRecvmsg(
         s: crate::ctypes::c_int,
         msg: *mut crate::ctypes::c_void,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSendmsg(
         s: crate::ctypes::c_int,
         msg: *const crate::ctypes::c_void,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSendto(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSetsockopt(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallShutdown(
         s: crate::ctypes::c_int,
         how: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSocket(
         name: *const crate::ctypes::c_char,
         domain: crate::ctypes::c_int,
         type_: crate::ctypes::c_int,
         protocol: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSocketAbort(
         s: crate::ctypes::c_int,
         flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNetPs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
     pub fn sceNetSyscallSysctl(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceNetSyscallParameter {
+    _unused: [u8; 0],
 }
 pub const SCE_NET_TCP_MAXSEG: SceNetSocketOption = 2;
 pub const SCE_NET_TCP_MSS_TO_ADVERTISE: SceNetSocketOption = 3;
 pub const SCE_NET_TCP_NODELAY: SceNetSocketOption = 1;
-extern "C" {
-    #[cfg(feature = "SceNet_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
-    pub fn sceNetTerm() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNgsBufferInfo {
@@ -23994,33 +16259,184 @@ pub type SceNgsHRack = SceUInt32;
 pub type SceNgsHSynSystem = SceUInt32;
 pub type SceNgsHVoice = SceUInt32;
 pub type SceNgsModuleCallbackFunc = SceNgsCallbackFunc;
+#[cfg(feature = "SceNgs_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
     pub fn sceNgsModuleCheckParamsInRangeInternal(
         handle: SceNgsHVoice,
         module_id: SceNgsModuleID,
         descriptor: *const SceNgsParamsDescriptor,
         size: SceUInt32,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
     pub fn sceNgsModuleGetNumPresetsInternal(
         handle: SceNgsHSynSystem,
         module_id: SceNgsModuleID,
         num_presets: *mut SceUInt32,
     ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
     pub fn sceNgsModuleGetPresetInternal(
         handle: SceNgsHSynSystem,
         module_id: SceNgsModuleID,
         preset_index: SceUInt32,
         info: *mut SceNgsBufferInfo,
+    ) -> SceInt32;
+    pub fn sceNgsPatchCreateRoutingInternal(
+        info: *const SceNgsPatchSetupInfo,
+        handle: *mut SceNgsHPatch,
+    ) -> SceInt32;
+    pub fn sceNgsPatchRemoveRoutingInternal(handle: SceNgsHPatch) -> SceInt32;
+    pub fn sceNgsRackGetRequiredMemorySizeInternal(
+        handle: SceNgsHSynSystem,
+        rack_description: *const SceNgsRackDescription,
+        user_size: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsRackGetVoiceHandleInternal(
+        rack_handle: SceNgsHRack,
+        index: SceUInt32,
+        voice_handle: *mut SceNgsHVoice,
+    ) -> SceInt32;
+    pub fn sceNgsRackInitInternal(
+        system_handle: SceNgsHSynSystem,
+        rack_buffer: *mut SceNgsBufferInfo,
+        rack_description: *const SceNgsRackDescription,
+        rack_handle: *mut SceNgsHRack,
+    ) -> SceInt32;
+    pub fn sceNgsRackReleaseInternal(
+        handle: SceNgsHRack,
+        callback: SceNgsRackReleaseCallbackFunc,
+    ) -> SceInt32;
+    pub fn sceNgsRackSetParamErrorCallbackInternal(
+        rack_handle: SceNgsHRack,
+        callback: SceNgsParamsErrorCallbackFunc,
+    ) -> SceInt32;
+    pub fn sceNgsSulphaGetInfoInternal(
+        obj_reg: *const SulphaNgsRegistration,
+        info: *mut SceNgsBufferInfo,
+    ) -> SceInt32;
+    pub fn sceNgsSulphaGetModuleListInternal(
+        module_ids: *mut SceUInt32,
+        in_array_count: SceUInt32,
+        count: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsSulphaGetSynthUpdateCallbackInternal(
+        handle: SceNgsHSynSystem,
+        update_callback: *mut SceNgsSulphaUpdateCallback,
+        info: *mut SceNgsBufferInfo,
+    ) -> SceInt32;
+    pub fn sceNgsSulphaQueryModuleInternal(
+        type_: SulphaNgsModuleQueryType,
+        debug: *mut SulphaNgsModuleQuery,
+    ) -> SceInt32;
+    pub fn sceNgsSulphaSetSynthUpdateCallbackInternal(
+        handle: SceNgsHSynSystem,
+        update_callback: SceNgsSulphaUpdateCallback,
+        info: *mut SceNgsBufferInfo,
+    ) -> SceInt32;
+    pub fn sceNgsSystemGetCallbackListInternal(
+        handle: SceNgsHSynSystem,
+        array: *mut *mut SceNgsCallbackListInfo,
+        array_size: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsSystemGetRequiredMemorySizeInternal(
+        params: *const SceNgsSystemInitParams,
+        size: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsSystemInitInternal(
+        buffer_info: *mut SceNgsBufferInfo,
+        compiled_sdk_version: SceUInt32,
+        params: *const SceNgsSystemInitParams,
+        handle: *mut SceNgsHSynSystem,
+    ) -> SceInt32;
+    pub fn sceNgsSystemLockInternal(handle: SceNgsHSynSystem) -> SceInt32;
+    pub fn sceNgsSystemPullDataInternal(
+        handle: SceNgsHSynSystem,
+        dirty_flags_a: SceUInt32,
+        dirty_flags_b: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsSystemPushDataInternal(handle: SceNgsHSynSystem) -> SceInt32;
+    pub fn sceNgsSystemReleaseInternal(handle: SceNgsHSynSystem) -> SceInt32;
+    pub fn sceNgsSystemSetFlagsInternal(
+        handle: SceNgsHSynSystem,
+        system_flags: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsSystemSetParamErrorCallbackInternal(
+        handle: SceNgsHSynSystem,
+        callback_id: SceNgsParamsErrorCallbackFunc,
+    ) -> SceInt32;
+    pub fn sceNgsSystemUnlockInternal(handle: SceNgsHSynSystem) -> SceInt32;
+    pub fn sceNgsSystemUpdateInternal(handle: SceNgsHSynSystem) -> SceInt32;
+    pub fn sceNgsVoiceBypassModuleInternal(
+        handle: SceNgsHVoice,
+        module: SceUInt32,
+        flag: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceClearDirtyFlagInternal(
+        handle: SceNgsHVoice,
+        param_bit_flag: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceDefGetAtrac9VoiceInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetCompressorBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetCompressorSideChainBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetDelayBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetDistortionBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetEnvelopeBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetEqBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetMasterBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetMixerBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetPauserBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetPitchshiftBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetReverbBussInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetSasEmuVoiceInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetScreamVoiceAT9Internal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetScreamVoiceInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetSimpleAtrac9VoiceInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetSimpleVoiceInternal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefGetTemplate1Internal() -> *const SceNgsVoiceDefinition;
+    pub fn sceNgsVoiceDefinitionGetPresetInternal(
+        definition: *const SceNgsVoiceDefinition,
+        index: SceUInt32,
+        presets: *mut *const SceNgsVoicePreset,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceGetModuleBypassInternal(
+        handle: SceNgsHVoice,
+        module: SceUInt32,
+        flag: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceGetOutputPatchInternal(
+        handle: SceNgsHVoice,
+        nOutputIndex: SceInt32,
+        nSubIndex: SceInt32,
+        pPatchHandle: *mut SceNgsHPatch,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceGetParamsOutOfRangeBufferedInternal(
+        handle: SceNgsHVoice,
+        module: SceUInt32,
+        message_buffer: *mut crate::ctypes::c_char,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceInitInternal(
+        handle: SceNgsHVoice,
+        preset: *const SceNgsVoicePreset,
+        flags: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceKeyOffInternal(handle: SceNgsHVoice) -> SceInt32;
+    pub fn sceNgsVoiceKillInternal(handle: SceNgsHVoice) -> SceInt32;
+    pub fn sceNgsVoicePauseInternal(handle: SceNgsHVoice) -> SceInt32;
+    pub fn sceNgsVoicePlayInternal(handle: SceNgsHVoice) -> SceInt32;
+    pub fn sceNgsVoiceResumeInternal(handle: SceNgsHVoice) -> SceInt32;
+    pub fn sceNgsVoiceSetAllBypassesInternal(handle: SceNgsHVoice, bitflag: SceUInt32) -> SceInt32;
+    pub fn sceNgsVoiceSetFinishedCallbackInternal(
+        handle: SceNgsHVoice,
+        callback: SceNgsCallbackFunc,
+        userdata: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceSetModuleCallbackInternal(
+        handle: SceNgsHVoice,
+        module: SceUInt32,
+        callback: SceNgsModuleCallbackFunc,
+        callback_userdata: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
+    pub fn sceNgsVoiceSetPresetInternal(
+        handle: SceNgsHVoice,
+        preset: *const SceNgsVoicePreset,
     ) -> SceInt32;
 }
 pub type SceNgsModuleID = SceUInt32;
@@ -24030,19 +16446,6 @@ pub struct SceNgsParamsDescriptor {
     _unused: [u8; 0],
 }
 pub type SceNgsParamsErrorCallbackFunc = SceNgsCallbackFunc;
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsPatchCreateRoutingInternal(
-        info: *const SceNgsPatchSetupInfo,
-        handle: *mut SceNgsHPatch,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsPatchRemoveRoutingInternal(handle: SceNgsHPatch) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNgsPatchSetupInfo {
@@ -24053,426 +16456,44 @@ pub struct SceNgsPatchSetupInfo {
 pub struct SceNgsRackDescription {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsRackGetRequiredMemorySizeInternal(
-        handle: SceNgsHSynSystem,
-        rack_description: *const SceNgsRackDescription,
-        user_size: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsRackGetVoiceHandleInternal(
-        rack_handle: SceNgsHRack,
-        index: SceUInt32,
-        voice_handle: *mut SceNgsHVoice,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsRackInitInternal(
-        system_handle: SceNgsHSynSystem,
-        rack_buffer: *mut SceNgsBufferInfo,
-        rack_description: *const SceNgsRackDescription,
-        rack_handle: *mut SceNgsHRack,
-    ) -> SceInt32;
-}
 pub type SceNgsRackReleaseCallbackFunc = SceNgsCallbackFunc;
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsRackReleaseInternal(
-        handle: SceNgsHRack,
-        callback: SceNgsRackReleaseCallbackFunc,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsRackSetParamErrorCallbackInternal(
-        rack_handle: SceNgsHRack,
-        callback: SceNgsParamsErrorCallbackFunc,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSulphaGetInfoInternal(
-        obj_reg: *const SulphaNgsRegistration,
-        info: *mut SceNgsBufferInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSulphaGetModuleListInternal(
-        module_ids: *mut SceUInt32,
-        in_array_count: SceUInt32,
-        count: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSulphaGetSynthUpdateCallbackInternal(
-        handle: SceNgsHSynSystem,
-        update_callback: *mut SceNgsSulphaUpdateCallback,
-        info: *mut SceNgsBufferInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSulphaQueryModuleInternal(
-        type_: SulphaNgsModuleQueryType,
-        debug: *mut SulphaNgsModuleQuery,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSulphaSetSynthUpdateCallbackInternal(
-        handle: SceNgsHSynSystem,
-        update_callback: SceNgsSulphaUpdateCallback,
-        info: *mut SceNgsBufferInfo,
-    ) -> SceInt32;
-}
 pub type SceNgsSulphaUpdateCallback = *mut crate::ctypes::c_void;
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemGetCallbackListInternal(
-        handle: SceNgsHSynSystem,
-        array: *mut *mut SceNgsCallbackListInfo,
-        array_size: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemGetRequiredMemorySizeInternal(
-        params: *const SceNgsSystemInitParams,
-        size: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemInitInternal(
-        buffer_info: *mut SceNgsBufferInfo,
-        compiled_sdk_version: SceUInt32,
-        params: *const SceNgsSystemInitParams,
-        handle: *mut SceNgsHSynSystem,
-    ) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNgsSystemInitParams {
     _unused: [u8; 0],
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemLockInternal(handle: SceNgsHSynSystem) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemPullDataInternal(
-        handle: SceNgsHSynSystem,
-        dirty_flags_a: SceUInt32,
-        dirty_flags_b: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemPushDataInternal(handle: SceNgsHSynSystem) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemReleaseInternal(handle: SceNgsHSynSystem) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemSetFlagsInternal(
-        handle: SceNgsHSynSystem,
-        system_flags: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemSetParamErrorCallbackInternal(
-        handle: SceNgsHSynSystem,
-        callback_id: SceNgsParamsErrorCallbackFunc,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemUnlockInternal(handle: SceNgsHSynSystem) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsSystemUpdateInternal(handle: SceNgsHSynSystem) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceBypassModuleInternal(
-        handle: SceNgsHVoice,
-        module: SceUInt32,
-        flag: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceClearDirtyFlagInternal(
-        handle: SceNgsHVoice,
-        param_bit_flag: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetAtrac9VoiceInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetCompressorBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetCompressorSideChainBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetDelayBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetDistortionBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetEnvelopeBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetEqBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetMasterBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetMixerBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetPauserBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetPitchshiftBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetReverbBussInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetSasEmuVoiceInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetScreamVoiceAT9Internal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetScreamVoiceInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetSimpleAtrac9VoiceInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetSimpleVoiceInternal() -> *const SceNgsVoiceDefinition;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefGetTemplate1Internal() -> *const SceNgsVoiceDefinition;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNgsVoiceDefinition {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceDefinitionGetPresetInternal(
-        definition: *const SceNgsVoiceDefinition,
-        index: SceUInt32,
-        presets: *mut *const SceNgsVoicePreset,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceGetModuleBypassInternal(
-        handle: SceNgsHVoice,
-        module: SceUInt32,
-        flag: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceGetOutputPatchInternal(
-        handle: SceNgsHVoice,
-        nOutputIndex: SceInt32,
-        nSubIndex: SceInt32,
-        pPatchHandle: *mut SceNgsHPatch,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceGetParamsOutOfRangeBufferedInternal(
-        handle: SceNgsHVoice,
-        module: SceUInt32,
-        message_buffer: *mut crate::ctypes::c_char,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceInitInternal(
-        handle: SceNgsHVoice,
-        preset: *const SceNgsVoicePreset,
-        flags: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceKeyOffInternal(handle: SceNgsHVoice) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceKillInternal(handle: SceNgsHVoice) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoicePauseInternal(handle: SceNgsHVoice) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoicePlayInternal(handle: SceNgsHVoice) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNgsVoicePreset {
     _unused: [u8; 0],
 }
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceResumeInternal(handle: SceNgsHVoice) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceSetAllBypassesInternal(handle: SceNgsHVoice, bitflag: SceUInt32) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceSetFinishedCallbackInternal(
-        handle: SceNgsHVoice,
-        callback: SceNgsCallbackFunc,
-        userdata: *mut crate::ctypes::c_void,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceSetModuleCallbackInternal(
-        handle: SceNgsHVoice,
-        module: SceUInt32,
-        callback: SceNgsModuleCallbackFunc,
-        callback_userdata: *mut crate::ctypes::c_void,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNgs_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
-    pub fn sceNgsVoiceSetPresetInternal(
-        handle: SceNgsHVoice,
-        preset: *const SceNgsVoicePreset,
-    ) -> SceInt32;
-}
 pub type SceNID = crate::ctypes::c_uint;
 pub type SceNotificationUitlErrorCode = crate::ctypes::c_uint;
+#[cfg(feature = "SceNotificationUtil_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
     pub fn sceNotificationUtilBgAppInitialize() -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
     pub fn sceNotificationUtilCleanHistory() -> SceInt32;
-}
-pub const SCE_NOTIFICATIONUTIL_ERROR_INTERNAL: SceNotificationUitlErrorCode = 2148557568;
-extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
     pub fn sceNotificationUtilProgressBegin(
         initParams: *mut SceNotificationUtilProgressInitParam,
     ) -> SceInt32;
-}
-pub type SceNotificationUtilProgressEventHandler =
-    ::core::option::Option<unsafe extern "C" fn(eventId: crate::ctypes::c_int)>;
-extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
     pub fn sceNotificationUtilProgressFinish(
         finishParams: *mut SceNotificationUtilProgressFinishParam,
     ) -> SceInt32;
+    pub fn sceNotificationUtilProgressUpdate(
+        updateParams: *mut SceNotificationUtilProgressUpdateParam,
+    ) -> SceInt32;
+    pub fn sceNotificationUtilSendNotification(text: *const SceWChar16) -> SceInt32;
 }
+pub const SCE_NOTIFICATIONUTIL_ERROR_INTERNAL: SceNotificationUitlErrorCode = 2148557568;
+pub type SceNotificationUtilProgressEventHandler =
+    ::core::option::Option<unsafe extern "C" fn(eventId: crate::ctypes::c_int)>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNotificationUtilProgressFinishParam {
@@ -24493,13 +16514,6 @@ pub struct SceNotificationUtilProgressInitParam {
     pub unk_4EC: SceInt32,
     pub eventHandler: SceNotificationUtilProgressEventHandler,
 }
-extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
-    pub fn sceNotificationUtilProgressUpdate(
-        updateParams: *mut SceNotificationUtilProgressUpdateParam,
-    ) -> SceInt32;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNotificationUtilProgressUpdateParam {
@@ -24509,11 +16523,6 @@ pub struct SceNotificationUtilProgressUpdateParam {
     pub separator1: SceInt16,
     pub targetProgress: SceFloat,
     pub reserved: [SceChar8; 56usize],
-}
-extern "C" {
-    #[cfg(feature = "SceNotificationUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
-    pub fn sceNotificationUtilSendNotification(text: *const SceWChar16) -> SceInt32;
 }
 pub const SCE_NOTIFICATIONUTIL_TEXT_MAX: u32 = 63;
 #[repr(C)]
@@ -24541,39 +16550,43 @@ pub struct SceNpDrmActivationData {
     pub unk_sigmature: [SceUInt8; 64usize],
     pub ecdsa_signature: [SceUInt8; 40usize],
 }
+#[cfg(feature = "SceNpDrm_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
 extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
     pub fn _sceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
         account_id: *mut SceUInt64,
         act_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
     pub fn _sceNpDrmGetFixedRifName(
         rif_name: *mut crate::ctypes::c_char,
         aid: u64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
     pub fn _sceNpDrmGetRifName(
         rif_name: *mut crate::ctypes::c_char,
         aid: u64,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
     pub fn _sceNpDrmGetRifNameForInstall(
         rif_name: *mut crate::ctypes::c_char,
         rif_data: *const crate::ctypes::c_void,
         unk: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceNpDrmPackageCheck(
+        buffer: *const crate::ctypes::c_void,
+        size: SceSize,
+        zero: crate::ctypes::c_int,
+        identifier: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceNpDrmPackageDecrypt(
+        buffer: *mut crate::ctypes::c_void,
+        size: SceSize,
+        opt: *mut _sceNpDrmPackageDecrypt_opt,
+    ) -> crate::ctypes::c_int;
+    pub fn scePsmDrmGetRifKey(
+        license_buf: *const ScePsmDrmLicense,
+        keydata: *mut crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
@@ -24601,30 +16614,11 @@ pub struct SceNpDrmLicense {
     pub sku_flag: crate::ctypes::c_int,
     pub rsa_signature: [crate::ctypes::c_char; 256usize],
 }
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
-    pub fn _sceNpDrmPackageCheck(
-        buffer: *const crate::ctypes::c_void,
-        size: SceSize,
-        zero: crate::ctypes::c_int,
-        identifier: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _sceNpDrmPackageDecrypt {
     pub offset: SceOff,
     pub identifier: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
-    pub fn _sceNpDrmPackageDecrypt(
-        buffer: *mut crate::ctypes::c_void,
-        size: SceSize,
-        opt: *mut _sceNpDrmPackageDecrypt_opt,
-    ) -> crate::ctypes::c_int;
 }
 pub type _sceNpDrmPackageDecrypt_opt = _sceNpDrmPackageDecrypt;
 pub const SCE_O_APPEND: SceIoMode = 256;
@@ -24669,33 +16663,9 @@ pub const SCE_O_SCAN: SceIoMode = 4096;
 pub const SCE_O_TRUNC: SceIoMode = 1024;
 pub const SCE_O_WRLOCK: SceIoMode = 32;
 pub const SCE_O_WRONLY: SceIoMode = 2;
+#[cfg(feature = "ScePaf_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_bcmp(
-        ptr1: *const crate::ctypes::c_void,
-        ptr2: *const crate::ctypes::c_void,
-        num: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_bcopy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        n: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_bzero(dst: *mut crate::ctypes::c_void, n: SceSize)
-        -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
     pub fn scePafCreateHeap(
         context: *mut ScePafHeapContext,
         membase: *mut crate::ctypes::c_void,
@@ -24703,6 +16673,126 @@ extern "C" {
         name: *const crate::ctypes::c_char,
         opt: *mut ScePafHeapOpt,
     );
+    pub fn scePafDeleteHeap(context: *mut ScePafHeapContext);
+    pub fn scePafFreeWithContext(context: *mut ScePafHeapContext, ptr: *mut crate::ctypes::c_void);
+    pub fn scePafGetCurrentClockLocalTime(data: *mut ScePafDateTime) -> crate::ctypes::c_int;
+    pub static mut scePafGraphicsCurrentWave: SceUInt32;
+    pub fn scePafGraphicsUpdateCurrentWave(
+        index: SceUInt32,
+        update_interval: SceFloat32,
+    ) -> crate::ctypes::c_int;
+    pub fn scePafMallocAlignWithContext(
+        context: *mut ScePafHeapContext,
+        align: SceUInt32,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn scePafMallocWithContext(
+        context: *mut ScePafHeapContext,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn scePafReallocWithContext(
+        context: *mut ScePafHeapContext,
+        ptr: *mut crate::ctypes::c_void,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn scePafSha1Init(context: *mut ScePafSha1Context) -> crate::ctypes::c_int;
+    pub fn scePafSha1Result(
+        context: *mut ScePafSha1Context,
+        dst: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn scePafSha1Update(
+        context: *mut ScePafSha1Context,
+        data: *const crate::ctypes::c_void,
+        length: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_bcmp(
+        ptr1: *const crate::ctypes::c_void,
+        ptr2: *const crate::ctypes::c_void,
+        num: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_bcopy(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        n: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_bzero(dst: *mut crate::ctypes::c_void, n: SceSize)
+        -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_free(ptr: *mut crate::ctypes::c_void);
+    pub fn sce_paf_malloc(size: SceSize) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_memalign(align: SceSize, length: SceSize) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_memchr(
+        src: *const crate::ctypes::c_void,
+        ch: crate::ctypes::c_int,
+        length: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_memcmp(
+        s1: *const crate::ctypes::c_void,
+        s2: *const crate::ctypes::c_void,
+        n: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_memcpy(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_memmove(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_memset(
+        dst: *mut crate::ctypes::c_void,
+        ch: crate::ctypes::c_int,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_void;
+    pub fn sce_paf_snprintf(
+        dst: *mut crate::ctypes::c_char,
+        max: crate::ctypes::c_uint,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_strcasecmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_strchr(
+        s: *const crate::ctypes::c_char,
+        ch: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sce_paf_strcmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_strlen(s: *const crate::ctypes::c_char) -> usize;
+    pub fn sce_paf_strncasecmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_strncmp(
+        s1: *const crate::ctypes::c_char,
+        s2: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sce_paf_strncpy(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sce_paf_strrchr(
+        s: *const crate::ctypes::c_char,
+        ch: crate::ctypes::c_int,
+    ) -> *mut crate::ctypes::c_char;
+    pub fn sce_paf_strtod(
+        nptr: *const crate::ctypes::c_char,
+        endptr: *mut *mut crate::ctypes::c_char,
+    ) -> f64;
+    pub fn sce_paf_vsnprintf(
+        dst: *mut crate::ctypes::c_char,
+        max: crate::ctypes::c_uint,
+        fmt: *const crate::ctypes::c_char,
+        arg: va_list,
+    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -24710,39 +16800,6 @@ pub struct ScePafDateTime {
     pub data: SceDateTime,
     pub data_0x10: crate::ctypes::c_int,
     pub data_0x14: crate::ctypes::c_int,
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafDeleteHeap(context: *mut ScePafHeapContext);
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_free(ptr: *mut crate::ctypes::c_void);
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafFreeWithContext(context: *mut ScePafHeapContext, ptr: *mut crate::ctypes::c_void);
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafGetCurrentClockLocalTime(data: *mut ScePafDateTime) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub static mut scePafGraphicsCurrentWave: SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafGraphicsUpdateCurrentWave(
-        index: SceUInt32,
-        update_interval: SceFloat32,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -24771,206 +16828,11 @@ pub struct ScePafHeapOpt {
     pub mode: SceInt32,
     pub a5: crate::ctypes::c_int,
 }
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_malloc(size: SceSize) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafMallocAlignWithContext(
-        context: *mut ScePafHeapContext,
-        align: SceUInt32,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafMallocWithContext(
-        context: *mut ScePafHeapContext,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memalign(align: SceSize, length: SceSize) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memchr(
-        src: *const crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        length: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
-        n: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memmove(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_memset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafReallocWithContext(
-        context: *mut ScePafHeapContext,
-        ptr: *mut crate::ctypes::c_void,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePafSha1Context {
     pub h: [u32; 5usize],
     pub unk: [crate::ctypes::c_char; 84usize],
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafSha1Init(context: *mut ScePafSha1Context) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafSha1Result(
-        context: *mut ScePafSha1Context,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn scePafSha1Update(
-        context: *mut ScePafSha1Context,
-        data: *const crate::ctypes::c_void,
-        length: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_snprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strcasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strlen(s: *const crate::ctypes::c_char) -> usize;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strncasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strrchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_strtod(
-        nptr: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-    ) -> f64;
-}
-extern "C" {
-    #[cfg(feature = "ScePaf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
-    pub fn sce_paf_vsnprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
-        arg: va_list,
-    ) -> crate::ctypes::c_int;
 }
 pub const SCE_PERF_ARM_PMON_BRANCH_MISPREDICT: _ScePerfArmPmonEventCode = 16;
 pub const SCE_PERF_ARM_PMON_COHERENT_LF_HIT: _ScePerfArmPmonEventCode = 81;
@@ -24994,14 +16856,30 @@ pub const SCE_PERF_ARM_PMON_EXCEPTION_RETURN: _ScePerfArmPmonEventCode = 10;
 pub const SCE_PERF_ARM_PMON_EXCEPTION_TAKEN: _ScePerfArmPmonEventCode = 9;
 pub const SCE_PERF_ARM_PMON_EXT_INTERRUPT: _ScePerfArmPmonEventCode = 147;
 pub const SCE_PERF_ARM_PMON_FPU_RENAME: _ScePerfArmPmonEventCode = 115;
+#[cfg(feature = "ScePerf_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
     pub fn scePerfArmPmonGetCounterValue(
         thid: SceUID,
         counter: SceUInt32,
         value: *mut SceUInt32,
     ) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonReset(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonSelectEvent(
+        thid: SceUID,
+        counter: SceUInt32,
+        event_code: SceUInt8,
+    ) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonSetCounterValue(
+        thid: SceUID,
+        counter: SceUInt32,
+        value: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonSoftwareIncrement(mask: SceUInt32) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonStart(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn scePerfArmPmonStop(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn scePerfGetTimebaseFrequency() -> SceUInt32;
+    pub fn scePerfGetTimebaseValue() -> SceUInt64;
 }
 pub const SCE_PERF_ARM_PMON_ICACHE_MISS: _ScePerfArmPmonEventCode = 1;
 pub const SCE_PERF_ARM_PMON_ICACHE_STALL: _ScePerfArmPmonEventCode = 96;
@@ -25027,71 +16905,23 @@ pub const SCE_PERF_ARM_PMON_PLE_REQ_COMPLETED: _ScePerfArmPmonEventCode = 163;
 pub const SCE_PERF_ARM_PMON_PLE_REQ_PROGRAMMED: _ScePerfArmPmonEventCode = 165;
 pub const SCE_PERF_ARM_PMON_PREDICT_BRANCH: _ScePerfArmPmonEventCode = 18;
 pub const SCE_PERF_ARM_PMON_PREDICT_FUNC_RET: _ScePerfArmPmonEventCode = 110;
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonReset(thid: SceUID) -> crate::ctypes::c_int;
-}
 pub const SCE_PERF_ARM_PMON_SECOND_PIPE: _ScePerfArmPmonEventCode = 113;
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonSelectEvent(
-        thid: SceUID,
-        counter: SceUInt32,
-        event_code: SceUInt8,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonSetCounterValue(
-        thid: SceUID,
-        counter: SceUInt32,
-        value: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_PERF_ARM_PMON_SOFT_CHANGEPC: _ScePerfArmPmonEventCode = 12;
 pub const SCE_PERF_ARM_PMON_SOFT_INCREMENT: _ScePerfArmPmonEventCode = 0;
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonSoftwareIncrement(mask: SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonStart(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfArmPmonStop(thid: SceUID) -> crate::ctypes::c_int;
-}
 pub const SCE_PERF_ARM_PMON_STREX_FAILED: _ScePerfArmPmonEventCode = 100;
 pub const SCE_PERF_ARM_PMON_STREX_PASSED: _ScePerfArmPmonEventCode = 99;
 pub const SCE_PERF_ARM_PMON_THREAD_ID_SELF: u32 = 0;
 pub const SCE_PERF_ARM_PMON_UNALIGNED: _ScePerfArmPmonEventCode = 15;
 pub const SCE_PERF_ARM_PMON_WRITE_CONTEXTID: _ScePerfArmPmonEventCode = 11;
 pub const SCE_PERF_ARM_PMON_WRITE_STALL: _ScePerfArmPmonEventCode = 129;
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfGetTimebaseFrequency() -> SceUInt32;
-}
-extern "C" {
-    #[cfg(feature = "ScePerf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
-    pub fn scePerfGetTimebaseValue() -> SceUInt64;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePfsRndDriveId {
     pub drive_id: [crate::ctypes::c_char; 16usize],
 }
+#[cfg(feature = "ScePhotoExport_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePhotoExport_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePhotoExport_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePhotoExport_stub")))]
     pub fn scePhotoExportFromData(
         data: *const crate::ctypes::c_void,
         size: SceSize,
@@ -25102,10 +16932,6 @@ extern "C" {
         outPath: *mut crate::ctypes::c_char,
         outPathSize: SceSize,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePhotoExport_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePhotoExport_stub")))]
     pub fn scePhotoExportFromFile(
         path: *const crate::ctypes::c_char,
         param: *const PhotoExportParam,
@@ -25169,154 +16995,38 @@ pub type ScePowerErrorCode = crate::ctypes::c_uint;
 pub const SCE_POWER_ERROR_DETECTING: ScePowerErrorCode = 2150301953;
 pub const SCE_POWER_ERROR_INVALID_VALUE: ScePowerErrorCode = 2150301696;
 pub const SCE_POWER_ERROR_NO_BATTERY: ScePowerErrorCode = 2150301952;
+#[cfg(feature = "ScePower_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetArmClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatterySOH() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryTemp() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBatteryVolt() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetBusClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetGpuClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerGetUsingWireless() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerIsBatteryCharging() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerIsLowBattery() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerIsPowerOnline() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerIsSuspendRequired() -> SceBool;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRequestColdReset() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRequestDisplayOff() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRequestDisplayOn() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRequestStandby() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerRequestSuspend() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetConfigurationMode(conf: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerSetUsingWireless(enabled: SceBool) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePower_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
     pub fn scePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
 }
 #[repr(C)]
@@ -25407,35 +17117,34 @@ pub const SCE_PRODUCT_CODE_NONE: SceProductCode = 0;
 pub const SCE_PRODUCT_CODE_TEST: SceProductCode = 256;
 pub const SCE_PRODUCT_CODE_TOOL: SceProductCode = 257;
 pub type SceProductMode = crate::ctypes::c_char;
+#[cfg(feature = "ScePromoterUtil_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
     pub fn scePromoterUtilityCheckExist(
         titleid: *const crate::ctypes::c_char,
         res: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
     pub fn scePromoterUtilityDeletePkg(
         titleid: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
     pub fn scePromoterUtilityExit() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
     pub fn scePromoterUtilityGetResult(res: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
     pub fn scePromoterUtilityGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn scePromoterUtilityInit() -> crate::ctypes::c_int;
+    pub fn scePromoterUtilityPromoteImport(
+        params: *mut ScePromoterUtilityImportParams,
+    ) -> crate::ctypes::c_int;
+    pub fn scePromoterUtilityPromotePkg(
+        path: *const crate::ctypes::c_char,
+        sync: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn scePromoterUtilityPromotePkgWithRif(
+        path: *const crate::ctypes::c_char,
+        sync: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn scePromoterUtilityUpdateLiveArea(
+        args: *mut ScePromoterUtilityLAUpdate,
+    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -25446,11 +17155,6 @@ pub struct ScePromoterUtilityImportParams {
     pub attribute: u32,
     pub reserved: [crate::ctypes::c_char; 28usize],
 }
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
-    pub fn scePromoterUtilityInit() -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePromoterUtilityLAUpdate {
@@ -25458,36 +17162,6 @@ pub struct ScePromoterUtilityLAUpdate {
     pub path: [crate::ctypes::c_char; 128usize],
 }
 pub type ScePromoterUtilityPackageType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
-    pub fn scePromoterUtilityPromoteImport(
-        params: *mut ScePromoterUtilityImportParams,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
-    pub fn scePromoterUtilityPromotePkg(
-        path: *const crate::ctypes::c_char,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
-    pub fn scePromoterUtilityPromotePkgWithRif(
-        path: *const crate::ctypes::c_char,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "ScePromoterUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
-    pub fn scePromoterUtilityUpdateLiveArea(
-        args: *mut ScePromoterUtilityLAUpdate,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePsCode {
@@ -25495,15 +17169,6 @@ pub struct ScePsCode {
     pub product_code: u16,
     pub product_sub_code: u16,
     pub factory_code: u16,
-}
-extern "C" {
-    #[cfg(feature = "SceNpDrm_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
-    pub fn scePsmDrmGetRifKey(
-        license_buf: *const ScePsmDrmLicense,
-        keydata: *mut crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -25582,10 +17247,144 @@ pub struct ScePvfCharInfo {
     pub reserved0: [ScePvfU8; 2usize],
     pub reserved1: ScePvfU16,
 }
+#[cfg(feature = "ScePvf_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
 extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
     pub fn scePvfClose(fontID: ScePvfFontId) -> ScePvfError;
+    pub fn scePvfDoneLib(libID: ScePvfLibId) -> ScePvfError;
+    pub fn scePvfFindFont(
+        libID: ScePvfLibId,
+        fontStyleInfo: *mut ScePvfFontStyleInfo,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontIndex;
+    pub fn scePvfFindOptimumFont(
+        libID: ScePvfLibId,
+        fontStyleInfo: *mut ScePvfFontStyleInfo,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontIndex;
+    pub fn scePvfFlush(fontID: ScePvfFontId) -> ScePvfError;
+    pub fn scePvfGetCharGlyphImage(
+        fontID: ScePvfFontId,
+        charCode: ScePvfCharCode,
+        imageBuffer: *mut ScePvfUserImageBufferRec,
+    ) -> ScePvfError;
+    pub fn scePvfGetCharGlyphImage_Clip(
+        fontID: ScePvfFontId,
+        charCode: ScePvfCharCode,
+        imageBuffer: *mut ScePvfUserImageBufferRec,
+        clipX: ScePvfS32,
+        clipY: ScePvfS32,
+        clipWidth: ScePvfU32,
+        clipHeight: ScePvfU32,
+    ) -> ScePvfError;
+    pub fn scePvfGetCharImageRect(
+        fontID: ScePvfFontId,
+        charCode: ScePvfCharCode,
+        rect: *mut ScePvfIrect,
+    ) -> ScePvfError;
+    pub fn scePvfGetCharInfo(
+        fontID: ScePvfFontId,
+        charCode: ScePvfCharCode,
+        charInfo: *mut ScePvfCharInfo,
+    ) -> ScePvfError;
+    pub fn scePvfGetFontInfo(fontID: ScePvfFontId, fontInfo: *mut ScePvfFontInfo) -> ScePvfError;
+    pub fn scePvfGetFontInfoByIndexNumber(
+        libID: ScePvfLibId,
+        fontStyleInfo: *mut ScePvfFontStyleInfo,
+        fontIndex: ScePvfFontIndex,
+    ) -> ScePvfError;
+    pub fn scePvfGetFontList(
+        libID: ScePvfLibId,
+        fontStyleInfo: *mut ScePvfFontStyleInfo,
+        arraySize: ScePvfInt,
+    ) -> ScePvfError;
+    pub fn scePvfGetKerningInfo(
+        fontID: ScePvfFontId,
+        leftCharCode: ScePvfCharCode,
+        rightCharCode: ScePvfCharCode,
+        pKerningInfo: *mut ScePvfKerningInfo,
+    ) -> ScePvfError;
+    pub fn scePvfGetNumFontList(libID: ScePvfLibId, errorCode: *mut ScePvfError) -> ScePvfInt;
+    pub fn scePvfIsElement(fontID: ScePvfFontId, charCode: ScePvfCharCode) -> ScePvfBool;
+    pub fn scePvfNewLib(initParam: *mut ScePvfInitRec, errorCode: *mut ScePvfError) -> ScePvfLibId;
+    pub fn scePvfOpen(
+        libID: ScePvfLibId,
+        fontIndex: ScePvfFontIndex,
+        mode: ScePvfU32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenDefaultJapaneseFontOnSharedMemory(
+        libID: ScePvfLibId,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenDefaultLatinFontOnSharedMemory(
+        libID: ScePvfLibId,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenUserFile(
+        libID: ScePvfLibId,
+        filename: ScePvfPointer,
+        mode: ScePvfU32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenUserFileWithSubfontIndex(
+        libID: ScePvfLibId,
+        filename: ScePvfPointer,
+        mode: ScePvfU32,
+        subFontIndex: ScePvfU32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenUserMemory(
+        libID: ScePvfLibId,
+        addr: ScePvfPointer,
+        size: ScePvfU32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfOpenUserMemoryWithSubfontIndex(
+        libID: ScePvfLibId,
+        addr: ScePvfPointer,
+        size: ScePvfU32,
+        subFontIndex: ScePvfU32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFontId;
+    pub fn scePvfPixelToPointH(
+        libID: ScePvfLibId,
+        pixel: ScePvfFloat32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFloat32;
+    pub fn scePvfPixelToPointV(
+        libID: ScePvfLibId,
+        pixel: ScePvfFloat32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFloat32;
+    pub fn scePvfPointToPixelH(
+        libID: ScePvfLibId,
+        point: ScePvfFloat32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFloat32;
+    pub fn scePvfPointToPixelV(
+        libID: ScePvfLibId,
+        point: ScePvfFloat32,
+        errorCode: *mut ScePvfError,
+    ) -> ScePvfFloat32;
+    pub fn scePvfSetAltCharacterCode(libID: ScePvfLibId, charCode: ScePvfCharCode) -> ScePvfError;
+    pub fn scePvfSetCharSize(
+        fontID: ScePvfFontId,
+        hSize: ScePvfFloat32,
+        vSize: ScePvfFloat32,
+    ) -> ScePvfError;
+    pub fn scePvfSetEM(libID: ScePvfLibId, emValue: ScePvfFloat32) -> ScePvfError;
+    pub fn scePvfSetEmboldenRate(fontID: ScePvfFontId, emboldenRate: ScePvfFloat32) -> ScePvfError;
+    pub fn scePvfSetResolution(
+        libID: ScePvfLibId,
+        hResolution: ScePvfFloat32,
+        vResolution: ScePvfFloat32,
+    ) -> ScePvfError;
+    pub fn scePvfSetSkewValue(
+        fontID: ScePvfFontId,
+        angleX: ScePvfFloat32,
+        angleY: ScePvfFloat32,
+    ) -> ScePvfError;
 }
 pub const SCE_PVF_COUNTRY_JAPAN: ScePvfFontVendorCountryCode = 1;
 pub const SCE_PVF_COUNTRY_KOREA: ScePvfFontVendorCountryCode = 3;
@@ -25594,11 +17393,6 @@ pub type ScePvfDataAccessMode = crate::ctypes::c_uint;
 pub const SCE_PVF_DEFAULT_FAMILY_CODE: ScePvfFamilyCode = 0;
 pub const SCE_PVF_DEFAULT_LANGUAGE_CODE: ScePvfLanguageCode = 0;
 pub const SCE_PVF_DEFAULT_STYLE_CODE: ScePvfStyleCode = 0;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfDoneLib(libID: ScePvfLibId) -> ScePvfError;
-}
 pub type ScePvfError = ScePvfS32;
 pub const SCE_PVF_ERROR_ARG: ScePvfErrorCode = 2152071171;
 pub type ScePvfErrorCode = crate::ctypes::c_uint;
@@ -25636,24 +17430,6 @@ pub struct ScePvfFGlyphMetricsInfo {
     pub verticalAdvance: ScePvfFloat32,
 }
 pub const SCE_PVF_FILEBASEDSTREAM: ScePvfDataAccessMode = 0;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfFindFont(
-        libID: ScePvfLibId,
-        fontStyleInfo: *mut ScePvfFontStyleInfo,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontIndex;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfFindOptimumFont(
-        libID: ScePvfLibId,
-        fontStyleInfo: *mut ScePvfFontStyleInfo,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontIndex;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePvfFKerningInfo {
@@ -25661,11 +17437,6 @@ pub struct ScePvfFKerningInfo {
     pub yOffset: ScePvfFloat32,
 }
 pub type ScePvfFloat32 = f32;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfFlush(fontID: ScePvfFontId) -> ScePvfError;
-}
 pub type ScePvfFontCacheLockFunc =
     ::core::option::Option<unsafe extern "C" fn(cacheInstance: ScePvfPointer) -> ScePvfS32>;
 pub type ScePvfFontChcheFindFunc = ::core::option::Option<
@@ -25734,84 +17505,6 @@ pub type ScePvfFreeFunc =
     ::core::option::Option<unsafe extern "C" fn(userData: ScePvfPointer, ptr: ScePvfPointer)>;
 pub const SCE_PVF_GENERIC_COUNTRY_CODE: ScePvfFontVendorCountryCode = 0;
 pub const SCE_PVF_GENERIC_REGION_CODE: ScePvfRegionCode = 0;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetCharGlyphImage(
-        fontID: ScePvfFontId,
-        charCode: ScePvfCharCode,
-        imageBuffer: *mut ScePvfUserImageBufferRec,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetCharGlyphImage_Clip(
-        fontID: ScePvfFontId,
-        charCode: ScePvfCharCode,
-        imageBuffer: *mut ScePvfUserImageBufferRec,
-        clipX: ScePvfS32,
-        clipY: ScePvfS32,
-        clipWidth: ScePvfU32,
-        clipHeight: ScePvfU32,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetCharImageRect(
-        fontID: ScePvfFontId,
-        charCode: ScePvfCharCode,
-        rect: *mut ScePvfIrect,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetCharInfo(
-        fontID: ScePvfFontId,
-        charCode: ScePvfCharCode,
-        charInfo: *mut ScePvfCharInfo,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetFontInfo(fontID: ScePvfFontId, fontInfo: *mut ScePvfFontInfo) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetFontInfoByIndexNumber(
-        libID: ScePvfLibId,
-        fontStyleInfo: *mut ScePvfFontStyleInfo,
-        fontIndex: ScePvfFontIndex,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetFontList(
-        libID: ScePvfLibId,
-        fontStyleInfo: *mut ScePvfFontStyleInfo,
-        arraySize: ScePvfInt,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetKerningInfo(
-        fontID: ScePvfFontId,
-        leftCharCode: ScePvfCharCode,
-        rightCharCode: ScePvfCharCode,
-        pKerningInfo: *mut ScePvfKerningInfo,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfGetNumFontList(libID: ScePvfLibId, errorCode: *mut ScePvfError) -> ScePvfInt;
-}
 pub type ScePvfHandle = *mut crate::ctypes::c_void;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -25852,11 +17545,6 @@ pub struct ScePvfIrect {
     pub width: ScePvfU16,
     pub height: ScePvfU16,
 }
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfIsElement(fontID: ScePvfFontId, charCode: ScePvfCharCode) -> ScePvfBool;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePvfKerningInfo {
@@ -25876,116 +17564,7 @@ pub const SCE_PVF_MAX_SKEW_VALUE: f64 = 30.0;
 pub const SCE_PVF_MEMORYBASEDSTREAM: ScePvfDataAccessMode = 1;
 pub const SCE_PVF_MIN_EMBOLDEN_RATE: f64 = -20.0;
 pub const SCE_PVF_MIN_SKEW_VALUE: f64 = -30.0;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfNewLib(initParam: *mut ScePvfInitRec, errorCode: *mut ScePvfError) -> ScePvfLibId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpen(
-        libID: ScePvfLibId,
-        fontIndex: ScePvfFontIndex,
-        mode: ScePvfU32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenDefaultJapaneseFontOnSharedMemory(
-        libID: ScePvfLibId,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenDefaultLatinFontOnSharedMemory(
-        libID: ScePvfLibId,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenUserFile(
-        libID: ScePvfLibId,
-        filename: ScePvfPointer,
-        mode: ScePvfU32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenUserFileWithSubfontIndex(
-        libID: ScePvfLibId,
-        filename: ScePvfPointer,
-        mode: ScePvfU32,
-        subFontIndex: ScePvfU32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenUserMemory(
-        libID: ScePvfLibId,
-        addr: ScePvfPointer,
-        size: ScePvfU32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfOpenUserMemoryWithSubfontIndex(
-        libID: ScePvfLibId,
-        addr: ScePvfPointer,
-        size: ScePvfU32,
-        subFontIndex: ScePvfU32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFontId;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfPixelToPointH(
-        libID: ScePvfLibId,
-        pixel: ScePvfFloat32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFloat32;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfPixelToPointV(
-        libID: ScePvfLibId,
-        pixel: ScePvfFloat32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFloat32;
-}
 pub type ScePvfPointer = *mut crate::ctypes::c_void;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfPointToPixelH(
-        libID: ScePvfLibId,
-        point: ScePvfFloat32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFloat32;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfPointToPixelV(
-        libID: ScePvfLibId,
-        point: ScePvfFloat32,
-        errorCode: *mut ScePvfError,
-    ) -> ScePvfFloat32;
-}
 pub type ScePvfReallocFunc = ::core::option::Option<
     unsafe extern "C" fn(
         userData: ScePvfPointer,
@@ -26008,48 +17587,6 @@ pub const SCE_PVF_REGION_006: ScePvfRegionCode = 6;
 pub const SCE_PVF_REGION_007: ScePvfRegionCode = 7;
 pub type ScePvfRegionCode = crate::ctypes::c_uint;
 pub type ScePvfS32 = crate::ctypes::c_int;
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetAltCharacterCode(libID: ScePvfLibId, charCode: ScePvfCharCode) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetCharSize(
-        fontID: ScePvfFontId,
-        hSize: ScePvfFloat32,
-        vSize: ScePvfFloat32,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetEM(libID: ScePvfLibId, emValue: ScePvfFloat32) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetEmboldenRate(fontID: ScePvfFontId, emboldenRate: ScePvfFloat32) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetResolution(
-        libID: ScePvfLibId,
-        hResolution: ScePvfFloat32,
-        vResolution: ScePvfFloat32,
-    ) -> ScePvfError;
-}
-extern "C" {
-    #[cfg(feature = "ScePvf_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
-    pub fn scePvfSetSkewValue(
-        fontID: ScePvfFontId,
-        angleX: ScePvfFloat32,
-        angleY: ScePvfFloat32,
-    ) -> ScePvfError;
-}
 pub const SCE_PVF_STYLE_B: ScePvfStyleCode = 104;
 pub const SCE_PVF_STYLE_BLACK: ScePvfStyleCode = 7;
 pub const SCE_PVF_STYLE_BLACK_OBLIQUE: ScePvfStyleCode = 8;
@@ -26088,14 +17625,10 @@ pub struct ScePvfUserImageBufferRec {
 pub const SCE_PVF_USERIMAGE_DIRECT4_L: ScePvfImageByfferPixelFormatType = 0;
 pub const SCE_PVF_USERIMAGE_DIRECT8: ScePvfImageByfferPixelFormatType = 2;
 pub type ScePVoid = *mut crate::ctypes::c_void;
+#[cfg(feature = "SceRazorCapture_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRazorCapture_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRazorCapture_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorCapture_stub")))]
     pub fn sceRazorGpuCaptureEnableSalvage(filename: *const crate::ctypes::c_char);
-}
-extern "C" {
-    #[cfg(feature = "SceRazorCapture_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorCapture_stub")))]
     pub fn sceRazorGpuCaptureSetTriggerNextFrame(filename: *const crate::ctypes::c_char);
 }
 #[repr(C)]
@@ -26203,28 +17736,16 @@ pub struct SceRazorGpuLiveResultInfo {
     pub metric_group: u32,
     pub reserved: crate::ctypes::c_int,
 }
+#[cfg(feature = "SceRazorHud_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRazorHud_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
     pub fn sceRazorGpuLiveSetBuffer(
         buffer: *mut crate::ctypes::c_void,
         buf_size: SceSize,
         results: *mut SceRazorGpuLiveResultInfo,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRazorHud_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
     pub fn sceRazorGpuLiveSetMetricsGroup(metrics: u32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRazorHud_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
     pub fn sceRazorGpuLiveStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRazorHud_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
     pub fn sceRazorGpuLiveStop() -> crate::ctypes::c_int;
 }
 pub type SceRazorLiveTraceMetricEntryType = crate::ctypes::c_uint;
@@ -26242,159 +17763,238 @@ pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX0: SceRazorLiveTraceMetricJ
 pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX1: SceRazorLiveTraceMetricJobType = 1;
 pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX2: SceRazorLiveTraceMetricJobType = 3;
 pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX3: SceRazorLiveTraceMetricJobType = 5;
+#[cfg(feature = "SceRegistryMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrGetInitVals(
         category: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         elements_number: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrGetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrGetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
-    pub fn sceRegMgrGetKeys(
-        category: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        elements_number: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrGetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
+    pub fn sceRegMgrGetKeys(
+        category: *const crate::ctypes::c_char,
+        buf: *mut crate::ctypes::c_char,
+        elements_number: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
     pub fn sceRegMgrGetRegVersion(
         version: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrSetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrSetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
-    pub fn sceRegMgrSetKeys(
-        category: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        elements_number: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrSetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
+    pub fn sceRegMgrSetKeys(
+        category: *const crate::ctypes::c_char,
+        buf: *mut crate::ctypes::c_char,
+        elements_number: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
     pub fn sceRegMgrSystemParamGetInt(
         id: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRegistryMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
     pub fn sceRegMgrSystemParamGetStr(
         id: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_char,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceRtc_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcCheckValid(time: *const SceDateTime) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcCompareTick(
-        pTick1: *const SceRtcTick,
-        pTick2: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcConvertLocalTimeToUtc(
-        local_time: *const SceRtcTick,
-        utc: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
     pub fn _sceRtcConvertLocalTimeToUtc(
         localtime: *const SceRtcTick,
         utc: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
+    pub fn _sceRtcConvertUtcToLocalTime(
+        utc: *const SceRtcTick,
+        localtime: *mut SceRtcTick,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceRtcFormatRFC2822(
+        datetime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+        offset: crate::ctypes::c_int,
+        a4: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceRtcFormatRFC2822LocalTime(
+        datetime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+        a3: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceRtcFormatRFC3339(
+        datetime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+        offset: crate::ctypes::c_int,
+        a4: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn _sceRtcFormatRFC3339LocalTime(
+        datetime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+        a3: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcCheckValid(time: *const SceDateTime) -> crate::ctypes::c_int;
+    pub fn sceRtcCompareTick(
+        pTick1: *const SceRtcTick,
+        pTick2: *const SceRtcTick,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcConvertLocalTimeToUtc(
+        local_time: *const SceRtcTick,
+        utc: *mut SceRtcTick,
+    ) -> crate::ctypes::c_int;
     pub fn sceRtcConvertUtcToLocalTime(
         utc: *const SceRtcTick,
         local_time: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn _sceRtcConvertUtcToLocalTime(
+    pub fn sceRtcFormatRFC2822(
+        pszDateTime: *mut crate::ctypes::c_char,
         utc: *const SceRtcTick,
-        localtime: *mut SceRtcTick,
+        iTimeZoneMinutes: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcFormatRFC2822LocalTime(
+        pszDateTime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcFormatRFC3339(
+        pszDateTime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+        iTimeZoneMinutes: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcFormatRFC3339LocalTime(
+        pszDateTime: *mut crate::ctypes::c_char,
+        utc: *const SceRtcTick,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetAccumulativeTime() -> SceULong64;
+    pub fn sceRtcGetCurrentAdNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentClock(
+        time: *mut SceDateTime,
+        time_zone: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentGpsTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentRetainedNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetDayOfWeek(
+        year: crate::ctypes::c_int,
+        month: crate::ctypes::c_int,
+        day: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetDaysInMonth(
+        year: crate::ctypes::c_int,
+        month: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetDosTime(
+        time: *const SceDateTime,
+        puiDosTime: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetLastAdjustedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetLastReincarnatedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetTick(time: *const SceDateTime, tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetTickResolution() -> crate::ctypes::c_uint;
+    pub fn sceRtcGetTime64_t(
+        time: *const SceDateTime,
+        pullTime: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcGetTime_t(time: *const SceDateTime, piTime: *mut time_t) -> crate::ctypes::c_int;
+    pub fn sceRtcGetWin32FileTime(
+        time: *const SceDateTime,
+        ulWin32Time: *mut SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcIsLeapYear(year: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceRtcParseDateTime(
+        utc: *mut SceRtcTick,
+        pszDateTime: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcParseRFC3339(
+        utc: *mut SceRtcTick,
+        pszDateTime: *const crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcSetDosTime(
+        time: *mut SceDateTime,
+        uiDosTime: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcSetTick(time: *mut SceDateTime, tick: *const SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcSetTime64_t(time: *mut SceDateTime, ullTime: SceUInt64) -> crate::ctypes::c_int;
+    pub fn sceRtcSetTime_t(time: *mut SceDateTime, iTime: time_t) -> crate::ctypes::c_int;
+    pub fn sceRtcSetWin32FileTime(
+        time: *mut SceDateTime,
+        ulWin32Time: SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddDays(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddHours(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddMicroseconds(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddMinutes(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddMonths(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddSeconds(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddTicks(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: SceLong64,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddWeeks(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceRtcTickAddYears(
+        pTick0: *mut SceRtcTick,
+        pTick1: *const SceRtcTick,
+        lAdd: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
 pub const __SCE_RTC_DAYOFWEEK: SceRtcDayOfWeek = 4294967295;
@@ -26420,341 +18020,22 @@ pub const SCE_RTC_ERROR_INVALID_VALUE: SceRtcErrorCode = 2149912576;
 pub const SCE_RTC_ERROR_INVALID_YEAR: SceRtcErrorCode = 2149912705;
 pub const SCE_RTC_ERROR_NOT_FOUND: SceRtcErrorCode = 2149912580;
 pub const SCE_RTC_ERROR_NOT_INITIALIZED: SceRtcErrorCode = 2149912578;
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcFormatRFC2822(
-        pszDateTime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        iTimeZoneMinutes: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn _sceRtcFormatRFC2822(
-        datetime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        offset: crate::ctypes::c_int,
-        a4: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcFormatRFC2822LocalTime(
-        pszDateTime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn _sceRtcFormatRFC2822LocalTime(
-        datetime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcFormatRFC3339(
-        pszDateTime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        iTimeZoneMinutes: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn _sceRtcFormatRFC3339(
-        datetime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        offset: crate::ctypes::c_int,
-        a4: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcFormatRFC3339LocalTime(
-        pszDateTime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn _sceRtcFormatRFC3339LocalTime(
-        datetime: *mut crate::ctypes::c_char,
-        utc: *const SceRtcTick,
-        a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetAccumulativeTime() -> SceULong64;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentAdNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentClock(
-        time: *mut SceDateTime,
-        time_zone: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentGpsTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentRetainedNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetDayOfWeek(
-        year: crate::ctypes::c_int,
-        month: crate::ctypes::c_int,
-        day: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetDaysInMonth(
-        year: crate::ctypes::c_int,
-        month: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetDosTime(
-        time: *const SceDateTime,
-        puiDosTime: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetLastAdjustedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetLastReincarnatedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetTick(time: *const SceDateTime, tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetTickResolution() -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetTime64_t(
-        time: *const SceDateTime,
-        pullTime: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetTime_t(time: *const SceDateTime, piTime: *mut time_t) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcGetWin32FileTime(
-        time: *const SceDateTime,
-        ulWin32Time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcIsLeapYear(year: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcParseDateTime(
-        utc: *mut SceRtcTick,
-        pszDateTime: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcParseRFC3339(
-        utc: *mut SceRtcTick,
-        pszDateTime: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcSetDosTime(
-        time: *mut SceDateTime,
-        uiDosTime: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcSetTick(time: *mut SceDateTime, tick: *const SceRtcTick) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcSetTime64_t(time: *mut SceDateTime, ullTime: SceUInt64) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcSetTime_t(time: *mut SceDateTime, iTime: time_t) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcSetWin32FileTime(
-        time: *mut SceDateTime,
-        ulWin32Time: SceUInt64,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRtcTick {
     pub tick: SceUInt64,
 }
+#[cfg(feature = "SceSblSsMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddDays(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddHours(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddMicroseconds(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddMinutes(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddMonths(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddSeconds(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddTicks(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddWeeks(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceRtc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
-    pub fn sceRtcTickAddYears(
-        pTick0: *mut SceRtcTick,
-        pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceLibKernel_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
-    pub fn sceSblACMgrIsGameProgram(result: *mut SceBool) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgr_stub")))]
     pub fn sceSblDmac5EncDec(
         param: *mut SceSblDmac5EncDecParam,
         command: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceSblDmac5HashTransform(
+        param: *mut SceSblDmac5HashTransformParam,
+        command: SceUInt32,
+        extra: SceUInt32,
     ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
@@ -26766,15 +18047,6 @@ pub struct SceSblDmac5EncDecParam {
     pub key: *const crate::ctypes::c_void,
     pub keysize: SceSize,
     pub iv: *mut crate::ctypes::c_void,
-}
-extern "C" {
-    #[cfg(feature = "SceSblSsMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgr_stub")))]
-    pub fn sceSblDmac5HashTransform(
-        param: *mut SceSblDmac5HashTransformParam,
-        command: SceUInt32,
-        extra: SceUInt32,
-    ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -26824,32 +18096,26 @@ pub struct SceSblSmCommPair {
     pub data_00: crate::ctypes::c_int,
     pub data_04: crate::ctypes::c_int,
 }
+#[cfg(feature = "SceSblUpdateMgr_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSblUpdateMgr_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSblUpdateMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblUpdateMgr_stub")))]
     pub fn sceSblUsGetUpdateMode(mode: *mut SceUpdateMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblUpdateMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblUpdateMgr_stub")))]
     pub fn sceSblUsSetUpdateMode(mode: SceUpdateMode) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSblUpdateMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSblUpdateMgr_stub")))]
     pub fn sceSblUsVerifyPup(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
 }
 pub type SceSByte = crate::ctypes::c_schar;
 pub type SceSByte8 = crate::ctypes::c_schar;
+#[cfg(feature = "SceScreenShot_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
 extern "C" {
-    #[cfg(feature = "SceScreenShot_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
     pub fn sceScreenShotDisable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceScreenShot_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
     pub fn sceScreenShotEnable() -> crate::ctypes::c_int;
+    pub fn sceScreenShotSetOverlayImage(
+        filepath: *const crate::ctypes::c_char,
+        offsetX: crate::ctypes::c_int,
+        offsetY: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> crate::ctypes::c_int;
 }
 pub type SceScreenshotErrorCode = crate::ctypes::c_uint;
 pub const SCE_SCREENSHOT_ERROR_FILE_NOT_FOUND: SceScreenshotErrorCode = 2148544259;
@@ -26872,20 +18138,6 @@ pub struct SceScreenShotParam {
     pub gameTitle: *const SceWChar32,
     pub gameComment: *const SceWChar32,
     pub reserved: *mut crate::ctypes::c_void,
-}
-extern "C" {
-    #[cfg(feature = "SceScreenShot_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
-    pub fn sceScreenShotSetOverlayImage(
-        filepath: *const crate::ctypes::c_char,
-        offsetX: crate::ctypes::c_int,
-        offsetY: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceScreenShot_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
-    pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> crate::ctypes::c_int;
 }
 pub const SCE_SEEK_CUR: SceIoSeekMode = 1;
 pub const SCE_SEEK_END: SceIoSeekMode = 2;
@@ -27034,19 +18286,30 @@ pub struct SceShaccCgCompileOutput {
     pub diagnosticCount: SceInt32,
     pub diagnostics: *const SceShaccCgDiagnosticMessage,
 }
+#[cfg(feature = "SceShaccCg_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
 extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
     pub fn sceShaccCgCompileProgram(
         options: *const SceShaccCgCompileOptions,
         callbacks: *const SceShaccCgCallbackList,
         unk: crate::ctypes::c_int,
     ) -> *const SceShaccCgCompileOutput;
-}
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
     pub fn sceShaccCgDestroyCompileOutput(output: *const SceShaccCgCompileOutput);
+    pub fn sceShaccCgGetVersionString() -> *const crate::ctypes::c_char;
+    pub fn sceShaccCgInitializeCallbackList(
+        callbacks: *mut SceShaccCgCallbackList,
+        defaults: SceShaccCgCallbackDefaults,
+    );
+    pub fn sceShaccCgInitializeCompileOptions(
+        options: *mut SceShaccCgCompileOptions,
+    ) -> crate::ctypes::c_int;
+    pub fn sceShaccCgReleaseCompiler();
+    pub fn sceShaccCgSetDefaultAllocator(
+        malloc_cb: ::core::option::Option<
+            unsafe extern "C" fn(arg1: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void,
+        >,
+        free_cb: ::core::option::Option<unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void)>,
+    ) -> crate::ctypes::c_int;
 }
 pub type SceShaccCgDiagnosticLevel = crate::ctypes::c_uint;
 pub const SCE_SHACCCG_DIAGNOSTIC_LEVEL_ERROR: SceShaccCgDiagnosticLevel = 2;
@@ -27061,46 +18324,11 @@ pub struct SceShaccCgDiagnosticMessage {
     pub message: *const crate::ctypes::c_char,
 }
 pub const SCE_SHACCCG_ENGLISH: SceShaccCgLocale = 0;
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
-    pub fn sceShaccCgGetVersionString() -> *const crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
-    pub fn sceShaccCgInitializeCallbackList(
-        callbacks: *mut SceShaccCgCallbackList,
-        defaults: SceShaccCgCallbackDefaults,
-    );
-}
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
-    pub fn sceShaccCgInitializeCompileOptions(
-        options: *mut SceShaccCgCompileOptions,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_SHACCCG_JAPANESE: SceShaccCgLocale = 1;
 pub type SceShaccCgLocale = crate::ctypes::c_uint;
 pub type SceShaccCgParameter = *const crate::ctypes::c_void;
 pub const SCE_SHACCCG_PROFILE_FP: SceShaccCgTargetProfile = 1;
 pub const SCE_SHACCCG_PROFILE_VP: SceShaccCgTargetProfile = 0;
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
-    pub fn sceShaccCgReleaseCompiler();
-}
-extern "C" {
-    #[cfg(feature = "SceShaccCg_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
-    pub fn sceShaccCgSetDefaultAllocator(
-        malloc_cb: ::core::option::Option<
-            unsafe extern "C" fn(arg1: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void,
-        >,
-        free_cb: ::core::option::Option<unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void)>,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceShaccCgSourceFile {
@@ -27118,26 +18346,6 @@ pub struct SceShaccCgSourceLocation {
 pub const SCE_SHACCCG_SYSTEM_FILES: SceShaccCgCallbackDefaults = 0;
 pub type SceShaccCgTargetProfile = crate::ctypes::c_uint;
 pub const SCE_SHACCCG_TRIVIAL: SceShaccCgCallbackDefaults = 1;
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceSharedFbBegin(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceSharedFbClose(fb_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceSharedFbEnd(fb_id: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn sceSharedFbGetInfo(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSharedFbInfo {
@@ -27153,11 +18361,6 @@ pub struct SceSharedFbInfo {
     pub unk2: [crate::ctypes::c_int; 4usize],
     pub vsync: crate::ctypes::c_int,
     pub unk3: [crate::ctypes::c_int; 3usize],
-}
-extern "C" {
-    #[cfg(feature = "SceAppMgr_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
-    pub fn _sceSharedFbOpen(index: crate::ctypes::c_int, sysver: crate::ctypes::c_int) -> SceUID;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -27178,27 +18381,27 @@ pub type SceShellUtilEventHandler = ::core::option::Option<
         userData: *mut crate::ctypes::c_void,
     ),
 >;
+#[cfg(feature = "SceShellSvc_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
 extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
     pub fn sceShellUtilInitEvents(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceShellUtilLaunchAppRequestLaunchApp(
+        param: *mut SceShellUtilLaunchAppParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceShellUtilLock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
+    pub fn sceShellUtilRegisterEventHandler(
+        handler: SceShellUtilEventHandler,
+        userData: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceShellUtilRequestLaunchApp(
+        param: *mut SceShellUtilLaunchAppParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceShellUtilUnlock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceShellUtilLaunchAppParam {
     pub cmd: *const crate::ctypes::c_char,
-}
-extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
-    pub fn sceShellUtilLaunchAppRequestLaunchApp(
-        param: *mut SceShellUtilLaunchAppParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
-    pub fn sceShellUtilLock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
 }
 pub type SceShellUtilLockMode = crate::ctypes::c_uint;
 pub const SCE_SHELL_UTIL_LOCK_MODE_LOCK: SceShellUtilLockMode = 1;
@@ -27216,34 +18419,14 @@ pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK200: SceShellUtilLockType = 512;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK8: SceShellUtilLockType = 8;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK80: SceShellUtilLockType = 128;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION: SceShellUtilLockType = 16;
-extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
-    pub fn sceShellUtilRegisterEventHandler(
-        handler: SceShellUtilEventHandler,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
-    pub fn sceShellUtilRequestLaunchApp(
-        param: *mut SceShellUtilLaunchAppParam,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceShellSvc_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
-    pub fn sceShellUtilUnlock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
-}
 pub type SceShort16 = i16;
 pub type SceShutterSoundErrorCode = crate::ctypes::c_uint;
 pub const SCE_SHUTTER_SOUND_ERROR_FATAL: SceShutterSoundErrorCode = 2148553219;
 pub const SCE_SHUTTER_SOUND_ERROR_INTERNAL: SceShutterSoundErrorCode = 2148553218;
 pub const SCE_SHUTTER_SOUND_ERROR_INVALID_ARGUMENT: SceShutterSoundErrorCode = 2148553217;
+#[cfg(feature = "SceShutterSound_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceShutterSound_stub")))]
 extern "C" {
-    #[cfg(feature = "SceShutterSound_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceShutterSound_stub")))]
     pub fn sceShutterSoundPlay(type_: u32) -> crate::ctypes::c_int;
 }
 pub type SceShutterSoundType = crate::ctypes::c_uint;
@@ -27281,9 +18464,9 @@ pub const SCE_SO_IFREG: SceIoFileMode = 32;
 pub const SCE_SO_IROTH: SceIoFileMode = 4;
 pub const SCE_SO_IWOTH: SceIoFileMode = 2;
 pub const SCE_SO_IXOTH: SceIoFileMode = 1;
+#[cfg(feature = "SceSqlite_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSqlite_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSqlite_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSqlite_stub")))]
     pub fn sceSqliteConfigMallocMethods(
         methods: *mut SceSqliteMallocMethods,
     ) -> crate::ctypes::c_int;
@@ -27313,31 +18496,15 @@ pub const SCE_SSL_ERROR_INVALID_FORMAT: SceSslErrorCode = 2151895304;
 pub const SCE_SSL_ERROR_INVALID_VALUE: SceSslErrorCode = 2151895550;
 pub const SCE_SSL_ERROR_NOT_FOUND: SceSslErrorCode = 2151895077;
 pub const SCE_SSL_ERROR_OUT_OF_MEMORY: SceSslErrorCode = 2151895074;
+#[cfg(feature = "SceSsl_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslFreeSslCertName(certName: *mut SceSslCertName) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetIssuerName(sslCert: *mut SceSslCert) -> *mut SceSslCertName;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetMemoryPoolStats(
         currentStat: *mut SceSslMemoryPoolStats,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetNameEntryCount(certName: *mut SceSslCertName) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetNameEntryInfo(
         certName: *mut SceSslCertName,
         entryNum: crate::ctypes::c_int,
@@ -27347,41 +18514,22 @@ extern "C" {
         maxValueLen: crate::ctypes::c_uint,
         valueLen: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetNotAfter(
         sslCert: *mut SceSslCert,
         limit: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetNotBefore(
         sslCert: *mut SceSslCert,
         begin: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetSerialNumber(
         sslCert: *mut SceSslCert,
         sboData: *mut *const crate::ctypes::c_char,
         sboLen: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslGetSubjectName(sslCert: *mut SceSslCert) -> *mut SceSslCertName;
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
     pub fn sceSslInit(poolSize: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn sceSslTerm() -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -27390,11 +18538,6 @@ pub struct SceSslMemoryPoolStats {
     pub maxInuseSize: crate::ctypes::c_uint,
     pub currentInuseSize: crate::ctypes::c_uint,
     pub reserved: crate::ctypes::c_int,
-}
-extern "C" {
-    #[cfg(feature = "SceSsl_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
-    pub fn sceSslTerm() -> crate::ctypes::c_int;
 }
 pub type SceSysclibPrntCallback = ::core::option::Option<
     unsafe extern "C" fn(argp: *mut crate::ctypes::c_void, ch: crate::ctypes::c_int),
@@ -27544,40 +18687,34 @@ pub const SCE_SYSMODULE_INTERNAL_ULT: SceSysmoduleInternalModuleId = 2147483685;
 pub const SCE_SYSMODULE_INTERNAL_VIDEO_EXPORT: SceSysmoduleInternalModuleId = 2147483680;
 pub const SCE_SYSMODULE_INVALID: SceSysmoduleModuleId = 0;
 pub const SCE_SYSMODULE_IPMI: SceSysmoduleModuleId = 54;
+#[cfg(feature = "SceSysmodule_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
 extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
     pub fn sceSysmoduleIsLoaded(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
     pub fn sceSysmoduleIsLoadedInternal(id: SceSysmoduleInternalModuleId) -> crate::ctypes::c_int;
-}
-pub const SCE_SYSMODULE_JSON: SceSysmoduleModuleId = 85;
-pub const SCE_SYSMODULE_LIVEAREA: SceSysmoduleModuleId = 35;
-pub const SCE_SYSMODULE_LOADED: SceSysmoduleErrorCode = 0;
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
     pub fn sceSysmoduleLoadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
     pub fn sceSysmoduleLoadModuleInternal(id: SceSysmoduleInternalModuleId)
         -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
     pub fn sceSysmoduleLoadModuleInternalWithArg(
         id: SceSysmoduleInternalModuleId,
         args: SceSize,
         argp: *mut crate::ctypes::c_void,
         option: *const SceSysmoduleOpt,
     ) -> crate::ctypes::c_int;
+    pub fn sceSysmoduleUnloadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
+    pub fn sceSysmoduleUnloadModuleInternal(
+        id: SceSysmoduleInternalModuleId,
+    ) -> crate::ctypes::c_int;
+    pub fn sceSysmoduleUnloadModuleInternalWithArg(
+        id: SceSysmoduleInternalModuleId,
+        args: SceSize,
+        argp: *mut crate::ctypes::c_void,
+        option: *const SceSysmoduleOpt,
+    ) -> crate::ctypes::c_int;
 }
+pub const SCE_SYSMODULE_JSON: SceSysmoduleModuleId = 85;
+pub const SCE_SYSMODULE_LIVEAREA: SceSysmoduleModuleId = 35;
+pub const SCE_SYSMODULE_LOADED: SceSysmoduleErrorCode = 0;
 pub const SCE_SYSMODULE_LOCATION: SceSysmoduleModuleId = 20;
 pub const SCE_SYSMODULE_LOCATION_EXTENSION: SceSysmoduleModuleId = 75;
 pub const SCE_SYSMODULE_MAIL_API: SceSysmoduleModuleId = 78;
@@ -27640,28 +18777,6 @@ pub const SCE_SYSMODULE_TELEPORT_CLIENT: SceSysmoduleModuleId = 79;
 pub const SCE_SYSMODULE_TELEPORT_SERVER: SceSysmoduleModuleId = 80;
 pub const SCE_SYSMODULE_TRIGGER_UTIL: SceSysmoduleModuleId = 32;
 pub const SCE_SYSMODULE_ULT: SceSysmoduleModuleId = 7;
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
-    pub fn sceSysmoduleUnloadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
-    pub fn sceSysmoduleUnloadModuleInternal(
-        id: SceSysmoduleInternalModuleId,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceSysmodule_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
-    pub fn sceSysmoduleUnloadModuleInternalWithArg(
-        id: SceSysmoduleInternalModuleId,
-        args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        option: *const SceSysmoduleOpt,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_SYSMODULE_VIDEO_EXPORT: SceSysmoduleModuleId = 50;
 pub const SCE_SYSMODULE_VIDEO_SEARCH_EMPR: SceSysmoduleModuleId = 69;
 pub const SCE_SYSMODULE_VOICE: SceSysmoduleModuleId = 26;
@@ -27929,36 +19044,38 @@ pub struct SceTouchData {
     pub reportNum: SceUInt32,
     pub report: [SceTouchReport; 8usize],
 }
+#[cfg(feature = "SceTouch_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
 extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
     pub fn sceTouchDisableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
     pub fn sceTouchEnableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
+    pub fn sceTouchGetPanelInfo(
+        port: SceUInt32,
+        pPanelInfo: *mut SceTouchPanelInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceTouchGetSamplingState(
+        port: SceUInt32,
+        pState: *mut SceTouchSamplingState,
+    ) -> crate::ctypes::c_int;
+    pub fn sceTouchPeek(
+        port: SceUInt32,
+        pData: *mut SceTouchData,
+        nBufs: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceTouchRead(
+        port: SceUInt32,
+        pData: *mut SceTouchData,
+        nBufs: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn sceTouchSetSamplingState(
+        port: SceUInt32,
+        state: SceTouchSamplingState,
+    ) -> crate::ctypes::c_int;
 }
 pub type SceTouchErrorCode = crate::ctypes::c_uint;
 pub const SCE_TOUCH_ERROR_FATAL: SceTouchErrorCode = 2150957311;
 pub const SCE_TOUCH_ERROR_INVALID_ARG: SceTouchErrorCode = 2150957057;
 pub const SCE_TOUCH_ERROR_PRIV_REQUIRED: SceTouchErrorCode = 2150957058;
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
-    pub fn sceTouchGetPanelInfo(
-        port: SceUInt32,
-        pPanelInfo: *mut SceTouchPanelInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
-    pub fn sceTouchGetSamplingState(
-        port: SceUInt32,
-        pState: *mut SceTouchSamplingState,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_TOUCH_MAX_REPORT: u32 = 8;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -27975,28 +19092,10 @@ pub struct SceTouchPanelInfo {
     pub maxForce: SceUInt8,
     pub reserved: [SceUInt8; 30usize],
 }
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
-    pub fn sceTouchPeek(
-        port: SceUInt32,
-        pData: *mut SceTouchData,
-        nBufs: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 pub const SCE_TOUCH_PORT_BACK: SceTouchPortType = 1;
 pub const SCE_TOUCH_PORT_FRONT: SceTouchPortType = 0;
 pub const SCE_TOUCH_PORT_MAX_NUM: SceTouchPortType = 2;
 pub type SceTouchPortType = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
-    pub fn sceTouchRead(
-        port: SceUInt32,
-        pData: *mut SceTouchData,
-        nBufs: SceUInt32,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTouchReport {
@@ -28012,14 +19111,6 @@ pub const SCE_TOUCH_REPORT_INFO_HIDE_UPPER_LAYER: SceTouchReportInfo = 1;
 pub type SceTouchSamplingState = crate::ctypes::c_uint;
 pub const SCE_TOUCH_SAMPLING_STATE_START: SceTouchSamplingState = 1;
 pub const SCE_TOUCH_SAMPLING_STATE_STOP: SceTouchSamplingState = 0;
-extern "C" {
-    #[cfg(feature = "SceTouch_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
-    pub fn sceTouchSetSamplingState(
-        port: SceUInt32,
-        state: SceTouchSamplingState,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceTriggerUtilDays = crate::ctypes::c_uint;
 pub const SCE_TRIGGER_UTIL_ERROR_BUSY: SceTriggerUtilErrorCode = 2148546048;
 pub type SceTriggerUtilErrorCode = crate::ctypes::c_uint;
@@ -28048,75 +19139,46 @@ pub struct SceTriggerUtilEventParamOneTime {
     pub reserved: [SceChar8; 68usize],
 }
 pub const SCE_TRIGGER_UTIL_FRIDAY: SceTriggerUtilDays = 32;
+#[cfg(feature = "SceTriggerUtil_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
 extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetAutoStartStatus(
         status: *mut crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
         a3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetDailyEventInfo(
         eventId: crate::ctypes::c_int,
         param: *mut SceTriggerUtilEventParamDaily,
         a5: crate::ctypes::c_int,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetOneTimeEventInfo(
         eventId: crate::ctypes::c_int,
         triggerTime: *mut SceRtcTick,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetRegisteredSystemTitleIdList(
         buffer: *mut crate::ctypes::c_char,
         numOfIds: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetRegisteredUserTitleIdList(
         titleIdBuffer: *mut crate::ctypes::c_char,
         numOfIds: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetSystemAppInfo(
         titleid: *const crate::ctypes::c_char,
         appInfo: *mut SceTriggerUtilSystemAppInfo,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilGetUserAppInfo(
         titleid: *const crate::ctypes::c_char,
         appInfo: *mut SceTriggerUtilUserAppInfo,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-pub const SCE_TRIGGER_UTIL_MONDAY: SceTriggerUtilDays = 2;
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilRegisterDailyEvent(
         titleid: *const crate::ctypes::c_char,
         param: *const SceTriggerUtilEventParamDaily,
@@ -28124,10 +19186,6 @@ extern "C" {
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
     pub fn sceTriggerUtilRegisterOneTimeEvent(
         titleid: *const crate::ctypes::c_char,
         param: *const SceTriggerUtilEventParamOneTime,
@@ -28135,7 +19193,18 @@ extern "C" {
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceTriggerUtilUnregisterDailyEvent(
+        eventId: crate::ctypes::c_int,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceTriggerUtilUnregisterOneTimeEvent(
+        eventId: crate::ctypes::c_int,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
 }
+pub const SCE_TRIGGER_UTIL_MONDAY: SceTriggerUtilDays = 2;
 pub const SCE_TRIGGER_UTIL_SATURDAY: SceTriggerUtilDays = 64;
 pub const SCE_TRIGGER_UTIL_SUNDAY: SceTriggerUtilDays = 1;
 #[repr(C)]
@@ -28147,24 +19216,6 @@ pub struct SceTriggerUtilSystemAppInfo {
 }
 pub const SCE_TRIGGER_UTIL_THURSDAY: SceTriggerUtilDays = 16;
 pub const SCE_TRIGGER_UTIL_TUESDAY: SceTriggerUtilDays = 4;
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
-    pub fn sceTriggerUtilUnregisterDailyEvent(
-        eventId: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceTriggerUtil_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
-    pub fn sceTriggerUtilUnregisterOneTimeEvent(
-        eventId: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTriggerUtilUserAppInfo {
@@ -28380,20 +19431,21 @@ pub const SCE_UDCD_ERROR_USBDRIVER_INVALID_FUNCS: SceUdcdErrorCode = 2149855746;
 pub const SCE_UDCD_ERROR_USBDRIVER_INVALID_NAME: SceUdcdErrorCode = 2149855745;
 pub const SCE_UDCD_ERROR_WAIT_CANCEL: SceUdcdErrorCode = 2149855241;
 pub const SCE_UDCD_ERROR_WAIT_TIMEOUT: SceUdcdErrorCode = 2149855240;
+#[cfg(feature = "SceUdcd_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
     pub fn sceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
     pub fn sceUdcdGetDeviceState(state: *mut SceUdcdDeviceState) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
     pub fn sceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceUdcdRegisterCallback(
+        cbid: SceUID,
+        state: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUdcdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUdcdWaitState(
+        waitParam: *mut SceUdcdWaitParam,
+        timeout: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
 }
 pub type SceUdcdHidDescriptor = crate::ctypes::c_uint;
 pub type SceUdcdHidProtocol = crate::ctypes::c_uint;
@@ -28432,14 +19484,6 @@ pub const SCE_UDCD_MAX_ALTERNATE: u32 = 2;
 pub const SCE_UDCD_MAX_ENDPOINTS: u32 = 9;
 pub const SCE_UDCD_MAX_INTERFACES: u32 = 8;
 pub type SceUdcdProtocol = crate::ctypes::c_uint;
-extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
-    pub fn sceUdcdRegisterCallback(
-        cbid: SceUID,
-        state: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
 pub type SceUdcdRetcode = crate::ctypes::c_int;
 pub const SCE_UDCD_RETCODE_CANCEL: SceUdcdRetcode = -1;
 pub const SCE_UDCD_RETCODE_CANCEL_ALL: SceUdcdRetcode = -2;
@@ -28469,11 +19513,6 @@ pub struct SceUdcdStringDescriptor {
     pub bDescriptorType: crate::ctypes::c_uchar,
     pub bString: [crate::ctypes::c_short; 31usize],
 }
-extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
-    pub fn sceUdcdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-}
 pub type SceUdcdUsbClass = crate::ctypes::c_uint;
 pub type SceUdcdUsbDt = crate::ctypes::c_uint;
 pub type SceUdcdUsbReq = crate::ctypes::c_uint;
@@ -28486,14 +19525,6 @@ pub struct SceUdcdWaitParam {
     pub unk_0C: crate::ctypes::c_int,
     pub unk_10: crate::ctypes::c_int,
     pub driverName: *const crate::ctypes::c_char,
-}
-extern "C" {
-    #[cfg(feature = "SceUdcd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
-    pub fn sceUdcdWaitState(
-        waitParam: *mut SceUdcdWaitParam,
-        timeout: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
 }
 pub type SceUID = crate::ctypes::c_int;
 pub const SCE_UID_NAMELEN: u32 = 31;
@@ -28677,10 +19708,38 @@ pub type SceULong64 = u64;
 pub type SceUpdateMode = crate::ctypes::c_char;
 pub const SCE_UPDATE_MODE_SWU_CUI: u32 = 48;
 pub const SCE_UPDATE_MODE_SWU_GUI: u32 = 16;
+#[cfg(feature = "SceUsbAudioIn_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
     pub fn sceUsbAudioInCloseDevice(device_id: SceUInt32) -> SceInt32;
+    pub fn sceUsbAudioInGetDeviceIdList(
+        list: *mut SceUsbAudioInDeviceListItem,
+        device_count: *mut SceUInt32,
+        list_size: SceUInt32,
+    ) -> SceInt32;
+    pub fn sceUsbAudioInGetDeviceInformation(
+        device_id: SceUInt32,
+        info: *mut SceUsbAudioInDeviceInfo,
+    ) -> SceInt32;
+    pub fn sceUsbAudioInGetMaxValueOfVolume(
+        device_id: SceUInt32,
+        volume: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceUsbAudioInGetMinValueOfVolume(
+        device_id: SceUInt32,
+        volume: *mut SceUInt32,
+    ) -> SceInt32;
+    pub fn sceUsbAudioInInput(device_id: SceUInt32, buffer: *mut crate::ctypes::c_void)
+        -> SceInt32;
+    pub fn sceUsbAudioInOpenDevice(
+        device_id: SceUInt32,
+        bits: crate::ctypes::c_int,
+        rate: crate::ctypes::c_int,
+    ) -> SceInt32;
+    pub fn sceUsbAudioInSetCurrentValueOfVolume(
+        device_id: SceUInt32,
+        volume: SceUInt32,
+    ) -> SceInt32;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -28712,78 +19771,78 @@ pub const SCE_USBAUDIO_IN_ERROR_PROCESS_CANNOT_OPEN_MORE_DEVICE: SceUsbAudioInEr
 pub const SCE_USBAUDIO_IN_ERROR_PROCESS_HAS_NOT_A_DEVICE_OWNERSHIP: SceUsbAudioInErrorCode =
     2151546888;
 pub const SCE_USBAUDIO_IN_ERROR_TIMEOUT: SceUsbAudioInErrorCode = 2151546894;
+#[cfg(feature = "SceUsbd_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInGetDeviceIdList(
-        list: *mut SceUsbAudioInDeviceListItem,
-        device_count: *mut SceUInt32,
-        list_size: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInGetDeviceInformation(
-        device_id: SceUInt32,
-        info: *mut SceUsbAudioInDeviceInfo,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInGetMaxValueOfVolume(
-        device_id: SceUInt32,
-        volume: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInGetMinValueOfVolume(
-        device_id: SceUInt32,
-        volume: *mut SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInInput(device_id: SceUInt32, buffer: *mut crate::ctypes::c_void)
-        -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInOpenDevice(
-        device_id: SceUInt32,
-        bits: crate::ctypes::c_int,
-        rate: crate::ctypes::c_int,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbAudioIn_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
-    pub fn sceUsbAudioInSetCurrentValueOfVolume(
-        device_id: SceUInt32,
-        volume: SceUInt32,
-    ) -> SceInt32;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
     pub fn sceUsbdAttach(
         uid: SceUID,
         driver_id: SceUID,
         bus: SceUInt,
         device: SceUInt,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
     pub fn sceUsbdAttachCompositeLdd(
         uid: SceUID,
         param: *mut SceUsbdAttachCompositeParam,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdClosePipe(uid: SceUID, pipe_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdEnd(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetDescriptor(
+        uid: SceUID,
+        device_id: SceUID,
+        descriptor: *mut crate::ctypes::c_uchar,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetDescriptorSize(
+        uid: SceUID,
+        device_id: crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetDeviceAddress(
+        uid: SceUID,
+        device_id: SceUID,
+        addr: *mut SceUsbdDeviceAddress,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetDeviceList(
+        uid: SceUID,
+        num: SceSize,
+        info: *mut SceUsbdDeviceInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetDeviceSpeed(
+        uid: SceUID,
+        device_id: SceUID,
+        speed: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetIsochTransferStatus(
+        transfer_id: SceUID,
+        status: *mut SceUsbdIsochTransferStatus,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdGetTransferStatus(
+        transfer_id: SceUID,
+        status: *mut SceUsbdTransferStatus,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdInit(uid: *mut SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdIsochTransferData(
+        uid: SceUID,
+        pipe_id: SceUID,
+        transfer: *mut SceUsbdIsochTransfer,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdOpenDefaultPipe(uid: SceUID, device_id: SceUID) -> SceUID;
+    pub fn sceUsbdOpenPipe(uid: SceUID, pipe: *mut SceUsbdDevicePipe) -> SceUID;
+    pub fn sceUsbdReceiveEvent(
+        uid: SceUID,
+        event: *mut SceUsbdReceiveEvent,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdRegisterCallback(
+        cbid: SceUID,
+        flag: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdRegisterCompositeLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
+    pub fn sceUsbdRegisterLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
+    pub fn sceUsbdResetDevice(uid: SceUID, device_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdTransferData(uid: SceUID, data: *mut SceUsbdTransferData) -> SceUID;
+    pub fn sceUsbdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdUnregisterLdd(
+        uid: SceUID,
+        name: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
 }
 #[repr(C)]
@@ -28809,11 +19868,6 @@ pub const SCE_USBD_CLASS_POWER: u32 = 6;
 pub const SCE_USBD_CLASS_PRINTER: u32 = 7;
 pub const SCE_USBD_CLASS_STORAGE: u32 = 8;
 pub const SCE_USBD_CLASS_VENDOR_SPECIFIC: u32 = 255;
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdClosePipe(uid: SceUID, pipe_id: SceUID) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdCompositeDriver {
@@ -28928,11 +19982,6 @@ pub struct SceUsbdDriver {
         unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
     >,
 }
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdEnd(uid: SceUID) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdEndpointDescriptor {
@@ -28968,67 +20017,6 @@ pub const SCE_USBD_ERROR_NOT_INITIALIZED: SceUsbdErrorCode = 2149842945;
 pub const SCE_USBD_ERROR_PIPE_NOT_FOUND: SceUsbdErrorCode = 2149842948;
 pub const SCE_USBD_FEATURE_DEVICE_REMOTE_WAKEUP: u32 = 1;
 pub const SCE_USBD_FEATURE_ENDPOINT_HALT: u32 = 0;
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetDescriptor(
-        uid: SceUID,
-        device_id: SceUID,
-        descriptor: *mut crate::ctypes::c_uchar,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetDescriptorSize(
-        uid: SceUID,
-        device_id: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetDeviceAddress(
-        uid: SceUID,
-        device_id: SceUID,
-        addr: *mut SceUsbdDeviceAddress,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetDeviceList(
-        uid: SceUID,
-        num: SceSize,
-        info: *mut SceUsbdDeviceInfo,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetDeviceSpeed(
-        uid: SceUID,
-        device_id: SceUID,
-        speed: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetIsochTransferStatus(
-        transfer_id: SceUID,
-        status: *mut SceUsbdIsochTransferStatus,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdGetTransferStatus(
-        transfer_id: SceUID,
-        status: *mut SceUsbdTransferStatus,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug)]
 pub struct SceUsbdHidDescriptor {
@@ -29046,11 +20034,6 @@ pub struct SceUsbdHidSubDescriptorInfo {
     pub bDescriptorType: u8,
     pub wDescriptorLength0: u8,
     pub wDescriptorLength1: u8,
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdInit(uid: *mut SceUID) -> crate::ctypes::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -29079,15 +20062,6 @@ pub struct SceUsbdIsochTransfer {
     pub unk8: crate::ctypes::c_uint,
     pub unk9: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdIsochTransferData(
-        uid: SceUID,
-        pipe_id: SceUID,
-        transfer: *mut SceUsbdIsochTransfer,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdIsochTransferStatus {
@@ -29102,16 +20076,6 @@ pub const SCE_USBD_MAX_FS_INTERRUPT_PACKET_SIZE: u32 = 64;
 pub const SCE_USBD_MAX_ISOCHRONOUS_PACKET_SIZE: u32 = 1023;
 pub const SCE_USBD_MAX_LS_CONTROL_PACKET_SIZE: u32 = 8;
 pub const SCE_USBD_MAX_LS_INTERRUPT_PACKET_SIZE: u32 = 8;
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdOpenDefaultPipe(uid: SceUID, device_id: SceUID) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdOpenPipe(uid: SceUID, pipe: *mut SceUsbdDevicePipe) -> SceUID;
-}
 pub const SCE_USBD_PROBE_FAILED: i32 = -1;
 pub const SCE_USBD_PROBE_SUCCEEDED: u32 = 0;
 #[repr(C)]
@@ -29124,32 +20088,6 @@ pub struct SceUsbdReceiveEvent {
     pub unk4: crate::ctypes::c_uint,
     pub unk5: crate::ctypes::c_uint,
     pub transfer_id: crate::ctypes::c_uint,
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdReceiveEvent(
-        uid: SceUID,
-        event: *mut SceUsbdReceiveEvent,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdRegisterCallback(
-        cbid: SceUID,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdRegisterCompositeLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdRegisterLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
 }
 pub type SceUsbdReqtype = crate::ctypes::c_uint;
 pub const SCE_USBD_REQTYPE_DIR_BITS: SceUsbdReqtype = 128;
@@ -29177,11 +20115,6 @@ pub const SCE_USBD_REQUEST_SET_DESCRIPTOR: SceUsbdRequest = 7;
 pub const SCE_USBD_REQUEST_SET_FEATURE: SceUsbdRequest = 3;
 pub const SCE_USBD_REQUEST_SET_INTERFACE: SceUsbdRequest = 11;
 pub const SCE_USBD_REQUEST_SYNCH_FRAME: SceUsbdRequest = 12;
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdResetDevice(uid: SceUID, device_id: SceUID) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug)]
 pub struct SceUsbdStringDescriptor {
@@ -29198,11 +20131,6 @@ pub struct SceUsbdTransferData {
     pub transferred: *mut crate::ctypes::c_void,
     pub timeout: crate::ctypes::c_uint,
 }
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdTransferData(uid: SceUID, data: *mut SceUsbdTransferData) -> SceUID;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdTransferStatus {
@@ -29211,72 +20139,31 @@ pub struct SceUsbdTransferStatus {
     pub unk2: u32,
     pub unk3: u32,
 }
+#[cfg(feature = "SceUsbSerial_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbd_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
-    pub fn sceUsbdUnregisterLdd(
-        uid: SceUID,
-        name: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialClose() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialRecv(
         buffer: *mut crate::ctypes::c_void,
         max_len: crate::ctypes::c_uint,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialSend(
         buffer: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialStart() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbSerial_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
     pub fn sceUsbSerialStatus() -> crate::ctypes::c_int;
 }
+#[cfg(feature = "SceUsbServ_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServ_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbServ_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServ_stub")))]
     pub fn sceUsbServAccessoryActivate() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbServ_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServ_stub")))]
     pub fn sceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
 }
 pub type SceUsbservErrorCode = crate::ctypes::c_uint;
@@ -29284,29 +20171,17 @@ pub const SCE_USBSERV_ERROR_FATAL: SceUsbservErrorCode = 2149875967;
 pub const SCE_USBSERV_ERROR_INVALID_PARAM: SceUsbservErrorCode = 2149875715;
 pub const SCE_USBSERV_ERROR_NOT_SUPPORTED: SceUsbservErrorCode = 2149875716;
 pub const SCE_USBSERV_ERROR_UNAVAILABLE: SceUsbservErrorCode = 2149875714;
+#[cfg(feature = "SceUsbstorVStorDriver_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
 extern "C" {
-    #[cfg(feature = "SceUsbstorVStorDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
     pub fn sceUsbstorVStorSetDeviceInfo(
         name: *const crate::ctypes::c_char,
         version: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbstorVStorDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
     pub fn sceUsbstorVStorSetImgFilePath(
         path: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbstorVStorDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
     pub fn sceUsbstorVStorStart(type_: SceUsbstorVstorType) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceUsbstorVStorDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
     pub fn sceUsbstorVStorStop() -> crate::ctypes::c_int;
 }
 pub type SceUsbstorVstorType = crate::ctypes::c_uint;
@@ -29328,14 +20203,6 @@ pub const SCE_VIDEODEC_ERROR_NOT_INITIALIZE: SceVideodecErrorCode = 2153908236;
 pub const SCE_VIDEODEC_ERROR_NOT_PHY_CONTINUOUS_MEMORY: SceVideodecErrorCode = 2153908231;
 pub const SCE_VIDEODEC_ERROR_OUT_OF_MEMORY: SceVideodecErrorCode = 2153908227;
 pub const SCE_VIDEODEC_ERROR_UNSUPPORT_IMAGE_SIZE: SceVideodecErrorCode = 2153908229;
-extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
-    pub fn sceVideodecInitLibrary(
-        codec: SceVideodecType,
-        initInfo: *const SceVideodecQueryInitInfoHwAvcdec,
-    ) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceVideodecQueryInitInfo {
@@ -29351,11 +20218,6 @@ pub struct SceVideodecQueryInitInfoHwAvcdec {
     pub numOfRefFrames: u32,
     pub numOfStreams: u32,
 }
-extern "C" {
-    #[cfg(feature = "SceVideodec_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
-    pub fn sceVideodecTermLibrary(codec: SceVideodecType) -> crate::ctypes::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceVideodecTimeStamp {
@@ -29364,9 +20226,9 @@ pub struct SceVideodecTimeStamp {
 }
 pub type SceVideodecType = crate::ctypes::c_uint;
 pub const SCE_VIDEODEC_TYPE_HW_AVCDEC: SceVideodecType = 4097;
+#[cfg(feature = "SceVideoExport_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceVideoExport_stub")))]
 extern "C" {
-    #[cfg(feature = "SceVideoExport_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVideoExport_stub")))]
     pub fn sceVideoExportFromFile(
         in_param: *const VideoExportInputParam,
         unk: crate::ctypes::c_int,
@@ -29383,145 +20245,13 @@ extern "C" {
 pub type SceVoid = crate::ctypes::c_void;
 pub type SceWChar16 = u16;
 pub type SceWChar32 = u32;
+#[cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub"))]
+#[cfg_attr(
+    docsrs,
+    doc(cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub")))
+)]
 extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn snprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
-        ...
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub")))
-    )]
     pub fn __stack_chk_fail() -> !;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strchr(
-        src: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strlen(s: *const crate::ctypes::c_char) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
-    pub fn __strncpy_chk(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-        dst_len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
-    pub fn strnlen(
-        s: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_uint;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strstr(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> *mut crate::ctypes::c_char;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strtol(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_long;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strtoll(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_longlong;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn strtoul(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_ulong;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -29536,31 +20266,6 @@ pub struct SulphaNgsRegistration {
 }
 pub type ThreadCpuRegisters = SceThreadCpuRegisters;
 pub type time_t = crate::ctypes::c_long;
-extern "C" {
-    #[cfg(feature = "SceSysclibForDriver_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
-    pub fn timingsafe_memcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
-        n: usize,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn tolower(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn toupper(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
 pub type uint_fast16_t = u16;
 pub type uint_fast32_t = u32;
 pub type uint_fast64_t = u64;
@@ -29653,277 +20358,104 @@ pub struct VideoExportOutputParam {
     pub path: [crate::ctypes::c_char; 1024usize],
     pub reserved: [crate::ctypes::c_char; 8usize],
 }
+#[cfg(feature = "vitasdk-utils")]
+#[cfg_attr(docsrs, doc(cfg(feature = "vitasdk-utils")))]
 extern "C" {
-    #[cfg(feature = "vitasdk-utils")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "vitasdk-utils")))]
     pub fn vitasdk_delete_thread_reent(thid: SceUID) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "vitasdk-utils")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "vitasdk-utils")))]
     pub fn vitasdk_get_pthread_data(thid: SceUID) -> *mut crate::ctypes::c_void;
-}
-extern "C" {
-    #[cfg(feature = "vitasdk-utils")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "vitasdk-utils")))]
     pub fn vitasdk_get_tls_data(thid: SceUID) -> *mut crate::ctypes::c_void;
 }
+#[cfg(feature = "SceVshBridge_stub")]
+#[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
 extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIdStorageIsDirty() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIdStorageIsFormatted() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIdStorageIsReadOnly() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIdStorageReadLeaf(
-        leafnum: SceSize,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIdStorageWriteLeaf(
-        leafnum: SceSize,
-        buf: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshIoMount(
         id: crate::ctypes::c_int,
         path: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshIoUmount(
-        id: crate::ctypes::c_int,
-        force: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
-        unk3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshKernelSearchModuleByName(
         module_name: *const crate::ctypes::c_char,
         buffer: *const crate::ctypes::c_void,
     ) -> SceUID;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshMemoryCardGetCardInsertState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmEbootSigConvert(
         eboot_pbp_path: *const crate::ctypes::c_char,
         old_eboot_signature: *const crate::ctypes::c_void,
         new_eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmEbootSigGenMultiDisc(
         eboot_pbp_path: *const crate::ctypes::c_char,
         sce_discinfo: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmEbootSigGenPs1(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmEbootSigGenPsp(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmEbootSigVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_char,
         eboot_signature_header: *mut *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmPspEbootSigGen(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshNpDrmPspEbootVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_char,
         eboot_signature_header: *mut *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshRemovableMemoryGetCardInsertState() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshSblAimgrGetConsoleId(CID: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsCEX() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsDEX() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsDolce() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsTest() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsTool() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblAimgrIsVITA() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
     pub fn _vshSblGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSblSsIsDevelopmentMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconHasWWAN() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIduModeClear() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIduModeSet() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIsDownLoaderMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIsIduMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIsMCEmuCapable() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconIsShowMode() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconShowModeClear() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(feature = "SceVshBridge_stub")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
-    pub fn vshSysconShowModeSet() -> crate::ctypes::c_int;
-}
-extern "C" {
-    #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-    #[cfg_attr(
-        docsrs,
-        doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-    )]
-    pub fn vsnprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
-        arg: u32,
+    pub fn vshIdStorageIsDirty() -> crate::ctypes::c_int;
+    pub fn vshIdStorageIsFormatted() -> crate::ctypes::c_int;
+    pub fn vshIdStorageIsReadOnly() -> crate::ctypes::c_int;
+    pub fn vshIdStorageReadLeaf(
+        leafnum: SceSize,
+        buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn vshIdStorageWriteLeaf(
+        leafnum: SceSize,
+        buf: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn vshIoUmount(
+        id: crate::ctypes::c_int,
+        force: crate::ctypes::c_int,
+        unk2: crate::ctypes::c_int,
+        unk3: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn vshMemoryCardGetCardInsertState() -> crate::ctypes::c_int;
+    pub fn vshMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
+    pub fn vshRemovableMemoryGetCardInsertState() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsCEX() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsDEX() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsDolce() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsTest() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsTool() -> crate::ctypes::c_int;
+    pub fn vshSblAimgrIsVITA() -> crate::ctypes::c_int;
+    pub fn vshSblSsIsDevelopmentMode() -> crate::ctypes::c_int;
+    pub fn vshSysconHasWWAN() -> crate::ctypes::c_int;
+    pub fn vshSysconIduModeClear() -> crate::ctypes::c_int;
+    pub fn vshSysconIduModeSet() -> crate::ctypes::c_int;
+    pub fn vshSysconIsDownLoaderMode() -> crate::ctypes::c_int;
+    pub fn vshSysconIsIduMode() -> crate::ctypes::c_int;
+    pub fn vshSysconIsMCEmuCapable() -> crate::ctypes::c_int;
+    pub fn vshSysconIsShowMode() -> crate::ctypes::c_int;
+    pub fn vshSysconShowModeClear() -> crate::ctypes::c_int;
+    pub fn vshSysconShowModeSet() -> crate::ctypes::c_int;
 }
 pub type wchar_t = crate::ctypes::c_uint;
