@@ -113,7 +113,7 @@ pub fn missing_features_filter(vitasdk_sys_manifest: &Path) -> impl FnMut(&Strin
 
     #[derive(Default, serde::Deserialize)]
     struct Features {
-        #[serde(default)]
+        #[serde(default, rename = "all-stubs")]
         all_stubs: Vec<String>,
     }
 
