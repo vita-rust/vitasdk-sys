@@ -22,8 +22,7 @@ inherits = "dev"
 debug = false
 
 [build-dependencies]
-env_logger = "0.10.0"
-log = "0.4.20"
+env_logger = { version = "0.10.0", optional = true }
 
 [build-dependencies.vitasdk-sys-build-util]
 path = "build-util"
@@ -39,6 +38,7 @@ cargo-args = ["-Z", "build-std"]
 
 [features]
 bindgen = ["vitasdk-sys-build-util"]
+log-build = ["dep:env_logger"]
 
 vitasdk-utils = []
 

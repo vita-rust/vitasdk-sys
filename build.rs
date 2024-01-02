@@ -2,6 +2,7 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    #[cfg(feature = "log-build")]
     env_logger::init();
 
     if std::env::var("DOCS_RS").is_ok() {

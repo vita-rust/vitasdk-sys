@@ -511,7 +511,6 @@ name = "vitasdk-sys"
 version = "0.3.2"
 dependencies = [
  "env_logger",
- "log",
  "vitasdk-sys-build-util",
 ]
 
