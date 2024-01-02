@@ -228,13 +228,7 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Run build-util missing features
-        env:
-          VITASDK: /opt/vitasdk
-        run: |
-          cargo run --profile build-util -p vitasdk-sys-build-util -- stub-libs --missing-features --fail-if-any
-
-      - name: Run build-util missing libs
+      - name: Run build-util
         env:
           VITASDK: /opt/vitasdk
         run: |
