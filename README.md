@@ -72,7 +72,7 @@ $ git pull
 $ cd ..
 ```
 
-Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.
+Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.
 
 Then run `cargo run -p vitasdk-sys-build-util -- bindgen`
 

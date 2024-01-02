@@ -85,8 +85,7 @@ impl Link {
         });
 
         if db.stub_lib_names().any(|s| predicate(&s)) {
-            panic!("Missing features in vitasdk-sys `Cargo.toml`. \
-                Please run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.")
+            panic!("Missing features in vitasdk-sys `Cargo.toml`. Please run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.")
         }
 
         link

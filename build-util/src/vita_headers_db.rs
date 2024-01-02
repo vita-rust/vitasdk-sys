@@ -1,5 +1,5 @@
 use std::{
-    collections::{btree_map, BTreeMap},
+    collections::{btree_map, BTreeMap, HashSet},
     fmt, fs, io, mem,
     path::{Path, PathBuf},
 };
@@ -105,16 +105,25 @@ impl VitaDb {
 }
 
 pub fn missing_features_filter(vitasdk_sys_manifest: &Path) -> impl FnMut(&String) -> bool {
-    #[derive(Debug, serde::Deserialize)]
+    #[derive(serde::Deserialize)]
     struct CargoManifest {
         #[serde(default)]
-        features: BTreeMap<String, Vec<String>>,
+        features: Features,
     }
 
-    let manifest = fs::read_to_string(vitasdk_sys_manifest).unwrap();
-    let manifest: CargoManifest = toml::from_str(&manifest).unwrap();
+    #[derive(Default, serde::Deserialize)]
+    struct Features {
+        #[serde(default)]
+        all_stubs: Vec<String>,
+    }
 
-    move |stub_lib| !manifest.features.contains_key(stub_lib)
+    let manifest =
+        fs::read_to_string(vitasdk_sys_manifest).expect("Unable to load vitasdk's Cargo.toml");
+    let manifest: CargoManifest =
+        toml::from_str(&manifest).expect("Unable to parse vitasdk's Cargo.toml");
+    let stubs: HashSet<_> = manifest.features.all_stubs.into_iter().collect();
+
+    move |stub_lib| !stubs.contains(stub_lib)
 }
 
 pub fn missing_libs_filter() -> impl FnMut(&String) -> bool {
