@@ -147,10 +147,9 @@ impl Link {
                 // Adds feature attributes to mod
                 if features.len() == 1 {
                     let feature = features.first();
-                    foreign_mod.attrs.extend([
-                        syn::parse_quote!(#[cfg(feature = #feature)]),
-                        syn::parse_quote!(#[cfg_attr(docsrs, doc(cfg(feature = #feature)))]),
-                    ]);
+                    foreign_mod
+                        .attrs
+                        .push(syn::parse_quote!(#[cfg(feature = #feature)]));
                 } else {
                     let item_idents: Vec<_> = items.iter().map(foreign_item_ident).collect();
                     log::warn!(
@@ -161,16 +160,10 @@ impl Link {
                             syn::parse_quote!(feature = #feature)
                         })
                     };
-                    foreign_mod.attrs.extend([
-                    {
+                    foreign_mod.attrs.push({
                         let feature_gates = feature_gates();
                         syn::parse_quote!(#[cfg(any(#(#feature_gates),*))])
-                    },
-                    {
-                        let feature_gates = feature_gates();
-                        syn::parse_quote!(#[cfg_attr(docsrs, doc(cfg(any(#(#feature_gates),*))))])
-                    },
-                ]);
+                    });
                 }
 
                 // Adds items to mod

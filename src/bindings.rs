@@ -848,7 +848,6 @@ pub type int_least64_t = i64;
 pub type int_least8_t = i8;
 pub type intmax_t = crate::ctypes::c_longlong;
 #[cfg(feature = "SceKernelUtilsForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelUtilsForDriver_stub")))]
 extern "C" {
     pub fn ksceAesDecrypt1(
         ctx: *mut SceAesContext,
@@ -1005,7 +1004,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceAppMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceAppMgrKillProcess(pid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceAppMgrLaunchAppByPath(
@@ -1018,7 +1016,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceBtForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceBtForDriver_stub")))]
 extern "C" {
     pub fn ksceBtAvrcpReadVolume(
         r0: crate::ctypes::c_int,
@@ -1234,7 +1231,6 @@ extern "C" {
     pub fn ksceBtUnregisterCallback(cb: SceUID) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceCtrlForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCtrlForDriver_stub")))]
 extern "C" {
     pub fn ksceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
@@ -1309,13 +1305,6 @@ extern "C" {
     feature = "SceDebugForKernel_363_stub",
     feature = "SceDebugForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceDebugForKernel_363_stub",
-        feature = "SceDebugForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
@@ -1341,7 +1330,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDebugLedForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugLedForDriver_stub")))]
 extern "C" {
     pub fn ksceDebugLedInvokeHandle0(
         a1: crate::ctypes::c_int,
@@ -1381,7 +1369,6 @@ extern "C" {
     pub fn ksceKernelSetGPO(gpo: SceUInt32);
 }
 #[cfg(feature = "SceDisplayForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDisplayForDriver_stub")))]
 extern "C" {
     pub fn ksceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
@@ -1459,7 +1446,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDmacmgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDmacmgrForDriver_stub")))]
 extern "C" {
     pub fn ksceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
@@ -1510,7 +1496,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDsiForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDsiForDriver_stub")))]
 extern "C" {
     pub fn ksceDsiDcsRead(
         head: crate::ctypes::c_int,
@@ -1555,7 +1540,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDebugForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForDriver_stub")))]
 extern "C" {
     pub fn ksceEventLogGetInfo(
         buf: *mut crate::ctypes::c_void,
@@ -1629,13 +1613,6 @@ extern "C" {
     feature = "SceExcpmgrForKernel_363_stub",
     feature = "SceExcpmgrForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceExcpmgrForKernel_363_stub",
-        feature = "SceExcpmgrForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceExcpmgrGetData() -> *mut SceExcpmgrData;
     pub fn ksceExcpmgrRegisterHandler(
@@ -1645,7 +1622,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceFios2KernelForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceFios2KernelForDriver_stub")))]
 extern "C" {
     pub fn ksceFiosKernelOverlayAdd(
         overlay: *mut SceFiosOverlay,
@@ -1669,7 +1645,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceGpioForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceGpioForDriver_stub")))]
 extern "C" {
     pub fn ksceGpioAcquireIntr(
         bus: crate::ctypes::c_int,
@@ -1715,7 +1690,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSysmemForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForDriver_stub")))]
 extern "C" {
     pub fn ksceGUIDClose(guid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceGUIDReferObject(
@@ -1930,7 +1904,6 @@ extern "C" {
     pub fn kscePUIDtoGUID(pid: SceUID, puid: SceUID) -> SceUID;
 }
 #[cfg(feature = "SceSysmemForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmemForKernel_stub")))]
 extern "C" {
     pub fn ksceGUIDGetUIDVectorByClass(
         cls: *mut SceClass,
@@ -1959,13 +1932,6 @@ extern "C" {
     feature = "SceSysmemForKernel_363_stub",
     feature = "SceSysmemForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceSysmemForKernel_363_stub",
-        feature = "SceSysmemForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceGUIDKernelCreateWithOpt(
         sce_class: *mut SceClass,
@@ -1989,7 +1955,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceI2cForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceI2cForDriver_stub")))]
 extern "C" {
     pub fn ksceI2cInit(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceI2cReset(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -2020,7 +1985,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceIdStorageForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIdStorageForDriver_stub")))]
 extern "C" {
     pub fn ksceIdStorageReadLeaf(
         leafnum: SceSize,
@@ -2032,7 +1996,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceIftuForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIftuForDriver_stub")))]
 extern "C" {
     pub fn ksceIftuCsc(
         dst: *mut SceIftuFrameBuf,
@@ -2041,7 +2004,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceIofilemgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgrForDriver_stub")))]
 extern "C" {
     pub fn ksceIoChstat(
         file: *const crate::ctypes::c_char,
@@ -2147,7 +2109,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceAvcodecForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAvcodecForDriver_stub")))]
 extern "C" {
     pub fn ksceJpegEncoderCsc(
         context: SceJpegEncoderContext,
@@ -2190,7 +2151,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceThreadmgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceThreadmgrForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
     pub fn ksceKernelCancelMsgPipe(
@@ -2479,7 +2439,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDipswForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDipswForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelCheckDipsw(bit: crate::ctypes::c_uint) -> crate::ctypes::c_int;
     pub fn ksceKernelClearDipsw(bit: crate::ctypes::c_uint);
@@ -2487,7 +2446,6 @@ extern "C" {
     pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
 }
 #[cfg(feature = "SceIntrmgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIntrmgrForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelClearIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceKernelDisableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -2562,10 +2520,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub"))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub")))
-)]
 extern "C" {
     pub fn ksceKernelCorelockInitialize(ctx: *mut SceCorelockContext);
     pub fn ksceKernelCorelockLock(ctx: *mut SceCorelockContext, core: SceUInt32);
@@ -2585,7 +2539,6 @@ extern "C" {
     pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
 }
 #[cfg(feature = "SceCpuForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCpuForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
     pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
@@ -2643,7 +2596,6 @@ extern "C" {
     );
 }
 #[cfg(feature = "SceProcessmgrForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForKernel_stub")))]
 extern "C" {
     pub fn ksceKernelCreateProcess(
         titleid: *const crate::ctypes::c_char,
@@ -2664,7 +2616,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceProcessmgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgrForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelCreateProcessLocalStorage(
         name: *const crate::ctypes::c_char,
@@ -2689,7 +2640,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceModulemgrForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForKernel_stub")))]
 extern "C" {
     pub fn ksceKernelGetLibraryInfoForDebugger(
         pid: SceUID,
@@ -2734,13 +2684,6 @@ extern "C" {
     feature = "SceModulemgrForKernel_363_stub",
     feature = "SceModulemgrForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceModulemgrForKernel_363_stub",
-        feature = "SceModulemgrForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceKernelGetModuleInfo(
         pid: SceUID,
@@ -2793,18 +2736,10 @@ extern "C" {
     feature = "SceProcessmgrForKernel_363_stub",
     feature = "SceProcessmgrForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceProcessmgrForKernel_363_stub",
-        feature = "SceProcessmgrForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
 }
 #[cfg(feature = "SceModulemgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceModulemgrForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
     pub fn ksceKernelLoadModule(
@@ -2891,20 +2826,12 @@ extern "C" {
     feature = "SceThreadmgrForKernel_363_stub",
     feature = "SceThreadmgrForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceThreadmgrForKernel_363_stub",
-        feature = "SceThreadmgrForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceKernelGetThreadContextInfo(
         pInfo: *mut SceKernelThreadContextInfo,
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceProcEventForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceProcEventForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelInvokeProcEventHandler(
         pid: SceUID,
@@ -2922,7 +2849,6 @@ extern "C" {
     pub fn ksceKernelUnregisterProcEventHandler(uid: SceUID) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceKernelSuspendForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelSuspendForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
     pub fn ksceKernelRegisterSysEventHandler(
@@ -2932,12 +2858,10 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceDebugForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDebugForKernel_stub")))]
 extern "C" {
     pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSysrootForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForKernel_stub")))]
 extern "C" {
     pub fn ksceKernelSysrootGetKblParam() -> *mut crate::ctypes::c_void;
     pub fn ksceKernelSysrootGetProcessTitleId(
@@ -2964,7 +2888,6 @@ extern "C" {
     pub fn ksceSysrootIsUsbEnumWakeup() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSysrootForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysrootForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelSysrootGetShellPid() -> SceUID;
     pub fn ksceKernelSysrootGetSystemSwVersion() -> crate::ctypes::c_int;
@@ -2978,7 +2901,6 @@ extern "C" {
     pub fn ksceSysrootUseInternalStorage() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSystimerForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSystimerForDriver_stub")))]
 extern "C" {
     pub fn ksceKernelSysTimerAlloc(timerType: SceSysTimerType) -> SceSysTimerId;
     pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> crate::ctypes::c_int;
@@ -3010,12 +2932,10 @@ extern "C" {
     pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceMsifForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceMsifForDriver_stub")))]
 extern "C" {
     pub fn ksceMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceNetPsForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNetPsForDriver_stub")))]
 extern "C" {
     pub fn ksceNetAccept(
         s: crate::ctypes::c_int,
@@ -3068,7 +2988,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceNpDrmForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrmForDriver_stub")))]
 extern "C" {
     pub fn ksceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
@@ -3153,7 +3072,6 @@ extern "C" {
     pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "ScePervasiveForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePervasiveForDriver_stub")))]
 extern "C" {
     pub fn kscePervasiveDsiClockDisable(
         port: crate::ctypes::c_int,
@@ -3200,7 +3118,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "ScePfsMgrForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePfsMgrForKernel_stub")))]
 extern "C" {
     pub fn kscePfsApprove(
         rnd_drive_id: *const ScePfsRndDriveId,
@@ -3226,13 +3143,11 @@ extern "C" {
     pub fn kscePfsUnmount(rnd_drive_id: *const ScePfsRndDriveId) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "ScePmMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePmMgrForDriver_stub")))]
 extern "C" {
     pub fn kscePmMgrGetProductMode(result: *mut SceProductMode) -> crate::ctypes::c_int;
     pub fn kscePmMgrIsExternalBootMode() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "ScePowerForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePowerForDriver_stub")))]
 extern "C" {
     pub fn kscePowerGetArmClockFrequency() -> crate::ctypes::c_int;
     pub fn kscePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
@@ -3264,7 +3179,6 @@ extern "C" {
     pub fn kscePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceRegMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRegMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceRegMgrGetKeyBin(
         category: *const crate::ctypes::c_char,
@@ -3302,7 +3216,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceRtcForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRtcForDriver_stub")))]
 extern "C" {
     pub fn ksceRtcConvertDateTimeToUnixTime(
         src: *const SceDateTime,
@@ -3327,7 +3240,6 @@ extern "C" {
     pub fn ksceRtcSetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblACMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblACMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceSblACMgrGetMediaType(
         path: *const crate::ctypes::c_char,
@@ -3347,7 +3259,6 @@ extern "C" {
     pub fn ksceSblACMgrIsSystemProgram(pid: SceUID) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblSsMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceSblAimgrGetConsoleId(cid: *mut SceConsoleId) -> crate::ctypes::c_int;
     pub fn ksceSblAimgrGetOpenPsId(open_psid: *mut SceOpenPsId) -> crate::ctypes::c_int;
@@ -3391,7 +3302,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblAIMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblAIMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceSblAimgrGetProductCode() -> crate::ctypes::c_int;
     pub fn ksceSblAimgrGetProductSubCode() -> crate::ctypes::c_int;
@@ -3406,7 +3316,6 @@ extern "C" {
     pub fn ksceSblAimgrIsVITA() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblAuthMgrForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblAuthMgrForKernel_stub")))]
 extern "C" {
     pub fn ksceSblAuthMgrClearDmac5Key(
         slot_id: crate::ctypes::c_int,
@@ -3420,7 +3329,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblPostSsMgrForDriver_stub")))]
 extern "C" {
     pub fn ksceSblRSA2048CreateSignature(
         rsa_signature: *mut SceSblRsaDataParam,
@@ -3436,7 +3344,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSblSmCommForKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSmCommForKernel_stub")))]
 extern "C" {
     pub fn ksceSblSmCommCallFunc(
         id: SceSblSmCommId,
@@ -3458,7 +3365,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSysconForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysconForDriver_stub")))]
 extern "C" {
     pub fn ksceSysconBeginConfigstorageTransaction() -> crate::ctypes::c_int;
     pub fn ksceSysconClearTemperatureLog(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -3562,7 +3468,6 @@ extern "C" {
     pub fn ksceSysconWaitInitialized() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceTouchForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceTouchForDriver_stub")))]
 extern "C" {
     pub fn ksceTouchSetEnableFlag(port: SceUInt32, enable: SceBool) -> crate::ctypes::c_int;
 }
@@ -3570,13 +3475,6 @@ extern "C" {
     feature = "SceUartForKernel_363_stub",
     feature = "SceUartForKernel_stub"
 ))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(
-        feature = "SceUartForKernel_363_stub",
-        feature = "SceUartForKernel_stub"
-    )))
-)]
 extern "C" {
     pub fn ksceUartInit(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceUartRead(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -3587,7 +3485,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceUdcdForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUdcdForDriver_stub")))]
 extern "C" {
     pub fn ksceUdcdActivate(productId: crate::ctypes::c_uint) -> crate::ctypes::c_int;
     pub fn ksceUdcdActivateInternal(
@@ -3682,7 +3579,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceUsbdForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbdForDriver_stub")))]
 extern "C" {
     pub fn ksceUsbdBulkTransfer(
         pipe_id: SceUID,
@@ -3819,7 +3715,6 @@ pub struct ksceUsbdIsochTransfer {
     pub packets: [ksceUsbdIsochPswLen; 8usize],
 }
 #[cfg(feature = "SceUsbSerialForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerialForDriver_stub")))]
 extern "C" {
     pub fn ksceUsbSerialClose() -> crate::ctypes::c_int;
     pub fn ksceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
@@ -3840,7 +3735,6 @@ extern "C" {
     pub fn ksceUsbSerialStatus() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceUsbServForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServForDriver_stub")))]
 extern "C" {
     pub fn ksceUsbServAccessoryActivate() -> crate::ctypes::c_int;
     pub fn ksceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
@@ -3857,10 +3751,6 @@ pub struct max_align_t {
     pub __clang_max_align_nonce2: f64,
 }
 #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub")))
-)]
 extern "C" {
     pub fn memchr(
         src: *const crate::ctypes::c_void,
@@ -3941,7 +3831,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceSysclibForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysclibForDriver_stub")))]
 extern "C" {
     pub fn __memcpy_chk(
         dst: *mut crate::ctypes::c_void,
@@ -4027,7 +3916,6 @@ pub struct PhotoExportParam {
 pub const __PSP2FILEHASH__: u32 = 0;
 pub const PSP2_SDK_VERSION: u32 = 56033297;
 #[cfg(feature = "SceLibMonoBridge_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceLibMonoBridge_stub")))]
 extern "C" {
     pub fn pss_code_mem_alloc(arg1: *mut SceSize) -> *mut crate::ctypes::c_void;
     pub fn pss_code_mem_flush_icache(arg1: *const crate::ctypes::c_void, arg2: SceSize);
@@ -4044,7 +3932,6 @@ extern "C" {
     ) -> *mut crate::ctypes::c_char;
 }
 #[cfg(feature = "SceGpuEs4ForDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceGpuEs4ForDriver_stub")))]
 extern "C" {
     pub fn PVRSRVGetMiscInfoKM(info: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
     pub fn ksceGpuGetRegisterDump(
@@ -4151,7 +4038,6 @@ pub struct SceAppMgrExecOptParam {
     _unused: [u8; 0],
 }
 #[cfg(feature = "SceAppMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAppMgr_stub")))]
 extern "C" {
     pub fn _sceAppMgrGetAppState(
         appState: *mut SceAppMgrAppState,
@@ -4387,7 +4273,6 @@ pub struct SceAppUtilAppEventParam {
     pub dat: [u8; 1024usize],
 }
 #[cfg(feature = "SceAppUtil_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAppUtil_stub")))]
 extern "C" {
     pub fn sceAppUtilAppEventParseLiveArea(
         eventParam: *const SceAppUtilAppEventParam,
@@ -4632,7 +4517,6 @@ pub struct SceArmCpuRegisters {
     pub fpscr: u32,
 }
 #[cfg(feature = "SceAtrac_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAtrac_stub")))]
 extern "C" {
     pub fn sceAtracAddStreamData(
         atracHandle: crate::ctypes::c_int,
@@ -4855,7 +4739,6 @@ pub const SCE_AUDIODEC_CELP_MAX_STREAMS: u32 = 8;
 pub const SCE_AUDIODEC_CELP_MPE: u32 = 0;
 pub const SCE_AUDIODEC_CELP_SAMPLING_RATE_8KHZ: u32 = 8000;
 #[cfg(feature = "SceAudiodec_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAudiodec_stub")))]
 extern "C" {
     pub fn sceAudiodecClearContext(pCtrl: *mut SceAudiodecCtrl) -> SceInt32;
     pub fn sceAudiodecCreateDecoder(pCtrl: *mut SceAudiodecCtrl, codecType: SceUInt32) -> SceInt32;
@@ -5028,7 +4911,6 @@ pub const SCE_AUDIOENC_CELP_MAX_STREAMS: u32 = 1;
 pub const SCE_AUDIOENC_CELP_MPE: u32 = 0;
 pub const SCE_AUDIOENC_CELP_SAMPLING_RATE_8KHZ: u32 = 8000;
 #[cfg(feature = "SceAudioenc_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAudioenc_stub")))]
 extern "C" {
     pub fn sceAudioencClearContext(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
     pub fn sceAudioencCreateEncoder(
@@ -5136,7 +5018,6 @@ pub const SCE_AUDIO_IN_ERROR_NOT_OPENED: SceAudioInErrorCode = 2149974281;
 pub const SCE_AUDIO_IN_ERROR_OUT_OF_MEMORY: SceAudioInErrorCode = 2149974280;
 pub const SCE_AUDIO_IN_ERROR_PORT_FULL: SceAudioInErrorCode = 2149974279;
 #[cfg(feature = "SceAudioIn_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAudioIn_stub")))]
 extern "C" {
     pub fn sceAudioInGetAdopt(portType: SceAudioInPortType) -> crate::ctypes::c_int;
     pub fn sceAudioInGetStatus(select: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -5181,7 +5062,6 @@ pub const SCE_AUDIO_OUT_ERROR_NOT_OPENED: SceAudioOutErrorCode = 2149974017;
 pub const SCE_AUDIO_OUT_ERROR_OUT_OF_MEMORY: SceAudioOutErrorCode = 2149974029;
 pub const SCE_AUDIO_OUT_ERROR_PORT_FULL: SceAudioOutErrorCode = 2149974021;
 #[cfg(feature = "SceAudio_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAudio_stub")))]
 extern "C" {
     pub fn sceAudioOutGetAdopt(type_: SceAudioOutPortType) -> crate::ctypes::c_int;
     pub fn sceAudioOutGetConfig(
@@ -5258,7 +5138,6 @@ pub struct SceAvcdecBuf {
     pub size: u32,
 }
 #[cfg(feature = "SceVideodec_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceVideodec_stub")))]
 extern "C" {
     pub fn sceAvcdecCreateDecoder(
         codec: SceVideodecType,
@@ -5378,7 +5257,6 @@ pub type SceAVConfigColorSpaceMode = crate::ctypes::c_uint;
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_DEFAULT: SceAVConfigColorSpaceMode = 0;
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_HIGH_CONTRAST: SceAVConfigColorSpaceMode = 1;
 #[cfg(feature = "SceAVConfig_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAVConfig_stub")))]
 extern "C" {
     pub fn sceAVConfigGetDisplayMaxBrightness(
         maxBrightness: *mut crate::ctypes::c_int,
@@ -5393,7 +5271,6 @@ extern "C" {
     pub fn sceAVConfigSetSystemVol(volume: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceAvPlayer_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceAvPlayer_stub")))]
 extern "C" {
     pub fn sceAvPlayerAddSource(
         handle: SceAvPlayerHandle,
@@ -5593,7 +5470,6 @@ pub struct SceAvPlayerVideo {
 pub type SceBgAppUtilErrorCode = crate::ctypes::c_uint;
 pub const SCE_BGAPP_UTIL_ERROR_INVALID_ARG: SceBgAppUtilErrorCode = 2148558082;
 #[cfg(feature = "SceBgAppUtil_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceBgAppUtil_stub")))]
 extern "C" {
     pub fn sceBgAppUtilStartBgApp(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
@@ -5902,7 +5778,6 @@ pub type SceCameraBacklight = crate::ctypes::c_uint;
 pub const SCE_CAMERA_BACKLIGHT_OFF: SceCameraBacklight = 0;
 pub const SCE_CAMERA_BACKLIGHT_ON: SceCameraBacklight = 1;
 #[cfg(feature = "SceCamera_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCamera_stub")))]
 extern "C" {
     pub fn sceCameraClose(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceCameraGetAntiFlicker(
@@ -6261,7 +6136,6 @@ pub type SceClassCallback = ::core::option::Option<
     unsafe extern "C" fn(item: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
 #[cfg(feature = "SceLibKernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceLibKernel_stub")))]
 extern "C" {
     pub fn sceClibAbort();
     pub fn sceClibLookCtypeTable(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
@@ -6964,7 +6838,6 @@ pub const SCE_COMMON_DIALOG_RESULT_ABORTED: SceCommonDialogResult = 2;
 pub const SCE_COMMON_DIALOG_RESULT_OK: SceCommonDialogResult = 0;
 pub const SCE_COMMON_DIALOG_RESULT_USER_CANCELED: SceCommonDialogResult = 1;
 #[cfg(feature = "SceCommonDialog_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCommonDialog_stub")))]
 extern "C" {
     pub fn sceCommonDialogSetConfigParam(
         configParam: *const SceCommonDialogConfigParam,
@@ -7016,7 +6889,6 @@ pub struct SceCommonDialogUpdateParam {
     pub reserved: [SceUInt8; 32usize],
 }
 #[cfg(feature = "SceCompat_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCompat_stub")))]
 extern "C" {
     pub fn sceCompatAllocCdramWithHole(cdram: *mut SceCompatCdram) -> crate::ctypes::c_int;
     pub fn sceCompatAvailableColorSpaceSetting() -> crate::ctypes::c_int;
@@ -7184,7 +7056,6 @@ pub struct SceCtrlActuator {
 pub type SceCtrlButtons = crate::ctypes::c_uint;
 pub const SCE_CTRL_CIRCLE: SceCtrlButtons = 8192;
 #[cfg(feature = "SceCtrl_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceCtrl_stub")))]
 extern "C" {
     pub fn sceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
@@ -7446,7 +7317,6 @@ pub struct SceDateTime {
     pub microsecond: crate::ctypes::c_uint,
 }
 #[cfg(feature = "SceLibDbg_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceLibDbg_stub")))]
 extern "C" {
     pub fn sceDbgAssertionHandler(
         file: *const crate::ctypes::c_char,
@@ -7541,7 +7411,6 @@ pub struct SceDisplayFrameBufInfo {
     pub resolution: crate::ctypes::c_uint,
 }
 #[cfg(feature = "SceDisplay_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDisplay_stub")))]
 extern "C" {
     pub fn sceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
@@ -7578,7 +7447,6 @@ pub const SCE_DISPLAY_SETBUF_IMMEDIATE: SceDisplaySetBufSync = 0;
 pub const SCE_DISPLAY_SETBUF_NEXTFRAME: SceDisplaySetBufSync = 1;
 pub type SceDisplaySetBufSync = crate::ctypes::c_uint;
 #[cfg(feature = "SceKernelDmacMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelDmacMgr_stub")))]
 extern "C" {
     pub fn sceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
@@ -7771,7 +7639,6 @@ pub struct SceFiberInfo {
     pub padding: [crate::ctypes::c_uint; 80usize],
 }
 #[cfg(feature = "SceFiber_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceFiber_stub")))]
 extern "C" {
     pub fn _sceFiberInitializeImpl(
         fiber: *mut SceFiber,
@@ -7828,7 +7695,6 @@ pub struct SceFiosKernelOverlay {
     _unused: [u8; 0],
 }
 #[cfg(feature = "SceFios2Kernel_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceFios2Kernel_stub")))]
 extern "C" {
     pub fn _sceFiosKernelOverlayAdd(
         overlay: *const SceFiosKernelOverlay,
@@ -8013,7 +7879,6 @@ pub struct SceFontCharInfo {
     pub shadowId: crate::ctypes::c_short,
 }
 #[cfg(feature = "ScePgf_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePgf_stub")))]
 extern "C" {
     pub fn sceFontClose(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
     pub fn sceFontDoneLib(libHandle: SceFontLibHandle) -> crate::ctypes::c_int;
@@ -8304,7 +8169,6 @@ pub type SceGpioPortMode = crate::ctypes::c_uint;
 pub const SCE_GPIO_PORT_MODE_INPUT: SceGpioPortMode = 1;
 pub const SCE_GPIO_PORT_MODE_OUTPUT: SceGpioPortMode = 0;
 #[cfg(feature = "SceGps_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceGps_stub")))]
 extern "C" {
     pub fn _sceGpsClose() -> crate::ctypes::c_int;
     pub fn _sceGpsGetData(
@@ -8435,7 +8299,6 @@ pub struct SceGxmAuxiliarySurface {
     pub data: *mut crate::ctypes::c_void,
 }
 #[cfg(feature = "SceGxm_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceGxm_stub")))]
 extern "C" {
     pub fn sceGxmBeginCommandList(context: *mut SceGxmContext) -> crate::ctypes::c_int;
     pub fn sceGxmBeginScene(
@@ -11255,7 +11118,6 @@ pub struct SceGxtTextureInfo {
     pub pad: [u8; 3usize],
 }
 #[cfg(feature = "SceHid_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceHid_stub")))]
 extern "C" {
     pub fn sceHidKeyboardEnumerate(
         handle: *mut crate::ctypes::c_int,
@@ -11304,7 +11166,6 @@ pub struct SceHidMouseReport {
     pub timestamp: SceUInt64,
 }
 #[cfg(feature = "SceHttp_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceHttp_stub")))]
 extern "C" {
     pub fn sceHttpAbortRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceHttpAddCookie(
@@ -11945,7 +11806,6 @@ pub struct SceImeCaret {
     pub index: SceUInt32,
 }
 #[cfg(feature = "SceIme_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIme_stub")))]
 extern "C" {
     pub fn sceImeClose() -> SceInt32;
     pub fn sceImeOpen(param: *const SceImeParam) -> SceInt32;
@@ -12141,7 +12001,6 @@ pub const SCE_IME_WORK_BUFFER_SIZE: u32 = 20480;
 pub const SCE_INCOMING_DIALOG_ACCEPTED: SceIncomingDialogStatus = 1;
 pub const SCE_INCOMING_DIALOG_BUSY: SceIncomingDialogStatus = 5;
 #[cfg(feature = "SceIncomingDialog_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIncomingDialog_stub")))]
 extern "C" {
     pub fn sceIncomingDialogClose() -> SceInt32;
     pub fn sceIncomingDialogFinish() -> SceInt32;
@@ -12182,7 +12041,6 @@ pub type SceInt8 = i8;
 pub type SceIntPtr = crate::ctypes::c_int;
 pub type SceIoAccessMode = crate::ctypes::c_uint;
 #[cfg(feature = "SceIofilemgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceIofilemgr_stub")))]
 extern "C" {
     pub fn sceIoCancel(fd: SceUID) -> crate::ctypes::c_int;
     pub fn sceIoClose(fd: SceUID) -> crate::ctypes::c_int;
@@ -12277,7 +12135,6 @@ pub struct SceIVector4 {
     pub w: SceInt,
 }
 #[cfg(feature = "SceJpegArm_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegArm_stub")))]
 extern "C" {
     pub fn sceJpegArmDecodeMJpeg(
         pJpeg: *const SceUInt8,
@@ -12307,7 +12164,6 @@ extern "C" {
 }
 pub type SceJpegArmEncoderContext = *mut crate::ctypes::c_void;
 #[cfg(feature = "SceJpegEncArm_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEncArm_stub")))]
 extern "C" {
     pub fn sceJpegArmEncoderEncode(
         context: SceJpegArmEncoderContext,
@@ -12347,7 +12203,6 @@ pub type SceJpegArmEncoderPixelFormat = crate::ctypes::c_uint;
 pub type SceJpegArmErrorCode = crate::ctypes::c_uint;
 pub const SCE_JPEG_ARM_OK: SceJpegArmErrorCode = 0;
 #[cfg(feature = "SceJpeg_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceJpeg_stub")))]
 extern "C" {
     pub fn sceJpegDecodeMJpegYCbCr(
         jpegData: *const SceUInt8,
@@ -12405,7 +12260,6 @@ pub const SCE_JPEGENC_INIT_PARAM_OPTION_LPDDR2_MEMORY: SceJpegEncoderInitParamOp
 pub const SCE_JPEGENC_INIT_PARAM_OPTION_NONE: SceJpegEncoderInitParamOption = 0;
 pub type SceJpegEncoderContext = *mut crate::ctypes::c_void;
 #[cfg(feature = "SceJpegEnc_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceJpegEnc_stub")))]
 extern "C" {
     pub fn sceJpegEncoderCsc(
         context: SceJpegEncoderContext,
@@ -12567,7 +12421,6 @@ pub struct SceKernelAddrPair {
     pub length: u32,
 }
 #[cfg(feature = "SceSysmem_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmem_stub")))]
 extern "C" {
     pub fn sceKernelAllocMemBlock(
         name: *const crate::ctypes::c_char,
@@ -12691,7 +12544,6 @@ pub struct SceKernelCallbackInfo {
     pub notifyArg: crate::ctypes::c_int,
 }
 #[cfg(feature = "SceKernelThreadMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelThreadMgr_stub")))]
 extern "C" {
     pub fn sceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
     pub fn sceKernelChangeThreadCpuAffinityMask(
@@ -12770,7 +12622,6 @@ extern "C" {
 }
 pub type SceKernelClock = SceUInt64;
 #[cfg(feature = "SceKernelModulemgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceKernelModulemgr_stub")))]
 extern "C" {
     pub fn _sceKernelCloseModule(
         modid: SceUID,
@@ -12964,7 +12815,6 @@ pub const SCE_KERNEL_DEBUG_LEVEL_DEBUG: SceKernelDebugLevel = 1;
 pub const SCE_KERNEL_DEBUG_LEVEL_TRACE: SceKernelDebugLevel = 2;
 pub type SceKernelDebugMessageContext = SceKernelDebugInfo;
 #[cfg(feature = "SceDeci4pUserp_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceDeci4pUserp_stub")))]
 extern "C" {
     pub fn sceKernelDeci4pClose(socketid: SceUID) -> SceInt32;
     pub fn sceKernelDeci4pDisableWatchpoint() -> SceInt32;
@@ -13467,7 +13317,6 @@ pub struct SceKernelFreeMemorySizeInfo {
 }
 pub type SceKernelFwInfo = SceKernelSystemSwVersion;
 #[cfg(feature = "SceProcessmgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceProcessmgr_stub")))]
 extern "C" {
     pub fn sceKernelGetCurrentProcess() -> SceUID;
     pub fn sceKernelGetProcessParam() -> *const crate::ctypes::c_void;
@@ -13897,7 +13746,6 @@ pub struct SceKernelOpenPsId {
     pub id: [crate::ctypes::c_char; 16usize],
 }
 #[cfg(feature = "ScePamgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePamgr_stub")))]
 extern "C" {
     pub fn _sceKernelPaAddArmTraceByKey(
         key: crate::ctypes::c_int,
@@ -14273,7 +14121,6 @@ pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
     unsafe extern "C" fn(args: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
 #[cfg(feature = "SceLocation_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceLocation_stub")))]
 extern "C" {
     pub fn sceLocationCancelGetLocation(handle: SceLocationHandle) -> SceInt32;
     pub fn sceLocationClose(handle: SceLocationHandle) -> SceInt32;
@@ -14474,7 +14321,6 @@ pub struct SceMotionDevDeviceLocation {
     _unused: [u8; 0],
 }
 #[cfg(feature = "SceMotionDev_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceMotionDev_stub")))]
 extern "C" {
     pub fn sceMotionDevGetAccCalibData(data: *mut SceMotionDevAccCalibData)
         -> crate::ctypes::c_int;
@@ -14584,7 +14430,6 @@ pub const SCE_MOTION_ERROR_OUT_OF_BOUNDS: SceMotionErrorCode = 2151023109;
 pub const SCE_MOTION_ERROR_READING: SceMotionErrorCode = 2151023105;
 pub const SCE_MOTION_ERROR_STATE_INVALID: SceMotionErrorCode = 2151023107;
 #[cfg(feature = "SceMotion_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceMotion_stub")))]
 extern "C" {
     pub fn sceMotionGetAngleThreshold() -> f32;
     pub fn sceMotionGetBasicOrientation(basicOrientation: *mut SceFVector3)
@@ -14773,13 +14618,11 @@ pub struct SceMsInfo {
     pub id: [SceUInt8; 16usize],
 }
 #[cfg(feature = "SceMtpIfDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceMtpIfDriver_stub")))]
 extern "C" {
     pub fn sceMtpIfStartDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceMtpIfStopDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceMusicExport_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceMusicExport_stub")))]
 extern "C" {
     pub fn sceMusicExportFromFile(
         path: *const crate::ctypes::c_char,
@@ -14796,7 +14639,6 @@ extern "C" {
 }
 pub type SceName = *mut crate::ctypes::c_char;
 #[cfg(feature = "SceNet_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNet_stub")))]
 extern "C" {
     pub fn sceNetAccept(
         s: crate::ctypes::c_int,
@@ -15100,7 +14942,6 @@ pub const SCE_NET_ADHOC_F_ALERTRECV: ScePspnetAdhocFlags = 32;
 pub const SCE_NET_ADHOC_F_ALERTSEND: ScePspnetAdhocFlags = 16;
 pub const SCE_NET_ADHOC_F_NONBLOCK: ScePspnetAdhocFlags = 1;
 #[cfg(feature = "ScePspnetAdhoc_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePspnetAdhoc_stub")))]
 extern "C" {
     pub fn sceNetAdhocGetPdpStat(
         buflen: *mut crate::ctypes::c_int,
@@ -15349,7 +15190,6 @@ pub struct SceNetCheckDialogResult {
     pub reserved: [SceUInt8; 124usize],
 }
 #[cfg(feature = "SceNetCtl_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNetCtl_stub")))]
 extern "C" {
     pub fn sceNetCtlAdhocDisconnect() -> crate::ctypes::c_int;
     pub fn sceNetCtlAdhocGetInAddr(inaddr: *mut SceNetInAddr) -> crate::ctypes::c_int;
@@ -16099,7 +15939,6 @@ pub struct SceNetStatisticsInfo {
     pub libnet_mem_free_min: crate::ctypes::c_int,
 }
 #[cfg(feature = "SceNetPs_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNetPs_stub")))]
 extern "C" {
     pub fn sceNetSyscallAccept(
         s: crate::ctypes::c_int,
@@ -16260,7 +16099,6 @@ pub type SceNgsHSynSystem = SceUInt32;
 pub type SceNgsHVoice = SceUInt32;
 pub type SceNgsModuleCallbackFunc = SceNgsCallbackFunc;
 #[cfg(feature = "SceNgs_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNgs_stub")))]
 extern "C" {
     pub fn sceNgsModuleCheckParamsInRangeInternal(
         handle: SceNgsHVoice,
@@ -16476,7 +16314,6 @@ pub struct SceNgsVoicePreset {
 pub type SceNID = crate::ctypes::c_uint;
 pub type SceNotificationUitlErrorCode = crate::ctypes::c_uint;
 #[cfg(feature = "SceNotificationUtil_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNotificationUtil_stub")))]
 extern "C" {
     pub fn sceNotificationUtilBgAppInitialize() -> SceInt32;
     pub fn sceNotificationUtilCleanHistory() -> SceInt32;
@@ -16551,7 +16388,6 @@ pub struct SceNpDrmActivationData {
     pub ecdsa_signature: [SceUInt8; 40usize],
 }
 #[cfg(feature = "SceNpDrm_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceNpDrm_stub")))]
 extern "C" {
     pub fn _sceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
@@ -16664,7 +16500,6 @@ pub const SCE_O_TRUNC: SceIoMode = 1024;
 pub const SCE_O_WRLOCK: SceIoMode = 32;
 pub const SCE_O_WRONLY: SceIoMode = 2;
 #[cfg(feature = "ScePaf_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePaf_stub")))]
 extern "C" {
     pub fn scePafCreateHeap(
         context: *mut ScePafHeapContext,
@@ -16857,7 +16692,6 @@ pub const SCE_PERF_ARM_PMON_EXCEPTION_TAKEN: _ScePerfArmPmonEventCode = 9;
 pub const SCE_PERF_ARM_PMON_EXT_INTERRUPT: _ScePerfArmPmonEventCode = 147;
 pub const SCE_PERF_ARM_PMON_FPU_RENAME: _ScePerfArmPmonEventCode = 115;
 #[cfg(feature = "ScePerf_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePerf_stub")))]
 extern "C" {
     pub fn scePerfArmPmonGetCounterValue(
         thid: SceUID,
@@ -16920,7 +16754,6 @@ pub struct ScePfsRndDriveId {
     pub drive_id: [crate::ctypes::c_char; 16usize],
 }
 #[cfg(feature = "ScePhotoExport_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePhotoExport_stub")))]
 extern "C" {
     pub fn scePhotoExportFromData(
         data: *const crate::ctypes::c_void,
@@ -16996,7 +16829,6 @@ pub const SCE_POWER_ERROR_DETECTING: ScePowerErrorCode = 2150301953;
 pub const SCE_POWER_ERROR_INVALID_VALUE: ScePowerErrorCode = 2150301696;
 pub const SCE_POWER_ERROR_NO_BATTERY: ScePowerErrorCode = 2150301952;
 #[cfg(feature = "ScePower_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePower_stub")))]
 extern "C" {
     pub fn scePowerGetArmClockFrequency() -> crate::ctypes::c_int;
     pub fn scePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
@@ -17118,7 +16950,6 @@ pub const SCE_PRODUCT_CODE_TEST: SceProductCode = 256;
 pub const SCE_PRODUCT_CODE_TOOL: SceProductCode = 257;
 pub type SceProductMode = crate::ctypes::c_char;
 #[cfg(feature = "ScePromoterUtil_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePromoterUtil_stub")))]
 extern "C" {
     pub fn scePromoterUtilityCheckExist(
         titleid: *const crate::ctypes::c_char,
@@ -17248,7 +17079,6 @@ pub struct ScePvfCharInfo {
     pub reserved1: ScePvfU16,
 }
 #[cfg(feature = "ScePvf_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ScePvf_stub")))]
 extern "C" {
     pub fn scePvfClose(fontID: ScePvfFontId) -> ScePvfError;
     pub fn scePvfDoneLib(libID: ScePvfLibId) -> ScePvfError;
@@ -17626,7 +17456,6 @@ pub const SCE_PVF_USERIMAGE_DIRECT4_L: ScePvfImageByfferPixelFormatType = 0;
 pub const SCE_PVF_USERIMAGE_DIRECT8: ScePvfImageByfferPixelFormatType = 2;
 pub type ScePVoid = *mut crate::ctypes::c_void;
 #[cfg(feature = "SceRazorCapture_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRazorCapture_stub")))]
 extern "C" {
     pub fn sceRazorGpuCaptureEnableSalvage(filename: *const crate::ctypes::c_char);
     pub fn sceRazorGpuCaptureSetTriggerNextFrame(filename: *const crate::ctypes::c_char);
@@ -17737,7 +17566,6 @@ pub struct SceRazorGpuLiveResultInfo {
     pub reserved: crate::ctypes::c_int,
 }
 #[cfg(feature = "SceRazorHud_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRazorHud_stub")))]
 extern "C" {
     pub fn sceRazorGpuLiveSetBuffer(
         buffer: *mut crate::ctypes::c_void,
@@ -17764,7 +17592,6 @@ pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX1: SceRazorLiveTraceMetricJ
 pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX2: SceRazorLiveTraceMetricJobType = 3;
 pub const SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX3: SceRazorLiveTraceMetricJobType = 5;
 #[cfg(feature = "SceRegistryMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRegistryMgr_stub")))]
 extern "C" {
     pub fn sceRegMgrGetInitVals(
         category: *const crate::ctypes::c_char,
@@ -17830,7 +17657,6 @@ extern "C" {
     ) -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceRtc_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceRtc_stub")))]
 extern "C" {
     pub fn _sceRtcConvertLocalTimeToUtc(
         localtime: *const SceRtcTick,
@@ -18026,7 +17852,6 @@ pub struct SceRtcTick {
     pub tick: SceUInt64,
 }
 #[cfg(feature = "SceSblSsMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblSsMgr_stub")))]
 extern "C" {
     pub fn sceSblDmac5EncDec(
         param: *mut SceSblDmac5EncDecParam,
@@ -18097,7 +17922,6 @@ pub struct SceSblSmCommPair {
     pub data_04: crate::ctypes::c_int,
 }
 #[cfg(feature = "SceSblUpdateMgr_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSblUpdateMgr_stub")))]
 extern "C" {
     pub fn sceSblUsGetUpdateMode(mode: *mut SceUpdateMode) -> crate::ctypes::c_int;
     pub fn sceSblUsSetUpdateMode(mode: SceUpdateMode) -> crate::ctypes::c_int;
@@ -18106,7 +17930,6 @@ extern "C" {
 pub type SceSByte = crate::ctypes::c_schar;
 pub type SceSByte8 = crate::ctypes::c_schar;
 #[cfg(feature = "SceScreenShot_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceScreenShot_stub")))]
 extern "C" {
     pub fn sceScreenShotDisable() -> crate::ctypes::c_int;
     pub fn sceScreenShotEnable() -> crate::ctypes::c_int;
@@ -18287,7 +18110,6 @@ pub struct SceShaccCgCompileOutput {
     pub diagnostics: *const SceShaccCgDiagnosticMessage,
 }
 #[cfg(feature = "SceShaccCg_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceShaccCg_stub")))]
 extern "C" {
     pub fn sceShaccCgCompileProgram(
         options: *const SceShaccCgCompileOptions,
@@ -18382,7 +18204,6 @@ pub type SceShellUtilEventHandler = ::core::option::Option<
     ),
 >;
 #[cfg(feature = "SceShellSvc_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceShellSvc_stub")))]
 extern "C" {
     pub fn sceShellUtilInitEvents(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceShellUtilLaunchAppRequestLaunchApp(
@@ -18425,7 +18246,6 @@ pub const SCE_SHUTTER_SOUND_ERROR_FATAL: SceShutterSoundErrorCode = 2148553219;
 pub const SCE_SHUTTER_SOUND_ERROR_INTERNAL: SceShutterSoundErrorCode = 2148553218;
 pub const SCE_SHUTTER_SOUND_ERROR_INVALID_ARGUMENT: SceShutterSoundErrorCode = 2148553217;
 #[cfg(feature = "SceShutterSound_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceShutterSound_stub")))]
 extern "C" {
     pub fn sceShutterSoundPlay(type_: u32) -> crate::ctypes::c_int;
 }
@@ -18465,7 +18285,6 @@ pub const SCE_SO_IROTH: SceIoFileMode = 4;
 pub const SCE_SO_IWOTH: SceIoFileMode = 2;
 pub const SCE_SO_IXOTH: SceIoFileMode = 1;
 #[cfg(feature = "SceSqlite_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSqlite_stub")))]
 extern "C" {
     pub fn sceSqliteConfigMallocMethods(
         methods: *mut SceSqliteMallocMethods,
@@ -18497,7 +18316,6 @@ pub const SCE_SSL_ERROR_INVALID_VALUE: SceSslErrorCode = 2151895550;
 pub const SCE_SSL_ERROR_NOT_FOUND: SceSslErrorCode = 2151895077;
 pub const SCE_SSL_ERROR_OUT_OF_MEMORY: SceSslErrorCode = 2151895074;
 #[cfg(feature = "SceSsl_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSsl_stub")))]
 extern "C" {
     pub fn sceSslFreeSslCertName(certName: *mut SceSslCertName) -> crate::ctypes::c_int;
     pub fn sceSslGetIssuerName(sslCert: *mut SceSslCert) -> *mut SceSslCertName;
@@ -18688,7 +18506,6 @@ pub const SCE_SYSMODULE_INTERNAL_VIDEO_EXPORT: SceSysmoduleInternalModuleId = 21
 pub const SCE_SYSMODULE_INVALID: SceSysmoduleModuleId = 0;
 pub const SCE_SYSMODULE_IPMI: SceSysmoduleModuleId = 54;
 #[cfg(feature = "SceSysmodule_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceSysmodule_stub")))]
 extern "C" {
     pub fn sceSysmoduleIsLoaded(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
     pub fn sceSysmoduleIsLoadedInternal(id: SceSysmoduleInternalModuleId) -> crate::ctypes::c_int;
@@ -19045,7 +18862,6 @@ pub struct SceTouchData {
     pub report: [SceTouchReport; 8usize],
 }
 #[cfg(feature = "SceTouch_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceTouch_stub")))]
 extern "C" {
     pub fn sceTouchDisableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
     pub fn sceTouchEnableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
@@ -19140,7 +18956,6 @@ pub struct SceTriggerUtilEventParamOneTime {
 }
 pub const SCE_TRIGGER_UTIL_FRIDAY: SceTriggerUtilDays = 32;
 #[cfg(feature = "SceTriggerUtil_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceTriggerUtil_stub")))]
 extern "C" {
     pub fn sceTriggerUtilGetAutoStartStatus(
         status: *mut crate::ctypes::c_int,
@@ -19432,7 +19247,6 @@ pub const SCE_UDCD_ERROR_USBDRIVER_INVALID_NAME: SceUdcdErrorCode = 2149855745;
 pub const SCE_UDCD_ERROR_WAIT_CANCEL: SceUdcdErrorCode = 2149855241;
 pub const SCE_UDCD_ERROR_WAIT_TIMEOUT: SceUdcdErrorCode = 2149855240;
 #[cfg(feature = "SceUdcd_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUdcd_stub")))]
 extern "C" {
     pub fn sceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
     pub fn sceUdcdGetDeviceState(state: *mut SceUdcdDeviceState) -> crate::ctypes::c_int;
@@ -19709,7 +19523,6 @@ pub type SceUpdateMode = crate::ctypes::c_char;
 pub const SCE_UPDATE_MODE_SWU_CUI: u32 = 48;
 pub const SCE_UPDATE_MODE_SWU_GUI: u32 = 16;
 #[cfg(feature = "SceUsbAudioIn_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbAudioIn_stub")))]
 extern "C" {
     pub fn sceUsbAudioInCloseDevice(device_id: SceUInt32) -> SceInt32;
     pub fn sceUsbAudioInGetDeviceIdList(
@@ -19772,7 +19585,6 @@ pub const SCE_USBAUDIO_IN_ERROR_PROCESS_HAS_NOT_A_DEVICE_OWNERSHIP: SceUsbAudioI
     2151546888;
 pub const SCE_USBAUDIO_IN_ERROR_TIMEOUT: SceUsbAudioInErrorCode = 2151546894;
 #[cfg(feature = "SceUsbd_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbd_stub")))]
 extern "C" {
     pub fn sceUsbdAttach(
         uid: SceUID,
@@ -20140,7 +19952,6 @@ pub struct SceUsbdTransferStatus {
     pub unk3: u32,
 }
 #[cfg(feature = "SceUsbSerial_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbSerial_stub")))]
 extern "C" {
     pub fn sceUsbSerialClose() -> crate::ctypes::c_int;
     pub fn sceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
@@ -20161,7 +19972,6 @@ extern "C" {
     pub fn sceUsbSerialStatus() -> crate::ctypes::c_int;
 }
 #[cfg(feature = "SceUsbServ_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbServ_stub")))]
 extern "C" {
     pub fn sceUsbServAccessoryActivate() -> crate::ctypes::c_int;
     pub fn sceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
@@ -20172,7 +19982,6 @@ pub const SCE_USBSERV_ERROR_INVALID_PARAM: SceUsbservErrorCode = 2149875715;
 pub const SCE_USBSERV_ERROR_NOT_SUPPORTED: SceUsbservErrorCode = 2149875716;
 pub const SCE_USBSERV_ERROR_UNAVAILABLE: SceUsbservErrorCode = 2149875714;
 #[cfg(feature = "SceUsbstorVStorDriver_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceUsbstorVStorDriver_stub")))]
 extern "C" {
     pub fn sceUsbstorVStorSetDeviceInfo(
         name: *const crate::ctypes::c_char,
@@ -20227,7 +20036,6 @@ pub struct SceVideodecTimeStamp {
 pub type SceVideodecType = crate::ctypes::c_uint;
 pub const SCE_VIDEODEC_TYPE_HW_AVCDEC: SceVideodecType = 4097;
 #[cfg(feature = "SceVideoExport_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceVideoExport_stub")))]
 extern "C" {
     pub fn sceVideoExportFromFile(
         in_param: *const VideoExportInputParam,
@@ -20246,10 +20054,6 @@ pub type SceVoid = crate::ctypes::c_void;
 pub type SceWChar16 = u16;
 pub type SceWChar32 = u32;
 #[cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub"))]
-#[cfg_attr(
-    docsrs,
-    doc(cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub")))
-)]
 extern "C" {
     pub fn __stack_chk_fail() -> !;
 }
@@ -20359,14 +20163,12 @@ pub struct VideoExportOutputParam {
     pub reserved: [crate::ctypes::c_char; 8usize],
 }
 #[cfg(feature = "vitasdk-utils")]
-#[cfg_attr(docsrs, doc(cfg(feature = "vitasdk-utils")))]
 extern "C" {
     pub fn vitasdk_delete_thread_reent(thid: SceUID) -> crate::ctypes::c_int;
     pub fn vitasdk_get_pthread_data(thid: SceUID) -> *mut crate::ctypes::c_void;
     pub fn vitasdk_get_tls_data(thid: SceUID) -> *mut crate::ctypes::c_void;
 }
 #[cfg(feature = "SceVshBridge_stub")]
-#[cfg_attr(docsrs, doc(cfg(feature = "SceVshBridge_stub")))]
 extern "C" {
     pub fn _vshIoMount(
         id: crate::ctypes::c_int,
