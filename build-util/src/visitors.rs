@@ -5,11 +5,13 @@ use std::{
     rc::Rc,
 };
 
-use crate::vita_headers_db::{missing_features_filter, stub_lib_name, VitaDb};
+use quote::ToTokens;
 use syn::{
     token, visit_mut::VisitMut, AttrStyle, Attribute, ForeignItem, Ident, Item, ItemForeignMod,
-    MacroDelimiter, Meta, MetaList, Type,
+    MacroDelimiter, Meta, MetaList,
 };
+
+use crate::vita_headers_db::{missing_features_filter, stub_lib_name, VitaDb};
 
 type FeatureSet = BTreeSet<Rc<str>>;
 
@@ -215,24 +217,7 @@ impl VisitMut for Sort {
                 Item::Enum(i) => (4, i.ident.to_string()),
                 Item::Union(i) => (4, i.ident.to_string()),
                 Item::Impl(i) => {
-                    let ident =
-                        match &*i.self_ty {
-                            Type::Path(path_type) => path_type.path.segments.iter().fold(
-                                String::new(),
-                                |acc, segment| {
-                                    let ident_string = segment.ident.to_string();
-                                    if acc.is_empty() {
-                                        ident_string
-                                    } else {
-                                        acc + "::" + &ident_string
-                                    }
-                                },
-                            ),
-                            ty => {
-                                log::warn!("impl on unexpected type {ty:?}");
-                                String::new()
-                            }
-                        };
+                    let ident = i.self_ty.clone().into_token_stream().to_string();
                     (4, ident)
                 }
                 Item::Const(i) => (5, i.ident.to_string()),
