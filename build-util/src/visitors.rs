@@ -6,7 +6,10 @@ use std::{
 };
 
 use crate::vita_headers_db::{missing_features_filter, stub_lib_name, VitaDb};
-use syn::{visit_mut::VisitMut, ForeignItem, Item, ItemForeignMod, Type};
+use syn::{
+    token, visit_mut::VisitMut, AttrStyle, Attribute, ForeignItem, Ident, Item, ItemForeignMod,
+    MacroDelimiter, Meta, MetaList, Type,
+};
 
 type FeatureSet = BTreeSet<Rc<str>>;
 
@@ -95,7 +98,11 @@ impl Link {
 
 impl Link {
     pub fn visit(&self, i: &mut syn::File) {
-        let mut items_by_features: BTreeMap<FeatureSet, Vec<ForeignItem>> = BTreeMap::new();
+        let mut items_by_features: BTreeMap<FeatureSet, Vec<ForeignItem>> = self
+            .stub_libs
+            .iter()
+            .map(|stub_lib_name| (BTreeSet::from([stub_lib_name.clone()]), Vec::new()))
+            .collect();
 
         // Moves mod items to to the "items_by_features" map
         i.items = mem::take(&mut i.items)
@@ -140,8 +147,16 @@ impl Link {
 
         i.items
             .extend(items_by_features.into_iter().map(|(features, items)| {
-                let mut foreign_mod: ItemForeignMod = syn::parse_quote! {
-                    extern "C" {}
+                let mut foreign_mod: ItemForeignMod = if features.len() == 1 {
+                    let feature = features.first().unwrap();
+                    syn::parse_quote! {
+                        #[link(name = #feature, kind = "static")]
+                        extern "C" {}
+                    }
+                } else {
+                    syn::parse_quote! {
+                        extern "C" {}
+                    }
                 };
 
                 // Adds feature attributes to mod
@@ -171,14 +186,6 @@ impl Link {
 
                 Item::ForeignMod(foreign_mod)
             }));
-
-        i.items.extend(self.stub_libs.iter().map(|stub_lib_name| {
-            syn::parse_quote! {
-                #[cfg(feature = #stub_lib_name)]
-                #[link(name = #stub_lib_name, kind = "static")]
-                extern "C" {}
-            }
-        }));
     }
 }
 
@@ -186,11 +193,12 @@ pub struct Sort;
 
 impl VisitMut for Sort {
     fn visit_file_mut(&mut self, i: &mut syn::File) {
-        // Need to visit children first as extern mods need to be identified.
         syn::visit_mut::visit_file_mut(self, i);
 
         // Sorts items on alphabetical order based on normalized identifier.
         // Bindgen items will be moved to the start.
+        // Note: for simplicity, we rely on sort_by_cached_key being stable and  some things
+        // already being sorted, such as impl blocks already being after their definition.
         i.items.sort_by_cached_key(|item| {
             let (precedence, ident) = match item {
                 Item::ExternCrate(i) => (0, i.ident.to_string()),
@@ -203,13 +211,9 @@ impl VisitMut for Sort {
                         .map(|i| i.to_string())
                         .unwrap_or_else(String::new),
                 ),
-                Item::Static(i) => (4, i.ident.to_string()),
-                Item::Const(i) => (4, i.ident.to_string()),
-                Item::Trait(i) => (4, i.ident.to_string()),
-                Item::TraitAlias(i) => (4, i.ident.to_string()),
-                Item::Type(i) => (4, i.ident.to_string()),
-                Item::Enum(i) => (4, i.ident.to_string()),
                 Item::Struct(i) => (4, i.ident.to_string()),
+                Item::Enum(i) => (4, i.ident.to_string()),
+                Item::Union(i) => (4, i.ident.to_string()),
                 Item::Impl(i) => {
                     let ident =
                         match &*i.self_ty {
@@ -231,29 +235,20 @@ impl VisitMut for Sort {
                         };
                     (4, ident)
                 }
-                Item::Fn(i) => (4, i.sig.ident.to_string()),
+                Item::Const(i) => (5, i.ident.to_string()),
+                Item::Static(i) => (6, i.ident.to_string()),
+                Item::Trait(i) => (7, i.ident.to_string()),
+                Item::TraitAlias(i) => (8, i.ident.to_string()),
+                Item::Fn(i) => (8, i.sig.ident.to_string()),
                 Item::ForeignMod(i) => {
-                    // For `extern` blocks, we use the first item's identifier.
-                    // Would be ideal to use feature names instead.
-                    let ident = match &i.items[..] {
-                        // Stub blocks are already internally sorted.
-                        [] => String::new(),
-                        [item, ..] => match item {
-                            ForeignItem::Fn(i) => i.sig.ident.to_string(),
-                            ForeignItem::Static(i) => i.ident.to_string(),
-                            ForeignItem::Type(i) => i.ident.to_string(),
-                            i => {
-                                log::warn!("Unexpected item in foreign mod: {i:?}");
-                                String::new()
-                            }
-                        },
-                    };
-                    (4, ident)
+                    let ident = foreign_mod_ident(i);
+
+                    (9, ident)
                 }
-                Item::Union(i) => (4, i.ident.to_string()),
+                Item::Type(i) => (10, i.ident.to_string()),
                 i => {
                     log::warn!("Unexpected item: {i:?}");
-                    (10, String::new())
+                    (11, String::new())
                 }
             };
             consider_bindgen((precedence, normalize_str(&ident)))
@@ -277,6 +272,113 @@ fn foreign_item_ident(foreign_item: &ForeignItem) -> String {
             String::new()
         }
     }
+}
+
+/// Gets foreign mod identifier as the feature cfgs concatenated by `+`
+fn foreign_mod_ident(foreign_mod: &ItemForeignMod) -> String {
+    let ident = foreign_mod.attrs.iter().find_map(|attribute| {
+        if attribute.style != AttrStyle::Outer {
+            return None;
+        }
+
+        let Attribute {
+            pound_token: token::Pound { .. },
+            style: AttrStyle::Outer,
+            bracket_token: token::Bracket { .. },
+            meta:
+                Meta::List(MetaList {
+                    path,
+                    delimiter: MacroDelimiter::Paren(token::Paren { .. }),
+                    tokens,
+                }),
+        } = attribute
+        else {
+            return None;
+        };
+
+        // We're only insterested on `cfg`.
+        if path.segments.len() != 1 || &path.segments[0].ident != "cfg" {
+            return None;
+        }
+
+        let mut token_iter = tokens.clone().into_iter();
+        let first_ident: Ident = syn::parse2(token_iter.next()?.into()).ok()?;
+        if first_ident == "feature" {
+            let punct: proc_macro2::Punct = syn::parse2(token_iter.next()?.into()).ok()?;
+            let literal: proc_macro2::Literal = syn::parse2(token_iter.next()?.into()).ok()?;
+            if token_iter.next().is_some() || punct.as_char() != '=' {
+                return None;
+            }
+            Some(
+                literal
+                    .to_string()
+                    .strip_prefix('"')?
+                    .strip_suffix('"')?
+                    .to_owned(),
+            )
+        } else if first_ident == "any" {
+            let group: proc_macro2::Group = syn::parse2(token_iter.next()?.into()).ok()?;
+            if token_iter.next().is_some() {
+                return None;
+            }
+
+            enum Step {
+                Ident,
+                Equals,
+                Literal,
+                Separator,
+            }
+
+            let (features, _) = group.stream().into_iter().try_fold(
+                (Vec::new(), Step::Ident),
+                |(mut acc, step), token| match step {
+                    Step::Ident => {
+                        if syn::parse2::<Ident>(token.into()).ok()? != "feature" {
+                            return None;
+                        }
+                        Some((acc, Step::Equals))
+                    }
+                    Step::Equals => {
+                        if syn::parse2::<proc_macro2::Punct>(token.into())
+                            .ok()?
+                            .as_char()
+                            != '='
+                        {
+                            return None;
+                        }
+                        Some((acc, Step::Literal))
+                    }
+                    Step::Literal => {
+                        let literal: proc_macro2::Literal = syn::parse2(token.into()).ok()?;
+                        acc.push(
+                            literal
+                                .to_string()
+                                .strip_prefix('"')?
+                                .strip_suffix('"')?
+                                .to_owned(),
+                        );
+                        Some((acc, Step::Separator))
+                    }
+                    Step::Separator => {
+                        if syn::parse2::<proc_macro2::Punct>(token.into())
+                            .ok()?
+                            .as_char()
+                            != ','
+                        {
+                            return None;
+                        }
+                        Some((acc, Step::Ident))
+                    }
+                },
+            )?;
+
+            features.into_iter().reduce(|acc, f| acc + "+" + &f)
+        } else {
+            None
+        }
+    });
+
+    ident.unwrap_or_else(String::new)
 }
 
 fn normalize_str(input: &str) -> String {
