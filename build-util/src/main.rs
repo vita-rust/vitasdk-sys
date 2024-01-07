@@ -40,6 +40,7 @@ USAGE:
 
 Commands:
     stub-libs   Print all stub lib names
+    bindgen     Generate vitasdk-sys bindings
     help        Print help
 
 Options
@@ -54,6 +55,7 @@ fn main() -> ExitCode {
     let cmd = std::env::args().nth(1);
     match cmd.as_deref() {
         Some("stub-libs") => stub_libs(),
+        Some("bindgen") => bindgen(),
         Some("help" | "--help" | "-h") => {
             print_help();
             ExitCode::SUCCESS
@@ -75,15 +77,16 @@ USAGE:
     vitasdk-sys-build-util stub-libs [OPTIONS]
 
 Options:
-    -h, --help          Print help
-    -u, --user          Print only user stub libs. Mutually exclusive with `--kernel`.
-    -k, --kernel        Print only kernel stub libs. Mutually exclusive with `--user`.
-    -c, --conflicting   Print only stub libs with conflicting symbols
-    --with-conflicting  Include stub libs with conflicting symbols
-    --missing-features  Print only undefined vitasdk-sys features
-    --as-features       Print stub libs as cargo features
-    --missing-libs      Print only stub libs which do not exist in `$VITASDK/arm-vita-eabi/lib`
-    --fail-if-any       Fail if any stub lib is printed
+    -h, --help           Print help
+    -u, --user           Print only user stub libs. Mutually exclusive with `--kernel`.
+    -k, --kernel         Print only kernel stub libs. Mutually exclusive with `--user`.
+    -c, --conflicting    Print only stub libs with conflicting symbols
+    --with-conflicting   Include stub libs with conflicting symbols
+    --missing-features   Print only undefined vitasdk-sys stub features
+    --as-features        Print stub libs as cargo features
+    --all-stubs-feature  Prepend `all-stubs` feature if `--as-features` specified
+    --missing-libs       Print only stub libs which do not exist in `$VITASDK/arm-vita-eabi/lib`
+    --fail-if-any        Fail if any stub lib is printed
 "
         )
     }
@@ -97,6 +100,7 @@ Options:
         WithConflicting,
         MissingFeatures,
         AsFeatures,
+        AllStubsFeature,
         MissingLibs,
         FailIfAny,
     }
@@ -116,6 +120,7 @@ Options:
                 "--with-conflicting" => Ok(Flag::WithConflicting),
                 "--missing-features" => Ok(Flag::MissingFeatures),
                 "--as-features" => Ok(Flag::AsFeatures),
+                "--all-stubs-feature" => Ok(Flag::AllStubsFeature),
                 "--missing-libs" => Ok(Flag::MissingLibs),
                 "--fail-if-any" => Ok(Flag::FailIfAny),
                 _ => Err(ParseFlagError),
@@ -130,6 +135,7 @@ Options:
         .collect::<Result<HashSet<Flag>, ParseFlagError>>()
         .ok()
         .filter(|ops| !ops.contains(&Flag::Kernel) || !ops.contains(&Flag::User))
+        .filter(|ops| ops.contains(&Flag::AsFeatures) || !ops.contains(&Flag::AllStubsFeature))
     else {
         print_help();
         return ExitCode::FAILURE;
@@ -173,17 +179,61 @@ Options:
             .collect()
     };
 
-    if options.contains(&Flag::AsFeatures) {
-        stub_libs
-            .iter()
-            .for_each(|stub_lib| println!("{stub_lib} = []"));
-    } else {
-        stub_libs.iter().for_each(|stub_lib| println!("{stub_lib}"));
+    {
+        use std::io::{self, Write};
+
+        let mut stdout = io::stdout().lock();
+        if options.contains(&Flag::AsFeatures) {
+            if options.contains(&Flag::AllStubsFeature) {
+                struct DisplayAsSequence<T>(T);
+
+                impl<T> std::fmt::Debug for DisplayAsSequence<T>
+                where
+                    T: IntoIterator + Copy,
+                    T::Item: std::fmt::Debug,
+                {
+                    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                        // Strings are valid feature names, so debug representation only adds quotation marks
+                        f.debug_list().entries(self.0).finish()
+                    }
+                }
+
+                writeln!(stdout, "all-stubs = {:#?}", DisplayAsSequence(&stub_libs)).unwrap();
+            }
+            stub_libs
+                .iter()
+                .for_each(|stub_lib| writeln!(stdout, "{stub_lib} = []").unwrap());
+        } else {
+            stub_libs
+                .iter()
+                .for_each(|stub_lib| writeln!(stdout, "{stub_lib}").unwrap());
+        }
     }
 
     if !stub_libs.is_empty() && options.contains(&Flag::FailIfAny) {
         return ExitCode::FAILURE;
     }
+
+    ExitCode::SUCCESS
+}
+
+fn bindgen() -> ExitCode {
+    let vitasdk_sys_manifest = vitasdk_sys_manifest();
+    let vita_headers = vitasdk_sys_manifest.parent().unwrap().join("vita-headers");
+    let output = vitasdk_sys_manifest
+        .parent()
+        .unwrap()
+        .join("src")
+        .join("bindings.rs");
+    let is_build_rs = false;
+
+    vitasdk_sys_build_util::bindgen::generate(
+        &vita_headers.join("include"),
+        &vita_headers.join("db"),
+        &output,
+        &vitasdk_sys_manifest,
+        is_build_rs,
+    );
 
     ExitCode::SUCCESS
 }

@@ -1,5 +1,5 @@
 use std::{
-    collections::{hash_map, HashMap},
+    collections::{btree_map, BTreeMap, HashSet},
     fmt, fs, io, mem,
     path::{Path, PathBuf},
 };
@@ -22,13 +22,13 @@ const CONFLICTING_STUB_LIBS: [&str; 4] = [
 
 #[derive(Default)]
 pub struct VitaDb {
-    pub imports_by_firmware: HashMap<String, VitaImports>,
+    pub imports_by_firmware: BTreeMap<String, VitaImports>,
 }
 
 impl VitaDb {
     pub fn load(db: &Path) -> Self {
         let mut out = VitaDb {
-            imports_by_firmware: HashMap::new(),
+            imports_by_firmware: BTreeMap::new(),
         };
 
         for version_dir in db.read_dir().unwrap() {
@@ -96,8 +96,8 @@ impl VitaDb {
         }
         let entry = self.imports_by_firmware.entry(imports.firmware.clone());
         match entry {
-            hash_map::Entry::Occupied(o) => o.into_mut().merge_from(imports),
-            hash_map::Entry::Vacant(v) => {
+            btree_map::Entry::Occupied(o) => o.into_mut().merge_from(imports),
+            btree_map::Entry::Vacant(v) => {
                 v.insert(imports);
             }
         }
@@ -105,16 +105,25 @@ impl VitaDb {
 }
 
 pub fn missing_features_filter(vitasdk_sys_manifest: &Path) -> impl FnMut(&String) -> bool {
-    #[derive(Debug, serde::Deserialize)]
+    #[derive(serde::Deserialize)]
     struct CargoManifest {
         #[serde(default)]
-        features: HashMap<String, Vec<String>>,
+        features: Features,
     }
 
-    let manifest = fs::read_to_string(vitasdk_sys_manifest).unwrap();
-    let manifest: CargoManifest = toml::from_str(&manifest).unwrap();
+    #[derive(Default, serde::Deserialize)]
+    struct Features {
+        #[serde(default, rename = "all-stubs")]
+        all_stubs: Vec<String>,
+    }
 
-    move |stub_lib| !manifest.features.contains_key(stub_lib)
+    let manifest =
+        fs::read_to_string(vitasdk_sys_manifest).expect("Unable to load vitasdk's Cargo.toml");
+    let manifest: CargoManifest =
+        toml::from_str(&manifest).expect("Unable to parse vitasdk's Cargo.toml");
+    let stubs: HashSet<_> = manifest.features.all_stubs.into_iter().collect();
+
+    move |stub_lib| !stubs.contains(stub_lib)
 }
 
 pub fn missing_libs_filter() -> impl FnMut(&String) -> bool {
@@ -127,7 +136,7 @@ pub fn missing_libs_filter() -> impl FnMut(&String) -> bool {
 pub struct VitaImports {
     pub version: i32,
     pub firmware: String,
-    pub modules: HashMap<String, VitaImportsModule>,
+    pub modules: BTreeMap<String, VitaImportsModule>,
 }
 
 impl VitaImports {
@@ -135,7 +144,7 @@ impl VitaImports {
         VitaImports {
             version: self.version,
             firmware: self.firmware.clone(),
-            modules: HashMap::new(),
+            modules: BTreeMap::new(),
         }
     }
 
@@ -183,14 +192,14 @@ impl VitaImports {
 #[derive(Deserialize)]
 pub struct VitaImportsModule {
     pub nid: u32,
-    pub libraries: HashMap<String, VitaImportsLib>,
+    pub libraries: BTreeMap<String, VitaImportsLib>,
 }
 
 impl VitaImportsModule {
     pub fn clone_emptied(&self) -> Self {
         VitaImportsModule {
             nid: self.nid,
-            libraries: HashMap::new(),
+            libraries: BTreeMap::new(),
         }
     }
 
@@ -232,9 +241,9 @@ pub struct VitaImportsLib {
     #[serde(rename = "stubname", default)]
     pub stub_name: Option<String>,
     #[serde(rename = "functions", default)]
-    pub function_nids: HashMap<String, u32>,
+    pub function_nids: BTreeMap<String, u32>,
     #[serde(rename = "variables", default)]
-    pub variable_nids: HashMap<String, u32>,
+    pub variable_nids: BTreeMap<String, u32>,
 }
 
 impl VitaImportsLib {
@@ -244,8 +253,8 @@ impl VitaImportsLib {
             nid: self.nid,
             version: self.version,
             stub_name: self.stub_name.clone(),
-            function_nids: HashMap::new(),
-            variable_nids: HashMap::new(),
+            function_nids: BTreeMap::new(),
+            variable_nids: BTreeMap::new(),
         }
     }
 

@@ -1,6 +1,6 @@
 [package]
 name = "vitasdk-sys-build-util"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Daria Sukhonina <dariasukhonina@gmail.com>"]
 license = "MIT OR Apache-2.0"
@@ -9,13 +9,13 @@ homepage = "https://github.com/vita-rust/vitasdk-sys"
 description = "Internal build utilities for raw bindings to vitasdk"
 keywords = ["vitasdk", "psvita", "vita"]
 
-[features]
-link-visitor = ["dep:syn"]
-
 [dependencies]
-env_logger = "0.10.0"
+env_logger = "0.10.1"
 log = "0.4.20"
-serde = { version = "1.0.188", features = ["derive"] }
-serde_yaml = "0.9.25"
-syn = { version = "2.0.32", optional = true, default-features = false, features = ["parsing", "full", "printing", "visit-mut", "extra-traits"] }
-toml = { version = "0.8.0", default-features = false, features = ["parse"] }
+serde = { version = "1.0.194", features = ["derive"] }
+serde_yaml = "0.9.30"
+syn = { version = "2.0.46", default-features = false, features = ["parsing", "full", "printing", "visit-mut", "extra-traits"] }
+proc-macro2 = { version = "1.0.76", default-features = false }
+toml = { version = "0.8.8", default-features = false, features = ["parse"] }
+bindgen = "0.69.1"
+quote = { version = "1.0.35", default-features = false }

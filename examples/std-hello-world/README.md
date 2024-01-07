@@ -6,10 +6,6 @@ As stated on the README at the top of this repository, you need vitasdk
 available and the environment variable `VITASDK` set up in order to use this
 library. You can follow the instructions at https://vitasdk.org/.
 
-## Clang (for bindgen)
-
-Also state on the readme, clang is required to generate the bindings at build-time. See https://rust-lang.github.io/rust-bindgen/requirements.html.
-
 ## Nightly compiler and rust-src component
 
 As the vita is a tier 3 target, we have to use cargo's build-std feature, which
