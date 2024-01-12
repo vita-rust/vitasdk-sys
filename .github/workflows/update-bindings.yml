@@ -7,6 +7,8 @@ on:
 
 env:
   PR_BRANCH: update-bindings
+  # If you update LLVM_VERSION, remember to also update `build.yml` and
+  # `README.md`
   LLVM_VERSION: "16"
 
 jobs:

@@ -64,7 +64,7 @@ If the repository is already cloned, update the submodules with:
 $ git submodule update --init --recursive
 ```
 
-To update the headers, go to the vita-headers submodule and update by the usual means:
+To update the headers, go to the vita-headers submodule and update it by the usual means:
 
 ```
 $ cd vita-headers
@@ -72,9 +72,11 @@ $ git pull
 $ cd ..
 ```
 
-Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.
+Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputted ones.
 
 Then run `cargo run -p vitasdk-sys-build-util -- bindgen`
+
+> ℹ️ **NOTE**: The LLVM version currently used in CI is 16. Occasionally there may be slight differences in generated bindings depending on your LLVM version.
 
 ## Versioning
 

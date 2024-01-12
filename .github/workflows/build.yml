@@ -8,6 +8,8 @@ on:
   workflow_dispatch:
 
 env:
+  # If you update LLVM_VERSION, remember to also update `update-bindings.yml`
+  # and `README.md`
   LLVM_VERSION: "16"
 
 jobs:
@@ -243,7 +245,7 @@ jobs:
           context: Check missing libs
           sha: ${{ github.sha }}
 
-  # Checks if there's no diff when regenerating bindings 
+  # Checks if there's no diff when regenerating bindings
   check-bindings:
     name: Check bindings
     runs-on: ubuntu-latest
