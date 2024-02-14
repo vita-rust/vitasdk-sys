@@ -1,3 +1,6 @@
+If you're interested in PS Vita development in Rust, please check out the [organization-wide docs](https://github.com/vita-rust) and the [Rust on Sony PlayStation Vita Book](https://vita-rust.github.io/book/).
+There are also working examples at [examples](https://github.com/vita-rust/examples).
+
 # vitasdk-sys
 
 [![docs.rs](https://docs.rs/vitasdk-sys/badge.svg)](https://docs.rs/vitasdk-sys/)
@@ -15,8 +18,31 @@ To be able to use it, you need vitasdk available and the environment variable `V
 $ export VITASDK=/opt/vitasdk
 ```
 
-You also need [bindgen's requirements](https://rust-lang.github.io/rust-bindgen/requirements.html), which may already be on your system.
+## Features
 
+### Stubs (`*_stub`)
+
+To be able to use any function available in this crate, you'll need to enable
+the related features, which will cause the required stub to be linked. You can
+find which any function a stub requires by looking at [docs.rs/vitasdk-sys](https://docs.rs/vitasdk-sys).
+
+Example: to find which stub is required to use `sceDisplaySetFrameBuf`, search
+for it on docs.rs. You'll find `Available on crate feature SceDisplay_stub only.`
+there, which means that you'll need to enable `SceDisplay_stub` to use it.
+
+### `vitasdk-utils`
+
+This feature just enables some functions provided by vitasdk. Just like the
+stubs, you can figure which functions require it by looking at docs.rs.
+
+### `bindgen`
+
+The `bindgen` feature makes the crate generate bindings at compile-time
+using headers from the system's vitasdk (on `$VITASDK`), instead of using the
+pre-generated bindings.
+
+To use this feature you also need [bindgen's requirements](https://rust-lang.github.io/rust-bindgen/requirements.html),
+which may already be on your system.
 
 ## Manually updating the submodule
 
@@ -38,7 +64,7 @@ If the repository is already cloned, update the submodules with:
 $ git submodule update --init --recursive
 ```
 
-To update the headers, go to the vita-headers submodule and update by the usual means:
+To update the headers, go to the vita-headers submodule and update it by the usual means:
 
 ```
 $ cd vita-headers
@@ -46,16 +72,25 @@ $ git pull
 $ cd ..
 ```
 
-Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.
+Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputted ones.
+
+Then run `cargo run -p vitasdk-sys-build-util -- bindgen`
+
+> ℹ️ **NOTE**: The LLVM version currently used in CI is 16. Occasionally there may be slight differences in generated bindings depending on your LLVM version.
 
 ## Versioning
 
 Usual `semver` rules apply for this crate, but note that there may be differences between the version of the headers used to generate the bindings and the vitasdk version installed on your machine.
 
+## Updating
+
+To update versions you can look for breaking changes at [CHANGELOG.md](CHANGELOG.md).
+If you're coming from a version before 0.3, [this comment](https://github.com/vita-rust/vitasdk-sys/issues/20#issuecomment-1782335568) has a migration guide.
+
 ## Credits
 
 - [**VitaSDK team**](http://vitasdk.org/) for the toolchain, vitasdk itself, etc.
-- [rust-bindgen contributors](https://github.com/rust-lang/rust-bindgen) for allowing auto generated bindings.
+- [rust-bindgen contributors](https://github.com/rust-lang/rust-bindgen) for making auto generated bindings viable.
 - [Martin Larralde](https://github.com/althonos) for [psp2-sys](https://github.com/vita-rust/psp2-sys), which I believe originally inspired me to create this crate.
 
 ## License
