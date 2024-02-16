@@ -14085,6 +14085,9 @@ extern "C" {}
 #[link(name = "SceLedForDriver_stub", kind = "static")]
 #[cfg(feature = "SceLedForDriver_stub")]
 extern "C" {}
+#[link(name = "SceLibc_stub", kind = "static")]
+#[cfg(feature = "SceLibc_stub")]
+extern "C" {}
 #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
 extern "C" {
     pub fn memchr(
@@ -17095,6 +17098,9 @@ extern "C" {
 }
 #[link(name = "SceRegMgrServiceForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRegMgrServiceForDriver_stub")]
+extern "C" {}
+#[link(name = "SceRtabi_stub", kind = "static")]
+#[cfg(feature = "SceRtabi_stub")]
 extern "C" {}
 #[link(name = "SceRtcForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRtcForDriver_stub")]

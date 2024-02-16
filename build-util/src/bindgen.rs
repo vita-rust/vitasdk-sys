@@ -3,7 +3,10 @@ use std::{env, fs, io, path::Path, process};
 use quote::ToTokens;
 use syn::{self, visit_mut::VisitMut};
 
-use crate::visitors::{Link, Sort};
+use crate::{
+    visitors::{Link, Sort},
+    vita_headers_db::VitaDb,
+};
 
 pub fn generate(
     vita_headers_include: &Path,
@@ -22,7 +25,14 @@ pub fn generate(
         "Loading vita-headers metadata yaml files from \"{}\"",
         db.to_string_lossy()
     );
-    let link = Link::load(db, vitasdk_sys_manifest);
+    let db = VitaDb::load(db);
+    let link = Link::load(&db);
+
+    if is_build_rs {
+        db.check_missing_manifest_features(vitasdk_sys_manifest);
+    } else {
+        db.update_manifest_features(vitasdk_sys_manifest);
+    }
 
     link.visit(&mut bindings);
 
