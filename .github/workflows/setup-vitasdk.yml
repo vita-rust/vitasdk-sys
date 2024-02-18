@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Cache vitasdk
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ inputs.path }}
           # Don't really know a good key to use here, but the cache will be
@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-vitasdk
 
       - name: Checkout VPDM
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: vitasdk/vdpm
 

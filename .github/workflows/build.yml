@@ -23,7 +23,7 @@ jobs:
     needs: install-vitasdk
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Restore vitasdk cache
         uses: actions/cache/restore@v3
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Restore vitasdk cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: /opt/vitasdk
           key: ${{ runner.os }}-vitasdk
@@ -234,7 +234,7 @@ jobs:
     env:
       RUSTDOCFLAGS: -D warnings
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
