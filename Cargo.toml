@@ -15,7 +15,7 @@ categories = ["external-ffi-bindings"]
 exclude = ["vita-headers"]
 
 [workspace]
-members = ["examples/*", "build-util"]
+members = ["build-util"]
 
 [profile.release]
 lto = true

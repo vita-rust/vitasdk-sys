@@ -1,5 +1,5 @@
 If you're interested in PS Vita development in Rust, please check out the [organization-wide docs](https://github.com/vita-rust) and the [Rust on Sony PlayStation Vita Book](https://vita-rust.github.io/book/).
-There are also working examples at [examples](https://github.com/vita-rust/examples).
+There are also working examples at the [examples](https://github.com/vita-rust/examples) repo.
 
 # vitasdk-sys
 
@@ -10,7 +10,7 @@ There are also working examples at [examples](https://github.com/vita-rust/examp
 
 This crate exports bindings to functions available in [vitasdk](https://vitasdk.org/) and statically links to its stubs libraries based on enabled features. Their official docs are [here](https://docs.vitasdk.org/) and the bindings are automatically generated from vitasdk's [vita-headers](https://github.com/vitasdk/vita-headers) repository. Which features required for which functions can be found on https://docs.rs/vitasdk-sys.
 
-There's an example on how to use this crate at [examples/std-hello-world](examples/std-hello-world).
+There's an example on how to use this crate at [vita-rust/examples/crates/4-vitasdk](https://github.com/vita-rust/examples/tree/main/crates/4-vitasdk).
 
 To be able to use it, you need vitasdk available and the environment variable `VITASDK` set to its location. e.g.:
 
