@@ -1,7 +1,7 @@
 use std::{env, fs, io, path::Path, process};
 
 use quote::ToTokens;
-use syn::{self, visit_mut::VisitMut};
+use syn::visit_mut::VisitMut;
 
 use crate::{
     visitors::{Link, Sort},
