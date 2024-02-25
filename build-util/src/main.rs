@@ -83,8 +83,6 @@ Options:
     -c, --conflicting    Print only stub libs with conflicting symbols
     --with-conflicting   Include stub libs with conflicting symbols
     --missing-features   Print only undefined vitasdk-sys stub features
-    --as-features        Print stub libs as cargo features
-    --all-stubs-feature  Prepend `all-stubs` feature if `--as-features` specified
     --missing-libs       Print only stub libs which do not exist in `$VITASDK/arm-vita-eabi/lib`
     --fail-if-any        Fail if any stub lib is printed
 "
@@ -99,8 +97,6 @@ Options:
         Conflicting,
         WithConflicting,
         MissingFeatures,
-        AsFeatures,
-        AllStubsFeature,
         MissingLibs,
         FailIfAny,
     }
@@ -119,8 +115,6 @@ Options:
                 "-c" | "--conflicting" => Ok(Flag::Conflicting),
                 "--with-conflicting" => Ok(Flag::WithConflicting),
                 "--missing-features" => Ok(Flag::MissingFeatures),
-                "--as-features" => Ok(Flag::AsFeatures),
-                "--all-stubs-feature" => Ok(Flag::AllStubsFeature),
                 "--missing-libs" => Ok(Flag::MissingLibs),
                 "--fail-if-any" => Ok(Flag::FailIfAny),
                 _ => Err(ParseFlagError),
@@ -135,7 +129,6 @@ Options:
         .collect::<Result<HashSet<Flag>, ParseFlagError>>()
         .ok()
         .filter(|ops| !ops.contains(&Flag::Kernel) || !ops.contains(&Flag::User))
-        .filter(|ops| ops.contains(&Flag::AsFeatures) || !ops.contains(&Flag::AllStubsFeature))
     else {
         print_help();
         return ExitCode::FAILURE;
@@ -183,31 +176,9 @@ Options:
         use std::io::{self, Write};
 
         let mut stdout = io::stdout().lock();
-        if options.contains(&Flag::AsFeatures) {
-            if options.contains(&Flag::AllStubsFeature) {
-                struct DisplayAsSequence<T>(T);
-
-                impl<T> std::fmt::Debug for DisplayAsSequence<T>
-                where
-                    T: IntoIterator + Copy,
-                    T::Item: std::fmt::Debug,
-                {
-                    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                        // Strings are valid feature names, so debug representation only adds quotation marks
-                        f.debug_list().entries(self.0).finish()
-                    }
-                }
-
-                writeln!(stdout, "all-stubs = {:#?}", DisplayAsSequence(&stub_libs)).unwrap();
-            }
-            stub_libs
-                .iter()
-                .for_each(|stub_lib| writeln!(stdout, "{stub_lib} = []").unwrap());
-        } else {
-            stub_libs
-                .iter()
-                .for_each(|stub_lib| writeln!(stdout, "{stub_lib}").unwrap());
-        }
+        stub_libs
+            .iter()
+            .for_each(|stub_lib| writeln!(stdout, "{stub_lib}").unwrap());
     }
 
     if !stub_libs.is_empty() && options.contains(&Flag::FailIfAny) {

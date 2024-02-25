@@ -1,7 +1,6 @@
 use std::{
     collections::{BTreeMap, BTreeSet},
     mem,
-    path::Path,
     rc::Rc,
 };
 
@@ -11,7 +10,7 @@ use syn::{
     MacroDelimiter, Meta, MetaList,
 };
 
-use crate::vita_headers_db::{missing_features_filter, stub_lib_name, VitaDb};
+use crate::vita_headers_db::{stub_lib_name, VitaDb};
 
 type FeatureSet = BTreeSet<Rc<str>>;
 
@@ -32,7 +31,7 @@ pub struct Link {
 }
 
 impl Link {
-    pub fn load(db: &Path, vitasdk_sys_manifest: &Path) -> Self {
+    pub fn load(db: &VitaDb) -> Self {
         let mut link = Link {
             function: DEFINED_ELSEWHERE_FUNCTIONS
                 .into_iter()
@@ -44,10 +43,6 @@ impl Link {
                 .collect(),
             stub_libs: BTreeSet::new(),
         };
-
-        let mut db = VitaDb::load(db);
-
-        let mut predicate = missing_features_filter(vitasdk_sys_manifest);
 
         for imports in db.imports_by_firmware.values() {
             for (mod_name, mod_data) in &imports.modules {
@@ -85,20 +80,9 @@ impl Link {
             }
         }
 
-        let conflicting_db = db.split_conflicting();
-        conflicting_db.stub_lib_names().for_each(|lib_stub| {
-            link.stub_libs.remove(lib_stub.as_str());
-        });
-
-        if db.stub_lib_names().any(|s| predicate(&s)) {
-            panic!("Missing features in vitasdk-sys `Cargo.toml`. Please run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputed ones.")
-        }
-
         link
     }
-}
 
-impl Link {
     pub fn visit(&self, i: &mut syn::File) {
         let mut items_by_features: BTreeMap<FeatureSet, Vec<ForeignItem>> = self
             .stub_libs

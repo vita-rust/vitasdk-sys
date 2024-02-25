@@ -30,6 +30,10 @@ Example: to find which stub is required to use `sceDisplaySetFrameBuf`, search
 for it on docs.rs. You'll find `Available on crate feature SceDisplay_stub only.`
 there, which means that you'll need to enable `SceDisplay_stub` to use it.
 
+> ℹ️ **NOTE**: There are a few (currently 4) conflicting stubs, which are stubs
+that define symbols that are also defined by compiler builtins or std. A list of
+ those features can be found [here](https://github.com/vita-rust/vitasdk-sys/blob/main/build-util/src/vita_headers_db.rs#L10).
+
 ### `vitasdk-utils`
 
 This feature just enables some functions provided by vitasdk. Just like the
@@ -71,8 +75,6 @@ $ cd vita-headers
 $ git pull
 $ cd ..
 ```
-
-Run `cargo run -p vitasdk-sys-build-util -- stub-libs --as-features --all-stubs-feature` and replace stub lib features in vitasdk-sys Cargo.toml with outputted ones.
 
 Then run `cargo run -p vitasdk-sys-build-util -- bindgen`
 
