@@ -1,6 +1,6 @@
 [package]
 name = "vitasdk-sys"
-version = "0.3.2"
+version = "0.3.3"
 authors = [
   "Aphek <bilkow@tutanota.com>",
   "Daria Sukhonina <dariasukhonina@gmail.com>",
@@ -25,7 +25,7 @@ inherits = "dev"
 debug = false
 
 [build-dependencies]
-env_logger = { version = "0.10.1", optional = true }
+env_logger = { version = "0.11.2", optional = true }
 
 [build-dependencies.vitasdk-sys-build-util]
 path = "build-util"
