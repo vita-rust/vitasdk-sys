@@ -118,7 +118,6 @@ impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
     }
 }
 #[repr(C)]
-#[repr(align(2))]
 #[derive(Debug, Copy, Clone)]
 pub struct ksceUsbdIsochPswLen {
     pub _bitfield_align_1: [u16; 0],
@@ -1033,7 +1032,7 @@ pub union SceConsoleId__bindgen_ty_1 {
     pub __bindgen_anon_1: SceConsoleId__bindgen_ty_1__bindgen_ty_1,
     pub chassis_check: u8,
 }
-#[repr(C, packed)]
+#[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceConsoleId__bindgen_ty_1__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
