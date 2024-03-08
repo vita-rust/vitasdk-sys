@@ -108,8 +108,8 @@ impl ParseCallbacks for Callbacks {
         let comment = doxygen_rs::transform(&comment);
 
         let comment = comment.strip_prefix("!<").unwrap_or(&comment);
-        let comment = comment.strip_prefix('!').unwrap_or(&comment);
-        let comment = comment.strip_prefix('<').unwrap_or(&comment);
+        let comment = comment.strip_prefix('!').unwrap_or(comment);
+        let comment = comment.strip_prefix('<').unwrap_or(comment);
         let comment = comment.trim();
 
         Some(comment.to_string())
