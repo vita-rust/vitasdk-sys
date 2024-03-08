@@ -2160,7 +2160,7 @@ pub struct SceGxmRenderTargetParams {
     pub width: u16,
     #[doc = "The height of the render target in pixels."]
     pub height: u16,
-    #[doc = "The expected number of scenes per frame, in the range [1,SCE_GXM_MAX_SCENES_PER_RENDERTARGET]."]
+    #[doc = "The expected number of scenes per frame, in the range [1, SCE_GXM_MAX_SCENES_PER_RENDERTARGET]."]
     pub scenesPerFrame: u16,
     #[doc = "A value from the #SceGxmMultisampleMode enum."]
     pub multisampleMode: u16,
@@ -14570,29 +14570,29 @@ extern "C" {}
 #[link(name = "SceHid_stub", kind = "static")]
 #[cfg(feature = "SceHid_stub")]
 extern "C" {
-    #[doc = "Enumerate hid keyboards.\n\n # Arguments\n\n* `\thandle\tBuffer` (direction out) - to receive keyboard hid handles.\n * `\tcount` (direction in) - Number of keyboards to enumerate"]
+    #[doc = "Enumerate hid keyboards.\n\n # Arguments\n\n* `handle` (direction out) - Buffer to receive keyboard hid handles.\n * `count` (direction in) - Number of keyboards to enumerate"]
     pub fn sceHidKeyboardEnumerate(
         handle: *mut crate::ctypes::c_int,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get hid keyboard reports (non-blocking).\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
+    #[doc = "Get hid keyboard reports (non-blocking).\n\n # Arguments\n\n* `handle` (direction in) - Hid handle.\n * `reports` (direction in) - Buffer to receive reports.\n * `nReports` (direction in) - Number of reports to receive."]
     pub fn sceHidKeyboardPeek(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get hid keyboard reports (blocking).\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
+    #[doc = "Get hid keyboard reports (blocking).\n\n # Arguments\n\n* `handle` (direction in) - Hid handle.\n * `reports` (direction in) - Buffer to receive reports.\n * `nReports` (direction in) - Number of reports to receive."]
     pub fn sceHidKeyboardRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Enumerate hid mice.\n\n # Arguments\n\n* `\thandle\tBuffer` (direction out) - to receive mouse hid handles.\n * `\tcount` (direction in) - Number of mice to enumerate"]
+    #[doc = "Enumerate hid mice.\n\n # Arguments\n\n* `handle` (direction out) - Buffer to receive mouse hid handles.\n * `count` (direction in) - Number of mice to enumerate"]
     pub fn sceHidMouseEnumerate(
         handle: *mut crate::ctypes::c_int,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get hid mouse reports.\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
+    #[doc = "Get hid mouse reports.\n\n # Arguments\n\n* `handle` (direction in) - Hid handle.\n * `reports` (direction in) - Buffer to receive reports.\n * `nReports` (direction in) - Number of reports to receive."]
     pub fn sceHidMouseRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidMouseReport,
@@ -15070,7 +15070,7 @@ extern "C" {
         a5: crate::ctypes::c_int,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777)) {\n\t// error\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777)) {\n\t// error\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open\n * `flags` - - Libc styled flags that are or'ed together\n * `mode` - - File access mode (One or more ::SceIoMode).\n # Returns\n\nA non-negative integer is a valid fd, anything else an error"]
+    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777)) {\n // error\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777)) {\n // error\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open\n * `flags` - - Libc styled flags that are or'ed together\n * `mode` - - File access mode (One or more ::SceIoMode).\n # Returns\n\nA non-negative integer is a valid fd, anything else an error"]
     pub fn ksceIoOpen(
         file: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
@@ -16829,7 +16829,7 @@ extern "C" {
     ) -> SceUID;
     #[doc = "Get the main module id for a given process.\n # Arguments\n\n* `pid` - The process to query.\n # Returns\n\nthe UID of the module else < 0 for an error."]
     pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
-    #[doc = "# Example1: Get max to 10 kernel module info\n SceKernelModuleListInfo infolists[10];\n size_t num = 10;// Get max\n uint32_t offset = 0;\n SceKernelModuleListInfo *info = &infolists[0];\n\n ksceKernelGetModuleInfoForDebugger(0x10005, infolists, &num);\n\n for(int i=0;i<num;i++){\n printf(\"name : %sinfo->module_name);\n\n if(info->segments_num == 1){\n printf(\"vaddr:0x%08Xinfo->seg1.SegmentInfo[0].vaddr);\n }else if(info->segments_num == 2){\n printf(\"vaddr:0x%08Xinfo->seg2.SegmentInfo[0].vaddr);\n }\n info = ((char *)info) + info->size;\n }\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `infolists` (direction out) - - infolists output\n * `num` (direction in, out) - - Specify the maximum number of modinfolist to retrieve. If the function returns 0, it returns the number of modules loaded in the target pid in num\n\n # Returns\n\n0 on success, < 0 on error."]
+    #[doc = "# Example1: Get max to 10 kernel module info\n SceKernelModuleListInfo infolistssize_t num = 10;// Get max\n uint32_t offset = 0;\n SceKernelModuleListInfo *info = &infolistsksceKernelGetModuleInfoForDebugger(0x10005, infolists, &num);\n\n for(int i=0;i<num;i++){\n printf(\"name : %sinfo->module_name);\n\n if(info->segments_num == 1){\n printf(\"vaddr:0x%08Xinfo->seg1.SegmentInfo}else if(info->segments_num == 2){\n printf(\"vaddr:0x%08Xinfo->seg2.SegmentInfo}\n info = ((char *)info) + info->size;\n }\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `infolists` (direction out) - - infolists output\n * `num` (direction in, out) - - Specify the maximum number of modinfolist to retrieve. If the function returns 0, it returns the number of modules loaded in the target pid in num\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleInfoForDebugger(
         pid: SceUID,
         infolists: *mut SceKernelModuleListInfo,
@@ -17802,7 +17802,7 @@ extern "C" {
 #[link(name = "SceNpDrm_stub", kind = "static")]
 #[cfg(feature = "SceNpDrm_stub")]
 extern "C" {
-    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n\n * `version_flag` (direction out) - - The pointer of version flag output.\n\n * `account_id` (direction out) - - The pointer of activated account id output.\n\n * `act_exp_time` (direction out) - - The pointer of activation expire time output, [0] is start_date, [1] is end_date\n\n # Returns\n\n0 on success, < 0 on error."]
+    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n\n * `version_flag` (direction out) - - The pointer of version flag output.\n\n * `account_id` (direction out) - - The pointer of activated account id output.\n\n * `act_exp_time` (direction out) - - The pointer of activation expire time output, is start_date, is end_date\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
@@ -18368,7 +18368,7 @@ extern "C" {
     pub fn kscePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
     #[doc = "Sets BUS clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    #[doc = "Set the screen brightness.\n [`::sceAVConfigSetDisplayBrightness`] for userland counterpart.\n\n # Arguments\n\n* `brightness` - Brightness that the screen will be set to (range 21-65536, 0 turns off the screen).\n\n # Returns\n\n?"]
+    #[doc = "Set the screen brightness.\n [`crate::sceAVConfigSetDisplayBrightness`] for userland counterpart.\n\n # Arguments\n\n* `brightness` - Brightness that the screen will be set to (range 21-65536, 0 turns off the screen).\n\n # Returns\n\n?"]
     pub fn kscePowerSetDisplayBrightness(brightness: crate::ctypes::c_int) -> crate::ctypes::c_int;
     #[doc = "Sets GPU clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -18498,7 +18498,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     #[doc = "Resume a suspended process.\n # Arguments\n\n* `pid` (direction in) - The process to resume.\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Suspend a running process.\n # Arguments\n\n* `pid` (direction in) - The process to suspend.\n * `\tstatus` (direction in) - The new status for the process.\n # Returns\n\nZero on success, < 0 on error."]
+    #[doc = "Suspend a running process.\n # Arguments\n\n* `pid` (direction in) - The process to suspend.\n * `status` (direction in) - The new status for the process.\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelSuspendProcess(
         pid: SceUID,
         status: crate::ctypes::c_int,
@@ -20625,33 +20625,33 @@ extern "C" {
 #[link(name = "SceTouch_stub", kind = "static")]
 #[cfg(feature = "SceTouch_stub")]
 extern "C" {
-    #[doc = "Disable touch force output.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number."]
+    #[doc = "Disable touch force output.\n\n # Arguments\n\n* `port` (direction in) - Port number."]
     pub fn sceTouchDisableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
-    #[doc = "Enable touch force output.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number."]
+    #[doc = "Enable touch force output.\n\n # Arguments\n\n* `port` (direction in) - Port number."]
     pub fn sceTouchEnableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
-    #[doc = "Get Touch Panel information\n\n # Arguments\n\n* `\tport\t\tPort` (direction in) - number.\n * `\tpPanelInfo\tThe` (direction out) - buffer to get the Touch Panel information."]
+    #[doc = "Get Touch Panel information\n\n # Arguments\n\n* `port` (direction in) - Port number.\n * `pPanelInfo` (direction out) - The buffer to get the Touch Panel information."]
     pub fn sceTouchGetPanelInfo(
         port: SceUInt32,
         pPanelInfo: *mut SceTouchPanelInfo,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get sampling state of touch panel.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number.\n * `\tpState\tThe` (direction out) - buffer to receive sampling state."]
+    #[doc = "Get sampling state of touch panel.\n\n # Arguments\n\n* `port` (direction in) - Port number.\n * `pState` (direction out) - The buffer to receive sampling state."]
     pub fn sceTouchGetSamplingState(
         port: SceUInt32,
         pState: *mut SceTouchSamplingState,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get touch data (Polling)\n\n # Arguments\n\n* `\tport\tport` (direction in) - number.\n * `\tpData\tBuffer` (direction out) - to receive touch data.\n * `\tnBufs\tNumber` (direction in) - of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
+    #[doc = "Get touch data (Polling)\n\n # Arguments\n\n* `port` (direction in) - port number.\n * `pData` (direction out) - Buffer to receive touch data.\n * `nBufs` (direction in) - Number of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
     pub fn sceTouchPeek(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
     ) -> crate::ctypes::c_int;
-    #[doc = "Get touch data (Blocking)\n\n # Arguments\n\n* `\tport\tPort` (direction in) - Number.\n * `\tpData\tBuffer` (direction out) - to receive touch data.\n * `\tnBufs\tNumber` (direction in) - of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
+    #[doc = "Get touch data (Blocking)\n\n # Arguments\n\n* `port` (direction in) - Port Number.\n * `pData` (direction out) - Buffer to receive touch data.\n * `nBufs` (direction in) - Number of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
     pub fn sceTouchRead(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
     ) -> crate::ctypes::c_int;
-    #[doc = "Set sampling state of touch panel.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number.\n * `\tstate\tSampling` (direction in) - state."]
+    #[doc = "Set sampling state of touch panel.\n\n # Arguments\n\n* `port` (direction in) - Port number.\n * `state` (direction in) - Sampling state."]
     pub fn sceTouchSetSamplingState(
         port: SceUInt32,
         state: SceTouchSamplingState,
@@ -22342,11 +22342,11 @@ pub type SceSysTimerType = crate::ctypes::c_uint;
 pub type SceThreadStatus = crate::ctypes::c_uint;
 #[doc = "Touch error codes"]
 pub type SceTouchErrorCode = crate::ctypes::c_uint;
-#[doc = "Port numbers of touch panels\n\n [`::sceTouchRead`]\n [`::sceTouchPeek`]"]
+#[doc = "Port numbers of touch panels\n\n [`crate::sceTouchRead`]\n [`crate::sceTouchPeek`]"]
 pub type SceTouchPortType = crate::ctypes::c_uint;
-#[doc = "Info field of ::SceTouchReport structure\n\n [`::SceTouchReport`]"]
+#[doc = "Info field of ::SceTouchReport structure\n\n [`crate::SceTouchReport`]"]
 pub type SceTouchReportInfo = crate::ctypes::c_uint;
-#[doc = "Sampling port setting of the touch panel\n\n [`::sceTouchSetSamplingState`]"]
+#[doc = "Sampling port setting of the touch panel\n\n [`crate::sceTouchSetSamplingState`]"]
 pub type SceTouchSamplingState = crate::ctypes::c_uint;
 #[doc = "Days of the week for use in repeatDays member of ::SceTriggerUtilEventParamDaily"]
 pub type SceTriggerUtilDays = crate::ctypes::c_uint;

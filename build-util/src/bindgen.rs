@@ -87,8 +87,23 @@ impl ParseCallbacks for Callbacks {
     fn process_comment(&self, comment: &str) -> Option<String> {
         let comment = comment.replace("@param[int]", "@param[in]");
         let comment = comment.replace("[inout]", "[in,out]");
-        let comment = comment.replace("[in]\t", "[in] \t");
-        let comment = comment.replace("[out]\t", "[out] \t");
+
+        // doxygen_rs doesn't handle tabs well
+        let comment = comment.replace('\t', " ");
+        // Fixes links to functions and types
+        let comment = comment.replace("@see ::", "@see crate::");
+
+        // Escape square brackets for non-links
+        let comment =
+            lazy_regex::regex_replace_all!("\\[([\\d]+)\\]", &comment, |_, num: &str| format!(
+                "\\[{num}\\]"
+            ));
+
+        // Without space these brackets are considered to be a link
+        let comment = comment.replace(
+            "[1,SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
+            "[1, SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
+        );
 
         let comment = doxygen_rs::transform(&comment);
 
