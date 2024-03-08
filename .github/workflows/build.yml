@@ -17,8 +17,8 @@ jobs:
     with:
       path: /opt/vitasdk
 
-  build-example:
-    name: Build example
+  build-tests:
+    name: Build tests
     runs-on: ubuntu-latest
     needs: install-vitasdk
     timeout-minutes: 20
@@ -58,32 +58,30 @@ jobs:
         run: |
           echo "/opt/vitasdk/bin" >> $GITHUB_PATH
 
-      - name: Build example in debug mode
+      - name: Build tests in debug mode
         env:
           VITASDK: /opt/vitasdk
         run: |
-          cd examples/std-hello-world
-          cargo +nightly vita build vpk
+          cargo +nightly vita build --default-title-id SYSTEST01 vpk -- --tests --features SceLibKernel_stub
 
-      - name: Build example in release mode
+      - name: Build tests in release mode
         env:
           VITASDK: /opt/vitasdk
         run: |
-          cd examples/std-hello-world
-          cargo +nightly vita build vpk --release
+          cargo +nightly vita build --default-title-id SYSTEST01 vpk -- --tests --release --features SceLibKernel_stub
 
       - name: Upload debug build
         uses: actions/upload-artifact@v3
         with:
           name: std-hello-world-debug-build
-          path: target/armv7-sony-vita-newlibeabihf/debug/std-hello-world.*
+          path: target/armv7-sony-vita-newlibeabihf/debug/deps/vitasdk_sys-*.*
           if-no-files-found: error
 
       - name: Upload release build
         uses: actions/upload-artifact@v3
         with:
           name: std-hello-world-release-build
-          path: target/armv7-sony-vita-newlibeabihf/release/std-hello-world.*
+          path: target/armv7-sony-vita-newlibeabihf/release/deps/vitasdk_sys-*.*
           if-no-files-found: error
 
   clippy:
@@ -112,7 +110,7 @@ jobs:
         env:
           VITASDK: /opt/vitasdk
         run: |
-          cargo clippy --tests --workspace -- -Dclippy::all -Dwarnings
+          cargo clippy --tests --workspace  --features all-stubs -- -Dclippy::all -Dwarnings
 
   rustfmt:
     name: Rustfmt

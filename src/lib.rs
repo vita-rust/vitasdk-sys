@@ -28,6 +28,9 @@ mod ctypes {
 
 pub use ctypes::*;
 
+#[cfg(test)]
+mod tests;
+
 #[cfg(any(not(feature = "bindgen"), docsrs))]
 include!("bindings.rs");
 
