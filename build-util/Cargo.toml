@@ -20,4 +20,3 @@ toml = { version = "0.8.8", default-features = false, features = ["parse"] }
 bindgen = "0.69.4"
 quote = { version = "1.0.35", default-features = false }
 doxygen-rs = "0.4"
-
