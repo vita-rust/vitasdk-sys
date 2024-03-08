@@ -1,5 +1,6 @@
 use std::{env, fs, io, path::Path, process};
 
+use bindgen::callbacks::ParseCallbacks;
 use quote::ToTokens;
 use syn::visit_mut::VisitMut;
 
@@ -79,6 +80,27 @@ pub fn generate(
     }
 }
 
+#[derive(Debug)]
+struct Callbacks;
+
+impl ParseCallbacks for Callbacks {
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        let comment = comment.replace("@param[int]", "@param[in]");
+        let comment = comment.replace("[inout]", "[in,out]");
+        let comment = comment.replace("[in]\t", "[in] \t");
+        let comment = comment.replace("[out]\t", "[out] \t");
+
+        let comment = doxygen_rs::transform(&comment);
+
+        let comment = comment.strip_prefix("!<").unwrap_or(&comment);
+        let comment = comment.strip_prefix('!').unwrap_or(&comment);
+        let comment = comment.strip_prefix('<').unwrap_or(&comment);
+        let comment = comment.trim();
+
+        Some(comment.to_string())
+    }
+}
+
 fn generate_preprocessed_bindings(
     headers: &Path,
     vita_headers_include: &Path,
@@ -92,7 +114,8 @@ fn generate_preprocessed_bindings(
         .clang_args(&["-target", "armv7a-none-eabihf"])
         .use_core()
         .ctypes_prefix("crate::ctypes")
-        .generate_comments(false)
+        .generate_comments(true)
+        .parse_callbacks(Box::new(Callbacks))
         .prepend_enum_name(false)
         .layout_tests(false)
         .formatter(bindgen::Formatter::None);

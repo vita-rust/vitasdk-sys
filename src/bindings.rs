@@ -85,6 +85,7 @@ pub use self::SceAppUtilSaveDataSaveMode as SceAppUtilSaveDataDataSaveMode;
 pub use self::SceHttpStatusCode as SceHttpStatuscode;
 pub use self::SceHttpVersion as SceHttpHttpVersion;
 pub use self::SceImeDialogErrorCode as SceImeDialogError;
+#[doc = "Error Codes"]
 pub use self::SceNotificationUitlErrorCode as SceNotificationUtilErrorCode;
 pub use self::_ScePerfArmPmonEventCode as ScePerfArmPmonEventCode;
 #[repr(C)]
@@ -189,15 +190,21 @@ pub struct MsgPipeSendData {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MusicExportParam {
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_char; 128usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct PhotoExportParam {
+    #[doc = "Version"]
     pub version: crate::ctypes::c_int,
+    #[doc = "Photo title"]
     pub photoTitle: *const SceWChar32,
+    #[doc = "Game title"]
     pub gameTitle: *const SceWChar32,
+    #[doc = "Game description"]
     pub gameComment: *const SceWChar32,
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_int; 8usize],
 }
 #[repr(C)]
@@ -230,21 +237,37 @@ pub struct SceAppMgrAppState {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrBudgetInfo {
+    #[doc = "Must be 0x88"]
     pub size: crate::ctypes::c_int,
+    #[doc = "One of ::SceAppMgrApplicationMode"]
     pub app_mode: crate::ctypes::c_int,
+    #[doc = "Unknown Data"]
     pub unk0: crate::ctypes::c_int,
+    #[doc = "Total amount of accessible USER_RW memory"]
     pub total_user_rw_mem: crate::ctypes::c_uint,
+    #[doc = "Free amount of accessible USER_RW memory"]
     pub free_user_rw: crate::ctypes::c_uint,
+    #[doc = "Flag for extra memory accessibility"]
     pub extra_mem_allowed: SceBool,
+    #[doc = "Unknown Data"]
     pub unk1: crate::ctypes::c_int,
+    #[doc = "Total amount of accessible extra memory"]
     pub total_extra_mem: crate::ctypes::c_uint,
+    #[doc = "Free amount of accessible extra memory"]
     pub free_extra_mem: crate::ctypes::c_uint,
+    #[doc = "Unknown Data"]
     pub unk2: [crate::ctypes::c_int; 2usize],
+    #[doc = "Total amount of accessible physically contiguous memory"]
     pub total_phycont_mem: crate::ctypes::c_uint,
+    #[doc = "Free amount of accessible physically contiguous memory"]
     pub free_phycont_mem: crate::ctypes::c_uint,
+    #[doc = "Unknown Data"]
     pub unk3: [crate::ctypes::c_int; 10usize],
+    #[doc = "Total amount of accessible CDRAM memory"]
     pub total_cdram_mem: crate::ctypes::c_uint,
+    #[doc = "Free amount of accessible CDRAM memory"]
     pub free_cdram_mem: crate::ctypes::c_uint,
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_int; 9usize],
 }
 #[repr(C)]
@@ -297,59 +320,87 @@ pub struct SceAppMgrLaunchParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrLoadExecOptParam {
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_int; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataData {
+    #[doc = "Must be 0x4C"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Save slot to use"]
     pub slotId: crate::ctypes::c_uint,
+    #[doc = "Save slot params"]
     pub slotParam: *mut SceAppUtilSaveDataSlotParam,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 32usize],
+    #[doc = "Pointer to an array of files"]
     pub files: *mut SceAppUtilSaveDataFile,
+    #[doc = "Number of files to save"]
     pub fileNum: crate::ctypes::c_int,
+    #[doc = "Savedata mountpoint"]
     pub mountPoint: SceAppUtilSaveDataMountPoint,
+    #[doc = "Required size in KBs"]
     pub requiredSizeKB: *mut crate::ctypes::c_uint,
     pub unk_0x48: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataDataDelete {
+    #[doc = "Must be 0x44"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Save slot to use"]
     pub slotId: crate::ctypes::c_uint,
+    #[doc = "Save slot params"]
     pub slotParam: *mut SceAppUtilSaveDataSlotParam,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 32usize],
+    #[doc = "Pointer to an array of files"]
     pub files: *mut SceAppUtilSaveDataFile,
+    #[doc = "Number of files to delete"]
     pub fileNum: crate::ctypes::c_int,
+    #[doc = "Savedata mountpoint"]
     pub mountPoint: SceAppUtilSaveDataMountPoint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlot {
+    #[doc = "Must be 0x418"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Save slot to use"]
     pub slotId: crate::ctypes::c_uint,
+    #[doc = "Save slot params"]
     pub slotParam: SceAppUtilSaveDataSlotParam,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 116usize],
+    #[doc = "Savedata mountpoint"]
     pub mountPoint: SceAppUtilSaveDataMountPoint,
     pub reserved2: [u8; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlotDelete {
+    #[doc = "Must be 0x18"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Save slot to use"]
     pub slotId: crate::ctypes::c_uint,
+    #[doc = "Savedata mountpoint"]
     pub mountPoint: SceAppUtilSaveDataMountPoint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSystemEvent {
+    #[doc = "One of ::SceAppMgrSystemEventType"]
     pub systemEvent: crate::ctypes::c_int,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 60usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilAppEventParam {
+    #[doc = "Event type"]
     pub type_: SceAppUtilAppEventType,
+    #[doc = "Event parameter"]
     pub dat: [u8; 1024usize],
 }
 #[repr(C)]
@@ -364,19 +415,25 @@ pub struct SceAppUtilBgdlStatus {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilBootParam {
+    #[doc = "Boot attribute"]
     pub attr: SceAppUtilBootAttribute,
+    #[doc = "App version"]
     pub appVersion: crate::ctypes::c_uint,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilInitParam {
+    #[doc = "Buffer size"]
     pub workBufSize: SceSize,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 60usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilMountPoint {
+    #[doc = "Mount point"]
     pub data: [i8; 16usize],
 }
 #[repr(C)]
@@ -405,64 +462,98 @@ pub struct SceAppUtilSaveDataMountPoint {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataRemoveItem {
+    #[doc = "Path to savedata data"]
     pub dataPath: *const crate::ctypes::c_char,
+    #[doc = "Savedata remove mode (One of ::SceAppUtilSaveDataRemoveMode)"]
     pub mode: crate::ctypes::c_int,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 36usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSaveItem {
+    #[doc = "Path to savedata"]
     pub dataPath: *const crate::ctypes::c_char,
+    #[doc = "Buffer of savedata file"]
     pub buf: *const crate::ctypes::c_void,
+    #[doc = "Padding"]
     pub pad: u32,
+    #[doc = "Offset of savedata file"]
     pub offset: SceOff,
+    #[doc = "Savedata save mode (One of ::SceAppUtilSaveDataSaveMode)"]
     pub mode: crate::ctypes::c_int,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 36usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSlot {
+    #[doc = "Slot id"]
     pub id: SceAppUtilSaveDataSlotId,
+    #[doc = "Slot status"]
     pub status: SceAppUtilSaveDataSlotStatus,
+    #[doc = "Param for free usage"]
     pub userParam: crate::ctypes::c_int,
+    #[doc = "Settings for empty slot"]
     pub emptyParam: *mut SceAppUtilSaveDataSlotEmptyParam,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSlotEmptyParam {
+    #[doc = "Title string"]
     pub title: *mut SceWChar16,
+    #[doc = "Path to icon"]
     pub iconPath: *mut crate::ctypes::c_char,
+    #[doc = "Icon buffer"]
     pub iconBuf: *mut crate::ctypes::c_void,
+    #[doc = "Icon buffer size"]
     pub iconBufSize: SceSize,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSlotParam {
+    #[doc = "Status"]
     pub status: SceAppUtilSaveDataSlotStatus,
+    #[doc = "Title name"]
     pub title: [SceWChar16; 32usize],
+    #[doc = "Subtitle"]
     pub subTitle: [SceWChar16; 64usize],
+    #[doc = "Detail info"]
     pub detail: [SceWChar16; 256usize],
+    #[doc = "Icon path"]
     pub iconPath: [crate::ctypes::c_char; 64usize],
+    #[doc = "User param"]
     pub userParam: crate::ctypes::c_int,
+    #[doc = "Data size (In KB)"]
     pub sizeKB: SceSize,
+    #[doc = "Last modified time"]
     pub modifiedTime: SceDateTime,
+    #[doc = "Reserved range"]
     pub reserved: [u8; 48usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilStoreBrowseParam {
+    #[doc = "Store browse type"]
     pub type_: crate::ctypes::c_uint,
+    #[doc = "Target id"]
     pub id: *const crate::ctypes::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilWebBrowserParam {
+    #[doc = "String that's passed to command specified by launchMode"]
     pub str_: *const crate::ctypes::c_char,
+    #[doc = "Length of str"]
     pub strlen: SceSize,
+    #[doc = "Browser mode"]
     pub launchMode: crate::ctypes::c_uint,
+    #[doc = "Reserved area"]
     pub reserved: crate::ctypes::c_uint,
 }
+#[doc = "Structure representing all ARM registers"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceArmCpuRegisters {
@@ -522,13 +613,21 @@ pub struct SceAtracStreamInfo {
 pub struct SceAudiodecCtrl {
     pub size: SceUInt32,
     pub handle: SceInt32,
+    #[doc = "pointer to elementary stream"]
     pub pEs: *mut SceUInt8,
+    #[doc = "size of elementary stream used actually (in byte)"]
     pub inputEsSize: SceUInt32,
+    #[doc = "maximum size of elementary stream used (in byte)"]
     pub maxEsSize: SceUInt32,
+    #[doc = "pointer to PCM"]
     pub pPcm: *mut crate::ctypes::c_void,
+    #[doc = "size of PCM output actually (in byte)"]
     pub outputPcmSize: SceUInt32,
+    #[doc = "maximum size of PCM output (in byte)"]
     pub maxPcmSize: SceUInt32,
+    #[doc = "PCM bit depth"]
     pub wordLength: SceUInt32,
+    #[doc = "pointer to SceAudiodecInfo"]
     pub pInfo: *mut SceAudiodecInfo,
 }
 #[repr(C)]
@@ -560,20 +659,28 @@ pub struct SceAudiodecInfoAt9 {
     pub superFrameSize: SceUInt32,
     pub framesInSuperFrame: SceUInt32,
 }
+#[doc = "Information structure for CELP"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudiodecInfoCelp {
+    #[doc = "sizeof(SceAudiodecInfoCelp)"]
     pub size: SceUInt32,
+    #[doc = "Excitation mode"]
     pub excitationMode: SceUInt32,
+    #[doc = "Sampling rate"]
     pub samplingRate: SceUInt32,
+    #[doc = "Bit rate (one of ::SceAudiodecCelpBitrate)"]
     pub bitRate: SceUInt32,
     pub lostCount: SceUInt32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudiodecInfoMp3 {
+    #[doc = "sizeof(SceAudiodecInfoMp3)"]
     pub size: SceUInt32,
+    #[doc = "number of channels (mono: 1, stereo/joint stereo/two mono: 2)"]
     pub ch: SceUInt32,
+    #[doc = "MPEG version (MPEG1: 3, MPEG2: 2, MPEG2.5: 0)"]
     pub version: SceUInt32,
 }
 #[repr(C)]
@@ -600,56 +707,89 @@ pub struct SceAudiodecInitStreamParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencCtrl {
+    #[doc = "sizeof(SceAudioencCtrl)"]
     pub size: SceSize,
+    #[doc = "Encoder handle"]
     pub handle: crate::ctypes::c_int,
+    #[doc = "Pointer to elementary stream"]
     pub pInputPcm: *mut crate::ctypes::c_void,
+    #[doc = "Size of elementary stream used actually (in byte)"]
     pub inputPcmSize: SceSize,
+    #[doc = "Max size of elementary stream used (in byte)"]
     pub maxPcmSize: SceSize,
+    #[doc = "Pointer to PCM"]
     pub pOutputEs: *mut crate::ctypes::c_void,
+    #[doc = "Size of PCM output actually (in byte)"]
     pub outputEsSize: SceSize,
+    #[doc = "Max size of PCM output (in byte)"]
     pub maxEsSize: SceSize,
+    #[doc = "PCM bit depth"]
     pub wordLength: SceSize,
+    #[doc = "Pointer to ::SceAudioencInfo"]
     pub pInfo: *mut SceAudioencInfo,
+    #[doc = "Pointer to ::SceAudioencOptInfo"]
     pub pOptInfo: *mut SceAudioencOptInfo,
 }
+#[doc = "Audio encoder info"]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudioencInfo {
+    #[doc = "sizeof(SceAudioencInfo)"]
     pub size: SceSize,
+    #[doc = "Information structure for CELP"]
     pub celp: SceAudioencInfoCelp,
 }
+#[doc = "Information structure for CELP"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencInfoCelp {
+    #[doc = "sizeof(SceAudioencInfoCelp)"]
     pub size: SceSize,
+    #[doc = "Excitation mode"]
     pub excitationMode: crate::ctypes::c_uint,
+    #[doc = "Sampling rate"]
     pub samplingRate: crate::ctypes::c_uint,
+    #[doc = "Bit rate (one of ::SceAudioencCelpBitrate)"]
     pub bitRate: crate::ctypes::c_uint,
 }
+#[doc = "Initialization structure to pass as argument to ::sceAudioencInitLibrary"]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudioencInitParam {
+    #[doc = "sizeof(SceAudioencInitParam)"]
     pub size: SceSize,
+    #[doc = "See ::SceAudioencInitStreamParam"]
     pub celp: SceAudioencInitStreamParam,
 }
+#[doc = "Initialization structure to provide to ::SceAudioencInitParam"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencInitStreamParam {
+    #[doc = "sizeof(SceAudioencInitStreamParam)"]
     pub size: SceSize,
+    #[doc = "Total number of audio streams"]
     pub totalStreams: crate::ctypes::c_uint,
 }
+#[doc = "Audio encoder optional info"]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAudioencOptInfo {
+    #[doc = "sizeof(SceAudioencOptInfo)"]
     pub size: SceSize,
+    #[doc = "Optional information structure for CELP"]
     pub celp: SceAudioencOptInfoCelp,
 }
+#[doc = "Optional information structure for CELP"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencOptInfoCelp {
+    #[doc = "sizeof(SceAudioencOptInfoCelp)"]
     pub size: SceSize,
+    #[doc = "Header buffer"]
     pub header: [u8; 32usize],
+    #[doc = "Header size"]
     pub headerSize: SceSize,
+    #[doc = "Encoder version"]
     pub encoderVersion: crate::ctypes::c_uint,
 }
 #[repr(C)]
@@ -665,7 +805,9 @@ pub struct SceAuthInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvcdecArrayPicture {
+    #[doc = "Number of outputs"]
     pub numOfOutput: u32,
+    #[doc = "Number of elements"]
     pub numOfElm: u32,
     pub pPicture: *mut *mut SceAvcdecPicture,
 }
@@ -696,6 +838,7 @@ pub struct SceAvcdecDecoderInfo {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceAvcdecFrame {
+    #[doc = "One of ::SceAvcdecPixelFormat"]
     pub pixelType: u32,
     pub framePitch: u32,
     pub frameWidth: u32,
@@ -707,6 +850,7 @@ pub struct SceAvcdecFrame {
     pub frameCropTopOffset: u32,
     pub frameCropBottomOffset: u32,
     pub opt: SceAvcdecFrameOption,
+    #[doc = "address of picture buffer"]
     pub pPicture: [*mut crate::ctypes::c_void; 2usize],
 }
 #[repr(C)]
@@ -751,15 +895,21 @@ pub struct SceAvcdecPicture {
 pub struct SceAvcdecQueryDecoderInfo {
     pub horizontal: u32,
     pub vertical: u32,
+    #[doc = "Number of reference frames"]
     pub numOfRefFrames: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerAudio {
+    #[doc = "The number of audio channels of the audio frame."]
     pub channelCount: u16,
+    #[doc = "Reserved data."]
     pub reserved: [u8; 2usize],
+    #[doc = "The samplerate of the audio frame in Hz."]
     pub sampleRate: u32,
+    #[doc = "The size of the audio frame in bytes."]
     pub size: u32,
+    #[doc = "The language code of the audio frame."]
     pub languageCode: u32,
 }
 #[repr(C)]
@@ -772,29 +922,43 @@ pub struct SceAvPlayerEventReplacement {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerFileReplacement {
     pub objectPointer: *mut crate::ctypes::c_void,
+    #[doc = "File open"]
     pub open: SceAvPlayerOpenFile,
+    #[doc = "File close"]
     pub close: SceAvPlayerCloseFile,
+    #[doc = "File read from offset"]
     pub readOffset: SceAvPlayerReadOffsetFile,
+    #[doc = "File size"]
     pub size: SceAvPlayerSizeFile,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceAvPlayerFrameInfo {
+    #[doc = "Pointer to the frame data."]
     pub pData: *mut u8,
+    #[doc = "Reserved data"]
     pub reserved: u32,
+    #[doc = "Timestamp of the frame in milliseconds"]
     pub timeStamp: u64,
+    #[doc = "The frame details."]
     pub details: SceAvPlayerStreamDetails,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerInitData {
+    #[doc = "Memory allocator replacement"]
     pub memoryReplacement: SceAvPlayerMemReplacement,
+    #[doc = "File I/O replacement"]
     pub fileReplacement: SceAvPlayerFileReplacement,
+    #[doc = "Event callback replacement"]
     pub eventReplacement: SceAvPlayerEventReplacement,
     pub debugLevel: i32,
+    #[doc = "Base priority of the thread running the video player"]
     pub basePriority: u32,
     pub numOutputVideoFrameBuffers: i32,
+    #[doc = "Flag indicating whether the video player should start playback automatically"]
     pub autoStart: SceBool,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 3usize],
     pub defaultLanguage: *const crate::ctypes::c_char,
 }
@@ -802,26 +966,39 @@ pub struct SceAvPlayerInitData {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerMemReplacement {
     pub objectPointer: *mut crate::ctypes::c_void,
+    #[doc = "Memory allocator for generic data"]
     pub allocate: SceAvPlayerAlloc,
+    #[doc = "Memory deallocator for generic data"]
     pub deallocate: SceAvPlayerFree,
+    #[doc = "Memory allocator for video frames"]
     pub allocateTexture: SceAvPlayerAllocFrame,
+    #[doc = "Memory deallocator for video frames"]
     pub deallocateTexture: SceAvPlayerFreeFrame,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceAvPlayerStreamDetails {
+    #[doc = "Reserved data."]
     pub reserved: [u32; 4usize],
+    #[doc = "Audio details."]
     pub audio: SceAvPlayerAudio,
+    #[doc = "Video details."]
     pub video: SceAvPlayerVideo,
+    #[doc = "Subtitles details."]
     pub subs: SceAvPlayerTimedText,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceAvPlayerStreamInfo {
+    #[doc = "Type of the stream (One of ::SceAvPlayerStreamType)"]
     pub type_: u32,
+    #[doc = "Reserved data"]
     pub reserved: u32,
+    #[doc = "The stream details."]
     pub details: SceAvPlayerStreamDetails,
+    #[doc = "Total duration of the stream in milliseconds."]
     pub duration: u64,
+    #[doc = "Starting time of the stream in milliseconds."]
     pub startTime: u64,
 }
 #[repr(C)]
@@ -835,17 +1012,25 @@ pub struct SceAvPlayerTextPosition {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerTimedText {
+    #[doc = "The language code of the subtitles."]
     pub languageCode: u32,
+    #[doc = "The size of the subtitles."]
     pub textSize: u16,
+    #[doc = "The size of the subtitles."]
     pub fontSize: u16,
+    #[doc = "The position of the subtitles."]
     pub position: SceAvPlayerTextPosition,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerVideo {
+    #[doc = "The width of the video frame in pixels."]
     pub width: u32,
+    #[doc = "The height of the video frame in pixels."]
     pub height: u32,
+    #[doc = "The aspect ratio of the video frame."]
     pub aspectRatio: f32,
+    #[doc = "The language code of the video frame."]
     pub languageCode: u32,
 }
 #[repr(C)]
@@ -874,6 +1059,7 @@ pub struct SceBtEvent__bindgen_ty_1__bindgen_ty_1 {
 pub struct _SceBtHidRequest {
     pub unk00: u32,
     pub unk04: u32,
+    #[doc = "0 = read?, 1 = write?, 2 = feature?, 3 = ?"]
     pub type_: u8,
     pub unk09: u8,
     pub unk0A: u8,
@@ -900,14 +1086,20 @@ pub struct SceBtRegisteredInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCameraInfo {
+    #[doc = "sizeof(SceCameraInfo)"]
     pub size: SceSize,
+    #[doc = "Process priority (one of ::SceCameraPriority)"]
     pub priority: u16,
+    #[doc = "Output format (One or more ::SceCameraFormat)"]
     pub format: u16,
+    #[doc = "Resolution (one of ::SceCameraResolution)"]
     pub resolution: u16,
+    #[doc = "Framerate (one of ::SceCameraFrameRate)"]
     pub framerate: u16,
     pub width: u16,
     pub height: u16,
     pub range: u16,
+    #[doc = "Structure padding"]
     pub pad: u16,
     pub sizeIBase: SceSize,
     pub sizeUBase: SceSize,
@@ -921,6 +1113,7 @@ pub struct SceCameraInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCameraRead {
+    #[doc = "sizeof(SceCameraRead)"]
     pub size: SceSize,
     pub mode: crate::ctypes::c_int,
     pub pad: crate::ctypes::c_int,
@@ -950,12 +1143,17 @@ pub struct SceClass {
     pub destroy_cb: SceClassCallback,
     pub magic: crate::ctypes::c_uint,
 }
+#[doc = "Structure for stats of SceClibMspace"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceClibMspaceStats {
+    #[doc = "Capacity of the Mspace"]
     pub capacity: SceSize,
+    #[doc = "Unknown, value is equal to capacity"]
     pub unk: SceSize,
+    #[doc = "Peak memory allocated"]
     pub peak_in_use: SceSize,
+    #[doc = "Current memory allocated"]
     pub current_in_use: SceSize,
 }
 #[repr(C)]
@@ -1099,34 +1297,58 @@ pub struct SceCorelockContext {
     pub core_count: i16,
     pub last_wait_core: i16,
 }
+#[doc = "Structure to pass as argument to ::sceCtrlSetActuator"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlActuator {
+    #[doc = "Vibration strength of the small motor"]
     pub small: crate::ctypes::c_uchar,
+    #[doc = "Vibration strength of the large motor"]
     pub large: crate::ctypes::c_uchar,
+    #[doc = "Unknown"]
     pub unk: [u8; 6usize],
 }
+#[doc = "Returned controller data"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlData {
+    #[doc = "The current read frame."]
     pub timeStamp: u64,
+    #[doc = "Bit mask containing zero or more of ::SceCtrlButtons."]
     pub buttons: crate::ctypes::c_uint,
+    #[doc = "Left analogue stick, X axis."]
     pub lx: crate::ctypes::c_uchar,
+    #[doc = "Left analogue stick, Y axis."]
     pub ly: crate::ctypes::c_uchar,
+    #[doc = "Right analogue stick, X axis."]
     pub rx: crate::ctypes::c_uchar,
+    #[doc = "Right analogue stick, Y axis."]
     pub ry: crate::ctypes::c_uchar,
+    #[doc = "Up button"]
     pub up: u8,
+    #[doc = "Right button"]
     pub right: u8,
+    #[doc = "Down button"]
     pub down: u8,
+    #[doc = "Left button"]
     pub left: u8,
+    #[doc = "Left trigger (L2)"]
     pub lt: u8,
+    #[doc = "Right trigger (R2)"]
     pub rt: u8,
+    #[doc = "Left button (L1)"]
     pub l1: u8,
+    #[doc = "Right button (R1)"]
     pub r1: u8,
+    #[doc = "Triangle button"]
     pub triangle: u8,
+    #[doc = "Circle button"]
     pub circle: u8,
+    #[doc = "Cross button"]
     pub cross: u8,
+    #[doc = "Square button"]
     pub square: u8,
+    #[doc = "Reserved."]
     pub reserved: [u8; 4usize],
 }
 #[repr(C)]
@@ -1140,12 +1362,16 @@ pub struct SceCtrlDataPsp {
     pub Ry: crate::ctypes::c_uchar,
     pub Rsrv: [crate::ctypes::c_uchar; 4usize],
 }
+#[doc = "Structure to pass as argument to ::sceCtrlGetControllerPortInfo"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlPortInfo {
+    #[doc = "Controller type of each port (See ::SceCtrlExternalInputMode)"]
     pub port: [u8; 5usize],
+    #[doc = "Unknown"]
     pub unk: [u8; 11usize],
 }
+#[doc = "Structure to pass as argument to ::sceCtrlSetRapidFire"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlRapidFireRule {
@@ -1156,6 +1382,7 @@ pub struct SceCtrlRapidFireRule {
     pub Make: crate::ctypes::c_uint,
     pub Break: crate::ctypes::c_uint,
 }
+#[doc = "Structure to pass as argument to ::ksceCtrlRegisterVirtualControllerDriver"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlVirtualControllerDriver {
@@ -1251,32 +1478,50 @@ pub struct SceDipsw {
     pub debug_control_flags: u32,
     pub system_control_flags: u32,
 }
+#[doc = "Structure used with ::ksceDisplaySetFrameBuf to set/update framebuffer.\n Original screen resolution is 960x544, but the following resolutions\n can also be supplied as width and height :\n 480x272, 640x368, 720x408\n\n > **Note:** - This structure is returned by ::ksceDisplayGetFrameBuf"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDisplayFrameBuf {
+    #[doc = "sizeof(SceDisplayFrameBuf)"]
     pub size: SceSize,
+    #[doc = "Pointer to framebuffer"]
     pub base: *mut crate::ctypes::c_void,
+    #[doc = "pitch pixels"]
     pub pitch: crate::ctypes::c_uint,
+    #[doc = "pixel format (one of ::SceDisplayPixelFormat)"]
     pub pixelformat: crate::ctypes::c_uint,
+    #[doc = "framebuffer width"]
     pub width: crate::ctypes::c_uint,
+    #[doc = "framebuffer height"]
     pub height: crate::ctypes::c_uint,
 }
+#[doc = "Extended framebuffer information"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDisplayFrameBufInfo {
+    #[doc = "sizeof(SceDisplayFrameBufInfo)"]
     pub size: SceSize,
+    #[doc = "PID of the process owning this framebuffer"]
     pub pid: SceUID,
+    #[doc = "Amount of VBlanks this framebuffer has been displayed"]
     pub vblankcount: crate::ctypes::c_uint,
+    #[doc = "Physical address"]
     pub paddr: usize,
+    #[doc = "SceDisplayFrameBuf information"]
     pub framebuf: SceDisplayFrameBuf,
+    #[doc = "Resolution"]
     pub resolution: crate::ctypes::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceExcpmgrData {
+    #[doc = "Number of times an exception handler has been entered on core - panic if > 1 on exception return"]
     pub nestedExceptionCount: [crate::ctypes::c_int; 4usize],
+    #[doc = "Seemingly unused"]
     pub unused: [crate::ctypes::c_int; 4usize],
+    #[doc = "Top of the exception stack (size is 0x1000)"]
     pub ExcpStackTop: [*mut crate::ctypes::c_void; 4usize],
+    #[doc = "Bottom of the exception stack"]
     pub ExcpStackBottom: [*mut crate::ctypes::c_void; 4usize],
 }
 #[repr(C)]
@@ -1521,9 +1766,12 @@ pub struct SceFontInfo {
     pub maxGlyphAdvanceYF: f32,
     pub maxGlyphWidth: crate::ctypes::c_short,
     pub maxGlyphHeight: crate::ctypes::c_short,
+    #[doc = "Number of elements in the font's charmap."]
     pub charMapLength: crate::ctypes::c_uint,
+    #[doc = "Number of elements in the font's shadow charmap."]
     pub shadowMapLength: crate::ctypes::c_uint,
     pub fontStyle: SceFontStyle,
+    #[doc = "Font's BPP."]
     pub BPP: u8,
     pub pad: [u8; 3usize],
 }
@@ -1643,19 +1891,27 @@ pub union SceGUIDKernelCreateOpt__bindgen_ty_1 {
     pub flags: SceUInt32,
     pub attr: SceUInt32,
 }
+#[doc = "Represents an auxiliary surface"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmAuxiliarySurface {
+    #[doc = "Format of auxiliary surface data from SceGxmColorFormat"]
     pub colorFormat: u32,
+    #[doc = "Memory layout of the surface data from SceGxmColorSurfaceType"]
     pub type_: u32,
+    #[doc = "Surface width"]
     pub width: u32,
+    #[doc = "Surface height"]
     pub height: u32,
+    #[doc = "Surface stride in bytes"]
     pub stride: u32,
+    #[doc = "A pointer to the surface data"]
     pub data: *mut crate::ctypes::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmBlendInfo {
+    #[doc = "Color Mask (One of ::SceGxmColorMask)"]
     pub colorMask: u8,
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
@@ -1898,12 +2154,19 @@ pub struct SceGxmRenderTarget {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmRenderTargetParams {
+    #[doc = "Bitwise combined flags from ::SceGxmRenderTargetFlags."]
     pub flags: u32,
+    #[doc = "The width of the render target in pixels."]
     pub width: u16,
+    #[doc = "The height of the render target in pixels."]
     pub height: u16,
+    #[doc = "The expected number of scenes per frame, in the range [1,SCE_GXM_MAX_SCENES_PER_RENDERTARGET]."]
     pub scenesPerFrame: u16,
+    #[doc = "A value from the #SceGxmMultisampleMode enum."]
     pub multisampleMode: u16,
+    #[doc = "If enabled in the flags, the multisample locations to use."]
     pub multisampleLocations: u32,
+    #[doc = "The uncached LPDDR memblock for the render target GPU data structures or SCE_UID_INVALID_UID to specify memory should be allocated in libgxm."]
     pub driverMemBlock: SceUID,
 }
 #[repr(C)]
@@ -1937,6 +2200,7 @@ pub struct SceGxmShaderPatcherParams {
 pub struct SceGxmSyncObject {
     _unused: [u8; 0],
 }
+#[doc = "Texture struct"]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceGxmTexture {
@@ -2674,10 +2938,15 @@ pub struct SceGxmValidRegion {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmVertexAttribute {
+    #[doc = "Vertex stream index"]
     pub streamIndex: u16,
+    #[doc = "Offset for the stream data in bytes"]
     pub offset: u16,
+    #[doc = "Stream data type (One of ::SceGxmAttributeFormat)"]
     pub format: u8,
+    #[doc = "Number of components for the stream data"]
     pub componentCount: u8,
+    #[doc = "The register index in the vertex shader to link stream to."]
     pub regIndex: u16,
 }
 #[repr(C)]
@@ -2691,30 +2960,50 @@ pub struct SceGxmVertexStream {
     pub stride: u16,
     pub indexSource: u16,
 }
+#[doc = "Header for a GXT file"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxtHeader {
+    #[doc = "GXT Identifier"]
     pub tag: u32,
+    #[doc = "Version number"]
     pub version: u32,
+    #[doc = "Number of textures"]
     pub numTextures: u32,
+    #[doc = "Offset to the texture data"]
     pub dataOffset: u32,
+    #[doc = "Total size of the texture data"]
     pub dataSize: u32,
+    #[doc = "Number of 16 entry palettes"]
     pub numP4Palettes: u32,
+    #[doc = "Number of 256 entry palettes"]
     pub numP8Palettes: u32,
+    #[doc = "Padding"]
     pub pad: u32,
 }
+#[doc = "This structure contains information about each texture in the GXT file"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxtTextureInfo {
+    #[doc = "Offset to the texture data"]
     pub dataOffset: u32,
+    #[doc = "Size of the texture data"]
     pub dataSize: u32,
+    #[doc = "Index of the palette"]
     pub paletteIndex: u32,
+    #[doc = "Texture flags"]
     pub flags: u32,
+    #[doc = "Texture type"]
     pub type_: u32,
+    #[doc = "Texture format"]
     pub format: u32,
+    #[doc = "Texture width"]
     pub width: u16,
+    #[doc = "Texture height"]
     pub height: u16,
+    #[doc = "Number of mipmaps"]
     pub mipCount: u8,
+    #[doc = "Padding"]
     pub pad: [u8; 3usize],
 }
 #[repr(C)]
@@ -2913,12 +3202,17 @@ pub struct SceImeCaret {
 pub struct SceImeDialogParam {
     pub sdkVersion: SceUInt32,
     pub inputMethod: SceUInt32,
+    #[doc = "Dialog languages (One or more ::SceImeLanguage)"]
     pub supportedLanguages: SceUInt64,
     pub languagesForced: SceBool,
+    #[doc = "Dialog type (One of ::SceImeType)"]
     pub type_: SceUInt32,
+    #[doc = "Dialog options (One or more ::SceImeOption)"]
     pub option: SceUInt32,
     pub filter: SceImeTextFilter,
+    #[doc = "Dialog mode (One of ::SceImeDialogDialogMode)"]
     pub dialogMode: SceUInt32,
+    #[doc = "Textbox mode (One of ::SceImeDialogTextboxMode)"]
     pub textBoxMode: SceUInt32,
     pub title: *const SceWChar16,
     pub maxTextLength: SceUInt32,
@@ -2964,9 +3258,12 @@ pub union SceImeEventParam {
 pub struct SceImeParam {
     pub sdkVersion: SceUInt32,
     pub inputMethod: SceUInt32,
+    #[doc = "Dialog languages (One or more ::SceImeLanguage)"]
     pub supportedLanguages: SceUInt64,
     pub languagesForced: SceBool,
+    #[doc = "Dialog type (One of ::SceImeType)"]
     pub type_: SceUInt32,
+    #[doc = "Dialog options (One or more ::SceImeOption)"]
     pub option: SceUInt32,
     pub work: *mut crate::ctypes::c_void,
     pub arg: *mut crate::ctypes::c_void,
@@ -3017,12 +3314,17 @@ pub struct SceIoDevInfo {
     pub cluster_size: SceSize,
     pub unk: *mut crate::ctypes::c_void,
 }
+#[doc = "Describes a single directory entry"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIoDirent {
+    #[doc = "File status"]
     pub d_stat: SceIoStat,
+    #[doc = "File name"]
     pub d_name: [crate::ctypes::c_char; 256usize],
+    #[doc = "Device-specific data"]
     pub d_private: *mut crate::ctypes::c_void,
+    #[doc = "Dummy data"]
     pub dummy: crate::ctypes::c_int,
 }
 #[repr(C)]
@@ -3047,15 +3349,23 @@ pub struct SceIofileInfo {
     pub data_0x820: crate::ctypes::c_int,
     pub data_0x824: crate::ctypes::c_int,
 }
+#[doc = "Structure to hold the status information about a file"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIoStat {
+    #[doc = "One or more ::SceIoAccessMode"]
     pub st_mode: SceMode,
+    #[doc = "One or more ::SceIoFileMode"]
     pub st_attr: crate::ctypes::c_uint,
+    #[doc = "Size of the file in bytes"]
     pub st_size: SceOff,
+    #[doc = "Creation time"]
     pub st_ctime: SceDateTime,
+    #[doc = "Last access time"]
     pub st_atime: SceDateTime,
+    #[doc = "Last modification time"]
     pub st_mtime: SceDateTime,
+    #[doc = "Device-specific data"]
     pub st_private: [crate::ctypes::c_uint; 6usize],
 }
 #[repr(C)]
@@ -3082,12 +3392,19 @@ pub struct SceIVector4 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceJpegEncoderInitParam {
+    #[doc = "Size of this structure"]
     pub size: SceSize,
+    #[doc = "Input width in pixels"]
     pub inWidth: crate::ctypes::c_int,
+    #[doc = "Input height in pixels"]
     pub inHeight: crate::ctypes::c_int,
+    #[doc = "A valid ::SceJpegEncoderPixelFormat set of values"]
     pub pixelFormat: crate::ctypes::c_int,
+    #[doc = "A physically continuous memory block 256 bytes aligned"]
     pub outBuffer: *mut crate::ctypes::c_void,
+    #[doc = "Output size in bytes"]
     pub outSize: SceSize,
+    #[doc = "Additional options, OR of ::SceJpegEncoderInitParamOption"]
     pub option: crate::ctypes::c_int,
 }
 #[repr(C)]
@@ -3158,14 +3475,18 @@ pub struct SceKblParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelAddrPair {
+    #[doc = "Address"]
     pub addr: u32,
+    #[doc = "Length"]
     pub length: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelAllocMemBlockKernelOpt {
+    #[doc = "sizeof(SceKernelAllocMemBlockKernelOpt)"]
     pub size: SceSize,
     pub field_4: SceUInt32,
+    #[doc = "OR of SceKernelAllocMemBlockAttr"]
     pub attr: SceUInt32,
     pub field_C: SceUInt32,
     pub paddr: SceUInt32,
@@ -3196,6 +3517,7 @@ pub struct SceKernelAllocMemBlockOpt {
     pub uidBaseBlock: SceUInt32,
     pub strBaseBlockName: *const crate::ctypes::c_char,
     pub flags: crate::ctypes::c_int,
+    #[doc = "Unknown flags 0x10 or 0x30 for ::sceKernelOpenMemBlock"]
     pub reserved: [crate::ctypes::c_int; 10usize],
 }
 #[repr(C)]
@@ -3203,45 +3525,71 @@ pub struct SceKernelAllocMemBlockOpt {
 pub struct SceKernelBootArgs {
     _unused: [u8; 0],
 }
+#[doc = "Structure to hold the status information for a callback"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelCallbackInfo {
+    #[doc = "Size of the structure (i.e. sizeof(SceKernelCallbackInfo))"]
     pub size: SceSize,
+    #[doc = "The UID of the callback."]
     pub callbackId: SceUID,
+    #[doc = "The name given to the callback"]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "The thread id associated with the callback"]
     pub threadId: SceUID,
+    #[doc = "Pointer to the callback function"]
     pub callback: SceKernelCallbackFunction,
+    #[doc = "User supplied argument for the callback"]
     pub common: *mut crate::ctypes::c_void,
+    #[doc = "Unknown"]
     pub notifyCount: crate::ctypes::c_int,
+    #[doc = "Unknown"]
     pub notifyArg: crate::ctypes::c_int,
 }
+#[doc = "Current state of a condition variable.\n [`sceKernelGetCondInfo.`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelCondInfo {
+    #[doc = "Size of the ::SceKernelCondInfo structure."]
     pub size: SceSize,
+    #[doc = "The UID of the condition variable."]
     pub condId: SceUID,
+    #[doc = "NUL-terminated name of the condition variable."]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "Attributes."]
     pub attr: SceUInt,
+    #[doc = "Mutex associated with the condition variable."]
     pub mutexId: SceUID,
+    #[doc = "The number of threads waiting on the condition variable."]
     pub numWaitThreads: crate::ctypes::c_int,
 }
+#[doc = "Additional options used when creating condition variables."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelCondOptParam {
+    #[doc = "Size of the ::SceKernelCondOptParam structure."]
     pub size: SceSize,
 }
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
 pub struct SceKernelDebugEventLog {
+    #[doc = "struct size(variable size)"]
     pub size: SceSize,
+    #[doc = "0xA, maybe titleid size"]
     pub data_0x04: crate::ctypes::c_int,
+    #[doc = "Title id of the process where the event occurred"]
     pub titleid: [crate::ctypes::c_char; 12usize],
+    #[doc = "Event flags"]
     pub flags: crate::ctypes::c_int,
+    #[doc = "Parent process id"]
     pub ppid: SceUID,
+    #[doc = "Thread id?"]
     pub data_0x1C: SceUID,
     pub rsvd: [crate::ctypes::c_int; 4usize],
+    #[doc = "Time of the event occurred"]
     pub time: SceUInt64,
     pub data_0x38: crate::ctypes::c_int,
+    #[doc = "Event data size"]
     pub item_size: SceSize,
     pub __bindgen_anon_1: SceKernelDebugEventLog__bindgen_ty_1,
 }
@@ -3251,17 +3599,20 @@ pub struct SceKernelDebugEventLog1 {
     pub data_0x40: crate::ctypes::c_int,
     pub pid: SceUID,
     pub budget_type: crate::ctypes::c_int,
+    #[doc = "0xA"]
     pub data_0x4C: crate::ctypes::c_int,
     pub titleid: [crate::ctypes::c_char; 12usize],
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDebugEventLog2 {
+    #[doc = "0 or 0x80412118?"]
     pub data_0x40: crate::ctypes::c_int,
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDebugEventLog3 {
+    #[doc = "0?"]
     pub data_0x40: crate::ctypes::c_int,
     pub ip1: [crate::ctypes::c_char; 16usize],
     pub ip2: [crate::ctypes::c_char; 16usize],
@@ -3309,6 +3660,7 @@ pub struct SceKernelDebugInfo__bindgen_ty_1__bindgen_ty_2 {
 pub struct SceKernelDmaOpChainParam {
     pub size: SceSize,
     pub coherencyMask: SceUInt32,
+    #[doc = "8-bit value duplicated into 32 bits"]
     pub setValue: SceUInt32,
 }
 #[repr(C)]
@@ -3317,9 +3669,11 @@ pub struct SceKernelDmaOpDirectParam {
     pub src: *const crate::ctypes::c_void,
     pub dst: *mut crate::ctypes::c_void,
     pub len: SceUInt32,
+    #[doc = "Bitwise combination of SCE_KERNEL_DMAC_CMD_* fields"]
     pub cmd: SceUInt32,
     pub blockSize: SceUInt32,
     pub coherencyMask: SceUInt32,
+    #[doc = "8-bit value duplicated into 32 bits"]
     pub setValue: SceUInt32,
     pub encDec: SceKernelDmaOpEncDec,
 }
@@ -3327,6 +3681,7 @@ pub struct SceKernelDmaOpDirectParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDmaOpEncDec {
     pub keyring: SceUInt32,
+    #[doc = "Must be a physical address"]
     pub iv: *mut crate::ctypes::c_void,
     pub ivCoherencyMask: SceUInt32,
     pub reserved: SceUInt32,
@@ -3335,6 +3690,7 @@ pub struct SceKernelDmaOpEncDec {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDmaOpEncDecChainParam {
+    #[doc = "header.size = sizeof(SceKernelDmaOpEncDecChainParam)"]
     pub header: SceKernelDmaOpChainParam,
     pub encDec: SceKernelDmaOpEncDec,
 }
@@ -3344,12 +3700,16 @@ pub struct SceKernelDmaOpTag {
     pub src: *const crate::ctypes::c_void,
     pub dst: *mut crate::ctypes::c_void,
     pub len: SceUInt32,
+    #[doc = "Bitwise combination of SCE_KERNEL_DMAC_CMD_* fields"]
     pub cmd: SceUInt32,
     pub keyring: SceUInt32,
+    #[doc = "Must be a physical address"]
     pub iv: *mut crate::ctypes::c_void,
     pub blockSize: SceUInt32,
+    #[doc = "Set to SCE_KERNEL_DMAC_CHAIN_END to signify the last tag"]
     pub pNext: *mut SceKernelDmaOpTag,
 }
+#[doc = "Structure to hold the event flag information"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelEventFlagInfo {
@@ -3380,9 +3740,13 @@ pub struct SceKernelFaultingProcessInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelFreeMemorySizeInfo {
+    #[doc = "sizeof(SceKernelFreeMemorySizeInfo)"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Free memory size for *_USER_RW memory"]
     pub size_user: crate::ctypes::c_int,
+    #[doc = "Free memory size for USER_CDRAM_RW memory"]
     pub size_cdram: crate::ctypes::c_int,
+    #[doc = "Free memory size for USER_MAIN_PHYCONT_*_RW memory"]
     pub size_phycont: crate::ctypes::c_int,
 }
 #[repr(C)]
@@ -3497,6 +3861,7 @@ pub struct SceKernelMemBlockInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelModuleInfo {
+    #[doc = "0x1B8 for Vita 1.x"]
     pub size: SceSize,
     pub modid: SceUID,
     pub modattr: u16,
@@ -3515,11 +3880,13 @@ pub struct SceKernelModuleInfo {
     pub tlsAreaSize: SceSize,
     pub path: [crate::ctypes::c_char; 256usize],
     pub segments: [SceKernelSegmentInfo; 4usize],
+    #[doc = "see:SceKernelModuleState"]
     pub state: SceUInt,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelModuleLibraryInfo {
+    #[doc = "sizeof(SceKernelModuleLibraryInfo) : 0x120"]
     pub size: SceSize,
     pub library_id: SceUID,
     pub libnid: u32,
@@ -3589,6 +3956,7 @@ pub struct SceKernelModuleListInfo__bindgen_ty_1__bindgen_ty_4 {
 pub struct SceKernelModuleName {
     pub s: [crate::ctypes::c_char; 28usize],
 }
+#[doc = "Message Pipe status info"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMppInfo {
@@ -3613,21 +3981,32 @@ pub struct SceKernelMsgPipeInfo {
     pub num_send_wait_threads: crate::ctypes::c_int,
     pub num_receive_wait_threads: crate::ctypes::c_int,
 }
+#[doc = "Current state of a mutex.\n [`sceKernelGetMutexInfo.`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMutexInfo {
+    #[doc = "Size of the ::SceKernelMutexInfo structure."]
     pub size: SceSize,
+    #[doc = "The UID of the mutex."]
     pub mutexId: SceUID,
+    #[doc = "NUL-terminated name of the mutex."]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "Attributes."]
     pub attr: SceUInt,
+    #[doc = "The initial count the mutex was created with."]
     pub initCount: crate::ctypes::c_int,
+    #[doc = "The current count."]
     pub currentCount: crate::ctypes::c_int,
+    #[doc = "The UID of the current owner of the mutex."]
     pub currentOwnerId: SceUID,
+    #[doc = "The number of threads waiting on the mutex."]
     pub numWaitThreads: crate::ctypes::c_int,
 }
+#[doc = "Additional options used when creating mutexes."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMutexOptParam {
+    #[doc = "Size of the ::SceKernelMutexOptParam structure."]
     pub size: SceSize,
     pub ceilingPriority: crate::ctypes::c_int,
 }
@@ -3670,6 +4049,7 @@ pub struct SceKernelPaTraceBufferParam {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceKernelPAVector {
+    #[doc = "Size of this structure"]
     pub size: SceSize,
     pub __bindgen_anon_1: SceKernelPAVector__bindgen_ty_1,
 }
@@ -3682,7 +4062,9 @@ pub union SceKernelPAVector__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelPAVector__bindgen_ty_1__bindgen_ty_1 {
+    #[doc = "Ex: 8"]
     pub ranges_size: u32,
+    #[doc = "Must be <= 8"]
     pub data_in_vector: u32,
     pub count: u32,
     pub ranges: *mut SceKernelPARange,
@@ -3690,9 +4072,13 @@ pub struct SceKernelPAVector__bindgen_ty_1__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelPAVector__bindgen_ty_1__bindgen_ty_2 {
+    #[doc = "Size in elements of the list array"]
     pub list_size: u32,
+    #[doc = "Total physical size of the memory pairs"]
     pub ret_length: u32,
+    #[doc = "Number of elements of list filled by ksceKernelGetPaddrList"]
     pub ret_count: u32,
+    #[doc = "Array of physical addresses and their lengths pairs"]
     pub list: *mut SceKernelAddrPair,
 }
 #[repr(C)]
@@ -3705,65 +4091,98 @@ pub struct SceKernelProcessContext {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelProcessInfo {
+    #[doc = "size of this struct, make sure it's 0xE8"]
     pub size: SceSize,
+    #[doc = "our process ID"]
     pub pid: SceUID,
     pub unk1: crate::ctypes::c_int,
     pub unk2: crate::ctypes::c_int,
     pub unk3: crate::ctypes::c_int,
+    #[doc = "parent process ID"]
     pub ppid: SceUID,
+    #[doc = "the rest is unknown"]
     pub unk: [crate::ctypes::c_int; 52usize],
 }
+#[doc = "Current state of a rwlock.\n [`sceKernelGetRWLockInfo`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelRWLockInfo {
+    #[doc = "Size of the ::SceKernelRWLockInfo structure"]
     pub size: SceSize,
+    #[doc = "The UID of the rwlock"]
     pub rwLockId: SceUID,
+    #[doc = "NULL-terminated name of the rwlock"]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "Attributes"]
     pub attr: SceUInt32,
+    #[doc = "The current lock count"]
     pub lockCount: SceInt32,
+    #[doc = "The UID of the current owner of the rwlock with write access, 0 when locked for reads"]
     pub writeOwnerId: SceUID,
+    #[doc = "The number of threads waiting on the rwlock for read access"]
     pub numReadWaitThreads: SceUInt32,
+    #[doc = "The number of threads waiting on the rwlock for write access"]
     pub numWriteWaitThreads: SceUInt32,
 }
+#[doc = "Additional options used when creating rwlock."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelRWLockOptParam {
+    #[doc = "Size of the ::SceKernelRWLockOptParam structure"]
     pub size: SceSize,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSegmentInfo {
+    #[doc = "this structure size (0x18)"]
     pub size: SceSize,
+    #[doc = "probably rwx in low bits"]
     pub perms: SceUInt,
+    #[doc = "address in memory"]
     pub vaddr: *mut crate::ctypes::c_void,
+    #[doc = "size in memory"]
     pub memsz: SceSize,
+    #[doc = "original size of memsz"]
     pub filesz: SceSize,
+    #[doc = "unused"]
     pub res: SceUInt,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSegmentInfo2 {
+    #[doc = "sizeof(SceKernelSegmentInfo2) (0x14)"]
     pub size: SceSize,
     pub perm: crate::ctypes::c_int,
     pub vaddr: *mut crate::ctypes::c_void,
     pub memsz: u32,
     pub unk_10: crate::ctypes::c_int,
 }
+#[doc = "Current state of a semaphore.\n [`sceKernelGetSemaInfo.`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSemaInfo {
+    #[doc = "Size of the ::SceKernelSemaInfo structure."]
     pub size: SceSize,
+    #[doc = "The UID of the semaphore"]
     pub semaId: SceUID,
+    #[doc = "NUL-terminated name of the semaphore."]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "Attributes."]
     pub attr: SceUInt,
+    #[doc = "The initial count the semaphore was created with."]
     pub initCount: crate::ctypes::c_int,
+    #[doc = "The current count."]
     pub currentCount: crate::ctypes::c_int,
+    #[doc = "The maximum count."]
     pub maxCount: crate::ctypes::c_int,
+    #[doc = "The number of threads waiting on the semaphore."]
     pub numWaitThreads: crate::ctypes::c_int,
 }
+#[doc = "Additional options used when creating semaphores."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSemaOptParam {
+    #[doc = "Size of the ::SceKernelSemaOptParam structure."]
     pub size: SceSize,
 }
 #[repr(C)]
@@ -3801,40 +4220,69 @@ pub struct SceKernelThreadContextInfo {
     pub process_id: ScePID,
     pub thread_id: SceUID,
 }
+#[doc = "Structure to hold the status information for a thread\n [`sceKernelGetThreadInfo`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelThreadInfo {
+    #[doc = "Size of the structure"]
     pub size: SceSize,
+    #[doc = "The UID of the process where the thread belongs"]
     pub processId: SceUID,
+    #[doc = "Nul terminated name of the thread"]
     pub name: [crate::ctypes::c_char; 32usize],
+    #[doc = "Thread attributes"]
     pub attr: SceUInt32,
+    #[doc = "Thread status"]
     pub status: SceUInt32,
+    #[doc = "Thread entry point"]
     pub entry: SceKernelThreadEntry,
+    #[doc = "Thread stack pointer"]
     pub stack: *mut crate::ctypes::c_void,
+    #[doc = "Thread stack size"]
     pub stackSize: SceInt32,
+    #[doc = "Initial priority"]
     pub initPriority: SceInt32,
+    #[doc = "Current priority"]
     pub currentPriority: SceInt32,
+    #[doc = "Initial CPU affinity mask"]
     pub initCpuAffinityMask: SceInt32,
+    #[doc = "Current CPU affinity mask"]
     pub currentCpuAffinityMask: SceInt32,
+    #[doc = "Current CPU ID"]
     pub currentCpuId: SceInt32,
+    #[doc = "Last executed CPU ID"]
     pub lastExecutedCpuId: SceInt32,
+    #[doc = "Wait type"]
     pub waitType: SceUInt32,
+    #[doc = "Wait id"]
     pub waitId: SceUID,
+    #[doc = "Exit status of the thread"]
     pub exitStatus: SceInt32,
+    #[doc = "Number of clock cycles run"]
     pub runClocks: SceKernelSysClock,
+    #[doc = "Interrupt preemption count"]
     pub intrPreemptCount: SceUInt32,
+    #[doc = "Thread preemption count"]
     pub threadPreemptCount: SceUInt32,
+    #[doc = "Thread release count"]
     pub threadReleaseCount: SceUInt32,
+    #[doc = "Number of CPUs to which the thread is moved"]
     pub changeCpuCount: SceInt32,
+    #[doc = "Function notify callback UID"]
     pub fNotifyCallback: SceInt32,
+    #[doc = "Reserved"]
     pub reserved: SceInt32,
 }
+#[doc = "Additional options used when creating threads."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelThreadOptParam {
+    #[doc = "Size of the ::SceKernelThreadOptParam structure."]
     pub size: SceSize,
+    #[doc = "Attributes"]
     pub attr: SceUInt32,
 }
+#[doc = "Statistics about a running thread.\n [`sceKernelGetThreadRunStatus.`]"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelThreadRunStatus {
@@ -3875,34 +4323,55 @@ pub struct SceKernelVARange {
     pub addr: u32,
     pub size: SceSize,
 }
+#[doc = "Structure of heading information"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceLocationHeadingInfo {
+    #[doc = "Clockwise angle from true north (0 to 360 degrees). If cannot be acquired, SCE_LOCATION_INVALID_DATA"]
     pub trueHeading: SceFloat32,
+    #[doc = "Direction vector X coordinates element of true north. If cannot be acquired, SCE_LOCATION_INVALID_DATA"]
     pub headingVectorX: SceFloat32,
+    #[doc = "Direction vector Y coordinates element of true north. If cannot be acquired, SCE_LOCATION_INVALID_DATA"]
     pub headingVectorY: SceFloat32,
+    #[doc = "Direction vector Z coordinates element of true north. If cannot be acquired, SCE_LOCATION_INVALID_DATA"]
     pub headingVectorZ: SceFloat32,
+    #[doc = "Reserve"]
     pub reserve: SceFloat32,
+    #[doc = "Reserve"]
     pub reserve2: SceFloat32,
+    #[doc = "Time acquired in unit of 1 usec (UTC)"]
     pub timestamp: SceRtcTick,
 }
+#[doc = "Structure of location information"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceLocationLocationInfo {
+    #[doc = "Latitude (deg). Valid range: -90 to + 90. If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub latitude: SceDouble64,
+    #[doc = "Longitude (deg). Valid range: -180 to +180. If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub longitude: SceDouble64,
+    #[doc = "Altitude (m). If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub altitude: SceDouble64,
+    #[doc = "Horizontal error (m). If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub accuracy: SceFloat32,
+    #[doc = "Reserve"]
     pub reserve: SceFloat32,
+    #[doc = "Travel direction. If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub direction: SceFloat32,
+    #[doc = "Travel speed (m/s). If cannot be obtained, SCE_LOCATION_DATA_INVALID"]
     pub speed: SceFloat32,
+    #[doc = "Time of data acquisition, in μsec (UTC)"]
     pub timestamp: SceRtcTick,
 }
+#[doc = "Location information acquisition permission information"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceLocationPermissionInfo {
+    #[doc = "Status of usage permission through parental control"]
     pub parentalstatus: SceLocationPermissionStatus,
+    #[doc = "Status of usage permission through location data item of system settings"]
     pub mainstatus: SceLocationPermissionStatus,
+    #[doc = "Status of usage permission through location data item for each application in system settings"]
     pub applicationstatus: SceLocationPermissionApplicationStatus,
     pub unk_0x0C: crate::ctypes::c_int,
     pub unk_0x10: crate::ctypes::c_int,
@@ -3947,11 +4416,15 @@ pub struct SceMotionDevGyroBiasData {
 pub struct SceMotionDevGyroCalibData {
     _unused: [u8; 0],
 }
+#[doc = "Returned location of both the accelerometer and gyroscope in mm\n > **Note:** - Axies are fixed with z axis being straight perpendicular through the screen and x axis being parallel to the screen's bottom and top edge\n > **Note:** - Direction of the z axis is as if the device were laying on a flat surface, oled/lcd side facing upwards\n > **Note:** - OLED models should return the following values:\n > **Note:** - Accelerometer: x == -32; y == 12; z == -8\n > **Note:** - Gyroscope: x == -33; y == 6; z == -8\n > **Note:** - LCD models should return the following values:\n > **Note:** - Accelerometer: x == 13; y == 19; z == -8\n > **Note:** - Gyroscope: x == 13; y == 19; z == -8"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionDeviceLocation {
+    #[doc = "Location of te accelerometer in relation to the center of the device (in mm)"]
     pub accelerometer: SceFVector3,
+    #[doc = "Location of te gyroscope in relation to the center of the device (in mm)"]
     pub gyro: SceFVector3,
+    #[doc = "Reserved data"]
     pub reserved: [u8; 24usize],
 }
 #[repr(C)]
@@ -3964,96 +4437,154 @@ pub struct SceMotionDevMagnCalibData {
 pub struct SceMotionDevModeInfo {
     _unused: [u8; 0],
 }
+#[doc = "Returned motion sensor state\n > **Note:** - ::SceMotionSensorState holds actual sensor data as opposed to ::SceMotionState which uses a calculated state"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionSensorState {
+    #[doc = "Accelerometer data"]
     pub accelerometer: SceFVector3,
+    #[doc = "Angular velocity data"]
     pub gyro: SceFVector3,
+    #[doc = "Reserved data"]
     pub reserved1: [u8; 12usize],
+    #[doc = "Timestamp of the data in microseconds"]
     pub timestamp: crate::ctypes::c_uint,
+    #[doc = "Number of requested state"]
     pub counter: crate::ctypes::c_uint,
+    #[doc = "Reserved data"]
     pub reserved2: [u8; 4usize],
+    #[doc = "Timestamp of the data in microseconds"]
     pub hostTimestamp: SceULong64,
+    #[doc = "Unknown"]
     pub unknown: u8,
+    #[doc = "Reserved data"]
     pub reserved3: [u8; 7usize],
 }
+#[doc = "Returned motion state"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionState {
+    #[doc = "Local timestamp of the device"]
     pub timestamp: crate::ctypes::c_uint,
+    #[doc = "Accelerometer data"]
     pub acceleration: SceFVector3,
+    #[doc = "Angular velocity data"]
     pub angularVelocity: SceFVector3,
+    #[doc = "Reserved data"]
     pub reserved1: [u8; 12usize],
+    #[doc = "Orientation data as a Quaternion"]
     pub deviceQuat: SceFQuaternion,
+    #[doc = "Orientation data as a rotation matrix"]
     pub rotationMatrix: SceFMatrix4,
+    #[doc = "Magnetometer orientation matrix"]
     pub nedMatrix: SceFMatrix4,
+    #[doc = "Reserved data"]
     pub reserved2: [u8; 4usize],
+    #[doc = "Orientation of the device in reference to gravity"]
     pub basicOrientation: SceFVector3,
+    #[doc = "Timestamp of the data in microseconds"]
     pub hostTimestamp: SceULong64,
+    #[doc = "Reserved data"]
     pub reserved3: [u8; 36usize],
+    #[doc = "One of ::SceMotionMagFieldStability"]
     pub magFieldStability: u8,
+    #[doc = "Unknown"]
     pub unknown: u8,
+    #[doc = "Reserved data"]
     pub reserved4: [u8; 2usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogButtonsParam {
+    #[doc = "Text of the first button"]
     pub msg1: *const crate::ctypes::c_char,
+    #[doc = "Font size of the first button (one of ::SceMsgDialogFontSize)"]
     pub fontSize1: SceInt32,
+    #[doc = "Text of the second button"]
     pub msg2: *const crate::ctypes::c_char,
+    #[doc = "Font size of the second button (one of ::SceMsgDialogFontSize)"]
     pub fontSize2: SceInt32,
+    #[doc = "Text of the third button"]
     pub msg3: *const crate::ctypes::c_char,
+    #[doc = "Font size of the third button (one of ::SceMsgDialogFontSize)"]
     pub fontSize3: SceInt32,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogErrorCodeParam {
+    #[doc = "Displayed error code"]
     pub errorCode: SceInt32,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogParam {
+    #[doc = "Required to use MsgDialog. Just use NULL"]
     pub sdkVersion: SceUInt32,
+    #[doc = "Common parameter"]
     pub commonParam: SceCommonDialogParam,
+    #[doc = "Mode of function (one of ::SceMsgDialogMode)"]
     pub mode: SceInt32,
+    #[doc = "Parameter for user message"]
     pub userMsgParam: *mut SceMsgDialogUserMessageParam,
+    #[doc = "Parameter for system prepared message"]
     pub sysMsgParam: *mut SceMsgDialogSystemMessageParam,
+    #[doc = "Parameter for display error code"]
     pub errorCodeParam: *mut SceMsgDialogErrorCodeParam,
+    #[doc = "Parameter for progress bar"]
     pub progBarParam: *mut SceMsgDialogProgressBarParam,
+    #[doc = "Settings for dialog environment (one of ::SceMsgDialogEnvFlag)"]
     pub flag: SceInt32,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogProgressBarParam {
+    #[doc = "Progress bar type (one of ::SceMsgDialogProgressBarType)"]
     pub barType: SceInt32,
+    #[doc = "Displayed system message"]
     pub sysMsgParam: SceMsgDialogSystemMessageParam,
+    #[doc = "Displayed user message"]
     pub msg: *const SceChar8,
+    #[doc = "Reserved range"]
     pub reserved: [SceInt32; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogResult {
+    #[doc = "Mode of function (one of ::SceMsgDialogMode)"]
     pub mode: SceInt32,
+    #[doc = "Result of executing function"]
     pub result: SceInt32,
+    #[doc = "Id of button user selected (one of ::SceMsgDialogButtonId)"]
     pub buttonId: SceInt32,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogSystemMessageParam {
+    #[doc = "System message type (one of ::SceMsgDialogSystemMessageType)"]
     pub sysMsgType: SceInt32,
+    #[doc = "Additional value"]
     pub value: SceInt32,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogUserMessageParam {
+    #[doc = "Type of button set (one of ::SceMsgDialogButtonType)"]
     pub buttonType: SceInt32,
+    #[doc = "Displayed message"]
     pub msg: *const SceChar8,
+    #[doc = "Buttons parameters"]
     pub buttonParam: *mut SceMsgDialogButtonsParam,
+    #[doc = "Reserved range"]
     pub reserved: [SceChar8; 28usize],
 }
 #[repr(C)]
@@ -4581,10 +5112,13 @@ pub struct SceNpDrmLicense {
     pub sku_flag: crate::ctypes::c_int,
     pub rsa_signature: [crate::ctypes::c_char; 256usize],
 }
+#[doc = "Options for _sceNpDrmPackageDecrypt"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _sceNpDrmPackageDecrypt {
+    #[doc = "The offset in the encrypted data"]
     pub offset: SceOff,
+    #[doc = "The identifier specified for _sceNpDrmPackageCheck but NOT ORed\n with (1 << 8)"]
     pub identifier: crate::ctypes::c_uint,
 }
 #[repr(C)]
@@ -4727,19 +5261,27 @@ pub struct SceProcEventInvokeParam2 {
     pub unk_0x0C: crate::ctypes::c_int,
     pub unk_0x10: crate::ctypes::c_int,
 }
+#[doc = "Parameters for scePromoterUtilityPromoteImport()"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePromoterUtilityImportParams {
+    #[doc = "Install path (ux0:/temp/game on PSM/PSV, ux0:/pspemu/temp/game on PSP)"]
     pub path: [crate::ctypes::c_char; 128usize],
+    #[doc = "Game titleid"]
     pub titleid: [crate::ctypes::c_char; 12usize],
+    #[doc = "Package type"]
     pub type_: ScePromoterUtilityPackageType,
+    #[doc = "Additional Attributes (Appears to be 0x1 on PSM content but 0x00 on Vita contents)"]
     pub attribute: u32,
     pub reserved: [crate::ctypes::c_char; 28usize],
 }
+#[doc = "Parameters for scePromoterUtilityUpdateLiveArea()"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePromoterUtilityLAUpdate {
+    #[doc = "Target app."]
     pub titleid: [crate::ctypes::c_char; 12usize],
+    #[doc = "Directory of extracted LA update data."]
     pub path: [crate::ctypes::c_char; 128usize],
 }
 #[repr(C)]
@@ -4923,101 +5465,152 @@ pub struct ScePvfUserImageBufferRec {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryFrame {
+    #[doc = "Distinguishing header for the entry"]
     pub header: SceRazorGpuLiveEntryHeader,
+    #[doc = "Start time of the entry in microseconds"]
     pub start_time: u64,
+    #[doc = "Duration of the frame in microseconds"]
     pub duration: u32,
+    #[doc = "Number of the frame"]
     pub frame_number: u32,
+    #[doc = "Duration of GPU activity for the frame in microseconds"]
     pub gpu_activity_duration_time: u32,
+    #[doc = "Reserved data"]
     pub reserved: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryHeader {
+    #[doc = "Entry size in bytes"]
     pub entry_size: u16,
+    #[doc = "Entry type (One of ::SceRazorLiveTraceMetricEntryType)"]
     pub entry_type: u16,
+    #[doc = "Reserved data"]
     pub reserved: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJob {
+    #[doc = "Distinguishing header for the entry"]
     pub header: SceRazorGpuLiveEntryHeader,
+    #[doc = "Start time of the entry in microseconds"]
     pub start_time: u64,
+    #[doc = "End time of the entry in microseconds"]
     pub end_time: u64,
+    #[doc = "The type of the job (One of ::SceRazorLiveTraceMetricJobType)"]
     pub type_: u8,
+    #[doc = "Core number on which the job got executed"]
     pub core: i8,
+    #[doc = "Index of the scene in which the job got executed"]
     pub scene_index: u16,
+    #[doc = "Frame number in which the job got executed"]
     pub frame_number: u32,
+    #[doc = "Reported values by the job"]
     pub job_values: SceRazorGpuLiveEntryJobValues,
+    #[doc = "ID of the process which executed the job"]
     pub process_id: u32,
+    #[doc = "Unknown data"]
     pub unk: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobFragmentValues1 {
+    #[doc = "USSE fragment processing percentage"]
     pub usse_fragment_processing_percent: f32,
+    #[doc = "USSE dependant texture reads requests percentage"]
     pub usse_dependent_texture_reads_percent: f32,
+    #[doc = "USSE non-dependant texture reads requests percentage"]
     pub usse_non_dependent_texture_reads_percent: f32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobFragmentValues2 {
+    #[doc = "Number of rasterized pixels before Hidden Surface Removal"]
     pub rasterized_pixels_before_hsr_num: u32,
+    #[doc = "Number of rasterized pixels"]
     pub rasterized_output_pixels_num: u32,
+    #[doc = "Number of rasterized samples"]
     pub rasterized_output_samples_num: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobFragmentValues3 {
+    #[doc = "Amount of ISP parameter fetches memory reads in bytes"]
     pub isp_parameter_fetches_mem_reads: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobValues {
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX1 type"]
     pub vertex_values_type1: SceRazorGpuLiveEntryJobVertexValues1,
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_FRAGMENT1 type"]
     pub fragment_values_type1: SceRazorGpuLiveEntryJobFragmentValues1,
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX2 type"]
     pub vertex_values_type2: SceRazorGpuLiveEntryJobVertexValues2,
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_FRAGMENT2 type"]
     pub fragment_values_type2: SceRazorGpuLiveEntryJobFragmentValues2,
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_VERTEX3 type"]
     pub vertex_values_type3: SceRazorGpuLiveEntryJobVertexValues3,
+    #[doc = "Values for a job of SCE_RAZOR_LIVE_TRACE_METRIC_JOB_TYPE_FRAGMENT3 type"]
     pub fragment_values_type3: SceRazorGpuLiveEntryJobFragmentValues3,
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_int; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobVertexValues1 {
+    #[doc = "USSE vertex processing percentage"]
     pub usse_vertex_processing_percent: f32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobVertexValues2 {
+    #[doc = "VDM input primitives number"]
     pub vdm_primitives_input_num: u32,
+    #[doc = "MTE output primitives number"]
     pub mte_primitives_output_num: u32,
+    #[doc = "VDM input vertices number"]
     pub vdm_vertices_input_num: u32,
+    #[doc = "MTE output vertices number"]
     pub mte_vertices_output_num: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJobVertexValues3 {
+    #[doc = "Amount of tiling accelerated memory writes in bytes"]
     pub tiling_accelerated_mem_writes: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryParameterBuffer {
+    #[doc = "Distinguishing header for the entry"]
     pub header: SceRazorGpuLiveEntryHeader,
+    #[doc = "Time of param buffer peak usage in microseconds"]
     pub peak_usage_timestamp: u64,
+    #[doc = "Memory peak usage of the param buffer in bytes"]
     pub peak_usage_value: u32,
+    #[doc = "Flag indicating wether a partial render occurred or not"]
     pub partial_render: u8,
+    #[doc = "Flag indicating wether a vertex job had been paused or not"]
     pub vertex_job_paused: u8,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveResultInfo {
+    #[doc = "Pointer to the raw data results entries."]
     pub result_data: *mut crate::ctypes::c_void,
+    #[doc = "Number of elements stored in the results buffer"]
     pub entry_count: SceSize,
     pub overflow_count: SceSize,
+    #[doc = "Size of the results buffer in bytes"]
     pub buffer_size: SceSize,
+    #[doc = "Start time of the results collection in microseconds"]
     pub start_time: u64,
+    #[doc = "End time of the results collection in microseconds"]
     pub end_time: u64,
+    #[doc = "Metrics group used for the results"]
     pub metric_group: u32,
+    #[doc = "Reserved data"]
     pub reserved: crate::ctypes::c_int,
 }
 #[repr(C)]
@@ -5085,9 +5678,13 @@ pub struct SceSblSmCommPair {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceScreenShotParam {
+    #[doc = "Photo title"]
     pub photoTitle: *const SceWChar32,
+    #[doc = "Game title"]
     pub gameTitle: *const SceWChar32,
+    #[doc = "Game description"]
     pub gameComment: *const SceWChar32,
+    #[doc = "Reserved range (Must be NULL)"]
     pub reserved: *mut crate::ctypes::c_void,
 }
 #[repr(C)]
@@ -5257,11 +5854,15 @@ pub struct SceSslMemoryPoolStats {
     pub currentInuseSize: crate::ctypes::c_uint,
     pub reserved: crate::ctypes::c_int,
 }
+#[doc = "A set of debug handlers for syscon, that you can set in ksceSysconSetDebugHandlers()."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysconDebugHandlers {
+    #[doc = "Structure size (probably, unused)."]
     pub size: crate::ctypes::c_int,
+    #[doc = "Callback ran right before running a packet, with a pointer to it passed as the first argument."]
     pub start: ::core::option::Option<unsafe extern "C" fn(packet: *mut SceSysconPacket)>,
+    #[doc = "Callback ran right after finishing running a packet, with a pointer to it passed as the first argument."]
     pub end: ::core::option::Option<unsafe extern "C" fn(packet: *mut SceSysconPacket)>,
 }
 #[repr(C)]
@@ -5294,6 +5895,7 @@ pub struct SceSysmoduleOpt {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysrootDbgpHandler {
+    #[doc = "sizeof(SceSysrootDbgpHandler):0x5C"]
     pub size: SceSize,
     pub unk_0x04: ::core::option::Option<
         unsafe extern "C" fn(
@@ -5436,17 +6038,21 @@ pub struct SceSysrootModulemgrHandlers {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysrootProcessHandler {
+    #[doc = "sizeof(SceSysrootProcessHandler)"]
     pub size: SceSize,
+    #[doc = "process start shared modules"]
     pub unk_4: ::core::option::Option<
         unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: crate::ctypes::c_int, time: u64),
     >,
     pub exit: ::core::option::Option<
         unsafe extern "C" fn(pid: SceUID, flags: crate::ctypes::c_int, time: u64),
     >,
+    #[doc = "by SceShell"]
     pub kill: ::core::option::Option<unsafe extern "C" fn(pid: SceUID)>,
     pub unk_10: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
     pub unk_14: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
     pub unk_18: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
+    #[doc = "called when process is created"]
     pub on_process_created: ::core::option::Option<
         unsafe extern "C" fn(
             a1: crate::ctypes::c_int,
@@ -5459,6 +6065,7 @@ pub struct SceSysrootProcessHandler {
         unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: crate::ctypes::c_int, time: u64),
     >,
 }
+#[doc = "Structure containing a threads register states."]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceThreadCpuRegisters {
@@ -5473,40 +6080,63 @@ pub union SceThreadCpuRegisters__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceThreadCpuRegisters__bindgen_ty_1__bindgen_ty_1 {
+    #[doc = "Set of registers used for user mode."]
     pub user: SceArmCpuRegisters,
+    #[doc = "Set of registers used for kernel mode."]
     pub kernel: SceArmCpuRegisters,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTouchData {
+    #[doc = "Data timestamp"]
     pub timeStamp: SceUInt64,
+    #[doc = "Unused"]
     pub status: SceUInt32,
+    #[doc = "Number of touch reports"]
     pub reportNum: SceUInt32,
+    #[doc = "Touch reports"]
     pub report: [SceTouchReport; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTouchPanelInfo {
+    #[doc = "Min active area X position"]
     pub minAaX: SceInt16,
+    #[doc = "Min active area Y position"]
     pub minAaY: SceInt16,
+    #[doc = "Max active area X position"]
     pub maxAaX: SceInt16,
+    #[doc = "Max active area Y position"]
     pub maxAaY: SceInt16,
+    #[doc = "Min display X origin (top left)"]
     pub minDispX: SceInt16,
+    #[doc = "Min display Y origin (top left)"]
     pub minDispY: SceInt16,
+    #[doc = "Max display X origin (bottom right)"]
     pub maxDispX: SceInt16,
+    #[doc = "Max display Y origin (bottom right)"]
     pub maxDispY: SceInt16,
+    #[doc = "Min touch force value"]
     pub minForce: SceUInt8,
+    #[doc = "Max touch force value"]
     pub maxForce: SceUInt8,
+    #[doc = "Reserved"]
     pub reserved: [SceUInt8; 30usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTouchReport {
+    #[doc = "Touch ID"]
     pub id: SceUInt8,
+    #[doc = "Touch force"]
     pub force: SceUInt8,
+    #[doc = "X position"]
     pub x: SceInt16,
+    #[doc = "Y position"]
     pub y: SceInt16,
+    #[doc = "Reserved"]
     pub reserved: [SceUInt8; 8usize],
+    #[doc = "Information of this touch"]
     pub info: SceUInt16,
 }
 #[repr(C)]
@@ -5542,6 +6172,7 @@ pub struct SceTriggerUtilUserAppInfo {
     pub iconPath: [SceChar8; 1024usize],
     pub unk: crate::ctypes::c_short,
 }
+#[doc = "USB configuration descriptor"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdConfigDescriptor {
@@ -5554,17 +6185,24 @@ pub struct SceUdcdConfigDescriptor {
     pub bmAttributes: crate::ctypes::c_uchar,
     pub bMaxPower: crate::ctypes::c_uchar,
     pub settings: *mut SceUdcdInterfaceSettings,
+    #[doc = "Extra descriptors"]
     pub extra: *mut crate::ctypes::c_uchar,
     pub extraLength: crate::ctypes::c_int,
 }
+#[doc = "USB driver configuration"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdConfiguration {
+    #[doc = "Pointer to the configuration descriptors"]
     pub configDescriptors: *mut SceUdcdConfigDescriptor,
+    #[doc = "USB driver interface settings"]
     pub settings: *mut SceUdcdInterfaceSettings,
+    #[doc = "Pointer to the first interface descriptor"]
     pub interfaceDescriptors: *mut SceUdcdInterfaceDescriptor,
+    #[doc = "Pointer to the first endpoint descriptor"]
     pub endpointDescriptors: *mut SceUdcdEndpointDescriptor,
 }
+#[doc = "USB device descriptor"]
 #[repr(C)]
 #[repr(align(4))]
 #[derive(Debug, Copy, Clone)]
@@ -5589,6 +6227,7 @@ pub struct SceUdcdDeviceDescriptor {
 pub struct SceUdcdDeviceInfo {
     pub info: [crate::ctypes::c_uchar; 64usize],
 }
+#[doc = "USB device qualifier descriptor"]
 #[repr(C)]
 #[repr(align(4))]
 #[derive(Debug, Copy, Clone)]
@@ -5603,19 +6242,31 @@ pub struct SceUdcdDeviceQualifierDescriptor {
     pub bNumConfigurations: crate::ctypes::c_uchar,
     pub bReserved: crate::ctypes::c_uchar,
 }
+#[doc = "USB device request"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceRequest {
+    #[doc = "Pointer to the endpoint to queue request on"]
     pub endpoint: *mut SceUdcdEndpoint,
+    #[doc = "Pointer to the data buffer to use in the request"]
     pub data: *mut crate::ctypes::c_void,
+    #[doc = "Request attributes (See ::SceUdcdDeviceRequestAttr)"]
     pub attributes: crate::ctypes::c_uint,
+    #[doc = "Size of the data buffer"]
     pub size: crate::ctypes::c_int,
+    #[doc = "Is a control request?"]
     pub isControlRequest: crate::ctypes::c_int,
+    #[doc = "Pointer to the function to call on completion"]
     pub onComplete: ::core::option::Option<unsafe extern "C" fn(req: *mut SceUdcdDeviceRequest)>,
+    #[doc = "Number of transmitted bytes"]
     pub transmitted: crate::ctypes::c_int,
+    #[doc = "Return code of the request (See ::SceUdcdRetcode)"]
     pub returnCode: crate::ctypes::c_int,
+    #[doc = "Link pointer to next request used by the driver, set it to NULL"]
     pub next: *mut SceUdcdDeviceRequest,
+    #[doc = "An unused value (maybe an argument)"]
     pub unused: *mut crate::ctypes::c_void,
+    #[doc = "Physical address"]
     pub physicalAddress: *mut crate::ctypes::c_void,
 }
 #[repr(C)]
@@ -5628,20 +6279,33 @@ pub struct SceUdcdDeviceState {
     pub use_usb_charging: crate::ctypes::c_int,
     pub unk_14: crate::ctypes::c_int,
 }
+#[doc = "USB driver structure"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDriver {
+    #[doc = "Name of the USB driver"]
     pub driverName: *const crate::ctypes::c_char,
+    #[doc = "Number of endpoints in this driver (including default control)"]
     pub numEndpoints: crate::ctypes::c_int,
+    #[doc = "List of endpoint structures (used when calling other functions)"]
     pub endpoints: *mut SceUdcdEndpoint,
+    #[doc = "Interface list"]
     pub interface: *mut SceUdcdInterface,
+    #[doc = "Pointer to hi-speed device descriptor"]
     pub descriptor_hi: *mut SceUdcdDeviceDescriptor,
+    #[doc = "Pointer to hi-speed device configuration"]
     pub configuration_hi: *mut SceUdcdConfiguration,
+    #[doc = "Pointer to full-speed device descriptor"]
     pub descriptor: *mut SceUdcdDeviceDescriptor,
+    #[doc = "Pointer to full-speed device configuration"]
     pub configuration: *mut SceUdcdConfiguration,
+    #[doc = "Default string descriptors"]
     pub stringDescriptors: *mut SceUdcdStringDescriptor,
+    #[doc = "Product string descriptor (iProduct has to be 2)"]
     pub stringDescriptorProduct: *mut SceUdcdStringDescriptor,
+    #[doc = "Serial string descriptor (iSerial has to be 3)"]
     pub stringDescriptorSerial: *mut SceUdcdStringDescriptor,
+    #[doc = "Received a control request"]
     pub processRequest: ::core::option::Option<
         unsafe extern "C" fn(
             recipient: crate::ctypes::c_int,
@@ -5650,6 +6314,7 @@ pub struct SceUdcdDriver {
             user_data: *mut crate::ctypes::c_void,
         ) -> crate::ctypes::c_int,
     >,
+    #[doc = "Change alternate setting"]
     pub changeSetting: ::core::option::Option<
         unsafe extern "C" fn(
             interfaceNumber: crate::ctypes::c_int,
@@ -5657,13 +6322,16 @@ pub struct SceUdcdDriver {
             bus: crate::ctypes::c_int,
         ) -> crate::ctypes::c_int,
     >,
+    #[doc = "Configuration set (attach) function"]
     pub attach: ::core::option::Option<
         unsafe extern "C" fn(
             usb_version: crate::ctypes::c_int,
             user_data: *mut crate::ctypes::c_void,
         ) -> crate::ctypes::c_int,
     >,
+    #[doc = "Configuration unset (detach) function"]
     pub detach: ::core::option::Option<unsafe extern "C" fn(user_data: *mut crate::ctypes::c_void)>,
+    #[doc = "Configure the device"]
     pub configure: ::core::option::Option<
         unsafe extern "C" fn(
             usb_version: crate::ctypes::c_int,
@@ -5672,6 +6340,7 @@ pub struct SceUdcdDriver {
             user_data: *mut crate::ctypes::c_void,
         ),
     >,
+    #[doc = "Function called when the driver is started"]
     pub start: ::core::option::Option<
         unsafe extern "C" fn(
             size: crate::ctypes::c_int,
@@ -5679,6 +6348,7 @@ pub struct SceUdcdDriver {
             user_data: *mut crate::ctypes::c_void,
         ) -> crate::ctypes::c_int,
     >,
+    #[doc = "Function called when the driver is stopped"]
     pub stop: ::core::option::Option<
         unsafe extern "C" fn(
             size: crate::ctypes::c_int,
@@ -5686,10 +6356,14 @@ pub struct SceUdcdDriver {
             user_data: *mut crate::ctypes::c_void,
         ) -> crate::ctypes::c_int,
     >,
+    #[doc = "User data"]
     pub user_data: *mut crate::ctypes::c_void,
+    #[doc = "USB bus"]
     pub bus: crate::ctypes::c_int,
+    #[doc = "Link to next USB driver in the chain, set to NULL"]
     pub link: *mut SceUdcdDriver,
 }
+#[doc = "USB driver name"]
 #[repr(C)]
 #[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
@@ -5698,14 +6372,20 @@ pub struct SceUdcdDriverName {
     pub name: [crate::ctypes::c_char; 32usize],
     pub flags: crate::ctypes::c_int,
 }
+#[doc = "USB driver endpoint"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEndpoint {
+    #[doc = "USB_ENDPOINT_IN / USB_ENDPOINT_OUT"]
     pub direction: crate::ctypes::c_int,
+    #[doc = "Driver Endpoint number (must be filled in sequentially)"]
     pub driverEndpointNumber: crate::ctypes::c_int,
+    #[doc = "Endpoint number (Filled in by the bus driver)"]
     pub endpointNumber: crate::ctypes::c_int,
+    #[doc = "Number of transmitted bytes"]
     pub transmittedBytes: crate::ctypes::c_int,
 }
+#[doc = "USB endpoint descriptor"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEndpointDescriptor {
@@ -5715,9 +6395,11 @@ pub struct SceUdcdEndpointDescriptor {
     pub bmAttributes: crate::ctypes::c_uchar,
     pub wMaxPacketSize: crate::ctypes::c_ushort,
     pub bInterval: crate::ctypes::c_uchar,
+    #[doc = "Extra descriptors"]
     pub extra: *mut crate::ctypes::c_uchar,
     pub extraLength: crate::ctypes::c_int,
 }
+#[doc = "USB EP0 Device Request"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEP0DeviceRequest {
@@ -5727,13 +6409,18 @@ pub struct SceUdcdEP0DeviceRequest {
     pub wIndex: crate::ctypes::c_ushort,
     pub wLength: crate::ctypes::c_ushort,
 }
+#[doc = "USB driver interface"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterface {
+    #[doc = "Expectant interface number (interface number or -1)"]
     pub expectNumber: crate::ctypes::c_int,
+    #[doc = "End interface"]
     pub interfaceNumber: crate::ctypes::c_int,
+    #[doc = "Number of interfaces"]
     pub numInterfaces: crate::ctypes::c_int,
 }
+#[doc = "USB Interface descriptor"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterfaceDescriptor {
@@ -5747,16 +6434,21 @@ pub struct SceUdcdInterfaceDescriptor {
     pub bInterfaceProtocol: crate::ctypes::c_uchar,
     pub iInterface: crate::ctypes::c_uchar,
     pub endpoints: *mut SceUdcdEndpointDescriptor,
+    #[doc = "Extra descriptors"]
     pub extra: *mut crate::ctypes::c_uchar,
     pub extraLength: crate::ctypes::c_int,
 }
+#[doc = "USB driver interfaces structure"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterfaceSettings {
+    #[doc = "Pointers to the individual interface descriptors"]
     pub descriptors: *mut SceUdcdInterfaceDescriptor,
     pub alternateSetting: crate::ctypes::c_uint,
+    #[doc = "Number of interface descriptors"]
     pub numDescriptors: crate::ctypes::c_uint,
 }
+#[doc = "USB string descriptor"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdStringDescriptor {
@@ -6164,10 +6856,13 @@ pub union SceVideodecQueryInitInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceVideodecQueryInitInfoHwAvcdec {
+    #[doc = "sizeof(SceVideodecQueryInitInfoHwAvcdec)"]
     pub size: u32,
     pub horizontal: u32,
     pub vertical: u32,
+    #[doc = "Number of reference frames to use"]
     pub numOfRefFrames: u32,
+    #[doc = "Must be set to 1"]
     pub numOfStreams: u32,
 }
 #[repr(C)]
@@ -6189,13 +6884,17 @@ pub struct SulphaNgsRegistration {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoExportInputParam {
+    #[doc = "Path of file to be exported"]
     pub path: [crate::ctypes::c_char; 1024usize],
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_char; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoExportOutputParam {
+    #[doc = "Path of exported file"]
     pub path: [crate::ctypes::c_char; 1024usize],
+    #[doc = "Reserved data"]
     pub reserved: [crate::ctypes::c_char; 8usize],
 }
 pub const BOOT_INTF_SUBCLASS: u32 = 1;
@@ -6235,16 +6934,27 @@ pub const OHCI_CC_UNEXPECTED_PID: u32 = 7;
 pub const __PSP2FILEHASH__: u32 = 0;
 pub const PSP2_SDK_VERSION: u32 = 56033297;
 pub const RPT_PROTOCOL: SceUdcdProtocol = 1;
+#[doc = "Application without physically contiguous memory access"]
 pub const SCE_APPMGR_APPLICATION_MODE_A: SceAppMgrApplicationMode = 2;
+#[doc = "Application with physically contiguous memory access"]
 pub const SCE_APPMGR_APPLICATION_MODE_B: SceAppMgrApplicationMode = 3;
+#[doc = "Application with physically contiguous memory and extra memory access"]
 pub const SCE_APPMGR_APPLICATION_MODE_C: SceAppMgrApplicationMode = 4;
+#[doc = "BGM port was occupied and could not be secured"]
 pub const SCE_APPMGR_ERROR_BGM_PORT_BUSY: SceAppMgrErrorCode = 2155884544;
+#[doc = "Busy"]
 pub const SCE_APPMGR_ERROR_BUSY: SceAppMgrErrorCode = 2155880448;
+#[doc = "Invalid param"]
 pub const SCE_APPMGR_ERROR_INVALID: SceAppMgrErrorCode = 2155880474;
+#[doc = "Invalid SELF path"]
 pub const SCE_APPMGR_ERROR_INVALID_SELF_PATH: SceAppMgrErrorCode = 2155880478;
+#[doc = "The process is not authorized to run this function"]
 pub const SCE_APPMGR_ERROR_NOEXEC: SceAppMgrErrorCode = 2155880479;
+#[doc = "NULL pointer"]
 pub const SCE_APPMGR_ERROR_NULL_POINTER: SceAppMgrErrorCode = 2155880470;
+#[doc = "Invalid state"]
 pub const SCE_APPMGR_ERROR_STATE: SceAppMgrErrorCode = 2155880467;
+#[doc = "argv is too long"]
 pub const SCE_APPMGR_ERROR_TOO_LONG_ARGV: SceAppMgrErrorCode = 2155880477;
 pub const SCE_APPMGR_INFOBAR_COLOR_BLACK: SceAppMgrInfoBarColor = 0;
 pub const SCE_APPMGR_INFOBAR_COLOR_WHITE: SceAppMgrInfoBarColor = 1;
@@ -6433,17 +7143,29 @@ pub const SCE_AUDIOENC_ERROR_OUT_OF_MEMORY: SceAudioencErrorCode = 2156265476;
 pub const SCE_AUDIOENC_ERROR_UNSUPPORTED: SceAudioencErrorCode = 2156265487;
 pub const SCE_AUDIOENC_TYPE_CELP: u32 = 8198;
 pub const SCE_AUDIOENC_WORD_LENGTH_16BITS: u32 = 16;
+#[doc = "Tried to input while busy"]
 pub const SCE_AUDIO_IN_ERROR_BUSY: SceAudioInErrorCode = 2149974282;
+#[doc = "Undefined error"]
 pub const SCE_AUDIO_IN_ERROR_FATAL: SceAudioInErrorCode = 2149974272;
+#[doc = "Invalid parameter"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_PARAMETER: SceAudioInErrorCode = 2149974283;
+#[doc = "Invalid pointer value"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_POINTER: SceAudioInErrorCode = 2149974277;
+#[doc = "Bad value of port number"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_PORT: SceAudioInErrorCode = 2149974273;
+#[doc = "Invalid port param"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_PORT_PARAM: SceAudioInErrorCode = 2149974278;
+#[doc = "Invalid port type"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_PORT_TYPE: SceAudioInErrorCode = 2149974276;
+#[doc = "Invalid sample frequency"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_SAMPLE_FREQ: SceAudioInErrorCode = 2149974275;
+#[doc = "Invalid sample length"]
 pub const SCE_AUDIO_IN_ERROR_INVALID_SIZE: SceAudioInErrorCode = 2149974274;
+#[doc = "Port is not opened"]
 pub const SCE_AUDIO_IN_ERROR_NOT_OPENED: SceAudioInErrorCode = 2149974281;
+#[doc = "Not enough memory"]
 pub const SCE_AUDIO_IN_ERROR_OUT_OF_MEMORY: SceAudioInErrorCode = 2149974280;
+#[doc = "Cannot open no ports"]
 pub const SCE_AUDIO_IN_ERROR_PORT_FULL: SceAudioInErrorCode = 2149974279;
 pub const SCE_AUDIO_IN_GETSTATUS_MUTE: SceAudioInParam = 1;
 pub const SCE_AUDIO_IN_PARAM_FORMAT_S16_MONO: SceAudioInParam = 0;
@@ -6472,11 +7194,16 @@ pub const SCE_AUDIO_OUT_MODE_MONO: SceAudioOutMode = 0;
 pub const SCE_AUDIO_OUT_MODE_STEREO: SceAudioOutMode = 1;
 pub const SCE_AUDIO_OUT_PARAM_FORMAT_S16_MONO: SceAudioOutParam = 0;
 pub const SCE_AUDIO_OUT_PARAM_FORMAT_S16_STEREO: SceAudioOutParam = 1;
+#[doc = "Used for Background Music port"]
 pub const SCE_AUDIO_OUT_PORT_TYPE_BGM: SceAudioOutPortType = 1;
+#[doc = "Used for main audio output, freq must be set to 48000 Hz"]
 pub const SCE_AUDIO_OUT_PORT_TYPE_MAIN: SceAudioOutPortType = 0;
+#[doc = "Used for voice chat port"]
 pub const SCE_AUDIO_OUT_PORT_TYPE_VOICE: SceAudioOutPortType = 2;
 pub const SCE_AUDIO_VOLUME_0DB: u32 = 32768;
+#[doc = "Left Channel"]
 pub const SCE_AUDIO_VOLUME_FLAG_L_CH: SceAudioOutChannelFlag = 1;
+#[doc = "Right Channel"]
 pub const SCE_AUDIO_VOLUME_FLAG_R_CH: SceAudioOutChannelFlag = 2;
 pub const SCE_AVCDEC_ERROR_ALREADY_USED: SceAvcdecErrorCode = 2153906184;
 pub const SCE_AVCDEC_ERROR_ES_BUFFER_FULL: SceAvcdecErrorCode = 2153906186;
@@ -6497,21 +7224,35 @@ pub const SCE_AVCDEC_PIXELFORMAT_RGBA565: SceAvcdecPixelFormat = 1;
 pub const SCE_AVCDEC_PIXELFORMAT_RGBA8888: SceAvcdecPixelFormat = 0;
 pub const SCE_AVCDEC_PIXELFORMAT_YUV420_PACKED_RASTER: SceAvcdecPixelFormat = 32;
 pub const SCE_AVCDEC_PIXELFORMAT_YUV420_RASTER: SceAvcdecPixelFormat = 16;
+#[doc = "Default"]
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_DEFAULT: SceAVConfigColorSpaceMode = 0;
+#[doc = "High Contrast Mode"]
 pub const SCE_AVCONFIG_COLOR_SPACE_MODE_HIGH_CONTRAST: SceAVConfigColorSpaceMode = 1;
+#[doc = "Audio stream type"]
 pub const SCE_AVPLAYER_AUDIO: SceAvPlayerStreamType = 1;
 pub const SCE_AVPLAYER_ERROR_INVALID_PARAM: SceAvPlayerErrorCode = 2154430465;
 pub const SCE_AVPLAYER_ERROR_OUT_OF_MEMORY: SceAvPlayerErrorCode = 2154430467;
+#[doc = "Timed text (subtitles) stream type"]
 pub const SCE_AVPLAYER_TIMEDTEXT: SceAvPlayerStreamType = 2;
+#[doc = "Fast Forward 16x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_FAST_FORWARD_16X: SceAvPlayerTrickSpeeds = 1600;
+#[doc = "Fast Forward 2x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_FAST_FORWARD_2X: SceAvPlayerTrickSpeeds = 200;
+#[doc = "Fast Forward 32x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_FAST_FORWARD_32X: SceAvPlayerTrickSpeeds = 3200;
+#[doc = "Fast Forward 4x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_FAST_FORWARD_4X: SceAvPlayerTrickSpeeds = 400;
+#[doc = "Fast Forward 8x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_FAST_FORWARD_8X: SceAvPlayerTrickSpeeds = 800;
+#[doc = "Normal Speed"]
 pub const SCE_AVPLAYER_TRICK_SPEED_NORMAL: SceAvPlayerTrickSpeeds = 100;
+#[doc = "Rewind 16x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_REWIND_16X: SceAvPlayerTrickSpeeds = -1600;
+#[doc = "Rewind 32x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_REWIND_32X: SceAvPlayerTrickSpeeds = -3200;
+#[doc = "Rewind 8x"]
 pub const SCE_AVPLAYER_TRICK_SPEED_REWIND_8X: SceAvPlayerTrickSpeeds = -800;
+#[doc = "Video stream type"]
 pub const SCE_AVPLAYER_VIDEO: SceAvPlayerStreamType = 0;
 pub const SCE_BGAPP_UTIL_ERROR_INVALID_ARG: SceBgAppUtilErrorCode = 2148558082;
 pub const SCE_BT_ERROR_ACL_TX_BUF_OVERFLOW: SceBtErrorCode = 2150566659;
@@ -6749,12 +7490,19 @@ pub const SCE_BT_ERROR_TOO_MANY_CONNECTION: SceBtErrorCode = 2150577153;
 pub const SCE_BT_ERROR_TOO_MANY_HID: SceBtErrorCode = 2150577154;
 pub const SCE_BT_ERROR_TSLEEP: SceBtErrorCode = 2150572048;
 pub const SCE_BT_ERROR_USER_CONFIRM_NOT_CONNECTED: SceBtErrorCode = 2150564359;
+#[doc = "50 Hz mode"]
 pub const SCE_CAMERA_ANTIFLICKER_50HZ: SceCameraAntiFlicker = 2;
+#[doc = "50 Hz mode"]
 pub const SCE_CAMERA_ANTIFLICKER_60HZ: SceCameraAntiFlicker = 3;
+#[doc = "Automatic mode"]
 pub const SCE_CAMERA_ANTIFLICKER_AUTO: SceCameraAntiFlicker = 1;
+#[doc = "Disabled"]
 pub const SCE_CAMERA_BACKLIGHT_OFF: SceCameraBacklight = 0;
+#[doc = "Enabled"]
 pub const SCE_CAMERA_BACKLIGHT_ON: SceCameraBacklight = 1;
+#[doc = "Retro camera"]
 pub const SCE_CAMERA_DEVICE_BACK: SceCameraDevice = 1;
+#[doc = "Front camera"]
 pub const SCE_CAMERA_DEVICE_FRONT: SceCameraDevice = 0;
 pub const SCE_CAMERA_EFFECT_BLACKWHITE: SceCameraEffect = 2;
 pub const SCE_CAMERA_EFFECT_BLUE: SceCameraEffect = 4;
@@ -6783,38 +7531,71 @@ pub const SCE_CAMERA_ERROR_OTHER_ALREADY_START: SceCameraErrorCode = 2150498322;
 pub const SCE_CAMERA_ERROR_PARAM: SceCameraErrorCode = 2150498304;
 pub const SCE_CAMERA_ERROR_RESOLUTION_UNKNOWN: SceCameraErrorCode = 2150498312;
 pub const SCE_CAMERA_ERROR_TIMEOUT: SceCameraErrorCode = 2150498314;
+#[doc = "-1.0"]
 pub const SCE_CAMERA_EV_NEGATIVE_10: SceCameraExposureCompensation = -10;
+#[doc = "-1.3"]
 pub const SCE_CAMERA_EV_NEGATIVE_13: SceCameraExposureCompensation = -13;
+#[doc = "-1.5"]
 pub const SCE_CAMERA_EV_NEGATIVE_15: SceCameraExposureCompensation = -15;
+#[doc = "-1.7"]
 pub const SCE_CAMERA_EV_NEGATIVE_17: SceCameraExposureCompensation = -17;
+#[doc = "-2.0"]
 pub const SCE_CAMERA_EV_NEGATIVE_20: SceCameraExposureCompensation = -20;
+#[doc = "-0.3"]
 pub const SCE_CAMERA_EV_NEGATIVE_3: SceCameraExposureCompensation = -3;
+#[doc = "-0.5"]
 pub const SCE_CAMERA_EV_NEGATIVE_5: SceCameraExposureCompensation = -5;
+#[doc = "-0.7"]
 pub const SCE_CAMERA_EV_NEGATIVE_7: SceCameraExposureCompensation = -7;
+#[doc = "+0.0"]
 pub const SCE_CAMERA_EV_POSITIVE_0: SceCameraExposureCompensation = 0;
+#[doc = "+1.0"]
 pub const SCE_CAMERA_EV_POSITIVE_10: SceCameraExposureCompensation = 10;
+#[doc = "+1.3"]
 pub const SCE_CAMERA_EV_POSITIVE_13: SceCameraExposureCompensation = 13;
+#[doc = "+1.5"]
 pub const SCE_CAMERA_EV_POSITIVE_15: SceCameraExposureCompensation = 15;
+#[doc = "+1.7"]
 pub const SCE_CAMERA_EV_POSITIVE_17: SceCameraExposureCompensation = 17;
+#[doc = "+2.0"]
 pub const SCE_CAMERA_EV_POSITIVE_20: SceCameraExposureCompensation = 20;
+#[doc = "+0.3"]
 pub const SCE_CAMERA_EV_POSITIVE_3: SceCameraExposureCompensation = 3;
+#[doc = "+0.5"]
 pub const SCE_CAMERA_EV_POSITIVE_5: SceCameraExposureCompensation = 5;
+#[doc = "+0.7"]
 pub const SCE_CAMERA_EV_POSITIVE_7: SceCameraExposureCompensation = 7;
+#[doc = "ABGR pixels"]
 pub const SCE_CAMERA_FORMAT_ABGR: SceCameraFormat = 5;
+#[doc = "ARGB pixels"]
 pub const SCE_CAMERA_FORMAT_ARGB: SceCameraFormat = 4;
+#[doc = "Invalid format"]
 pub const SCE_CAMERA_FORMAT_INVALID: SceCameraFormat = 0;
+#[doc = "8 bit raw data"]
 pub const SCE_CAMERA_FORMAT_RAW8: SceCameraFormat = 6;
+#[doc = "YUV420 planes"]
 pub const SCE_CAMERA_FORMAT_YUV420_PLANE: SceCameraFormat = 3;
+#[doc = "YUV422 pixels packed"]
 pub const SCE_CAMERA_FORMAT_YUV422_PACKED: SceCameraFormat = 2;
+#[doc = "YUV422 planes"]
 pub const SCE_CAMERA_FORMAT_YUV422_PLANE: SceCameraFormat = 1;
+#[doc = "10 fps"]
 pub const SCE_CAMERA_FRAMERATE_10_FPS: SceCameraFrameRate = 10;
+#[doc = "120 fps (> **Note:** Resolution must be QVGA or lower)"]
 pub const SCE_CAMERA_FRAMERATE_120_FPS: SceCameraFrameRate = 120;
+#[doc = "15 fps"]
 pub const SCE_CAMERA_FRAMERATE_15_FPS: SceCameraFrameRate = 15;
+#[doc = "20 fps"]
 pub const SCE_CAMERA_FRAMERATE_20_FPS: SceCameraFrameRate = 20;
+#[doc = "30 fps"]
 pub const SCE_CAMERA_FRAMERATE_30_FPS: SceCameraFrameRate = 30;
+#[doc = "3.75 fps"]
 pub const SCE_CAMERA_FRAMERATE_3_FPS: SceCameraFrameRate = 3;
+#[doc = "5 fps"]
 pub const SCE_CAMERA_FRAMERATE_5_FPS: SceCameraFrameRate = 5;
+#[doc = "60 fps"]
 pub const SCE_CAMERA_FRAMERATE_60_FPS: SceCameraFrameRate = 60;
+#[doc = "7.5 fps"]
 pub const SCE_CAMERA_FRAMERATE_7_FPS: SceCameraFrameRate = 7;
 pub const SCE_CAMERA_GAIN_1: SceCameraGain = 1;
 pub const SCE_CAMERA_GAIN_10: SceCameraGain = 10;
@@ -6833,41 +7614,77 @@ pub const SCE_CAMERA_GAIN_7: SceCameraGain = 7;
 pub const SCE_CAMERA_GAIN_8: SceCameraGain = 8;
 pub const SCE_CAMERA_GAIN_9: SceCameraGain = 9;
 pub const SCE_CAMERA_GAIN_AUTO: SceCameraGain = 0;
+#[doc = "ISO100/21�"]
 pub const SCE_CAMERA_ISO_100: SceCameraISO = 100;
+#[doc = "ISO200/24�"]
 pub const SCE_CAMERA_ISO_200: SceCameraISO = 200;
+#[doc = "ISO400/27�"]
 pub const SCE_CAMERA_ISO_400: SceCameraISO = 400;
+#[doc = "Automatic mode"]
 pub const SCE_CAMERA_ISO_AUTO: SceCameraISO = 1;
+#[doc = "10 lux or below"]
 pub const SCE_CAMERA_NIGHTMODE_LESS10: SceCameraNightmode = 1;
+#[doc = "100 lux or below"]
 pub const SCE_CAMERA_NIGHTMODE_LESS100: SceCameraNightmode = 2;
+#[doc = "Disabled"]
 pub const SCE_CAMERA_NIGHTMODE_OFF: SceCameraNightmode = 0;
+#[doc = "100 lux or over"]
 pub const SCE_CAMERA_NIGHTMODE_OVER100: SceCameraNightmode = 3;
+#[doc = "Exclusive mode"]
 pub const SCE_CAMERA_PRIORITY_EXCLUSIVE: SceCameraPriority = 1;
+#[doc = "Share mode"]
 pub const SCE_CAMERA_PRIORITY_SHARE: SceCameraPriority = 0;
+#[doc = "Invalid resolution"]
 pub const SCE_CAMERA_RESOLUTION_0_0: SceCameraResolution = 0;
+#[doc = "QQVGA resolution"]
 pub const SCE_CAMERA_RESOLUTION_160_120: SceCameraResolution = 3;
+#[doc = "QCIF resolution"]
 pub const SCE_CAMERA_RESOLUTION_176_144: SceCameraResolution = 5;
+#[doc = "QVGA resolution"]
 pub const SCE_CAMERA_RESOLUTION_320_240: SceCameraResolution = 2;
+#[doc = "CIF resolution"]
 pub const SCE_CAMERA_RESOLUTION_352_288: SceCameraResolution = 4;
+#[doc = "PSP resolution"]
 pub const SCE_CAMERA_RESOLUTION_480_272: SceCameraResolution = 6;
+#[doc = "NGP resolution"]
 pub const SCE_CAMERA_RESOLUTION_640_360: SceCameraResolution = 8;
+#[doc = "VGA resolution"]
 pub const SCE_CAMERA_RESOLUTION_640_480: SceCameraResolution = 1;
+#[doc = "Flip mode"]
 pub const SCE_CAMERA_REVERSE_FLIP: SceCameraReverse = 2;
+#[doc = "Mirror mode"]
 pub const SCE_CAMERA_REVERSE_MIRROR: SceCameraReverse = 1;
+#[doc = "Mirror + Flip mode"]
 pub const SCE_CAMERA_REVERSE_MIRROR_FLIP: SceCameraReverse = 3;
+#[doc = "Reverse mode off"]
 pub const SCE_CAMERA_REVERSE_OFF: SceCameraReverse = 0;
+#[doc = "0.0"]
 pub const SCE_CAMERA_SATURATION_0: SceCameraSaturation = 0;
+#[doc = "1.0"]
 pub const SCE_CAMERA_SATURATION_10: SceCameraSaturation = 10;
+#[doc = "2.0"]
 pub const SCE_CAMERA_SATURATION_20: SceCameraSaturation = 20;
+#[doc = "3.0"]
 pub const SCE_CAMERA_SATURATION_30: SceCameraSaturation = 30;
+#[doc = "4.0"]
 pub const SCE_CAMERA_SATURATION_40: SceCameraSaturation = 40;
+#[doc = "0.5"]
 pub const SCE_CAMERA_SATURATION_5: SceCameraSaturation = 5;
+#[doc = "100%"]
 pub const SCE_CAMERA_SHARPNESS_100: SceCameraSharpness = 1;
+#[doc = "200%"]
 pub const SCE_CAMERA_SHARPNESS_200: SceCameraSharpness = 2;
+#[doc = "300%"]
 pub const SCE_CAMERA_SHARPNESS_300: SceCameraSharpness = 3;
+#[doc = "400%"]
 pub const SCE_CAMERA_SHARPNESS_400: SceCameraSharpness = 4;
+#[doc = "Automatic mode"]
 pub const SCE_CAMERA_WB_AUTO: SceCameraWhiteBalance = 0;
+#[doc = "Cool White Fluorescent mode"]
 pub const SCE_CAMERA_WB_CWF: SceCameraWhiteBalance = 2;
+#[doc = "Daylight mode"]
 pub const SCE_CAMERA_WB_DAY: SceCameraWhiteBalance = 1;
+#[doc = "Standard Light Source A mode"]
 pub const SCE_CAMERA_WB_SLSA: SceCameraWhiteBalance = 4;
 pub const SCE_COMMON_DIALOG_ERROR_BUSY: SceCommonDialogErrorCode = 2147615745;
 pub const SCE_COMMON_DIALOG_ERROR_GXM_IS_UNINITIALIZED: SceCommonDialogErrorCode = 2147615798;
@@ -6912,8 +7729,11 @@ pub const SCE_CST_CT: u32 = 8;
 pub const SCE_CST_MODE: u32 = 1;
 pub const SCE_CST_MT: u32 = 32;
 pub const SCE_CST_SIZE: u32 = 4;
+#[doc = "Circle button."]
 pub const SCE_CTRL_CIRCLE: SceCtrlButtons = 8192;
+#[doc = "Cross button."]
 pub const SCE_CTRL_CROSS: SceCtrlButtons = 16384;
+#[doc = "Down D-Pad button."]
 pub const SCE_CTRL_DOWN: SceCtrlButtons = 64;
 pub const SCE_CTRL_ERROR_FATAL: SceCtrlErrorCode = 2150891775;
 pub const SCE_CTRL_ERROR_INVALID_ARG: SceCtrlErrorCode = 2150891521;
@@ -6921,34 +7741,63 @@ pub const SCE_CTRL_ERROR_INVALID_MODE: SceCtrlErrorCode = 2150891554;
 pub const SCE_CTRL_ERROR_NO_DEVICE: SceCtrlErrorCode = 2150891552;
 pub const SCE_CTRL_ERROR_NOT_SUPPORTED: SceCtrlErrorCode = 2150891553;
 pub const SCE_CTRL_ERROR_PRIV_REQUIRED: SceCtrlErrorCode = 2150891522;
+#[doc = "Headphone plugged in."]
 pub const SCE_CTRL_HEADPHONE: SceCtrlButtons = 524288;
+#[doc = "Input not available because intercepted by another application"]
 pub const SCE_CTRL_INTERCEPTED: SceCtrlButtons = 65536;
+#[doc = "L1 button."]
 pub const SCE_CTRL_L1: SceCtrlButtons = 1024;
+#[doc = "L2 button."]
 pub const SCE_CTRL_L2: SceCtrlButtons = 256;
+#[doc = "L3 button."]
 pub const SCE_CTRL_L3: SceCtrlButtons = 2;
+#[doc = "Left D-Pad button."]
 pub const SCE_CTRL_LEFT: SceCtrlButtons = 128;
+#[doc = "Left trigger."]
 pub const SCE_CTRL_LTRIGGER: SceCtrlButtons = 256;
+#[doc = "Digital buttons + Analog support."]
 pub const SCE_CTRL_MODE_ANALOG: SceCtrlPadInputMode = 1;
+#[doc = "Same as ::SCE_CTRL_MODE_ANALOG, but with larger range for analog sticks."]
 pub const SCE_CTRL_MODE_ANALOG_WIDE: SceCtrlPadInputMode = 2;
+#[doc = "Digital buttons only."]
 pub const SCE_CTRL_MODE_DIGITAL: SceCtrlPadInputMode = 0;
+#[doc = "Power button."]
 pub const SCE_CTRL_POWER: SceCtrlButtons = 1073741824;
+#[doc = "Playstation (Home) button."]
 pub const SCE_CTRL_PSBUTTON: SceCtrlButtons = 65536;
+#[doc = "R1 button."]
 pub const SCE_CTRL_R1: SceCtrlButtons = 2048;
+#[doc = "R2 button."]
 pub const SCE_CTRL_R2: SceCtrlButtons = 512;
+#[doc = "R3 button."]
 pub const SCE_CTRL_R3: SceCtrlButtons = 4;
+#[doc = "Right D-Pad button."]
 pub const SCE_CTRL_RIGHT: SceCtrlButtons = 32;
+#[doc = "Right trigger."]
 pub const SCE_CTRL_RTRIGGER: SceCtrlButtons = 512;
+#[doc = "Select button."]
 pub const SCE_CTRL_SELECT: SceCtrlButtons = 1;
+#[doc = "Square button."]
 pub const SCE_CTRL_SQUARE: SceCtrlButtons = 32768;
+#[doc = "Start button."]
 pub const SCE_CTRL_START: SceCtrlButtons = 8;
+#[doc = "Triangle button."]
 pub const SCE_CTRL_TRIANGLE: SceCtrlButtons = 4096;
+#[doc = "DualShock 3"]
 pub const SCE_CTRL_TYPE_DS3: SceCtrlExternalInputMode = 4;
+#[doc = "DualShock 4"]
 pub const SCE_CTRL_TYPE_DS4: SceCtrlExternalInputMode = 8;
+#[doc = "Physical controller for VITA"]
 pub const SCE_CTRL_TYPE_PHY: SceCtrlExternalInputMode = 1;
+#[doc = "Unpaired controller"]
 pub const SCE_CTRL_TYPE_UNPAIRED: SceCtrlExternalInputMode = 0;
+#[doc = "Virtual controller for PSTV"]
 pub const SCE_CTRL_TYPE_VIRT: SceCtrlExternalInputMode = 2;
+#[doc = "Up D-Pad button."]
 pub const SCE_CTRL_UP: SceCtrlButtons = 16;
+#[doc = "Volume down button."]
 pub const SCE_CTRL_VOLDOWN: SceCtrlButtons = 2097152;
+#[doc = "Volume up button."]
 pub const SCE_CTRL_VOLUP: SceCtrlButtons = 1048576;
 pub const SCE_CTYPE_CONTROL: SceCTypeFlag = 8;
 pub const SCE_CTYPE_HEX_CASE: SceCTypeFlag = 64;
@@ -6965,11 +7814,17 @@ pub const SCE_DBG_LOG_LEVEL_INFO: SceDbgLogLevel = 2;
 pub const SCE_DBG_LOG_LEVEL_TRACE: SceDbgLogLevel = 0;
 pub const SCE_DBG_LOG_LEVEL_WARNING: SceDbgLogLevel = 3;
 pub const SCE_DBG_NUM_LOG_LEVELS: SceDbgLogLevel = 5;
+#[doc = "Alias name"]
 pub const SCE_DEV_TYPE_ALIAS: SceIoDevType = 32;
+#[doc = "Block device"]
 pub const SCE_DEV_TYPE_BLOCK: SceIoDevType = 4;
+#[doc = "Character device"]
 pub const SCE_DEV_TYPE_CHAR: SceIoDevType = 1;
+#[doc = "File system device"]
 pub const SCE_DEV_TYPE_FS: SceIoDevType = 16;
+#[doc = "Mount point"]
 pub const SCE_DEV_TYPE_MOUNTPT: SceIoDevType = 64;
+#[doc = "Dummy device"]
 pub const SCE_DEV_TYPE_NULL: SceIoDevType = 0;
 pub const SCE_DISPLAY_ERROR_INVALID_ADDR: SceDisplayErrorCode = 2150170626;
 pub const SCE_DISPLAY_ERROR_INVALID_HEAD: SceDisplayErrorCode = 2150170624;
@@ -6984,8 +7839,11 @@ pub const SCE_DISPLAY_ERROR_NO_PIXEL_DATA: SceDisplayErrorCode = 2150170632;
 pub const SCE_DISPLAY_ERROR_OK: SceDisplayErrorCode = 0;
 pub const SCE_DISPLAY_PIXELFORMAT_A2B10G10R10: SceDisplayPixelFormat = 1619001344;
 pub const SCE_DISPLAY_PIXELFORMAT_A8B8G8R8: SceDisplayPixelFormat = 0;
+#[doc = "Buffer change effective next frame"]
 pub const __SCE_DISPLAY_SETBUF: SceDisplaySetBufSync = 4294967295;
+#[doc = "Buffer change effective immediately"]
 pub const SCE_DISPLAY_SETBUF_IMMEDIATE: SceDisplaySetBufSync = 0;
+#[doc = "Buffer change effective next frame"]
 pub const SCE_DISPLAY_SETBUF_NEXTFRAME: SceDisplaySetBufSync = 1;
 pub const SCE_DSI_ERROR_HEAD_NOT_ENABLED: SceDsiErrorCode = 2151613955;
 pub const SCE_DSI_ERROR_INVALID_HEAD: SceDsiErrorCode = 2151613952;
@@ -7028,19 +7886,28 @@ pub const SCE_ERROR_NET_ADHOC_WOULD_BLOCK: ScePspnetAdhocErrorCode = 2151745289;
 pub const SCE_EVENT_OPENABLE: SceEventFlagAttributes = 128;
 pub const SCE_EVENT_THREAD_FIFO: SceEventFlagAttributes = 0;
 pub const SCE_EVENT_THREAD_PRIO: SceEventFlagAttributes = 8192;
+#[doc = "Wait for all bits in the pattern to be set"]
 pub const SCE_EVENT_WAITAND: SceEventFlagWaitTypes = 0;
+#[doc = "Clear all the bits when it matches"]
 pub const SCE_EVENT_WAITCLEAR: SceEventFlagWaitTypes = 2;
+#[doc = "Clear the wait pattern when it matches"]
 pub const SCE_EVENT_WAITCLEAR_PAT: SceEventFlagWaitTypes = 4;
+#[doc = "Sync object can be waited upon by multiple threads."]
 pub const SCE_EVENT_WAITMULTIPLE: SceEventFlagAttributes = 4096;
+#[doc = "Wait for one or more bits in the pattern to be set"]
 pub const SCE_EVENT_WAITOR: SceEventFlagWaitTypes = 1;
+#[doc = "Sync object can only be waited upon by one thread."]
 pub const SCE_EVENT_WAITSINGLE: SceEventFlagAttributes = 0;
 pub const SCE_EXCP_DABT: SceExcpKind = 4;
 pub const SCE_EXCP_FIQ: SceExcpKind = 7;
 pub const SCE_EXCP_IRQ: SceExcpKind = 6;
+#[doc = "Exception handled"]
 pub const SCE_EXCPMGR_EXCEPTION_HANDLED: SceExcpHandlingCode = 0;
 pub const SCE_EXCPMGR_EXCEPTION_HANDLING_CODE_2: SceExcpHandlingCode = 2;
 pub const SCE_EXCPMGR_EXCEPTION_HANDLING_CODE_4: SceExcpHandlingCode = 4;
+#[doc = "Exception not handled - kills app with C2-12828-1"]
 pub const SCE_EXCPMGR_EXCEPTION_NOT_HANDLED: SceExcpHandlingCode = 1;
+#[doc = "Fatal exception - panics the kernel"]
 pub const SCE_EXCPMGR_EXCEPTION_NOT_HANDLED_FATAL: SceExcpHandlingCode = 3;
 pub const SCE_EXCP_PABT: SceExcpKind = 3;
 pub const SCE_EXCP_RESET: SceExcpKind = 0;
@@ -7079,16 +7946,22 @@ pub const SCE_FONT_LANGUAGE_DEFAULT: SceFontLanguageCode = 0;
 pub const SCE_FONT_LANGUAGE_JAPANESE: SceFontLanguageCode = 1;
 pub const SCE_FONT_LANGUAGE_KOREAN: SceFontLanguageCode = 3;
 pub const SCE_FONT_LANGUAGE_LATIN: SceFontLanguageCode = 2;
+#[doc = "1 pixel in 3 bytes (RGB)"]
 pub const SCE_FONT_PIXELFORMAT_24: SceFontPixelFormatCode = 3;
+#[doc = "1 pixel in 4 bytes (RGBA)"]
 pub const SCE_FONT_PIXELFORMAT_32: SceFontPixelFormatCode = 4;
+#[doc = "2 pixels packed in 1 byte (natural order)"]
 pub const SCE_FONT_PIXELFORMAT_4: SceFontPixelFormatCode = 0;
+#[doc = "2 pixels packed in 1 byte (reversed order)"]
 pub const SCE_FONT_PIXELFORMAT_4_REV: SceFontPixelFormatCode = 1;
+#[doc = "1 pixel in 1 byte"]
 pub const SCE_FONT_PIXELFORMAT_8: SceFontPixelFormatCode = 2;
 pub const SCE_FONT_STYLE_B: SceFontStyleCode = 104;
 pub const SCE_FONT_STYLE_BLACK: SceFontStyleCode = 7;
 pub const SCE_FONT_STYLE_BLACK_ITALIC: SceFontStyleCode = 8;
 pub const SCE_FONT_STYLE_BOLD: SceFontStyleCode = 5;
 pub const SCE_FONT_STYLE_BOLD_ITALIC: SceFontStyleCode = 6;
+#[doc = "Demi-Bold / semi-bold"]
 pub const SCE_FONT_STYLE_DB: SceFontStyleCode = 103;
 pub const SCE_FONT_STYLE_DEFAULT: SceFontStyleCode = 0;
 pub const SCE_FONT_STYLE_EB: SceFontStyleCode = 105;
@@ -8227,17 +9100,27 @@ pub const SCE_INCOMING_DIALOG_RUNNING: SceIncomingDialogStatus = 2;
 pub const SCE_INCOMING_DIALOG_TIMEOUT: SceIncomingDialogStatus = 6;
 pub const SCE_JPEG_ARM_OK: SceJpegArmErrorCode = 0;
 pub const SCE_JPEGENCARM_DEFAULT_COMP_RATIO: u32 = 64;
+#[doc = "The image dimensions given are not supported, or are larger\n than those set at initialization."]
 pub const SCE_JPEGENCARM_ERROR_IMAGE_SIZE: SceJpegEncArmErrorCode = 2154103552;
+#[doc = "The output buffer provided is not of sufficient size."]
 pub const SCE_JPEGENCARM_ERROR_INSUFFICIENT_BUFFER: SceJpegEncArmErrorCode = 2154103553;
+#[doc = "The compression ratio given is not within the valid range."]
 pub const SCE_JPEGENCARM_ERROR_INVALID_COMP_RATIO: SceJpegEncArmErrorCode = 2154103554;
+#[doc = "The headerMode given is not one of ::SceJpegArmEncoderHeaderMode."]
 pub const SCE_JPEGENCARM_ERROR_INVALID_HEADER_MODE: SceJpegEncArmErrorCode = 2154103556;
+#[doc = "The pixelformat given is not one of ::SceJpegArmEncoderPixelFormat."]
 pub const SCE_JPEGENCARM_ERROR_INVALID_PIXELFORMAT: SceJpegEncArmErrorCode = 2154103555;
+#[doc = "A null or badly aligned pointer was given."]
 pub const SCE_JPEGENCARM_ERROR_INVALID_POINTER: SceJpegEncArmErrorCode = 2154103557;
+#[doc = "JPEG header mode"]
 pub const SCE_JPEGENCARM_HEADER_MODE_JPEG: SceJpegArmEncoderHeaderMode = 0;
+#[doc = "MJPEG header mode"]
 pub const SCE_JPEGENCARM_HEADER_MODE_MJPEG: SceJpegArmEncoderHeaderMode = 1;
 pub const SCE_JPEGENCARM_MAX_COMP_RATIO: u32 = 255;
 pub const SCE_JPEGENCARM_MIN_COMP_RATIO: u32 = 1;
+#[doc = "YCbCr420 format"]
 pub const SCE_JPEGENCARM_PIXELFORMAT_YCBCR420: SceJpegArmEncoderPixelFormat = 8;
+#[doc = "YCbCr422 format"]
 pub const SCE_JPEGENCARM_PIXELFORMAT_YCBCR422: SceJpegArmEncoderPixelFormat = 9;
 pub const SCE_JPEGENC_ERROR_IMAGE_SIZE: SceJpegEncErrorCode = 2154103296;
 pub const SCE_JPEGENC_ERROR_INSUFFICIENT_BUFFER: SceJpegEncErrorCode = 2154103297;
@@ -8246,13 +9129,21 @@ pub const SCE_JPEGENC_ERROR_INVALID_HEADER_MODE: SceJpegEncErrorCode = 215410330
 pub const SCE_JPEGENC_ERROR_INVALID_PIXELFORMAT: SceJpegEncErrorCode = 2154103299;
 pub const SCE_JPEGENC_ERROR_INVALID_POINTER: SceJpegEncErrorCode = 2154103301;
 pub const SCE_JPEGENC_ERROR_NOT_PHY_CONTINUOUS_MEMORY: SceJpegEncErrorCode = 2154103302;
+#[doc = "JPEG header mode"]
 pub const SCE_JPEGENC_HEADER_MODE_JPEG: SceJpegEncoderHeaderMode = 0;
+#[doc = "MJPEG header mode"]
 pub const SCE_JPEGENC_HEADER_MODE_MJPEG: SceJpegEncoderHeaderMode = 1;
+#[doc = "LPDDR2 memory will be used instead of CDRAM"]
 pub const SCE_JPEGENC_INIT_PARAM_OPTION_LPDDR2_MEMORY: SceJpegEncoderInitParamOption = 1;
+#[doc = "Default option"]
 pub const SCE_JPEGENC_INIT_PARAM_OPTION_NONE: SceJpegEncoderInitParamOption = 0;
+#[doc = "ARGB8888 format"]
 pub const SCE_JPEGENC_PIXELFORMAT_ARGB8888: SceJpegEncoderPixelFormat = 0;
+#[doc = "ARGB to YCbCr color conversion flag"]
 pub const SCE_JPEGENC_PIXELFORMAT_CSC_ARGB_YCBCR: SceJpegEncoderPixelFormat = 16;
+#[doc = "YCbCr420 format"]
 pub const SCE_JPEGENC_PIXELFORMAT_YCBCR420: SceJpegEncoderPixelFormat = 8;
+#[doc = "YCbCr422 format"]
 pub const SCE_JPEGENC_PIXELFORMAT_YCBCR422: SceJpegEncoderPixelFormat = 9;
 pub const SCE_KERNEL_128KiB: u32 = 131072;
 pub const SCE_KERNEL_128MiB: u32 = 134217728;
@@ -8290,8 +9181,11 @@ pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_PHYCONT: SceKernelAllocMemBlockAttr = 2
 pub const SCE_KERNEL_ASSERT_LEVEL_0: SceKernelAssertLevel = 0;
 pub const SCE_KERNEL_ASSERT_LEVEL_1: SceKernelAssertLevel = 1;
 pub const SCE_KERNEL_ASSERT_LEVEL_2: SceKernelAssertLevel = 2;
+#[doc = "Sync object can be accessed by sceKernelOpenXxx"]
 pub const SCE_KERNEL_ATTR_OPENABLE: SceKernelWaitableAttribute = 128;
+#[doc = "Waiting threads First input First output"]
 pub const SCE_KERNEL_ATTR_THREAD_FIFO: SceKernelWaitableAttribute = 0;
+#[doc = "Waiting threads queued on priority basis"]
 pub const SCE_KERNEL_ATTR_THREAD_PRIO: SceKernelWaitableAttribute = 8192;
 pub const SCE_KERNEL_CPU_MASK_SYSTEM: u32 = 524288;
 pub const SCE_KERNEL_CPU_MASK_USER_0: u32 = 65536;
@@ -8347,10 +9241,15 @@ pub const SCE_KERNEL_DMAC_COHERENCY_MSK_SRC_MASK: u32 = 511;
 pub const SCE_KERNEL_DMAC_COHERENCY_MSK_SRC_SHIFT: u32 = 0;
 pub const SCE_KERNEL_DMAC_COHERENCY_MSK_UNK_MASK: u32 = 133955584;
 pub const SCE_KERNEL_DMAC_COHERENCY_MSK_UNK_SHIFT: u32 = 18;
+#[doc = "DMAC0/1"]
 pub const SCE_KERNEL_DMAC_ID_DMAC01: SceKernelDmacId = 16;
+#[doc = "DMAC2/3"]
 pub const SCE_KERNEL_DMAC_ID_DMAC23: SceKernelDmacId = 17;
+#[doc = "DMAC4"]
 pub const SCE_KERNEL_DMAC_ID_DMAC4: SceKernelDmacId = 18;
+#[doc = "DMAC5"]
 pub const SCE_KERNEL_DMAC_ID_DMAC5: SceKernelDmacId = 19;
+#[doc = "DMAC6 (Devkit only)"]
 pub const SCE_KERNEL_DMAC_ID_DMAC6: SceKernelDmacId = 20;
 pub const SCE_KERNEL_DMAC_IV_COHERENCY_MSK_READ_MASK: u32 = 511;
 pub const SCE_KERNEL_DMAC_IV_COHERENCY_MSK_READ_SHIFT: u32 = 0;
@@ -8364,13 +9263,21 @@ pub const SCE_KERNEL_DMAC_STAT_ERROR_READ: u32 = 65536;
 pub const SCE_KERNEL_DMAC_STAT_ERROR_TAG: u32 = 524288;
 pub const SCE_KERNEL_DMAC_STAT_ERROR_WRITE: u32 = 131072;
 pub const SCE_KERNEL_DMAC_STAT_ERROR_ZERO_BYTE: u32 = 1048576;
+#[doc = "Full DMA chain is provided, starting from pTag and ending with pTag + 1"]
 pub const SCE_KERNEL_DMA_OP_COMPLETE_CHAIN: SceKernelDmaOpFlag = 256;
+#[doc = "src and dst addresses are physical addresses"]
 pub const SCE_KERNEL_DMA_OP_PHYSICAL_ADDR: SceKernelDmaOpFlag = 0;
+#[doc = "Poll for completion without waiting"]
 pub const SCE_KERNEL_DMA_OP_SYNC_POLL: SceKernelDmaOpSyncMode = 1;
+#[doc = "Wait for completion with timeout"]
 pub const SCE_KERNEL_DMA_OP_SYNC_TIMED_WAIT: SceKernelDmaOpSyncMode = 3;
+#[doc = "Wait for completion"]
 pub const SCE_KERNEL_DMA_OP_SYNC_WAIT: SceKernelDmaOpSyncMode = 2;
+#[doc = "Both src and dst addresses are virtual addresses"]
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_ADDR: SceKernelDmaOpFlag = 17;
+#[doc = "dst addresses is virtual addresses"]
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_DST_ADDR: SceKernelDmaOpFlag = 16;
+#[doc = "src addresses are virtual addresses"]
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_SRC_ADDR: SceKernelDmaOpFlag = 1;
 pub const SCE_KERNEL_ERROR_ADDRESS_SPACE_CANNOT_FIND_PARTITION_BY_ADDR: SceKernelErrorCode =
     2147633667;
@@ -8806,10 +9713,15 @@ pub const SCE_KERNEL_MODULE_STATE_STARTED: SceKernelModuleState = 6;
 pub const SCE_KERNEL_MUTEX_ATTR_CEILING: SceKernelMutexAttribute = 4;
 pub const SCE_KERNEL_MUTEX_ATTR_RECURSIVE: SceKernelMutexAttribute = 2;
 pub const SCE_KERNEL_OK: SceKernelErrorCode = 0;
+#[doc = "Cancel all timers"]
 pub const SCE_KERNEL_POWER_TICK_DEFAULT: SceKernelPowerTickType = 0;
+#[doc = "Cancel OLED dimming timer"]
 pub const __SCE_KERNEL_POWER_TICK_DISABLE: SceKernelPowerTickType = 4294967295;
+#[doc = "Cancel automatic suspension timer"]
 pub const SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND: SceKernelPowerTickType = 1;
+#[doc = "Cancel OLED dimming timer"]
 pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_DIMMING: SceKernelPowerTickType = 6;
+#[doc = "Cancel OLED-off timer"]
 pub const SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF: SceKernelPowerTickType = 4;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_APPUTIL: SceKernelPreloadInhibit = 4194304;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBC: SceKernelPreloadInhibit = 65536;
@@ -8859,12 +9771,18 @@ pub const SCE_KERNEL_TMID_Vpl: SceKernelIdListType = 5;
 pub const SCE_KERNEL_TMID_VTimer: SceKernelIdListType = 11;
 pub const SCE_LOCATION_DATA_INVALID: f64 = -9999.0;
 pub const __SCE_LOCATION_DIALOG_RESULT: SceLocationDialogResult = 4294967295;
+#[doc = "Negative result is stored"]
 pub const SCE_LOCATION_DIALOG_RESULT_DISABLE: SceLocationDialogResult = 1;
+#[doc = "Positive result is stored"]
 pub const SCE_LOCATION_DIALOG_RESULT_ENABLE: SceLocationDialogResult = 2;
+#[doc = "Result is not stored"]
 pub const SCE_LOCATION_DIALOG_RESULT_NONE: SceLocationDialogResult = 0;
 pub const __SCE_LOCATION_DIALOG_STATUS: SceLocationDialogStatus = 4294967295;
+#[doc = "Dialog operation finished"]
 pub const SCE_LOCATION_DIALOG_STATUS_FINISHED: SceLocationDialogStatus = 2;
+#[doc = "Dialog initial idle status"]
 pub const SCE_LOCATION_DIALOG_STATUS_IDLE: SceLocationDialogStatus = 0;
+#[doc = "Dialog running"]
 pub const SCE_LOCATION_DIALOG_STATUS_RUNNING: SceLocationDialogStatus = 1;
 pub const SCE_LOCATION_ERROR_DIALOG_RESULT_NONE: SceLocationErrorCode = 2148536844;
 pub const SCE_LOCATION_ERROR_DISABLE_APPLICATION: SceLocationErrorCode = 2148536845;
@@ -8886,30 +9804,47 @@ pub const SCE_LOCATION_ERROR_TIME_OUT: SceLocationErrorCode = 2148536964;
 pub const SCE_LOCATION_ERROR_TOO_MANY_HANDLES: SceLocationErrorCode = 2148536839;
 pub const SCE_LOCATION_ERROR_UNAUTHORIZED: SceLocationErrorCode = 2148536960;
 pub const __SCE_LOCATION_HMETHOD: SceLocationHeadingMethod = 4294967295;
+#[doc = "Automatically determine hold orientation and outputs its value"]
 pub const SCE_LOCATION_HMETHOD_AUTO: SceLocationHeadingMethod = 1;
+#[doc = "Output value in camera axis reference system"]
 pub const SCE_LOCATION_HMETHOD_CAMERA: SceLocationHeadingMethod = 4;
+#[doc = "Output value in horizontal hold reference system"]
 pub const SCE_LOCATION_HMETHOD_HORIZONTAL: SceLocationHeadingMethod = 3;
+#[doc = "Don't perform heading measurement"]
 pub const SCE_LOCATION_HMETHOD_NONE: SceLocationHeadingMethod = 0;
+#[doc = "Output value in vertical hold reference system"]
 pub const SCE_LOCATION_HMETHOD_VERTICAL: SceLocationHeadingMethod = 2;
 pub const SCE_LOCATION_INFO_DENIED_BY_USER: SceLocationErrorCode = 2148536835;
 pub const SCE_LOCATION_INFO_GET_LOCATION_CANCELED: SceLocationErrorCode = 2148536834;
 pub const SCE_LOCATION_INFO_INSUFFICIENT_INFORMATION: SceLocationErrorCode = 2148536833;
 pub const SCE_LOCATION_INFO_UNDETERMINED_LOCATION: SceLocationErrorCode = 2148536832;
 pub const __SCE_LOCATION_LMETHOD: SceLocationLocationMethod = 4294967295;
+#[doc = "Use only 3G"]
 pub const SCE_LOCATION_LMETHOD_3G: SceLocationLocationMethod = 4;
+#[doc = "Perform measurement by switching between AGPS, Wi-Fi, and 3G"]
 pub const SCE_LOCATION_LMETHOD_AGPS_AND_3G_AND_WIFI: SceLocationLocationMethod = 1;
+#[doc = "Use only GPS"]
 pub const SCE_LOCATION_LMETHOD_GPS: SceLocationLocationMethod = 5;
+#[doc = "Perform measurement by switching between GPS and Wi-Fi"]
 pub const SCE_LOCATION_LMETHOD_GPS_AND_WIFI: SceLocationLocationMethod = 2;
+#[doc = "Do not perform location measurement"]
 pub const SCE_LOCATION_LMETHOD_NONE: SceLocationLocationMethod = 0;
+#[doc = "Use only Wi-Fi"]
 pub const SCE_LOCATION_LMETHOD_WIFI: SceLocationLocationMethod = 3;
 pub const __SCE_LOCATION_PERMISSION: SceLocationPermissionStatus = 4294967295;
+#[doc = "liblocation access allowed status"]
 pub const SCE_LOCATION_PERMISSION_ALLOW: SceLocationPermissionStatus = 1;
 pub const __SCE_LOCATION_PERMISSION_APPLICATION: SceLocationPermissionApplicationStatus =
     4294967295;
+#[doc = "liblocation access allowed status"]
 pub const SCE_LOCATION_PERMISSION_APPLICATION_ALLOW: SceLocationPermissionApplicationStatus = 3;
+#[doc = "liblocation access denied status"]
 pub const SCE_LOCATION_PERMISSION_APPLICATION_DENY: SceLocationPermissionApplicationStatus = 2;
+#[doc = "liblocation not accessed"]
 pub const SCE_LOCATION_PERMISSION_APPLICATION_INIT: SceLocationPermissionApplicationStatus = 1;
+#[doc = "liblocation not used"]
 pub const SCE_LOCATION_PERMISSION_APPLICATION_NONE: SceLocationPermissionApplicationStatus = 0;
+#[doc = "liblocation access denied status"]
 pub const SCE_LOCATION_PERMISSION_DENY: SceLocationPermissionStatus = 0;
 pub const SCE_LOCATION_SUCCESS: SceLocationErrorCode = 0;
 pub const SCE_MOTION_ERROR_ALREADY_SAMPLING: SceMotionErrorCode = 2151023111;
@@ -8939,6 +9874,7 @@ pub const SCE_MSG_DIALOG_BUTTON_TYPE_OK: SceMsgDialogButtonType = 0;
 pub const SCE_MSG_DIALOG_BUTTON_TYPE_OK_CANCEL: SceMsgDialogButtonType = 3;
 pub const SCE_MSG_DIALOG_BUTTON_TYPE_YESNO: SceMsgDialogButtonType = 1;
 pub const SCE_MSG_DIALOG_ENV_FLAG_DEFAULT: SceMsgDialogEnvFlag = 0;
+#[doc = "Illegal parameter"]
 pub const SCE_MSG_DIALOG_ERROR_PARAM: SceMsgDialogErrorCode = 2148534785;
 pub const SCE_MSG_DIALOG_FONT_SIZE_DEFAULT: SceMsgDialogFontSize = 0;
 pub const SCE_MSG_DIALOG_FONT_SIZE_SMALL: SceMsgDialogFontSize = 1;
@@ -8950,18 +9886,29 @@ pub const SCE_MSG_DIALOG_MODE_USER_MSG: SceMsgDialogMode = 1;
 pub const SCE_MSG_DIALOG_PROGRESSBAR_TARGET_BAR_DEFAULT: SceMsgDialogProgressBarTarget = 0;
 pub const SCE_MSG_DIALOG_PROGRESSBAR_TYPE_PERCENTAGE: SceMsgDialogProgressBarType = 0;
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_INVALID: SceMsgDialogSystemMessageType = 0;
+#[doc = "Displays \"Move away from the source of interference, or adjust the compass by moving your PS Vita system as shown below.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_MAGNETIC_CALIBRATION: SceMsgDialogSystemMessageType = 3;
+#[doc = "Displays \"Cannot continue the application. No memory card is inserted.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_NEED_MC_CONTINUE: SceMsgDialogSystemMessageType = 7;
+#[doc = "Displays \"Cannot perform this operation. No memory card is inserted.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_NEED_MC_OPERATION: SceMsgDialogSystemMessageType = 8;
+#[doc = "Displays \"There is not enough free space on the memory card.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_NOSPACE: SceMsgDialogSystemMessageType = 2;
+#[doc = "Displays \"No content is available yet.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_TRC_EMPTY_STORE: SceMsgDialogSystemMessageType = 103;
+#[doc = "Displays \"You must enable the microphone.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_TRC_MIC_DISABLED: SceMsgDialogSystemMessageType = 100;
+#[doc = "Displays \"You must use Wi-Fi to use this application.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_TRC_WIFI_REQUIRED_APPLICATION: SceMsgDialogSystemMessageType =
     102;
+#[doc = "Displays \"You must use Wi-Fi to do this.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_TRC_WIFI_REQUIRED_OPERATION: SceMsgDialogSystemMessageType =
     101;
+#[doc = "Displays \"Please wait.\""]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_WAIT: SceMsgDialogSystemMessageType = 1;
+#[doc = "Displays \"Please wait...\" with a cancel button"]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_WAIT_CANCEL: SceMsgDialogSystemMessageType = 6;
+#[doc = "Displays \"Please wait.\" in a small message dialog"]
 pub const SCE_MSG_DIALOG_SYSMSG_TYPE_WAIT_SMALL: SceMsgDialogSystemMessageType = 5;
 pub const SCE_MSG_DIALOG_USER_MSG_SIZE: u32 = 512;
 pub const SCE_NET_ADHOCCTL_ADHOCID_LEN: u32 = 9;
@@ -9429,24 +10376,42 @@ pub const SCE_NET_TCP_MSS_TO_ADVERTISE: SceNetSocketOption = 3;
 pub const SCE_NET_TCP_NODELAY: SceNetSocketOption = 1;
 pub const SCE_NOTIFICATIONUTIL_ERROR_INTERNAL: SceNotificationUitlErrorCode = 2148557568;
 pub const SCE_NOTIFICATIONUTIL_TEXT_MAX: u32 = 63;
+#[doc = "Append"]
 pub const SCE_O_APPEND: SceIoMode = 256;
+#[doc = "Create"]
 pub const SCE_O_CREAT: SceIoMode = 512;
+#[doc = "Internal use for ::sceIoDopen"]
 pub const SCE_O_DIROPEN: SceIoMode = 8;
+#[doc = "Exclusive create"]
 pub const SCE_O_EXCL: SceIoMode = 2048;
+#[doc = "Exclusive access"]
 pub const SCE_O_FDEXCL: SceIoMode = 16777216;
+#[doc = "Gamedata access"]
 pub const SCE_O_FGAMEDATA: SceIoMode = 1073741824;
 pub const SCE_OK: u32 = 0;
+#[doc = "Non blocking"]
 pub const SCE_O_NBLOCK: SceIoMode = 4;
+#[doc = "Number device buffer"]
 pub const SCE_O_NOBUF: SceIoMode = 16384;
+#[doc = "Asynchronous I/O"]
 pub const SCE_O_NOWAIT: SceIoMode = 32768;
+#[doc = "Power control lock"]
 pub const SCE_O_PWLOCK: SceIoMode = 33554432;
+#[doc = "Remote command entry"]
 pub const SCE_O_RCOM: SceIoMode = 8192;
+#[doc = "Read locked (non-shared)"]
 pub const SCE_O_RDLOCK: SceIoMode = 16;
+#[doc = "Read-only"]
 pub const SCE_O_RDONLY: SceIoMode = 1;
+#[doc = "Read/Write"]
 pub const SCE_O_RDWR: SceIoMode = 3;
+#[doc = "Scan type"]
 pub const SCE_O_SCAN: SceIoMode = 4096;
+#[doc = "Truncate"]
 pub const SCE_O_TRUNC: SceIoMode = 1024;
+#[doc = "Write locked (non-shared)"]
 pub const SCE_O_WRLOCK: SceIoMode = 32;
+#[doc = "Write-only"]
 pub const SCE_O_WRONLY: SceIoMode = 2;
 pub const SCE_PERF_ARM_PMON_BRANCH_MISPREDICT: _ScePerfArmPmonEventCode = 16;
 pub const SCE_PERF_ARM_PMON_COHERENT_LF_HIT: _ScePerfArmPmonEventCode = 81;
@@ -9502,8 +10467,11 @@ pub const SCE_PERF_ARM_PMON_THREAD_ID_SELF: u32 = 0;
 pub const SCE_PERF_ARM_PMON_UNALIGNED: _ScePerfArmPmonEventCode = 15;
 pub const SCE_PERF_ARM_PMON_WRITE_CONTEXTID: _ScePerfArmPmonEventCode = 11;
 pub const SCE_PERF_ARM_PMON_WRITE_STALL: _ScePerfArmPmonEventCode = 129;
+#[doc = "PlayStation Mobile"]
 pub const SCE_PKG_TYPE_PSM: ScePromoterUtilityPackageType = 3;
+#[doc = "PSP Games"]
 pub const SCE_PKG_TYPE_PSP: ScePromoterUtilityPackageType = 1;
+#[doc = "PSVita Apps"]
 pub const SCE_PKG_TYPE_VITA: ScePromoterUtilityPackageType = 1;
 pub const SCE_POWER_CB_AFTER_SYSTEM_RESUME: ScePowerCallbackType = 128;
 pub const SCE_POWER_CB_APP_RESUME: ScePowerCallbackType = 2097152;
@@ -9676,8 +10644,11 @@ pub const SCE_SCREENSHOT_MAX_GAME_TITLE_LEN: u32 = 64;
 pub const SCE_SCREENSHOT_MAX_GAME_TITLE_SIZE: u32 = 256;
 pub const SCE_SCREENSHOT_MAX_PHOTO_TITLE_LEN: u32 = 64;
 pub const SCE_SCREENSHOT_MAX_PHOTO_TITLE_SIZE: u32 = 256;
+#[doc = "Starts from current position"]
 pub const SCE_SEEK_CUR: SceIoSeekMode = 1;
+#[doc = "Starts from the end of the file"]
 pub const SCE_SEEK_END: SceIoSeekMode = 2;
+#[doc = "Starts from the begin of the file"]
 pub const SCE_SEEK_SET: SceIoSeekMode = 0;
 pub const SCE_SHA1_BLOCK_SIZE: u32 = 64;
 pub const SCE_SHA1_DIGEST_SIZE: u32 = 20;
@@ -9708,41 +10679,67 @@ pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK200: SceShellUtilLockType = 512;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK8: SceShellUtilLockType = 8;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_UNK80: SceShellUtilLockType = 128;
 pub const SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION: SceShellUtilLockType = 16;
+#[doc = "Fatal error"]
 pub const SCE_SHUTTER_SOUND_ERROR_FATAL: SceShutterSoundErrorCode = 2148553219;
+#[doc = "Internal error"]
 pub const SCE_SHUTTER_SOUND_ERROR_INTERNAL: SceShutterSoundErrorCode = 2148553218;
+#[doc = "Invalid argument"]
 pub const SCE_SHUTTER_SOUND_ERROR_INVALID_ARGUMENT: SceShutterSoundErrorCode = 2148553217;
 pub const SCE_SHUTTER_SOUND_TYPE_SAVE_IMAGE: SceShutterSoundType = 0;
 pub const SCE_SHUTTER_SOUND_TYPE_SAVE_VIDEO_END: SceShutterSoundType = 2;
 pub const SCE_SHUTTER_SOUND_TYPE_SAVE_VIDEO_START: SceShutterSoundType = 1;
+#[doc = "Directory"]
 pub const SCE_S_IFDIR: SceIoAccessMode = 4096;
+#[doc = "Symbolic link"]
 pub const SCE_S_IFLNK: SceIoAccessMode = 16384;
+#[doc = "Format bits mask"]
 pub const SCE_S_IFMT: SceIoAccessMode = 61440;
+#[doc = "Regular file"]
 pub const SCE_S_IFREG: SceIoAccessMode = 8192;
+#[doc = "Group read permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IRGRP: SceIoAccessMode = 0;
 pub const SCE_S_IROTH: SceIoAccessMode = 4;
+#[doc = "System read permission"]
 pub const SCE_S_IRSYS: SceIoAccessMode = 4;
+#[doc = "User read permission"]
 pub const SCE_S_IRUSR: SceIoAccessMode = 256;
+#[doc = "Group access rights mask. Ignored and reset to 0 by system"]
 pub const SCE_S_IRWXG: SceIoAccessMode = 0;
 pub const SCE_S_IRWXO: SceIoAccessMode = 7;
+#[doc = "System access rights mask"]
 pub const SCE_S_IRWXS: SceIoAccessMode = 7;
+#[doc = "User access rights mask"]
 pub const SCE_S_IRWXU: SceIoAccessMode = 448;
 pub const SCE_S_ISGID: SceIoAccessMode = 0;
 pub const SCE_S_ISUID: SceIoAccessMode = 0;
 pub const SCE_S_ISVTX: SceIoAccessMode = 0;
+#[doc = "Group write permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IWGRP: SceIoAccessMode = 0;
 pub const SCE_S_IWOTH: SceIoAccessMode = 2;
+#[doc = "System write permission"]
 pub const SCE_S_IWSYS: SceIoAccessMode = 2;
+#[doc = "User write permission"]
 pub const SCE_S_IWUSR: SceIoAccessMode = 128;
+#[doc = "Group execute permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IXGRP: SceIoAccessMode = 0;
 pub const SCE_S_IXOTH: SceIoAccessMode = 1;
+#[doc = "System execute permission"]
 pub const SCE_S_IXSYS: SceIoAccessMode = 1;
+#[doc = "User execute permission"]
 pub const SCE_S_IXUSR: SceIoAccessMode = 64;
+#[doc = "Directory"]
 pub const SCE_SO_IFDIR: SceIoFileMode = 16;
+#[doc = "Symbolic link"]
 pub const SCE_SO_IFLNK: SceIoFileMode = 8;
+#[doc = "Format mask"]
 pub const SCE_SO_IFMT: SceIoFileMode = 56;
+#[doc = "Regular file"]
 pub const SCE_SO_IFREG: SceIoFileMode = 32;
+#[doc = "Hidden read permission"]
 pub const SCE_SO_IROTH: SceIoFileMode = 4;
+#[doc = "Hidden write permission"]
 pub const SCE_SO_IWOTH: SceIoFileMode = 2;
+#[doc = "Hidden execute permission"]
 pub const SCE_SO_IXOTH: SceIoFileMode = 1;
 pub const SCE_SSL_ERROR_ALREADY_INITED: SceSslErrorCode = 2151895072;
 pub const SCE_SSL_ERROR_BEFORE_INIT: SceSslErrorCode = 2151895041;
@@ -9780,139 +10777,271 @@ pub const SCE_SYSCON_RESET_TYPE_COLD_RESET: SceSysconResetType = 2;
 pub const SCE_SYSCON_RESET_TYPE_POWEROFF: SceSysconResetType = 0;
 pub const SCE_SYSCON_RESET_TYPE_SOFT_RESET: SceSysconResetType = 17;
 pub const SCE_SYSCON_RESET_TYPE_SUSPEND: SceSysconResetType = 1;
+#[doc = "AacEnc module"]
 pub const SCE_SYSMODULE_AACENC: SceSysmoduleModuleId = 46;
+#[doc = "AppUtil module"]
 pub const SCE_SYSMODULE_APPUTIL: SceSysmoduleModuleId = 15;
+#[doc = "AppUtilExt module"]
 pub const SCE_SYSMODULE_APPUTIL_EXT: SceSysmoduleModuleId = 82;
+#[doc = "Atrac module"]
 pub const SCE_SYSMODULE_ATRAC: SceSysmoduleModuleId = 48;
+#[doc = "AudioCodec module"]
 pub const SCE_SYSMODULE_AUDIOCODEC: SceSysmoduleModuleId = 55;
+#[doc = "AVCDec module"]
 pub const SCE_SYSMODULE_AVCDEC: SceSysmoduleModuleId = 84;
+#[doc = "AVPlayer module"]
 pub const SCE_SYSMODULE_AVPLAYER: SceSysmoduleModuleId = 76;
+#[doc = "BEISOBMF module"]
 pub const SCE_SYSMODULE_BEISOBMF: SceSysmoduleModuleId = 71;
+#[doc = "BEMP2SYS module"]
 pub const SCE_SYSMODULE_BEMP2SYS: SceSysmoduleModuleId = 72;
+#[doc = "BgAppUtil module"]
 pub const SCE_SYSMODULE_BG_APP_UTIL: SceSysmoduleModuleId = 52;
+#[doc = "Clipboard module"]
 pub const SCE_SYSMODULE_CLIPBOARD: SceSysmoduleModuleId = 40;
+#[doc = "CodecEngine Perf module"]
 pub const SCE_SYSMODULE_CODECENGINE_PERF: SceSysmoduleModuleId = 34;
+#[doc = "DBG module"]
 pub const SCE_SYSMODULE_DBG: SceSysmoduleModuleId = 8;
+#[doc = "DTCP/IP module"]
 pub const SCE_SYSMODULE_DTCP_IP: SceSysmoduleModuleId = 68;
+#[doc = "Fatal error"]
 pub const SCE_SYSMODULE_ERROR_FATAL: SceSysmoduleErrorCode = 2153386239;
+#[doc = "Invalid value"]
 pub const SCE_SYSMODULE_ERROR_INVALID_VALUE: SceSysmoduleErrorCode = 2153385984;
+#[doc = "Module is not loaded"]
 pub const SCE_SYSMODULE_ERROR_UNLOADED: SceSysmoduleErrorCode = 2153385985;
+#[doc = "Face module"]
 pub const SCE_SYSMODULE_FACE: SceSysmoduleModuleId = 56;
+#[doc = "Fiber module"]
 pub const SCE_SYSMODULE_FIBER: SceSysmoduleModuleId = 6;
+#[doc = "Fios2 module"]
 pub const SCE_SYSMODULE_FIOS2: SceSysmoduleModuleId = 16;
+#[doc = "Game Update module"]
 pub const SCE_SYSMODULE_GAME_UPDATE: SceSysmoduleModuleId = 77;
+#[doc = "Handwriting module"]
 pub const SCE_SYSMODULE_HANDWRITING: SceSysmoduleModuleId = 47;
+#[doc = "HTTP module"]
 pub const SCE_SYSMODULE_HTTP: SceSysmoduleModuleId = 2;
+#[doc = "HTTPS module"]
 pub const SCE_SYSMODULE_HTTPS: SceSysmoduleModuleId = 4;
+#[doc = "Ime module"]
 pub const SCE_SYSMODULE_IME: SceSysmoduleModuleId = 17;
+#[doc = "Incoming Dialog module"]
 pub const SCE_SYSMODULE_INCOMING_DIALOG: SceSysmoduleModuleId = 53;
+#[doc = "ActivityDB module"]
 pub const SCE_SYSMODULE_INTERNAL_ACTIVITY_DB: SceSysmoduleInternalModuleId = 2147483659;
+#[doc = "AudioCodec module"]
 pub const SCE_SYSMODULE_INTERNAL_AUDIOCODEC: SceSysmoduleInternalModuleId = 2147483650;
+#[doc = "BXCE module"]
 pub const SCE_SYSMODULE_INTERNAL_BXCE: SceSysmoduleInternalModuleId = 2147483653;
+#[doc = "Checkout Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_CHECKOUT_DIALOG: SceSysmoduleInternalModuleId = 2147483665;
+#[doc = "Common Dialog Main module"]
 pub const SCE_SYSMODULE_INTERNAL_COMMON_DIALOG_MAIN: SceSysmoduleInternalModuleId = 2147483666;
+#[doc = "Common Gui Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_COMMON_GUI_DIALOG: SceSysmoduleInternalModuleId = 2147483660;
+#[doc = "DBRecoveryUtil module"]
 pub const SCE_SYSMODULE_INTERNAL_DB_RECOVERY_UTILITY: SceSysmoduleInternalModuleId = 2147483683;
+#[doc = "DBUtil module"]
 pub const SCE_SYSMODULE_INTERNAL_DBUTIL: SceSysmoduleInternalModuleId = 2147483658;
+#[doc = "DRM PSM KDC module"]
 pub const SCE_SYSMODULE_INTERNAL_DRM_PSM_KDC: SceSysmoduleInternalModuleId = 2147483687;
+#[doc = "FriendList Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_FRIEND_LIST_DIALOG: SceSysmoduleInternalModuleId = 2147483672;
+#[doc = "G729 module"]
 pub const SCE_SYSMODULE_INTERNAL_G729: SceSysmoduleInternalModuleId = 2147483652;
+#[doc = "Ime Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_IME_DIALOG: SceSysmoduleInternalModuleId = 2147483662;
+#[doc = "INI File Processor module"]
 pub const SCE_SYSMODULE_INTERNAL_INI_FILE_PROCESSOR: SceSysmoduleInternalModuleId = 2147483654;
+#[doc = "sceJpegArm module"]
 pub const SCE_SYSMODULE_INTERNAL_JPEG_ARM: SceSysmoduleInternalModuleId = 2147483651;
+#[doc = "sceJpegEncArm module"]
 pub const SCE_SYSMODULE_INTERNAL_JPEG_ENC_ARM: SceSysmoduleInternalModuleId = 2147483649;
+#[doc = "Location Factory module"]
 pub const SCE_SYSMODULE_INTERNAL_LOCATION_FACTORY: SceSysmoduleInternalModuleId = 2147483689;
+#[doc = "sceLocation module"]
 pub const SCE_SYSMODULE_INTERNAL_LOCATION_INTERNAL: SceSysmoduleInternalModuleId = 2147483688;
+#[doc = "sceMsgDialog module"]
 pub const SCE_SYSMODULE_INTERNAL_MSG_DIALOG: SceSysmoduleInternalModuleId = 2147483667;
+#[doc = "Music Export module"]
 pub const SCE_SYSMODULE_INTERNAL_MUSIC_EXPORT: SceSysmoduleInternalModuleId = 2147483679;
+#[doc = "Near Profile module"]
 pub const SCE_SYSMODULE_INTERNAL_NEAR_PROFILE: SceSysmoduleInternalModuleId = 2147483674;
+#[doc = "NetCheck Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_NET_CHECK_DIALOG: SceSysmoduleInternalModuleId = 2147483668;
+#[doc = "NpActivityNet module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_ACTIVITY_NET: SceSysmoduleInternalModuleId = 2147483655;
+#[doc = "NpCommerce2 module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_COMMERCE2: SceSysmoduleInternalModuleId = 2147483677;
+#[doc = "NpFriend Privacy Level module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_FRIEND_PRIVACY_LEVEL: SceSysmoduleInternalModuleId = 2147483675;
+#[doc = "NpKdc module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_KDC: SceSysmoduleInternalModuleId = 2147483678;
+#[doc = "NpMessageContacts module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_MESSAGE_CONTACTS: SceSysmoduleInternalModuleId = 2147483682;
+#[doc = "NpMessage Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_MESSAGE_DIALOG: SceSysmoduleInternalModuleId = 2147483670;
+#[doc = "NpMessageDlg module"]
 pub const SCE_SYSMODULE_INTERNAL_NP_MESSAGE_DIALOG_IMPL: SceSysmoduleInternalModuleId = 2147483681;
+#[doc = "Paf module"]
 pub const SCE_SYSMODULE_INTERNAL_PAF: SceSysmoduleInternalModuleId = 2147483656;
+#[doc = "Party Member List module"]
 pub const SCE_SYSMODULE_INTERNAL_PARTY_MEMBER_LIST: SceSysmoduleInternalModuleId = 2147483686;
+#[doc = "Photo Import Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_PHOTO_IMPORT_DIALOG: SceSysmoduleInternalModuleId = 2147483663;
+#[doc = "Photo Review Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_PHOTO_REVIEW_DIALOG: SceSysmoduleInternalModuleId = 2147483664;
+#[doc = "scePromoterUtil module"]
 pub const SCE_SYSMODULE_INTERNAL_PROMOTER_UTIL: SceSysmoduleInternalModuleId = 2147483684;
+#[doc = "SaveData Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_SAVEDATA_DIALOG: SceSysmoduleInternalModuleId = 2147483669;
+#[doc = "sceSqliteVsh module"]
 pub const SCE_SYSMODULE_INTERNAL_SQLITE_VSH: SceSysmoduleInternalModuleId = 2147483657;
+#[doc = "Store Checkout module"]
 pub const SCE_SYSMODULE_INTERNAL_STORE_CHECKOUT: SceSysmoduleInternalModuleId = 2147483661;
+#[doc = "Trophy Setup Dialog module"]
 pub const SCE_SYSMODULE_INTERNAL_TROPHY_SETUP_DIALOG: SceSysmoduleInternalModuleId = 2147483671;
+#[doc = "Ult module"]
 pub const SCE_SYSMODULE_INTERNAL_ULT: SceSysmoduleInternalModuleId = 2147483685;
+#[doc = "Video Export module"]
 pub const SCE_SYSMODULE_INTERNAL_VIDEO_EXPORT: SceSysmoduleInternalModuleId = 2147483680;
+#[doc = "Invalid module"]
 pub const SCE_SYSMODULE_INVALID: SceSysmoduleModuleId = 0;
+#[doc = "IPMI module"]
 pub const SCE_SYSMODULE_IPMI: SceSysmoduleModuleId = 54;
+#[doc = "JSON module"]
 pub const SCE_SYSMODULE_JSON: SceSysmoduleModuleId = 85;
+#[doc = "Livearea module"]
 pub const SCE_SYSMODULE_LIVEAREA: SceSysmoduleModuleId = 35;
+#[doc = "Module is already loaded"]
 pub const SCE_SYSMODULE_LOADED: SceSysmoduleErrorCode = 0;
+#[doc = "Location module"]
 pub const SCE_SYSMODULE_LOCATION: SceSysmoduleModuleId = 20;
+#[doc = "LocationExt module"]
 pub const SCE_SYSMODULE_LOCATION_EXTENSION: SceSysmoduleModuleId = 75;
+#[doc = "Mail Api module"]
 pub const SCE_SYSMODULE_MAIL_API: SceSysmoduleModuleId = 78;
+#[doc = "Marlin module"]
 pub const SCE_SYSMODULE_MARLIN: SceSysmoduleModuleId = 58;
+#[doc = "Marlin AppLib module"]
 pub const SCE_SYSMODULE_MARLIN_APP_LIB: SceSysmoduleModuleId = 60;
+#[doc = "Marlin Downloader module"]
 pub const SCE_SYSMODULE_MARLIN_DOWNLOADER: SceSysmoduleModuleId = 59;
+#[doc = "Mono module"]
 pub const SCE_SYSMODULE_MONO: SceSysmoduleModuleId = 64;
+#[doc = "Mono bridge module"]
 pub const SCE_SYSMODULE_MONO_BRIDGE: SceSysmoduleModuleId = 63;
+#[doc = "MP4 module"]
 pub const SCE_SYSMODULE_MP4: SceSysmoduleModuleId = 45;
+#[doc = "MP4 Recorder module"]
 pub const SCE_SYSMODULE_MP4_RECORDER: SceSysmoduleModuleId = 81;
+#[doc = "Music Export module"]
 pub const SCE_SYSMODULE_MUSIC_EXPORT: SceSysmoduleModuleId = 73;
+#[doc = "NearDialogUtil module"]
 pub const SCE_SYSMODULE_NEAR_DIALOG_UTIL: SceSysmoduleModuleId = 74;
+#[doc = "NearUtil module"]
 pub const SCE_SYSMODULE_NEAR_UTIL: SceSysmoduleModuleId = 43;
+#[doc = "Net module"]
 pub const SCE_SYSMODULE_NET: SceSysmoduleModuleId = 1;
+#[doc = "NetAdhoc Matching module"]
 pub const SCE_SYSMODULE_NET_ADHOC_MATCHING: SceSysmoduleModuleId = 42;
+#[doc = "NGS module"]
 pub const SCE_SYSMODULE_NGS: SceSysmoduleModuleId = 11;
+#[doc = "NotificationUtil module"]
 pub const SCE_SYSMODULE_NOTIFICATION_UTIL: SceSysmoduleModuleId = 51;
+#[doc = "Np module"]
 pub const SCE_SYSMODULE_NP: SceSysmoduleModuleId = 21;
+#[doc = "NpActivity module"]
 pub const SCE_SYSMODULE_NP_ACTIVITY: SceSysmoduleModuleId = 36;
+#[doc = "NpBasic module"]
 pub const SCE_SYSMODULE_NP_BASIC: SceSysmoduleModuleId = 18;
+#[doc = "NPCommerce2 module"]
 pub const SCE_SYSMODULE_NP_COMMERCE2: SceSysmoduleModuleId = 24;
+#[doc = "NpMatching2 module"]
 pub const SCE_SYSMODULE_NP_MATCHING2: SceSysmoduleModuleId = 28;
+#[doc = "NpMessage module"]
 pub const SCE_SYSMODULE_NP_MESSAGE: SceSysmoduleModuleId = 38;
+#[doc = "NpParty module"]
 pub const SCE_SYSMODULE_NP_PARTY: SceSysmoduleModuleId = 41;
+#[doc = "NpScoreRanking module"]
 pub const SCE_SYSMODULE_NP_SCORE_RANKING: SceSysmoduleModuleId = 30;
+#[doc = "NpSignaling module"]
 pub const SCE_SYSMODULE_NP_SIGNALING: SceSysmoduleModuleId = 70;
+#[doc = "NpSns Facebook module"]
 pub const SCE_SYSMODULE_NP_SNS_FACEBOOK: SceSysmoduleModuleId = 49;
+#[doc = "NpTrophy module"]
 pub const SCE_SYSMODULE_NP_TROPHY: SceSysmoduleModuleId = 37;
+#[doc = "NpTus module"]
 pub const SCE_SYSMODULE_NP_TUS: SceSysmoduleModuleId = 44;
+#[doc = "NpUtility module"]
 pub const SCE_SYSMODULE_NP_UTILITY: SceSysmoduleModuleId = 25;
+#[doc = "NpWebApi module"]
 pub const SCE_SYSMODULE_NP_WEBAPI: SceSysmoduleModuleId = 83;
+#[doc = "Perf module"]
 pub const SCE_SYSMODULE_PERF: SceSysmoduleModuleId = 5;
+#[doc = "Pgf module"]
 pub const SCE_SYSMODULE_PGF: SceSysmoduleModuleId = 14;
+#[doc = "Photo Export module"]
 pub const SCE_SYSMODULE_PHOTO_EXPORT: SceSysmoduleModuleId = 22;
+#[doc = "Psm module"]
 pub const SCE_SYSMODULE_PSM: SceSysmoduleModuleId = 65;
+#[doc = "Psm devagent module"]
 pub const SCE_SYSMODULE_PSM_DEVAGENT: SceSysmoduleModuleId = 66;
+#[doc = "PSPNet Adhoc module"]
 pub const SCE_SYSMODULE_PSPNET_ADHOC: SceSysmoduleModuleId = 67;
+#[doc = "Razor Capture module"]
 pub const SCE_SYSMODULE_RAZOR_CAPTURE: SceSysmoduleModuleId = 9;
+#[doc = "Razor HUD module"]
 pub const SCE_SYSMODULE_RAZOR_HUD: SceSysmoduleModuleId = 10;
+#[doc = "Rudp module"]
 pub const SCE_SYSMODULE_RUDP: SceSysmoduleModuleId = 33;
+#[doc = "Sas module"]
 pub const SCE_SYSMODULE_SAS: SceSysmoduleModuleId = 13;
+#[doc = "ScreenShot module"]
 pub const SCE_SYSMODULE_SCREEN_SHOT: SceSysmoduleModuleId = 29;
+#[doc = "ShaccCg module"]
 pub const SCE_SYSMODULE_SHACCCG: SceSysmoduleModuleId = 62;
+#[doc = "Shutter Sound module"]
 pub const SCE_SYSMODULE_SHUTTER_SOUND: SceSysmoduleModuleId = 39;
+#[doc = "Smart module"]
 pub const SCE_SYSMODULE_SMART: SceSysmoduleModuleId = 57;
+#[doc = "Sqlite module"]
 pub const SCE_SYSMODULE_SQLITE: SceSysmoduleModuleId = 31;
+#[doc = "SSL module"]
 pub const SCE_SYSMODULE_SSL: SceSysmoduleModuleId = 3;
+#[doc = "Sulpha module"]
 pub const SCE_SYSMODULE_SULPHA: SceSysmoduleModuleId = 12;
+#[doc = "System Gesture module"]
 pub const SCE_SYSMODULE_SYSTEM_GESTURE: SceSysmoduleModuleId = 19;
+#[doc = "TelephonyUtil module"]
 pub const SCE_SYSMODULE_TELEPHONY_UTIL: SceSysmoduleModuleId = 61;
+#[doc = "Teleport Client module"]
 pub const SCE_SYSMODULE_TELEPORT_CLIENT: SceSysmoduleModuleId = 79;
+#[doc = "Teleport Server module"]
 pub const SCE_SYSMODULE_TELEPORT_SERVER: SceSysmoduleModuleId = 80;
+#[doc = "TriggerUtil module"]
 pub const SCE_SYSMODULE_TRIGGER_UTIL: SceSysmoduleModuleId = 32;
+#[doc = "Ult module"]
 pub const SCE_SYSMODULE_ULT: SceSysmoduleModuleId = 7;
+#[doc = "Video Export module"]
 pub const SCE_SYSMODULE_VIDEO_EXPORT: SceSysmoduleModuleId = 50;
+#[doc = "VideoSearch module"]
 pub const SCE_SYSMODULE_VIDEO_SEARCH_EMPR: SceSysmoduleModuleId = 69;
+#[doc = "Voice module"]
 pub const SCE_SYSMODULE_VOICE: SceSysmoduleModuleId = 26;
+#[doc = "VoiceQos module"]
 pub const SCE_SYSMODULE_VOICEQOS: SceSysmoduleModuleId = 27;
+#[doc = "XML module"]
 pub const SCE_SYSMODULE_XML: SceSysmoduleModuleId = 23;
 pub const SCE_SYSROOT_INIT_CALLBACK_MAX_FUNC: u32 = 9;
 pub const SCE_SYSROOT_INIT_CALLBACK_MAX_SLOT: u32 = 8;
+#[doc = "Day/Month/Year"]
 pub const SCE_SYSTEM_PARAM_DATE_FORMAT_DDMMYYYY: SceSystemParamDateFormat = 1;
+#[doc = "Month/Day/Year"]
 pub const SCE_SYSTEM_PARAM_DATE_FORMAT_MMDDYYYY: SceSystemParamDateFormat = 2;
+#[doc = "Year/Month/Day"]
 pub const SCE_SYSTEM_PARAM_DATE_FORMAT_YYYYMMDD: SceSystemParamDateFormat = 0;
 pub const SCE_SYSTEM_PARAM_ENTER_BUTTON_CIRCLE: SceSystemParamEnterButtonAssign = 0;
 pub const SCE_SYSTEM_PARAM_ENTER_BUTTON_CROSS: SceSystemParamEnterButtonAssign = 1;
@@ -9925,33 +11054,60 @@ pub const SCE_SYSTEM_PARAM_ID_MAX_VALUE: SceSystemParamId = 4294967295;
 pub const SCE_SYSTEM_PARAM_ID_TIME_FORMAT: SceSystemParamId = 5;
 pub const SCE_SYSTEM_PARAM_ID_TIME_ZONE: SceSystemParamId = 6;
 pub const SCE_SYSTEM_PARAM_ID_USERNAME: SceSystemParamId = 3;
+#[doc = "Simplified Chinese"]
 pub const SCE_SYSTEM_PARAM_LANG_CHINESE_S: SceSystemParamLang = 11;
+#[doc = "Traditional Chinese"]
 pub const SCE_SYSTEM_PARAM_LANG_CHINESE_T: SceSystemParamLang = 10;
+#[doc = "Danish"]
 pub const SCE_SYSTEM_PARAM_LANG_DANISH: SceSystemParamLang = 14;
+#[doc = "Dutch"]
 pub const SCE_SYSTEM_PARAM_LANG_DUTCH: SceSystemParamLang = 6;
+#[doc = "British English"]
 pub const SCE_SYSTEM_PARAM_LANG_ENGLISH_GB: SceSystemParamLang = 18;
+#[doc = "American English"]
 pub const SCE_SYSTEM_PARAM_LANG_ENGLISH_US: SceSystemParamLang = 1;
+#[doc = "Finnish"]
 pub const SCE_SYSTEM_PARAM_LANG_FINNISH: SceSystemParamLang = 12;
+#[doc = "French"]
 pub const SCE_SYSTEM_PARAM_LANG_FRENCH: SceSystemParamLang = 2;
+#[doc = "German"]
 pub const SCE_SYSTEM_PARAM_LANG_GERMAN: SceSystemParamLang = 4;
+#[doc = "Italian"]
 pub const SCE_SYSTEM_PARAM_LANG_ITALIAN: SceSystemParamLang = 5;
+#[doc = "Japanese"]
 pub const SCE_SYSTEM_PARAM_LANG_JAPANESE: SceSystemParamLang = 0;
+#[doc = "Korean"]
 pub const SCE_SYSTEM_PARAM_LANG_KOREAN: SceSystemParamLang = 9;
+#[doc = "Max allowed value"]
 pub const SCE_SYSTEM_PARAM_LANG_MAX_VALUE: SceSystemParamLang = 4294967295;
+#[doc = "Norwegian"]
 pub const SCE_SYSTEM_PARAM_LANG_NORWEGIAN: SceSystemParamLang = 15;
+#[doc = "Polish"]
 pub const SCE_SYSTEM_PARAM_LANG_POLISH: SceSystemParamLang = 16;
+#[doc = "Brazil Portuguese"]
 pub const SCE_SYSTEM_PARAM_LANG_PORTUGUESE_BR: SceSystemParamLang = 17;
+#[doc = "Portugal Portuguese"]
 pub const SCE_SYSTEM_PARAM_LANG_PORTUGUESE_PT: SceSystemParamLang = 7;
+#[doc = "Russian"]
 pub const SCE_SYSTEM_PARAM_LANG_RUSSIAN: SceSystemParamLang = 8;
+#[doc = "Spanish"]
 pub const SCE_SYSTEM_PARAM_LANG_SPANISH: SceSystemParamLang = 3;
+#[doc = "Swedish"]
 pub const SCE_SYSTEM_PARAM_LANG_SWEDISH: SceSystemParamLang = 13;
+#[doc = "Turkish"]
 pub const SCE_SYSTEM_PARAM_LANG_TURKISH: SceSystemParamLang = 19;
+#[doc = "12-hour clock"]
 pub const SCE_SYSTEM_PARAM_TIME_FORMAT_12HR: SceSystemParamTimeFormat = 0;
+#[doc = "24-hour clock"]
 pub const SCE_SYSTEM_PARAM_TIME_FORMAT_24HR: SceSystemParamTimeFormat = 1;
 pub const SCE_SYSTEM_PARAM_USERNAME_MAXSIZE: u32 = 17;
+#[doc = "48MHz Frequency. Used by GpuEs4 and Threadmgr timers"]
 pub const SCE_SYSTIMER_CLOCK_SOURCE_48MHZ: SceSysTimerClockSource = 3;
+#[doc = "190/222MHz Frequency. Controlled by kscePower[Get|Set]SysClockFrequency"]
 pub const SCE_SYSTIMER_CLOCK_SOURCE_SYS: SceSysTimerClockSource = 0;
+#[doc = "64-bit timer"]
 pub const SCE_SYSTIMER_TYPE_LONG: SceSysTimerType = 1;
+#[doc = "32-bit timer"]
 pub const SCE_SYSTIMER_TYPE_WORD: SceSysTimerType = 2;
 pub const SCE_THREAD_DEAD: SceThreadStatus = 64;
 pub const SCE_THREAD_DELETED: SceThreadStatus = 32;
@@ -9969,8 +11125,11 @@ pub const SCE_TOUCH_ERROR_FATAL: SceTouchErrorCode = 2150957311;
 pub const SCE_TOUCH_ERROR_INVALID_ARG: SceTouchErrorCode = 2150957057;
 pub const SCE_TOUCH_ERROR_PRIV_REQUIRED: SceTouchErrorCode = 2150957058;
 pub const SCE_TOUCH_MAX_REPORT: u32 = 8;
+#[doc = "Back touch panel id"]
 pub const SCE_TOUCH_PORT_BACK: SceTouchPortType = 1;
+#[doc = "Front touch panel id"]
 pub const SCE_TOUCH_PORT_FRONT: SceTouchPortType = 0;
+#[doc = "Number of touch panels"]
 pub const SCE_TOUCH_PORT_MAX_NUM: SceTouchPortType = 2;
 pub const SCE_TOUCH_REPORT_INFO_HIDE_UPPER_LAYER: SceTouchReportInfo = 1;
 pub const SCE_TOUCH_SAMPLING_STATE_START: SceTouchSamplingState = 1;
@@ -10166,6 +11325,7 @@ pub const USB_CLASS_DATA: SceUdcdUsbClass = 10;
 pub const USB_CLASS_HID: SceUdcdUsbClass = 3;
 pub const USB_CLASS_HUB: SceUdcdUsbClass = 9;
 pub const USB_CLASS_MASS_STORAGE: SceUdcdUsbClass = 8;
+#[doc = "for DeviceClass"]
 pub const USB_CLASS_PER_INTERFACE: SceUdcdUsbClass = 0;
 pub const USB_CLASS_PRINTER: SceUdcdUsbClass = 7;
 pub const USB_CLASS_PTP: SceUdcdUsbClass = 6;
@@ -10236,7 +11396,9 @@ extern "C" {}
 #[link(name = "SceAppMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceAppMgrForDriver_stub")]
 extern "C" {
+    #[doc = "Kill a process.\n # Arguments\n\n* `pid` (direction in) - The process to kill.\n # Returns\n\nZero on success, else < 0."]
     pub fn ksceAppMgrKillProcess(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Launch an application for debugging\n\n # Arguments\n\n* `path` (direction in) - Path to the executable to load\n * `args` (direction in) - Arguments to pass to the executable and to configure appmgr\n * `arg_size` (direction in) - The size of the args passed in\n * `type` (direction in) - Set to 0x80000000 for debugging launch\n * `param` (direction in) - pointer to launch params\n * `unk` - unknown, set to nullptr\n\n # Returns\n\npid on success, else < 0."]
     pub fn ksceAppMgrLaunchAppByPath(
         path: *const crate::ctypes::c_char,
         args: *const crate::ctypes::c_char,
@@ -10249,134 +11411,174 @@ extern "C" {
 #[link(name = "SceAppMgr_stub", kind = "static")]
 #[cfg(feature = "SceAppMgr_stub")]
 extern "C" {
+    #[doc = "Get an application state\n\n # Arguments\n\n* `appState` (direction out) - - State of the application\n * `len` (direction in) - - sizeof(SceAppMgrState)\n * `version` (direction in) - - Version (?)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceAppMgrGetAppState(
         appState: *mut SceAppMgrAppState,
         len: SceSize,
         version: u32,
     ) -> crate::ctypes::c_int;
     pub fn _sceSharedFbOpen(index: crate::ctypes::c_int, sysver: crate::ctypes::c_int) -> SceUID;
+    #[doc = "Obtains the BGM port, even when it is not in front\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrAcquireBgmPort() -> crate::ctypes::c_int;
+    #[doc = "Mount application data\n\n # Arguments\n\n* `id` (direction in) - - App data ID\n * `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** id: 100 (photo0), 101 (friends), 102 (messages), 103 (near), 105 (music), 108 (calendar)"]
     pub fn sceAppMgrAppDataMount(
         id: crate::ctypes::c_int,
         mount_point: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount application data by Title ID\n\n # Arguments\n\n* `id` (direction in) - - App data ID\n * `titleid` (direction in) - - Application title ID\n * `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** id: 106 (ad), 107 (ad)"]
     pub fn sceAppMgrAppDataMountById(
         id: crate::ctypes::c_int,
         titleid: *const crate::ctypes::c_char,
         mount_point: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get application params from SFO descriptor\n\n # Arguments\n\n* `pid` (direction in) - - Process ID\n * `param` (direction in) - - Param ID in the SFO descriptor\n * `string` (direction out) - - Param data\n * `length` (direction in) - - Length of the param data\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** param: 6 (contentid) 8 (category), 9 (stitle/title?), 10 (title/stitle?), 12 (titleid)"]
     pub fn sceAppMgrAppParamGetString(
         pid: crate::ctypes::c_int,
         param: crate::ctypes::c_int,
         string: *mut crate::ctypes::c_char,
         length: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert vs0 path string to a new one usable by applications\n\n # Arguments\n\n* `path` (direction in) - - Path to convert\n * `mount_point` (direction in) - - Mountpoint to use\n * `unk` (direction in) - - Unknown\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrConvertVs0UserDrivePath(
         path: *mut crate::ctypes::c_char,
         mount_point: *mut crate::ctypes::c_char,
         unk: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Destroy an application by Application ID\n\n # Arguments\n\n* `appId` (direction in) - - Application ID of the application\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrDestroyAppByAppId(appId: SceInt32) -> crate::ctypes::c_int;
+    #[doc = "Destroy an application by Title ID\n\n # Arguments\n\n* `name` (direction in) - - Title ID of the application\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrDestroyAppByName(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Destroy other apps\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrDestroyOtherApp() -> crate::ctypes::c_int;
     pub fn sceAppMgrDrmOpen(param: *const SceAppMgrDrmOpenParam) -> SceInt32;
+    #[doc = "Mount game data\n\n # Arguments\n\n* `app_path` (direction in) - - example : \"ux0:/app/${TITLEID}\"\n * `patch_path` (direction in) - - example : \"ux0:/patch/${TITLEID}\", \"invalid:\"\n * `rif_path` (direction in) - - If NULL the system will automatically search the rif path. example : \"ux0:/license/app/${TITLEID}/${HEX}.rif\"\n * `mount_point` (direction in) - - Mountpoint output\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGameDataMount(
         app_path: *const crate::ctypes::c_char,
         patch_path: *const crate::ctypes::c_char,
         rif_path: *const crate::ctypes::c_char,
         mount_point: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get AppInfo via syscall directly\n\n # Arguments\n\n* `unk` (direction in) - - unknown; maybe titleid\n * `state` (direction out) - - The app state output buffer pointer\n * `syscall_validity` (direction in) - - The syscall validity buffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGetAppInfo(
         unk: *const crate::ctypes::c_char,
         state: *mut SceAppMgrAppState,
     ) -> SceInt32;
+    #[doc = "Copies app param to an array\n\n # Arguments\n\n* `param` (direction out) - - pointer to a 1024 byte location to store the app param\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** App param example: type=LAUNCH_APP_BY_URI&uri=psgm:play?titleid=NPXS10031"]
     pub fn sceAppMgrGetAppParam(param: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Get memory budget info for a running system application\n\n # Arguments\n\n* `info` (direction out) - - Info related to the memory budget of the running application.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** This function will always return an error if used in a normal application."]
     pub fn sceAppMgrGetBudgetInfo(info: *mut SceAppMgrBudgetInfo) -> crate::ctypes::c_int;
+    #[doc = "Get current coredump state for shell\n\n # Arguments\n\n* `state` (direction out) - - state info output.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGetCoredumpStateForShell(
         state: *mut SceAppMgrCoredumpState,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get device info\n\n # Arguments\n\n* `dev` (direction in) - - Device to get info about\n * `max_size` (direction out) - - Capacity of the device\n * `free_size` (direction out) - - Free space of the device\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** dev: ux0:"]
     pub fn sceAppMgrGetDevInfo(
         dev: *const crate::ctypes::c_char,
         max_size: *mut u64,
         free_size: *mut u64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get Process ID by Title ID\n\n # Arguments\n\n* `pid` (direction out) - - Process ID\n * `name` (direction in) - - Title ID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGetIdByName(
         pid: *mut SceUID,
         name: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get Title ID by Process ID\n\n # Arguments\n\n* `pid` (direction in) - - Process ID\n * `name` (direction out) - - Title ID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGetNameById(
         pid: SceUID,
         name: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get PID of an application for Shell\n\n # Arguments\n\n* `appId` (direction in) - - Application ID of the application\n\n # Returns\n\nThe PID on success, < 0 on error."]
     pub fn sceAppMgrGetProcessIdByAppIdForShell(appId: SceInt32) -> SceUID;
+    #[doc = "Get raw path for a given path\n\n # Arguments\n\n* `path` (direction out) - - Path to convert\n * `resolved_path` (direction in) - - The input process path\n * `resolved_path_size` (direction in) - - The input process path length\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrGetRawPath(
         path: *mut crate::ctypes::c_char,
         resolved_path: *mut crate::ctypes::c_char,
         resolved_path_size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the real/resolved path of app0: (where it's actually mounted)\n\n # Arguments\n\n* `appId` (direction in) - - Use -2 for the current application\n * `resolved_path` (direction out) - - Buffer that will hold the resolved path. It should have enough room to hold 292 characters or it will buffer overflow (noname120).\n\n # Returns\n\n0 on success."]
     pub fn sceAppMgrGetRawPathOfApp0ByAppIdForShell(
         appId: crate::ctypes::c_int,
         resolved_path: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a list of running applications\n\n # Arguments\n\n* `appIds` (direction out) - - Array of running application IDs\n * `count` (direction in) - - Max number of running applications to search\n\n # Returns\n\nNumber of running applications."]
     pub fn sceAppMgrGetRunningAppIdListForShell(
         appIds: *mut SceInt32,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start an Application by Title ID\n\n # Arguments\n\n* `flags` (direction in) - - Usually 0x60000\n * `name` (direction in) - - Title ID of the application\n * `param` (direction in) - - The params passed to the application which can be retrieved with ::sceAppMgrGetAppParam\n\n # Returns\n\n0 on success < 0 on error."]
     pub fn sceAppMgrLaunchAppByName(
         flags: crate::ctypes::c_int,
         name: *const crate::ctypes::c_char,
         param: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start an application by Title ID\n\n # Arguments\n\n* `name` (direction in) - - Title ID of the application\n * `param` (direction in) - - The params passed to the application which can be retrieved with ::sceAppMgrGetAppParam\n * `optParam` (direction in) - - Optional params\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrLaunchAppByName2(
         name: *const crate::ctypes::c_char,
         param: *const crate::ctypes::c_char,
         optParam: *mut SceAppMgrLaunchAppOptParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start an application by Title ID for Shell\n\n # Arguments\n\n* `name` (direction in) - - Title ID of the application\n * `param` (direction in) - - The params passed to the application which can be retrieved with ::sceAppMgrGetAppParam\n * `optParam` (direction in) - - Optional params\n\n # Returns\n\nApplication ID (?)"]
     pub fn sceAppMgrLaunchAppByName2ForShell(
         name: *const crate::ctypes::c_char,
         param: *const crate::ctypes::c_char,
         optParam: *mut SceAppMgrLaunchAppOptParam,
     ) -> SceUID;
+    #[doc = "Start an application by URI\n\n # Arguments\n\n* `flags` (direction in) - - Must be 0x20000\n * `uri` (direction in) - - Uri to launch\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** If flags != 0x20000, Livearea is opened."]
     pub fn sceAppMgrLaunchAppByUri(
         flags: crate::ctypes::c_int,
         uri: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Load and start a SELF executable\n\n # Arguments\n\n* `appPath` (direction in) - - Path of the SELF file\n * `argv` (direction in) - - Args to pass to SELF module_start\n * `optParam` (direction in) - - Optional params\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** SELF file must be located in app0: partition."]
     pub fn sceAppMgrLoadExec(
         appPath: *const crate::ctypes::c_char,
         argv: *const *mut crate::ctypes::c_char,
         optParam: *const SceAppMgrExecOptParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount application data (PSPEmu)\n\n # Arguments\n\n* `id` (direction in) - - App data ID\n * `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** id: 400 (ad), 401 (ad), 402 (ad)"]
     pub fn sceAppMgrMmsMount(
         id: crate::ctypes::c_int,
         mount_point: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount PSPEmu virtual memory stick\n\n # Arguments\n\n* `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** mount_point: ms"]
     pub fn sceAppMgrPspSaveDataRootMount(
         mount_point: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Receive system event\n\n # Arguments\n\n* `systemEvent` (direction out) - - Received system event\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrReceiveSystemEvent(
         systemEvent: *mut SceAppMgrSystemEvent,
     ) -> crate::ctypes::c_int;
+    #[doc = "Release acquired BGM port\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrReleaseBgmPort() -> crate::ctypes::c_int;
+    #[doc = "Remove data on savedata0: partition\n\n # Arguments\n\n* `data` (direction in) - - Data to remove\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataDataRemove(
         data: *mut SceAppMgrSaveDataDataDelete,
     ) -> crate::ctypes::c_int;
+    #[doc = "Save data on savedata0: partition\n\n # Arguments\n\n* `data` (direction in) - - Data to save\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataDataSave(data: *mut SceAppMgrSaveDataData) -> crate::ctypes::c_int;
+    #[doc = "Create a savedata slot\n\n # Arguments\n\n* `data` (direction in) - - Slot data\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataSlotCreate(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    #[doc = "Delete a savedata slot\n\n # Arguments\n\n* `data` (direction in) - - Slot data\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataSlotDelete(
         data: *mut SceAppMgrSaveDataSlotDelete,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current param of a savedata slot\n\n # Arguments\n\n* `data` (direction out) - - Slot data\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataSlotGetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    #[doc = "Set current param of a savedata slot\n\n # Arguments\n\n* `data` (direction in) - - Slot data\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSaveDataSlotSetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+    #[doc = "Set infobar state\n\n # Arguments\n\n* `visibility` (direction in) - - Infobar visibility\n * `color` (direction in) - - Infobar color\n * `transparency` (direction in) - - Infobar transparency\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppMgrSetInfobarState(
         visibility: SceAppMgrInfoBarVisibility,
         color: SceAppMgrInfoBarColor,
         transparency: SceAppMgrInfoBarTransparency,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unmount a mountpoint\n\n # Arguments\n\n* `mount_point` (direction in) - - Mountpoint to unmount\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Unmount app0: for example to enable write access to ux0:app/TITLEID"]
     pub fn sceAppMgrUmount(mount_point: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Mount working directory\n\n # Arguments\n\n* `id` (direction in) - - Working directory ID\n * `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** id: 200 (td), 201 (td), 203 (td), 204 (td), 206 (td)"]
     pub fn sceAppMgrWorkDirMount(
         id: crate::ctypes::c_int,
         mount_point: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount working directory by Title ID\n\n # Arguments\n\n* `id` (direction in) - - Working directory ID\n * `titleid` (direction in) - - Application Title ID\n * `mount_point` (direction in) - - Mountpoint to use\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** id: 205 (cache0), 207 (td)"]
     pub fn sceAppMgrWorkDirMountById(
         id: crate::ctypes::c_int,
         titleid: *const crate::ctypes::c_char,
@@ -10390,33 +11592,46 @@ extern "C" {
 #[link(name = "SceAppUtil_stub", kind = "static")]
 #[cfg(feature = "SceAppUtil_stub")]
 extern "C" {
+    #[doc = "Parse received app event from LiveArea"]
     pub fn sceAppUtilAppEventParseLiveArea(
         eventParam: *const SceAppUtilAppEventParam,
         buffer: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get application parameters for int type"]
     pub fn sceAppUtilAppParamGetInt(
         paramId: SceAppUtilAppParamId,
         value: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get background download status"]
     pub fn sceAppUtilBgdlGetStatus(stat: *mut SceAppUtilBgdlStatus) -> crate::ctypes::c_int;
+    #[doc = "Mount cache data"]
     pub fn sceAppUtilCacheMount() -> crate::ctypes::c_int;
+    #[doc = "Unmount cache data"]
     pub fn sceAppUtilCacheUmount() -> crate::ctypes::c_int;
+    #[doc = "Initializes the AppUtil library. Call this before any of the other functions.\n\n # Arguments\n\n* `initParam` (direction out) - - App init info. Must be initialized with zeros.\n * `bootParam` (direction out) - - App boot info. Must be initialized with zeros.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAppUtilInit(
         initParam: *mut SceAppUtilInitParam,
         bootParam: *mut SceAppUtilBootParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Launch web browser app"]
     pub fn sceAppUtilLaunchWebBrowser(
         param: *mut SceAppUtilWebBrowserParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Load safe memory"]
     pub fn sceAppUtilLoadSafeMemory(
         buf: *mut crate::ctypes::c_void,
         bufSize: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount music data"]
     pub fn sceAppUtilMusicMount() -> crate::ctypes::c_int;
+    #[doc = "Unmount music data"]
     pub fn sceAppUtilMusicUmount() -> crate::ctypes::c_int;
+    #[doc = "Mount photo data"]
     pub fn sceAppUtilPhotoMount() -> crate::ctypes::c_int;
+    #[doc = "Unmount photo data"]
     pub fn sceAppUtilPhotoUmount() -> crate::ctypes::c_int;
+    #[doc = "Receive app event"]
     pub fn sceAppUtilReceiveAppEvent(
         eventParam: *mut SceAppUtilAppEventParam,
     ) -> crate::ctypes::c_int;
@@ -10433,36 +11648,45 @@ extern "C" {
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
         requiredSizeKB: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Create savedata slot"]
     pub fn sceAppUtilSaveDataSlotCreate(
         slotId: crate::ctypes::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Delete savedata slot"]
     pub fn sceAppUtilSaveDataSlotDelete(
         slotId: crate::ctypes::c_uint,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get savedata slot param"]
     pub fn sceAppUtilSaveDataSlotGetParam(
         slotId: crate::ctypes::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set savedata slot param"]
     pub fn sceAppUtilSaveDataSlotSetParam(
         slotId: crate::ctypes::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Save safe memory"]
     pub fn sceAppUtilSaveSafeMemory(
         buf: *mut crate::ctypes::c_void,
         bufSize: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Shutdown AppUtil library"]
     pub fn sceAppUtilShutdown() -> crate::ctypes::c_int;
+    #[doc = "Launch PSN Store"]
     pub fn sceAppUtilStoreBrowse(param: *mut SceAppUtilStoreBrowseParam) -> crate::ctypes::c_int;
+    #[doc = "Get system parameters for int type"]
     pub fn sceAppUtilSystemParamGetInt(
         paramId: crate::ctypes::c_uint,
         value: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get application parameters for string type"]
     pub fn sceAppUtilSystemParamGetString(
         paramId: crate::ctypes::c_uint,
         buf: *mut SceChar8,
@@ -10637,41 +11861,52 @@ extern "C" {
         port: crate::ctypes::c_int,
         destPtr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open port"]
     pub fn sceAudioInOpenPort(
         portType: SceAudioInPortType,
         grain: crate::ctypes::c_int,
         freq: crate::ctypes::c_int,
         param: SceAudioInParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Close port"]
     pub fn sceAudioInReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceAudio_stub", kind = "static")]
 #[cfg(feature = "SceAudio_stub")]
 extern "C" {
+    #[doc = "Get status of port type\n Return different value on whether the port type is used for sound generation or not.\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceAudioOutPortType\n\n # Returns\n\n(1) if port is in use, (0) otherwise. < 0 on error."]
     pub fn sceAudioOutGetAdopt(type_: SceAudioOutPortType) -> crate::ctypes::c_int;
+    #[doc = "Get a parameter value of specified output port\n\n # Arguments\n\n* `port` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n * `type` (direction in) - - One of ::SceAudioOutConfigType\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAudioOutGetConfig(
         port: crate::ctypes::c_int,
         type_: SceAudioOutConfigType,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the number of remaining samples to be output on the specified port\n\n # Arguments\n\n* `port` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n\n # Returns\n\nNumber of samples on success, < 0 on error."]
     pub fn sceAudioOutGetRestSample(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Initialize audio port\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceAudioOutPortType\n * `len` (direction in) - - Number of samples, between ::SCE_AUDIO_MIN_LEN and ::SCE_AUDIO_MAX_LEN (multiple of 64)\n * `freq` (direction in) - - Sampling frequency (in Hz), one of the followings :\n 8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000\n * `mode` (direction in) - - One of ::SceAudioOutMode\n\n # Returns\n\nport number, < 0 on error.\n > **Note:** - The volume is initially set to its max value (::SCE_AUDIO_OUT_MAX_VOL)"]
     pub fn sceAudioOutOpenPort(
         type_: SceAudioOutPortType,
         len: crate::ctypes::c_int,
         freq: crate::ctypes::c_int,
         mode: SceAudioOutMode,
     ) -> crate::ctypes::c_int;
+    #[doc = "Output audio (blocking function)\n\n # Arguments\n\n* `port` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n * `*buf` (direction in) - : Pointer to audio data buffer\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - if NULL is specified for *buf, the function will not return until the last\n output audio data has been output."]
     pub fn sceAudioOutOutput(
         port: crate::ctypes::c_int,
         buf: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Release an audio port\n\n # Arguments\n\n* `type` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAudioOutReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set 'Automatic Level Control' mode on the BGM port\n ALC is also known as 'Dynamic Normalizer'\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceAudioOutAlcMode\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAudioOutSetAlcMode(mode: SceAudioOutAlcMode) -> crate::ctypes::c_int;
+    #[doc = "Change configuration of specified output port\n\n # Arguments\n\n* `port` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n * `len` (direction in) - - see ::sceAudioOutOpenPort()\n * `freq` (direction in) - - see ::sceAudioOutOpenPort()\n * `mode` (direction in) - - see ::sceAudioOutOpenPort()\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If (-1) is specified for any argument (excepted for port), current configuration is used instead."]
     pub fn sceAudioOutSetConfig(
         port: crate::ctypes::c_int,
         len: SceSize,
         freq: crate::ctypes::c_int,
         mode: SceAudioOutMode,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set volume of specified output audio port\n\n # Arguments\n\n* `port` (direction in) - - Port number returned by ::sceAudioOutOpenPort\n * `ch` (direction in) - - Channel numbers as flags (see ::SceAudioOutChannelFlag)\n * `*vol` (direction in) - - Array to int specifying volume for each channel (Left channel first for stereo)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAudioOutSetVolume(
         port: crate::ctypes::c_int,
         ch: SceAudioOutChannelFlag,
@@ -10681,6 +11916,7 @@ extern "C" {
 #[link(name = "SceAvcodecForDriver_stub", kind = "static")]
 #[cfg(feature = "SceAvcodecForDriver_stub")]
 extern "C" {
+    #[doc = "Execute a color conversion from ARGB to YCbCr\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `outBuffer` (direction in) - - A physical continuous memory block 256 bytes aligned\n * `inBuffer` (direction in) - - A pointer to a valid ARGB buffer\n * `inPitch` (direction in) - - Input pitch value in pixels\n * `inPixelFormat` (direction in) - - A valid ::SceJpegEncoderPixelFormat set of values\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderCsc(
         context: SceJpegEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
@@ -10688,12 +11924,16 @@ extern "C" {
         inPitch: crate::ctypes::c_int,
         inPixelFormat: SceJpegEncoderPixelFormat,
     ) -> crate::ctypes::c_int;
+    #[doc = "Execute a jpeg encode\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `inBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderEncode(
         context: SceJpegEncoderContext,
         inBuffer: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Terminate a jpeg encoder\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
+    #[doc = "Return required free size to allocate a jpeg encoder\n\n # Returns\n\nRequired free memory size in bytes, < 0 on error."]
     pub fn ksceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
+    #[doc = "Initialize a jpeg encoder\n\n # Arguments\n\n* `context` (direction in) - - A pointer to a big enough allocated memory block\n * `inWidth` (direction in) - - Input width in pixels\n * `inHeight` (direction in) - - Input height in pixels\n * `pixelformat` (direction in) - - A valid ::SceJpegEncoderPixelFormat set of values\n * `outBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n * `outSize` (direction in) - - Output size in bytes\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderInit(
         context: SceJpegEncoderContext,
         inWidth: crate::ctypes::c_int,
@@ -10702,19 +11942,23 @@ extern "C" {
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder compression ratio\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `ratio` (direction in) - - A value between 0 and 255 (higher = better compression, lower = better speed)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderSetCompressionRatio(
         context: SceJpegEncoderContext,
         ratio: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set header used for output file\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `mode` (direction in) - - One of ::SceJpegEncoderHeaderMode\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderSetHeaderMode(
         context: SceJpegEncoderContext,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder output address\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `outBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n * `outSize` (direction in) - - Output buffer size in bytes\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderSetOutputAddr(
         context: SceJpegEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder valid region (?)\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `inWidth` (direction in) - - Input width in pixels\n * `inHeight` (direction in) - - Input height in pixels\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceJpegEncoderSetValidRegion(
         context: SceJpegEncoderContext,
         inWidth: crate::ctypes::c_int,
@@ -10730,54 +11974,76 @@ extern "C" {}
 #[link(name = "SceAVConfig_stub", kind = "static")]
 #[cfg(feature = "SceAVConfig_stub")]
 extern "C" {
+    #[doc = "Get the maximum brightness.\n\n # Arguments\n\n* `maxBrightness` (direction out) - - Maximum brightness.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigGetDisplayMaxBrightness(
         maxBrightness: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the shutter volume.\n\n # Arguments\n\n* `volume` (direction out) - - shutter volume.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigGetShutterVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get the system volume.\n\n # Arguments\n\n* `volume` (direction out) - - System volume.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigGetSystemVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Turns on mute.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigMuteOn() -> crate::ctypes::c_int;
+    #[doc = "Set the screen brightness.\n\n # Arguments\n\n* `brightness` - - Brightness that the screen will be set to (range 21-65536, 0 turns off the screen).\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigSetDisplayBrightness(
         brightness: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Sets the color space mode on runtime.\n\n # Arguments\n\n* `csm` (direction in) - - see ::SceAVConfigColorSpaceMode()\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - This does not change color_space_mode in the registry."]
     pub fn sceAVConfigSetDisplayColorSpaceMode(csm: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set the system volume.\n\n # Arguments\n\n* `volume` - - volume that the device will be set to (range 0-30).\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAVConfigSetSystemVol(volume: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceAvPlayer_stub", kind = "static")]
 #[cfg(feature = "SceAvPlayer_stub")]
 extern "C" {
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `filename` (direction in) - - Full path to the file to play\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerAddSource(
         handle: SceAvPlayerHandle,
         filename: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerClose(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\nCurrent time on the video playback in milliseconds."]
     pub fn sceAvPlayerCurrentTime(handle: SceAvPlayerHandle) -> u64;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `info` (direction out) - - Descriptor for the received data\n\n # Returns\n\nSCE_TRUE if new data is available, SCE_FALSE otherwise."]
     pub fn sceAvPlayerGetAudioData(
         handle: SceAvPlayerHandle,
         info: *mut SceAvPlayerFrameInfo,
     ) -> SceBool;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `id` (direction in) - - Stream ID to get info for.\n * `info` (direction out) - - Info retrieved for the requested stream.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerGetStreamInfo(
         handle: SceAvPlayerHandle,
         id: u32,
         info: *mut SceAvPlayerStreamInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `info` (direction out) - - Descriptor for the received data\n\n # Returns\n\nSCE_TRUE if new data is available, SCE_FALSE otherwise."]
     pub fn sceAvPlayerGetVideoData(
         handle: SceAvPlayerHandle,
         info: *mut SceAvPlayerFrameInfo,
     ) -> SceBool;
+    #[doc = "# Arguments\n\n* `data` (direction in) - - Init data for the video player\n\n # Returns\n\nThe video player handle on success, < 0 on error."]
     pub fn sceAvPlayerInit(data: *mut SceAvPlayerInitData) -> SceAvPlayerHandle;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\nSCE_TRUE if the video playback is active, SCE_FALSE otherwise."]
     pub fn sceAvPlayerIsActive(handle: SceAvPlayerHandle) -> SceBool;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `offset` (direction in) - - Offset to jump to on the video playback in milliseconds.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerJumpToTime(handle: SceAvPlayerHandle, offset: u64) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerPause(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerResume(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `looping` (direction in) - - A flag indicating whether the video playback should loop\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerSetLooping(
         handle: SceAvPlayerHandle,
         looping: SceBool,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n * `offset` (direction in) - - One of ::SceAvPlayerTrickSpeeds.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerSetTrickSpeed(
         handle: SceAvPlayerHandle,
         speed: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerStart(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `handle` (direction in) - - A player handle created with ::sceAvPlayerInit\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvPlayerStop(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
 }
 #[link(name = "SceBacktraceForDriver_stub", kind = "static")]
@@ -10789,6 +12055,7 @@ extern "C" {}
 #[link(name = "SceBgAppUtil_stub", kind = "static")]
 #[cfg(feature = "SceBgAppUtil_stub")]
 extern "C" {
+    #[doc = "Start BG application (eboot2.bin)\n\n # Arguments\n\n* `mode` (direction in) - - must be 1\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceBgAppUtilStartBgApp(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceBtForDriver_stub", kind = "static")]
@@ -11016,47 +12283,59 @@ extern "C" {}
 #[link(name = "SceCamera_stub", kind = "static")]
 #[cfg(feature = "SceCamera_stub")]
 extern "C" {
+    #[doc = "Close a camera device.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n\n # Returns\n\nSCE_OK, <0 on error."]
     pub fn sceCameraClose(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get camera anti-flickering mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraAntiFlicker)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetAntiFlicker(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get auto control hold mode. (?)\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetAutoControlHold(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera backlight compensation mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraBacklight)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetBacklight(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera brightness value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetBrightness(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera contrast value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetContrast(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera device location. (?)\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLocation` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetDeviceLocation(
         devnum: crate::ctypes::c_int,
         pLocation: *mut SceFVector3,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera exposure compensation value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result (See ::SceCameraExposureCompensation).\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetEV(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get active camera effects.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetEffect(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get exposure ceiling mode. (?)\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetExposureCeiling(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera gain mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraGain)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetGain(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera ISO speed mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraISO)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetISO(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
@@ -11065,6 +12344,7 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get nightmode mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraNightmode)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetNightmode(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
@@ -11073,14 +12353,17 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera reverse mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraReverse)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetReverse(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera saturation value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraSaturation)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetSaturation(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera sharpness value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraSharpness)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetSharpness(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
@@ -11089,59 +12372,74 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera white balance mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pMode` (direction out) - - Pointer to a variable where to save the result. (See ::SceCameraWhiteBalance)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetWhiteBalance(
         devnum: crate::ctypes::c_int,
         pMode: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get camera zoom value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pLevel` (direction out) - - Pointer to a variable where to save the result.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraGetZoom(
         devnum: crate::ctypes::c_int,
         pLevel: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check if camera device is active.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n\n # Returns\n\n1 if camera is active, 0 if inactive , <0 on error."]
     pub fn sceCameraIsActive(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Open a camera device.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pInfo` (direction in) - - Pointer to an already set ::SceCameraInfo struct.\n\n # Returns\n\nSCE_OK, <0 on error."]
     pub fn sceCameraOpen(
         devnum: crate::ctypes::c_int,
         pInfo: *mut SceCameraInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Read image data from current streaming.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `pRead` (direction in) - - Pointer to an already set ::SceCameraRead.\n\n # Returns\n\nSCE_OK, <0 on error."]
     pub fn sceCameraRead(
         devnum: crate::ctypes::c_int,
         pRead: *mut SceCameraRead,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera exposure anti-flickering mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraAntiFlicker.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetAntiFlicker(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set auto control hold mode. (?)\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - Auto control hold mode value. (?)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetAutoControlHold(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera backlight mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraBacklight.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetBacklight(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera brightness value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - Brightness value.\n\n # Returns\n\nSCE_OK , <0 on error.\n\n > **Note:** Brightness value must be between 0 and 255."]
     pub fn sceCameraSetBrightness(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera contrast value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - Contrast value.\n\n # Returns\n\nSCE_OK , <0 on error.\n\n > **Note:** Contrast value must be between 0 and 255."]
     pub fn sceCameraSetContrast(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera exposure compensation value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - One of ::SceCameraExposureCompensation.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetEV(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Active a camera effect.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraEffect.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetEffect(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set exposure ceiling mode. (?)\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - Exposure ceiling mode value. (?)\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetExposureCeiling(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera gain mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraGain.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetGain(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera ISO speed mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraISO.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetISO(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
@@ -11150,6 +12448,7 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera nightmoge mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraNightmode.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetNightmode(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
@@ -11158,14 +12457,17 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera reverse mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraReverse.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetReverse(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera saturation value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - One of ::SceCameraSaturation.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetSaturation(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera sharpness value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - One of ::SceCameraSharpness.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetSharpness(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
@@ -11174,15 +12476,19 @@ extern "C" {
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera white balance mode.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `mode` (direction in) - - One of ::SceCameraWhiteBalance.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetWhiteBalance(
         devnum: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set camera zoom value.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n * `level` (direction in) - - Camera zoom value.\n\n # Returns\n\nSCE_OK , <0 on error."]
     pub fn sceCameraSetZoom(
         devnum: crate::ctypes::c_int,
         level: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start camera streaming.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n\n # Returns\n\nSCE_OK, <0 on error."]
     pub fn sceCameraStart(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Stop camera streaming.\n\n # Arguments\n\n* `devnum` (direction in) - - One of ::SceCameraDevice.\n\n # Returns\n\nSCE_OK, <0 on error."]
     pub fn sceCameraStop(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceClipboard_stub", kind = "static")]
@@ -11219,14 +12525,17 @@ extern "C" {
     pub fn sceMsgDialogGetResult(result: *mut SceMsgDialogResult) -> crate::ctypes::c_int;
     pub fn sceMsgDialogGetStatus() -> SceCommonDialogStatus;
     pub fn sceMsgDialogInit(param: *const SceMsgDialogParam) -> crate::ctypes::c_int;
+    #[doc = "Increases the rate of the progress bar in the message dialog\n\n # Arguments\n\n* `target` - - Target progress bar\n * `delta` - - Progress rate to increase (%)\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as FrameBuf pointer, output is blacked out."]
     pub fn sceMsgDialogProgressBarInc(
         target: SceMsgDialogProgressBarTarget,
         delta: SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the string displayed in the progress bar of the message dialog immediately\n\n # Arguments\n\n* `target` - - Target progress bar\n * `barMsg` - - The string displayed in the progress bar\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as FrameBuf pointer, output is blacked out."]
     pub fn sceMsgDialogProgressBarSetMsg(
         target: SceMsgDialogProgressBarTarget,
         barMsg: *const SceChar8,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the progress rate of the progress bar in the message dialog immediately\n\n # Arguments\n\n* `target` - - Target progress bar\n * `delta` - - Progress rate to increase (%)\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as FrameBuf pointer, output is blacked out."]
     pub fn sceMsgDialogProgressBarSetValue(
         target: SceMsgDialogProgressBarTarget,
         rate: SceUInt32,
@@ -11244,56 +12553,86 @@ extern "C" {
 #[link(name = "SceCompat_stub", kind = "static")]
 #[cfg(feature = "SceCompat_stub")]
 extern "C" {
+    #[doc = "Allocate cdram with hole\n\n # Arguments\n\n* `cdram` (direction out) - - A pointer to a ::SceCompatCdram structure.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatAllocCdramWithHole(cdram: *mut SceCompatCdram) -> crate::ctypes::c_int;
+    #[doc = "Get color space setting availability\n\n # Returns\n\n1 if true, 0 if false, < 0 on error."]
     pub fn sceCompatAvailableColorSpaceSetting() -> crate::ctypes::c_int;
+    #[doc = "Cache operation\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceCompatCacheMode\n * `addr` (direction in) - - Address\n * `size` (direction in) - - Size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatCache(
         mode: crate::ctypes::c_int,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check if pocket station application is available\n\n # Returns\n\n1 if true, 0 if false, < 0 on error."]
     pub fn sceCompatCheckPocketStation() -> crate::ctypes::c_int;
+    #[doc = "Framebuffer init\n\n # Arguments\n\n* `framebuffer` (direction in) - - Pointer to framebuffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatFrameBufferInit(
         framebuffer: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current secure tick\n\n # Arguments\n\n* `tick` (direction out) - - A pointer to a ::SceRtcTick structure.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    #[doc = "Get Memory Card device information\n\n # Arguments\n\n* `info` (direction out) - - A pointer to a ::SceIoDevInfo structure.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatGetDevInf(info: *mut SceIoDevInfo) -> crate::ctypes::c_int;
+    #[doc = "Get peripheral state\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceCompatPeripheralMode\n\n # Returns\n\nstate on success, < 0 on error."]
     pub fn sceCompatGetPeripheralState(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get primary head\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatGetPrimaryHead() -> crate::ctypes::c_int;
+    #[doc = "Get PSP system software version\n\n # Returns\n\nversion on success, < 0 on error."]
     pub fn sceCompatGetPspSystemSoftwareVersion() -> crate::ctypes::c_int;
+    #[doc = "Get compat status\n\n # Returns\n\nstatus on success, < 0 on error."]
     pub fn sceCompatGetStatus() -> crate::ctypes::c_int;
+    #[doc = "Get title list\n\n # Arguments\n\n* `buf` (direction out) - - A 100 bytes buffer for the title list\n * `length` (direction in) - - Must be 100\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatGetTitleList(
         buf: *mut crate::ctypes::c_void,
         length: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get update state\n\n # Returns\n\nstate on success, < 0 on error."]
     pub fn sceCompatGetUpdateState() -> crate::ctypes::c_int;
+    #[doc = "Init compat\n\n # Arguments\n\n* `unk` (direction in) - - Unknown, pass 0\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatInitEx(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Interrupt code\n\n # Arguments\n\n* `intr_code` (direction in) - - Interrupt code\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatInterrupt(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Check if current title is a pocket station game\n\n # Returns\n\n1 if true, 0 if false, < 0 on error."]
     pub fn sceCompatIsPocketStationTitle() -> crate::ctypes::c_int;
+    #[doc = "LCDC sync\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatLCDCSync() -> crate::ctypes::c_int;
+    #[doc = "Read from shared sram\n\n # Arguments\n\n* `location` (direction in) - - Location\n * `value` (direction out) - - Pointer to a int buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatReadShared32(
         location: crate::ctypes::c_int,
         value: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set display config\n\n # Arguments\n\n* `unk0` (direction in) - - Unknown\n * `unk1` (direction in) - - Unknown\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatSetDisplayConfig(
         unk0: crate::ctypes::c_int,
         unk1: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set RIF name\n\n # Arguments\n\n* `rif` (direction in) - - RIF name (max. 36 chars)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatSetRif(rif: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Set suspend semaphores\n\n # Arguments\n\n* `semaid1` (direction in) - - Semaphore id 1\n * `semaid2` (direction in) - - Semaphore id 2\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatSetSuspendSema(semaid1: SceUID, semaid2: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Set update state\n\n # Arguments\n\n* `state` (direction in) - - State\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatSetUpdateState(state: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Start compat\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatStart() -> crate::ctypes::c_int;
+    #[doc = "Stop compat\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatStop() -> crate::ctypes::c_int;
+    #[doc = "Suspend/resume compat\n\n # Arguments\n\n* `unk` (direction in) - - Unknown, pass 1\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatSuspendResume(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Uninit compat\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatUninit() -> crate::ctypes::c_int;
+    #[doc = "Wait for command and get request\n\n # Arguments\n\n* `mode` (direction in) - - Mode\n * `id` (direction in) - - ID\n\n # Returns\n\npointer to request in PspEmu RAM on success, < 0 on error."]
     pub fn sceCompatWaitAndGetRequest(
         mode: crate::ctypes::c_int,
         id: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for special request\n\n # Arguments\n\n* `unk` (direction in) - - Unknown, pass 1\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatWaitSpecialRequest(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Write to shared sram\n\n # Arguments\n\n* `location` (direction in) - - Location\n * `value` (direction in) - - Value\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatWriteShared32(
         location: crate::ctypes::c_int,
         value: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Write shared control\n\n # Arguments\n\n* `info` (direction in) - - A pointer to a ::SceCtrlDataPsp structure.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceCompatWriteSharedCtrl(pad_data: *mut SceCtrlDataPsp) -> crate::ctypes::c_int;
 }
 #[link(name = "SceCoredumpForDriver_stub", kind = "static")]
@@ -11305,56 +12644,82 @@ extern "C" {}
 #[link(name = "SceCpuForDriver_stub", kind = "static")]
 #[cfg(feature = "SceCpuForDriver_stub")]
 extern "C" {
+    #[doc = "Writeback and invalidate a range of L1 dcache and L2\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    #[doc = "Writeback and invalidate a range of L1 dcache and L2\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length\n\n # Returns\n\nZero on success"]
     pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
         ptr: *const crate::ctypes::c_void,
         len: SceSize,
     );
+    #[doc = "Writeback a range of L1 dcache and L2\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    #[doc = "Invalidate a range of L1 dcache (without L2)\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    #[doc = "Writeback a range of L1 dcache (without L2)\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    #[doc = "Disabled interrupts\n\n # Returns\n\nInterrupt masks before disabling"]
     pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
+    #[doc = "Enable interrupts\n\n # Arguments\n\n* `flags` (direction in) - Interrupt masks\n\n # Returns\n\nnone"]
     pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
+    #[doc = "Returns the CPU ID of the calling processor\n\n # Returns\n\nThe CPU ID"]
     pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
+    #[doc = "Acquire a RWSpinlock for reading\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to acquire\n\n > **Note:** It is forbidden to write to data protected by the spinlock after acquiring it with this function."]
     pub fn ksceKernelRWSpinlockLowReadLock(lock: *mut SceKernelRWSpinlock);
+    #[doc = "Acquire a RWSpinlock for reading and suspend interrupts if necessary.\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to acquire\n\n # Returns\n\nAn opaque value to be used during the call to ::ksceKernelRWSpinlockLowReadUnlockCpuResumeIntr.\n > **Note:** It is forbidden to write to data protected by the spinlock after acquiring it with this function."]
     pub fn ksceKernelRWSpinlockLowReadLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Unlock a RWSpinlock previously acquired for reading\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to release"]
     pub fn ksceKernelRWSpinlockLowReadUnlock(lock: *mut SceKernelRWSpinlock);
+    #[doc = "Release a RWSpinlock previously acquired for reading and resume interrupts if necessary.\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to release\n * `intr_status` (direction in) - Status value obtained from ::ksceKernelRWSpinlockLowReadLockCpuSuspendIntr/::ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr.\n\n > **Note:** This function resumes interrupts only if they were enabled before the call to ::ksceKernelRWSpinlockLowReadLockCpuSuspendIntr/::ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr."]
     pub fn ksceKernelRWSpinlockLowReadUnlockCpuResumeIntr(
         lock: *mut SceKernelRWSpinlock,
         intr_status: SceKernelIntrStatus,
     );
+    #[doc = "Attempt to acquire a RWSpinlock for reading\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `SCE_OK` - if the spinlock is acquired\n * `<0` - if the spinlock could not be acquired\n > **Note:** It is forbidden to write to data protected by the spinlock after acquiring it with this function."]
     pub fn ksceKernelRWSpinlockLowTryReadLock(
         lock: *mut SceKernelRWSpinlock,
     ) -> crate::ctypes::c_int;
+    #[doc = "Attempt to acquire a RWSpinlock for reading and suspend interrupts if necessary\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `>=0` - if the spinlock is acquired - opaque value describing the interrupt state\n * `<0` - if the spinlock could not be acquired\n > **Note:** Interrupts are only suspended if the acquisition of the spinlock succeeds\n > **Note:** It is forbidden to write to data protected by the spinlock after acquiring it with this function."]
     pub fn ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Attempt to acquire a RWSpinlock for writing\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `SCE_OK` - if the spinlock is acquired\n * `<0` - if the spinlock could not be acquired"]
     pub fn ksceKernelRWSpinlockLowTryWriteLock(
         lock: *mut SceKernelRWSpinlock,
     ) -> crate::ctypes::c_int;
+    #[doc = "Attempt to acquire a RWSpinlock for writing and suspend interrupts if necessary\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `>=0` - if the spinlock is acquired - opaque value describing the interrupt state\n * `<0` - if the spinlock could not be acquired\n > **Note:** Interrupts are only suspended if the acquisition of the spinlock succeeds"]
     pub fn ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Acquire a RWSpinlock for writing\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to acquire"]
     pub fn ksceKernelRWSpinlockLowWriteLock(lock: *mut SceKernelRWSpinlock);
+    #[doc = "Acquire a RWSpinlock for writing and suspend interrupts if necessary.\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to acquire\n\n # Returns\n\nAn opaque value to be used during the call to ::ksceKernelRWSpinlockLowWriteUnlockCpuResumeIntr."]
     pub fn ksceKernelRWSpinlockLowWriteLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Unlock a RWSpinlock previously acquired for writing\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to release"]
     pub fn ksceKernelRWSpinlockLowWriteUnlock(lock: *mut SceKernelRWSpinlock);
+    #[doc = "Release a RWSpinlock acquired for writing and resume interrupts if necessary.\n\n # Arguments\n\n* `lock` (direction in) - RWSpinlock to release\n * `intr_status` (direction in) - Status value obtained from ::ksceKernelRWSpinlockLowWriteLockCpuSuspendIntr/::ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr.\n\n > **Note:** This function resumes interrupts only if they were enabled before the call to ::ksceKernelSpinlockLowLockCpuSuspendIntr/::ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr."]
     pub fn ksceKernelRWSpinlockLowWriteUnlockCpuResumeIntr(
         lock: *mut SceKernelRWSpinlock,
         intr_status: SceKernelIntrStatus,
     );
+    #[doc = "Acquire a spinlock\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire"]
     pub fn ksceKernelSpinlockLowLock(lock: *mut SceKernelSpinlock);
+    #[doc = "Acquire a spinlock and suspend interrupts if necessary\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\nAn opaque value to be used during the call to ::ksceKernelSpinlockLowUnlockCpuResumeIntr."]
     pub fn ksceKernelSpinlockLowLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Attempt to acquire a spinlock\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `SCE_OK` - if the spinlock is acquired\n * `<0` - if the spinlock could not be acquired"]
     pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
+    #[doc = "Attempt to acquire a spinlock and suspend interrupts if necessary\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to acquire\n\n # Returns\n\n* `>=0` - if the spinlock is acquired - opaque value describing the interrupt state\n * `<0` - if the spinlock could not be acquired\n > **Note:** Interrupts are only suspended if the acquisition of the spinlock succeeds"]
     pub fn ksceKernelSpinlockLowTryLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
+    #[doc = "Release a previously acquired spinlock\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to release"]
     pub fn ksceKernelSpinlockLowUnlock(lock: *mut SceKernelSpinlock);
+    #[doc = "Release a previously acquired spinlock and resume interrupts if necessary\n\n # Arguments\n\n* `lock` (direction in) - Spinlock to release\n * `intr_status` (direction in) - Status value obtained from ::ksceKernelSpinlockLowLockCpuSuspendIntr/::ksceKernelSpinlockLowTryLockCpuSuspendIntr.\n\n > **Note:** This function resumes interrupts only if they were enabled before the call to ::ksceKernelSpinlockLowLockCpuSuspendIntr/::ksceKernelSpinlockLowTryLockCpuSuspendIntrForDriver."]
     pub fn ksceKernelSpinlockLowUnlockCpuResumeIntr(
         lock: *mut SceKernelSpinlock,
         intr_status: SceKernelIntrStatus,
@@ -11368,18 +12733,25 @@ extern "C" {
     pub fn ksceKernelCorelockInitialize(ctx: *mut SceCorelockContext);
     pub fn ksceKernelCorelockLock(ctx: *mut SceCorelockContext, core: SceUInt32);
     pub fn ksceKernelCorelockUnlock(ctx: *mut SceCorelockContext);
+    #[doc = "Invalidate all the L1 dcache (without L2)"]
     pub fn ksceKernelCpuDcacheInvalidateAll();
+    #[doc = "Writeback all the L1 dcache (without L2)"]
     pub fn ksceKernelCpuDcacheWritebackAll();
+    #[doc = "Writeback and invalidate all the L1 dcache (without L2)"]
     pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
+    #[doc = "Writeback and invalidate a range of L1 dcache (without L2)\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
         ptr: *const crate::ctypes::c_void,
         len: SceSize,
     );
+    #[doc = "Writeback and invalidate a range of L1 icache and L2\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
         ptr: *const crate::ctypes::c_void,
         len: SceSize,
     );
+    #[doc = "Invalidate all the L1 icache (without L2)\n\n # Returns\n\nZero on success"]
     pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
+    #[doc = "Invalidate a range of L1 icache (without L2)\n\n # Arguments\n\n* `ptr` - The pointer\n * `len` (direction in) - The length"]
     pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
 }
 #[link(name = "SceCpuForKernel_stub", kind = "static")]
@@ -11388,39 +12760,51 @@ extern "C" {}
 #[link(name = "SceCtrlForDriver_stub", kind = "static")]
 #[cfg(feature = "SceCtrlForDriver_stub")]
 extern "C" {
+    #[doc = "Clear rules for button rapid fire\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `idx` (direction in) - - rule index between 0-15\n\n # Returns\n\n0, <0 on error."]
     pub fn ksceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets intercept\n\n # Arguments\n\n* `intercept` (direction out) - Boolean value\n\n # Returns\n\n0, < 0 on error"]
     pub fn ksceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int)
         -> crate::ctypes::c_int;
+    #[doc = "Get controller port information.\n\n # Arguments\n\n* `info` (direction out) - - see ::SceCtrlPortInfo\n # Returns\n\n0, <0 on error"]
     pub fn ksceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
+    #[doc = "Get ctrl mask for all process\n\n # Arguments\n\n* `mask` (direction out) - - The pointer of SceCtrlButtons type value output\n\n # Returns\n\n0 on success. < 0 on error."]
     pub fn ksceCtrlGetMaskForAll(mask: *mut u32) -> crate::ctypes::c_int;
+    #[doc = "Get ctrl mask for non shell process\n\n # Arguments\n\n* `mask` (direction out) - - The pointer of SceCtrlButtons type value output\n\n # Returns\n\n0 on success. < 0 on error."]
     pub fn ksceCtrlGetMaskForNonShell(mask: *mut u32) -> crate::ctypes::c_int;
+    #[doc = "Get the current controller mode.\n\n # Arguments\n\n* `pMode` (direction out) - - Return value, see ::SceCtrlPadInputMode.\n\n # Returns\n\nThe current mode, <0 on error."]
     pub fn ksceCtrlGetSamplingMode(pMode: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (polling, negative logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn ksceCtrlPeekBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (polling, positive logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn ksceCtrlPeekBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (blocking, negative logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn ksceCtrlReadBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (blocking, positive logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn ksceCtrlReadBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register virtual controller driver.\n\n This function always overwrites global settings and not exist unregister method.\n\n # Arguments\n\n* `driver` (direction in) - - See ::SceCtrlVirtualControllerDriver\n\n # Returns\n\n0 on success. <0 on error"]
     pub fn ksceCtrlRegisterVirtualControllerDriver(
         driver: *mut SceCtrlVirtualControllerDriver,
     ) -> crate::ctypes::c_int;
+    #[doc = "Emulate values for the analog pad's X- and Y-axis.\n\n # Arguments\n\n* `port` - Use 0\n * `slot` - The slot used to set the custom values. Between 0 - 3. If multiple slots are used,\n their settings are combined.\n * `user_lX` - New emulated value for the left joystick's X-axis (userspace). Between 0 - 0xFF.\n * `user_lY` - New emulate value for the left joystick's Y-axis (userspace). Between 0 - 0xFF.\n * `user_rX` - New emulated value for the right joystick's X-axis (userspace). Between 0 - 0xFF.\n * `user_rY` - New emulate value for the right joystick's Y-axis (userspace). Between 0 - 0xFF.\n * `kernel_lX` - New emulated value for the left joystick's X-axis (kernelspace). Between 0 - 0xFF.\n * `kernel_lY` - New emulate value for the left joystick's Y-axis (kernelspace). Between 0 - 0xFF.\n * `kernel_rX` - New emulated value for the right joystick's X-axis (kernelspace). Between 0 - 0xFF.\n * `kernel_rY` - New emulate value for the right joystick's Y-axis (kernelspace). Between 0 - 0xFF.\n * `uiMake` - Specifies the duration of the emulation. Measured in sampling counts.\n\n # Returns\n\n0 on success."]
     pub fn ksceCtrlSetAnalogEmulation(
         port: crate::ctypes::c_uint,
         slot: crate::ctypes::c_uchar,
@@ -11434,6 +12818,7 @@ extern "C" {
         kernel_rY: crate::ctypes::c_uchar,
         uiMake: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Emulate buttons for the digital pad.\n # Arguments\n\n* `port` - Use 0\n * `slot` - The slot used to set the custom values. Between 0 - 3. If multiple slots are used,\n their settings are combined.\n * `userButtons` - Emulated user buttons of ::SceCtrlButtons. You cannot emulate kernel\n buttons and the emulated buttons will only be applied for applications\n running in user mode.\n * `kernelButtons` - Emulated buttons of ::SceCtrlButtons (you can emulate both user and\n kernel buttons). The emulated buttons will only be applied for applications\n running in kernel mode.\n * `uiMake` - Specifies the duration of the emulation. Measured in sampling counts.\n\n # Returns\n\n0 on success."]
     pub fn ksceCtrlSetButtonEmulation(
         port: crate::ctypes::c_uint,
         slot: crate::ctypes::c_uchar,
@@ -11441,17 +12826,22 @@ extern "C" {
         kernelButtons: crate::ctypes::c_uint,
         uiMake: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Sets intercept\n\n If true, allows the current thread to intercept controls. The use case\n might be, for example, a game plugin that wishes to capture input without\n having the input sent to the game thread.\n # Arguments\n\n* `intercept` (direction in) - Boolean value\n\n # Returns\n\n0, < 0 on error"]
     pub fn ksceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set rules for button rapid fire\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `idx` (direction in) - - rule index between 0-15\n * `pRule` (direction in) - - structure ::SceCtrlRapidFireRule.\n\n # Returns\n\n0, <0 on error."]
     pub fn ksceCtrlSetRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
         pRule: *const SceCtrlRapidFireRule,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the controller mode.\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceCtrlPadInputMode.\n\n # Returns\n\nThe previous mode, <0 on error."]
     pub fn ksceCtrlSetSamplingMode(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Update ctrl mask for all process\n\n # Arguments\n\n* `clear_mask` (direction in) - - The SceCtrlButtons type value\n * `set_mask` (direction in) - - The SceCtrlButtons type value\n\n # Returns\n\nalways 0.\n\n note - Some values cannot be clear/set."]
     pub fn ksceCtrlUpdateMaskForAll(
         clear_mask: crate::ctypes::c_int,
         set_mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Update ctrl mask for non shell process\n\n # Arguments\n\n* `clear_mask` (direction in) - - The SceCtrlButtons type value\n * `set_mask` (direction in) - - The SceCtrlButtons type value\n\n # Returns\n\nalways 0.\n\n note - Some values cannot be clear/set."]
     pub fn ksceCtrlUpdateMaskForNonShell(
         clear_mask: crate::ctypes::c_int,
         set_mask: crate::ctypes::c_int,
@@ -11460,126 +12850,158 @@ extern "C" {
 #[link(name = "SceCtrl_stub", kind = "static")]
 #[cfg(feature = "SceCtrl_stub")]
 extern "C" {
+    #[doc = "Clear rules for button rapid fire\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `idx` (direction in) - - rule index between 0-15\n\n # Returns\n\n0, <0 on error."]
     pub fn sceCtrlClearRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get controller battery information.\n\n # Arguments\n\n* `port` (direction in) - - use 1 for the first paired controller, etc.\n * `batt` (direction out) - - battery level, between 0-5, 0xEE charging, 0xEF charged\n\n # Returns\n\n0, <0 on error."]
     pub fn sceCtrlGetBatteryInfo(
         port: crate::ctypes::c_int,
         batt: *mut SceUInt8,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets intercept\n\n # Arguments\n\n* `intercept` (direction out) - Boolean value\n\n # Returns\n\n0, < 0 on error"]
     pub fn sceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get controller port information.\n\n # Arguments\n\n* `info` (direction out) - - see ::SceCtrlPortInfo\n # Returns\n\n0, <0 on error"]
     pub fn sceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
+    #[doc = "Get the current controller mode.\n\n # Arguments\n\n* `pMode` (direction out) - - Return value, see ::SceCtrlPadInputMode.\n\n # Returns\n\nThe current mode, <0 on error."]
     pub fn sceCtrlGetSamplingMode(pMode: *mut SceCtrlPadInputMode) -> crate::ctypes::c_int;
+    #[doc = "Check if multi controller is supported\n\n # Returns\n\n1 if yes, 0 if no"]
     pub fn sceCtrlIsMultiControllerSupported() -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (polling, negative logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller state information (polling, negative logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n\n # Arguments\n\n* `port` (direction in) - - use 0-5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferNegative2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (polling, positive logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller state information (polling, positive logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n\n # Arguments\n\n* `port` (direction in) - - use 0 - 5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferPositive2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (polling, positive logic).\n\n This function will return button presses, even if they're intercepted by common dialog/IME.\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferPositiveExt(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller state information (polling, positive logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n This function will return button presses, even if they're intercepted by common dialog/IME.\n\n # Arguments\n\n* `port` (direction in) - - use 0 - 5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlPeekBufferPositiveExt2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (blocking, negative logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferNegative(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller state information (blocking, negative logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n\n # Arguments\n\n* `port` (direction in) - - use 0-5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferNegative2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller state information (blocking, positive logic).\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferPositive(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller state information (blocking, positive logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n\n # Arguments\n\n* `port` (direction in) - - use 0-5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferPositive2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the controller extended state information (blocking, positive logic).\n\n This function will return button presses, even if they're intercepted by common dialog/IME.\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferPositiveExt(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the wireless controller extended state information (blocking, positive logic).\n\n This function will bind L/R trigger value to L1/R1 instead of LTRIGGER/RTRIGGER\n This function will return button presses, even if they're intercepted by common dialog/IME.\n\n # Arguments\n\n* `port` (direction in) - - use 0-5.\n * `*pad_data` (direction out) - - see ::SceCtrlData.\n * `count` (direction in) - - Buffers count. Up to 64 buffers can be requested.\n\n # Returns\n\nBuffers count, between 1 and 'count'. <0 on error."]
     pub fn sceCtrlReadBufferPositiveExt2(
         port: crate::ctypes::c_int,
         pad_data: *mut SceCtrlData,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Control the actuator (vibrate) on paired controllers.\n\n # Arguments\n\n* `port` (direction in) - - use 1 for the first paired controller, etc.\n * `state` (direction in) - - see ::SceCtrlActuator\n\n # Returns\n\n0, <0 on error."]
     pub fn sceCtrlSetActuator(
         port: crate::ctypes::c_int,
         pState: *const SceCtrlActuator,
     ) -> crate::ctypes::c_int;
+    #[doc = "Sets intercept\n\n If true, allows the current thread to intercept controls. The use case\n might be, for example, a game plugin that wishes to capture input without\n having the input sent to the game thread.\n # Arguments\n\n* `intercept` (direction in) - Boolean value\n\n # Returns\n\n0, < 0 on error"]
     pub fn sceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Control the light bar on paired controllers.\n\n # Arguments\n\n* `port` (direction in) - - use 1 for the first paired controller, etc.\n * `r` (direction in) - - red intensity\n * `g` (direction in) - - green intensity\n * `b` (direction in) - - blue intensity\n\n # Returns\n\n0, <0 on error."]
     pub fn sceCtrlSetLightBar(
         port: crate::ctypes::c_int,
         r: SceUInt8,
         g: SceUInt8,
         b: SceUInt8,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set rules for button rapid fire\n\n # Arguments\n\n* `port` (direction in) - - use 0.\n * `idx` (direction in) - - rule index between 0-15\n * `pRule` (direction in) - - structure ::SceCtrlRapidFireRule.\n\n # Returns\n\n0, <0 on error."]
     pub fn sceCtrlSetRapidFire(
         port: crate::ctypes::c_int,
         idx: crate::ctypes::c_int,
         pRule: *const SceCtrlRapidFireRule,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the controller mode.\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceCtrlPadInputMode.\n\n # Returns\n\nThe previous mode, <0 on error."]
     pub fn sceCtrlSetSamplingMode(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
+    #[doc = "Set the controller extend mode.\n\n # Arguments\n\n* `mode` (direction in) - - One of ::SceCtrlPadInputMode.\n\n # Returns\n\nThe previous mode, <0 on error."]
     pub fn sceCtrlSetSamplingModeExt(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
 }
 #[link(name = "SceDebugForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDebugForDriver_stub")]
 extern "C" {
+    #[doc = "Get event log info\n\n # Arguments\n\n* `buf` (direction out) - - The SceKernelDebugEventLog buffer list\n * `buf_size` (direction in) - - The buf size\n * `read_blocks` (direction out) - - The read event log number\n\n # Returns\n\n< 0 on error."]
     pub fn ksceEventLogGetInfo(
         buf: *mut crate::ctypes::c_void,
         buf_size: SceSize,
         read_blocks: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Assertion. The condition SCE_FALSE to stopped CPU core.\n\n # Arguments\n\n* `condition` (direction in) - - The condition\n * `dbginfo` (direction in) - - The debug info\n * `lr` (direction in) - - The link register\n\n # Returns\n\nnone."]
     pub fn ksceKernelAssert(
         condition: SceBool,
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
     );
+    #[doc = "Printf Assertion Level. The condition SCE_FALSE to stopped CPU core.\n\n # Arguments\n\n* `level` (direction in) - - The print level. see:SceKernelAssertLevel\n * `condition` (direction in) - - The condition\n * `dbginfo` (direction in) - - The debug info\n * `lr` (direction in) - - The link register\n\n # Returns\n\nnone."]
     pub fn ksceKernelAssertLevel(
         level: SceUInt32,
         condition: SceBool,
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
     );
+    #[doc = "Get current minimum assertion level\n\n # Returns\n\ncurrent minimum assertion level."]
     pub fn ksceKernelGetAssertLevel() -> crate::ctypes::c_int;
+    #[doc = "Get tty log info\n\n # Arguments\n\n* `buf` (direction out) - - The tty log buffer\n * `buf_size` (direction in) - - The buf size\n\n # Returns\n\nlog length on success, < 0 on error."]
     pub fn ksceKernelGetTtyInfo(
         buf: *mut crate::ctypes::c_char,
         buf_size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Kernel Panic\n\n # Arguments\n\n* `dbginfo` (direction in) - - The debug info\n * `lr` (direction in) - - The link register"]
     pub fn ksceKernelPanic(
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
     ) -> !;
+    #[doc = "Print log\n\n # Arguments\n\n* `fmt` (direction in) - - print fmt\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - log is pass to ksceDebugRegisterPutcharHandler's handler."]
     pub fn ksceKernelPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
+    #[doc = "Printf Assertion Level. The condition SCE_FALSE to stopped CPU core.\n\n # Arguments\n\n* `level` (direction in) - - The print level. see:SceKernelAssertLevel\n * `condition` (direction in) - - The condition\n * `dbginfo` (direction in) - - The debug info\n * `lr` (direction in) - - The link register\n * `fmt` (direction in) - - The text fmt\n\n # Returns\n\nnone."]
     pub fn ksceKernelPrintfAssertLevel(
         level: SceUInt32,
         condition: SceBool,
@@ -11588,11 +13010,13 @@ extern "C" {
         fmt: *const crate::ctypes::c_char,
         ...
     );
+    #[doc = "Kernel Printf\n\n # Arguments\n\n* `level` (direction in) - - The printf level. see::SceKernelDebugLevel\n * `fmt` (direction in) - - The text format"]
     pub fn ksceKernelPrintfLevel(
         level: SceUInt32,
         fmt: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Kernel Printf Level with Info\n\n # Arguments\n\n* `level` (direction in) - - The printf level. see::SceKernelDebugLevel\n * `flags` (direction in) - - The debug info flags\n * `dbginfo` (direction in) - - The debug info\n * `fmt` (direction in) - - The text format"]
     pub fn ksceKernelPrintfLevelWithInfo(
         level: SceUInt32,
         flags: SceUInt32,
@@ -11600,22 +13024,26 @@ extern "C" {
         fmt: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Kernel Printf Panic\n\n # Arguments\n\n* `dbginfo` (direction in) - - The debug info\n * `lr` (direction in) - - The link register\n * `fmt` (direction in) - - The text format"]
     pub fn ksceKernelPrintfPanic(
         dbginfo: *const SceKernelDebugInfo,
         lr: *const crate::ctypes::c_void,
         fmt: *const crate::ctypes::c_char,
         ...
     ) -> !;
+    #[doc = "Kernel Printf with Info\n\n # Arguments\n\n* `flags` (direction in) - - ctx print flags, see:SceKernelDebugPrintFlags\n * `dbginfo` (direction in) - - debug info\n * `fmt` (direction in) - - print fmt\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - main log is pass to ksceDebugRegisterPutcharHandler's handler.\n dbginfo log is pass to ksceDebugSetHandlers's handler."]
     pub fn ksceKernelPrintfWithInfo(
         flags: SceUInt32,
         dbginfo: *const SceKernelDebugInfo,
         fmt: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Kernel Vprintf\n\n # Arguments\n\n* `fmt` (direction in) - - The text format\n * `arg` (direction in) - - The fmt list"]
     pub fn ksceKernelVprintf(
         fmt: *const crate::ctypes::c_char,
         arg: va_list,
     ) -> crate::ctypes::c_int;
+    #[doc = "Kernel Vprintf Level\n\n # Arguments\n\n* `level` (direction in) - - The printf level. see::SceKernelDebugLevel\n * `fmt` (direction in) - - The text format\n * `arg` (direction in) - - The fmt list"]
     pub fn ksceKernelVprintfLevel(
         level: SceUInt32,
         fmt: *const crate::ctypes::c_char,
@@ -11630,6 +13058,7 @@ extern "C" {}
     feature = "SceDebugForKernel_stub"
 ))]
 extern "C" {
+    #[doc = "Set kpanic flag\n\n # Arguments\n\n* `flag` (direction in) - - If pass not zero to flag, kpanic is not stopped and do smc 0x122.\n\n # Returns\n\nprevious flag."]
     pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
     pub fn ksceDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
@@ -11656,6 +13085,7 @@ extern "C" {
 #[link(name = "SceDebugForKernel_stub", kind = "static")]
 #[cfg(feature = "SceDebugForKernel_stub")]
 extern "C" {
+    #[doc = "Get current minimum assertion level\n\n # Arguments\n\n* `level` (direction in) - - new minimum assertion level\n\n # Returns\n\nprevious minimum assertion level."]
     pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceDebugLedForDriver_stub", kind = "static")]
@@ -11730,84 +13160,115 @@ extern "C" {
 #[link(name = "SceDipswForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDipswForDriver_stub")]
 extern "C" {
+    #[doc = "Check dipsw bit.\n\n # Arguments\n\n* `bit` (direction in) - - The dipsw bit index\n\n # Returns\n\nzero or one."]
     pub fn ksceKernelCheckDipsw(bit: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Clear dipsw bit.\n\n # Arguments\n\n* `bit` (direction in) - - The dipsw bit index\n\n # Returns\n\nnone."]
     pub fn ksceKernelClearDipsw(bit: crate::ctypes::c_uint);
+    #[doc = "Get dipsw info.\n\n # Arguments\n\n* `idx` (direction in) - - The info index\n - 0:CP Time\n - 1:bid & version\n - 2:CP Time\n - 3:ASLR\n - 4:SDK(SCE)\n - 5:SHELL\n - 6:debug control\n - 7:system control\n\n # Returns\n\ndipsw info."]
     pub fn ksceKernelGetDipswInfo(idx: crate::ctypes::c_uint) -> SceUInt32;
+    #[doc = "Set dipsw bit.\n\n # Arguments\n\n* `bit` (direction in) - - The dipsw bit index\n\n # Returns\n\nnone."]
     pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
 }
 #[link(name = "SceDisplayForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDisplayForDriver_stub")]
 extern "C" {
+    #[doc = "Get current framebuffer parameters\n\n # Arguments\n\n* `pParam` (direction out) - - Pointer to a ::SceDisplayFrameBuf structure\n which will receive framebuffer parameters.\n\n * `sync` (direction in) - - One of ::DisplaySetBufSync\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get maximum framebuffer resolution\n\n # Arguments\n\n* `width` (direction out) - - Maximum width\n * `height` (direction out) - - Maximum height\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDisplayGetMaximumFrameBufResolution(
         width: *mut crate::ctypes::c_int,
         height: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Primary display index"]
     pub fn ksceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
+    #[doc = "Get the configured framebuffer information of a head and its framebuffer index for a PID\n\n # Arguments\n\n* `pid` (direction in) - - PID of the process to get the framebuffer information from.\n It can either be a vallid PID, -1 to use the current configured\n framebuffer for the head and index, or 0 to use the PID of the caller.\n * `head` (direction in) - - Use 0 for OLED/LCD and 1 for HDMI\n * `index` (direction in) - - Can be 0 or 1\n * `info` (direction out) - - Pointer to a ::SceDisplayFrameBufInfo structure\n which will receive the framebuffer information.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDisplayGetProcFrameBufInternal(
         pid: SceUID,
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         info: *mut SceDisplayFrameBufInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Number of vertical blank pulses up to now for a display\n\n # Arguments\n\n* `display` (direction in) - - Display index"]
     pub fn ksceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Register callback to be used when the framebuffer changes\n\n # Arguments\n\n* `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayRegisterFrameBufCallback(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Register callback to be used when the framebuffer changes for a display\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayRegisterFrameBufCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register callback to be used at each vertical blank start\n\n # Arguments\n\n* `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Register callback to be used at each vertical blank start for a display\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayRegisterVblankStartCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set/Update framebuffer parameters\n\n # Arguments\n\n* `pParam` (direction in) - - Pointer to a ::SceDisplayFrameBuf structure.\n * `sync` (direction in) - - One of ::DisplaySetBufSync\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as pParam pointer, output is blacked out."]
     pub fn ksceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set/Update framebuffer parameters for display\n\n # Arguments\n\n* `head` (direction in) - - Use 0 for OLED/LCD and 1 for HDMI\n * `index` (direction in) - - Can be 0 or 1\n * `pParam` (direction in) - - Pointer to a ::SceDisplayFrameBuf structure.\n * `sync` (direction in) - - One of ::DisplaySetBufSync\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as pParam pointer, output is blacked out."]
     pub fn ksceDisplaySetFrameBufInternal(
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         pParam: *const SceDisplayFrameBuf,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Enable/disable color inversion for a display.\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `enable` (direction in) - - Enable/disable color inversion"]
     pub fn ksceDisplaySetInvertColors(
         display: crate::ctypes::c_int,
         enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set display plane owner\n\n # Arguments\n\n* `head` (direction in) - - Use 0 for OLED/LCD and 1 for HDMI\n * `index` (direction in) - - Can be 0 or 1\n * `pid` (direction in) - - PID of the new owner\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDisplaySetOwner(
         head: crate::ctypes::c_int,
         index: crate::ctypes::c_int,
         pid: SceUID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister callback used at each vertical blank start\n\n # Arguments\n\n* `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Unregister callback used at each vertical blank start for a display\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `uid` (direction in) - - Callback UID"]
     pub fn ksceDisplayUnregisterVblankStartCallbackInternal(
         display: crate::ctypes::c_int,
         uid: SceUID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start since last update of framebuffer"]
     pub fn ksceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback since last update of framebuffer"]
     pub fn ksceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start after specified number of vertical periods\n since last update of framebuffer.\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback after specified number of vertical periods\n since last update of framebuffer.\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint)
         -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start"]
     pub fn ksceDisplayWaitVblankStart() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback"]
     pub fn ksceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback for display\n\n # Arguments\n\n* `display` (direction in) - - Display index"]
     pub fn ksceDisplayWaitVblankStartCBInternal(
         display: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start for display\n\n # Arguments\n\n* `display` (direction in) - - Display index"]
     pub fn ksceDisplayWaitVblankStartInternal(
         display: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start after specified number of vertical periods\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback after specified number of vertical periods\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint)
         -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback after specified number of vertical periods for display\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitVblankStartMultiCBInternal(
         display: crate::ctypes::c_int,
         vcount: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start after specified number of vertical periods for display\n\n # Arguments\n\n* `display` (direction in) - - Display index\n * `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn ksceDisplayWaitVblankStartMultiInternal(
         display: crate::ctypes::c_int,
         vcount: crate::ctypes::c_uint,
@@ -11816,77 +13277,107 @@ extern "C" {
 #[link(name = "SceDisplay_stub", kind = "static")]
 #[cfg(feature = "SceDisplay_stub")]
 extern "C" {
+    #[doc = "Get current framebuffer parameters\n\n # Arguments\n\n* `pParam` (direction out) - - Pointer to a ::SceDisplayFrameBuf structure\n which will receive framebuffer parameters.\n\n * `sync` (direction in) - - One of ::SceDisplaySetBufSync\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get maximum framebuffer resolution\n\n # Arguments\n\n* `width` (direction out) - - Maximum width\n * `height` (direction out) - - Maximum height\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceDisplayGetMaximumFrameBufResolution(
         width: *mut crate::ctypes::c_int,
         height: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Primary display index"]
     pub fn sceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
+    #[doc = "Get current number of fps for the current screen mode.\n\n # Arguments\n\n* `pFps` (direction out) - - Pointer to a float variable to store current number of fps.\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - This function returns a theoretical value, this might not be the exact frame rate."]
     pub fn sceDisplayGetRefreshRate(pFps: *mut f32) -> crate::ctypes::c_int;
+    #[doc = "Number of vertical blank pulses up to now"]
     pub fn sceDisplayGetVcount() -> crate::ctypes::c_int;
+    #[doc = "Number of vertical blank pulses up to now for a display\n\n # Arguments\n\n* `display` (direction in) - - Display index"]
     pub fn sceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Register callback to be used at each vertical blank start\n\n # Arguments\n\n* `uid` (direction in) - - Callback UID"]
     pub fn sceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Set/Update framebuffer parameters\n\n # Arguments\n\n* `pParam` (direction in) - - Pointer to a ::SceDisplayFrameBuf structure.\n * `sync` (direction in) - - One of ::SceDisplaySetBufSync\n\n # Returns\n\n0 on success, < 0 on error.\n > **Note:** - If NULL is provided as pParam pointer, output is blacked out."]
     pub fn sceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister callback used at each vertical blank start\n\n # Arguments\n\n* `uid` (direction in) - - Callback UID"]
     pub fn sceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start since last update of framebuffer"]
     pub fn sceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback since last update of framebuffer"]
     pub fn sceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start after specified number of vertical periods\n since last update of framebuffer.\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn sceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback after specified number of vertical periods\n since last update of framebuffer.\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn sceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start"]
     pub fn sceDisplayWaitVblankStart() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback"]
     pub fn sceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start after specified number of vertical periods\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn sceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Wait for vertical blank start with callback after specified number of vertical periods\n\n # Arguments\n\n* `vcount` (direction in) - - Number of vertical periods before waiting for vertical blank start"]
     pub fn sceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
 }
 #[link(name = "SceDmacmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDmacmgrForDriver_stub")]
 extern "C" {
+    #[doc = "Generic DMA Functions\n/\n/** # /\n/**\n DMA memcpy\n\n # Arguments\n\n* `dst` (direction in) - - Destination\n * `src` (direction in) - - Source\n * `size` (direction in) - - Size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "DMA memset\n\n # Arguments\n\n* `dst` (direction in) - - Destination\n * `c` (direction in) - - Constant\n * `size` (direction in) - - Size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceDmacMemset(
         dst: *mut crate::ctypes::c_void,
         c: crate::ctypes::c_int,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Allocate a DMA Op handle.\n\n # Arguments\n\n* `name` - - Name of the DMA Op.\n\n # Returns\n\nthe ID of the DMA Op on success, < 0 on error."]
     pub fn ksceKernelDmaOpAlloc(name: *const crate::ctypes::c_char) -> SceKernelDmaOpId;
+    #[doc = "Assign a DMA Op to one of the DMA controllers.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `dmac` - - The DMA controller to assign it to.\n * `channel` - - The channel of the controller (0 - 15 for DMAC4, 0 otherwise).\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpAssign(
         opid: SceKernelDmaOpId,
         dmac: SceKernelDmacId,
         channel: SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Append a new list of tags to the DMA Op.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `pTag` - - The list of DMA tags to append.\n * `flag` - - One of ::SceKernelDmaOpFlag.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpConcatenate(
         opid: SceKernelDmaOpId,
         pTag: *mut SceKernelDmaOpTag,
         flag: SceKernelDmaOpFlag,
     ) -> crate::ctypes::c_int;
+    #[doc = "Dequeue a DMA Op.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpDeQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    #[doc = "Enqueue a DMA Op.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpEnQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    #[doc = "Free a DMA Op handle.\n\n # Arguments\n\n* `opid` - - The DMA Op to free.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpFree(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    #[doc = "Cancel a DMA Op.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpQuit(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    #[doc = "Set the callback for the completion of the DMA Op.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `callback` - - The callback.\n * `pUserData` - - The callback parameter.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpSetCallback(
         opid: SceKernelDmaOpId,
         callback: SceKernelDmaOpCallback,
         pUserData: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Setup a DMA Op with a chain of tags\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `pTag` - - The list of DMA tags for the op.\n * `pParam` - - The parameters for the DMA Op.\n * `flag` - - One of ::SceKernelDmaOpFlag.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpSetupChain(
         opid: SceKernelDmaOpId,
         pTag: *mut SceKernelDmaOpTag,
         pParam: *mut SceKernelDmaOpChainParam,
         flag: SceKernelDmaOpFlag,
     ) -> crate::ctypes::c_int;
+    #[doc = "Setup a DMA Op with a direct set of parameters.\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `pParam` - - The parameters for the DMA Op.\n * `flag` - - One of ::SceKernelDmaOpFlag, excluding ::SCE_KERNEL_DMA_OP_COMPLETE_CHAIN.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpSetupDirect(
         opid: SceKernelDmaOpId,
         pParam: *mut SceKernelDmaOpDirectParam,
         flag: SceKernelDmaOpFlag,
     ) -> crate::ctypes::c_int;
+    #[doc = "Synchronize with the completion of a DMA Op\n\n # Arguments\n\n* `opid` - - The target DMA Op.\n * `syncMode` - - One of ::SceKernelDmaOpSyncMode\n * `pTimeout` - - Time limit for ::SCE_KERNEL_DMA_OP_SYNC_TIMED_WAIT\n * `ppErrorTag` - - The ::SceKernelDmaOpTag which was running when the DMA Op failed.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelDmaOpSync(
         opid: SceKernelDmaOpId,
         syncMode: SceKernelDmaOpSyncMode,
@@ -11956,7 +13447,9 @@ extern "C" {}
     feature = "SceExcpmgrForKernel_stub"
 ))]
 extern "C" {
+    #[doc = "Get a pointer to SceExcpmgr's internal data\n\n This is only used by exception handlers.\n\n # Returns\n\npointer to SceExcpmgrData structure"]
     pub fn ksceExcpmgrGetData() -> *mut SceExcpmgrData;
+    #[doc = "Register an exception handler\n\n `handler` must point to eight bytes of space followed by the handler code.\n The space will be used in the internal linked list structure.\n\n # Arguments\n\n* `kind` (direction in) - The kind of exception\n * `priority` (direction in) - The priority (must be 0 <= priority < 8), 0 highest\n * `handler` - The handler\n\n # Returns\n\nError code or zero on success"]
     pub fn ksceExcpmgrRegisterHandler(
         kind: SceExcpKind,
         priority: crate::ctypes::c_int,
@@ -12000,19 +13493,23 @@ extern "C" {
 #[link(name = "SceFios2KernelForDriver_stub", kind = "static")]
 #[cfg(feature = "SceFios2KernelForDriver_stub")]
 extern "C" {
+    #[doc = "Overlay process file system overlay\n\n # Arguments\n\n* `overlay` (direction in) - - Overlay config pointer\n * `outID` (direction out) - - outID pointer\n\n # Returns\n\nError code or zero on success"]
     pub fn ksceFiosKernelOverlayAdd(
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Overlay process file system overlay\n\n # Arguments\n\n* `pid` (direction in) - - Process id\n * `overlay` (direction in) - - Overlay config pointer\n * `outID` (direction out) - - outID pointer\n\n # Returns\n\nError code or zero on success"]
     pub fn ksceFiosKernelOverlayAddForProcess(
         pid: SceUID,
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Remove process file system overlay\n\n # Arguments\n\n* `pid` (direction in) - - Process id\n * `id` (direction in) - - Overlay id\n\n # Returns\n\nError code or zero on success"]
     pub fn ksceFiosKernelOverlayRemoveForProcess(
         pid: SceUID,
         id: SceFiosOverlayID,
     ) -> crate::ctypes::c_int;
+    #[doc = "Resolve process file system overlay with sync\n\n # Arguments\n\n* `pid` (direction in) - - Process id\n * `resolveFlag` (direction in) - - Some flags\n * `inPath` (direction in) - - Path input\n * `outPath` (direction out) - - Path output\n * `maxPath` (direction in) - - Path output max length\n\n # Returns\n\nError code or zero on success"]
     pub fn ksceFiosKernelOverlayResolveSync(
         pid: SceUID,
         resolveFlag: crate::ctypes::c_int,
@@ -13073,24 +14570,29 @@ extern "C" {}
 #[link(name = "SceHid_stub", kind = "static")]
 #[cfg(feature = "SceHid_stub")]
 extern "C" {
+    #[doc = "Enumerate hid keyboards.\n\n # Arguments\n\n* `\thandle\tBuffer` (direction out) - to receive keyboard hid handles.\n * `\tcount` (direction in) - Number of keyboards to enumerate"]
     pub fn sceHidKeyboardEnumerate(
         handle: *mut crate::ctypes::c_int,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get hid keyboard reports (non-blocking).\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
     pub fn sceHidKeyboardPeek(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get hid keyboard reports (blocking).\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
     pub fn sceHidKeyboardRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
         nReports: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Enumerate hid mice.\n\n # Arguments\n\n* `\thandle\tBuffer` (direction out) - to receive mouse hid handles.\n * `\tcount` (direction in) - Number of mice to enumerate"]
     pub fn sceHidMouseEnumerate(
         handle: *mut crate::ctypes::c_int,
         count: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get hid mouse reports.\n\n # Arguments\n\n* `\thandle\t\tHid` (direction in) - handle.\n * `\treports\t\tBuffer` (direction in) - to receive reports.\n * `\tnReports\tNumber` (direction in) - of reports to receive."]
     pub fn sceHidMouseRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidMouseReport,
@@ -13319,6 +14821,7 @@ extern "C" {
         errNum: *mut crate::ctypes::c_int,
         detail: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register RootCA certificate for HTTPS authentication\n\n # Arguments\n\n* `caCertNum` (direction in) - - Number of elements of the list referncing to RootCA certificate\n * `caList` (direction in) - - List referencing to RootCA certificate\n * `cert` (direction in) - - Client certificate\n * `privKey` (direction in) - - Private key\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** <b>SCE_SYSMODULE_HTTPS</b> module must be loaded with ::sceSysmoduleLoadModule to use this function."]
     pub fn sceHttpsLoadCert(
         caCertNum: crate::ctypes::c_int,
         caList: *mut *const SceHttpsData,
@@ -13366,10 +14869,12 @@ extern "C" {
 #[link(name = "SceIdStorageForDriver_stub", kind = "static")]
 #[cfg(feature = "SceIdStorageForDriver_stub")]
 extern "C" {
+    #[doc = "# Arguments\n\n* `leafnum` (direction in) - - The read target leaf number\n * `buf` (direction out) - - The leaf data buffer pointer, size is 512 byte\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceIdStorageReadLeaf(
         leafnum: SceSize,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `leafnum` (direction in) - - The write target leaf number\n * `buf` (direction in) - - The leaf data buffer pointer, size is 512 byte\n\n # Returns\n\n0 on success, < 0 on error.\n\n note - Writing to leaf requires manufacturing mode."]
     pub fn ksceIdStorageWriteLeaf(
         leafnum: SceSize,
         buf: *const crate::ctypes::c_void,
@@ -13397,11 +14902,17 @@ extern "C" {
 #[link(name = "SceIncomingDialog_stub", kind = "static")]
 #[cfg(feature = "SceIncomingDialog_stub")]
 extern "C" {
+    #[doc = "Close incoming dialog."]
     pub fn sceIncomingDialogClose() -> SceInt32;
+    #[doc = "Finish incoming dialog library"]
     pub fn sceIncomingDialogFinish() -> SceInt32;
+    #[doc = "Returns current status of incoming dialog."]
     pub fn sceIncomingDialogGetStatus() -> SceInt32;
+    #[doc = "Initialize incoming dialog library, init_type must be 1."]
     pub fn sceIncomingDialogInitialize(init_type: crate::ctypes::c_int) -> SceInt32;
+    #[doc = "Open incoming dialog."]
     pub fn sceIncomingDialogOpen(dialogParam: *mut SceIncomingDialogParam) -> SceInt32;
+    #[doc = "Force exit to LiveArea and show dialog window"]
     pub fn sceIncomingDialogSwitchToDialog() -> SceInt32;
 }
 #[link(name = "SceIntrmgrForDriver_stub", kind = "static")]
@@ -13485,18 +14996,23 @@ extern "C" {}
 #[link(name = "SceIofilemgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceIofilemgrForDriver_stub")]
 extern "C" {
+    #[doc = "Change the status of a file.\n\n # Arguments\n\n* `file` - - The path to the file.\n * `stat` - - A pointer to a ::SceIoStat structure.\n * `bits` - - Bitmask defining which bits to change.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoChstat(
         file: *const crate::ctypes::c_char,
         stat: *mut SceIoStat,
         bits: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the status of a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor.\n * `stat` - - A pointer to an io_stat_t structure.\n * `bits` - - Bitmask defining which bits to change.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoChstatByFd(
         fd: SceUID,
         stat: *mut SceIoStat,
         bits: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Delete a descriptor\n\n ksceIoClose(fd);\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
     pub fn ksceIoClose(fd: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Close an opened directory file descriptor\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::ksceIoDopen)\n # Returns\n\n< 0 on error"]
     pub fn ksceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n SceIoDevInfo info;\n ksceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceIoDevctl(
         dev: *const crate::ctypes::c_char,
         cmd: crate::ctypes::c_uint,
@@ -13505,36 +15021,47 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open a directory\n\n # Example:\n int dfd;\n dfd = ksceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
     pub fn ksceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
+    #[doc = "Reads an entry from an opened file descriptor.\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::ksceIoDopen)\n * `dir` - - Pointer to an ::SceIoDirent structure to hold the file information\n\n # Returns\n\nRead status\n - 0 - No more directory entries left\n - > 0 - More directory entries to go\n - < 0 - Error"]
     pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
+    #[doc = "Get file info\n\n # Arguments\n\n* `fd` (direction in) - - file descriptor\n * `pid` (direction in) - - process id\n * `info` (direction out) - - fd info output\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetFileInfo(
         fd: SceUID,
         pid: SceUID,
         info: *mut SceIofileInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get global file descriptor\n\n # Arguments\n\n* `vis_level` (direction in) - - unknown, set 5\n * `dst` (direction out) - - fd list output\n * `max_size` (direction in) - - dst array count\n * `res_size` (direction out) - - result array count output\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetGUIDFdListForDebugger(
         vis_level: crate::ctypes::c_int,
         dst: *mut SceIoFdInfo,
         max_size: SceSize,
         res_size: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get process file descriptor\n\n # Arguments\n\n* `vis_level` (direction in) - - unknown, set 5\n * `dst` (direction out) - - fd list output\n * `max_size` (direction in) - - dst array count\n * `res_size` (direction out) - - result array count output\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetPUIDFdListForDebugger(
         vis_level: crate::ctypes::c_int,
         dst: *mut SceIoFdInfo,
         max_size: SceSize,
         res_size: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get Remote Kernel Process Local Storage Data\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n * `dst` (direction out) - - The pointer of RemoteKPLS output buffer. size is 0x1C.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetRemoteKPLSData(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a file.\n\n # Arguments\n\n* `file` - - The path to the file.\n * `stat` - - A pointer to a ::SceIoStat structure.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetstat(
         file: *const crate::ctypes::c_char,
         stat: *mut SceIoStat,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor.\n * `stat` - - A pointer to a ::SceIoStat structure.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
+    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n pos = ksceIoLseek(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
+    #[doc = "Make a directory file\n\n # Arguments\n\n* `dir` - - The path to the directory\n * `mode` - - Access mode (One or more ::SceIoAccessMode).\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+    #[doc = "Mounts a device\n\n # Arguments\n\n* `id` (direction in) - Device to mount\n * `path` (direction in) - Where to mount to\n * `permission` (direction in) - Permission flags\n * `a4` - Unknown, set to 0\n * `a5` - Unknown, set to 0\n * `a6` - Unknown, set to 0\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoMount(
         id: crate::ctypes::c_int,
         path: *const crate::ctypes::c_char,
@@ -13543,45 +15070,56 @@ extern "C" {
         a5: crate::ctypes::c_int,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777)) {\n\t// error\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777)) {\n\t// error\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open\n * `flags` - - Libc styled flags that are or'ed together\n * `mode` - - File access mode (One or more ::SceIoMode).\n # Returns\n\nA non-negative integer is a valid fd, anything else an error"]
     pub fn ksceIoOpen(
         file: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         mode: SceMode,
     ) -> SceUID;
+    #[doc = "Read input at offset\n\n # Example:\n bytes_read = ksceIoPread(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoPread(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Write output at offset\n\n # Example:\n bytes_written = ksceIoPwrite(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn ksceIoPwrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Read input\n\n # Example:\n bytes_read = ksceIoRead(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
     pub fn ksceIoRead(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Remove directory entry\n\n # Arguments\n\n* `file` - - Path to the file to remove\n # Returns\n\n< 0 on error"]
     pub fn ksceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Change the name of a file\n\n # Arguments\n\n* `oldname` - - The old filename\n * `newname` - - The new filename\n # Returns\n\n< 0 on error."]
     pub fn ksceIoRename(
         oldname: *const crate::ctypes::c_char,
         newname: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Remove a directory file\n\n # Arguments\n\n* `path` - - Removes a directory file pointed by the string path\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Synchronize the file data on the device.\n\n # Arguments\n\n* `device` - - The device to synchronize (e.g. msfat0:)\n * `unk` - - Unknown"]
     pub fn ksceIoSync(
         device: *const crate::ctypes::c_char,
         unk: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Synchronize the file data for one file\n\n # Arguments\n\n* `fd` - - Opened file descriptor to sync\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoSyncByFd(fd: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Unmounts a device\n\n # Arguments\n\n* `id` (direction in) - Device to unmount\n * `a2` (direction in) - Unknown, set to 0\n * `a3` (direction in) - Unknown, set to 0\n * `a4` (direction in) - Unknown, set to 0\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoUmount(
         id: crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
         a3: crate::ctypes::c_int,
         a4: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Write output\n\n # Example:\n bytes_written = ksceIoWrite(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn ksceIoWrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
@@ -13591,22 +15129,29 @@ extern "C" {
 #[link(name = "SceIofilemgr_stub", kind = "static")]
 #[cfg(feature = "SceIofilemgr_stub")]
 extern "C" {
+    #[doc = "Cancel an asynchronous operation on a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor to perform cancel on.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoCancel(fd: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delete a descriptor\n\n sceIoClose(fd);\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
     pub fn sceIoClose(fd: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Close an opened directory file descriptor\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::sceIoDopen)\n # Returns\n\n< 0 on error"]
     pub fn sceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
     pub fn sceIoGetPriority(fd: SceUID) -> crate::ctypes::c_int;
     pub fn sceIoGetProcessDefaultPriority() -> crate::ctypes::c_int;
     pub fn sceIoGetThreadDefaultPriority() -> crate::ctypes::c_int;
+    #[doc = "Reposition read/write file descriptor offset (32bit mode)\n\n # Example:\n pos = sceIoLseek32(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn sceIoLseek32(
         fd: SceUID,
         offset: crate::ctypes::c_long,
         whence: crate::ctypes::c_int,
     ) -> crate::ctypes::c_long;
+    #[doc = "Read input\n\n # Example:\n bytes_read = sceIoRead(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `buf` - - Pointer to the buffer where the read data will be placed\n * `nbyte` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
     pub fn sceIoRead(fd: SceUID, buf: *mut crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
     pub fn sceIoSetPriority(fd: SceUID, priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceIoSetProcessDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceIoSetThreadDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Synchronize the file data for one file\n\n # Arguments\n\n* `fd` - - Opened file descriptor to sync\n * `flag` - - unknown\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoSyncByFd(fd: SceUID, flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Write output\n\n # Example:\n bytes_written = sceIoWrite(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `buf` - - Pointer to the data to write\n * `nbyte` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn sceIoWrite(fd: SceUID, buf: *const crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
 }
 #[link(name = "SceJpegArm_stub", kind = "static")]
@@ -13641,12 +15186,16 @@ extern "C" {
 #[link(name = "SceJpegEncArm_stub", kind = "static")]
 #[cfg(feature = "SceJpegEncArm_stub")]
 extern "C" {
+    #[doc = "Execute a JPEG encode.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n * `inBuffer` (direction in) - - An 8 byte aligned memory block of color data.\n\n # Returns\n\nEncoded JPEG size on success, < 0 on error."]
     pub fn sceJpegArmEncoderEncode(
         context: SceJpegArmEncoderContext,
         inBuffer: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Terminate a JPEG encoder.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderEnd(context: SceJpegArmEncoderContext) -> crate::ctypes::c_int;
+    #[doc = "Get required size of context memory.\n\n # Returns\n\nRequired size of allocated memory."]
     pub fn sceJpegArmEncoderGetContextSize() -> SceSize;
+    #[doc = "Initialize a JPEG encoder.\n\n # Arguments\n\n* `context` (direction in) - - An allocated encoder context of appropriate size.\n * `inWidth` (direction in) - - Input width in pixels.\n * `inHeight` (direction in) - - Input height in pixels.\n * `pixelformat` (direction in) - - One of ::SceJpegArmEncoderPixelFormat.\n * `outBuffer` (direction in) - - A sufficiently sized 8 byte aligned output buffer.\n * `outSize` (direction in) - - Output buffer size in bytes.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderInit(
         context: SceJpegArmEncoderContext,
         inWidth: SceUInt16,
@@ -13655,19 +15204,23 @@ extern "C" {
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the encoder compression ratio.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n * `ratio` (direction in) - - A value between 1 and 255 (higher = better compression, lower = better speed).\n\n See SCE_JPEGENCARM_DEFAULT_COMP_RATIO for the default compression ratio.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderSetCompressionRatio(
         context: SceJpegArmEncoderContext,
         ratio: SceUInt8,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set header used for output file.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n * `mode` (direction in) - - One of ::SceJpegArmEncoderHeaderMode.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderSetHeaderMode(
         context: SceJpegArmEncoderContext,
         mode: SceJpegArmEncoderHeaderMode,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder output address.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n * `outBuffer` (direction in) - - A sufficiently sized 8 byte aligned output buffer.\n * `outSize` (direction in) - - Output buffer size in bytes.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderSetOutputAddr(
         context: SceJpegArmEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the region of the image to be encoded as JPEG. The encoded region starts\n from (0,0), which is the top left of the image, and expands outward by regionWidth and regionHeight.\n\n # Arguments\n\n* `context` (direction in) - - An already initialized ::SceJpegArmEncoderContext.\n * `regionWidth` (direction in) - - Width of the region in pixels.\n * `regionHeight` (direction in) - - Height of the region in pixels.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegArmEncoderSetValidRegion(
         context: SceJpegArmEncoderContext,
         regionWidth: SceUInt16,
@@ -13677,6 +15230,7 @@ extern "C" {
 #[link(name = "SceJpegEnc_stub", kind = "static")]
 #[cfg(feature = "SceJpegEnc_stub")]
 extern "C" {
+    #[doc = "Execute a color conversion from ARGB to YCbCr\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `outBuffer` (direction in) - - A physical continuous memory block 256 bytes aligned\n * `inBuffer` (direction in) - - A pointer to a valid ARGB buffer\n * `inPitch` (direction in) - - Input pitch value in pixels\n * `inPixelFormat` (direction in) - - A valid ::SceJpegEncoderPixelFormat set of values\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderCsc(
         context: SceJpegEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
@@ -13684,12 +15238,16 @@ extern "C" {
         inPitch: crate::ctypes::c_int,
         inPixelFormat: SceJpegEncoderPixelFormat,
     ) -> crate::ctypes::c_int;
+    #[doc = "Execute a jpeg encode\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `inBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n\n # Returns\n\nencoded jpeg size on success, < 0 on error."]
     pub fn sceJpegEncoderEncode(
         context: SceJpegEncoderContext,
         inBuffer: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Terminate a jpeg encoder\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
+    #[doc = "Return required free size to allocate a jpeg encoder\n\n # Returns\n\nRequired free memory size in bytes, < 0 on error."]
     pub fn sceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
+    #[doc = "Initialize a jpeg encoder\n\n # Arguments\n\n* `context` (direction in) - - A pointer to a big enough allocated memory block\n * `inWidth` (direction in) - - Input width in pixels\n * `inHeight` (direction in) - - Input height in pixels\n * `pixelformat` (direction in) - - A valid ::SceJpegEncoderPixelFormat set of values\n * `outBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n * `outSize` (direction in) - - Output size in bytes\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderInit(
         context: SceJpegEncoderContext,
         inWidth: crate::ctypes::c_int,
@@ -13698,23 +15256,28 @@ extern "C" {
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Initialize a jpeg encoder with param\n\n # Arguments\n\n* `initParam` (direction in) - - A pointer to the initialization parameters\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderInitWithParam(
         context: SceJpegEncoderContext,
         initParam: *const SceJpegEncoderInitParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder compression ratio\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `ratio` (direction in) - - A value between 0 and 255 (higher = better compression, lower = better speed)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderSetCompressionRatio(
         context: SceJpegEncoderContext,
         ratio: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set header used for output file\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `mode` (direction in) - - One of ::SceJpegEncoderHeaderMode\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderSetHeaderMode(
         context: SceJpegEncoderContext,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder output address\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `outBuffer` (direction in) - - A physically continuous memory block 256 bytes aligned\n * `outSize` (direction in) - - Output buffer size in bytes\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderSetOutputAddr(
         context: SceJpegEncoderContext,
         outBuffer: *mut crate::ctypes::c_void,
         outSize: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set encoder valid region (?)\n\n # Arguments\n\n* `context` (direction in) - - A pointer to an already initialized ::SceJpegEncoderContext\n * `inWidth` (direction in) - - Input width in pixels\n * `inHeight` (direction in) - - Input height in pixels\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceJpegEncoderSetValidRegion(
         context: SceJpegEncoderContext,
         inWidth: crate::ctypes::c_int,
@@ -13758,11 +15321,13 @@ extern "C" {}
 #[link(name = "SceKernelDmacMgr_stub", kind = "static")]
 #[cfg(feature = "SceKernelDmacMgr_stub")]
 extern "C" {
+    #[doc = "DMA memcpy\n\n # Arguments\n\n* `dst` (direction in) - - Destination\n * `src` (direction in) - - Source\n * `size` (direction in) - - Size\n\n # Returns\n\n< 0 on error."]
     pub fn sceDmacMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "DMA memset\n\n # Arguments\n\n* `dst` (direction in) - - Destination\n * `ch` (direction in) - - The character\n * `size` (direction in) - - Size\n\n # Returns\n\n< 0 on error."]
     pub fn sceDmacMemset(
         dst: *mut crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
@@ -13828,6 +15393,7 @@ extern "C" {
         uids: *mut SceUID,
         num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets system firmware information.\n\n # Arguments\n\n* `version` (direction out) - - System sw version.\n\n > **Note:** - If you spoofed the firmware version it will return the spoofed firmware."]
     pub fn sceKernelGetSystemSwVersion(
         version: *mut SceKernelSystemSwVersion,
     ) -> crate::ctypes::c_int;
@@ -13836,7 +15402,9 @@ extern "C" {
 #[link(name = "SceKernelSuspendForDriver_stub", kind = "static")]
 #[cfg(feature = "SceKernelSuspendForDriver_stub")]
 extern "C" {
+    #[doc = "Cancel specified idle timers to prevent entering in power save processing.\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceKernelPowerTickType\n\n # Returns\n\n0"]
     pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    #[doc = "Register system event handler\n\n # Arguments\n\n* `name` (direction in) - - Name of handler\n * `handler` (direction in) - - The handler\n * `args` (direction in) - - Handler arguments\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelRegisterSysEventHandler(
         name: *const crate::ctypes::c_char,
         handler: SceSysEventHandler,
@@ -13846,79 +15414,124 @@ extern "C" {
 #[link(name = "SceKernelThreadMgr_stub", kind = "static")]
 #[cfg(feature = "SceKernelThreadMgr_stub")]
 extern "C" {
+    #[doc = "Cancel a callback ?\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Set the cpu affinity mask of a thread.\n\n # Arguments\n\n* `thid` - - UID of the thread to retrieve affinity mask for.\n * `mask` - - New cpu affinity mask.\n\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelChangeThreadCpuAffinityMask(
         thid: SceUID,
         mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::sceKernelCreateThread or ::sceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n int thid = sceKernelGetThreadId();\n // Change priority of current thread to 16\n sceKernelChangeThreadPriority(thid, 16);\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelChangeThreadPriority(
         thid: SceUID,
         priority: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check callback ?\n\n # Returns\n\nSomething or another"]
     pub fn sceKernelCheckCallback() -> crate::ctypes::c_int;
+    #[doc = "Clear a event flag bit pattern\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag\n * `bits` - - The bits to clean\n\n # Returns\n\n< 0 on Error"]
     pub fn sceKernelClearEventFlag(
         evid: SceUID,
         bits: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Close a condition variable\n\n # Arguments\n\n* `condition` - variableid - The condition variable id returned from ::sceKernelCreateCond\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelCloseCond(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Close a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelCloseMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Close a rwlock\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
     pub fn sceKernelCloseSema(semaid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Create callback\n\n # Example:\n int cbid;\n cbid = sceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n # Arguments\n\n* `name` - - A textual name for the callback\n * `attr` - - ?\n * `func` - - A pointer to a function that will be called as the callback\n * `userData` - - User defined data to be passed to the callback.\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
     pub fn sceKernelCreateCallback(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_uint,
         func: SceKernelCallbackFunction,
         userData: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n sceKernelDelayThread(1000000); // Delay for a second"]
     pub fn sceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
+    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n sceKernelDelayThread(1000000); // Delay for a second"]
     pub fn sceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
+    #[doc = "Delete a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a condition variable\n\n # Arguments\n\n* `condition` - variableid - The condition variable id returned from ::sceKernelCreateCond\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delete an event flag\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag.\n\n # Returns\n\n< 0 On error"]
     pub fn sceKernelDeleteEventFlag(evid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Delete a message pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a rwlock\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelDeleteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a semaphore\n\n # Arguments\n\n* `semaid` - - The semaid returned from a previous create call.\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delate a thread\n\n # Arguments\n\n* `thid` - - UID of the thread to be deleted.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Exit a thread and delete itself.\n\n # Arguments\n\n* `status` - - Exit status"]
     pub fn sceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Exit a thread\n\n # Arguments\n\n* `status` - - Exit status."]
     pub fn sceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get the callback count\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\nThe callback count, < 0 on error"]
     pub fn sceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get the process ID of in the running thread.\n\n # Returns\n\nprocess ID of in the running thread"]
     pub fn sceKernelGetProcessId() -> SceUID;
+    #[doc = "Get the system time (wide version)\n\n # Returns\n\nThe system time"]
     pub fn sceKernelGetSystemTimeWide() -> SceInt64;
+    #[doc = "Retrive the cpu affinity mask of a thread.\n\n # Arguments\n\n* `thid` - - UID of the thread to retrieve affinity mask for.\n\n # Returns\n\ncurrent affinity mask if >= 0, otherwise the error code."]
     pub fn sceKernelGetThreadCpuAffinityMask(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get the free stack size for a thread.\n\n # Arguments\n\n* `thid` - - The thread ID\n\n # Returns\n\nThe free size."]
     pub fn sceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "sceKernelGetThreadTLSAddr gets an address to a 4 bytes area of TLS memory for the specified thread\n # Arguments\n\n* `thid` - - The UID of the thread to access TLS\n * `key` - - the TLS keyslot index\n # Returns\n\npointer to TLS memory"]
     pub fn sceKernelGetThreadTLSAddr(
         thid: SceUID,
         key: crate::ctypes::c_int,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Get the type of a Threadmgr uid\n\n # Arguments\n\n* `uid` - - The uid to get the type from\n\n # Returns\n\nThe type, < 0 on error"]
     pub fn sceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
+    #[doc = "Notify a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n * `arg2` - - Passed as arg2 into the callback function\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Open a condition variable\n\n # Arguments\n\n* `name` - - The name of the condition variable to open\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelOpenCond(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Open a mutex\n\n # Arguments\n\n* `name` - - The name of the mutex to open\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceKernelOpenMutex(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Open a rwlock\n\n # Arguments\n\n* `name` - - The name of the rwlock to open\n # Returns\n\nRWLock id on success, < 0 on error"]
     pub fn sceKernelOpenRWLock(name: *const crate::ctypes::c_char) -> SceUID;
     pub fn sceKernelOpenSema(name: *const crate::ctypes::c_char) -> SceUID;
+    #[doc = "Poll a semaphore.\n\n # Arguments\n\n* `semaid` - - UID of the semaphore to poll.\n * `signal` - - The value to test for.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Send a signal to the thread specified by thid. Note that it can send a signal to the current thread as well.\n\n # Arguments\n\n* `thid` - - the id of the thread to send a signal to\n # Returns\n\n0 on success\n SCE_KERNEL_ERROR_ALREADY_SENT if the last signal was not consumed by sceKernelWaitSignal"]
     pub fn sceKernelSendSignal(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Set an event flag bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag.\n * `bits` - - The bit pattern to set.\n\n # Returns\n\n< 0 On error"]
     pub fn sceKernelSetEventFlag(evid: SceUID, bits: crate::ctypes::c_uint)
         -> crate::ctypes::c_int;
+    #[doc = "Signals a condition variable\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Signals a condition variable to all threads waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Signals a condition variable to a specific thread waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n * `threadId` - - The thread id returned from ::sceKernelCreateThread\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Send a signal to a semaphore\n\n # Example:\n // Signal the sema\n sceKernelSignalSema(semaid, 1);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Try to lock a mutex (non-blocking)\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n * `lockCount` - - The value to increment to the lock count of the mutex\n # Returns\n\n< 0 On error."]
     pub fn sceKernelTryLockMutex(
         mutexid: SceUID,
         lockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Try to lock a rwlock with read access (non-blocking)\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelTryLockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Try to lock a rwlock with write access (non-blocking)\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelTryLockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Try to unlock a mutex (non-blocking)\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n * `unlockCount` - - The value to decrement to the lock count of the mutex\n # Returns\n\n< 0 On error."]
     pub fn sceKernelUnlockMutex(
         mutexid: SceUID,
         unlockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Try to unlock a rwlock with read access (non-blocking)\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Try to unlock a rwlock with write access (non-blocking)\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "SceKernelUtilsForDriver_stub", kind = "static")]
@@ -13944,6 +15557,7 @@ extern "C" {
         src: *const crate::ctypes::c_void,
         dst: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `ctx` (direction out) - - out key data, etc...\n * `blocksize` (direction in) - - 128 or 192 or 256\n * `keysize` (direction in) - - 128 or 192 or 256\n * `key` (direction in) - - key data\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceAesInit1(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
@@ -13962,6 +15576,7 @@ extern "C" {
         keysize: SceSize,
         key: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `dst` (direction out) - - dst buf\n * `dst_size` (direction in) - - dst buf size\n * `src` (direction in) - - Deflate compressed data\n * `next` (direction out) - - next data\n\n # Returns\n\ndecompressed size on success, < 0 on error."]
     pub fn ksceDeflateDecompress(
         dst: *mut crate::ctypes::c_void,
         dst_size: SceSize,
@@ -13975,16 +15590,20 @@ extern "C" {
         next: *mut *const crate::ctypes::c_void,
         cbInfo: *mut SceDeflatePartialInputParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `dst` (direction out) - - dst buf\n * `dst_size` (direction in) - - dst buf size\n * `src` (direction in) - - Gzip compressed data\n * `crc32` (direction out) - - crc32 when decompressed\n\n # Returns\n\ndecompressed size on success, < 0 on error."]
     pub fn ksceGzipDecompress(
         dst: *mut crate::ctypes::c_void,
         dst_size: SceSize,
         src: *const crate::ctypes::c_void,
         crc32: *mut u32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get comment string address\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n\n # Returns\n\nstring address on success, NULL on error."]
     pub fn ksceGzipGetComment(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
+    #[doc = "Get compressed data start address\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n\n # Returns\n\ncompressed data address on success, NULL on error."]
     pub fn ksceGzipGetCompressedData(
         src: *const crate::ctypes::c_void,
     ) -> *const crate::ctypes::c_void;
+    #[doc = "Get filename etc. in Gzip data\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n * `extra` (direction out) - - Get information on extra-field\n * `name` (direction out) - - Get filename information\n * `comment` (direction out) - - Get comment information\n * `crc` (direction out) - - Get CRC16 information\n * `data` (direction out) - - Get compressed data start address\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGzipGetInfo(
         src: *const crate::ctypes::c_void,
         extra: *mut *const crate::ctypes::c_void,
@@ -13993,7 +15612,9 @@ extern "C" {
         crc: *mut crate::ctypes::c_ushort,
         data: *mut *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get filename string address\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n\n # Returns\n\nstring address on success, NULL on error."]
     pub fn ksceGzipGetName(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
+    #[doc = "Check magic of Gzip header\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n\n # Returns\n\n1 on success, 0 is not Gzip data."]
     pub fn ksceGzipIsValid(src: *const crate::ctypes::c_void) -> crate::ctypes::c_int;
     pub fn ksceHmacSha1Digest(
         key: *const crate::ctypes::c_void,
@@ -14061,15 +15682,18 @@ extern "C" {
         len: SceSize,
         digest: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `dst` (direction out) - - dst buf\n * `dst_size` (direction in) - - dst buf size\n * `src` (direction in) - - Zlib compressed data\n * `adler32` (direction out) - - adler32 when decompressed\n\n # Returns\n\ndecompressed size on success, < 0 on error."]
     pub fn ksceZlibDecompress(
         dst: *mut crate::ctypes::c_void,
         dst_size: SceSize,
         src: *const crate::ctypes::c_void,
         adler32: *mut u32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get compressed data start address\n\n # Arguments\n\n* `src` (direction in) - - Gzip compressed data\n\n # Returns\n\ncompressed data address on success, NULL on error."]
     pub fn ksceZlibGetCompressedData(
         src: *const crate::ctypes::c_void,
     ) -> *const crate::ctypes::c_void;
+    #[doc = "Get filename etc. in Zlib data\n\n # Arguments\n\n* `src` (direction in) - - Zlib compressed data\n * `cmf` (direction out) - - Get CMF (Compression Method and flags)\n * `flg` (direction out) - - Get FLG (FLaGs)\n * `dictid` (direction out) - - Get DictId\n * `data` (direction out) - - Get compressed data start address\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceZlibGetInfo(
         src: *const crate::ctypes::c_void,
         cmf: *mut crate::ctypes::c_uchar,
@@ -14089,26 +15713,31 @@ extern "C" {}
 extern "C" {}
 #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
 extern "C" {
+    #[doc = "Search character from memory\n\n # Arguments\n\n* `src` (direction in) - - The memory source\n * `ch` (direction in) - - The character\n * `len` (direction in) - - The search length\n\n # Returns\n\nIf found character, return it position. else NULL."]
     pub fn memchr(
         src: *const crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
         n: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Memory comparison\n\n # Arguments\n\n* `s1` (direction in) - - The memory source1\n * `s2` (direction in) - - The memory source2\n * `len` (direction in) - - The cmp length\n\n # Returns\n\nIf same memory contents, zero. else not zero."]
     pub fn memcmp(
         s1: *const crate::ctypes::c_void,
         s2: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Copy memory1 to memory2\n\n # Arguments\n\n* `dst` (direction in) - - The output buffer pointer\n * `src` (direction in) - - The input buffer pointer\n * `len` (direction in) - - The copy length\n\n # Returns\n\ndst."]
     pub fn memcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Move memory to memory\n\n # Arguments\n\n* `dst` (direction in) - - The buffer pointer\n * `src` (direction in) - - The buffer pointer\n * `len` (direction in) - - The move length\n\n # Returns\n\ndst."]
     pub fn memmove(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Set character to memory\n\n # Arguments\n\n* `dst` (direction in) - - The output buffer pointer\n * `ch` (direction in) - - The character\n * `len` (direction in) - - The character set length\n\n # Returns\n\ndst."]
     pub fn memset(
         dst: *mut crate::ctypes::c_void,
         ch: crate::ctypes::c_int,
@@ -14120,25 +15749,31 @@ extern "C" {
         fmt: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Search character from string\n\n # Arguments\n\n* `src` (direction in) - - The string source\n * `ch` (direction in) - - The character\n\n # Returns\n\nIf found character, return it position. else NULL."]
     pub fn strchr(
         src: *const crate::ctypes::c_char,
         ch: crate::ctypes::c_int,
     ) -> *mut crate::ctypes::c_char;
+    #[doc = "Strings comparison\n\n # Arguments\n\n* `s1` (direction in) - - The string source1\n * `s2` (direction in) - - The string source2\n\n # Returns\n\nIf same string contents, zero. else not zero."]
     pub fn strcmp(
         s1: *const crate::ctypes::c_char,
         s2: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get string length\n\n # Arguments\n\n* `s` (direction in) - - The string pointer\n\n # Returns\n\nString length."]
     pub fn strlen(s: *const crate::ctypes::c_char) -> crate::ctypes::c_uint;
+    #[doc = "Strings comparison with length limit\n\n # Arguments\n\n* `s1` (direction in) - - The string source1\n * `s2` (direction in) - - The string source2\n * `n` (direction in) - - The max length\n\n # Returns\n\nIf same string contents, zero. else not zero."]
     pub fn strncmp(
         s1: *const crate::ctypes::c_char,
         s2: *const crate::ctypes::c_char,
         n: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Copy string with length limit\n\n # Arguments\n\n* `dst` (direction in) - - The output buffer pointer\n * `src` (direction in) - - The input buffer pointer\n * `n` (direction in) - - The max copy length\n\n # Returns\n\nIf same string contents, zero. else not zero."]
     pub fn strncpy(
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         n: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_char;
+    #[doc = "Search string from string\n\n # Arguments\n\n* `s1` (direction in) - - The string source1\n * `s2` (direction in) - - The string source2\n\n # Returns\n\nIf found string, return it position. else NULL."]
     pub fn strstr(
         s1: *const crate::ctypes::c_char,
         s2: *const crate::ctypes::c_char,
@@ -14170,6 +15805,7 @@ extern "C" {
 #[link(name = "SceLibDbg_stub", kind = "static")]
 #[cfg(feature = "SceLibDbg_stub")]
 extern "C" {
+    #[doc = "Handler for assertion logging in this library. The complete formatted\n output must not exceed 511 characters, so it is advised your message\n does not exceed ~256 characters. The output will be truncated if it\n does exceed 511 characters.\n\n # Arguments\n\n* `file` (direction in) - - Name of the file where the call was made.\n * `line` (direction in) - - Line number where the call was made.\n * `unk` (direction in) - - Unknown, never used internally.\n * `component` (direction in) - - Name of the component where the call was made. Optional field.\n * `msg` (direction in) - - printf formatted message.\n\n # Returns\n\nWill return the unk parameter."]
     pub fn sceDbgAssertionHandler(
         file: *const crate::ctypes::c_char,
         line: crate::ctypes::c_int,
@@ -14178,6 +15814,7 @@ extern "C" {
         msg: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Handler for logging in this library. The complete formatted\n output must not exceed 511 characters, so it is advised\n that your message does not exceed ~300 characters. The output\n will be truncated if it does exceed 511 characters. A line break\n is automatically appended.\n\n # Arguments\n\n* `file` (direction in) - - Name of the file where the call was made.\n * `line` (direction in) - - Line number where the call was made.\n * `logLevel` (direction in) - - One of ::SceDbgLogLevel.\n * `component` (direction in) - - Name of the component where the call was made. Optional field.\n * `msg` (direction in) - - printf formatted message.\n\n # Returns\n\n0 on success, <0 on truncation of message."]
     pub fn sceDbgLoggingHandler(
         file: *const crate::ctypes::c_char,
         line: crate::ctypes::c_int,
@@ -14186,8 +15823,11 @@ extern "C" {
         msg: *const crate::ctypes::c_char,
         ...
     ) -> crate::ctypes::c_int;
+    #[doc = "Set whether or not to enter a breakpoint upon logging an error.\n Disabled by default.\n\n # Arguments\n\n* `breakOnError` (direction in) - - Enter the breakpoint?"]
     pub fn sceDbgSetBreakOnErrorState(breakOnError: SceBool);
+    #[doc = "Set whether or not to enter a breakpoint upon logging a warning.\n Disabled by default.\n\n # Arguments\n\n* `breakOnWarning` (direction in) - - Enter the breakpoint?"]
     pub fn sceDbgSetBreakOnWarningState(breakOnWarning: SceBool);
+    #[doc = "Set the minimum logging level. Any attempts to log at a level lower\n than this will not be outputted."]
     pub fn sceDbgSetMinimumLogLevel(level: SceDbgLogLevel);
 }
 #[link(name = "SceLibG729_stub", kind = "static")]
@@ -14199,6 +15839,7 @@ extern "C" {}
 #[link(name = "SceLibKernel_stub", kind = "static")]
 #[cfg(feature = "SceLibKernel_stub")]
 extern "C" {
+    #[doc = "Run bkpt #0x88 and end the process in state -1\n\n # Returns\n\nnone"]
     pub fn sceClibAbort();
     pub fn sceClibLookCtypeTable(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
     pub fn sceClibMemchr(
@@ -14315,16 +15956,19 @@ extern "C" {
         fmt: *const crate::ctypes::c_char,
         args: va_list,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the status of a file.\n\n # Arguments\n\n* `file` - - The path to the file.\n * `stat` - - A pointer to a ::SceIoStat structure.\n * `bits` - - Bitmask defining which bits to change.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoChstat(
         file: *const crate::ctypes::c_char,
         stat: *mut SceIoStat,
         bits: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the status of a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor.\n * `stat` - - A pointer to an io_stat_t structure.\n * `bits` - - Bitmask defining which bits to change.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoChstatByFd(
         fd: SceUID,
         buf: *const SceIoStat,
         cbit: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n SceIoDevInfo info;\n sceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceIoDevctl(
         dev: *const crate::ctypes::c_char,
         cmd: crate::ctypes::c_uint,
@@ -14333,13 +15977,18 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open a directory\n\n # Example:\n int dfd;\n dfd = sceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
     pub fn sceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
+    #[doc = "Reads an entry from an opened file descriptor.\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::sceIoDopen)\n * `dir` - - Pointer to a ::SceIoDirent structure to hold the file information\n\n # Returns\n\nRead status\n - 0 - No more directory entries left\n - > 0 - More directory entries to go\n - < 0 - Error"]
     pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a file.\n\n # Arguments\n\n* `file` - - The path to the file.\n * `stat` - - A pointer to a ::SceIoStat structure.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoGetstat(
         file: *const crate::ctypes::c_char,
         stat: *mut SceIoStat,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor.\n * `stat` - - A pointer to a ::SceIoStat structure.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
+    #[doc = "Perform an ioctl on a device.\n\n # Arguments\n\n* `fd` - - Opened file descriptor to ioctl to\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceIoIoctl(
         fd: SceUID,
         cmd: crate::ctypes::c_uint,
@@ -14348,6 +15997,7 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Perform an ioctl on a device. (asynchronous)\n\n # Arguments\n\n* `fd` - - Opened file descriptor to ioctl to\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceIoIoctlAsync(
         fd: SceUID,
         cmd: crate::ctypes::c_uint,
@@ -14356,31 +16006,40 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n pos = sceIoLseek(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
+    #[doc = "Make a directory file\n\n # Arguments\n\n* `dir` - - The path to the directory\n * `mode` - - Access mode (One or more ::SceIoAccessMode).\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open.\n * `flags` - - Libc styled flags that are or'ed together (One or more ::SceIoMode).\n * `mode` - - One or more ::SceIoAccessMode flags or'ed together. Can also use Unix absolute permissions.\n # Returns\n\n> 0 is a valid file handle, < 0 on error."]
     pub fn sceIoOpen(
         file: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         mode: SceMode,
     ) -> SceUID;
+    #[doc = "Read input at offset\n\n # Example:\n bytes_read = sceIoPread(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoPread(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Write output at offset\n\n # Example:\n bytes_written = sceIoPwrite(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn sceIoPwrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
+    #[doc = "Remove directory entry\n\n # Arguments\n\n* `file` - - Path to the file to remove\n # Returns\n\n< 0 on error"]
     pub fn sceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Change the name of a file\n\n # Arguments\n\n* `oldname` - - The old filename\n * `newname` - - The new filename\n # Returns\n\n< 0 on error."]
     pub fn sceIoRename(
         oldname: *const crate::ctypes::c_char,
         newname: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Remove a directory file\n\n # Arguments\n\n* `path` - - Removes a directory file pointed by the string path\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Synchronize the file data on the device.\n\n # Arguments\n\n* `device` - - The device to synchronize (e.g. msfat0:)\n * `unk` - - Unknown"]
     pub fn sceIoSync(
         device: *const crate::ctypes::c_char,
         unk: crate::ctypes::c_uint,
@@ -14486,32 +16145,39 @@ extern "C" {
     pub fn sceKernelAtomicXorAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
     pub fn sceKernelAtomicXorAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
     pub fn sceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    #[doc = "Cancel a message pipe\n\n # Arguments\n\n* `uid` - - UID of the pipe to cancel\n * `psend` - - Receive number of sending threads, NULL is valid\n * `precv` - - Receive number of receiving threads, NULL is valid\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelCancelMsgPipe(
         uid: SceUID,
         psend: *mut crate::ctypes::c_int,
         precv: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Cancels a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n * `newCount` - - The new lock count of the mutex\n * `numWaitThreads` - - Number of threads waiting for the mutex\n # Returns\n\n< 0 On error."]
     pub fn sceKernelCancelMutex(
         mutexid: SceUID,
         newCount: crate::ctypes::c_int,
         numWaitThreads: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Cancels a semaphore\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `setCount` - - The new lock count of the semaphore\n * `numWaitThreads` - - Number of threads waiting for the semaphore\n # Returns\n\n< 0 On error."]
     pub fn sceKernelCancelSema(
         semaid: SceUID,
         setCount: crate::ctypes::c_int,
         numWaitThreads: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Modify the attributes of the current thread.\n\n # Arguments\n\n* `clearAttr` - - The thread attributes to clear. One of ::SceThreadAttributes.\n * `setAttr` - - The thread attributes to set. One of ::SceThreadAttributes.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelChangeCurrentThreadAttr(
         clearAttr: SceUInt,
         setAttr: SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check the thread stack?\n\n # Returns\n\nUnknown."]
     pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
+    #[doc = "Creates a new condition variable\n\n # Example:\n SceUID condId;\n condId = sceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
     pub fn sceKernelCreateCond(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
+    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n int evid;\n evid = sceKernelCreateEventFlag(\"wait_event\", 0, 0, NULL);"]
     pub fn sceKernelCreateEventFlag(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_int,
@@ -14532,6 +16198,7 @@ extern "C" {
         initCount: crate::ctypes::c_int,
         pOptParam: *const SceKernelLwMutexOptParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Create a message pipe\n\n # Arguments\n\n* `name` - - Name of the pipe\n * `type` - - The type of memory attribute to use internally (set to 0x40)\n * `attr` - - Set to 12\n * `bufSize` - - The size of the internal buffer in multiples of 0x1000 (4KB)\n * `opt` - - Message pipe options (set to NULL)\n\n # Returns\n\nThe UID of the created pipe, < 0 on error"]
     pub fn sceKernelCreateMsgPipe(
         name: *const crate::ctypes::c_char,
         type_: crate::ctypes::c_int,
@@ -14539,17 +16206,20 @@ extern "C" {
         bufSize: crate::ctypes::c_uint,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
+    #[doc = "Creates a new mutex\n\n # Example:\n int mutexid;\n mutexid = sceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
     pub fn sceKernelCreateMutex(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         initCount: crate::ctypes::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
+    #[doc = "Creates a new rwlock\n\n # Example:\n int rwlock_id;\n rwlock_id = sceKernelCreateRWLock(\"MyRWLock\", 0, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the rwlock\n * `attr` - - RWLock attribute flags (normally set to 0)\n * `option` - - RWLock options (normally set to NULL)\n # Returns\n\nRWLock id on success, < 0 on error"]
     pub fn sceKernelCreateRWLock(
         name: *const crate::ctypes::c_char,
         attr: SceUInt32,
         opt_param: *const SceKernelRWLockOptParam,
     ) -> SceUID;
+    #[doc = "Creates a new semaphore\n\n # Example:\n int semaid;\n semaid = sceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
     pub fn sceKernelCreateSema(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
@@ -14557,6 +16227,7 @@ extern "C" {
         maxVal: crate::ctypes::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
+    #[doc = "Create a thread\n\n # Example:\n SceUID thid;\n thid = sceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n A thread can run only on the cores specified in the CPU affinity mask.\n The CPU affinity mask can be specified by the logical sum of the following macros:\n - SCE_KERNEL_CPU_MASK_USER_0\n - SCE_KERNEL_CPU_MASK_USER_1\n - SCE_KERNEL_CPU_MASK_USER_2\n - SCE_KERNEL_CPU_MASK_SYSTEM (system-reserved core)\n The following macro are also available to represent all available in userland CPU cores:\n - SCE_KERNEL_CPU_MASK_USER_ALL\n The following macro are also available to inherit affinity mask of the calling process:\n - SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
     pub fn sceKernelCreateThread(
         name: *const crate::ctypes::c_char,
         entry: SceKernelThreadEntry,
@@ -14568,51 +16239,69 @@ extern "C" {
     ) -> SceUID;
     pub fn sceKernelDeleteLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
     pub fn sceKernelDeleteLwMutex(pWork: *mut SceKernelLwMutexWork) -> crate::ctypes::c_int;
+    #[doc = "Exit current Process with specified return code\n\n # Arguments\n\n* `res` (direction in) - - Exit code to return\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelExitProcess(res: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Gets the status of a specified callback.\n\n # Arguments\n\n* `cb` - - The UID of the callback to retrieve info for.\n * `status` - - Pointer to a status structure. The size parameter should be\n initialised before calling.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelGetCallbackInfo(
         cb: SceUID,
         infop: *mut SceKernelCallbackInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of an event flag.\n\n # Arguments\n\n* `event` - - The UID of the event.\n * `status` - - A pointer to a ::SceKernelEventFlagInfo structure.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelGetEventFlagInfo(
         event: SceUID,
         info: *mut SceKernelEventFlagInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a Message Pipe\n\n # Arguments\n\n* `uid` - - The uid of the Message Pipe\n * `info` - - Pointer to a ::SceKernelMppInfo structure\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelGetMsgPipeInfo(
         uid: SceUID,
         info: *mut SceKernelMppInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retrieve information about a mutex.\n\n # Arguments\n\n* `mutexid` - - UID of the mutex to retrieve info for.\n * `info` - - Pointer to a ::SceKernelMutexInfo struct to receive the info.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelGetMutexInfo(
         mutexid: SceUID,
         info: *mut SceKernelMutexInfo,
     ) -> crate::ctypes::c_int;
     pub fn sceKernelGetOpenPsId(id: *mut SceKernelOpenPsId) -> crate::ctypes::c_int;
+    #[doc = "Get the process time of the current process.\n\n # Arguments\n\n* `type` (direction out) - - Pointer to a ::SceKernelSysClock structure which will receive the process time.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelGetProcessTime(pSysClock: *mut SceKernelSysClock) -> crate::ctypes::c_int;
+    #[doc = "Get the lower 32 bits part of process time of the current process.\n\n # Returns\n\nprocess time of the current process"]
     pub fn sceKernelGetProcessTimeLow() -> SceUInt32;
+    #[doc = "Get the process time of the current process.\n\n # Returns\n\nprocess time of the current process"]
     pub fn sceKernelGetProcessTimeWide() -> SceUInt64;
+    #[doc = "Retrieve information about a rwlock.\n\n # Arguments\n\n* `rwlock_id` - - UID of the rwlock to retrieve info for.\n * `info` - - Pointer to a ::SceKernelRWLockInfo struct to receive the info.\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelGetRWLockInfo(
         rwlock_id: SceUID,
         info: *mut SceKernelRWLockInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Fills the output buffer with random data.\n\n # Arguments\n\n* `output` (direction out) - - Output buffer\n * `size` (direction in) - - Size of the output buffer, 64 bytes maximum\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelGetRandomNumber(
         output: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retrieve information about a semaphore.\n\n # Arguments\n\n* `semaid` - - UID of the semaphore to retrieve info for.\n * `info` - - Pointer to a ::SceKernelSemaInfo struct to receive the info.\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelGetSemaInfo(
         semaid: SceUID,
         info: *mut SceKernelSemaInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the system information\n\n # Arguments\n\n* `info` - - Pointer to a ::SceKernelSystemInfo structure\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelGetSystemInfo(info: *mut SceKernelSystemInfo) -> crate::ctypes::c_int;
+    #[doc = "sceKernelGetTLSAddr get pointer to TLS key area for current thread\n # Arguments\n\n* `key` - - the TLS keyslot index\n # Returns\n\npointer to TLS key value"]
     pub fn sceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
+    #[doc = "Get the current priority of the thread you are in.\n\n # Returns\n\nThe current thread priority"]
     pub fn sceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
+    #[doc = "Get the exit status of a thread.\n\n # Arguments\n\n* `thid` (direction in) - - The UID of the thread to check.\n * `status` (direction out) - - Status out pointer\n # Returns\n\nThe exit status"]
     pub fn sceKernelGetThreadExitStatus(
         thid: SceUID,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the current thread Id\n\n # Returns\n\nThe thread id of the calling thread."]
     pub fn sceKernelGetThreadId() -> crate::ctypes::c_int;
+    #[doc = "Get the status information for the specified thread.\n\n # Arguments\n\n* `thid` - - Id of the thread to get status\n * `info` - - Pointer to the info structure to receive the data.\n Note: The structures size field should be set to\n sizeof(SceKernelThreadInfo) before calling this function.\n\n # Example:\n SceKernelThreadInfo status;\n status.size = sizeof(SceKernelThreadInfo);\n if(sceKernelGetThreadInfo(thid, &status) == 0)\n { Do something... }\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelGetThreadInfo(
         thid: SceUID,
         info: *mut SceKernelThreadInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retrive the runtime status of a thread.\n\n # Arguments\n\n* `thid` - - UID of the thread to retrieve status.\n * `status` - - Pointer to a ::SceKernelThreadRunStatus struct to receive the runtime status.\n\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelGetThreadRunStatus(
         thid: SceUID,
         status: *mut SceKernelThreadRunStatus,
@@ -14635,38 +16324,46 @@ extern "C" {
         lockCount: crate::ctypes::c_int,
         pTimeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n * `lockCount` - - The value to increment to the lock count of the mutex\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn sceKernelLockMutex(
         mutexid: SceUID,
         lockCount: crate::ctypes::c_int,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a mutex and handle callbacks if necessary.\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::sceKernelCreateMutex\n * `lockCount` - - The value to increment to the lock count of the mutex\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn sceKernelLockMutexCB(
         mutexid: SceUID,
         lockCount: crate::ctypes::c_int,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a rwlock with read access\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n * `timeout` - - Timeout in microseconds, use NULL to disable it\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelLockReadRWLock(
         rwlock_id: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a rwlock with read access and handle callbacks\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n * `timeout` - - Timeout in microseconds, use NULL to disable it\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelLockReadRWLockCB(
         rwlock_id: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a rwlock with write access\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n * `timeout` - - Timeout in microseconds, use NULL to disable it\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelLockWriteRWLock(
         rwlock_id: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a rwlock with write access and handle callbacks\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n * `timeout` - - Timeout in microseconds, use NULL to disable it\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelLockWriteRWLockCB(
         rwlock_id: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Poll an event flag for a given bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n # Returns\n\n< 0 On error"]
     pub fn sceKernelPollEventFlag(
         evid: crate::ctypes::c_int,
         bits: crate::ctypes::c_uint,
         wait: crate::ctypes::c_uint,
         outBits: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Receive a message from a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for receive in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelReceiveMsgPipe(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14675,6 +16372,7 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Receive a message from a pipe (with callback)\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for receive in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelReceiveMsgPipeCB(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14683,6 +16381,7 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Send a message to a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for send in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelSendMsgPipe(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14691,6 +16390,7 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Send a message to a pipe (with callback)\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for send in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelSendMsgPipeCB(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14713,6 +16413,7 @@ extern "C" {
         option: *mut crate::ctypes::c_void,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start a created thread\n\n # Arguments\n\n* `thid` - - Thread id from ::sceKernelCreateThread\n * `arglen` - - Length of the data pointed to by argp, in bytes\n * `argp` - - Pointer to the arguments."]
     pub fn sceKernelStartThread(
         thid: SceUID,
         arglen: SceSize,
@@ -14738,6 +16439,7 @@ extern "C" {
         pWork: *mut SceKernelLwMutexWork,
         lockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Receive a message from a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - use 0\n * `unk2` - - Unknown - use NULL\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelTryReceiveMsgPipe(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14745,6 +16447,7 @@ extern "C" {
         unk1: crate::ctypes::c_int,
         unk2: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Try to send a message to a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - use 0\n * `unk2` - - Unknown - use NULL\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelTrySendMsgPipe(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -14761,14 +16464,17 @@ extern "C" {
         pWork: *mut SceKernelLwMutexWork,
         unlockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Waits for a signal of a condition variable\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn sceKernelWaitCond(
         condId: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Waits for a signal of a condition variable (with callbacks)\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn sceKernelWaitCondCB(
         condId: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for an event flag for a given bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n * `timeout` - - Timeout in microseconds\n # Returns\n\n< 0 On error"]
     pub fn sceKernelWaitEventFlag(
         evid: crate::ctypes::c_int,
         bits: crate::ctypes::c_uint,
@@ -14776,6 +16482,7 @@ extern "C" {
         outBits: *mut crate::ctypes::c_uint,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for an event flag for a given bit pattern with callback.\n\n # Arguments\n\n* `evid` - - The event id returned by ::sceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n * `timeout` - - Timeout in microseconds\n # Returns\n\n< 0 On error"]
     pub fn sceKernelWaitEventFlagCB(
         evid: crate::ctypes::c_int,
         bits: crate::ctypes::c_uint,
@@ -14787,26 +16494,31 @@ extern "C" {
         pWork: *mut SceKernelLwCondWork,
         pTimeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a semaphore\n\n # Example:\n sceKernelWaitSema(semaid, 1, 0);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a semaphore and handle callbacks if necessary.\n\n # Example:\n sceKernelWaitSemaCB(semaid, 1, 0);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitSemaCB(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Sleep current thread and wait for a signal. After it receives a signal, the thread wakes up.\n\n This is like a semphore with limit 1.\n If signal was sent before and not consumed before, the function will immediately return.\n # Arguments\n\n* `unk0` - unknown parameter. 0 can be used.\n * `delay` - the delay before wating for a signal\n * `timeout` - the timeout if it's null, it waits indefinitely.\n # Returns\n\n0 on success"]
     pub fn sceKernelWaitSignal(
         unk0: SceUInt32,
         delay: SceUInt32,
         timeout: *mut SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait until a thread has ended.\n\n # Arguments\n\n* `thid` - - Id of the thread to wait for.\n * `stat` - - Exit status.\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitThreadEnd(
         thid: SceUID,
         stat: *mut crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait until a thread has ended and handle callbacks if necessary.\n\n # Arguments\n\n* `thid` - - Id of the thread to wait for.\n * `stat` - - Exit status.\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitThreadEndCB(
         thid: SceUID,
         stat: *mut crate::ctypes::c_int,
@@ -14856,59 +16568,76 @@ extern "C" {}
 #[link(name = "SceLocation_stub", kind = "static")]
 #[cfg(feature = "SceLocation_stub")]
 extern "C" {
+    #[doc = "Cancel location information acquisition operation"]
     pub fn sceLocationCancelGetLocation(handle: SceLocationHandle) -> SceInt32;
+    #[doc = "Close library"]
     pub fn sceLocationClose(handle: SceLocationHandle) -> SceInt32;
+    #[doc = "Allow acquisition of location information"]
     pub fn sceLocationConfirm(handle: SceLocationHandle) -> SceInt32;
+    #[doc = "Abort location information acquisition permission dialog"]
     pub fn sceLocationConfirmAbort(handle: SceLocationHandle) -> SceInt32;
+    #[doc = "Get result of location information acquisition permission dialog"]
     pub fn sceLocationConfirmGetResult(
         handle: SceLocationHandle,
         result: *mut SceLocationDialogResult,
     ) -> SceInt32;
+    #[doc = "Get status of location information acquisition permission dialog"]
     pub fn sceLocationConfirmGetStatus(
         handle: SceLocationHandle,
         status: *mut SceLocationDialogStatus,
     ) -> SceInt32;
+    #[doc = "Get direction information"]
     pub fn sceLocationGetHeading(
         handle: SceLocationHandle,
         headingInfo: *mut SceLocationHeadingInfo,
     ) -> SceInt32;
+    #[doc = "Get location information"]
     pub fn sceLocationGetLocation(
         handle: SceLocationHandle,
         locationInfo: *mut SceLocationLocationInfo,
     ) -> SceInt32;
+    #[doc = "Get location measurement method"]
     pub fn sceLocationGetMethod(
         handle: SceLocationHandle,
         locateMethod: *mut SceLocationLocationMethod,
         headingMethod: *mut SceLocationHeadingMethod,
     ) -> SceInt32;
+    #[doc = "Get location information acquisition permission/refusal information"]
     pub fn sceLocationGetPermission(
         handle: SceLocationHandle,
         info: *mut SceLocationPermissionInfo,
     ) -> SceInt32;
+    #[doc = "Functions */\n/** Library start"]
     pub fn sceLocationOpen(
         handle: *mut SceLocationHandle,
         locateMethod: SceLocationLocationMethod,
         headingMethod: SceLocationHeadingMethod,
     ) -> SceInt32;
+    #[doc = "Reopen library"]
     pub fn sceLocationReopen(
         handle: SceLocationHandle,
         locateMethod: SceLocationLocationMethod,
         headingMethod: SceLocationHeadingMethod,
     ) -> SceInt32;
+    #[doc = "Get location information acquisition permission information"]
     pub fn sceLocationSetGpsEmulationFile(filename: *mut crate::ctypes::c_uchar) -> SceInt32;
+    #[doc = "Start continuous acquisition of direction information"]
     pub fn sceLocationStartHeadingCallback(
         handle: SceLocationHandle,
         difference: SceUInt32,
         callback: SceLocationHeadingInfoCallback,
         userdata: *mut crate::ctypes::c_void,
     ) -> SceInt32;
+    #[doc = "Start continuous acquisition of location information"]
     pub fn sceLocationStartLocationCallback(
         handle: SceLocationHandle,
         distance: SceUInt32,
         callback: SceLocationLocationInfoCallback,
         userdata: *mut crate::ctypes::c_void,
     ) -> SceInt32;
+    #[doc = "Stop continuous acquisition of direction information"]
     pub fn sceLocationStopHeadingCallback(handle: SceLocationHandle) -> SceInt32;
+    #[doc = "Stop continuous acquisition of location information"]
     pub fn sceLocationStopLocationCallback(handle: SceLocationHandle) -> SceInt32;
 }
 #[link(name = "SceLsdb_stub", kind = "static")]
@@ -14917,12 +16646,15 @@ extern "C" {}
 #[link(name = "SceModulemgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForDriver_stub")]
 extern "C" {
+    #[doc = "Get fw info\n\n # Arguments\n\n* `data` (direction out) - - fw info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
+    #[doc = "load module (kernel only)\n\n # Arguments\n\n* `path` (direction in) - - module path\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelLoadModule(
         path: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
+    #[doc = "load and start module (kernel only)\n\n # Arguments\n\n* `path` (direction in) - - module path\n * `args` (direction in) - - module start args\n * `argp` (direction in) - - module start argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_start res, SCE_KERNEL_START_SUCCESS etc...\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelLoadStartModule(
         path: *const crate::ctypes::c_char,
         args: SceSize,
@@ -14931,6 +16663,7 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> SceUID;
+    #[doc = "load and start module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `path` (direction in) - - module path\n * `args` (direction in) - - module start args\n * `argp` (direction in) - - module start argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_start res, SCE_KERNEL_START_SUCCESS etc...\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelLoadStartModuleForPid(
         pid: SceUID,
         path: *const crate::ctypes::c_char,
@@ -14940,6 +16673,7 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> SceUID;
+    #[doc = "load and start module as shared module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `path` (direction in) - - module path\n * `args` (direction in) - - module start args\n * `argp` (direction in) - - module start argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_start res, SCE_KERNEL_START_SUCCESS etc...\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelLoadStartSharedModuleForPid(
         pid: SceUID,
         path: *const crate::ctypes::c_char,
@@ -14949,7 +16683,9 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> SceUID;
+    #[doc = "search kernel module by module name\n\n # Arguments\n\n* `module_name` (direction in) - - target module name\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelSearchModuleByName(module_name: *const crate::ctypes::c_char) -> SceUID;
+    #[doc = "start module (kernel only)\n\n # Arguments\n\n* `modid` (direction in) - - target module id\n * `args` (direction in) - - module start args\n * `argp` (direction in) - - module start argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_start res, SCE_KERNEL_START_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStartModule(
         modid: SceUID,
         args: SceSize,
@@ -14958,6 +16694,7 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "stop module (kernel only)\n\n # Arguments\n\n* `modid` (direction in) - - target module id\n * `args` (direction in) - - module stop args\n * `argp` (direction in) - - module stop argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_stop res, SCE_KERNEL_STOP_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStopModule(
         modid: SceUID,
         args: SceSize,
@@ -14966,6 +16703,7 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "stop and unload module (kernel only)\n\n # Arguments\n\n* `modid` (direction in) - - target module id\n * `args` (direction in) - - module stop args\n * `argp` (direction in) - - module stop argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_stop res, SCE_KERNEL_STOP_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStopUnloadModule(
         modid: SceUID,
         args: SceSize,
@@ -14974,6 +16712,7 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "stop and unload module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `args` (direction in) - - module stop args\n * `argp` (direction in) - - module stop argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_stop res, SCE_KERNEL_STOP_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStopUnloadModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -14983,6 +16722,7 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "stop and unload module as shared module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `args` (direction in) - - module stop args\n * `argp` (direction in) - - module stop argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_stop res, SCE_KERNEL_STOP_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStopUnloadSharedModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -14992,6 +16732,7 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "unload module (kernel only)\n\n # Arguments\n\n* `modid` (direction in) - - target module id\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelUnloadModule(
         modid: SceUID,
         flags: crate::ctypes::c_int,
@@ -15006,11 +16747,13 @@ extern "C" {}
     feature = "SceModulemgrForKernel_stub"
 ))]
 extern "C" {
+    #[doc = "Get module info\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `info` (direction out) - - info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleInfo(
         pid: SceUID,
         modid: SceUID,
         info: *mut SceKernelModuleInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get module id list\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `flags1` (direction in) - - unknown, use 0x7FFFFFFF\n * `flags2` (direction in) - - unknown, use 1\n * `modids` (direction out) - - info output pointer\n * `num` (direction in, out) - - in:list max num, out:get modid num\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleList(
         pid: SceUID,
         flags1: crate::ctypes::c_int,
@@ -15018,15 +16761,18 @@ extern "C" {
         modids: *mut SceUID,
         num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "load module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `path` (direction in) - - module path\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelLoadModuleForPid(
         pid: SceUID,
         path: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
+    #[doc = "mount bootfs (load bootfs module)\n\n # Arguments\n\n* `bootImagePath` (direction in) - - bootfs module path\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMountBootfs(
         bootImagePath: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "start module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `args` (direction in) - - module start args\n * `argp` (direction in) - - module start argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_start res, SCE_KERNEL_START_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStartModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -15036,6 +16782,7 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "stop module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `args` (direction in) - - module stop args\n * `argp` (direction in) - - module stop argp\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n * `status` (direction out) - - module_stop res, SCE_KERNEL_STOP_SUCCESS etc...\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelStopModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -15045,7 +16792,9 @@ extern "C" {
         option: *mut SceKernelULMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "unmount bootfs (unload bootfs module)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelUmountBootfs() -> crate::ctypes::c_int;
+    #[doc = "unload module\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target module id\n * `flags` (direction in) - - unknown, set zero\n * `option` (direction in) - - unknown\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelUnloadModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -15056,30 +16805,37 @@ extern "C" {
 #[link(name = "SceModulemgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForKernel_stub")]
 extern "C" {
+    #[doc = "Get library info\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `modid` (direction in) - - target library id\n * `info` (direction out) - - info output\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetLibraryInfoForDebugger(
         pid: SceUID,
         library_id: SceUID,
         info: *mut SceKernelModuleLibraryInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get module info (internal)\n\n # Arguments\n\n* `modid` (direction in) - - target module id\n * `info` (direction out) - - module_info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleCB(
         modid: SceUID,
         info: *mut *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get module info by address (internal)\n\n # Arguments\n\n* `pid` (direction in) - - target process id\n * `module_addr` (direction in) - - target module address\n * `info` (direction out) - - module_info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleCBByAddr(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
         info: *mut *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get module id by module address\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `module_addr` (direction in) - - target module address\n\n # Returns\n\nmodid on success, < 0 on error."]
     pub fn ksceKernelGetModuleIdByAddrForDebugger(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
     ) -> SceUID;
+    #[doc = "Get the main module id for a given process.\n # Arguments\n\n* `pid` - The process to query.\n # Returns\n\nthe UID of the module else < 0 for an error."]
     pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
+    #[doc = "# Example1: Get max to 10 kernel module info\n SceKernelModuleListInfo infolists[10];\n size_t num = 10;// Get max\n uint32_t offset = 0;\n SceKernelModuleListInfo *info = &infolists[0];\n\n ksceKernelGetModuleInfoForDebugger(0x10005, infolists, &num);\n\n for(int i=0;i<num;i++){\n printf(\"name : %sinfo->module_name);\n\n if(info->segments_num == 1){\n printf(\"vaddr:0x%08Xinfo->seg1.SegmentInfo[0].vaddr);\n }else if(info->segments_num == 2){\n printf(\"vaddr:0x%08Xinfo->seg2.SegmentInfo[0].vaddr);\n }\n info = ((char *)info) + info->size;\n }\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `infolists` (direction out) - - infolists output\n * `num` (direction in, out) - - Specify the maximum number of modinfolist to retrieve. If the function returns 0, it returns the number of modules loaded in the target pid in num\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleInfoForDebugger(
         pid: SceUID,
         infolists: *mut SceKernelModuleListInfo,
         num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get module info mini by module address\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `module_addr` (direction in) - - target module address, Also possible with data segment address\n * `module_nid` (direction out) - - can also set NULL, module nid output\n * `program_text_addr` (direction out) - - can also set NULL, program text addr output\n * `module_name` (direction out) - - can also set NULL, module name output\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleInfoMinByAddr(
         pid: SceUID,
         module_addr: *const crate::ctypes::c_void,
@@ -15087,12 +16843,15 @@ extern "C" {
         program_text_addr: *mut *const crate::ctypes::c_void,
         module_name: *mut SceKernelModuleName,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the module path\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `path` (direction out) - - module path output\n * `pathlen` (direction in) - - path output max len\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModulePath(
         modid: SceUID,
         path: *mut crate::ctypes::c_char,
         pathlen: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Setup kernel for modulemgr\n\n > **Note:** - allocate and initialize syscall table\n\n # Returns\n\nnone"]
     pub fn ksceKernelRegisterModulesAfterBoot();
+    #[doc = "Register syscall function\n\n # Arguments\n\n* `syscall_id` (direction in) - - register syscall id (Must be less than 0x1000)\n * `func` (direction in) - - syscall function\n\n # Returns\n\nnone"]
     pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
 }
 #[link(name = "SceMotionDevForDriver_stub", kind = "static")]
@@ -15174,30 +16933,49 @@ extern "C" {
 #[link(name = "SceMotion_stub", kind = "static")]
 #[cfg(feature = "SceMotion_stub")]
 extern "C" {
+    #[doc = "Get the angle threshold for basic orientation\n\n # Returns\n\nangle in degrees"]
     pub fn sceMotionGetAngleThreshold() -> f32;
+    #[doc = "Gets the basic orientation of the device in relation to gravity\n > **Note:** - Possible values in the output vector are -1, 0 and 1\n > **Note:** - Using the same coordinate system as ::SceMotionDeviceLocation these values are set in the vector depending on if the axies' positive or negative directions are facing away from gravitational pull\n > **Note:** - For example if the vita is laying on a flat and level surface, with the OLED/LCD side facing upwards, the Z part of the vector will be 1\n > **Note:** - Now flipping the device upwards, taking hold of the right joystick's side, until it forms a 90 degree angle to the surface will result in the X part of the vector being 1 instead\n > **Note:** - Both examples would result in the returned value being -1 if flipped 180 degrees, swapping their top and bottom sides in correlation to gravity\n > **Note:** - The angle of rotation in relation to being in a centered state on an axis (returned as 0) after which the device will change the value is determined by ::SceMotionSetAngleThreshold\n > **Note:** - In order for this function to return up to date data, ::sceMotionGetState must be called prior to call this function.\n # Arguments\n\n* `*basicOrientation` (direction out) -\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionGetBasicOrientation(basicOrientation: *mut SceFVector3)
         -> crate::ctypes::c_int;
+    #[doc = "Get status of deadbanding\n > **Note:** - With deadbanding enabled the device will filter out small movements to reduce jitter\n > **Note:** - Potentially decreaces accuracy of fine movements\n > **Note:** - Enabled by default\n # Returns\n\n1 if enabled, 0 if disabled"]
     pub fn sceMotionGetDeadband() -> crate::ctypes::c_int;
+    #[doc = "Gets the location of the device's sensors in relation to its center point (in mm).\n\n # Arguments\n\n* `*deviceLocation` (direction out) - - See ::SceMotionDeviceLocation\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionGetDeviceLocation(
         deviceLocation: *mut SceMotionDeviceLocation,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get status of gyroscope bias correction\n > **Note:** - With gyroscope bias correction enabled the device will attempt to adjust for outside influences that could impact calibration\n > **Note:** - Enabled by default\n # Returns\n\n1 if enabled, 0 if disabled"]
     pub fn sceMotionGetGyroBiasCorrection() -> crate::ctypes::c_int;
+    #[doc = "Get status of magnetometer sampling\n\n # Returns\n\n1 if enabled, 0 if disabled"]
     pub fn sceMotionGetMagnetometerState() -> crate::ctypes::c_int;
+    #[doc = "Gets the current motion sensor state\n\n # Arguments\n\n* `numRecords` (direction in) - - Amount of records to get\n * `*motionSensorState` (direction out) - - See ::SceMotionSensorState\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionGetSensorState(
         sensorState: *mut SceMotionSensorState,
         numRecords: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets the current motion state.\n\n # Arguments\n\n* `*motionState` (direction out) - - See ::SceMotionState\n\n # Returns\n\n0, <0 on error."]
     pub fn sceMotionGetState(motionState: *mut SceMotionState) -> crate::ctypes::c_int;
+    #[doc = "Get Status of tilt correction\n > **Note:** - With tilt correction enabled the data for roll and pitch movements of the device get recalculated to not distort the yaw movements in relation to gravity\n > **Note:** - Enabled by default\n # Returns\n\n1 if enabled, 0 if disabled"]
     pub fn sceMotionGetTiltCorrection() -> crate::ctypes::c_int;
+    #[doc = "Stop magnetometer sampling\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionMagnetometerOff() -> crate::ctypes::c_int;
+    #[doc = "Start magnetometer sampling\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionMagnetometerOn() -> crate::ctypes::c_int;
+    #[doc = "Set current orientation as origin\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionReset() -> crate::ctypes::c_int;
+    #[doc = "Rotate the yaw axis\n\n # Arguments\n\n* `radians` (direction in) - - Rotation angle in radians\n\n # Returns\n\n0"]
     pub fn sceMotionRotateYaw(radians: f32) -> crate::ctypes::c_int;
+    #[doc = "Define the angle threshold for basic orientation\n\n # Arguments\n\n* `angle` (direction in) - - range of 0 to 45 degrees\n\n # Returns\n\n0"]
     pub fn sceMotionSetAngleThreshold(angle: f32) -> crate::ctypes::c_int;
+    #[doc = "Activate/deactivate deadbanding\n > **Note:** - For more information see ::sceMotionGetDeadbanding\n # Arguments\n\n* `setValue` (direction in) - - 1 to enable, 0 to disable\n\n # Returns\n\n0"]
     pub fn sceMotionSetDeadband(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Activate/deactivate gyroscope bias correction\n > **Note:** - For more information see ::sceMotionGetGyroBiasCorrection\n # Arguments\n\n* `setValue` (direction in) - - 1 to enable, 0 to disable\n\n # Returns\n\n0"]
     pub fn sceMotionSetGyroBiasCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Activate/deactivate tilt correction\n > **Note:** - For more information see ::sceMotionGetTiltCorrection\n # Arguments\n\n* `setValue` (direction in) - - 1 to enable, 0 to disable\n\n # Returns\n\n0"]
     pub fn sceMotionSetTiltCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Start sampling\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionStartSampling() -> crate::ctypes::c_int;
+    #[doc = "Stop sampling\n\n # Returns\n\n0, <0 on error"]
     pub fn sceMotionStopSampling() -> crate::ctypes::c_int;
 }
 #[link(name = "SceMsifForDriver_stub", kind = "static")]
@@ -15208,7 +16986,9 @@ extern "C" {
 #[link(name = "SceMtpIfDriver_stub", kind = "static")]
 #[cfg(feature = "SceMtpIfDriver_stub")]
 extern "C" {
+    #[doc = "Start MTP driver\n\n # Arguments\n\n* `flags` (direction in) - - Set to 1\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceMtpIfStartDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Stop MTP driver\n\n # Arguments\n\n* `flags` (direction in) - - Set to 1\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceMtpIfStopDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
 }
 #[link(name = "SceMusicExport_stub", kind = "static")]
@@ -15397,6 +17177,7 @@ extern "C" {
         event: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
     pub fn sceNetSyscallEpollWait(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+    #[doc = "Get net if list\n\n # Arguments\n\n* `list` (direction out) - - The output buffer list. size is (0x140 * n)\n * `n` (direction in) - - The output size number.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceNetSyscallGetIfList(
         list: *mut crate::ctypes::c_void,
         n: crate::ctypes::c_int,
@@ -15530,6 +17311,7 @@ extern "C" {
         maxevents: crate::ctypes::c_int,
         timeout: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get pointer to last network errno.\n\n # Returns\n\npointer to int."]
     pub fn sceNetErrnoLoc() -> *mut crate::ctypes::c_int;
     pub fn sceNetEtherNtostr(
         n: *const SceNetEtherAddr,
@@ -15887,17 +17669,23 @@ extern "C" {}
 #[link(name = "SceNotificationUtil_stub", kind = "static")]
 #[cfg(feature = "SceNotificationUtil_stub")]
 extern "C" {
+    #[doc = "Initialize notification util for use with BG application.\n\n Does not need to be called for normal applications."]
     pub fn sceNotificationUtilBgAppInitialize() -> SceInt32;
+    #[doc = "Clean notifications for calling app from notification history."]
     pub fn sceNotificationUtilCleanHistory() -> SceInt32;
+    #[doc = "Start BGDL-type notification."]
     pub fn sceNotificationUtilProgressBegin(
         initParams: *mut SceNotificationUtilProgressInitParam,
     ) -> SceInt32;
+    #[doc = "Finish BGDL-type notification."]
     pub fn sceNotificationUtilProgressFinish(
         finishParams: *mut SceNotificationUtilProgressFinishParam,
     ) -> SceInt32;
+    #[doc = "Update BGDL-type notification."]
     pub fn sceNotificationUtilProgressUpdate(
         updateParams: *mut SceNotificationUtilProgressUpdateParam,
     ) -> SceInt32;
+    #[doc = "Send notification.\n\n Text buffer size must be 0x410."]
     pub fn sceNotificationUtilSendNotification(text: *const SceWChar16) -> SceInt32;
 }
 #[link(name = "SceNpActivity_stub", kind = "static")]
@@ -15915,6 +17703,7 @@ extern "C" {}
 #[link(name = "SceNpDrmForDriver_stub", kind = "static")]
 #[cfg(feature = "SceNpDrmForDriver_stub")]
 extern "C" {
+    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n * `version_flag` (direction out) - - The pointer of version flag output.\n * `account_id` (direction out) - - The pointer of activated account id output.\n * `act_start_time` (direction out) - - The pointer of activation data start time output.\n * `act_exp_time` (direction out) - - The pointer of activation data expire time output\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
@@ -15922,37 +17711,44 @@ extern "C" {
         act_start_time: *mut SceUInt64,
         act_end_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" to a 0x200 byte one used in firmwares >2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `old_eboot_signature` (direction in) - - The pointer of old eboot signature data. size is 0x100\n * `new_eboot_signature` (direction out) - - The pointer of new eboot signature data. size is 0x200\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn ksceNpDrmEbootSigConvert(
         eboot_pbp_path: *const crate::ctypes::c_char,
         old_eboot_signature: *const crate::ctypes::c_void,
         new_eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_discinfo\" for a multi-disc PS1 game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `sce_discinfo` (direction in) - - The pointer of contents of vs0:/app/NPXS10028/__sce_discinfo\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x100\n * `sw_version` (direction in) - - The minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn ksceNpDrmEbootSigGenMultiDisc(
         eboot_pbp_path: *const crate::ctypes::c_char,
         sce_discinfo: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_ebootpbp\" for a single-disc PS1 game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x200\n * `sw_version` (direction in) - - The minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn ksceNpDrmEbootSigGenPs1(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_ebootpbp\" for a PSP game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x200\n * `sw_version` (direction in) - - The minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn ksceNpDrmEbootSigGenPsp(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Verify a eboot.pbp signature \"__sce_ebootpbp\"\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_signature` (direction in) - - The pointer of data of __sce_ebootpbp signature. size is 0x200\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmEbootSigVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get license file name with fixed\n\n # Arguments\n\n* `name` (direction out) - - The pointer of license file name output buffer. size is 0x30.\n * `aid` (direction in) - - The license account id\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmGetFixedRifName(
         name: *mut crate::ctypes::c_char,
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get license info\n\n # Arguments\n\n* `license` (direction in) - - The pointer of license data. see:SceNpDrmLicense\n * `license_size` (direction in) - - The license data size. 0x200 etc\n * `check_sign` (direction in) - - The license signature check flag. if pass 1, do check.\n * `content_id` (direction out) - - The pointer of license content_id output buffer. size is 0x30.\n * `account_id` (direction out) - - The pointer of license account_id output.\n * `license_version` (direction out) - - The pointer of license version output.\n * `license_flags` (direction out) - - The pointer of license flags output.\n * `flags` (direction out) - - The pointer of flags output.\n * `sku_flags` (direction out) - - The pointer of sku flags output.\n * `lic_start_time` (direction out) - - The pointer of license start time output.\n * `lic_exp_time` (direction out) - - The pointer of license exp time output.\n * `flags2` (direction out) - - The pointer of flags2 output.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmGetRifInfo(
         license: *const crate::ctypes::c_void,
         license_size: SceSize,
@@ -15967,10 +17763,12 @@ extern "C" {
         lic_exp_time: *mut SceInt64,
         flags2: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get license file name\n\n # Arguments\n\n* `name` (direction out) - - The pointer of license file name output buffer. size is 0x30.\n * `aid` (direction in) - - The license account id\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmGetRifName(
         name: *mut crate::ctypes::c_char,
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get license key info for a PSP game\n\n # Arguments\n\n* `license` (direction in) - - The pointer of license data. see:SceNpDrmLicense\n * `klicense` (direction out) - - The pointer of klicense output buffer. size is 0x10.\n * `flags` (direction out) - - The pointer of flags output.\n * `lic_start_time` (direction out) - - The pointer of license start time output.\n * `lic_exp_time` (direction out) - - The pointer of license exp time output.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmGetRifPspKey(
         license: *const crate::ctypes::c_void,
         klicense: *mut crate::ctypes::c_void,
@@ -15978,6 +17776,7 @@ extern "C" {
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get license key info\n\n # Arguments\n\n* `license` (direction in) - - The pointer of license data. see:SceNpDrmLicense\n * `klicense` (direction out) - - The pointer of klicense output buffer. size is 0x10.\n * `flags` (direction out) - - The pointer of flags output.\n * `sku_flags` (direction out) - - The pointer of sku flags output.\n * `lic_start_time` (direction out) - - The pointer of license start time output.\n * `lic_exp_time` (direction out) - - The pointer of license exp time output.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmGetRifVitaKey(
         license: *const crate::ctypes::c_void,
         klicense: *mut crate::ctypes::c_void,
@@ -15986,50 +17785,60 @@ extern "C" {
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" for a PSP game - this is unused in firmware >2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x100\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn ksceNpDrmPspEbootSigGen(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Verify an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" from firmware <2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_signature` (direction in) - - The pointer of data of __sce_ebootpbp signature. size is 0x100\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmPspEbootVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current activation data\n\n # Arguments\n\n* `act_data` (direction out) - - The pointer of output activation data see:SceNpDrmActivationData. if ecdsa or rsa verify fail, will be all 0.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> crate::ctypes::c_int;
 }
 #[link(name = "SceNpDrm_stub", kind = "static")]
 #[cfg(feature = "SceNpDrm_stub")]
 extern "C" {
+    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n\n * `version_flag` (direction out) - - The pointer of version flag output.\n\n * `account_id` (direction out) - - The pointer of activated account id output.\n\n * `act_exp_time` (direction out) - - The pointer of activation expire time output, [0] is start_date, [1] is end_date\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
         account_id: *mut SceUInt64,
         act_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get fixed rif name\n\n # Arguments\n\n* `rif_name` (direction out) - - RIF name buffer (48 bytes)\n\n * `aid` (direction in) - - Account ID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmGetFixedRifName(
         rif_name: *mut crate::ctypes::c_char,
         aid: u64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get rif name\n\n # Arguments\n\n* `rif_name` (direction out) - - RIF name buffer (48 bytes)\n\n * `aid` (direction in) - - Account ID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmGetRifName(
         rif_name: *mut crate::ctypes::c_char,
         aid: u64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get rif name for install\n\n # Arguments\n\n* `rif_name` (direction out) - - RIF name buffer (48 bytes)\n\n * `rif_data` (direction in) - - Data of RIF file (512 bytes)\n\n * `unk` (direction in) - - Unknown, use 0\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmGetRifNameForInstall(
         rif_name: *mut crate::ctypes::c_char,
         rif_data: *const crate::ctypes::c_void,
         unk: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Read the header of the PKG and initialize the context\n\n # Arguments\n\n* `buffer` - - The buffer containing the header of PKG.\n * `size` - - The size of buffer. The minimum confirmed value is 0x8000.\n * `zero` - - Unknown. Supposed to be set to 0.\n * `identifier` - - arbitrary value [0, 6) ORed with (1 << 8) or 0.\n If it is set to 0, the function just checks the header\n and doesn't create the context.\n\n # Returns\n\n0 on success, != 0 on error"]
     pub fn _sceNpDrmPackageCheck(
         buffer: *const crate::ctypes::c_void,
         size: SceSize,
         zero: crate::ctypes::c_int,
         identifier: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Decrypt a PKG\n\n # Arguments\n\n* `buffer` - - The buffer containing the content of the PKG.\n * `size` - - The size of the buffer. The minimum confirmed value is 0x20.\n * `opt` - - The options.\n\n # Returns\n\n0 on success, != 0 on error"]
     pub fn _sceNpDrmPackageDecrypt(
         buffer: *mut crate::ctypes::c_void,
         size: SceSize,
         opt: *mut _sceNpDrmPackageDecrypt_opt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get PSM rif key\n\n # Arguments\n\n* `license_buf` (direction in) - - RIF buffer (1024 bytes)\n\n * `keydata` (direction out) - - Decrypted key data\n\n * `flags` (direction in) - - Unknown\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePsmDrmGetRifKey(
         license_buf: *const ScePsmDrmLicense,
         keydata: *mut crate::ctypes::c_char,
@@ -16086,6 +17895,7 @@ extern "C" {
     pub fn scePafFreeWithContext(context: *mut ScePafHeapContext, ptr: *mut crate::ctypes::c_void);
     pub fn scePafGetCurrentClockLocalTime(data: *mut ScePafDateTime) -> crate::ctypes::c_int;
     pub static mut scePafGraphicsCurrentWave: SceUInt32;
+    #[doc = "Update the current wave\n\n # Arguments\n\n* `index` (direction in) - - The index from 0 to 0x1F within range.\n * `update_interval` (direction in) - - The update interval. 0.0f to it will change soon. 1.0f will slowly turn into an updated wave after 1 second, just like when you change it the normal way.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn scePafGraphicsUpdateCurrentWave(
         index: SceUInt32,
         update_interval: SceFloat32,
@@ -16128,6 +17938,7 @@ extern "C" {
         -> *mut crate::ctypes::c_void;
     pub fn sce_paf_free(ptr: *mut crate::ctypes::c_void);
     pub fn sce_paf_malloc(size: SceSize) -> *mut crate::ctypes::c_void;
+    #[doc = "Alloc memory with align\n\n # Arguments\n\n* `align` (direction in) - The align size\n * `length` (direction in) - The alloc length\n\n # Returns\n\nmemory pointer or NULL"]
     pub fn sce_paf_memalign(align: SceSize, length: SceSize) -> *mut crate::ctypes::c_void;
     pub fn sce_paf_memchr(
         src: *const crate::ctypes::c_void,
@@ -16192,6 +18003,7 @@ extern "C" {
         s: *const crate::ctypes::c_char,
         ch: crate::ctypes::c_int,
     ) -> *mut crate::ctypes::c_char;
+    #[doc = "string to double\n\n # Arguments\n\n* `nptr` (direction in) - The input float string\n * `endptr` (direction out) - The float string endpoint\n\n # Returns\n\nparsed value"]
     pub fn sce_paf_strtod(
         nptr: *const crate::ctypes::c_char,
         endptr: *mut *mut crate::ctypes::c_char,
@@ -16347,6 +18159,7 @@ extern "C" {
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount pfs directory\n\n # Arguments\n\n* `path` (direction in) - - The pfs encrypted directory path\n * `rnd_drive_id` (direction in) - - The pfs mount target Pseudo Drive strings\n * `authid` (direction in) - - The authid\n * `klicensee` (direction in) - - The klicensee\n * `mode_index` (direction in) - - The mode_index\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn kscePfsMount(
         path: *const crate::ctypes::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
@@ -16354,12 +18167,14 @@ extern "C" {
         klicensee: *const crate::ctypes::c_void,
         mode_index: u16,
     ) -> crate::ctypes::c_int;
+    #[doc = "Mount pfs directory without authid\n\n # Arguments\n\n* `path` (direction in) - - The pfs encrypted directory path\n * `rnd_drive_id` (direction in) - - The pfs mount target Pseudo Drive strings\n * `klicensee` (direction in) - - The klicensee\n * `mode_index` (direction in) - - The mode_index\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn kscePfsMount2(
         path: *const crate::ctypes::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
         klicensee: *const crate::ctypes::c_void,
         mode_index: u16,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unmount pfs directory\n\n # Arguments\n\n* `rnd_drive_id` (direction in) - - The pfs mount drive strings\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn kscePfsUnmount(rnd_drive_id: *const ScePfsRndDriveId) -> crate::ctypes::c_int;
 }
 #[link(name = "ScePgf_stub", kind = "static")]
@@ -16505,67 +18320,125 @@ extern "C" {
 #[link(name = "ScePowerForDriver_stub", kind = "static")]
 #[cfg(feature = "ScePowerForDriver_stub")]
 extern "C" {
+    #[doc = "Returns CPU clock frequency\n\n # Returns\n\nCPU clock frequency in Mhz"]
     pub fn kscePowerGetArmClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns battery cycle count\n\n # Returns\n\nbattery cycle count"]
     pub fn kscePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
+    #[doc = "Returns battery full capacity\n\n # Returns\n\nbattery full capacity in mAh (milliampere hour)"]
     pub fn kscePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
+    #[doc = "Returns battery life percentage\n\n # Returns\n\nBattery life percentage"]
     pub fn kscePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
+    #[doc = "Returns battery life time\n\n # Returns\n\nBattery life time in minutes"]
     pub fn kscePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
+    #[doc = "Returns battery remaining capacity\n\n # Returns\n\nbattery remaining capacity in mAh (milliampere hour)"]
     pub fn kscePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
+    #[doc = "Returns battery state of health\n\n # Returns\n\nbattery state of health percent"]
     pub fn kscePowerGetBatterySOH() -> crate::ctypes::c_int;
+    #[doc = "Returns battery temperature\n\n # Returns\n\ntemperature in degrees celcius * 100"]
     pub fn kscePowerGetBatteryTemp() -> crate::ctypes::c_int;
+    #[doc = "Returns battery voltage\n\n # Returns\n\nbattery voltage in mV (millivolts)"]
     pub fn kscePowerGetBatteryVolt() -> crate::ctypes::c_int;
+    #[doc = "Returns BUS clock frequency\n\n # Returns\n\nBUS clock frequency in Mhz"]
     pub fn kscePowerGetBusClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns GPU crossbar clock frequency\n\n # Returns\n\nGPU crossbar clock frequency in Mhz"]
     pub fn kscePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns Sys clock frequency\n\n # Returns\n\nSys clock frequency in Mhz"]
     pub fn kscePowerGetSysClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns battery charging status\n\n # Returns\n\nSCE_TRUE if under charge, SCE_FALSE otherwise"]
     pub fn kscePowerIsBatteryCharging() -> SceBool;
+    #[doc = "Returns battery state\n\n # Returns\n\nSCE_TRUE if battery is low, SCE_FALSE otherwise"]
     pub fn kscePowerIsLowBattery() -> SceBool;
+    #[doc = "Check if AC is plugged in\n\n # Returns\n\nSCE_TRUE if plugged in, SCE_FALSE otherwise"]
     pub fn kscePowerIsPowerOnline() -> SceBool;
+    #[doc = "Check if a suspend is required\n\n # Returns\n\nSCE_TRUE if suspend is required, SCE_FALSE otherwise"]
     pub fn kscePowerIsSuspendRequired() -> SceBool;
+    #[doc = "Registers a ScePower Callback\n\n # Arguments\n\n* `cbid` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to do a cold reset\n\n # Returns\n\nalways 0"]
     pub fn kscePowerRequestColdReset() -> crate::ctypes::c_int;
+    #[doc = "Request display off\n\n # Returns\n\nalways 0"]
     pub fn kscePowerRequestDisplayOff() -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to do a soft reset\n\n # Returns\n\nalways 0"]
     pub fn kscePowerRequestSoftReset() -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to go into standby\n\n # Returns\n\nalways 0"]
     pub fn kscePowerRequestStandby() -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to suspend\n\n # Returns\n\nalways 0"]
     pub fn kscePowerRequestSuspend() -> crate::ctypes::c_int;
+    #[doc = "Sets CPU clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets BUS clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set the screen brightness.\n [`::sceAVConfigSetDisplayBrightness`] for userland counterpart.\n\n # Arguments\n\n* `brightness` - Brightness that the screen will be set to (range 21-65536, 0 turns off the screen).\n\n # Returns\n\n?"]
     pub fn kscePowerSetDisplayBrightness(brightness: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets GPU clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets GPU crossbar clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Unregister a callback\n\n # Arguments\n\n* `cbid` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn kscePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "ScePower_stub", kind = "static")]
 #[cfg(feature = "ScePower_stub")]
 extern "C" {
+    #[doc = "Returns CPU clock frequency\n\n # Returns\n\nCPU clock frequency in Mhz"]
     pub fn scePowerGetArmClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns battery cycle count\n\n # Returns\n\nbattery cycle count"]
     pub fn scePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
+    #[doc = "Returns battery full capacity\n\n # Returns\n\nbattery full capacity in mAh (milliampere hour)"]
     pub fn scePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
+    #[doc = "Returns battery life percentage\n\n # Returns\n\nBattery life percentage"]
     pub fn scePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
+    #[doc = "Returns battery life time\n\n # Returns\n\nBattery life time in minutes"]
     pub fn scePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
+    #[doc = "Returns battery remaining capacity\n\n # Returns\n\nbattery remaining capacity in mAh (milliampere hour)"]
     pub fn scePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
+    #[doc = "Returns battery state of health\n\n # Returns\n\nbattery state of health percent"]
     pub fn scePowerGetBatterySOH() -> crate::ctypes::c_int;
+    #[doc = "Returns battery temperature\n\n # Returns\n\ntemperature in degrees celcius * 100"]
     pub fn scePowerGetBatteryTemp() -> crate::ctypes::c_int;
+    #[doc = "Returns battery voltage\n\n # Returns\n\nbattery voltage in mV (millivolts)"]
     pub fn scePowerGetBatteryVolt() -> crate::ctypes::c_int;
+    #[doc = "Returns BUS clock frequency\n\n # Returns\n\nBUS clock frequency in Mhz"]
     pub fn scePowerGetBusClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns GPU clock frequency\n\n # Returns\n\nGPU clock frequency in Mhz"]
     pub fn scePowerGetGpuClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Returns GPU crossbar clock frequency\n\n # Returns\n\nGPU crossbar clock frequency in Mhz"]
     pub fn scePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
+    #[doc = "Gets wireless features usage\n\n # Returns\n\nSCE_TRUE if enabled, SCE_FALSE otherwise"]
     pub fn scePowerGetUsingWireless() -> crate::ctypes::c_int;
+    #[doc = "Returns battery charging status\n\n # Returns\n\nSCE_TRUE if under charge, SCE_FALSE otherwise"]
     pub fn scePowerIsBatteryCharging() -> SceBool;
+    #[doc = "Returns battery state\n\n # Returns\n\nSCE_TRUE if battery is low, SCE_FALSE otherwise"]
     pub fn scePowerIsLowBattery() -> SceBool;
+    #[doc = "Check if AC is plugged in\n\n # Returns\n\nSCE_TRUE if plugged in, SCE_FALSE otherwise"]
     pub fn scePowerIsPowerOnline() -> SceBool;
+    #[doc = "Check if a suspend is required\n\n # Returns\n\nSCE_TRUE if suspend is required, SCE_FALSE otherwise"]
     pub fn scePowerIsSuspendRequired() -> SceBool;
+    #[doc = "Registers a ScePower Callback\n\n # Arguments\n\n* `cbid` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to do a cold reset\n\n # Returns\n\nalways 0"]
     pub fn scePowerRequestColdReset() -> crate::ctypes::c_int;
+    #[doc = "Request display off\n\n # Returns\n\nalways 0"]
     pub fn scePowerRequestDisplayOff() -> crate::ctypes::c_int;
+    #[doc = "Request display on\n\n # Returns\n\nalways 0"]
     pub fn scePowerRequestDisplayOn() -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to go into standby\n\n # Returns\n\nalways 0"]
     pub fn scePowerRequestStandby() -> crate::ctypes::c_int;
+    #[doc = "Requests PS Vita to suspend\n\n # Returns\n\nalways 0"]
     pub fn scePowerRequestSuspend() -> crate::ctypes::c_int;
+    #[doc = "Sets CPU clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets BUS clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set power configuration mode between:\n\n Mode A - This is the normal mode at process start-up. The clock frequency of the GPU core is the \"normal\" clock frequency. The WLAN/COM can be used.\n Mode B - This mode accelerates the GPU clock frequency. The clock frequency of the GPU core is the \"high\" clock frequency. The WLAN/COM cannot be used.\n Mode C - This mode accelerates the GPU clock frequency, and also uses the WLAN/COM. The clock frequency of the GPU core is the \"high\" clock frequency, and use of the WLAN/COM is possible. The screen (touchscreen) brightness, however, is limited. Also, camera cannot be used.\n\n # Arguments\n\n* `conf` - One of ::ScePowerConfigurationMode\n\n # Returns\n\n0 on success"]
     pub fn scePowerSetConfigurationMode(conf: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets GPU clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets GPU crossbar clock frequency\n\n # Arguments\n\n* `freq` - - Frequency to set in Mhz\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Sets wireless features usage\n\n # Arguments\n\n* `enabled` - - SCE_TRUE to enable, SCE_FALSE to disable\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerSetUsingWireless(enabled: SceBool) -> crate::ctypes::c_int;
+    #[doc = "Unregister a callback\n\n # Arguments\n\n* `cbid` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn scePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "SceProcessmgrForDriver_stub", kind = "static")]
@@ -16588,6 +18461,7 @@ extern "C" {
         out_addr: *mut *mut crate::ctypes::c_void,
         create_if_doesnt_exist: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the status of a given process.\n # Arguments\n\n* `pid` (direction in) - The process ID to query.\n * `status` (direction out) - The bit field status of the process.\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelGetProcessStatus(
         pid: SceUID,
         status: *mut crate::ctypes::c_int,
@@ -16606,19 +18480,25 @@ extern "C" {
 #[link(name = "SceProcessmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgrForKernel_stub")]
 extern "C" {
+    #[doc = "Create process\n # Arguments\n\n* `titleid` (direction in) - - The TitleId of the app to open.\n * `type` (direction in) - - The process type.\n * `path` (direction in) - - Path of the process image.\n * `opt` (direction in) - - The create process option.\n # Returns\n\nPID of the created process on success, < 0 on error."]
     pub fn ksceKernelCreateProcess(
         titleid: *const crate::ctypes::c_char,
         type_: SceKernelProcessType,
         path: *const crate::ctypes::c_char,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
+    #[doc = "Get the main thread for a given process.\n # Arguments\n\n* `pid` (direction in) - The process id to query for.\n # Returns\n\nThe thread UID on success, else < 0 on error."]
     pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
+    #[doc = "Get the process module control block.\n\n # Arguments\n\n* `-` (direction in) - The target process id.\n\n # Returns\n\nThe process module cb pointer"]
     pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
+    #[doc = "Get the process self auth info.\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `self_auth_info` (direction out) - - The output buffer pointer of self auth info.\n\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelGetProcessSelfAuthInfo(
         pid: SceUID,
         self_auth_info: *mut SceSelfAuthInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Resume a suspended process.\n # Arguments\n\n* `pid` (direction in) - The process to resume.\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Suspend a running process.\n # Arguments\n\n* `pid` (direction in) - The process to suspend.\n * `\tstatus` (direction in) - The new status for the process.\n # Returns\n\nZero on success, < 0 on error."]
     pub fn ksceKernelSuspendProcess(
         pid: SceUID,
         status: crate::ctypes::c_int,
@@ -16642,13 +18522,17 @@ extern "C" {
         tz: *mut SceKernelTimezone,
     ) -> crate::ctypes::c_int;
     pub fn sceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
+    #[doc = "Locks certain timers from triggering.\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceKernelPowerTickType\n\n # Returns\n\n0"]
     pub fn sceKernelPowerLock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    #[doc = "Cancel specified idle timers to prevent entering in power save processing.\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceKernelPowerTickType\n\n # Returns\n\n0"]
     pub fn sceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    #[doc = "Unlocks certain timers.\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceKernelPowerTickType\n\n # Returns\n\n0"]
     pub fn sceKernelPowerUnlock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
 }
 #[link(name = "SceProcEventForDriver_stub", kind = "static")]
 #[cfg(feature = "SceProcEventForDriver_stub")]
 extern "C" {
+    #[doc = "Invoke process event handler\n\n # Arguments\n\n* `pid` (direction in) - - The ProccessId\n * `event_id` (direction in) - - event_id, [1, 2, 3, 4, 5, 0x10, 0x11]\n * `event_type` (direction in) - - Various event types\n * `param` (direction in) - - The pointer of invoke parameter\n * `a5` (direction in) - - Unknown\n * `a6` (direction in) - - Unknown\n\n # Returns\n\nuid on success, < 0 on error."]
     pub fn ksceKernelInvokeProcEventHandler(
         pid: SceUID,
         event_id: crate::ctypes::c_int,
@@ -16657,38 +18541,50 @@ extern "C" {
         a5: *mut crate::ctypes::c_void,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register process event handler\n\n # Arguments\n\n* `name` (direction in) - - Name of handler\n * `handler` (direction in) - - The pointer of handler\n * `a3` (direction in) - - unknown, set to 0\n\n # Returns\n\nuid on success, < 0 on error."]
     pub fn ksceKernelRegisterProcEventHandler(
         name: *const crate::ctypes::c_char,
         handler: *const SceProcEventHandler,
         a3: crate::ctypes::c_int,
     ) -> SceUID;
+    #[doc = "Unregister process event handler\n\n # Arguments\n\n* `uid` (direction in) - - ProcEvent uid\n\n # Returns\n\nuid on success, < 0 on error."]
     pub fn ksceKernelUnregisterProcEventHandler(uid: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "ScePromoterUtil_stub", kind = "static")]
 #[cfg(feature = "ScePromoterUtil_stub")]
 extern "C" {
+    #[doc = "Check if titleid exists\n\n # Arguments\n\n* `*res` (direction out) - - the result, unknown meaning\n\n # Returns\n\n0 if exists, < 0 otherwise."]
     pub fn scePromoterUtilityCheckExist(
         titleid: *const crate::ctypes::c_char,
         res: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Delete a package from the LiveArea.\n\n # Arguments\n\n* `*titleid` (direction in) -\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityDeletePkg(
         titleid: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Deinit the promoter utility.\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityExit() -> crate::ctypes::c_int;
+    #[doc = "Returns the result of a finished operation\n\n # Arguments\n\n* `*res` (direction out) - - the result, 0 on success\n\n # Returns\n\n< 0 if failed."]
     pub fn scePromoterUtilityGetResult(res: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Returns the state of an operation.\n\n # Arguments\n\n* `*state` (direction out) - - the current status, 0 when finished\n\n # Returns\n\n< 0 if failed."]
     pub fn scePromoterUtilityGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Init the promoter utility.\n > **Note:** Needs to be called before using the other functions.\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityInit() -> crate::ctypes::c_int;
+    #[doc = "Install Content Manager import contents and create bubbles without checking license files.\n\n # Arguments\n\n* `*params` (direction in) - - see ::ScePromoterUtilImportParams\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityPromoteImport(
         params: *mut ScePromoterUtilityImportParams,
     ) -> crate::ctypes::c_int;
+    #[doc = "Install a package from a directory, and add an icon on the LiveArea.\n\n # Arguments\n\n* `*path` (direction in) - - the path of the directory where the extracted content of the package is\n * `sync` - - pass 0 for asynchronous, 1 for synchronous\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityPromotePkg(
         path: *const crate::ctypes::c_char,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Install a package from a directory and generate a rif.\n\n # Arguments\n\n* `*path` (direction in) - - the path of the directory where the extracted content of the package is\n * `sync` - - pass 0 for asynchronous, 1 for synchronous\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityPromotePkgWithRif(
         path: *const crate::ctypes::c_char,
         sync: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Update the LiveArea resources of an app\n\n # Arguments\n\n* `*args` (direction in) - - see ::ScePromoterUtilityLAUpdate\n\n # Returns\n\n0 on success."]
     pub fn scePromoterUtilityUpdateLiveArea(
         args: *mut ScePromoterUtilityLAUpdate,
     ) -> crate::ctypes::c_int;
@@ -16976,81 +18872,99 @@ extern "C" {}
 #[link(name = "SceRazorCapture_stub", kind = "static")]
 #[cfg(feature = "SceRazorCapture_stub")]
 extern "C" {
+    #[doc = "Enables collecting of GPU captures when a gpucrash happens\n\n # Arguments\n\n* `filename` (direction in) - - Filename of the file where to save capture results"]
     pub fn sceRazorGpuCaptureEnableSalvage(filename: *const crate::ctypes::c_char);
+    #[doc = "Sets a trigger for a gpu capture in next frame from Razor debugger\n\n # Arguments\n\n* `filename` (direction in) - - Filename of the file where to save capture results"]
     pub fn sceRazorGpuCaptureSetTriggerNextFrame(filename: *const crate::ctypes::c_char);
 }
 #[link(name = "SceRazorHud_stub", kind = "static")]
 #[cfg(feature = "SceRazorHud_stub")]
 extern "C" {
+    #[doc = "Sets the buffer in which to store gpu live debugging results for the current frame\n\n # Arguments\n\n* `buffer` (direction in) - - The buffer to use\n * `buf_size` (direction in) - - The buffer size in bytes\n * `results` (direction out) - - The debugging results of the previous frame\n\n # Returns\n\n0, <0 on error."]
     pub fn sceRazorGpuLiveSetBuffer(
         buffer: *mut crate::ctypes::c_void,
         buf_size: SceSize,
         results: *mut SceRazorGpuLiveResultInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Sets a metrics group to use for gpu live debugging\n\n # Arguments\n\n* `metrics` (direction in) - - The metrics group to use (One of ::SceRazorGpuLiveMetricsGroup)\n\n # Returns\n\n0, <0 on error."]
     pub fn sceRazorGpuLiveSetMetricsGroup(metrics: u32) -> crate::ctypes::c_int;
+    #[doc = "Starts gpu live debugging\n\n # Returns\n\n0, <0 on error."]
     pub fn sceRazorGpuLiveStart() -> crate::ctypes::c_int;
+    #[doc = "Stops gpu live debugging\n\n # Returns\n\n0, <0 on error."]
     pub fn sceRazorGpuLiveStop() -> crate::ctypes::c_int;
 }
 #[link(name = "SceRegistryMgr_stub", kind = "static")]
 #[cfg(feature = "SceRegistryMgr_stub")]
 extern "C" {
+    #[doc = "Get all keys' initial information by category (from os0:kd/registry.db0)\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `buf[out]` - - Pointer to a char buffer to hold the values\n * `elements_number` - - The number of elements of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetInitVals(
         category: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         elements_number: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a int buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a char buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get all keys' information by category\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `buf[out]` - - Pointer to a char buffer to hold the values\n * `elements_number` - - The number of elements of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetKeys(
         category: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         elements_number: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the registry version\n\n # Arguments\n\n* `id` - - The id of the key\n * `buf[out]` - - Pointer to a char buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrGetRegVersion(
         version: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to an int buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a char buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set all keys' information by category\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `buf[out]` - - Pointer to a char buffer that holds the values\n * `elements_number` - - The number of elements of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSetKeys(
         category: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         elements_number: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a system param key's information by id\n\n # Arguments\n\n* `id` - - The id of the key\n * `buf[out]` - - Pointer to an int to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSystemParamGetInt(
         id: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a system param key's information by id\n\n # Arguments\n\n* `id` - - The id of the key\n * `buf[out]` - - Pointer to a char buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceRegMgrSystemParamGetStr(
         id: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_char,
@@ -17060,34 +18974,40 @@ extern "C" {
 #[link(name = "SceRegMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRegMgrForDriver_stub")]
 extern "C" {
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrGetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a int buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrGetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a char buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrGetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_char,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrSetKeyBin(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to an int buffer to hold the value\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrSetKeyInt(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
         buf: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set a key's information by category and name\n\n # Arguments\n\n* `category` - - The path to the directory to be opened (e.g. /CONFIG/SYSTEM)\n * `name` - - Name of the key\n * `buf` - - Pointer to a char buffer to hold the value\n * `size` - - The size of the buffer\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceRegMgrSetKeyStr(
         category: *const crate::ctypes::c_char,
         name: *const crate::ctypes::c_char,
@@ -17104,18 +19024,22 @@ extern "C" {}
 #[link(name = "SceRtcForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRtcForDriver_stub")]
 extern "C" {
+    #[doc = "Convert date time to unix time\n\n # Arguments\n\n* `src` (direction in) - - The input SceDateTime struct pointer.\n * `dst` (direction out) - - The output unix time buffer pointer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceRtcConvertDateTimeToUnixTime(
         src: *const SceDateTime,
         dst: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert tick to date time\n\n # Arguments\n\n* `dst` (direction out) - - The output SceDateTime struct pointer.\n * `src` (direction in) - - The input tick pointer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceRtcConvertTickToDateTime(
         dst: *mut SceDateTime,
         src: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current real time clock time.\n\n # Arguments\n\n* `time` (direction out) - - see ::SceDateTime.\n * `time_zone` (direction in) - - The time zone the return value will be.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceRtcGetCurrentClock(
         time: *mut SceDateTime,
         time_zone: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current real time clock time with system time zone.\n\n # Arguments\n\n* `time` (direction out) - - see ::SceDateTime.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
     pub fn ksceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
     pub fn ksceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
@@ -17129,31 +19053,37 @@ extern "C" {
 #[link(name = "SceRtc_stub", kind = "static")]
 #[cfg(feature = "SceRtc_stub")]
 extern "C" {
+    #[doc = "Convert localtime to UTC\n\n # Arguments\n\n* `localtime` (direction in) - - The localtime buffer pointer\n * `utc` (direction out) - - The UTC buffer pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcConvertLocalTimeToUtc(
         localtime: *const SceRtcTick,
         utc: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert UTC to localtime\n\n # Arguments\n\n* `utc` (direction in) - - The UTC buffer pointer\n * `localtime` (direction out) - - The localtime buffer pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcConvertUtcToLocalTime(
         utc: *const SceRtcTick,
         localtime: *mut SceRtcTick,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert RFC2822 time string from UTC\n\n # Arguments\n\n* `datetime` (direction out) - - The datetime string buffer\n * `utc` (direction in) - - The UTC time tick pointer\n * `offset` (direction in) - - A timezone offset. this value have to minute value\n * `a4` (direction in) - - The Syscall validity buffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcFormatRFC2822(
         datetime: *mut crate::ctypes::c_char,
         utc: *const SceRtcTick,
         offset: crate::ctypes::c_int,
         a4: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert RFC2822 time string from UTC with localtime\n\n # Arguments\n\n* `datetime` (direction out) - - The datetime string buffer\n * `utc` (direction in) - - The UTC time tick pointer\n * `a3` (direction in) - - The Syscall validity buffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcFormatRFC2822LocalTime(
         datetime: *mut crate::ctypes::c_char,
         utc: *const SceRtcTick,
         a3: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert RFC3339 time string from UTC\n\n # Arguments\n\n* `datetime` (direction out) - - The datetime string buffer\n * `utc` (direction in) - - The UTC time tick pointer\n * `offset` (direction in) - - A timezone offset. this value have to minute value\n * `a4` (direction in) - - The Syscall validity buffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcFormatRFC3339(
         datetime: *mut crate::ctypes::c_char,
         utc: *const SceRtcTick,
         offset: crate::ctypes::c_int,
         a4: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Convert RFC3339 time string from UTC with localtime\n\n # Arguments\n\n* `datetime` (direction out) - - The datetime string buffer\n * `utc` (direction in) - - The UTC time tick pointer\n * `a3` (direction in) - - The Syscall validity buffer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceRtcFormatRFC3339LocalTime(
         datetime: *mut crate::ctypes::c_char,
         utc: *const SceRtcTick,
@@ -17192,10 +19122,12 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     pub fn sceRtcGetAccumulativeTime() -> SceULong64;
     pub fn sceRtcGetCurrentAdNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    #[doc = "Get current real time clock time.\n\n # Arguments\n\n* `time` (direction out) - - see ::SceDateTime.\n * `time_zone` (direction in) - - The time zone the return value will be.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceRtcGetCurrentClock(
         time: *mut SceDateTime,
         time_zone: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get current real time clock time with system time zone.\n\n # Arguments\n\n* `time` (direction out) - - see ::SceDateTime.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
     pub fn sceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
     pub fn sceRtcGetCurrentGpsTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
@@ -17303,21 +19235,31 @@ extern "C" {}
 #[link(name = "SceSblACMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblACMgrForDriver_stub")]
 extern "C" {
+    #[doc = "Get media type for input path.\n\n # Arguments\n\n* `path` (direction in) - - The target path\n * `media_type` (direction out) - - The media type output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceSblACMgrGetMediaType(
         path: *const crate::ctypes::c_char,
         media_type: *mut SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get process authority id\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n * `authid` (direction out) - - The authid output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceSblACMgrGetProcessProgramAuthId(
         pid: SceUID,
         authid: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get development mode state\n\n # Returns\n\nIf development mode, 1. else 0."]
     pub fn ksceSblACMgrIsDevelopmentMode() -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf fake self process, 1. else 0."]
     pub fn ksceSblACMgrIsFself(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf game mode process, 1. else 0."]
     pub fn ksceSblACMgrIsGameProgram(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf non game mode process, 1. else 0."]
     pub fn ksceSblACMgrIsNonGameProgram(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf pspemu process, 1. else 0."]
     pub fn ksceSblACMgrIsPspEmu(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf root mode process, 1. else 0."]
     pub fn ksceSblACMgrIsRootProgram(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf SceShell process(authid:0x2800000000000001), 1. else 0."]
     pub fn ksceSblACMgrIsSceShell(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get process type state\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n\n # Returns\n\nIf system mode process, 1. else 0."]
     pub fn ksceSblACMgrIsSystemProgram(pid: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "SceSblACMgrForKernel_stub", kind = "static")]
@@ -17329,16 +19271,27 @@ extern "C" {}
 #[link(name = "SceSblAIMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblAIMgrForDriver_stub")]
 extern "C" {
+    #[doc = "Get product code.\n\n # Returns\n\nsee:SceProductCode."]
     pub fn ksceSblAimgrGetProductCode() -> crate::ctypes::c_int;
+    #[doc = "Get product sub code.\n\n # Returns\n\nproduct sub code value."]
     pub fn ksceSblAimgrGetProductSubCode() -> crate::ctypes::c_int;
+    #[doc = "Get service/manufacturing information (factory/minimum firmware).\n\n # Arguments\n\n* `info` (direction out) - - The info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf product code is CEX, 1. else 0."]
     pub fn ksceSblAimgrIsCEX() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf product code is DEX, 1. else 0."]
     pub fn ksceSblAimgrIsDEX() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf device is dolce, or PSTV emu enabled, 1. else 0."]
     pub fn ksceSblAimgrIsDolce() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf device is dolce, 1. else 0."]
     pub fn ksceSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf device is vita, 1. else 0."]
     pub fn ksceSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf product code is TEST, 1. else 0."]
     pub fn ksceSblAimgrIsTest() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf product code is TOOL, 1. else 0."]
     pub fn ksceSblAimgrIsTool() -> crate::ctypes::c_int;
+    #[doc = "Get system type state.\n\n # Returns\n\nIf device is vita, 1. else 0."]
     pub fn ksceSblAimgrIsVITA() -> crate::ctypes::c_int;
 }
 #[link(name = "SceSblAuthMgrForDriver_stub", kind = "static")]
@@ -17367,12 +19320,14 @@ extern "C" {}
 #[link(name = "SceSblPostSsMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblPostSsMgrForDriver_stub")]
 extern "C" {
+    #[doc = "Create the new RSA signature\n\n # Arguments\n\n* `rsa_signature` (direction in, out) - - The RSA signature result\n * `hash` (direction in) - - The RSA signature hash\n * `private_key` (direction in) - - The RSA private key\n * `type` (direction in) - - The RSA signature type. [2, 4, 5, 0xB, 0xC, 0xD, 0xE]\n\n # Returns\n\nSCE_OK on success, < 0 on error"]
     pub fn ksceSblRSA2048CreateSignature(
         rsa_signature: *mut SceSblRsaDataParam,
         hash: *mut SceSblRsaDataParam,
         private_key: *mut SceSblRsaPrivateKeyParam,
         type_: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Verufy the new RSA signature\n\n # Arguments\n\n* `rsa_signature` (direction in) - - The RSA signature input\n * `hash` (direction in) - - The RSA signature hash\n * `public_key` (direction in) - - The RSA public key\n * `type` (direction in) - - The RSA signature type. [2, 4, 5, 0xB, 0xC, 0xD, 0xE]\n\n # Returns\n\nSCE_OK on success, < 0 on error"]
     pub fn ksceSblRSA2048VerifySignature(
         rsa_signature: *mut SceSblRsaDataParam,
         hash: *mut SceSblRsaDataParam,
@@ -17458,10 +19413,12 @@ extern "C" {}
 #[link(name = "SceSblSsMgr_stub", kind = "static")]
 #[cfg(feature = "SceSblSsMgr_stub")]
 extern "C" {
+    #[doc = "Execute DMAC5 encdec command\n\n # Arguments\n\n* `param` (direction in, out) - - The encdec param.\n * `command` (direction in) - - The DMAC5 encdec command.\n\n # Returns\n\n0 on success, else < 0."]
     pub fn sceSblDmac5EncDec(
         param: *mut SceSblDmac5EncDecParam,
         command: SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Execute DMAC5 hash transform command\n\n # Arguments\n\n* `param` (direction in, out) - - The encdec param.\n * `command` (direction in) - - The DMAC5 hash base command.\n * `extra` (direction in) - - The DMAC5 extra command.\n\n # Returns\n\n0 on success, else < 0."]
     pub fn sceSblDmac5HashTransform(
         param: *mut SceSblDmac5HashTransformParam,
         command: SceUInt32,
@@ -17471,20 +19428,27 @@ extern "C" {
 #[link(name = "SceSblUpdateMgr_stub", kind = "static")]
 #[cfg(feature = "SceSblUpdateMgr_stub")]
 extern "C" {
+    #[doc = "Getting system update mode on boot\n\n # Arguments\n\n* `mode` (direction out) - - The pointer of SceUpdateMode variable\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceSblUsGetUpdateMode(mode: *mut SceUpdateMode) -> crate::ctypes::c_int;
+    #[doc = "Setting system update mode on boot\n\n # Arguments\n\n* `mode` (direction in) - - The update mode\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceSblUsSetUpdateMode(mode: SceUpdateMode) -> crate::ctypes::c_int;
+    #[doc = "Verify PUP\n\n # Arguments\n\n* `path` (direction in) - - The PUP path\n\n # Returns\n\n0 on success, < 0 on error.\n\n note - If verify CEX PUP on Devkit system, got error."]
     pub fn sceSblUsVerifyPup(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
 }
 #[link(name = "SceScreenShot_stub", kind = "static")]
 #[cfg(feature = "SceScreenShot_stub")]
 extern "C" {
+    #[doc = "Disable screenshot"]
     pub fn sceScreenShotDisable() -> crate::ctypes::c_int;
+    #[doc = "Enable screenshot"]
     pub fn sceScreenShotEnable() -> crate::ctypes::c_int;
+    #[doc = "Set overlay image"]
     pub fn sceScreenShotSetOverlayImage(
         filepath: *const crate::ctypes::c_char,
         offsetX: crate::ctypes::c_int,
         offsetY: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set screenshot params"]
     pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> crate::ctypes::c_int;
 }
 #[link(name = "SceSdifForDriver_stub", kind = "static")]
@@ -17518,11 +19482,14 @@ extern "C" {
 #[link(name = "SceShellSvc_stub", kind = "static")]
 #[cfg(feature = "SceShellSvc_stub")]
 extern "C" {
+    #[doc = "Init events\n\n # Arguments\n\n* `unk` (direction in) - - Unknown, use 0\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceShellUtilInitEvents(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceShellUtilLaunchAppRequestLaunchApp(
         param: *mut SceShellUtilLaunchAppParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock event\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceShellUtilLockType\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceShellUtilLock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
+    #[doc = "Register event handler\n\n # Arguments\n\n* `handler` (direction in) - - Event handler\n\n * `userData` (direction in) - - The user data passed to the handler\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceShellUtilRegisterEventHandler(
         handler: SceShellUtilEventHandler,
         userData: *mut crate::ctypes::c_void,
@@ -17530,11 +19497,13 @@ extern "C" {
     pub fn sceShellUtilRequestLaunchApp(
         param: *mut SceShellUtilLaunchAppParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unlock event\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceShellUtilLockType\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceShellUtilUnlock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
 }
 #[link(name = "SceShutterSound_stub", kind = "static")]
 #[cfg(feature = "SceShutterSound_stub")]
 extern "C" {
+    #[doc = "Plays a shutter sound\n\n # Arguments\n\n* `type` (direction in) - - The sound type to play (One of ::SceShutterSoundType)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceShutterSoundPlay(type_: u32) -> crate::ctypes::c_int;
 }
 #[link(name = "SceSmart_stub", kind = "static")]
@@ -17543,6 +19512,7 @@ extern "C" {}
 #[link(name = "SceSqlite_stub", kind = "static")]
 #[cfg(feature = "SceSqlite_stub")]
 extern "C" {
+    #[doc = "Wrapper for sqlite3_config(SQLITE_CONFIG_MALLOC)\n\n # Arguments\n\n* `methods` (direction in) - - A proper set of memory allocation methods\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceSqliteConfigMallocMethods(
         methods: *mut SceSqliteMallocMethods,
     ) -> crate::ctypes::c_int;
@@ -17609,6 +19579,7 @@ extern "C" {
         len: crate::ctypes::c_uint,
         dst_len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Internal functions used for snprintf, vsnprintf, kscDebugPrintf\n\n # Arguments\n\n* `callback` (direction in) - - The callback to receive ch output by this function\n * `argp` (direction in) - - The passed to callback\n * `fmt` (direction in) - - The base format. example: \"%-18s\"\n * `list` (direction in) - - The variable argument list\n\n # Returns\n\nnone"]
     pub fn __prnt(
         callback: SceSysclibPrntCallback,
         argp: *mut crate::ctypes::c_void,
@@ -17622,6 +19593,7 @@ extern "C" {
         dst_len: crate::ctypes::c_uint,
     ) -> *mut crate::ctypes::c_char;
     pub fn look_ctype_table(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
+    #[doc = "Get string length with length limit\n\n # Arguments\n\n* `s` (direction in) - - The string pointer\n * `n` (direction in) - - The max length\n\n # Returns\n\nString length."]
     pub fn strnlen(
         s: *const crate::ctypes::c_char,
         n: crate::ctypes::c_uint,
@@ -17637,32 +19609,41 @@ extern "C" {
 extern "C" {
     pub fn ksceSysconBeginConfigstorageTransaction() -> crate::ctypes::c_int;
     pub fn ksceSysconClearTemperatureLog(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Execute synchronously a syscon packet.\n\n # Arguments\n\n* `packet` - The packet to execute. Its tx member needs to be initialized.\n * `flags` - The packet flags. Check SceSysconPacketFlags.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCmdExec(
         packet: *mut SceSysconPacket,
         flags: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Execute asynchronously a syscon packet.\n\n # Arguments\n\n* `packet` - The packet to execute. Its tx member needs to be initialized.\n * `flags` - The packet flags. Check SceSysconPacketFlags.\n * `callback` - The packet callback. Check the callback member of SceSysconPacket.\n * `argp` - The second argument that will be passed to the callback when executed.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCmdExecAsync(
         packet: *mut SceSysconPacket,
         flags: crate::ctypes::c_uint,
         cb: SceSysconCmdExecAsyncCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for the currently queued syscon packets to be executed, or check if any are in the queue.\n\n # Arguments\n\n* `packet` - The packet you want to check or wait for, or NULL if you want to check or wait for all the currently running packets.\n * `noWait` - Set to 1 if you just want to check the packet status, or 0 if you want the function to return only when the packet queue is empty.\n\n # Returns\n\n1 if packets are still running (and noWait was set to 1), 0 on success, < 0 otherwise."]
     pub fn ksceSysconCmdSync(
         packet: *mut SceSysconPacket,
         noWait: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
     pub fn ksceSysconCommitConfigstorageTransaction() -> crate::ctypes::c_int;
+    #[doc = "Set the ADV7533 HDMI CEC power.\n\n # Arguments\n\n* `power` - The new power value.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCtrlHdmiCecPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Turn a LED on or off.\n\n # Arguments\n\n* `led` - The LED id.\n * `enable` - Set this value to 1 if you want the LED to turn on, or 0 if you want it to turn off.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCtrlLED(
         led: crate::ctypes::c_int,
         enable: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
     pub fn ksceSysconCtrlManualChargeMode(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set the memory stick power.\n\n # Arguments\n\n* `power` - The new power value.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCtrlRMRPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set the SD power.\n\n # Arguments\n\n* `power` - The new power value.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconCtrlSdPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceSysconEnableHibernateIO(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceSysconEndConfigstorageTransaction() -> crate::ctypes::c_int;
+    #[doc = "Get the baryon timestamp.\n\n # Returns\n\nThe baryon timestamp."]
     pub fn ksceSysconGetBaryonTimestamp() -> crate::ctypes::c_ulonglong;
+    #[doc = "Get the baryon version.\n\n # Returns\n\nThe baryon version."]
     pub fn ksceSysconGetBaryonVersion() -> crate::ctypes::c_int;
     pub fn ksceSysconGetBatteryCalibData(
         arg1: *mut crate::ctypes::c_int,
@@ -17670,6 +19651,7 @@ extern "C" {
         arg3: *mut crate::ctypes::c_int,
         arg4: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get physics button control info\n\n # Arguments\n\n* `ctrl` (direction out) - - The pointer of physics button control info output\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconGetControlsInfo(ctrl: *mut SceUInt32) -> crate::ctypes::c_int;
     pub fn ksceSysconGetHardwareInfo() -> crate::ctypes::c_int;
     pub fn ksceSysconGetHardwareInfo2(
@@ -17708,21 +19690,26 @@ extern "C" {
         buffer: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the alarm callback, that will be ran when the alarm timer is passed.\n\n # Arguments\n\n* `callback` - The callback function.\n * `argp` - The second argument that will be passed to the callback.\n\n # Returns\n\n0."]
     pub fn ksceSysconSetAlarmCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the debug handlers.\n\n # Returns\n\n0."]
     pub fn ksceSysconSetDebugHandlers(
         handlers: *const SceSysconDebugHandlers,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the low battery callback, that will be ran when the battery is low.\n\n # Arguments\n\n* `callback` - The callback function.\n * `argp` - The second argument that will be passed to the callback.\n\n # Returns\n\n0."]
     pub fn ksceSysconSetLowBatteryCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Reset the device.\n\n # Arguments\n\n* `type` - The reset type value, one of SceSysconResetType.\n * `mode` - The resetting mode (?).\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconSetPowerMode(
         type_: crate::ctypes::c_int,
         mode: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the thermal alert callback, that will be ran when the temperature reaches a critical point.\n\n # Arguments\n\n* `callback` - The callback function.\n * `argp` - The second argument that will be passed to the callback.\n\n # Returns\n\n0."]
     pub fn ksceSysconSetThermalAlertCallback(
         callback: SceSysconCallback,
         argp: *mut crate::ctypes::c_void,
@@ -17734,6 +19721,7 @@ extern "C" {
         buff: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Waits until the syscon is initialized.\n\n # Returns\n\n0 on success."]
     pub fn ksceSysconWaitInitialized() -> crate::ctypes::c_int;
 }
 #[link(name = "SceSysmemForDriver_0990_stub", kind = "static")]
@@ -17743,28 +19731,35 @@ extern "C" {}
 #[cfg(feature = "SceSysmemForDriver_stub")]
 extern "C" {
     pub fn ksceGUIDClose(guid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Gets an object from a UID.\n\n This increases the internal reference count.\n\n # Arguments\n\n* `guid` (direction in) - - The target global uid.\n * `object` (direction out) - - The object pointer output pointer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGUIDReferObject(
         guid: SceUID,
         object: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets an object from a UID with class.\n\n This retains the object refer count internally! You must call `ksceKernelUidRelease`\n after you are done using it.\n\n # Arguments\n\n* `guid` (direction in) - - The target global uid.\n * `sce_class` (direction in) - - The guid parent class.\n * `object` (direction out) - - The object pointer output pointer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGUIDReferObjectWithClass(
         guid: SceUID,
         sce_class: *mut SceClass,
         object: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets an object from a UID with class and level.\n\n This retains the object refer count internally! You must call `ksceKernelUidRelease`\n after you are done using it.\n\n # Arguments\n\n* `guid` (direction in) - - The target global uid.\n * `sce_class` (direction in) - - The guid parent class.\n * `level` (direction in) - - The openable level (count/number).\n The max passable number is 7.\n If the internal object retention count is (level + 1) or higher, get an error.\n * `object` (direction out) - - The object pointer output pointer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGUIDReferObjectWithClassLevel(
         guid: SceUID,
         pClass: *mut SceClass,
         level: SceUInt32,
         entry: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
+    #[doc = "Releases an object referenced by the UID.\n\n This decreases the internal reference count.\n\n # Arguments\n\n* `guid` (direction in) - - The target global uid.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGUIDReleaseObject(guid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Allocation the specified length of memory from heap\n\n # Arguments\n\n* `uid` (direction in) - - The heapid\n * `size` (direction in) - - The alloc size\n\n # Returns\n\nThe pointer of allocated memory on success, NULL on error."]
     pub fn ksceKernelAllocHeapMemory(uid: SceUID, size: SceSize) -> *mut crate::ctypes::c_void;
+    #[doc = "Allocation the specified length of memory from heap with option\n\n # Arguments\n\n* `uid` (direction in) - - The heapid\n * `size` (direction in) - - The alloc size\n * `opt` (direction in) - - The pointer of option\n\n # Returns\n\nThe pointer of allocated memory on success, NULL on error."]
     pub fn ksceKernelAllocHeapMemoryWithOption(
         heapid: SceUID,
         len: SceSize,
         opt: *mut SceAllocOpt,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Allocates a new memory block\n\n # Arguments\n\n* `name` (direction in) - - Name for the memory block\n * `type` (direction in) - - Type of the memory to allocate. Use `SCE_KERNEL_MEMBLOCK_TYPE_USER_*` or `SCE_KERNEL_MEMBLOCK_TYPE_KERNEL_*`.\n * `size` (direction in) - - Size of the memory to allocate\n * `opt` (direction in) - - Memory block options?\n\n # Returns\n\nSceUID of the memory block on success, < 0 on error."]
     pub fn ksceKernelAllocMemBlock(
         name: *const crate::ctypes::c_char,
         type_: SceKernelMemBlockType,
@@ -17779,30 +19774,38 @@ extern "C" {
         create: SceClassCallback,
         destroy: SceClassCallback,
     ) -> crate::ctypes::c_int;
+    #[doc = "Create heap area\n\n # Arguments\n\n* `name` (direction in) - - The heap name\n * `size` (direction in) - - The heap size\n * `opt` (direction in) - - The pointer of SceKernelHeapCreateOpt option data\n\n # Returns\n\nheapid on success, < 0 on error."]
     pub fn ksceKernelCreateHeap(
         name: *const crate::ctypes::c_char,
         size: SceSize,
         opt: *mut SceKernelHeapCreateOpt,
     ) -> SceUID;
+    #[doc = "Delete heap area\n\n # Arguments\n\n* `uid` (direction in) - - The heapid\n\n # Returns\n\nalways 0.\n\n note - Trigger an infinite loop if something fails internally.\n For example, passing an invalid heapid."]
     pub fn ksceKernelDeleteHeap(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Find the SceUID of a memory block\n\n # Arguments\n\n* `addr` (direction in) - - Base address of the memory block\n * `size` (direction in) - - Size to search for (usally set to 0)\n\n # Returns\n\nSceUID of the memory block on success, < 0 on error."]
     pub fn ksceKernelFindMemBlockByAddr(
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
+    #[doc = "Find the SceUID of a memory block for a PID\n\n # Arguments\n\n* `pid` (direction in) - - PID of the process\n * `addr` (direction in) - - Base address of the memory block\n * `size` (direction in) - - Size to search for (usally set to 0)\n\n # Returns\n\nSceUID of the memory block on success, < 0 on error."]
     pub fn ksceKernelFindMemBlockByAddrForPid(
         pid: SceUID,
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
+    #[doc = "Free allocated memory\n\n # Arguments\n\n* `uid` (direction in) - - The heapid\n * `ptr` (direction in) - - The pointer of allocated memory\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelFreeHeapMemory(
         uid: SceUID,
         ptr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Frees new memory block\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block to free\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get the AllocMapSize of a MemBlock\n\n # Arguments\n\n* `memid` (direction in) - - The target uid of the memblock\n * `alloc_map_size` (direction out) - - The output for AllocMapSize\n\n # Returns\n\nSCE_OK on success, < 0 on error."]
     pub fn ksceKernelGetMemBlockAllocMapSize(
         memid: SceUID,
         alloc_map_size: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets the base address of a memory block\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block\n * `base` (direction out) - - Base address of the memory block identified by uid\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetMemBlockBase(
         uid: SceUID,
         base: *mut *mut crate::ctypes::c_void,
@@ -17823,74 +19826,89 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut crate::ctypes::c_uint,
     ) -> SceUID;
+    #[doc = "Releases a memblock referenced by the UID.\n\n This decreases the internal reference count.\n\n # Arguments\n\n* `uid` (direction in) - The uid of the memblock\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemBlockRelease(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Releases a memory range\n\n This decreases the internal reference count of the memblocks belonging to the range.\n\n Note: It uses ::SCE_KERNEL_MEMORY_REF_PERM_ANY as the reference permission.\n\n # Arguments\n\n* `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeRelease(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Releases a memory range for a process (pid)\n\n This decreases the internal reference count of the memblocks belonging to the range.\n\n Note: It uses ::SCE_KERNEL_MEMORY_REF_PERM_ANY as the reference permission.\n\n # Arguments\n\n* `pid` (direction in) - The pid of the process\n * `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeReleaseForPid(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Releases a memory range checking for a given permission\n\n This decreases the internal reference count of the memblocks belonging to the range.\n If the memory blocks belonging to the range don't have the required memory access permission,\n it returns an error.\n\n # Arguments\n\n* `perm` (direction in) - The required permission of the memory blocks belonging to the range\n * `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeReleaseWithPerm(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retains a memory range\n\n This increases the internal reference count of the memblocks belonging to the range.\n\n Note: It uses ::SCE_KERNEL_MEMORY_REF_PERM_ANY as the reference permission.\n\n # Arguments\n\n* `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeRetain(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retains a memory range for a process (pid)\n\n This increases the internal reference count of the memblocks belonging to the range.\n\n Note: It uses ::SCE_KERNEL_MEMORY_REF_PERM_ANY as the reference permission.\n\n # Arguments\n\n* `pid` (direction in) - The pid of the process\n * `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeRetainForPid(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retains a memory range checking for a given permission\n\n This increases the internal reference count of the memblocks belonging to the range.\n If the memory blocks belonging to the range don't have the required memory access permission,\n it returns an error.\n\n # Arguments\n\n* `perm` (direction in) - The required permission of the memory blocks belonging to the range\n * `addr` (direction in) - The start address\n * `size` (direction in) - The memory range size\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelMemRangeRetainWithPerm(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy from user memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland or kernel memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcMemcpyFromUser.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelMemcpyFromUser(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy to user memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcMemcpyToUser.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelMemcpyToUser(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy from user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland or kernel memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelMemcpyFromUser with disable interrupts.\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcMemcpyFromUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy from user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelMemcpyToUser with disable interrupts.\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcMemcpyToUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Strncpy from user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland or kernel memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\nThe copied length on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelStrncpyFromUserInternal with disable interrupts.\n DACR - Current process DACR\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcStrncpyFromUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
+    #[doc = "Strncpy to user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\nThe copied length on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelStrncpyToUserInternal with disable interrupts.\n DACR - Current process DACR\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcStrncpyToUser(
         pid: SceUID,
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
+    #[doc = "Strnlen user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `s` (direction in) - - The userland memory pointer.\n * `n` (direction in) - - The max length.\n\n # Returns\n\nThe strings length on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelStrnlenUserInternal with disable interrupts.\n DACR - Current process DACR\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcStrnlenUser(
         pid: SceUID,
         s: *const crate::ctypes::c_char,
         n: SceSize,
     ) -> SceSSize;
+    #[doc = "The mapping user address space to kernel with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `name` (direction in) - - The mapping name.\n * `permission` (direction in) - - The access permission. 1 for Read.\n * `user_buf` (direction in) - - The target address of user space.\n * `size` (direction in) - - The mapping size.\n * `kernel_page` (direction out) - - The mapped kernel address space.\n * `kernel_size` (direction out) - - The mapped size.\n * `kernel_offset` (direction out) - - The output of address align value.\n For example, if user_buf is 0x81000123, kernel_offset to 0x123.\n\n # Returns\n\nuid on success, < 0 on error.\n\n note - If no longer use the mapped address, need to release it with ksceKernelMemBlockRelease"]
     pub fn ksceKernelProcUserMap(
         pid: SceUID,
         name: *const crate::ctypes::c_char,
@@ -17901,33 +19919,41 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
+    #[doc = "Memcpy user memory to user memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelUserMemcpyInternal with disable interrupts.\n DACR - Current process DACR\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcUserMemcpy(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the process context\n\n # Arguments\n\n* `pid` (direction in) - - The target process id\n * `ctx` (direction out) - - The context output pointer of pointer"]
     pub fn ksceKernelProcessGetContext(
         pid: SceUID,
         ctx: *mut *mut SceKernelProcessContext,
     ) -> crate::ctypes::c_int;
+    #[doc = "Switch the process context\n\n # Arguments\n\n* `new_context` (direction in) - - The new context\n * `prev_context` (direction out) - - The prev context"]
     pub fn ksceKernelProcessSwitchContext(
         new_context: *const SceKernelProcessContext,
         prev_context: *mut SceKernelProcessContext,
     ) -> crate::ctypes::c_int;
+    #[doc = "Changes the block type\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block to change\n * `type` (direction in) - - Type of the memory to change to\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
+    #[doc = "Strncpy from user memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland or kernel memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\nThe copied length on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcStrncpyFromUser.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelStrncpyFromUser(
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
+    #[doc = "Strncpy to user memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\nThe copied length on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcStrncpyToUser.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelStrncpyToUser(
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
+    #[doc = "Strnlen user memory\n\n # Arguments\n\n* `s` (direction in) - - The userland memory pointer.\n * `n` (direction in) - - The max length.\n\n # Returns\n\nThe strings length\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcStrnlenUser.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
     pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "The mapping user address space to kernel\n\n # Arguments\n\n* `name` (direction in) - - The mapping name.\n * `permission` (direction in) - - The access permission. 1 for Read.\n * `user_buf` (direction in) - - The target address of user space.\n * `size` (direction in) - - The mapping size.\n * `kernel_page` (direction out) - - The mapped kernel address space.\n * `kernel_size` (direction out) - - The mapped size.\n * `kernel_offset` (direction out) - - The output of address align value.\n For example, if user_buf is 0x81000123, kernel_offset to 0x123.\n\n # Returns\n\nuid on success, < 0 on error.\n\n note - If no longer use the mapped address, need to release it with ksceKernelMemBlockRelease"]
     pub fn ksceKernelUserMap(
         name: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
@@ -17937,15 +19963,18 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
+    #[doc = "Memcpy user memory to user memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland memory pointer.\n * `len` (direction in) - - The copy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcUserMemcpy.\n DACR - 0x55555555\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelUserMemcpy(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the physical address list of a given virtual address range\n\n # Arguments\n\n* `va_range` (direction in) - - The virtual address range\n * `pa_vector` (direction out) - - The vector of physical addresses\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelVARangeToPAVector(
         va_range: *const SceKernelVARange,
         pa_vector: *mut SceKernelPAVector,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the physical address of a given virtual address\n\n # Arguments\n\n* `va` (direction in) - - The virtual address\n * `pa` (direction out) - - The physical address\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelVAtoPA(
         va: *const crate::ctypes::c_void,
         pa: *mut usize,
@@ -17972,10 +20001,12 @@ extern "C" {
         name: *const crate::ctypes::c_char,
         cls: *mut *mut SceClass,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets the memory block type of a memory block\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block\n * `type` (direction out) - - Type of the memory block identified by uid\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetMemBlockType(
         uid: SceUID,
         type_: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy to user RX memory with process\n\n # Arguments\n\n* `pid` (direction in) - - The target process id.\n * `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** - Invoke ksceKernelMemcpyToUserRx with disable interrupts.\n Setting TTBR1 - Yes"]
     pub fn ksceKernelProcMemcpyToUserRx(
         pid: SceUID,
         dst: *mut crate::ctypes::c_void,
@@ -17986,6 +20017,7 @@ extern "C" {
 #[link(name = "SceSysmemForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSysmemForKernel_stub")]
 extern "C" {
+    #[doc = "Get created GUID vectors.\n\n # Arguments\n\n* `cls` (direction in) - - The Class.\n * `vis_level` (direction in) - - The Visible level.\n * `vector` (direction out) - - The GUID vector output.\n * `num` (direction in) - - The GUID vector max number.\n * `ret_num` (direction out) - - The GUID vector result number.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceGUIDGetUIDVectorByClass(
         cls: *mut SceClass,
         vis_level: crate::ctypes::c_int,
@@ -17993,16 +20025,20 @@ extern "C" {
         num: SceSize,
         ret_num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Alloc kernel memory\n\n # Arguments\n\n* `size` (direction in) - - The alloction memory size\n\n # Returns\n\nmemory pointer on success, NULL on error."]
     pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
+    #[doc = "Free kernel memory\n\n # Arguments\n\n* `ptr` (direction in) - - The free memory pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
     pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
     pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
     pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
+    #[doc = "Memcpy to user RO memory\n\n # Arguments\n\n* `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context.\n DACR - 0x15450FC3\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelMemcpyToUserRo(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Memcpy to user RO memory with DcacheAndL2WritebackRange\n\n # Arguments\n\n* `dst` (direction in) - - The userland memory pointer.\n * `src` (direction in) - - The userland or kernel memory pointer.\n * `len` (direction in) - - The memcpy length.\n\n # Returns\n\n0 on success, < 0 on error.\n\n > **Note:** Cannot use this function in kernel context. Use ksceKernelProcMemcpyToUserRx.\n DACR - 0x15450FC3\n Setting TTBR1 - No (use current TTBR1)"]
     pub fn ksceKernelMemcpyToUserRx(
         dst: *mut crate::ctypes::c_void,
         src: *const crate::ctypes::c_void,
@@ -18012,6 +20048,7 @@ extern "C" {
 #[link(name = "SceSysmem_stub", kind = "static")]
 #[cfg(feature = "SceSysmem_stub")]
 extern "C" {
+    #[doc = "Allocates a new memory block\n\n # Arguments\n\n* `name` (direction in) - - Name for the memory block\n * `type` (direction in) - - Type of the memory to allocate. Use `SCE_KERNEL_MEMBLOCK_TYPE_USER_*`.\n * `size` (direction in) - - Size of the memory to allocate\n * `opt` (direction in) - - Memory block options?\n\n # Returns\n\nSceUID of the memory block on success, < 0 on error."]
     pub fn sceKernelAllocMemBlock(
         name: *const crate::ctypes::c_char,
         type_: SceKernelMemBlockType,
@@ -18024,11 +20061,14 @@ extern "C" {
     pub fn sceKernelCloseVMDomain() -> crate::ctypes::c_int;
     pub fn sceKernelFindMemBlockByAddr(addr: *const crate::ctypes::c_void, size: SceSize)
         -> SceUID;
+    #[doc = "Frees new memory block\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block to free\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
     pub fn sceKernelGetCpuId() -> crate::ctypes::c_int;
+    #[doc = "Get free memory size in bytes\n\n # Arguments\n\n* `info` (direction out) - - Returned free memory size for different kind of memory block types\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelGetFreeMemorySize(
         info: *mut SceKernelFreeMemorySizeInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets the base address of a memory block\n\n # Arguments\n\n* `uid` (direction in) - - SceUID of the memory block to free\n * `base` (direction out) - - Base address of the memory block identified by SceUID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceKernelGetMemBlockBase(
         uid: SceUID,
         base: *mut *mut crate::ctypes::c_void,
@@ -18042,7 +20082,9 @@ extern "C" {
         size: SceSize,
         info: *mut SceKernelMemBlockInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the model number of the device\n\n # Returns\n\nA value from SCE_KERNEL_MODEL"]
     pub fn sceKernelGetModel() -> crate::ctypes::c_int;
+    #[doc = "Get the model number of the device\n\n # Returns\n\nA value from SCE_KERNEL_MODEL"]
     pub fn sceKernelGetModelForCDialog() -> crate::ctypes::c_int;
     pub fn sceKernelIsPSVitaTV() -> crate::ctypes::c_int;
     pub fn sceKernelOpenMemBlock(
@@ -18059,21 +20101,29 @@ extern "C" {
 #[link(name = "SceSysmodule_stub", kind = "static")]
 #[cfg(feature = "SceSysmodule_stub")]
 extern "C" {
+    #[doc = "Check if a module is loaded.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to check.\n\n # Returns\n\n0 if loaded, <0 otherwise."]
     pub fn sceSysmoduleIsLoaded(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
+    #[doc = "Check if an internal module is loaded.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to check.\n\n # Returns\n\n0 if loaded, <0 otherwise."]
     pub fn sceSysmoduleIsLoadedInternal(id: SceSysmoduleInternalModuleId) -> crate::ctypes::c_int;
+    #[doc = "Load a module.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to load.\n\n # Returns\n\n0 on success, <0 on error."]
     pub fn sceSysmoduleLoadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
+    #[doc = "Load an internal module.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to load.\n\n # Returns\n\n0 on success, <0 on error."]
     pub fn sceSysmoduleLoadModuleInternal(id: SceSysmoduleInternalModuleId)
         -> crate::ctypes::c_int;
+    #[doc = "Load an internal module with custom arguments.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to check.\n * `args` (direction in) - - Size of passed arguments.\n * `argp` (direction in) - - Pointer to arguments to pass.\n * `option` (direction in) - - Module load option.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceSysmoduleLoadModuleInternalWithArg(
         id: SceSysmoduleInternalModuleId,
         args: SceSize,
         argp: *mut crate::ctypes::c_void,
         option: *const SceSysmoduleOpt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unload a module.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to unload.\n\n # Returns\n\n0 on success, <0 on error."]
     pub fn sceSysmoduleUnloadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
+    #[doc = "Unload an internal module.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to unload.\n\n # Returns\n\n0 on success, <0 on error."]
     pub fn sceSysmoduleUnloadModuleInternal(
         id: SceSysmoduleInternalModuleId,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unload an internal module with custom arguments.\n\n # Arguments\n\n* `id` (direction in) - - Module ID to check.\n * `args` (direction in) - - Size of passed arguments.\n * `argp` (direction in) - - Pointer to arguments to pass.\n * `option` (direction in) - - Module load option.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceSysmoduleUnloadModuleInternalWithArg(
         id: SceSysmoduleInternalModuleId,
         args: SceSize,
@@ -18084,39 +20134,54 @@ extern "C" {
 #[link(name = "SceSysrootForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSysrootForDriver_stub")]
 extern "C" {
+    #[doc = "Get SceShell process id\n\n # Returns\n\npid on success, < 0 on error."]
     pub fn ksceKernelSysrootGetShellPid() -> SceUID;
+    #[doc = "Get System software version from ksceKernelSysrootSetGetSystemSwVersionFunc setting function\n\n # Returns\n\nSystemSwVersion on success, < 0 on error."]
     pub fn ksceKernelSysrootGetSystemSwVersion() -> crate::ctypes::c_int;
+    #[doc = "Register coredump trigger function.\n\n # Arguments\n\n* `func` (direction in) - - The coredump trigger function pointer.\n\n # Returns\n\nnone."]
     pub fn ksceKernelSysrootRegisterCoredumpTrigger(func: SceKernelCoredumpTriggerFunc);
+    #[doc = "Set GetSystemSwVersion function.\n\n # Arguments\n\n* `func` (direction in) - - The GetSystemSwVersion function pointer.\n\n # Returns\n\nnone."]
     pub fn ksceKernelSysrootSetGetSystemSwVersionFunc(func: SceKernelGetSystemSwVersionFunc);
+    #[doc = "Set handlers for the process lifecycle.\n\n This internal function allows a developer to introspect and receive events based\n on the process lifecycle.\n\n # Arguments\n\n* `handlers` (direction in) - Pointer to struct containing the handlers. This function does not copy the handlers, so this pointer must remain valid after a successful call.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysrootSetProcessHandler(
         handlers: *const SceSysrootProcessHandler,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get hardware flags.\n\n # Arguments\n\n* `flags` (direction out) - - The flags output buffer. size is 0x10 byte\n\n # Returns\n\nalways 0."]
     pub fn ksceSysrootGetHardwareFlags(flags: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    #[doc = "Get UseExternalStorage status.\n\n Returns 1 if an external device(sdcard) is available.\n\n # Returns\n\n0 or 1."]
     pub fn ksceSysrootUseExternalStorage() -> crate::ctypes::c_int;
+    #[doc = "Get UseInternalStorage status.\n\n Returns 1 if using an internal device(pre-memcard).\n\n # Returns\n\n0 or 1."]
     pub fn ksceSysrootUseInternalStorage() -> crate::ctypes::c_int;
 }
 #[link(name = "SceSysrootForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSysrootForKernel_stub")]
 extern "C" {
+    #[doc = "Get SceKblParam.\n\n # Returns\n\nThe pointer of SceKblParam data or NULL."]
     pub fn ksceKernelSysrootGetKblParam() -> *mut crate::ctypes::c_void;
     pub fn ksceKernelSysrootGetProcessTitleId(
         pid: SceUID,
         titleid: *mut crate::ctypes::c_char,
         len: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register Dbgp handlers.\n\n # Arguments\n\n* `handlers` (direction in) - pointer of handlers\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysrootRegisterDbgpHandler(
         handlers: *const SceSysrootDbgpHandler,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set sysroot object uid.\n\n # Returns\n\nnone.\n\n note - Not should be call this function after boot."]
     pub fn ksceKernelSysrootSetSysroot(sysroot_uid: SceUID);
+    #[doc = "Unregister Dbgp handlers.\n\n # Returns\n\nnone."]
     pub fn ksceKernelSysrootUnregisterDbgpHandler();
     pub fn ksceSysrootGetSelfInfo(
         index: SceKernelSysrootSelfIndex,
         info: *mut SceKernelSysrootSelfInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get sysroot object pointer.\n\n # Returns\n\nsysroot object pointer."]
     pub fn ksceSysrootGetSysroot() -> *mut SceSysroot;
     pub fn ksceSysrootIsBsodReboot() -> crate::ctypes::c_int;
     pub fn ksceSysrootIsExternalBootMode() -> crate::ctypes::c_int;
+    #[doc = "Get ManufacturingMode status.\n\n Returns 1 if the device is in manufacturing mode.\n\n # Returns\n\n0 or 1."]
     pub fn ksceSysrootIsManufacturingMode() -> crate::ctypes::c_int;
+    #[doc = "Get NonRemovableCardMode status.\n\n Returns 1 if using an non removable card(pre-memcard).\n\n # Returns\n\n0 or 1."]
     pub fn ksceSysrootIsNonRemovableCardMode() -> crate::ctypes::c_int;
     pub fn ksceSysrootIsSafeMode() -> crate::ctypes::c_int;
     pub fn ksceSysrootIsUpdateMode() -> crate::ctypes::c_int;
@@ -18128,33 +20193,43 @@ extern "C" {}
 #[link(name = "SceSystimerForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSystimerForDriver_stub")]
 extern "C" {
+    #[doc = "Allocate one of the system's timers.\n\n # Arguments\n\n* `timerType` - - One of ::SceSysTimerType.\n\n # Returns\n\nThe id of the new timer on success, < 0 on error."]
     pub fn ksceKernelSysTimerAlloc(timerType: SceSysTimerType) -> SceSysTimerId;
+    #[doc = "Free an allocated system timer\n\n # Arguments\n\n* `timerId` - - The timer to free.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    #[doc = "Get the timer count value.\n\n # Arguments\n\n* `timerId` - - The target timer.\n * `pCount` - - The variable to store the count to.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerGetCount(
         timerId: SceSysTimerId,
         pCount: *mut SceKernelSysClock,
     ) -> crate::ctypes::c_int;
+    #[doc = "Reset the timer count.\n\n # Arguments\n\n* `timerId` - - The target timer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    #[doc = "Configure the source clock signal for a timer.\n\n # The final input clock is determined as such:\n inputClock = sourceClock / (prescaleFactor + 1)\n # Arguments\n\n* `timerId` - - The target timer.\n * `clockSource` - - The source of the clock signal.\n * `prescaleFactor` - - The prescale factor applied to the clock signal.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerSetClockSource(
         timerId: SceSysTimerId,
         clockSource: SceSysTimerClockSource,
         prescaleFactor: SceUInt8,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the timer count value.\n\n # Arguments\n\n* `timerId` - - The target timer.\n * `count` - - The count to set.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerSetCount(
         timerId: SceSysTimerId,
         count: SceKernelSysClock,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the interrupt callback handler for the timer.\n\n # Arguments\n\n* `timerId` - - The target timer.\n * `callback` - - The callback function.\n * `targetCPU` - - The CPU cores the interrupt can be handled from.\n * `pUserData` - - User data to be passed to the callback.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerSetHandler(
         timerId: SceSysTimerId,
         callback: SceSysTimerCallback,
         targetCPU: SceUInt32,
         pUserData: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set the timer interval.\n\n The interval determines the count at which the timer will overflow to 0, and an interrupt will be fired.\n\n # Arguments\n\n* `timerId` - - The target timer.\n * `interval` - - The timer interval.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerSetInterval(
         timerId: SceSysTimerId,
         interval: SceKernelSysClock,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start a timer.\n\n # Arguments\n\n* `timerId` - - The target timer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerStartCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    #[doc = "Stop a timer.\n\n # Arguments\n\n* `timerId` - - The target timer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
 }
 #[link(name = "SceTeleportClient_stub", kind = "static")]
@@ -18166,48 +20241,59 @@ extern "C" {}
 #[link(name = "SceThreadmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceThreadmgrForDriver_stub")]
 extern "C" {
+    #[doc = "Cancel a callback ?\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Cancel a message pipe\n\n # Arguments\n\n* `uid` - - UID of the pipe to cancel\n * `psend` - - Receive number of sending threads, NULL is valid\n * `precv` - - Receive number of receiving threads, NULL is valid\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelCancelMsgPipe(
         uid: SceUID,
         psend: *mut crate::ctypes::c_int,
         precv: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Cancels a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::ksceKernelCreateMutex\n * `newCount` - - The new lock count of the mutex\n * `numWaitThreads` - - Number of threads waiting for the mutex\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelCancelMutex(
         mutexid: SceUID,
         newCount: crate::ctypes::c_int,
         numWaitThreads: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::ksceKernelCreateThread or ::ksceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n int thid = ksceKernelGetThreadId();\n // Change priority of current thread to 16\n ksceKernelChangeThreadPriority(thid, 16);\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn ksceKernelChangeThreadPriority(
         thid: SceUID,
         priority: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Change the thread suspension status to another value.\n\n More research needs to be done to find out exactly what each status actually means. Some examples of useful scenarios:\n When handling an exception changing the status to 0x1002 (on a newly suspended thread) will stop the kernel rethrowing the same exception.\n When resuming a suspended thread changing the status to 2 will allow it to resume.\n\n > **Note:** The valid mask for `status` is 0xF7F03.\n\n # Arguments\n\n* `thid` (direction in) - The thread to change.\n * `status` (direction in) - The new status for suspension.\n # Returns\n\nZero on success, else < 0 on error."]
     pub fn ksceKernelChangeThreadSuspendStatus(
         thid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check callback ?\n\n # Returns\n\nSomething or another"]
     pub fn ksceKernelCheckCallback() -> crate::ctypes::c_int;
+    #[doc = "Clear a event flag bit pattern\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag\n * `bits` - - The bits to clean\n\n # Returns\n\n< 0 on Error"]
     pub fn ksceKernelClearEventFlag(
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Create callback\n\n # Example:\n int cbid;\n cbid = ksceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n # Arguments\n\n* `name` - - A textual name for the callback\n * `func` - - A pointer to a function that will be called as the callback\n * `arg` - - Argument for the callback ?\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
     pub fn ksceKernelCreateCallback(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_uint,
         func: SceKernelCallbackFunction,
         arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Creates a new condition variable\n\n # Example:\n SceUID condId;\n condId = ksceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
     pub fn ksceKernelCreateCond(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
+    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n int evid;\n evfid = ksceKernelCreateEventFlag(\"wait_event_flags\", 0, 0, NULL);"]
     pub fn ksceKernelCreateEventFlag(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_int,
         bits: crate::ctypes::c_int,
         opt: *mut SceKernelEventFlagOptParam,
     ) -> SceUID;
+    #[doc = "Create a message pipe\n\n # Arguments\n\n* `name` - - Name of the pipe\n * `type` - - The type of memory attribute to use internally (set to 0x40)\n * `attr` - - Set to 12\n * `bufSize` - - The size of the internal buffer in multiples of 0x1000 (4KB)\n * `opt` - - Message pipe options (set to NULL)\n\n # Returns\n\nThe UID of the created pipe, < 0 on error"]
     pub fn ksceKernelCreateMsgPipe(
         name: *const crate::ctypes::c_char,
         type_: crate::ctypes::c_int,
@@ -18215,12 +20301,14 @@ extern "C" {
         bufSize: SceSize,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
+    #[doc = "Creates a new mutex\n\n # Example:\n int mutexid;\n mutexid = ksceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
     pub fn ksceKernelCreateMutex(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         initCount: crate::ctypes::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
+    #[doc = "Creates a new semaphore\n\n # Example:\n int semaid;\n semaid = ksceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
     pub fn ksceKernelCreateSema(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
@@ -18228,6 +20316,7 @@ extern "C" {
         maxVal: crate::ctypes::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
+    #[doc = "Create a thread\n\n # Example:\n SceUID thid;\n thid = ksceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
     pub fn ksceKernelCreateThread(
         name: *const crate::ctypes::c_char,
         entry: SceKernelThreadEntry,
@@ -18237,34 +20326,50 @@ extern "C" {
         cpuAffinityMask: crate::ctypes::c_int,
         option: *const SceKernelThreadOptParam,
     ) -> SceUID;
+    #[doc = "Debug resume a thread.\n\n > **Note:** The valid mask for `status` is 0xF7F03.\n\n # Arguments\n\n* `thid` (direction in) - The thread global uid.\n * `status` (direction in) - The suspend status to resume from.\n\n # Returns\n\nZero on success, else <0 on error."]
     pub fn ksceKernelDebugResumeThread(
         thid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Debug suspend a thread.\n\n > **Note:** The valid mask for `status` is 0xF7F03.\n\n # Arguments\n\n* `thid` (direction in) - The thread global uid.\n * `status` (direction in) - The suspend status.\n\n # Returns\n\nZero on success, else <0 on error."]
     pub fn ksceKernelDebugSuspendThread(
         thid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ksceKernelDelayThread(1000000); // Delay for a second"]
     pub fn ksceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
+    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ksceKernelDelayThread(1000000); // Delay for a second"]
     pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
+    #[doc = "Delete a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a condition variable\n\n # Arguments\n\n* `condition` - variableid - The condition variable id returned from ::ksceKernelCreateCond\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delete an event flag\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag.\n\n # Returns\n\n< 0 On error"]
     pub fn ksceKernelDeleteEventFlag(evfid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delete a message pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::ksceKernelCreateMutex\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Destroy a semaphore\n\n # Arguments\n\n* `semaid` - - The semaid returned from a previous create call.\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Delate a thread\n\n # Arguments\n\n* `thid` - - UID of the thread to be deleted.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Enqueue work to a workqueue\n\n # Arguments\n\n* `uid` (direction in) - UID of the workqueue (0x10023 for the SceKernelGlobalWorkQueue)\n * `name` (direction in) - Name of the work to enqueue\n * `work` (direction in) - Work function to enqueue\n * `args` (direction in) - Argument to pass to the work function\n\n # Returns\n\nZero on success"]
     pub fn ksceKernelEnqueueWorkQueue(
         uid: SceUID,
         name: *const crate::ctypes::c_char,
         work: SceKernelWorkQueueWorkFunction,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Exit a thread and delete itself.\n\n # Arguments\n\n* `status` - - Exit status"]
     pub fn ksceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Exit a thread\n\n # Arguments\n\n* `status` - - Exit status."]
     pub fn ksceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex)
         -> crate::ctypes::c_int;
+    #[doc = "Get the callback count\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\nThe callback count, < 0 on error"]
     pub fn ksceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get event flags info\n\n # Arguments\n\n* `evfid` (direction in) - - The event flags guid.\n * `info` (direction out) - - The info output buffer pointer.\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelGetEventFlagInfo(
         evfid: SceUID,
         info: *mut SceKernelEventFlagInfo,
@@ -18281,35 +20386,48 @@ extern "C" {
         lwmtxid: SceUID,
         info: *mut SceKernelLwMutexInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get msgpipe info\n\n # Arguments\n\n* `msgpipe_id` (direction in) - - The msg pipe guid.\n * `info` (direction out) - - The info output buffer pointer.\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelGetMsgPipeInfo(
         msgpipe_id: SceUID,
         info: *mut SceKernelMsgPipeInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Retrieve information about a mutex.\n\n # Arguments\n\n* `mutexid` - - UID of the mutex to retrieve info for.\n * `info` - - Pointer to a ::SceKernelMutexInfo struct to receive the info.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelGetMutexInfo(
         mutexid: SceUID,
         info: *mut SceKernelMutexInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Gets the current process PID\n\n # Returns\n\nCurrent PID"]
     pub fn ksceKernelGetProcessId() -> SceUID;
+    #[doc = "Get Process id from Thread Local Storage\n\n # Returns\n\ncurrent process id"]
     pub fn ksceKernelGetProcessIdFromTLS() -> SceUID;
+    #[doc = "Get semaphore info\n\n # Arguments\n\n* `semaid` (direction in) - - The semaphore guid.\n * `info` (direction out) - - The info output buffer pointer.\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelGetSemaInfo(
         semaid: SceUID,
         info: *mut SceKernelSemaInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the system time\n\n # Returns\n\nThe system time"]
     pub fn ksceKernelGetSystemTimeLow() -> SceUInt32;
+    #[doc = "Get the system time (wide version)\n\n # Returns\n\nThe system time"]
     pub fn ksceKernelGetSystemTimeWide() -> SceInt64;
+    #[doc = "ksceKernelGetTLSAddr get pointer to TLS key area for current thread\n # Arguments\n\n* `key` - - the TLS keyslot index\n # Returns\n\npointer to TLS key value"]
     pub fn ksceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
+    #[doc = "Query the state of the registers for a suspended thread.\n\n The registers returned are the user/kernel set for the requested thread.\n It's not certain that user/kernel is correct representation, instead it could be current/exception.\n The thread provided must be suspended for this function to succeed.\n\n # Arguments\n\n* `thid` (direction in) - The thread to query.\n * `registers` (direction out) - The set of registers belonging to the thread.\n # Returns\n\nZero on success, else < 0 on error."]
     pub fn ksceKernelGetThreadCpuRegisters(
         thid: SceUID,
         registers: *mut SceThreadCpuRegisters,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the current priority of the thread you are in.\n\n # Returns\n\nThe current thread priority"]
     pub fn ksceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
+    #[doc = "Get the current thread Id\n\n # Returns\n\nThe thread id of the calling thread."]
     pub fn ksceKernelGetThreadId() -> crate::ctypes::c_int;
+    #[doc = "Retrieve a list of all threads belonging to a process.\n # Arguments\n\n* `pid` (direction in) - The process to query.\n * `ids` (direction out) - The list of thread ids. Can be NULL if output is not required.\n * `n` (direction in) - The max number of thread ids to copy out.\n * `copy_count` (direction out) - The number of thread ids copied.\n # Returns\n\nThe number of threads within the process, else < 0 on error."]
     pub fn ksceKernelGetThreadIdList(
         pid: SceUID,
         ids: *mut SceUID,
         n: crate::ctypes::c_int,
         copy_count: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the thread info by thread id.\n\n # Arguments\n\n* `thid` - - The thread id for get info.\n * `info` - - The info output.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelGetThreadInfo(
         thid: SceUID,
         info: *mut SceKernelThreadInfo,
@@ -18319,12 +20437,16 @@ extern "C" {
         a2: crate::ctypes::c_int,
         pInfo: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get the free stack size for a thread.\n\n # Arguments\n\n* `thid` - - The thread ID\n\n # Returns\n\nThe free size."]
     pub fn ksceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "ksceKernelGetThreadTLSAddr gets an address to a 4 bytes area of TLS memory for the specified thread\n # Arguments\n\n* `thid` - - The UID of the thread to access TLS\n * `key` - - the TLS keyslot index\n # Returns\n\npointer to TLS memory"]
     pub fn ksceKernelGetThreadTLSAddr(
         thid: SceUID,
         key: crate::ctypes::c_int,
     ) -> *mut crate::ctypes::c_void;
+    #[doc = "Get the type of a Threadmgr uid\n\n # Arguments\n\n* `uid` - - The uid to get the type from\n\n # Returns\n\nThe type, < 0 on error"]
     pub fn ksceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
+    #[doc = "Get thread PUID from GUID.\n\n # Arguments\n\n* `thid` (direction in) - - The thread global uid.\n\n # Returns\n\nthread_puid on success, else < 0 on error."]
     pub fn ksceKernelGetUserThreadId(thid: SceUID) -> SceUID;
     pub fn ksceKernelGetVfpRegisterForDebugger(
         thid: SceUID,
@@ -18336,23 +20458,29 @@ extern "C" {
         attr: crate::ctypes::c_int,
         opt: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get thread suspend status.\n\n # Arguments\n\n* `thid` (direction in) - - The thread global uid.\n\n # Returns\n\nSuspend status on success, else <0 on error."]
     pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceKernelLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    #[doc = "Lock a mutex\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::ksceKernelCreateMutex\n * `lockCount` - - The value to increment to the lock count of the mutex\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelLockMutex(
         mutexid: SceUID,
         lockCount: crate::ctypes::c_int,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Notify a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n * `arg2` - - Passed as arg2 into the callback function\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int)
         -> crate::ctypes::c_int;
+    #[doc = "Poll an event flag for a given bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n # Returns\n\n< 0 On error"]
     pub fn ksceKernelPollEventFlag(
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
         wait: crate::ctypes::c_uint,
         outBits: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Poll a semaphore.\n\n # Arguments\n\n* `semaid` - - UID of the semaphore to poll.\n * `signal` - - The value to test for.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int)
         -> crate::ctypes::c_int;
+    #[doc = "Receive a message from a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for receive in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelReceiveMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeRecvData,
@@ -18361,6 +20489,7 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Runs a function with larger stack size\n\n # Arguments\n\n* `stack_size` (direction in) - The stack size\n * `to_call` (direction in) - To call\n * `args` - The arguments\n\n # Returns\n\nZero on success"]
     pub fn ksceKernelRunWithStack(
         stack_size: SceSize,
         to_call: ::core::option::Option<
@@ -18368,6 +20497,7 @@ extern "C" {
         >,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Send a message to a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - async vs sync? use 0 for sync\n * `unk2` - - Unknown - use NULL\n * `timeout` - - Timeout for send in us. use NULL to wait indefinitely\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelSendMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeSendData,
@@ -18376,29 +20506,39 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set an event flag bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag.\n * `bits` - - The bit pattern to set.\n\n # Returns\n\n< 0 On error"]
     pub fn ksceKernelSetEventFlag(
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set Permission\n\n # Arguments\n\n* `value` (direction in) - - The new permission\n\n # Returns\n\nprevious permission value"]
     pub fn ksceKernelSetPermission(value: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Set Process id to Thread Local Storage\n\n # Arguments\n\n* `value` (direction in) - - The new process id\n\n # Returns\n\nprevious process id"]
     pub fn ksceKernelSetProcessIdToTLS(pid: SceUID) -> SceUID;
+    #[doc = "Signals a condition variable\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::ksceKernelCreateCond\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Signals a condition variable to all threads waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::ksceKernelCreateCond\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Signals a condition variable to a specific thread waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::ksceKernelCreateCond\n * `threadId` - - The thread id returned from ::ksceKernelCreateThread\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Send a signal to a semaphore\n\n # Example:\n // Signal the sema\n ksceKernelSignalSema(semaid, 1);\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start a created thread\n\n # Arguments\n\n* `thid` - - Thread id from ::ksceKernelCreateThread\n * `arglen` - - Length of the data pointed to by argp, in bytes\n * `argp` - - Pointer to the arguments."]
     pub fn ksceKernelStartThread(
         thid: SceUID,
         arglen: SceSize,
         argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelTryLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    #[doc = "Try to lock a mutex (non-blocking)\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::ksceKernelCreateMutex\n * `lockCount` - - The value to increment to the lock count of the mutex\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelTryLockMutex(
         mutexid: SceUID,
         lockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Receive a message from a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - use 0\n * `unk2` - - Unknown - use NULL\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelTryReceiveMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeRecvData,
@@ -18406,6 +20546,7 @@ extern "C" {
         unk1: crate::ctypes::c_int,
         unk2: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Try to send a message to a pipe\n\n # Arguments\n\n* `uid` - - The UID of the pipe\n * `message` - - Pointer to the message\n * `size` - - Size of the message\n * `unk1` - - Unknown - use 0\n * `unk2` - - Unknown - use NULL\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelTrySendMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeSendData,
@@ -18414,14 +20555,17 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+    #[doc = "Try to unlock a mutex (non-blocking)\n\n # Arguments\n\n* `mutexid` - - The mutex id returned from ::ksceKernelCreateMutex\n * `unlockCount` - - The value to decrement to the lock count of the mutex\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelUnlockMutex(
         mutexid: SceUID,
         unlockCount: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Waits for a signal of a condition variable\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::ksceKernelCreateCond\n * `timeout` - - Timeout in microseconds (assumed)\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelWaitCond(
         condId: SceUID,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for an event flag for a given bit pattern.\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n * `timeout` - - Timeout in microseconds\n # Returns\n\n< 0 On error"]
     pub fn ksceKernelWaitEventFlag(
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
@@ -18429,6 +20573,7 @@ extern "C" {
         outBits: *mut crate::ctypes::c_uint,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for an event flag for a given bit pattern with callback.\n\n # Arguments\n\n* `evid` - - The event id returned by ::ksceKernelCreateEventFlag.\n * `bits` - - The bit pattern to poll for.\n * `wait` - - Wait type, one or more of ::SceEventFlagWaitTypes or'ed together\n * `outBits` - - The bit pattern that was matched.\n * `timeout` - - Timeout in microseconds\n # Returns\n\n< 0 On error"]
     pub fn ksceKernelWaitEventFlagCB(
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
@@ -18436,16 +20581,19 @@ extern "C" {
         outBits: *mut crate::ctypes::c_uint,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Lock a semaphore\n\n # Example:\n ksceKernelWaitSema(semaid, 1, NULL);\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelWaitSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait until a thread has ended.\n\n # Arguments\n\n* `thid` - - Id of the thread to wait for.\n * `stat` - - Exit status.\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelWaitThreadEnd(
         thid: SceUID,
         stat: *mut crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait until a thread has ended and handle callbacks if necessary.\n\n # Arguments\n\n* `thid` - - Id of the thread to wait for.\n * `stat` - - Exit status.\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelWaitThreadEndCB(
         thid: SceUID,
         stat: *mut crate::ctypes::c_int,
@@ -18460,6 +20608,7 @@ extern "C" {}
     feature = "SceThreadmgrForKernel_stub"
 ))]
 extern "C" {
+    #[doc = "Obtain the context information for the thread scheduled on this CPU.\n\n This function can be called from an exception handler to obtain information about\n the thread that was interrupted.\n\n # Arguments\n\n* `pInfo` (direction out) - Context information of the thread\n\n # Returns\n\nZero on success, < 0 on error"]
     pub fn ksceKernelGetThreadContextInfo(
         pInfo: *mut SceKernelThreadContextInfo,
     ) -> crate::ctypes::c_int;
@@ -18470,31 +20619,39 @@ extern "C" {}
 #[link(name = "SceTouchForDriver_stub", kind = "static")]
 #[cfg(feature = "SceTouchForDriver_stub")]
 extern "C" {
+    #[doc = "Set touch enable flag\n\n # Arguments\n\n* `port` (direction in) - - The port number.\n * `enable` (direction in) - - The enable flag.\n\n # Returns\n\n0 on success. < 0 on error."]
     pub fn ksceTouchSetEnableFlag(port: SceUInt32, enable: SceBool) -> crate::ctypes::c_int;
 }
 #[link(name = "SceTouch_stub", kind = "static")]
 #[cfg(feature = "SceTouch_stub")]
 extern "C" {
+    #[doc = "Disable touch force output.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number."]
     pub fn sceTouchDisableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
+    #[doc = "Enable touch force output.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number."]
     pub fn sceTouchEnableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
+    #[doc = "Get Touch Panel information\n\n # Arguments\n\n* `\tport\t\tPort` (direction in) - number.\n * `\tpPanelInfo\tThe` (direction out) - buffer to get the Touch Panel information."]
     pub fn sceTouchGetPanelInfo(
         port: SceUInt32,
         pPanelInfo: *mut SceTouchPanelInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get sampling state of touch panel.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number.\n * `\tpState\tThe` (direction out) - buffer to receive sampling state."]
     pub fn sceTouchGetSamplingState(
         port: SceUInt32,
         pState: *mut SceTouchSamplingState,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get touch data (Polling)\n\n # Arguments\n\n* `\tport\tport` (direction in) - number.\n * `\tpData\tBuffer` (direction out) - to receive touch data.\n * `\tnBufs\tNumber` (direction in) - of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
     pub fn sceTouchPeek(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get touch data (Blocking)\n\n # Arguments\n\n* `\tport\tPort` (direction in) - Number.\n * `\tpData\tBuffer` (direction out) - to receive touch data.\n * `\tnBufs\tNumber` (direction in) - of buffers to receive touch data.\n\n # Returns\n\nBuffers count, between 1 and 'nBufs'. <0 on error."]
     pub fn sceTouchRead(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set sampling state of touch panel.\n\n # Arguments\n\n* `\tport\tPort` (direction in) - number.\n * `\tstate\tSampling` (direction in) - state."]
     pub fn sceTouchSetSamplingState(
         port: SceUInt32,
         state: SceTouchSamplingState,
@@ -18503,43 +20660,51 @@ extern "C" {
 #[link(name = "SceTriggerUtil_stub", kind = "static")]
 #[cfg(feature = "SceTriggerUtil_stub")]
 extern "C" {
+    #[doc = "Get value from \"Settings->System->Auto-Start Settings\" for caller application. Required to be 1 to use sceTriggerUtil\n\n # Arguments\n\n* `status` (direction out) - - auto-start status. Required to be 1 to use sceTriggerUtil.\n * `a2` (direction in) - - Unknown, set to 0.\n * `a3` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetAutoStartStatus(
         status: *mut crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
         a3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get daily event info for caller application\n\n # Arguments\n\n* `eventId` (direction in) - - ID number of event to get information for.\n * `param` (direction out) - - event parameters.\n * `a5` (direction in) - - Unknown, set to 0.\n * `a6` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetDailyEventInfo(
         eventId: crate::ctypes::c_int,
         param: *mut SceTriggerUtilEventParamDaily,
         a5: crate::ctypes::c_int,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get one time event info for caller application\n\n # Arguments\n\n* `eventId` (direction in) - - ID number of event to get information for.\n * `triggerTime` (direction out) - - SceRtcTick, UTC\n * `a4` (direction in) - - Unknown, set to 0.\n * `a5` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetOneTimeEventInfo(
         eventId: crate::ctypes::c_int,
         triggerTime: *mut SceRtcTick,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get list of system applications that has registered sceTriggerUtil events. List contains null-separated fake title IDs\n\n # Arguments\n\n* `titleIdBuffer` (direction out) - - pointer to buffer to recieve fake title ID list. Max size is 0x140, min size is unlimited\n * `numOfIds` (direction out) - - number of fake title IDs stored in the list\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetRegisteredSystemTitleIdList(
         buffer: *mut crate::ctypes::c_char,
         numOfIds: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get list of user applications that has registered sceTriggerUtil events. List contains null-separated title IDs\n\n # Arguments\n\n* `titleIdBuffer` (direction out) - - pointer to buffer to recieve title ID list. Max size is 0x1000, min size is unlimited\n * `numOfIds` (direction out) - - number of title IDs stored in the list\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetRegisteredUserTitleIdList(
         titleIdBuffer: *mut crate::ctypes::c_char,
         numOfIds: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get info for system application that has registered sceTriggerUtil events\n\n # Arguments\n\n* `titleid` (direction in) - - title ID of application to get info for.\n * `appInfo` (direction out) - - application information\n * `a4` (direction in) - - Unknown, set to 0.\n * `a5` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetSystemAppInfo(
         titleid: *const crate::ctypes::c_char,
         appInfo: *mut SceTriggerUtilSystemAppInfo,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get info for user application that has registered sceTriggerUtil events\n\n # Arguments\n\n* `titleid` (direction in) - - title ID of application to get info for.\n * `appInfo` (direction out) - - application information\n * `a4` (direction in) - - Unknown, set to 0.\n * `a5` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilGetUserAppInfo(
         titleid: *const crate::ctypes::c_char,
         appInfo: *mut SceTriggerUtilUserAppInfo,
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register application start event that will be repeated on certain days\n\n # Arguments\n\n* `titleid` (direction in) - - title ID of application to register event for.\n * `param` (direction in) - - event parameters.\n * `eventId` (direction in) - - ID number of event.\n * `a4` (direction in) - - Unknown, set to 0.\n * `a5` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilRegisterDailyEvent(
         titleid: *const crate::ctypes::c_char,
         param: *const SceTriggerUtilEventParamDaily,
@@ -18547,6 +20712,7 @@ extern "C" {
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register one time application start event\n\n # Arguments\n\n* `titleid` (direction in) - - title ID of application to register event for.\n * `param` (direction in) - - event parameters.\n * `eventId` (direction in) - - ID number of event.\n * `a4` (direction in) - - Unknown, set to 0.\n * `a5` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilRegisterOneTimeEvent(
         titleid: *const crate::ctypes::c_char,
         param: *const SceTriggerUtilEventParamOneTime,
@@ -18554,11 +20720,13 @@ extern "C" {
         a4: crate::ctypes::c_int,
         a5: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister daily event for caller application\n\n # Arguments\n\n* `eventId` (direction in) - - ID number of event to unregister.\n * `a2` (direction in) - - Unknown, set to 0.\n * `a3` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilUnregisterDailyEvent(
         eventId: crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
         a3: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister one time event for caller application\n\n # Arguments\n\n* `eventId` (direction in) - - ID number of event to unregister.\n * `a2` (direction in) - - Unknown, set to 0.\n * `a3` (direction in) - - Unknown, set to 0.\n\n # Returns\n\n0 on success, <0 otherwise."]
     pub fn sceTriggerUtilUnregisterOneTimeEvent(
         eventId: crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
@@ -18587,92 +20755,124 @@ extern "C" {}
 #[link(name = "SceUdcdForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUdcdForDriver_stub")]
 extern "C" {
+    #[doc = "Activate a USB driver.\n\n # Arguments\n\n* `pid` - - Product ID for the default USB Driver\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdActivate(productId: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    #[doc = "Activate a USB driver for an UDCD bus.\n\n # Arguments\n\n* `pid` - - Product ID for the default USB Driver\n * `bus_powered` (direction in) - - Enable USB bus power\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdActivateInternal(
         productId: crate::ctypes::c_uint,
         bus_powered: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Clear the FIFO on an endpoint\n\n # Arguments\n\n* `endp` - - The endpoint to clear\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdClearFIFO(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
+    #[doc = "Clear the FIFO on an endpoint for an UDCD bus\n\n # Arguments\n\n* `endp` - - The endpoint to clear\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdClearFIFOInternal(
         endp: *mut SceUdcdEndpoint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Deactivate USB driver.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdDeactivate() -> crate::ctypes::c_int;
+    #[doc = "Deactivate USB driver for an UDCD bus.\n\n # Arguments\n\n* `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdDeactivateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get device information\n\n # Arguments\n\n* `devInfo` (direction out) - - Device information\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
+    #[doc = "Get device information for an UDCD bus\n\n # Arguments\n\n* `devInfo` (direction out) - - Device information\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdGetDeviceInfoInternal(
         devInfo: *mut SceUdcdDeviceInfo,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get USB state\n\n # Returns\n\nOne or more ::SceUdcdStatus."]
     pub fn ksceUdcdGetDeviceState() -> crate::ctypes::c_int;
+    #[doc = "Get USB state for an UDCD bus\n\n # Arguments\n\n* `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\nOne or more ::SceUdcdStatus."]
     pub fn ksceUdcdGetDeviceStateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Get state of a specific USB driver\n\n # Arguments\n\n* `driverName` - - name of USB driver to get status from\n\n # Returns\n\nSCE_UDCD_STATUS_DRIVER_STARTED if the driver has been started, SCE_UDCD_STATUS_DRIVER_REGISTERED if it is stopped"]
     pub fn ksceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Get state of a specific USB driver for an UDCD bus\n\n # Arguments\n\n* `driverName` - - name of USB driver to get status from\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\nSCE_UDCD_STATUS_DRIVER_STARTED if the driver has been started, SCE_UDCD_STATUS_DRIVER_REGISTERED if it is stopped"]
     pub fn ksceUdcdGetDrvStateInternal(
         driverName: *const crate::ctypes::c_char,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register a USB driver.\n\n # Arguments\n\n* `drv` - - Pointer to a filled out USB driver\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdRegister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
+    #[doc = "Register a USB driver to a specific USB bus.\n\n # Arguments\n\n* `drv` - - Pointer to a filled out USB driver\n * `bus` - - The USB bus index (usually 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdRegisterInternal(
         drv: *mut SceUdcdDriver,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Cancel any pending requests on an endpoint.\n\n # Arguments\n\n* `endp` - - The endpoint to cancel\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdReqCancelAll(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
+    #[doc = "Queue a receive request (OUT from host pov)\n\n # Arguments\n\n* `req` - - Pointer to a filled out ::SceUdcdDeviceRequest structure\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdReqRecv(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
+    #[doc = "Queue a receive request (OUT from host pov) for an UDCD bus\n\n # Arguments\n\n* `req` - - Pointer to a filled out ::SceUdcdDeviceRequest structure\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdReqRecvInternal(
         req: *mut SceUdcdDeviceRequest,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Queue a send request (IN from host pov)\n\n # Arguments\n\n* `req` - - Pointer to a filled out ::SceUdcdDeviceRequest structure.\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdReqSend(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
+    #[doc = "Queue a send request (IN from host pov) for an UDCD bus\n\n # Arguments\n\n* `req` - - Pointer to a filled out ::SceUdcdDeviceRequest structure.\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdReqSendInternal(
         req: *mut SceUdcdDeviceRequest,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Stall an endpoint\n\n # Arguments\n\n* `endp` - - The endpoint to stall\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdStall(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
+    #[doc = "Stall an endpoint for an UDCD bus\n\n # Arguments\n\n* `endp` - - The endpoint to stall\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdStallInternal(
         endp: *mut SceUdcdEndpoint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start a USB driver.\n\n # Arguments\n\n* `driverName` - - Name of the USB driver to start\n * `size` - - Size of arguments to pass to USB driver start\n * `args` - - Arguments to pass to USB driver start\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStart(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Starts the current USB driver for an UDCD bus.\n\n # Arguments\n\n* `unused` (direction in) - - Unused\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStartCurrentInternal(
         unused: crate::ctypes::c_int,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start a USB driver for an UDCD bus.\n\n # Arguments\n\n* `driverName` - - Name of the USB driver to start\n * `size` - - Size of arguments to pass to USB driver start\n * `args` - - Arguments to pass to USB driver start\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStartInternal(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Stop a USB driver.\n\n # Arguments\n\n* `driverName` - - Name of the USB driver to stop\n * `size` - - Size of arguments to pass to USB driver start\n * `args` - - Arguments to pass to USB driver start\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStop(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Stops the current USB driver for an UDCD bus.\n\n # Arguments\n\n* `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStopCurrentInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Stop a USB driver for an UDCD bus.\n\n # Arguments\n\n* `driverName` - - Name of the USB driver to stop\n * `size` - - Size of arguments to pass to USB driver start\n * `args` - - Arguments to pass to USB driver start\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdStopInternal(
         driverName: *const crate::ctypes::c_char,
         size: crate::ctypes::c_int,
         args: *mut crate::ctypes::c_void,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister a USB driver\n\n # Arguments\n\n* `drv` - - Pointer to a filled out USB driver\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdUnregister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
+    #[doc = "Unregister a USB driver for an UDCD bus\n\n # Arguments\n\n* `drv` - - Pointer to a filled out USB driver\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceUdcdUnregisterInternal(
         drv: *mut SceUdcdDriver,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Waits until an UDCD bus is initialized\n\n # Arguments\n\n* `timeout` (direction in) - - Timeout\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdWaitBusInitialized(
         timeout: crate::ctypes::c_uint,
         bus: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for state\n\n # Arguments\n\n* `waitParam` (direction in) - - Wait parameter\n * `timeout` (direction in) - - Timeout\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdWaitState(
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Wait for state for an UDCD bus\n\n # Arguments\n\n* `waitParam` (direction in) - - Wait parameter\n * `timeout` (direction in) - - Timeout\n * `bus` (direction in) - - UDCD bus (default is 2)\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceUdcdWaitStateInternal(
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
@@ -18682,14 +20882,20 @@ extern "C" {
 #[link(name = "SceUdcd_stub", kind = "static")]
 #[cfg(feature = "SceUdcd_stub")]
 extern "C" {
+    #[doc = "Get device information\n\n # Arguments\n\n* `devInfo` (direction out) - - Device information\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
+    #[doc = "Get device state\n\n # Arguments\n\n* `state` (direction out) - - Device state\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUdcdGetDeviceState(state: *mut SceUdcdDeviceState) -> crate::ctypes::c_int;
+    #[doc = "Get state of a specific USB driver\n\n # Arguments\n\n* `driverName` - - name of USB driver to get status from\n\n # Returns\n\nSCE_UDCD_STATUS_DRIVER_STARTED if the driver has been started, SCE_UDCD_STATUS_DRIVER_REGISTERED if it is stopped"]
     pub fn sceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Register callback\n\n # Arguments\n\n* `cbid` (direction in) - - Callback UID\n * `state` (direction in) - - State\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUdcdRegisterCallback(
         cbid: SceUID,
         state: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Unregister callback\n\n # Arguments\n\n* `cbid` (direction in) - - Callback UID\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUdcdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Wait for state\n\n # Arguments\n\n* `waitParam` (direction in) - - Wait parameter\n * `timeout` (direction in) - - Timeout\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUdcdWaitState(
         waitParam: *mut SceUdcdWaitParam,
         timeout: crate::ctypes::c_uint,
@@ -18707,31 +20913,39 @@ extern "C" {}
 #[link(name = "SceUsbAudioIn_stub", kind = "static")]
 #[cfg(feature = "SceUsbAudioIn_stub")]
 extern "C" {
+    #[doc = "Close usb audio device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id"]
     pub fn sceUsbAudioInCloseDevice(device_id: SceUInt32) -> SceInt32;
+    #[doc = "Get available audio usb devices\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `list` (direction out) - - pointer to array of SceUsbAudioInDeviceListItem\n * `device_count` (direction out) - - connected device count\n * `list_size` (direction in) - - number of items in SceUsbAudioInDeviceListItem array\n\n > **Note:** While function accepts up to 127 as list_size it can only return maximum 7 devices"]
     pub fn sceUsbAudioInGetDeviceIdList(
         list: *mut SceUsbAudioInDeviceListItem,
         device_count: *mut SceUInt32,
         list_size: SceUInt32,
     ) -> SceInt32;
+    #[doc = "Get usb audio device info\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `info` (direction out) - - pointer to SceUsbAudioInDeviceInfo"]
     pub fn sceUsbAudioInGetDeviceInformation(
         device_id: SceUInt32,
         info: *mut SceUsbAudioInDeviceInfo,
     ) -> SceInt32;
+    #[doc = "Get usb audio device max volume\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `volume` (direction out) - - maximum device volume\n\n > **Note:** You should sceUsbAudioInOpenDevice first to use this function"]
     pub fn sceUsbAudioInGetMaxValueOfVolume(
         device_id: SceUInt32,
         volume: *mut SceUInt32,
     ) -> SceInt32;
+    #[doc = "Get usb audio device min volume\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `volume` (direction out) - - minimum device volume\n\n > **Note:** You should sceUsbAudioInOpenDevice first to use this function"]
     pub fn sceUsbAudioInGetMinValueOfVolume(
         device_id: SceUInt32,
         volume: *mut SceUInt32,
     ) -> SceInt32;
+    #[doc = "Receive sound data from usb device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `buffer` (direction out) - - buffer for received data. Should be 0x600 bytes in size.\n\n > **Note:** You should call sceUsbAudioInOpenDevice first to use this function\n > **Note:** Data is in S16_MONO format. Granularity is 768 (thus buffer is 768*2)"]
     pub fn sceUsbAudioInInput(device_id: SceUInt32, buffer: *mut crate::ctypes::c_void)
         -> SceInt32;
+    #[doc = "Open usb audio device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `bits` (direction in) - - Bits per sample. Only 16 allowed\n * `rate` (direction in) - - Bitrate in Hz. Only 48000 allowed"]
     pub fn sceUsbAudioInOpenDevice(
         device_id: SceUInt32,
         bits: crate::ctypes::c_int,
         rate: crate::ctypes::c_int,
     ) -> SceInt32;
+    #[doc = "Set usb audio device volume\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` (direction in) - - Device id\n * `volume` (direction in) - - new device volume\n\n > **Note:** You should sceUsbAudioInOpenDevice first to use this function"]
     pub fn sceUsbAudioInSetCurrentValueOfVolume(
         device_id: SceUInt32,
         volume: SceUInt32,
@@ -18740,6 +20954,7 @@ extern "C" {
 #[link(name = "SceUsbdForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbdForDriver_stub")]
 extern "C" {
+    #[doc = "Transfer data to/from endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id\n * `buffer` - data\n * `length` - data length\n * `cb` - transfer callback\n * `user_data` - userdata to pass to callback\n\n > **Note:** buffer pointer must be 64b aligned"]
     pub fn ksceUsbdBulkTransfer(
         pipe_id: SceUID,
         buffer: *mut crate::ctypes::c_uchar,
@@ -18747,6 +20962,7 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Transfer data to/from endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id\n * `buffer` - data\n * `length` - data length\n * `cb` - transfer callback\n * `user_data` - userdata to pass to callback\n\n > **Note:** buffer pointer must be 64b aligned"]
     pub fn ksceUsbdBulkTransfer2(
         pipe_id: crate::ctypes::c_int,
         buffer: *mut crate::ctypes::c_uchar,
@@ -18754,7 +20970,9 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Close communication pipe to endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id"]
     pub fn ksceUsbdClosePipe(pipe_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Transfer data to/from endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id\n * `req` - transfer request\n * `buffer` - data\n * `cb` - transfer callback\n * `user_data` - userdata to pass to callback"]
     pub fn ksceUsbdControlTransfer(
         pipe_id: SceUID,
         req: *const SceUsbdDeviceRequest,
@@ -18762,13 +20980,16 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get device location\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` - device id\n * `location` (direction out) - device location data (port)"]
     pub fn ksceUsbdGetDeviceLocation(device_id: SceUID, location: *mut u8) -> crate::ctypes::c_int;
+    #[doc = "Get device speed\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `device_id` - device id\n * `speed` (direction out) - device speed"]
     pub fn ksceUsbdGetDeviceSpeed(
         device_id: crate::ctypes::c_int,
         speed: *mut u8,
     ) -> crate::ctypes::c_int;
     pub fn ksceUsbdHostStart(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceUsbdHostStop(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Transfer data to/from interrupt endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id\n * `buffer` - data\n * `length` - data length\n * `cb` - transfer callback\n * `user_data` - userdata to pass to callback"]
     pub fn ksceUsbdInterruptTransfer(
         pipe_id: SceUID,
         buffer: *mut crate::ctypes::c_uchar,
@@ -18776,21 +20997,26 @@ extern "C" {
         cb: ksceUsbdDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Transfer isochronous data to/from endpoint\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `pipe_id` - pipe id\n * `transfer` - transfer request\n * `cb` - transfer callback\n * `user_data` - userdata to pass to callback"]
     pub fn ksceUsbdIsochronousTransfer(
         pipe_id: SceUID,
         transfer: *mut ksceUsbdIsochTransfer,
         cb: ksceUsbdIsochDoneCallback,
         user_data: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open communication pipe to endpoint\n\n # Returns\n\npipe uid on success, < 0 on error\n\n # Arguments\n\n* `device_id` - device id\n * `endpoint` - endpoint (may be null for default configuration endpoint)"]
     pub fn ksceUsbdOpenPipe(
         device_id: crate::ctypes::c_int,
         endpoint: *mut SceUsbdEndpointDescriptor,
     ) -> SceUID;
+    #[doc = "Register USB driver for composite devices\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `driver` - driver struct"]
     pub fn ksceUsbdRegisterCompositeLdd(
         driver: *const SceUsbdCompositeDriver,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register USB driver\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `driver` - driver struct"]
     pub fn ksceUsbdRegisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
     pub fn ksceUsbdResume(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Return usb descriptor\n\n # Returns\n\ndescriptor data on success, NULL on error\n\n # Arguments\n\n* `device_id` - device id\n * `start` - pointer to descriptor to start scanning from (may be NULL)\n * `type` - descriptor type"]
     pub fn ksceUsbdScanStaticDescriptor(
         device_id: SceUID,
         start: *mut crate::ctypes::c_void,
@@ -18801,9 +21027,11 @@ extern "C" {
         port: crate::ctypes::c_int,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "De-register USB driver for composite devices\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `driver` - driver struct"]
     pub fn ksceUsbdUnregisterCompositeLdd(
         driver: *const SceUsbdCompositeDriver,
     ) -> crate::ctypes::c_int;
+    #[doc = "De-register USB driver\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `driver` - driver struct"]
     pub fn ksceUsbdUnregisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
     pub fn ksceUsbd_05073925(
         device_id: SceUID,
@@ -18815,72 +21043,95 @@ extern "C" {
 #[link(name = "SceUsbd_stub", kind = "static")]
 #[cfg(feature = "SceUsbd_stub")]
 extern "C" {
+    #[doc = "Attach specified driver to device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `driver_id` (direction in) - driver id (result of Register(Composite)Ldd)\n * `bus` (direction in) - usb port number\n * `device` (direction in) - usb device number\n\n > **Note:** device_id = (bus << 16) + device"]
     pub fn sceUsbdAttach(
         uid: SceUID,
         driver_id: SceUID,
         bus: SceUInt,
         device: SceUInt,
     ) -> crate::ctypes::c_int;
+    #[doc = "Attach composite driver to device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `param` (direction in) - parameters"]
     pub fn sceUsbdAttachCompositeLdd(
         uid: SceUID,
         param: *mut SceUsbdAttachCompositeParam,
     ) -> crate::ctypes::c_int;
+    #[doc = "Close endpoint communication pipe\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `pipe_id` (direction in) - pipe uid"]
     pub fn sceUsbdClosePipe(uid: SceUID, pipe_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Stop usb subsystem\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` - uid"]
     pub fn sceUsbdEnd(uid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Get usb device descriptors (all)\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `device_id` (direction in) - device id\n * `descriptor` (direction out) - buffer for descriptor data\n * `size` (direction in) - buffer size"]
     pub fn sceUsbdGetDescriptor(
         uid: SceUID,
         device_id: SceUID,
         descriptor: *mut crate::ctypes::c_uchar,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get usb device descriptors data size\n\n # Returns\n\nsize on success, < 0 on error\n\n # Arguments\n\n* `uid` - uid\n * `device_id` - device id"]
     pub fn sceUsbdGetDescriptorSize(
         uid: SceUID,
         device_id: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get device address\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `device_id` (direction in) - device id\n * `addr` (direction out) - buffer for return value\n\n > **Note:** it is unknown what that function actually returns in addr, observed only 0"]
     pub fn sceUsbdGetDeviceAddress(
         uid: SceUID,
         device_id: SceUID,
         addr: *mut SceUsbdDeviceAddress,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get usb devices list\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `num` (direction in) - max number of devices to return (8 max)\n * `info` (direction out) - pointer to receive device info"]
     pub fn sceUsbdGetDeviceList(
         uid: SceUID,
         num: SceSize,
         info: *mut SceUsbdDeviceInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get usb device speed\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `device_id` (direction in) - device id\n * `speed` (direction out) - device speed"]
     pub fn sceUsbdGetDeviceSpeed(
         uid: SceUID,
         device_id: SceUID,
         speed: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get isochronous transfer status\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `transfer_id` (direction in) - transfer uid\n * `status` (direction out) - buffer for return value\n\n > **Note:** it is unknown what that function actually returns in addr, observed only 0"]
     pub fn sceUsbdGetIsochTransferStatus(
         transfer_id: SceUID,
         status: *mut SceUsbdIsochTransferStatus,
     ) -> crate::ctypes::c_int;
+    #[doc = "Get transfer status\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `transfer_id` (direction in) - transfer uid\n * `status` (direction out) - buffer for return value\n\n > **Note:** it is unknown what that function actually returns in addr, observed only 0"]
     pub fn sceUsbdGetTransferStatus(
         transfer_id: SceUID,
         status: *mut SceUsbdTransferStatus,
     ) -> crate::ctypes::c_int;
+    #[doc = "Init usb subsystem\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction out) - Pointer to uid"]
     pub fn sceUsbdInit(uid: *mut SceUID) -> crate::ctypes::c_int;
+    #[doc = "Transfer data to/from endpoint isochronously\n\n # Returns\n\ntransfer_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `pipe_id` (direction in) - pipe uid\n * `transfer` (direction in) - data to transfer"]
     pub fn sceUsbdIsochTransferData(
         uid: SceUID,
         pipe_id: SceUID,
         transfer: *mut SceUsbdIsochTransfer,
     ) -> crate::ctypes::c_int;
+    #[doc = "Open endpoint communication pipe for default config endpoint\n\n # Returns\n\npipe_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `device_id` (direction in) - device id"]
     pub fn sceUsbdOpenDefaultPipe(uid: SceUID, device_id: SceUID) -> SceUID;
+    #[doc = "Open endpoint communication pipe\n\n # Returns\n\npipe_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `pipe` (direction in) - endpoint to open"]
     pub fn sceUsbdOpenPipe(uid: SceUID, pipe: *mut SceUsbdDevicePipe) -> SceUID;
+    #[doc = "Receive usb event\n\n # Returns\n\ntransfer_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `event` (direction out) -"]
     pub fn sceUsbdReceiveEvent(
         uid: SceUID,
         event: *mut SceUsbdReceiveEvent,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register callback to usb event\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `cbid` (direction in) - callback uid\n * `flag` (direction in) - if 1 - trigger events immediately\n\n > **Note:** there may be only one callback registered through whole system.\n And it's currently taken up by shell."]
     pub fn sceUsbdRegisterCallback(
         cbid: SceUID,
         flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Register logical device driver for composite devices\n\n # Returns\n\ndriver_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `name` (direction in) - driver name, 255 max"]
     pub fn sceUsbdRegisterCompositeLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
+    #[doc = "Register logical device driver\n\n # Returns\n\ndriver_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `name` (direction in) - driver name, 255 max"]
     pub fn sceUsbdRegisterLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
+    #[doc = "Reset usb device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `device_id` (direction in) - device id"]
     pub fn sceUsbdResetDevice(uid: SceUID, device_id: SceUID) -> crate::ctypes::c_int;
+    #[doc = "Transfer data to/from endpoint\n\n # Returns\n\ntransfer_id on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `data` (direction in) - data to transfer"]
     pub fn sceUsbdTransferData(uid: SceUID, data: *mut SceUsbdTransferData) -> SceUID;
+    #[doc = "Remove callback to usb event\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `cbid` (direction in) - callback uid\n\n > **Note:** this checks process id"]
     pub fn sceUsbdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "De-register logical device driver\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `uid` (direction in) - uid\n * `name` (direction in) - driver name, 255 max"]
     pub fn sceUsbdUnregisterLdd(
         uid: SceUID,
         name: *mut crate::ctypes::c_char,
@@ -18892,103 +21143,137 @@ extern "C" {}
 #[link(name = "SceUsbSerialForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbSerialForDriver_stub")]
 extern "C" {
+    #[doc = "Close USB serial device"]
     pub fn ksceUsbSerialClose() -> crate::ctypes::c_int;
+    #[doc = "Get receive buffer length\n\n # Returns\n\nReturns length of USB rx buffer"]
     pub fn ksceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
+    #[doc = "Receive Data\n\n # Arguments\n\n* `*buffer` (direction out) - buffer for incoming data\n * `max_len` (direction in) - max data length to receive\n * `unk1` - Unknown\n * `unk2` - Unknown\n > **Note:** max recv length is 0x10000"]
     pub fn ksceUsbSerialRecv(
         buffer: *mut crate::ctypes::c_void,
         max_len: SceSize,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> SceSize;
+    #[doc = "Send data\n\n # Arguments\n\n* `*buffer` (direction in) - data to send over usb\n * `len` (direction in) - int len of serial buffer data\n * `unk1` - Unknown\n * `unk2` - Unknown\n > **Note:** max send length is 0x10000"]
     pub fn ksceUsbSerialSend(
         buffer: *const crate::ctypes::c_void,
         len: SceSize,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> SceSize;
+    #[doc = "Setup USB serial device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `unk` - Unknown"]
     pub fn ksceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Activate USB serial device\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** The user is responsible for making sure no other UDC driver is active. This activates UDC as a \"PS Vita\" Type D device."]
     pub fn ksceUsbSerialStart() -> crate::ctypes::c_int;
+    #[doc = "Get USB device status\n\n # Returns\n\nReturns 1 when serial port is open"]
     pub fn ksceUsbSerialStatus() -> crate::ctypes::c_int;
 }
 #[link(name = "SceUsbSerial_stub", kind = "static")]
 #[cfg(feature = "SceUsbSerial_stub")]
 extern "C" {
+    #[doc = "Close USB serial device\n\n > **Note:** Wrapper for kernel function sceUsbSerialCloseForDriver()"]
     pub fn sceUsbSerialClose() -> crate::ctypes::c_int;
+    #[doc = "Get receive buffer length\n\n # Returns\n\nReturns length of USB rx buffer\n\n > **Note:** Wrapper for kernel function sceUsbSerialGetLenForDriver()"]
     pub fn sceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
+    #[doc = "Receive Data\n\n # Arguments\n\n* `*buffer` (direction out) - buffer for incoming data\n * `max_len` - max data length to receive\n * `unk1` - Unknown\n * `unk2` - Unknown\n > **Note:** max recv length is 0x10000\n > **Note:** Wrapper for kernel function sceUsbSerialRecvForDriver()"]
     pub fn sceUsbSerialRecv(
         buffer: *mut crate::ctypes::c_void,
         max_len: crate::ctypes::c_uint,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_uint;
+    #[doc = "Send data\n # Arguments\n\n* `*buffer` (direction in) - data to send over usb\n * `len` - int len of serial buffer data\n * `unk1` - Unknown\n * `unk2` - Unknown\n > **Note:** max send length is 0x10000\n > **Note:** Wrapper for kernel function sceUsbSerialSendForDriver()"]
     pub fn sceUsbSerialSend(
         buffer: *const crate::ctypes::c_void,
         len: crate::ctypes::c_uint,
         unk1: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
     ) -> crate::ctypes::c_uint;
+    #[doc = "Setup USB serial device\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `unk` - Unknown\n\n > **Note:** Wrapper for kernel function sceUsbSerialSetupForDriver()"]
     pub fn sceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    #[doc = "Activate USB serial device\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** The user is responsible for making sure no other UDC driver is active. This activates UDC as a \"PS Vita\" Type D device.\n\n > **Note:** Wrapper for kernel function sceUsbSerialStartForDriver()"]
     pub fn sceUsbSerialStart() -> crate::ctypes::c_int;
+    #[doc = "Close USB serial device\n\n # Returns\n\nReturns 1 when serial port is open\n\n > **Note:** Wrapper for kernel function sceUsbSerialStatusForDriver()"]
     pub fn sceUsbSerialStatus() -> crate::ctypes::c_int;
 }
 #[link(name = "SceUsbServForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbServForDriver_stub")]
 extern "C" {
+    #[doc = "Enable accessory port\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** NID 0xAA6D4409"]
     pub fn ksceUsbServAccessoryActivate() -> crate::ctypes::c_int;
+    #[doc = "Disable accessory port\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** NID 0x853CB8E4"]
     pub fn ksceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
+    #[doc = "Prevent PSTV ethernet hibernation\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** NID 0x6D738018, guessed name"]
     pub fn ksceUsbServDisableEtherSuspend() -> crate::ctypes::c_int;
+    #[doc = "Disable PSTV ethernet\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** NID 0xD787B191"]
     pub fn ksceUsbServEtherDisable() -> crate::ctypes::c_int;
+    #[doc = "Enable PSTV ethernet\n\n # Returns\n\n0 on success, < 0 on error\n\n > **Note:** NID 0x30AE5F66"]
     pub fn ksceUsbServEtherEnable() -> crate::ctypes::c_int;
+    #[doc = "Get USB port mode\n\n # Returns\n\nusb port mode (1 = client, 0 = host)\n\n # Arguments\n\n* `usbPort` - usb port number (0,1,2)\n\n > **Note:** NID 0xF0553A69"]
     pub fn ksceUsbServMacGet(usbPort: SceUInt) -> SceBool;
+    #[doc = "Set USB port mode\n\n # Returns\n\n0 on success, < 0 on error\n\n # Arguments\n\n* `usbPort` - usb port number (0,1,2)\n * `clientMode` - 0 = host mode, 1 = client mode\n\n > **Note:** NID 0x7AD36284"]
     pub fn ksceUsbServMacSelect(usbPort: SceUInt, clientMode: SceBool) -> crate::ctypes::c_int;
 }
 #[link(name = "SceUsbServ_stub", kind = "static")]
 #[cfg(feature = "SceUsbServ_stub")]
 extern "C" {
+    #[doc = "Enable accessory port\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceUsbServAccessoryActivate() -> crate::ctypes::c_int;
+    #[doc = "Disable accessory port\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
 }
 #[link(name = "SceUsbstorVStorDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbstorVStorDriver_stub")]
 extern "C" {
+    #[doc = "Set USB descriptor device information\n\n # Arguments\n\n* `name` (direction in) - - Name\n * `version` (direction in) - - Version\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUsbstorVStorSetDeviceInfo(
         name: *const crate::ctypes::c_char,
         version: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Set image file path\n\n # Arguments\n\n* `path` (direction in) - - Image file path\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUsbstorVStorSetImgFilePath(
         path: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Start USB virtual storage\n\n # Arguments\n\n* `type` (direction in) - - One of ::SceUsbstorVstorType\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUsbstorVStorStart(type_: SceUsbstorVstorType) -> crate::ctypes::c_int;
+    #[doc = "Stop USB virtual storage\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceUsbstorVStorStop() -> crate::ctypes::c_int;
 }
 #[link(name = "SceVideodec_stub", kind = "static")]
 #[cfg(feature = "SceVideodec_stub")]
 extern "C" {
+    #[doc = "# Arguments\n\n* `codec` (direction in) - - See ::SceVideodecType\n * `decoder` (direction out) - - Must be initialized frameBuf.size and frameBuf.pBuf\n * `query` (direction in) - - Should be copy from ::SceVideodecQueryInitInfoHwAvcdec.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvcdecCreateDecoder(
         codec: SceVideodecType,
         decoder: *mut SceAvcdecCtrl,
         query: *const SceAvcdecQueryDecoderInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `decoder` (direction in) -\n * `au` (direction in) - - Must set buffer information(es) and be initialized timestamps with 0xFFFFFFFF\n * `array_picture` (direction out) - - Must set numOfElm and pPicture. See ::SceAvcdecArrayPicture\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvcdecDecode(
         decoder: *const SceAvcdecCtrl,
         au: *const SceAvcdecAu,
         array_picture: *mut SceAvcdecArrayPicture,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `decoder` (direction in) - - A ::SceAvcdecCtrl decoder initialized with ::sceAvcdecCreateDecoder\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvcdecDeleteDecoder(decoder: *mut SceAvcdecCtrl) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `codec` (direction in) - - See ::SceVideodecType\n * `query` (direction in) - - Should be copy from ::SceVideodecQueryInitInfoHwAvcdec.\n * `decoderInfo` (direction out) - - Must be initialized with zeros.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceAvcdecQueryDecoderMemSize(
         codec: SceVideodecType,
         query: *const SceAvcdecQueryDecoderInfo,
         decoderInfo: *mut SceAvcdecDecoderInfo,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `codec` (direction in) - - See ::SceVideodecType\n * `initInfo` (direction in) - - See ::SceVideodecQueryInitInfoHwAvcdec\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceVideodecInitLibrary(
         codec: SceVideodecType,
         initInfo: *const SceVideodecQueryInitInfoHwAvcdec,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `codec` (direction in) - - See ::SceVideodecType\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceVideodecTermLibrary(codec: SceVideodecType) -> crate::ctypes::c_int;
 }
 #[link(name = "SceVideoExport_stub", kind = "static")]
 #[cfg(feature = "SceVideoExport_stub")]
 extern "C" {
+    #[doc = "Export video file\n\n # Arguments\n\n* `in_param` (direction in) - - Input param\n * `unk` (direction in) - - Unknown, pass 1\n * `workingMemory` (direction in) - - Working memory\n * `cancelCb` (direction in) - - Cancel callback\n * `progress` (direction in) - - Progress callback\n * `user` (direction in) - - User data passed to the callbacks\n * `unk2` (direction in) - - Unknown, pass 0\n * `out_param` (direction out) - - Output param\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn sceVideoExportFromFile(
         in_param: *const VideoExportInputParam,
         unk: crate::ctypes::c_int,
@@ -19011,68 +21296,82 @@ extern "C" {}
 #[link(name = "SceVshBridge_stub", kind = "static")]
 #[cfg(feature = "SceVshBridge_stub")]
 extern "C" {
+    #[doc = "# Arguments\n\n* `id` (direction in) - - mount id\n * `path` (direction in) - - mount path\n * `permission` (direction in) - - 1/RO 2/RW\n * `buf` (direction in) - - work buffer\n\n # Returns\n\n0 >= on success, < 0 on error."]
     pub fn _vshIoMount(
         id: crate::ctypes::c_int,
         path: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Check if a module is loaded.\n\n # Arguments\n\n* `module_name` (direction in) - - The module's name\n * `buffer` (direction in) - - Set a buffer with a size of 8 bytes\n\n # Returns\n\nthe SceUID of the module on success, < 0 on error."]
     pub fn _vshKernelSearchModuleByName(
         module_name: *const crate::ctypes::c_char,
         buffer: *const crate::ctypes::c_void,
     ) -> SceUID;
+    #[doc = "Convert an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" to a 0x200 byte one used in firmwares >2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `old_eboot_signature` (direction in) - - The pointer of old eboot signature data. size is 0x100\n * `new_eboot_signature` (direction out) - - The pointer of new eboot signature data. size is 0x200\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn _vshNpDrmEbootSigConvert(
         eboot_pbp_path: *const crate::ctypes::c_char,
         old_eboot_signature: *const crate::ctypes::c_void,
         new_eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_discinfo\" for a multi-disc PS1 game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `sce_discinfo` (direction in) - - The pointer of contents of vs0:/app/NPXS10028/__sce_discinfo\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x100\n * `sw_version` (direction in) - - The pointer of the minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn _vshNpDrmEbootSigGenMultiDisc(
         eboot_pbp_path: *const crate::ctypes::c_char,
         sce_discinfo: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_ebootpbp\" for a single-disc PS1 game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x200\n * `sw_version` (direction in) - - The pointer of the minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn _vshNpDrmEbootSigGenPs1(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate eboot.pbp signature \"__sce_ebootpbp\" for a PSP game\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x200\n * `sw_version` (direction in) - - The pointer of the minimum firmware version the signature can be used on. cannot be lower than current firmware\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn _vshNpDrmEbootSigGenPsp(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
         sw_version: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    #[doc = "Verify a eboot.pbp signature \"__sce_ebootpbp\"\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_signature` (direction in) - - The pointer of data of __sce_ebootpbp signature. size is 0x200\n * `eboot_signature_magic` (direction in) - - The pointer of a pointer of magic number within __sce_ebootpbp, \"NPUMDSIG\" or \"PSISOSIG\"\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _vshNpDrmEbootSigVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_char,
         eboot_signature_header: *mut *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    #[doc = "Generate an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" for a PSP game - this is unused in firmware >2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_sha256` (direction in) - - The pointer of SHA256 hash of first (data.psar offset + 0x1C0000) bytes into the EBOOT.PBP file\n * `eboot_signature` (direction out) - - The pointer of the output eboot signature data. size is 0x100\n\n # Returns\n\neboot_signature size on success, < 0 on error."]
     pub fn _vshNpDrmPspEbootSigGen(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_sha256: *const crate::ctypes::c_void,
         eboot_signature: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "Verify an older 0x100 byte eboot.pbp signature \"__sce_ebootpbp\" from firmware <2.00\n\n # Arguments\n\n* `eboot_pbp_path` (direction in) - - The pointer of the file path of the EBOOT.PBP file\n * `eboot_signature` (direction in) - - The pointer of data of __sce_ebootpbp signature. size is 0x100\n * `eboot_signature_magic` (direction in) - - The pointer of a pointer of magic number within __sce_ebootpbp, \"NPUMDSIG\" or \"PSISOSIG\"\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _vshNpDrmPspEbootVerify(
         eboot_pbp_path: *const crate::ctypes::c_char,
         eboot_signature: *const crate::ctypes::c_char,
         eboot_signature_header: *mut *mut crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
     pub fn _vshSblAimgrGetConsoleId(CID: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
+    #[doc = "Get service/manufacturing information (factory/minimum firmware).\n\n # Arguments\n\n* `info` (direction out) - - The info output pointer\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _vshSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
+    #[doc = "Gets real system firmware information.\n\n # Arguments\n\n* `data` (direction out) - - firmware information."]
     pub fn _vshSblGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
     pub fn vshIdStorageIsDirty() -> crate::ctypes::c_int;
     pub fn vshIdStorageIsFormatted() -> crate::ctypes::c_int;
     pub fn vshIdStorageIsReadOnly() -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `leafnum` (direction in) - - The read target leaf number\n * `buf` (direction out) - - The leaf data buffer pointer, size is 512 byte\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn vshIdStorageReadLeaf(
         leafnum: SceSize,
         buf: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `leafnum` (direction in) - - The write target leaf number\n * `buf` (direction in) - - The leaf data buffer pointer, size is 512 byte\n\n # Returns\n\n0 on success, < 0 on error.\n\n note - Writing to leaf requires manufacturing mode."]
     pub fn vshIdStorageWriteLeaf(
         leafnum: SceSize,
         buf: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    #[doc = "# Arguments\n\n* `id` (direction in) - - mount id\n * `force` (direction in) - - Set to 1 to force umount\n * `unk2` (direction in) - - Unknown, set 0\n * `unk3` (direction in) - - Unknown, set 0\n\n # Returns\n\n0 >= on success, < 0 on error."]
     pub fn vshIoUmount(
         id: crate::ctypes::c_int,
         force: crate::ctypes::c_int,
@@ -19110,10 +21409,14 @@ extern "C" {}
 #[link(name = "vitasdk-utils", kind = "static")]
 #[cfg(feature = "vitasdk-utils")]
 extern "C" {
+    #[doc = "vitasdk_delete_thread_reent delete the internal reent data for the specified thread\n # Arguments\n\n* `thid` - - The UID for the thread to delete reent data\n # Returns\n\nnon-zero if reent data is deleted"]
     pub fn vitasdk_delete_thread_reent(thid: SceUID) -> crate::ctypes::c_int;
+    #[doc = "vitasdk_get_pthread_data - Get pointer to memory to store pthread metadata\n # Arguments\n\n* `thid` - - The thread UID where the TLS will be based on\n # Returns\n\nA pointer to a memory location within the TLS"]
     pub fn vitasdk_get_pthread_data(thid: SceUID) -> *mut crate::ctypes::c_void;
+    #[doc = "vitasdk_get_tls_data - Get pointer to memory location to store TLS data\n # Arguments\n\n* `thid` - - The thread UID to access TLS\n # Returns\n\nA pointer to a memory location containing the pointer to TLS data"]
     pub fn vitasdk_get_tls_data(thid: SceUID) -> *mut crate::ctypes::c_void;
 }
+#[doc = "Structure representing all ARM registers"]
 pub type ArmCpuRegisters = SceArmCpuRegisters;
 pub type __gnuc_va_list = u32;
 pub type int_fast16_t = i16;
@@ -19163,8 +21466,11 @@ pub type SceAudioencErrorCode = crate::ctypes::c_uint;
 pub type SceAudioInErrorCode = crate::ctypes::c_uint;
 pub type SceAudioInParam = crate::ctypes::c_uint;
 pub type SceAudioInPortType = crate::ctypes::c_uint;
+#[doc = "Argument 'mode' to specify to ::sceAudioOutSetAlcMode"]
 pub type SceAudioOutAlcMode = crate::ctypes::c_uint;
+#[doc = "Flags to use as 'ch' argument for ::sceAudioOutSetVolume"]
 pub type SceAudioOutChannelFlag = crate::ctypes::c_uint;
+#[doc = "Config type values to specify to ::sceAudioOutGetConfig"]
 pub type SceAudioOutConfigType = crate::ctypes::c_uint;
 pub type SceAudioOutErrorCode = crate::ctypes::c_uint;
 pub type SceAudioOutMode = crate::ctypes::c_uint;
@@ -19172,6 +21478,7 @@ pub type SceAudioOutParam = crate::ctypes::c_uint;
 pub type SceAudioOutPortType = crate::ctypes::c_uint;
 pub type SceAvcdecErrorCode = crate::ctypes::c_uint;
 pub type SceAvcdecPixelFormat = crate::ctypes::c_uint;
+#[doc = "Color Space Mode values to specify to ::sceAVConfigSetDisplayColorSpaceMode"]
 pub type SceAVConfigColorSpaceMode = crate::ctypes::c_uint;
 pub type SceAvPlayerAlloc = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19224,6 +21531,7 @@ pub type SceAvPlayerSizeFile =
     ::core::option::Option<unsafe extern "C" fn(p: *mut crate::ctypes::c_void) -> u64>;
 pub type SceAvPlayerStreamType = crate::ctypes::c_uint;
 pub type SceAvPlayerTrickSpeeds = crate::ctypes::c_int;
+#[doc = "Error Codes"]
 pub type SceBgAppUtilErrorCode = crate::ctypes::c_uint;
 pub type SceBool = crate::ctypes::c_int;
 pub type SceBtCallback = ::core::option::Option<
@@ -19238,27 +21546,45 @@ pub type SceBtErrorCode = crate::ctypes::c_uint;
 pub type SceBtHidRequest = _SceBtHidRequest;
 pub type SceByte = crate::ctypes::c_uchar;
 pub type SceByte8 = crate::ctypes::c_uchar;
+#[doc = "Enumeration for the camera anti-flickering modes."]
 pub type SceCameraAntiFlicker = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera backlight modes."]
 pub type SceCameraBacklight = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera device types."]
 pub type SceCameraDevice = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera effects."]
 pub type SceCameraEffect = crate::ctypes::c_uint;
+#[doc = "Camera error codes."]
 pub type SceCameraErrorCode = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera exposure compensations."]
 pub type SceCameraExposureCompensation = crate::ctypes::c_int;
+#[doc = "Enumeration for the camera output formats."]
 pub type SceCameraFormat = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera framerates."]
 pub type SceCameraFrameRate = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera gain modes."]
 pub type SceCameraGain = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera ISO speed modes."]
 pub type SceCameraISO = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera nightmode modes."]
 pub type SceCameraNightmode = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera process priorities."]
 pub type SceCameraPriority = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera resolutions."]
 pub type SceCameraResolution = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera reverse modes."]
 pub type SceCameraReverse = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera saturations."]
 pub type SceCameraSaturation = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera sharpnesses."]
 pub type SceCameraSharpness = crate::ctypes::c_uint;
+#[doc = "Enumeration for the camera white balance modes."]
 pub type SceCameraWhiteBalance = crate::ctypes::c_uint;
 pub type SceChar8 = i8;
 pub type SceClassCallback = ::core::option::Option<
     unsafe extern "C" fn(item: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+#[doc = "A handle for a managed memory space."]
 pub type SceClibMspace = *mut crate::ctypes::c_void;
 pub type SceCommonDialogBgColor = SceCommonDialogColor;
 pub type SceCommonDialogErrorCode = crate::ctypes::c_uint;
@@ -19267,11 +21593,15 @@ pub type SceCommonDialogStatus = crate::ctypes::c_uint;
 pub type SceCompatCacheMode = crate::ctypes::c_uint;
 pub type SceCompatPeripheralMode = crate::ctypes::c_uint;
 pub type SceCreateUidObjOpt = SceGUIDKernelCreateOpt;
+#[doc = "Enumeration for the digital controller buttons.\n > **Note:** - L1/R1/L3/R3 only can bind using ::sceCtrlPeekBufferPositiveExt2 and ::sceCtrlReadBufferPositiveExt2\n > **Note:** - Values bigger than 0x00010000 can be intercepted only with shell privileges\n > **Note:** - Vita's L Trigger and R Trigger are mapped to L1 and R1 when using ::sceCtrlPeekBufferPositiveExt2 and ::sceCtrlReadBufferPositiveExt2"]
 pub type SceCtrlButtons = crate::ctypes::c_uint;
 pub type SceCtrlErrorCode = crate::ctypes::c_uint;
+#[doc = "Enumeration for the controller types."]
 pub type SceCtrlExternalInputMode = crate::ctypes::c_uint;
+#[doc = "Controller mode."]
 pub type SceCtrlPadInputMode = crate::ctypes::c_uint;
 pub type SceCTypeFlag = crate::ctypes::c_uint;
+#[doc = "Logging level for sceDbgLoggingHandler."]
 pub type SceDbgLogLevel = crate::ctypes::c_uint;
 pub type SceDisplayErrorCode = crate::ctypes::c_uint;
 pub type SceDisplayPixelFormat = crate::ctypes::c_uint;
@@ -19280,7 +21610,9 @@ pub type SceDouble = f64;
 pub type SceDouble64 = f64;
 pub type SceDsiErrorCode = crate::ctypes::c_uint;
 pub type SceDsiHead = crate::ctypes::c_uint;
+#[doc = "Event flag creation attributes"]
 pub type SceEventFlagAttributes = crate::ctypes::c_uint;
+#[doc = "Event flag wait types"]
 pub type SceEventFlagWaitTypes = crate::ctypes::c_uint;
 pub type SceExcpHandlingCode = crate::ctypes::c_uint;
 pub type SceExcpKind = crate::ctypes::c_uint;
@@ -19310,6 +21642,7 @@ pub type SceGxmAttributeFormat = crate::ctypes::c_uint;
 pub type SceGxmBlendFactor = crate::ctypes::c_uint;
 pub type SceGxmBlendFunc = crate::ctypes::c_uint;
 pub type SceGxmColorBaseFormat = crate::ctypes::c_uint;
+#[doc = "Supported color formats"]
 pub type SceGxmColorFormat = crate::ctypes::c_uint;
 pub type SceGxmColorMask = crate::ctypes::c_uint;
 pub type SceGxmColorSurfaceDitherMode = crate::ctypes::c_uint;
@@ -19408,6 +21741,7 @@ pub type SceGxmVisibilityTestOp = crate::ctypes::c_uint;
 pub type SceGxmWBufferMode = crate::ctypes::c_uint;
 pub type SceGxmWClampMode = crate::ctypes::c_uint;
 pub type SceGxmYuvProfile = crate::ctypes::c_uint;
+#[doc = "GXT error codes"]
 pub type SceGxtErrorCode = crate::ctypes::c_uint;
 pub type SceHttpAddHeaderMode = crate::ctypes::c_uint;
 pub type SceHttpAuthInfoCallback = ::core::option::Option<
@@ -19493,7 +21827,9 @@ pub type SceImeTextFilter = ::core::option::Option<
     ) -> SceInt32,
 >;
 pub type SceImeType = crate::ctypes::c_uint;
+#[doc = "Error Codes"]
 pub type SceIncomingDialogErrorCode = crate::ctypes::c_uint;
+#[doc = "Dialog status"]
 pub type SceIncomingDialogStatus = crate::ctypes::c_uint;
 pub type SceInt = i32;
 pub type SceInt16 = i16;
@@ -19501,15 +21837,22 @@ pub type SceInt32 = i32;
 pub type SceInt64 = i64;
 pub type SceInt8 = i8;
 pub type SceIntPtr = crate::ctypes::c_int;
+#[doc = "Access modes for st_mode in ::SceIoStat.\n\n > **Note:** System always requires RW access.\n For safe homebrew system software will force system permission field to RW.\n For unsafe homebrew, you need to set it yourself `( mode | SCE_S_IWSYS | SCE_S_IRSYS)`"]
 pub type SceIoAccessMode = crate::ctypes::c_uint;
 pub type SceIoDevType = crate::ctypes::c_uint;
+#[doc = "File modes, used for the st_attr parameter in ::SceIoStat."]
 pub type SceIoFileMode = crate::ctypes::c_uint;
 pub type SceIoMode = crate::ctypes::c_uint;
 pub type SceIoSeekMode = crate::ctypes::c_uint;
+#[doc = "Dynamically allocated encoder context.\n\n See sceJpegArmEncoderGetContextSize() for required allocation size.\n The address must be 4 byte aligned."]
 pub type SceJpegArmEncoderContext = *mut crate::ctypes::c_void;
+#[doc = "JPEG Header Modes"]
 pub type SceJpegArmEncoderHeaderMode = crate::ctypes::c_uint;
+#[doc = "Pixel Formats"]
 pub type SceJpegArmEncoderPixelFormat = crate::ctypes::c_uint;
+#[doc = "Error Codes"]
 pub type SceJpegArmErrorCode = crate::ctypes::c_uint;
+#[doc = "Error Codes"]
 pub type SceJpegEncArmErrorCode = crate::ctypes::c_uint;
 pub type SceJpegEncErrorCode = crate::ctypes::c_uint;
 pub type SceJpegEncoderContext = *mut crate::ctypes::c_void;
@@ -19518,6 +21861,7 @@ pub type SceJpegEncoderInitParamOption = crate::ctypes::c_uint;
 pub type SceJpegEncoderPixelFormat = crate::ctypes::c_uint;
 pub type SceKernelAllocMemBlockAttr = crate::ctypes::c_uint;
 pub type SceKernelAssertLevel = crate::ctypes::c_uint;
+#[doc = "Callback function prototype"]
 pub type SceKernelCallbackFunction = ::core::option::Option<
     unsafe extern "C" fn(
         notifyId: crate::ctypes::c_int,
@@ -19572,6 +21916,7 @@ pub type SceKernelFwInfo = SceKernelSystemSwVersion;
 pub type SceKernelGetSystemSwVersionFunc =
     ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>;
 pub type SceKernelHeapAttr = crate::ctypes::c_uint;
+#[doc = "Threadmgr types"]
 pub type SceKernelIdListType = crate::ctypes::c_uint;
 pub type SceKernelIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19600,6 +21945,7 @@ pub type SceKernelIntrOptHandlersCb3 = ::core::option::Option<
         register_arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int,
 >;
+#[doc = "Interrupt status\n\n This opaque value is used to hold the interruptability status\n (whether the CPU can be interrupted) on entry to functions that\n temporarily suspend interrupts. For readers familiar with the\n Windows NT kernel, this is similar in spirit to the IRQL value.\n\n The only usage that can be made of this value is to compare it\n against zero to check whether a function call failed, if applicable.\n See the description of functions using this datatype for more details."]
 pub type SceKernelIntrStatus = crate::ctypes::c_int;
 pub type SceKernelMemBlockType = SceUInt32;
 pub type SceKernelMemoryAccessType = crate::ctypes::c_uint;
@@ -19614,7 +21960,9 @@ pub type SceKernelPreloadInhibit = crate::ctypes::c_uint;
 pub type SceKernelProcessPrioritySystem = crate::ctypes::c_uint;
 pub type SceKernelProcessPriorityUser = crate::ctypes::c_uint;
 pub type SceKernelProcessType = SceUInt32;
+#[doc = "RW Spinlock\n\n (Refer to the regular spinlock description for more details\n about the spinlock synchronisation primitive)\n\n\n The RWSpinlock works similarly to a RWLock - multiple threads/CPUs\n can access the protected data at the same time as long as only reads\n are performed. When acquired for writing, a single thread/CPU at a time\n is allowed to own the RWSpinlock and is thus free to modify the data.\n Modifying data protected by a RWSpinlock while holding it for reading is\n undefined behaviour and will lead to data corruption and system instability.\n\n RW Spinlocks may be acquired by up to ?128? readers at a time. It is\n also possible to recursively acquire a RWSpinlock for reading. Recursively\n acquiring a RWSpinlock for writing is not allowed and will deadlock."]
 pub type SceKernelRWSpinlock = crate::ctypes::c_int;
+#[doc = "Regular Spinlock\n\n Spinlocks are a simple mutual exclusion mechanism implemented\n using atomic primitives (LDREX/STREX). Unlike other kernel\n synchronisation primitives, spinlocks can be acquired under\n any context, including an IRQ or exception handler.\n\n Since threads/CPUs trying to acquire a spinlock loop until\n the lock is free, this synchronisation primitive should only\n be used when the data to protect may be accessed under a context\n in which entering WAITING state is not allowed (e.g. IRQ handler).\n\n Spinlocks cannot be acquired recursively. Attempting to recursively\n acquire a regular spinlock will deadlock.\n\n\n The regular Spinlock works similarly to a mutex - only one thread\n or CPU may own the Spinlock at a time."]
 pub type SceKernelSpinlock = crate::ctypes::c_int;
 pub type SceKernelSubIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19623,6 +21971,7 @@ pub type SceKernelSubIntrHandler = ::core::option::Option<
         intr_priority: crate::ctypes::c_uchar,
     ) -> crate::ctypes::c_int,
 >;
+#[doc = "64-bit system clock type."]
 pub type SceKernelSysClock = SceUInt64;
 pub type SceKernelSysrootSelfIndex = crate::ctypes::c_uint;
 pub type SceKernelThreadEntry = ::core::option::Option<
@@ -19633,10 +21982,15 @@ pub type SceKernelWaitableAttribute = crate::ctypes::c_uint;
 pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
     unsafe extern "C" fn(args: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+#[doc = "Usage permission dialog result"]
 pub type SceLocationDialogResult = crate::ctypes::c_uint;
+#[doc = "Usage permission dialog display status"]
 pub type SceLocationDialogStatus = crate::ctypes::c_uint;
+#[doc = "Location error codes"]
 pub type SceLocationErrorCode = crate::ctypes::c_uint;
+#[doc = "Location handle datatype"]
 pub type SceLocationHandle = SceUInt32;
+#[doc = "Callback notification function for direction information"]
 pub type SceLocationHeadingInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(
         result: SceInt32,
@@ -19645,7 +21999,9 @@ pub type SceLocationHeadingInfoCallback = ::core::option::Option<
         userdata: *mut crate::ctypes::c_void,
     ),
 >;
+#[doc = "Direction measurement method"]
 pub type SceLocationHeadingMethod = crate::ctypes::c_uint;
+#[doc = "Location information callback notification function"]
 pub type SceLocationLocationInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(
         result: SceInt32,
@@ -19654,8 +22010,11 @@ pub type SceLocationLocationInfoCallback = ::core::option::Option<
         userdata: *mut crate::ctypes::c_void,
     ),
 >;
+#[doc = "Location measurement method"]
 pub type SceLocationLocationMethod = crate::ctypes::c_uint;
+#[doc = "location usage permission status for individual application"]
 pub type SceLocationPermissionApplicationStatus = crate::ctypes::c_uint;
+#[doc = "location usage permission status"]
 pub type SceLocationPermissionStatus = crate::ctypes::c_uint;
 pub type SceLong64 = i64;
 pub type SceMode = crate::ctypes::c_int;
@@ -19682,19 +22041,33 @@ pub type SceNetCtlCallback = ::core::option::Option<
 >;
 pub type SceNetCtlInfoType = crate::ctypes::c_uint;
 pub type SceNetCtlState = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetDumpRead()"]
 pub type SceNetDumpType = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetEmulationGet() / ::sceNetEmulationSet()"]
 pub type SceNetEmulationFlag = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetEpollControl()"]
 pub type SceNetEpollControlFlag = crate::ctypes::c_uint;
+#[doc = "Events for ::SceNetEpollEvent"]
 pub type SceNetEpollEventType = crate::ctypes::c_uint;
+#[doc = "Net Error Codes"]
 pub type SceNetErrorCode = crate::ctypes::c_uint;
+#[doc = "Codes to specify to ::SceNetIcmpHeader structure"]
 pub type SceNetIcmpCode = crate::ctypes::c_uint;
+#[doc = "Types to specify to ::SceNetIcmpHeader structure"]
 pub type SceNetIcmpType = crate::ctypes::c_uint;
+#[doc = "Specific kernel and libnet error codes"]
 pub type SceNetKernelErrorCode = crate::ctypes::c_uint;
+#[doc = "libnet specific error codes"]
 pub type SceNetLibnetErrorCode = crate::ctypes::c_uint;
+#[doc = "MSG Flags"]
 pub type SceNetMsgFlag = crate::ctypes::c_uint;
+#[doc = "Net Protocols"]
 pub type SceNetProtocol = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetResolverAbort()"]
 pub type SceNetResolverAbortFlag = crate::ctypes::c_uint;
+#[doc = "Resolver specific error codes"]
 pub type SceNetResolverErrorCode = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetResolverStartNtoa() / ::sceNetResolverStartAton()"]
 pub type SceNetResolverFlag = crate::ctypes::c_uint;
 pub type SceNetResolverFunctionAllocate = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19712,11 +22085,17 @@ pub type SceNetResolverFunctionFree = ::core::option::Option<
         user: *mut crate::ctypes::c_void,
     ),
 >;
+#[doc = "Flags to specify as argument to ::sceNetShutdown"]
 pub type SceNetShutdownFlag = crate::ctypes::c_uint;
+#[doc = "Flags to specify as argument to ::sceNetSocketAbort()"]
 pub type SceNetSocketAbortFlag = crate::ctypes::c_uint;
+#[doc = "Socket Options"]
 pub type SceNetSocketOption = crate::ctypes::c_uint;
+#[doc = "Socket types"]
 pub type SceNetSocketType = crate::ctypes::c_uint;
+#[doc = "flags for ::SceNetSockInfo structure"]
 pub type SceNetSockInfoFlag = crate::ctypes::c_uint;
+#[doc = "state for ::SceNetSockInfo structure"]
 pub type SceNetSockInfoState = crate::ctypes::c_uint;
 pub type SceNgsCallbackFunc =
     ::core::option::Option<unsafe extern "C" fn(callback_info: *const SceNgsCallbackInfo)>;
@@ -19730,13 +22109,17 @@ pub type SceNgsParamsErrorCallbackFunc = SceNgsCallbackFunc;
 pub type SceNgsRackReleaseCallbackFunc = SceNgsCallbackFunc;
 pub type SceNgsSulphaUpdateCallback = *mut crate::ctypes::c_void;
 pub type SceNID = crate::ctypes::c_uint;
+#[doc = "Error Codes"]
 pub type SceNotificationUitlErrorCode = crate::ctypes::c_uint;
+#[doc = "BGDL-type notification event handler function"]
 pub type SceNotificationUtilProgressEventHandler =
     ::core::option::Option<unsafe extern "C" fn(eventId: crate::ctypes::c_int)>;
+#[doc = "Options for _sceNpDrmPackageDecrypt"]
 pub type _sceNpDrmPackageDecrypt_opt = _sceNpDrmPackageDecrypt;
 pub type SceOff = SceInt64;
 pub type _ScePerfArmPmonEventCode = crate::ctypes::c_uint;
 pub type ScePID = crate::ctypes::c_int;
+#[doc = "Callback function prototype"]
 pub type ScePowerCallback = ::core::option::Option<
     unsafe extern "C" fn(
         notifyId: crate::ctypes::c_int,
@@ -19750,6 +22133,7 @@ pub type ScePowerConfigurationMode = crate::ctypes::c_uint;
 pub type ScePowerErrorCode = crate::ctypes::c_uint;
 pub type SceProductCode = crate::ctypes::c_uint;
 pub type SceProductMode = crate::ctypes::c_char;
+#[doc = "Avalible types for ::ScePromoterUtilityImportParams"]
 pub type ScePromoterUtilityPackageType = crate::ctypes::c_uint;
 pub type ScePspnetAdhocctlAdhocType = crate::ctypes::c_uint;
 pub type ScePspnetAdhocctlErrorCode = crate::ctypes::c_uint;
@@ -19828,8 +22212,11 @@ pub type ScePvfU16 = crate::ctypes::c_ushort;
 pub type ScePvfU32 = crate::ctypes::c_uint;
 pub type ScePvfU8 = crate::ctypes::c_uchar;
 pub type ScePVoid = *mut crate::ctypes::c_void;
+#[doc = "Enumeration for the gpu live metrics groups"]
 pub type SceRazorGpuLiveMetricsGroup = crate::ctypes::c_uint;
+#[doc = "Enumeration for the gpu live results entry types"]
 pub type SceRazorLiveTraceMetricEntryType = crate::ctypes::c_uint;
+#[doc = "Enumeration for the gpu live results job types"]
 pub type SceRazorLiveTraceMetricJobType = crate::ctypes::c_uint;
 pub type SceRtcDayOfWeek = crate::ctypes::c_uint;
 pub type SceRtcErrorCode = crate::ctypes::c_uint;
@@ -19929,14 +22316,22 @@ pub type SceSysEventHandler = ::core::option::Option<
         opt: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int,
 >;
+#[doc = "Errorcodes for SceSysmodule"]
 pub type SceSysmoduleErrorCode = crate::ctypes::c_uint;
+#[doc = "Available internal modules ID for ::sceSysmoduleLoadModuleInternal"]
 pub type SceSysmoduleInternalModuleId = crate::ctypes::c_uint;
+#[doc = "Available modules ID for ::sceSysmoduleLoadModule"]
 pub type SceSysmoduleModuleId = crate::ctypes::c_uint;
 pub type SceSysroot = SceUIDSysrootObject;
+#[doc = "Date display format"]
 pub type SceSystemParamDateFormat = crate::ctypes::c_uint;
+#[doc = "Assignment of enter button"]
 pub type SceSystemParamEnterButtonAssign = crate::ctypes::c_uint;
+#[doc = "System param id"]
 pub type SceSystemParamId = crate::ctypes::c_uint;
+#[doc = "Language settings"]
 pub type SceSystemParamLang = crate::ctypes::c_uint;
+#[doc = "Time display format"]
 pub type SceSystemParamTimeFormat = crate::ctypes::c_uint;
 pub type SceSysTimerCallback = ::core::option::Option<
     unsafe extern "C" fn(timer: SceSysTimerId, pUserData: *mut crate::ctypes::c_void),
@@ -19945,24 +22340,39 @@ pub type SceSysTimerClockSource = crate::ctypes::c_uint;
 pub type SceSysTimerId = SceInt32;
 pub type SceSysTimerType = crate::ctypes::c_uint;
 pub type SceThreadStatus = crate::ctypes::c_uint;
+#[doc = "Touch error codes"]
 pub type SceTouchErrorCode = crate::ctypes::c_uint;
+#[doc = "Port numbers of touch panels\n\n [`::sceTouchRead`]\n [`::sceTouchPeek`]"]
 pub type SceTouchPortType = crate::ctypes::c_uint;
+#[doc = "Info field of ::SceTouchReport structure\n\n [`::SceTouchReport`]"]
 pub type SceTouchReportInfo = crate::ctypes::c_uint;
+#[doc = "Sampling port setting of the touch panel\n\n [`::sceTouchSetSamplingState`]"]
 pub type SceTouchSamplingState = crate::ctypes::c_uint;
+#[doc = "Days of the week for use in repeatDays member of ::SceTriggerUtilEventParamDaily"]
 pub type SceTriggerUtilDays = crate::ctypes::c_uint;
+#[doc = "Error Codes"]
 pub type SceTriggerUtilErrorCode = crate::ctypes::c_uint;
 pub type SceUChar8 = u8;
+#[doc = "SceUdcdDeviceRequest Flags"]
 pub type SceUdcdDeviceRequestAttr = crate::ctypes::c_uint;
+#[doc = "Error codes"]
 pub type SceUdcdErrorCode = crate::ctypes::c_uint;
+#[doc = "Class Descriptor Types"]
 pub type SceUdcdHidDescriptor = crate::ctypes::c_uint;
+#[doc = "HID Interface Class Protocol Codes"]
 pub type SceUdcdHidProtocol = crate::ctypes::c_uint;
+#[doc = "Class-Specific Requests"]
 pub type SceUdcdHidRequest = crate::ctypes::c_uint;
+#[doc = "Protocol Selection"]
 pub type SceUdcdProtocol = crate::ctypes::c_uint;
 pub type SceUdcdRetcode = crate::ctypes::c_int;
 pub type SceUdcdStatus = crate::ctypes::c_uint;
 pub type SceUdcdStatusDriver = crate::ctypes::c_uint;
+#[doc = "Enumeration for Device and/or Interface Class codes"]
 pub type SceUdcdUsbClass = crate::ctypes::c_uint;
+#[doc = "Enumeration for descriptor types"]
 pub type SceUdcdUsbDt = crate::ctypes::c_uint;
+#[doc = "Enumeration for standard requests"]
 pub type SceUdcdUsbReq = crate::ctypes::c_uint;
 pub type SceUID = crate::ctypes::c_int;
 pub type SceUInt = u32;
@@ -19988,6 +22398,7 @@ pub type SceVoid = crate::ctypes::c_void;
 pub type SceWChar16 = u16;
 pub type SceWChar32 = u32;
 pub type SulphaNgsModuleQueryType = SceUInt32;
+#[doc = "Structure containing a threads register states."]
 pub type ThreadCpuRegisters = SceThreadCpuRegisters;
 pub type time_t = crate::ctypes::c_long;
 pub type uint_fast16_t = u16;
