@@ -93,10 +93,16 @@ impl ParseCallbacks for Callbacks {
         // Fixes links to functions and types
         let comment = comment.replace("@see ::", "@see crate::");
 
+        // doxygen-rs does not support code blocks
+        let comment = comment.replace("@code", "```c");
+        let comment = comment.replace("@endcode", "```");
+
+        let comment = doxygen_rs::transform(&comment);
+
         // Escape square brackets for non-links
         let comment =
-            lazy_regex::regex_replace_all!("\\[([\\d]+)\\]", &comment, |_, num: &str| format!(
-                "\\[{num}\\]"
+            lazy_regex::regex_replace_all!(r"\[([\d]+)\]", &comment, |_, num: &str| format!(
+                r"\[{num}\]"
             ));
 
         // Without space these brackets are considered to be a link
@@ -104,8 +110,6 @@ impl ParseCallbacks for Callbacks {
             "[1,SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
             "[1, SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
         );
-
-        let comment = doxygen_rs::transform(&comment);
 
         let comment = comment.strip_prefix("!<").unwrap_or(&comment);
         let comment = comment.strip_prefix('!').unwrap_or(comment);

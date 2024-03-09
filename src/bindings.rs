@@ -7883,8 +7883,11 @@ pub const SCE_ERROR_NET_ADHOC_SOCKET_ID_NOT_AVAIL: ScePspnetAdhocErrorCode = 215
 pub const SCE_ERROR_NET_ADHOC_THREAD_ABORTED: ScePspnetAdhocErrorCode = 2151745305;
 pub const SCE_ERROR_NET_ADHOC_TIMEOUT: ScePspnetAdhocErrorCode = 2151745301;
 pub const SCE_ERROR_NET_ADHOC_WOULD_BLOCK: ScePspnetAdhocErrorCode = 2151745289;
+#[doc = "Use SCE_KERNEL_ATTR_OPENABLE"]
 pub const SCE_EVENT_OPENABLE: SceEventFlagAttributes = 128;
+#[doc = "Use SCE_KERNEL_ATTR_THREAD_FIFO"]
 pub const SCE_EVENT_THREAD_FIFO: SceEventFlagAttributes = 0;
+#[doc = "Use SCE_KERNEL_ATTR_THREAD_PRIO"]
 pub const SCE_EVENT_THREAD_PRIO: SceEventFlagAttributes = 8192;
 #[doc = "Wait for all bits in the pattern to be set"]
 pub const SCE_EVENT_WAITAND: SceEventFlagWaitTypes = 0;
@@ -10698,6 +10701,7 @@ pub const SCE_S_IFMT: SceIoAccessMode = 61440;
 pub const SCE_S_IFREG: SceIoAccessMode = 8192;
 #[doc = "Group read permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IRGRP: SceIoAccessMode = 0;
+#[doc = "Others read permission. Deprecated, use ::SCE_S_IXSYS"]
 pub const SCE_S_IROTH: SceIoAccessMode = 4;
 #[doc = "System read permission"]
 pub const SCE_S_IRSYS: SceIoAccessMode = 4;
@@ -10705,16 +10709,21 @@ pub const SCE_S_IRSYS: SceIoAccessMode = 4;
 pub const SCE_S_IRUSR: SceIoAccessMode = 256;
 #[doc = "Group access rights mask. Ignored and reset to 0 by system"]
 pub const SCE_S_IRWXG: SceIoAccessMode = 0;
+#[doc = "Others access rights mask. Deprecated, use ::SCE_S_IRWXS"]
 pub const SCE_S_IRWXO: SceIoAccessMode = 7;
 #[doc = "System access rights mask"]
 pub const SCE_S_IRWXS: SceIoAccessMode = 7;
 #[doc = "User access rights mask"]
 pub const SCE_S_IRWXU: SceIoAccessMode = 448;
+#[doc = "Set GID. Deprecated"]
 pub const SCE_S_ISGID: SceIoAccessMode = 0;
+#[doc = "Set UID. Deprecated"]
 pub const SCE_S_ISUID: SceIoAccessMode = 0;
+#[doc = "Sticky. Deprecated"]
 pub const SCE_S_ISVTX: SceIoAccessMode = 0;
 #[doc = "Group write permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IWGRP: SceIoAccessMode = 0;
+#[doc = "Others write permission. Deprecated, use ::SCE_S_IXSYS"]
 pub const SCE_S_IWOTH: SceIoAccessMode = 2;
 #[doc = "System write permission"]
 pub const SCE_S_IWSYS: SceIoAccessMode = 2;
@@ -10722,6 +10731,7 @@ pub const SCE_S_IWSYS: SceIoAccessMode = 2;
 pub const SCE_S_IWUSR: SceIoAccessMode = 128;
 #[doc = "Group execute permission. Ignored and reset to 0 by system"]
 pub const SCE_S_IXGRP: SceIoAccessMode = 0;
+#[doc = "Others execute permission. Deprecated, use ::SCE_S_IXSYS"]
 pub const SCE_S_IXOTH: SceIoAccessMode = 1;
 #[doc = "System execute permission"]
 pub const SCE_S_IXSYS: SceIoAccessMode = 1;
@@ -15008,11 +15018,11 @@ extern "C" {
         stat: *mut SceIoStat,
         bits: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Delete a descriptor\n\n ksceIoClose(fd);\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
+    #[doc = "Delete a descriptor\n\n ```c\n ksceIoClose(fd);\n ```\n\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
     pub fn ksceIoClose(fd: SceUID) -> crate::ctypes::c_int;
     #[doc = "Close an opened directory file descriptor\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::ksceIoDopen)\n # Returns\n\n< 0 on error"]
     pub fn ksceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n SceIoDevInfo info;\n ksceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
+    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n ```c\n SceIoDevInfo info;\n ksceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n ```\n\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceIoDevctl(
         dev: *const crate::ctypes::c_char,
         cmd: crate::ctypes::c_uint,
@@ -15021,7 +15031,7 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Open a directory\n\n # Example:\n int dfd;\n dfd = ksceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
+    #[doc = "Open a directory\n\n # Example:\n ```c\n int dfd;\n dfd = ksceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n ```\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
     pub fn ksceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
     #[doc = "Reads an entry from an opened file descriptor.\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::ksceIoDopen)\n * `dir` - - Pointer to an ::SceIoDirent structure to hold the file information\n\n # Returns\n\nRead status\n - 0 - No more directory entries left\n - > 0 - More directory entries to go\n - < 0 - Error"]
     pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
@@ -15057,7 +15067,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     #[doc = "Get the status of a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor.\n * `stat` - - A pointer to a ::SceIoStat structure.\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
-    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n pos = ksceIoLseek(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
+    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n ```c\n pos = ksceIoLseek(fd, -10, SCE_SEEK_END);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
     #[doc = "Make a directory file\n\n # Arguments\n\n* `dir` - - The path to the directory\n * `mode` - - Access mode (One or more ::SceIoAccessMode).\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn ksceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
@@ -15070,27 +15080,27 @@ extern "C" {
         a5: crate::ctypes::c_int,
         a6: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777)) {\n // error\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777)) {\n // error\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open\n * `flags` - - Libc styled flags that are or'ed together\n * `mode` - - File access mode (One or more ::SceIoMode).\n # Returns\n\nA non-negative integer is a valid fd, anything else an error"]
+    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n ```c\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777)) {\n // error\n }\n ```\n # Example2: Open a file for writing, creating it if it doesn't exist\n ```c\n if(!(fd = ksceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777)) {\n // error\n }\n ```\n\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open\n * `flags` - - Libc styled flags that are or'ed together\n * `mode` - - File access mode (One or more ::SceIoMode).\n # Returns\n\nA non-negative integer is a valid fd, anything else an error"]
     pub fn ksceIoOpen(
         file: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         mode: SceMode,
     ) -> SceUID;
-    #[doc = "Read input at offset\n\n # Example:\n bytes_read = ksceIoPread(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
+    #[doc = "Read input at offset\n\n # Example:\n ```c\n bytes_read = ksceIoPread(fd, data, 100, 0x1000);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
     pub fn ksceIoPread(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
-    #[doc = "Write output at offset\n\n # Example:\n bytes_written = ksceIoPwrite(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
+    #[doc = "Write output at offset\n\n # Example:\n ```c\n bytes_written = ksceIoPwrite(fd, data, 100, 0x1000);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn ksceIoPwrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
-    #[doc = "Read input\n\n # Example:\n bytes_read = ksceIoRead(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
+    #[doc = "Read input\n\n # Example:\n ```c\n bytes_read = ksceIoRead(fd, data, 100);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
     pub fn ksceIoRead(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
@@ -15119,7 +15129,7 @@ extern "C" {
         a3: crate::ctypes::c_int,
         a4: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Write output\n\n # Example:\n bytes_written = ksceIoWrite(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
+    #[doc = "Write output\n\n # Example:\n ```c\n bytes_written = ksceIoWrite(fd, data, 100);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn ksceIoWrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
@@ -15131,27 +15141,27 @@ extern "C" {
 extern "C" {
     #[doc = "Cancel an asynchronous operation on a file descriptor.\n\n # Arguments\n\n* `fd` - - The file descriptor to perform cancel on.\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoCancel(fd: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Delete a descriptor\n\n sceIoClose(fd);\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
+    #[doc = "Delete a descriptor\n\n ```c\n sceIoClose(fd);\n ```\n\n # Arguments\n\n* `fd` - - File descriptor to close\n # Returns\n\n< 0 on error"]
     pub fn sceIoClose(fd: SceUID) -> crate::ctypes::c_int;
     #[doc = "Close an opened directory file descriptor\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::sceIoDopen)\n # Returns\n\n< 0 on error"]
     pub fn sceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
     pub fn sceIoGetPriority(fd: SceUID) -> crate::ctypes::c_int;
     pub fn sceIoGetProcessDefaultPriority() -> crate::ctypes::c_int;
     pub fn sceIoGetThreadDefaultPriority() -> crate::ctypes::c_int;
-    #[doc = "Reposition read/write file descriptor offset (32bit mode)\n\n # Example:\n pos = sceIoLseek32(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
+    #[doc = "Reposition read/write file descriptor offset (32bit mode)\n\n # Example:\n ```c\n pos = sceIoLseek32(fd, -10, SCE_SEEK_END);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn sceIoLseek32(
         fd: SceUID,
         offset: crate::ctypes::c_long,
         whence: crate::ctypes::c_int,
     ) -> crate::ctypes::c_long;
-    #[doc = "Read input\n\n # Example:\n bytes_read = sceIoRead(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `buf` - - Pointer to the buffer where the read data will be placed\n * `nbyte` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
+    #[doc = "Read input\n\n # Example:\n ```c\n bytes_read = sceIoRead(fd, data, 100);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `buf` - - Pointer to the buffer where the read data will be placed\n * `nbyte` - - Size of the read in bytes\n\n # Returns\n\nThe number of bytes read"]
     pub fn sceIoRead(fd: SceUID, buf: *mut crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
     pub fn sceIoSetPriority(fd: SceUID, priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceIoSetProcessDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn sceIoSetThreadDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
     #[doc = "Synchronize the file data for one file\n\n # Arguments\n\n* `fd` - - Opened file descriptor to sync\n * `flag` - - unknown\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoSyncByFd(fd: SceUID, flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    #[doc = "Write output\n\n # Example:\n bytes_written = sceIoWrite(fd, data, 100);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `buf` - - Pointer to the data to write\n * `nbyte` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
+    #[doc = "Write output\n\n # Example:\n ```c\n bytes_written = sceIoWrite(fd, data, 100);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `buf` - - Pointer to the data to write\n * `nbyte` - - Size of data to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn sceIoWrite(fd: SceUID, buf: *const crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
 }
 #[link(name = "SceJpegArm_stub", kind = "static")]
@@ -15421,7 +15431,7 @@ extern "C" {
         thid: SceUID,
         mask: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::sceKernelCreateThread or ::sceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n int thid = sceKernelGetThreadId();\n // Change priority of current thread to 16\n sceKernelChangeThreadPriority(thid, 16);\n # Returns\n\n0 if successful, otherwise the error code."]
+    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::sceKernelCreateThread or ::sceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n ```c\n int thid = sceKernelGetThreadId();\n // Change priority of current thread to 16\n sceKernelChangeThreadPriority(thid, 16);\n ```\n\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelChangeThreadPriority(
         thid: SceUID,
         priority: crate::ctypes::c_int,
@@ -15440,16 +15450,16 @@ extern "C" {
     #[doc = "Close a rwlock\n\n # Arguments\n\n* `rwlock_id` - - The rwlock id returned from ::sceKernelCreateRWLock\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
     pub fn sceKernelCloseSema(semaid: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Create callback\n\n # Example:\n int cbid;\n cbid = sceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n # Arguments\n\n* `name` - - A textual name for the callback\n * `attr` - - ?\n * `func` - - A pointer to a function that will be called as the callback\n * `userData` - - User defined data to be passed to the callback.\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
+    #[doc = "Create callback\n\n # Example:\n ```c\n int cbid;\n cbid = sceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n ```\n\n # Arguments\n\n* `name` - - A textual name for the callback\n * `attr` - - ?\n * `func` - - A pointer to a function that will be called as the callback\n * `userData` - - User defined data to be passed to the callback.\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
     pub fn sceKernelCreateCallback(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_uint,
         func: SceKernelCallbackFunction,
         userData: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n sceKernelDelayThread(1000000); // Delay for a second"]
+    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ```c\n sceKernelDelayThread(1000000); // Delay for a second\n ```"]
     pub fn sceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n sceKernelDelayThread(1000000); // Delay for a second"]
+    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ```c\n sceKernelDelayThread(1000000); // Delay for a second\n ```"]
     pub fn sceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
     #[doc = "Delete a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
@@ -15510,7 +15520,7 @@ extern "C" {
     pub fn sceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
     #[doc = "Signals a condition variable to a specific thread waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::sceKernelCreateCond\n * `threadId` - - The thread id returned from ::sceKernelCreateThread\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Send a signal to a semaphore\n\n # Example:\n // Signal the sema\n sceKernelSignalSema(semaid, 1);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
+    #[doc = "Send a signal to a semaphore\n\n # Example:\n ```c\n // Signal the sema\n sceKernelSignalSema(semaid, 1);\n ```\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
     pub fn sceKernelSignalSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
@@ -15968,7 +15978,7 @@ extern "C" {
         buf: *const SceIoStat,
         cbit: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n SceIoDevInfo info;\n sceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
+    #[doc = "Send a devctl command to a device.\n\n # Example: Sending a simple command to a device\n ```c\n SceIoDevInfo info;\n sceIoDevctl(\"ux0:\", 0x3001, NULL, 0, &info, sizeof(SceIoDevInfo));\n ```\n\n # Arguments\n\n* `dev` - - String for the device to send the devctl to (e.g. \"ux0:\")\n * `cmd` - - The command to send to the device\n * `indata` - - A data block to send to the device, if NULL sends no data\n * `inlen` - - Length of indata, if 0 sends no data\n * `outdata` - - A data block to receive the result of a command, if NULL receives no data\n * `outlen` - - Length of outdata, if 0 receives no data\n # Returns\n\n0 on success, < 0 on error"]
     pub fn sceIoDevctl(
         dev: *const crate::ctypes::c_char,
         cmd: crate::ctypes::c_uint,
@@ -15977,7 +15987,7 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Open a directory\n\n # Example:\n int dfd;\n dfd = sceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
+    #[doc = "Open a directory\n\n # Example:\n ```c\n int dfd;\n dfd = sceIoDopen(\"device:/\");\n if(dfd >= 0)\n { Do something with the file descriptor }\n ```\n # Arguments\n\n* `dirname` - - The directory to open for reading.\n # Returns\n\nIf >= 0 then a valid file descriptor, otherwise a Sony error code."]
     pub fn sceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
     #[doc = "Reads an entry from an opened file descriptor.\n\n # Arguments\n\n* `fd` - - Already opened file descriptor (using ::sceIoDopen)\n * `dir` - - Pointer to a ::SceIoDirent structure to hold the file information\n\n # Returns\n\nRead status\n - 0 - No more directory entries left\n - > 0 - More directory entries to go\n - < 0 - Error"]
     pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
@@ -16006,24 +16016,24 @@ extern "C" {
         outdata: *mut crate::ctypes::c_void,
         outlen: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n pos = sceIoLseek(fd, -10, SCE_SEEK_END);\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
+    #[doc = "Reposition read/write file descriptor offset\n\n # Example:\n ```c\n pos = sceIoLseek(fd, -10, SCE_SEEK_END);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor with which to seek\n * `offset` - - Relative offset from the start position given by whence\n * `whence` - - One of ::SceIoSeekMode.\n\n # Returns\n\nThe position in the file after the seek."]
     pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
     #[doc = "Make a directory file\n\n # Arguments\n\n* `dir` - - The path to the directory\n * `mode` - - Access mode (One or more ::SceIoAccessMode).\n # Returns\n\nReturns the value 0 if it's successful, otherwise -1"]
     pub fn sceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
-    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n # Example2: Open a file for writing, creating it if it doesn't exist\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open.\n * `flags` - - Libc styled flags that are or'ed together (One or more ::SceIoMode).\n * `mode` - - One or more ::SceIoAccessMode flags or'ed together. Can also use Unix absolute permissions.\n # Returns\n\n> 0 is a valid file handle, < 0 on error."]
+    #[doc = "Open or create a file for reading or writing\n\n # Example1: Open a file for reading\n ```c\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_RDONLY, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n ```\n # Example2: Open a file for writing, creating it if it doesn't exist\n ```c\n if((fd = sceIoOpen(\"device:/path/to/file\", SCE_O_WRONLY|SCE_O_CREAT, 0777) < 0) {\n // error code in fd, for example no open filehandle left (0x80010018)\n }\n ```\n\n # Arguments\n\n* `file` - - Pointer to a string holding the name of the file to open.\n * `flags` - - Libc styled flags that are or'ed together (One or more ::SceIoMode).\n * `mode` - - One or more ::SceIoAccessMode flags or'ed together. Can also use Unix absolute permissions.\n # Returns\n\n> 0 is a valid file handle, < 0 on error."]
     pub fn sceIoOpen(
         file: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         mode: SceMode,
     ) -> SceUID;
-    #[doc = "Read input at offset\n\n # Example:\n bytes_read = sceIoPread(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
+    #[doc = "Read input at offset\n\n # Example:\n ```c\n bytes_read = sceIoPread(fd, data, 100, 0x1000);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to read from\n * `data` - - Pointer to the buffer where the read data will be placed\n * `size` - - Size of the read in bytes\n * `offset` - - Offset to read\n\n # Returns\n\n< 0 on error."]
     pub fn sceIoPread(
         fd: SceUID,
         data: *mut crate::ctypes::c_void,
         size: SceSize,
         offset: SceOff,
     ) -> crate::ctypes::c_int;
-    #[doc = "Write output at offset\n\n # Example:\n bytes_written = sceIoPwrite(fd, data, 100, 0x1000);\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
+    #[doc = "Write output at offset\n\n # Example:\n ```c\n bytes_written = sceIoPwrite(fd, data, 100, 0x1000);\n ```\n\n # Arguments\n\n* `fd` - - Opened file descriptor to write to\n * `data` - - Pointer to the data to write\n * `size` - - Size of data to write\n * `offset` - - Offset to write\n\n # Returns\n\nThe number of bytes written"]
     pub fn sceIoPwrite(
         fd: SceUID,
         data: *const crate::ctypes::c_void,
@@ -16170,14 +16180,14 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     #[doc = "Check the thread stack?\n\n # Returns\n\nUnknown."]
     pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
-    #[doc = "Creates a new condition variable\n\n # Example:\n SceUID condId;\n condId = sceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
+    #[doc = "Creates a new condition variable\n\n # Example:\n ```c\n SceUID condId;\n condId = sceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
     pub fn sceKernelCreateCond(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
-    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n int evid;\n evid = sceKernelCreateEventFlag(\"wait_event\", 0, 0, NULL);"]
+    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n ```c\n int evid;\n evid = sceKernelCreateEventFlag(\"wait_event\", 0, 0, NULL);\n ```"]
     pub fn sceKernelCreateEventFlag(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_int,
@@ -16206,20 +16216,20 @@ extern "C" {
         bufSize: crate::ctypes::c_uint,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
-    #[doc = "Creates a new mutex\n\n # Example:\n int mutexid;\n mutexid = sceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
+    #[doc = "Creates a new mutex\n\n # Example:\n ```c\n int mutexid;\n mutexid = sceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
     pub fn sceKernelCreateMutex(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         initCount: crate::ctypes::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
-    #[doc = "Creates a new rwlock\n\n # Example:\n int rwlock_id;\n rwlock_id = sceKernelCreateRWLock(\"MyRWLock\", 0, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the rwlock\n * `attr` - - RWLock attribute flags (normally set to 0)\n * `option` - - RWLock options (normally set to NULL)\n # Returns\n\nRWLock id on success, < 0 on error"]
+    #[doc = "Creates a new rwlock\n\n # Example:\n ```c\n int rwlock_id;\n rwlock_id = sceKernelCreateRWLock(\"MyRWLock\", 0, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the rwlock\n * `attr` - - RWLock attribute flags (normally set to 0)\n * `option` - - RWLock options (normally set to NULL)\n # Returns\n\nRWLock id on success, < 0 on error"]
     pub fn sceKernelCreateRWLock(
         name: *const crate::ctypes::c_char,
         attr: SceUInt32,
         opt_param: *const SceKernelRWLockOptParam,
     ) -> SceUID;
-    #[doc = "Creates a new semaphore\n\n # Example:\n int semaid;\n semaid = sceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
+    #[doc = "Creates a new semaphore\n\n # Example:\n ```c\n int semaid;\n semaid = sceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
     pub fn sceKernelCreateSema(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
@@ -16227,7 +16237,7 @@ extern "C" {
         maxVal: crate::ctypes::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
-    #[doc = "Create a thread\n\n # Example:\n SceUID thid;\n thid = sceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n A thread can run only on the cores specified in the CPU affinity mask.\n The CPU affinity mask can be specified by the logical sum of the following macros:\n - SCE_KERNEL_CPU_MASK_USER_0\n - SCE_KERNEL_CPU_MASK_USER_1\n - SCE_KERNEL_CPU_MASK_USER_2\n - SCE_KERNEL_CPU_MASK_SYSTEM (system-reserved core)\n The following macro are also available to represent all available in userland CPU cores:\n - SCE_KERNEL_CPU_MASK_USER_ALL\n The following macro are also available to inherit affinity mask of the calling process:\n - SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
+    #[doc = "Create a thread\n\n # Example:\n ```c\n SceUID thid;\n thid = sceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n ```\n\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n A thread can run only on the cores specified in the CPU affinity mask.\n The CPU affinity mask can be specified by the logical sum of the following macros:\n - SCE_KERNEL_CPU_MASK_USER_0\n - SCE_KERNEL_CPU_MASK_USER_1\n - SCE_KERNEL_CPU_MASK_USER_2\n - SCE_KERNEL_CPU_MASK_SYSTEM (system-reserved core)\n The following macro are also available to represent all available in userland CPU cores:\n - SCE_KERNEL_CPU_MASK_USER_ALL\n The following macro are also available to inherit affinity mask of the calling process:\n - SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
     pub fn sceKernelCreateThread(
         name: *const crate::ctypes::c_char,
         entry: SceKernelThreadEntry,
@@ -16296,7 +16306,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     #[doc = "Get the current thread Id\n\n # Returns\n\nThe thread id of the calling thread."]
     pub fn sceKernelGetThreadId() -> crate::ctypes::c_int;
-    #[doc = "Get the status information for the specified thread.\n\n # Arguments\n\n* `thid` - - Id of the thread to get status\n * `info` - - Pointer to the info structure to receive the data.\n Note: The structures size field should be set to\n sizeof(SceKernelThreadInfo) before calling this function.\n\n # Example:\n SceKernelThreadInfo status;\n status.size = sizeof(SceKernelThreadInfo);\n if(sceKernelGetThreadInfo(thid, &status) == 0)\n { Do something... }\n # Returns\n\n0 if successful, otherwise the error code."]
+    #[doc = "Get the status information for the specified thread.\n\n # Arguments\n\n* `thid` - - Id of the thread to get status\n * `info` - - Pointer to the info structure to receive the data.\n Note: The structures size field should be set to\n sizeof(SceKernelThreadInfo) before calling this function.\n\n # Example:\n ```c\n SceKernelThreadInfo status;\n status.size = sizeof(SceKernelThreadInfo);\n if(sceKernelGetThreadInfo(thid, &status) == 0)\n { Do something... }\n ```\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn sceKernelGetThreadInfo(
         thid: SceUID,
         info: *mut SceKernelThreadInfo,
@@ -16494,13 +16504,13 @@ extern "C" {
         pWork: *mut SceKernelLwCondWork,
         pTimeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-    #[doc = "Lock a semaphore\n\n # Example:\n sceKernelWaitSema(semaid, 1, 0);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
+    #[doc = "Lock a semaphore\n\n # Example:\n ```c\n sceKernelWaitSema(semaid, 1, 0);\n ```\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
-    #[doc = "Lock a semaphore and handle callbacks if necessary.\n\n # Example:\n sceKernelWaitSemaCB(semaid, 1, 0);\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
+    #[doc = "Lock a semaphore and handle callbacks if necessary.\n\n # Example:\n ```c\n sceKernelWaitSemaCB(semaid, 1, 0);\n ```\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::sceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn sceKernelWaitSemaCB(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
@@ -16829,7 +16839,7 @@ extern "C" {
     ) -> SceUID;
     #[doc = "Get the main module id for a given process.\n # Arguments\n\n* `pid` - The process to query.\n # Returns\n\nthe UID of the module else < 0 for an error."]
     pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
-    #[doc = "# Example1: Get max to 10 kernel module info\n SceKernelModuleListInfo infolistssize_t num = 10;// Get max\n uint32_t offset = 0;\n SceKernelModuleListInfo *info = &infolistsksceKernelGetModuleInfoForDebugger(0x10005, infolists, &num);\n\n for(int i=0;i<num;i++){\n printf(\"name : %sinfo->module_name);\n\n if(info->segments_num == 1){\n printf(\"vaddr:0x%08Xinfo->seg1.SegmentInfo}else if(info->segments_num == 2){\n printf(\"vaddr:0x%08Xinfo->seg2.SegmentInfo}\n info = ((char *)info) + info->size;\n }\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `infolists` (direction out) - - infolists output\n * `num` (direction in, out) - - Specify the maximum number of modinfolist to retrieve. If the function returns 0, it returns the number of modules loaded in the target pid in num\n\n # Returns\n\n0 on success, < 0 on error."]
+    #[doc = "# Example1: Get max to 10 kernel module info\n ```c\n SceKernelModuleListInfo infolists\\[10\\];\n size_t num = 10;// Get max\n uint32_t offset = 0;\n SceKernelModuleListInfo *info = &infolists\\[0\\];\n\n ksceKernelGetModuleInfoForDebugger(0x10005, infolists, &num);\n\n for(int i=0;i<num;i++){\n printf(\"name : %sinfo->module_name);\n\n if(info->segments_num == 1){\n printf(\"vaddr:0x%08Xinfo->seg1.SegmentInfo\\[0\\].vaddr);\n }else if(info->segments_num == 2){\n printf(\"vaddr:0x%08Xinfo->seg2.SegmentInfo\\[0\\].vaddr);\n }\n info = ((char *)info) + info->size;\n }\n ```\n\n # Arguments\n\n* `pid` (direction in) - - target pid\n * `infolists` (direction out) - - infolists output\n * `num` (direction in, out) - - Specify the maximum number of modinfolist to retrieve. If the function returns 0, it returns the number of modules loaded in the target pid in num\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelGetModuleInfoForDebugger(
         pid: SceUID,
         infolists: *mut SceKernelModuleListInfo,
@@ -17802,7 +17812,7 @@ extern "C" {
 #[link(name = "SceNpDrm_stub", kind = "static")]
 #[cfg(feature = "SceNpDrm_stub")]
 extern "C" {
-    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n\n * `version_flag` (direction out) - - The pointer of version flag output.\n\n * `account_id` (direction out) - - The pointer of activated account id output.\n\n * `act_exp_time` (direction out) - - The pointer of activation expire time output, is start_date, is end_date\n\n # Returns\n\n0 on success, < 0 on error."]
+    #[doc = "Check you have npdrm activation data, and get information from it\n\n # Arguments\n\n* `act_type` (direction out) - - The pointer of activation type output.\n\n * `version_flag` (direction out) - - The pointer of version flag output.\n\n * `account_id` (direction out) - - The pointer of activated account id output.\n\n * `act_exp_time` (direction out) - - The pointer of activation expire time output, \\[0\\] is start_date, \\[1\\] is end_date\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn _sceNpDrmCheckActData(
         act_type: *mut crate::ctypes::c_int,
         version_flag: *mut crate::ctypes::c_int,
@@ -20204,7 +20214,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     #[doc = "Reset the timer count.\n\n # Arguments\n\n* `timerId` - - The target timer.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-    #[doc = "Configure the source clock signal for a timer.\n\n # The final input clock is determined as such:\n inputClock = sourceClock / (prescaleFactor + 1)\n # Arguments\n\n* `timerId` - - The target timer.\n * `clockSource` - - The source of the clock signal.\n * `prescaleFactor` - - The prescale factor applied to the clock signal.\n\n # Returns\n\n0 on success, < 0 on error."]
+    #[doc = "Configure the source clock signal for a timer.\n\n # The final input clock is determined as such:\n ```c\n inputClock = sourceClock / (prescaleFactor + 1)\n ```\n\n # Arguments\n\n* `timerId` - - The target timer.\n * `clockSource` - - The source of the clock signal.\n * `prescaleFactor` - - The prescale factor applied to the clock signal.\n\n # Returns\n\n0 on success, < 0 on error."]
     pub fn ksceKernelSysTimerSetClockSource(
         timerId: SceSysTimerId,
         clockSource: SceSysTimerClockSource,
@@ -20255,7 +20265,7 @@ extern "C" {
         newCount: crate::ctypes::c_int,
         numWaitThreads: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::ksceKernelCreateThread or ::ksceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n int thid = ksceKernelGetThreadId();\n // Change priority of current thread to 16\n ksceKernelChangeThreadPriority(thid, 16);\n # Returns\n\n0 if successful, otherwise the error code."]
+    #[doc = "Change the threads current priority.\n\n # Arguments\n\n* `thid` - - The ID of the thread (from ::ksceKernelCreateThread or ::ksceKernelGetThreadId)\n * `priority` - - The new priority (the lower the number the higher the priority)\n\n # Example:\n ```c\n int thid = ksceKernelGetThreadId();\n // Change priority of current thread to 16\n ksceKernelChangeThreadPriority(thid, 16);\n ```\n\n # Returns\n\n0 if successful, otherwise the error code."]
     pub fn ksceKernelChangeThreadPriority(
         thid: SceUID,
         priority: crate::ctypes::c_int,
@@ -20272,21 +20282,21 @@ extern "C" {
         evfid: SceUID,
         bits: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-    #[doc = "Create callback\n\n # Example:\n int cbid;\n cbid = ksceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n # Arguments\n\n* `name` - - A textual name for the callback\n * `func` - - A pointer to a function that will be called as the callback\n * `arg` - - Argument for the callback ?\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
+    #[doc = "Create callback\n\n # Example:\n ```c\n int cbid;\n cbid = ksceKernelCreateCallback(\"Exit Callback\", 0, exit_cb, NULL);\n ```\n\n # Arguments\n\n* `name` - - A textual name for the callback\n * `func` - - A pointer to a function that will be called as the callback\n * `arg` - - Argument for the callback ?\n\n # Returns\n\n>= 0 A callback id which can be used in subsequent functions, < 0 an error."]
     pub fn ksceKernelCreateCallback(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_uint,
         func: SceKernelCallbackFunction,
         arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    #[doc = "Creates a new condition variable\n\n # Example:\n SceUID condId;\n condId = ksceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
+    #[doc = "Creates a new condition variable\n\n # Example:\n ```c\n SceUID condId;\n condId = ksceKernelCreateCond(\"MyCond\", 0, mutexId, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the condition variable\n * `attr` - - Condition variable attribute flags (normally set to 0)\n * `mutexId` - - Mutex to be related to the condition variable\n * `option` - - Condition variable options (normally set to 0)\n # Returns\n\nA condition variable id"]
     pub fn ksceKernelCreateCond(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
-    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n int evid;\n evfid = ksceKernelCreateEventFlag(\"wait_event_flags\", 0, 0, NULL);"]
+    #[doc = "Create an event flag.\n\n # Arguments\n\n* `name` - - The name of the event flag.\n * `attr` - - Attributes from ::SceEventFlagAttributes\n * `bits` - - Initial bit pattern.\n * `opt` - - Options, set to NULL\n # Returns\n\n< 0 on error. >= 0 event flag id.\n\n # Example:\n ```c\n int evid;\n evfid = ksceKernelCreateEventFlag(\"wait_event_flags\", 0, 0, NULL);\n ```"]
     pub fn ksceKernelCreateEventFlag(
         name: *const crate::ctypes::c_char,
         attr: crate::ctypes::c_int,
@@ -20301,14 +20311,14 @@ extern "C" {
         bufSize: SceSize,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
-    #[doc = "Creates a new mutex\n\n # Example:\n int mutexid;\n mutexid = ksceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
+    #[doc = "Creates a new mutex\n\n # Example:\n ```c\n int mutexid;\n mutexid = ksceKernelCreateMutex(\"MyMutex\", 0, 1, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the mutex\n * `attr` - - Mutex attribute flags (normally set to 0)\n * `initCount` - - Mutex initial value\n * `option` - - Mutex options (normally set to 0)\n # Returns\n\nA mutex id"]
     pub fn ksceKernelCreateMutex(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
         initCount: crate::ctypes::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
-    #[doc = "Creates a new semaphore\n\n # Example:\n int semaid;\n semaid = ksceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
+    #[doc = "Creates a new semaphore\n\n # Example:\n ```c\n int semaid;\n semaid = ksceKernelCreateSema(\"MySema\", 0, 1, 1, NULL);\n ```\n\n # Arguments\n\n* `name` - - Specifies the name of the sema\n * `attr` - - Sema attribute flags (normally set to 0)\n * `initVal` - - Sema initial value\n * `maxVal` - - Sema maximum value\n * `option` - - Sema options (normally set to 0)\n # Returns\n\nA semaphore id"]
     pub fn ksceKernelCreateSema(
         name: *const crate::ctypes::c_char,
         attr: SceUInt,
@@ -20316,7 +20326,7 @@ extern "C" {
         maxVal: crate::ctypes::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
-    #[doc = "Create a thread\n\n # Example:\n SceUID thid;\n thid = ksceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
+    #[doc = "Create a thread\n\n # Example:\n ```c\n SceUID thid;\n thid = ksceKernelCreateThread(\"my_thread\", threadFunc, 0x10000100, 0x10000, 0, 0, NULL);\n ```\n\n # Arguments\n\n* `name` - - An arbitrary thread name.\n * `entry` - - The thread function to run when started.\n * `initPriority` - - The initial priority of the thread. Less if higher priority.\n * `stackSize` - - The size of the initial stack.\n * `attr` - - The thread attributes, zero or more of ::SceThreadAttributes.\n * `cpuAffinityMask` - - The CPU affinity mask\n * `option` - - Additional options specified by ::SceKernelThreadOptParam.\n\n # Returns\n\nUID of the created thread, or an error code."]
     pub fn ksceKernelCreateThread(
         name: *const crate::ctypes::c_char,
         entry: SceKernelThreadEntry,
@@ -20336,9 +20346,9 @@ extern "C" {
         thid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ksceKernelDelayThread(1000000); // Delay for a second"]
+    #[doc = "Delay the current thread by a specified number of microseconds\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ```c\n ksceKernelDelayThread(1000000); // Delay for a second\n ```"]
     pub fn ksceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ksceKernelDelayThread(1000000); // Delay for a second"]
+    #[doc = "Delay the current thread by a specified number of microseconds and handle any callbacks.\n\n # Arguments\n\n* `delay` - - Delay in microseconds.\n\n # Example:\n ```c\n ksceKernelDelayThread(1000000); // Delay for a second\n ```"]
     pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
     #[doc = "Delete a callback\n\n # Arguments\n\n* `cb` - - The UID of the specified callback\n\n # Returns\n\n0 on success, < 0 on error"]
     pub fn ksceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
@@ -20521,7 +20531,7 @@ extern "C" {
     pub fn ksceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
     #[doc = "Signals a condition variable to a specific thread waiting for it\n\n # Arguments\n\n* `condId` - - The condition variable id returned from ::ksceKernelCreateCond\n * `threadId` - - The thread id returned from ::ksceKernelCreateThread\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-    #[doc = "Send a signal to a semaphore\n\n # Example:\n // Signal the sema\n ksceKernelSignalSema(semaid, 1);\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
+    #[doc = "Send a signal to a semaphore\n\n # Example:\n ```c\n // Signal the sema\n ksceKernelSignalSema(semaid, 1);\n ```\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The amount to signal the sema (i.e. if 2 then increment the sema by 2)\n\n # Returns\n\n< 0 On error."]
     pub fn ksceKernelSignalSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
@@ -20581,7 +20591,7 @@ extern "C" {
         outBits: *mut crate::ctypes::c_uint,
         timeout: *mut SceUInt,
     ) -> crate::ctypes::c_int;
-    #[doc = "Lock a semaphore\n\n # Example:\n ksceKernelWaitSema(semaid, 1, NULL);\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
+    #[doc = "Lock a semaphore\n\n # Example:\n ```c\n ksceKernelWaitSema(semaid, 1, NULL);\n ```\n\n # Arguments\n\n* `semaid` - - The sema id returned from ::ksceKernelCreateSema\n * `signal` - - The value to wait for (i.e. if 1 then wait till reaches a signal state of 1)\n * `timeout` - - Timeout in microseconds (assumed).\n\n # Returns\n\n< 0 on error."]
     pub fn ksceKernelWaitSema(
         semaid: SceUID,
         signal: crate::ctypes::c_int,
