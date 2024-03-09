@@ -1,5 +1,6 @@
 use std::{env, fs, io, path::Path, process};
 
+use bindgen::callbacks::ParseCallbacks;
 use quote::ToTokens;
 use syn::visit_mut::VisitMut;
 
@@ -79,6 +80,46 @@ pub fn generate(
     }
 }
 
+#[derive(Debug)]
+struct Callbacks;
+
+impl ParseCallbacks for Callbacks {
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        let comment = comment.replace("@param[int]", "@param[in]");
+        let comment = comment.replace("[inout]", "[in,out]");
+
+        // doxygen_rs doesn't handle tabs well
+        let comment = comment.replace('\t', " ");
+        // Fixes links to functions and types
+        let comment = comment.replace("@see ::", "@see crate::");
+
+        // doxygen-rs does not support code blocks
+        let comment = comment.replace("@code", "```c");
+        let comment = comment.replace("@endcode", "```");
+
+        let comment = doxygen_rs::transform(&comment);
+
+        // Escape square brackets for non-links
+        let comment =
+            lazy_regex::regex_replace_all!(r"\[([\d]+)\]", &comment, |_, num: &str| format!(
+                r"\[{num}\]"
+            ));
+
+        // Without space these brackets are considered to be a link
+        let comment = comment.replace(
+            "[1,SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
+            "[1, SCE_GXM_MAX_SCENES_PER_RENDERTARGET]",
+        );
+
+        let comment = comment.strip_prefix("!<").unwrap_or(&comment);
+        let comment = comment.strip_prefix('!').unwrap_or(comment);
+        let comment = comment.strip_prefix('<').unwrap_or(comment);
+        let comment = comment.trim();
+
+        Some(comment.to_string())
+    }
+}
+
 fn generate_preprocessed_bindings(
     headers: &Path,
     vita_headers_include: &Path,
@@ -92,7 +133,8 @@ fn generate_preprocessed_bindings(
         .clang_args(&["-target", "armv7a-none-eabihf"])
         .use_core()
         .ctypes_prefix("crate::ctypes")
-        .generate_comments(false)
+        .generate_comments(true)
+        .parse_callbacks(Box::new(Callbacks))
         .prepend_enum_name(false)
         .layout_tests(false)
         .formatter(bindgen::Formatter::None);
