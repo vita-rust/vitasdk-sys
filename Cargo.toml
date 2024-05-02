@@ -118,6 +118,7 @@ all-stubs = [
   "SceIme_stub",
   "SceIncomingDialog_stub",
   "SceIntrmgrForDriver_stub",
+  "SceIntrmgrForKernel_363_stub",
   "SceIntrmgrForKernel_stub",
   "SceIofilemgrForDriver_stub",
   "SceIofilemgr_stub",
@@ -218,6 +219,8 @@ all-stubs = [
   "SceSblAuthMgrForDriver_stub",
   "SceSblAuthMgrForKernel_stub",
   "SceSblFwLoaderForDriver_stub",
+  "SceSblGcAuthMgrDrmBBForDriver_stub",
+  "SceSblGcAuthMgrGcAuthForDriver_stub",
   "SceSblGcAuthMgr_stub",
   "SceSblPostSsMgrForDriver_stub",
   "SceSblPostSsMgr_stub",
@@ -352,6 +355,7 @@ SceIftuForDriver_stub = []
 SceIme_stub = []
 SceIncomingDialog_stub = []
 SceIntrmgrForDriver_stub = []
+SceIntrmgrForKernel_363_stub = []
 SceIntrmgrForKernel_stub = []
 SceIofilemgrForDriver_stub = []
 SceIofilemgr_stub = []
@@ -455,6 +459,8 @@ SceSblAIMgrForDriver_stub = []
 SceSblAuthMgrForDriver_stub = []
 SceSblAuthMgrForKernel_stub = []
 SceSblFwLoaderForDriver_stub = []
+SceSblGcAuthMgrDrmBBForDriver_stub = []
+SceSblGcAuthMgrGcAuthForDriver_stub = []
 SceSblGcAuthMgr_stub = []
 SceSblPostSsMgrForDriver_stub = []
 SceSblPostSsMgr_stub = []
