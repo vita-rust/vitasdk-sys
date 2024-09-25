@@ -26,14 +26,14 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore vitasdk cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: /opt/vitasdk
           key: ${{ runner.os }}-vitasdk
           fail-on-cache-miss: true
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/
@@ -71,14 +71,14 @@ jobs:
           cargo +nightly vita build --default-title-id SYSTEST01 vpk -- --tests --release --features SceLibKernel_stub
 
       - name: Upload debug build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: std-hello-world-debug-build
           path: target/armv7-sony-vita-newlibeabihf/debug/deps/vitasdk_sys-*.*
           if-no-files-found: error
 
       - name: Upload release build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: std-hello-world-release-build
           path: target/armv7-sony-vita-newlibeabihf/release/deps/vitasdk_sys-*.*
@@ -90,7 +90,7 @@ jobs:
     needs: install-vitasdk
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Restore vitasdk cache
         uses: actions/cache/restore@v4
@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -136,12 +136,12 @@ jobs:
     needs: install-vitasdk
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Restore vitasdk cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: /opt/vitasdk
           key: ${{ runner.os }}-vitasdk
@@ -149,14 +149,14 @@ jobs:
 
       - name: Cache LLVM and Clang
         id: cache-llvm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ${{ runner.temp }}/llvm
           key: llvm
 
       - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1
+        uses: KyleMayes/install-llvm-action@v2
         with:
           version: ${{ env.LLVM_VERSION }}
           directory: ${{ runner.temp }}/llvm
@@ -181,11 +181,11 @@ jobs:
     needs: install-vitasdk
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Restore vitasdk cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: /opt/vitasdk
           key: ${{ runner.os }}-vitasdk
@@ -193,14 +193,14 @@ jobs:
 
       - name: Cache LLVM and Clang
         id: cache-llvm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ${{ runner.temp }}/llvm
           key: llvm
 
       - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1
+        uses: KyleMayes/install-llvm-action@v2
         with:
           version: ${{ env.LLVM_VERSION }}
           directory: ${{ runner.temp }}/llvm
@@ -242,4 +242,4 @@ jobs:
           override: true
 
       - name: Run cargo doc
-        run: DOCS_RS=1 RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --target armv7-sony-vita-newlibeabihf -Z build-std
+        run: DOCS_RS=1 RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --features all-stubs,log-build,vitasdk-utils --target armv7-sony-vita-newlibeabihf -Z build-std
