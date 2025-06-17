@@ -106,7 +106,7 @@ impl Link {
 
                             self.function
                                 .get(&symbol)
-                                .expect("Undefined foreign fn `{symbol}`")
+                                .unwrap_or_else(|| panic!("Undefined foreign fn `{symbol}`"))
                                 .to_owned()
                         }
                         ForeignItem::Static(static_item) => {
@@ -114,7 +114,7 @@ impl Link {
 
                             self.variable
                                 .get(&symbol)
-                                .expect("Undefined foreign static `{symbol}`")
+                                .unwrap_or_else(|| panic!("Undefined foreign static `{symbol}`"))
                                 .to_owned()
                         }
                         _ => panic!("unexpected foreign item: {:?}", foreign_item),
