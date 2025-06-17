@@ -78,8 +78,8 @@ where
         }
     }
 }
-pub type _bindgen_ty_1 = crate::ctypes::c_uint;
-pub type _bindgen_ty_2 = crate::ctypes::c_uint;
+pub type _bindgen_ty_1 = core::ffi::c_uint;
+pub type _bindgen_ty_2 = core::ffi::c_uint;
 pub use self::SceAppUtilSaveDataRemoveMode as SceAppUtilSaveDataDataRemoveMode;
 pub use self::SceAppUtilSaveDataSaveMode as SceAppUtilSaveDataDataSaveMode;
 pub use self::SceHttpStatusCode as SceHttpStatuscode;
@@ -163,7 +163,7 @@ impl ksceUsbdIsochPswLen {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ksceUsbdIsochTransfer {
-    pub buffer_base: *mut crate::ctypes::c_void,
+    pub buffer_base: *mut core::ffi::c_void,
     pub relative_start_frame: i32,
     pub num_packets: i32,
     pub packets: [ksceUsbdIsochPswLen; 8usize],
@@ -171,34 +171,34 @@ pub struct ksceUsbdIsochTransfer {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct max_align_t {
-    pub __clang_max_align_nonce1: crate::ctypes::c_longlong,
+    pub __clang_max_align_nonce1: core::ffi::c_longlong,
     pub __clang_max_align_nonce2: f64,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MsgPipeRecvData {
-    pub message: *mut crate::ctypes::c_void,
+    pub message: *mut core::ffi::c_void,
     pub size: SceSize,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MsgPipeSendData {
-    pub message: *const crate::ctypes::c_void,
+    pub message: *const core::ffi::c_void,
     pub size: SceSize,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MusicExportParam {
-    pub reserved: [crate::ctypes::c_char; 128usize],
+    pub reserved: [core::ffi::c_char; 128usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct PhotoExportParam {
-    pub version: crate::ctypes::c_int,
+    pub version: core::ffi::c_int,
     pub photoTitle: *const SceWChar32,
     pub gameTitle: *const SceWChar32,
     pub gameComment: *const SceWChar32,
-    pub reserved: [crate::ctypes::c_int; 8usize],
+    pub reserved: [core::ffi::c_int; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -211,8 +211,8 @@ pub struct SceAllocOpt {
     pub size: SceSize,
     pub data04: SceSize,
     pub align: SceSize,
-    pub data0C: crate::ctypes::c_int,
-    pub data10: crate::ctypes::c_int,
+    pub data0C: core::ffi::c_int,
+    pub data10: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -230,37 +230,37 @@ pub struct SceAppMgrAppState {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrBudgetInfo {
-    pub size: crate::ctypes::c_int,
-    pub app_mode: crate::ctypes::c_int,
-    pub unk0: crate::ctypes::c_int,
-    pub total_user_rw_mem: crate::ctypes::c_uint,
-    pub free_user_rw: crate::ctypes::c_uint,
+    pub size: core::ffi::c_int,
+    pub app_mode: core::ffi::c_int,
+    pub unk0: core::ffi::c_int,
+    pub total_user_rw_mem: core::ffi::c_uint,
+    pub free_user_rw: core::ffi::c_uint,
     pub extra_mem_allowed: SceBool,
-    pub unk1: crate::ctypes::c_int,
-    pub total_extra_mem: crate::ctypes::c_uint,
-    pub free_extra_mem: crate::ctypes::c_uint,
-    pub unk2: [crate::ctypes::c_int; 2usize],
-    pub total_phycont_mem: crate::ctypes::c_uint,
-    pub free_phycont_mem: crate::ctypes::c_uint,
-    pub unk3: [crate::ctypes::c_int; 10usize],
-    pub total_cdram_mem: crate::ctypes::c_uint,
-    pub free_cdram_mem: crate::ctypes::c_uint,
-    pub reserved: [crate::ctypes::c_int; 9usize],
+    pub unk1: core::ffi::c_int,
+    pub total_extra_mem: core::ffi::c_uint,
+    pub free_extra_mem: core::ffi::c_uint,
+    pub unk2: [core::ffi::c_int; 2usize],
+    pub total_phycont_mem: core::ffi::c_uint,
+    pub free_phycont_mem: core::ffi::c_uint,
+    pub unk3: [core::ffi::c_int; 10usize],
+    pub total_cdram_mem: core::ffi::c_uint,
+    pub free_cdram_mem: core::ffi::c_uint,
+    pub reserved: [core::ffi::c_int; 9usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrCoredumpState {
     pub pid: SceUID,
-    pub process_state: crate::ctypes::c_int,
-    pub progress: crate::ctypes::c_int,
-    pub is_coredump_completed: crate::ctypes::c_int,
-    pub data_0x10: crate::ctypes::c_int,
+    pub process_state: core::ffi::c_int,
+    pub progress: core::ffi::c_int,
+    pub is_coredump_completed: core::ffi::c_int,
+    pub data_0x10: core::ffi::c_int,
     pub path_len: SceSize,
-    pub path: [crate::ctypes::c_char; 1024usize],
-    pub data_0x418: crate::ctypes::c_int,
-    pub data_0x41C: crate::ctypes::c_int,
-    pub data_0x420: crate::ctypes::c_int,
-    pub data_0x424: crate::ctypes::c_int,
+    pub path: [core::ffi::c_char; 1024usize],
+    pub data_0x418: core::ffi::c_int,
+    pub data_0x41C: core::ffi::c_int,
+    pub data_0x420: core::ffi::c_int,
+    pub data_0x424: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -281,53 +281,53 @@ pub struct SceAppMgrLaunchAppOptParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrLaunchParam {
     pub size: SceSize,
-    pub unk_4: crate::ctypes::c_uint,
-    pub unk_8: crate::ctypes::c_uint,
-    pub unk_C: crate::ctypes::c_uint,
-    pub unk_10: crate::ctypes::c_uint,
-    pub unk_14: crate::ctypes::c_uint,
-    pub unk_18: crate::ctypes::c_uint,
-    pub unk_1C: crate::ctypes::c_uint,
-    pub unk_20: crate::ctypes::c_uint,
-    pub unk_24: crate::ctypes::c_uint,
-    pub unk_28: crate::ctypes::c_uint,
-    pub unk_2C: crate::ctypes::c_uint,
-    pub unk_30: crate::ctypes::c_uint,
+    pub unk_4: core::ffi::c_uint,
+    pub unk_8: core::ffi::c_uint,
+    pub unk_C: core::ffi::c_uint,
+    pub unk_10: core::ffi::c_uint,
+    pub unk_14: core::ffi::c_uint,
+    pub unk_18: core::ffi::c_uint,
+    pub unk_1C: core::ffi::c_uint,
+    pub unk_20: core::ffi::c_uint,
+    pub unk_24: core::ffi::c_uint,
+    pub unk_28: core::ffi::c_uint,
+    pub unk_2C: core::ffi::c_uint,
+    pub unk_30: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrLoadExecOptParam {
-    pub reserved: [crate::ctypes::c_int; 64usize],
+    pub reserved: [core::ffi::c_int; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataData {
-    pub size: crate::ctypes::c_int,
-    pub slotId: crate::ctypes::c_uint,
+    pub size: core::ffi::c_int,
+    pub slotId: core::ffi::c_uint,
     pub slotParam: *mut SceAppUtilSaveDataSlotParam,
     pub reserved: [u8; 32usize],
     pub files: *mut SceAppUtilSaveDataFile,
-    pub fileNum: crate::ctypes::c_int,
+    pub fileNum: core::ffi::c_int,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
-    pub requiredSizeKB: *mut crate::ctypes::c_uint,
-    pub unk_0x48: crate::ctypes::c_int,
+    pub requiredSizeKB: *mut core::ffi::c_uint,
+    pub unk_0x48: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataDataDelete {
-    pub size: crate::ctypes::c_int,
-    pub slotId: crate::ctypes::c_uint,
+    pub size: core::ffi::c_int,
+    pub slotId: core::ffi::c_uint,
     pub slotParam: *mut SceAppUtilSaveDataSlotParam,
     pub reserved: [u8; 32usize],
     pub files: *mut SceAppUtilSaveDataFile,
-    pub fileNum: crate::ctypes::c_int,
+    pub fileNum: core::ffi::c_int,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlot {
-    pub size: crate::ctypes::c_int,
-    pub slotId: crate::ctypes::c_uint,
+    pub size: core::ffi::c_int,
+    pub slotId: core::ffi::c_uint,
     pub slotParam: SceAppUtilSaveDataSlotParam,
     pub reserved: [u8; 116usize],
     pub mountPoint: SceAppUtilSaveDataMountPoint,
@@ -336,14 +336,14 @@ pub struct SceAppMgrSaveDataSlot {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSaveDataSlotDelete {
-    pub size: crate::ctypes::c_int,
-    pub slotId: crate::ctypes::c_uint,
+    pub size: core::ffi::c_int,
+    pub slotId: core::ffi::c_uint,
     pub mountPoint: SceAppUtilSaveDataMountPoint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppMgrSystemEvent {
-    pub systemEvent: crate::ctypes::c_int,
+    pub systemEvent: core::ffi::c_int,
     pub reserved: [u8; 60usize],
 }
 #[repr(C)]
@@ -365,7 +365,7 @@ pub struct SceAppUtilBgdlStatus {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilBootParam {
     pub attr: SceAppUtilBootAttribute,
-    pub appVersion: crate::ctypes::c_uint,
+    pub appVersion: core::ffi::c_uint,
     pub reserved: [u8; 32usize],
 }
 #[repr(C)]
@@ -382,18 +382,18 @@ pub struct SceAppUtilMountPoint {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataFile {
-    pub filePath: *const crate::ctypes::c_char,
-    pub buf: *mut crate::ctypes::c_void,
+    pub filePath: *const core::ffi::c_char,
+    pub buf: *mut core::ffi::c_void,
     pub bufSize: SceSize,
     pub offset: SceOff,
-    pub mode: crate::ctypes::c_uint,
-    pub progDelta: crate::ctypes::c_uint,
+    pub mode: core::ffi::c_uint,
+    pub progDelta: core::ffi::c_uint,
     pub reserved: [u8; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataFileSlot {
-    pub id: crate::ctypes::c_uint,
+    pub id: core::ffi::c_uint,
     pub slotParam: *mut SceAppUtilSaveDataSlotParam,
     pub reserved: [u8; 32usize],
 }
@@ -405,18 +405,18 @@ pub struct SceAppUtilSaveDataMountPoint {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataRemoveItem {
-    pub dataPath: *const crate::ctypes::c_char,
-    pub mode: crate::ctypes::c_int,
+    pub dataPath: *const core::ffi::c_char,
+    pub mode: core::ffi::c_int,
     pub reserved: [u8; 36usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSaveItem {
-    pub dataPath: *const crate::ctypes::c_char,
-    pub buf: *const crate::ctypes::c_void,
+    pub dataPath: *const core::ffi::c_char,
+    pub buf: *const core::ffi::c_void,
     pub pad: u32,
     pub offset: SceOff,
-    pub mode: crate::ctypes::c_int,
+    pub mode: core::ffi::c_int,
     pub reserved: [u8; 36usize],
 }
 #[repr(C)]
@@ -424,15 +424,15 @@ pub struct SceAppUtilSaveDataSaveItem {
 pub struct SceAppUtilSaveDataSlot {
     pub id: SceAppUtilSaveDataSlotId,
     pub status: SceAppUtilSaveDataSlotStatus,
-    pub userParam: crate::ctypes::c_int,
+    pub userParam: core::ffi::c_int,
     pub emptyParam: *mut SceAppUtilSaveDataSlotEmptyParam,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilSaveDataSlotEmptyParam {
     pub title: *mut SceWChar16,
-    pub iconPath: *mut crate::ctypes::c_char,
-    pub iconBuf: *mut crate::ctypes::c_void,
+    pub iconPath: *mut core::ffi::c_char,
+    pub iconBuf: *mut core::ffi::c_void,
     pub iconBufSize: SceSize,
     pub reserved: [u8; 32usize],
 }
@@ -443,8 +443,8 @@ pub struct SceAppUtilSaveDataSlotParam {
     pub title: [SceWChar16; 32usize],
     pub subTitle: [SceWChar16; 64usize],
     pub detail: [SceWChar16; 256usize],
-    pub iconPath: [crate::ctypes::c_char; 64usize],
-    pub userParam: crate::ctypes::c_int,
+    pub iconPath: [core::ffi::c_char; 64usize],
+    pub userParam: core::ffi::c_int,
     pub sizeKB: SceSize,
     pub modifiedTime: SceDateTime,
     pub reserved: [u8; 48usize],
@@ -452,16 +452,16 @@ pub struct SceAppUtilSaveDataSlotParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilStoreBrowseParam {
-    pub type_: crate::ctypes::c_uint,
-    pub id: *const crate::ctypes::c_char,
+    pub type_: core::ffi::c_uint,
+    pub id: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAppUtilWebBrowserParam {
-    pub str_: *const crate::ctypes::c_char,
+    pub str_: *const core::ffi::c_char,
     pub strlen: SceSize,
-    pub launchMode: crate::ctypes::c_uint,
-    pub reserved: crate::ctypes::c_uint,
+    pub launchMode: core::ffi::c_uint,
+    pub reserved: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -525,7 +525,7 @@ pub struct SceAudiodecCtrl {
     pub pEs: *mut SceUInt8,
     pub inputEsSize: SceUInt32,
     pub maxEsSize: SceUInt32,
-    pub pPcm: *mut crate::ctypes::c_void,
+    pub pPcm: *mut core::ffi::c_void,
     pub outputPcmSize: SceUInt32,
     pub maxPcmSize: SceUInt32,
     pub wordLength: SceUInt32,
@@ -601,11 +601,11 @@ pub struct SceAudiodecInitStreamParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencCtrl {
     pub size: SceSize,
-    pub handle: crate::ctypes::c_int,
-    pub pInputPcm: *mut crate::ctypes::c_void,
+    pub handle: core::ffi::c_int,
+    pub pInputPcm: *mut core::ffi::c_void,
     pub inputPcmSize: SceSize,
     pub maxPcmSize: SceSize,
-    pub pOutputEs: *mut crate::ctypes::c_void,
+    pub pOutputEs: *mut core::ffi::c_void,
     pub outputEsSize: SceSize,
     pub maxEsSize: SceSize,
     pub wordLength: SceSize,
@@ -622,9 +622,9 @@ pub union SceAudioencInfo {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencInfoCelp {
     pub size: SceSize,
-    pub excitationMode: crate::ctypes::c_uint,
-    pub samplingRate: crate::ctypes::c_uint,
-    pub bitRate: crate::ctypes::c_uint,
+    pub excitationMode: core::ffi::c_uint,
+    pub samplingRate: core::ffi::c_uint,
+    pub bitRate: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -636,7 +636,7 @@ pub union SceAudioencInitParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceAudioencInitStreamParam {
     pub size: SceSize,
-    pub totalStreams: crate::ctypes::c_uint,
+    pub totalStreams: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -650,7 +650,7 @@ pub struct SceAudioencOptInfoCelp {
     pub size: SceSize,
     pub header: [u8; 32usize],
     pub headerSize: SceSize,
-    pub encoderVersion: crate::ctypes::c_uint,
+    pub encoderVersion: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -679,7 +679,7 @@ pub struct SceAvcdecAu {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvcdecBuf {
-    pub pBuf: *mut crate::ctypes::c_void,
+    pub pBuf: *mut core::ffi::c_void,
     pub size: u32,
 }
 #[repr(C)]
@@ -707,7 +707,7 @@ pub struct SceAvcdecFrame {
     pub frameCropTopOffset: u32,
     pub frameCropBottomOffset: u32,
     pub opt: SceAvcdecFrameOption,
-    pub pPicture: [*mut crate::ctypes::c_void; 2usize],
+    pub pPicture: [*mut core::ffi::c_void; 2usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -765,13 +765,13 @@ pub struct SceAvPlayerAudio {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerEventReplacement {
-    pub objectPointer: *mut crate::ctypes::c_void,
+    pub objectPointer: *mut core::ffi::c_void,
     pub eventCallback: SceAvPlayerEventCallback,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerFileReplacement {
-    pub objectPointer: *mut crate::ctypes::c_void,
+    pub objectPointer: *mut core::ffi::c_void,
     pub open: SceAvPlayerOpenFile,
     pub close: SceAvPlayerCloseFile,
     pub readOffset: SceAvPlayerReadOffsetFile,
@@ -796,12 +796,12 @@ pub struct SceAvPlayerInitData {
     pub numOutputVideoFrameBuffers: i32,
     pub autoStart: SceBool,
     pub reserved: [u8; 3usize],
-    pub defaultLanguage: *const crate::ctypes::c_char,
+    pub defaultLanguage: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceAvPlayerMemReplacement {
-    pub objectPointer: *mut crate::ctypes::c_void,
+    pub objectPointer: *mut core::ffi::c_void,
     pub allocate: SceAvPlayerAlloc,
     pub deallocate: SceAvPlayerFree,
     pub allocateTexture: SceAvPlayerAllocFrame,
@@ -856,18 +856,18 @@ pub struct SceBtEvent {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceBtEvent__bindgen_ty_1 {
-    pub data: [crate::ctypes::c_uchar; 16usize],
+    pub data: [core::ffi::c_uchar; 16usize],
     pub __bindgen_anon_1: SceBtEvent__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceBtEvent__bindgen_ty_1__bindgen_ty_1 {
-    pub id: crate::ctypes::c_uchar,
-    pub unk1: crate::ctypes::c_uchar,
-    pub unk2: crate::ctypes::c_ushort,
-    pub unk3: crate::ctypes::c_uint,
-    pub mac0: crate::ctypes::c_uint,
-    pub mac1: crate::ctypes::c_uint,
+    pub id: core::ffi::c_uchar,
+    pub unk1: core::ffi::c_uchar,
+    pub unk2: core::ffi::c_ushort,
+    pub unk3: core::ffi::c_uint,
+    pub mac0: core::ffi::c_uint,
+    pub mac1: core::ffi::c_uint,
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -878,24 +878,24 @@ pub struct _SceBtHidRequest {
     pub unk09: u8,
     pub unk0A: u8,
     pub unk0B: u8,
-    pub buffer: *mut crate::ctypes::c_void,
+    pub buffer: *mut core::ffi::c_void,
     pub length: u32,
     pub next: *mut _SceBtHidRequest,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceBtRegisteredInfo {
-    pub mac: [crate::ctypes::c_uchar; 6usize],
-    pub unk0: crate::ctypes::c_ushort,
-    pub bt_class: crate::ctypes::c_uint,
-    pub unk1: crate::ctypes::c_uint,
-    pub unk2: crate::ctypes::c_uint,
-    pub vid: crate::ctypes::c_ushort,
-    pub pid: crate::ctypes::c_ushort,
-    pub unk3: crate::ctypes::c_uint,
-    pub unk4: crate::ctypes::c_uint,
-    pub name: [crate::ctypes::c_char; 128usize],
-    pub unk5: [crate::ctypes::c_uchar; 96usize],
+    pub mac: [core::ffi::c_uchar; 6usize],
+    pub unk0: core::ffi::c_ushort,
+    pub bt_class: core::ffi::c_uint,
+    pub unk1: core::ffi::c_uint,
+    pub unk2: core::ffi::c_uint,
+    pub vid: core::ffi::c_ushort,
+    pub pid: core::ffi::c_ushort,
+    pub unk3: core::ffi::c_uint,
+    pub unk4: core::ffi::c_uint,
+    pub name: [core::ffi::c_char; 128usize],
+    pub unk5: [core::ffi::c_uchar; 96usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -912,9 +912,9 @@ pub struct SceCameraInfo {
     pub sizeIBase: SceSize,
     pub sizeUBase: SceSize,
     pub sizeVBase: SceSize,
-    pub pIBase: *mut crate::ctypes::c_void,
-    pub pUBase: *mut crate::ctypes::c_void,
-    pub pVBase: *mut crate::ctypes::c_void,
+    pub pIBase: *mut core::ffi::c_void,
+    pub pUBase: *mut core::ffi::c_void,
+    pub pVBase: *mut core::ffi::c_void,
     pub pitch: u16,
     pub buffer: u16,
 }
@@ -922,17 +922,17 @@ pub struct SceCameraInfo {
 #[derive(Debug, Copy, Clone)]
 pub struct SceCameraRead {
     pub size: SceSize,
-    pub mode: crate::ctypes::c_int,
-    pub pad: crate::ctypes::c_int,
-    pub status: crate::ctypes::c_int,
+    pub mode: core::ffi::c_int,
+    pub pad: core::ffi::c_int,
+    pub status: core::ffi::c_int,
     pub frame: u64,
     pub timestamp: u64,
     pub sizeIBase: SceSize,
     pub sizeUBase: SceSize,
     pub sizeVBase: SceSize,
-    pub pIBase: *mut crate::ctypes::c_void,
-    pub pUBase: *mut crate::ctypes::c_void,
-    pub pVBase: *mut crate::ctypes::c_void,
+    pub pIBase: *mut core::ffi::c_void,
+    pub pUBase: *mut core::ffi::c_void,
+    pub pVBase: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -940,15 +940,15 @@ pub struct SceClass {
     pub next: *mut SceClass,
     pub root: *mut SceClass,
     pub prev: *mut SceClass,
-    pub name: *const crate::ctypes::c_char,
+    pub name: *const core::ffi::c_char,
     pub uidclass: *mut SceClass,
-    pub attributes: crate::ctypes::c_uint,
-    pub itemsize: crate::ctypes::c_ushort,
-    pub itemsize_aligned: crate::ctypes::c_ushort,
-    pub unk1C: crate::ctypes::c_uint,
+    pub attributes: core::ffi::c_uint,
+    pub itemsize: core::ffi::c_ushort,
+    pub itemsize_aligned: core::ffi::c_ushort,
+    pub unk1C: core::ffi::c_uint,
     pub create_cb: SceClassCallback,
     pub destroy_cb: SceClassCallback,
-    pub magic: crate::ctypes::c_uint,
+    pub magic: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1013,8 +1013,8 @@ pub struct SceCommonDialogUpdateParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCompatCdram {
-    pub cached_cdram: *mut crate::ctypes::c_void,
-    pub uncached_cdram: *mut crate::ctypes::c_void,
+    pub cached_cdram: *mut core::ffi::c_void,
+    pub uncached_cdram: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -1079,42 +1079,42 @@ impl SceConsoleId__bindgen_ty_1__bindgen_ty_1 {
 #[derive(Debug, Copy, Clone)]
 pub struct SceCoredumpTriggerParam {
     pub size: SceSize,
-    pub data_0x04: crate::ctypes::c_int,
-    pub data_0x08: crate::ctypes::c_int,
-    pub data_0x0C: crate::ctypes::c_int,
-    pub data_0x10: crate::ctypes::c_int,
+    pub data_0x04: core::ffi::c_int,
+    pub data_0x08: core::ffi::c_int,
+    pub data_0x0C: core::ffi::c_int,
+    pub data_0x10: core::ffi::c_int,
     pub titleid_len: SceSize,
-    pub titleid: *const crate::ctypes::c_char,
+    pub titleid: *const core::ffi::c_char,
     pub app_name_len: SceSize,
-    pub app_name: *const crate::ctypes::c_char,
-    pub data_0x24: crate::ctypes::c_int,
-    pub data_0x28: crate::ctypes::c_int,
+    pub app_name: *const core::ffi::c_char,
+    pub data_0x24: core::ffi::c_int,
+    pub data_0x28: core::ffi::c_int,
     pub crash_thid: SceUID,
-    pub data_0x30: crate::ctypes::c_int,
+    pub data_0x30: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCorelockContext {
-    pub lock: crate::ctypes::c_int,
+    pub lock: core::ffi::c_int,
     pub core_count: i16,
     pub last_wait_core: i16,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlActuator {
-    pub small: crate::ctypes::c_uchar,
-    pub large: crate::ctypes::c_uchar,
+    pub small: core::ffi::c_uchar,
+    pub large: core::ffi::c_uchar,
     pub unk: [u8; 6usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlData {
     pub timeStamp: u64,
-    pub buttons: crate::ctypes::c_uint,
-    pub lx: crate::ctypes::c_uchar,
-    pub ly: crate::ctypes::c_uchar,
-    pub rx: crate::ctypes::c_uchar,
-    pub ry: crate::ctypes::c_uchar,
+    pub buttons: core::ffi::c_uint,
+    pub lx: core::ffi::c_uchar,
+    pub ly: core::ffi::c_uchar,
+    pub rx: core::ffi::c_uchar,
+    pub ry: core::ffi::c_uchar,
     pub up: u8,
     pub right: u8,
     pub down: u8,
@@ -1132,13 +1132,13 @@ pub struct SceCtrlData {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlDataPsp {
-    pub TimeStamp: crate::ctypes::c_uint,
-    pub Buttons: crate::ctypes::c_uint,
-    pub Lx: crate::ctypes::c_uchar,
-    pub Ly: crate::ctypes::c_uchar,
-    pub Rx: crate::ctypes::c_uchar,
-    pub Ry: crate::ctypes::c_uchar,
-    pub Rsrv: [crate::ctypes::c_uchar; 4usize],
+    pub TimeStamp: core::ffi::c_uint,
+    pub Buttons: core::ffi::c_uint,
+    pub Lx: core::ffi::c_uchar,
+    pub Ly: core::ffi::c_uchar,
+    pub Rx: core::ffi::c_uchar,
+    pub Ry: core::ffi::c_uchar,
+    pub Rsrv: [core::ffi::c_uchar; 4usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1149,93 +1149,81 @@ pub struct SceCtrlPortInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlRapidFireRule {
-    pub Mask: crate::ctypes::c_uint,
-    pub Trigger: crate::ctypes::c_uint,
-    pub Target: crate::ctypes::c_uint,
-    pub Delay: crate::ctypes::c_uint,
-    pub Make: crate::ctypes::c_uint,
-    pub Break: crate::ctypes::c_uint,
+    pub Mask: core::ffi::c_uint,
+    pub Trigger: core::ffi::c_uint,
+    pub Target: core::ffi::c_uint,
+    pub Delay: core::ffi::c_uint,
+    pub Make: core::ffi::c_uint,
+    pub Break: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceCtrlVirtualControllerDriver {
     pub readButtons: ::core::option::Option<
         unsafe extern "C" fn(
-            port: crate::ctypes::c_int,
+            port: core::ffi::c_int,
             pad_data: *mut SceCtrlData,
-            count: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            count: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub setActuator: ::core::option::Option<
         unsafe extern "C" fn(
-            port: crate::ctypes::c_int,
+            port: core::ffi::c_int,
             pState: *const SceCtrlActuator,
-        ) -> crate::ctypes::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub getBatteryInfo: ::core::option::Option<
-        unsafe extern "C" fn(
-            port: crate::ctypes::c_int,
-            batt: *mut SceUInt8,
-        ) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(port: core::ffi::c_int, batt: *mut SceUInt8) -> core::ffi::c_int,
     >,
-    pub disconnect: ::core::option::Option<
-        unsafe extern "C" fn(port: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
-    pub setTurnOffInterval: ::core::option::Option<
-        unsafe extern "C" fn(port: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
-    pub getActiveControllerPort:
-        ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
+    pub disconnect:
+        ::core::option::Option<unsafe extern "C" fn(port: core::ffi::c_int) -> core::ffi::c_int>,
+    pub setTurnOffInterval:
+        ::core::option::Option<unsafe extern "C" fn(port: core::ffi::c_int) -> core::ffi::c_int>,
+    pub getActiveControllerPort: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
     pub changePortAssign: ::core::option::Option<
-        unsafe extern "C" fn(
-            port1: crate::ctypes::c_int,
-            port2: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(port1: core::ffi::c_int, port2: core::ffi::c_int) -> core::ffi::c_int,
     >,
-    pub unk0: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
+    pub unk0: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
     pub getControllerPortInfo: ::core::option::Option<
-        unsafe extern "C" fn(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(info: *mut SceCtrlPortInfo) -> core::ffi::c_int,
     >,
     pub setLightBar: ::core::option::Option<
         unsafe extern "C" fn(
-            port: crate::ctypes::c_int,
+            port: core::ffi::c_int,
             r: SceUInt8,
             g: SceUInt8,
             b: SceUInt8,
-        ) -> crate::ctypes::c_int,
+        ) -> core::ffi::c_int,
     >,
-    pub resetLightBar: ::core::option::Option<
-        unsafe extern "C" fn(port: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
-    pub unk1: ::core::option::Option<
-        unsafe extern "C" fn(port: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
-    pub singleControllerMode: ::core::option::Option<
-        unsafe extern "C" fn(port: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
+    pub resetLightBar:
+        ::core::option::Option<unsafe extern "C" fn(port: core::ffi::c_int) -> core::ffi::c_int>,
+    pub unk1:
+        ::core::option::Option<unsafe extern "C" fn(port: core::ffi::c_int) -> core::ffi::c_int>,
+    pub singleControllerMode:
+        ::core::option::Option<unsafe extern "C" fn(port: core::ffi::c_int) -> core::ffi::c_int>,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDateTime {
-    pub year: crate::ctypes::c_ushort,
-    pub month: crate::ctypes::c_ushort,
-    pub day: crate::ctypes::c_ushort,
-    pub hour: crate::ctypes::c_ushort,
-    pub minute: crate::ctypes::c_ushort,
-    pub second: crate::ctypes::c_ushort,
-    pub microsecond: crate::ctypes::c_uint,
+    pub year: core::ffi::c_ushort,
+    pub month: core::ffi::c_ushort,
+    pub day: core::ffi::c_ushort,
+    pub hour: core::ffi::c_ushort,
+    pub minute: core::ffi::c_ushort,
+    pub second: core::ffi::c_ushort,
+    pub microsecond: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDeflatePartialInputParam {
     pub size: u32,
-    pub pBufEnd: *const crate::ctypes::c_void,
-    pub cookie: *mut crate::ctypes::c_void,
+    pub pBufEnd: *const core::ffi::c_void,
+    pub cookie: *mut core::ffi::c_void,
     pub SceDeflateDecompressPartialInputCallback: ::core::option::Option<
         unsafe extern "C" fn(
             param: *mut SceDeflatePartialInputParam,
             outputsize: u32,
-        ) -> *const crate::ctypes::c_void,
+        ) -> *const core::ffi::c_void,
     >,
 }
 #[repr(C)]
@@ -1255,29 +1243,29 @@ pub struct SceDipsw {
 #[derive(Debug, Copy, Clone)]
 pub struct SceDisplayFrameBuf {
     pub size: SceSize,
-    pub base: *mut crate::ctypes::c_void,
-    pub pitch: crate::ctypes::c_uint,
-    pub pixelformat: crate::ctypes::c_uint,
-    pub width: crate::ctypes::c_uint,
-    pub height: crate::ctypes::c_uint,
+    pub base: *mut core::ffi::c_void,
+    pub pitch: core::ffi::c_uint,
+    pub pixelformat: core::ffi::c_uint,
+    pub width: core::ffi::c_uint,
+    pub height: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceDisplayFrameBufInfo {
     pub size: SceSize,
     pub pid: SceUID,
-    pub vblankcount: crate::ctypes::c_uint,
+    pub vblankcount: core::ffi::c_uint,
     pub paddr: usize,
     pub framebuf: SceDisplayFrameBuf,
-    pub resolution: crate::ctypes::c_uint,
+    pub resolution: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceExcpmgrData {
-    pub nestedExceptionCount: [crate::ctypes::c_int; 4usize],
-    pub unused: [crate::ctypes::c_int; 4usize],
-    pub ExcpStackTop: [*mut crate::ctypes::c_void; 4usize],
-    pub ExcpStackBottom: [*mut crate::ctypes::c_void; 4usize],
+    pub nestedExceptionCount: [core::ffi::c_int; 4usize],
+    pub unused: [core::ffi::c_int; 4usize],
+    pub ExcpStackTop: [*mut core::ffi::c_void; 4usize],
+    pub ExcpStackBottom: [*mut core::ffi::c_void; 4usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1353,7 +1341,7 @@ pub struct SceFColor {
 #[repr(align(8))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiber {
-    pub reserved: [crate::ctypes::c_char; 128usize],
+    pub reserved: [core::ffi::c_char; 128usize],
 }
 #[repr(C)]
 #[repr(align(8))]
@@ -1361,32 +1349,32 @@ pub struct SceFiber {
 pub struct SceFiberInfo {
     pub entry: SceFiberEntry,
     pub argOnInitialize: SceUInt32,
-    pub addrContext: *mut crate::ctypes::c_void,
+    pub addrContext: *mut core::ffi::c_void,
     pub sizeContext: SceSize,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub padding: [crate::ctypes::c_uint; 80usize],
+    pub name: [core::ffi::c_char; 32usize],
+    pub padding: [core::ffi::c_uint; 80usize],
 }
 #[repr(C)]
 #[repr(align(8))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiberOptParam {
-    pub reserved: [crate::ctypes::c_char; 128usize],
+    pub reserved: [core::ffi::c_char; 128usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiosDHOpenSyncSyscallArgs {
     pub to_order: SceUInt8,
-    pub padding: [crate::ctypes::c_int; 2usize],
+    pub padding: [core::ffi::c_int; 2usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiosGetListSyscallArgs {
     pub out_ids: *mut SceFiosKernelOverlayID,
-    pub data_0x04: crate::ctypes::c_int,
-    pub data_0x08: crate::ctypes::c_int,
+    pub data_0x04: core::ffi::c_int,
+    pub data_0x08: core::ffi::c_int,
     pub data_0x0C: SceSize,
-    pub data_0x10: crate::ctypes::c_int,
-    pub data_0x14: crate::ctypes::c_int,
+    pub data_0x10: core::ffi::c_int,
+    pub data_0x14: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1413,29 +1401,29 @@ pub struct SceFiosOverlay {
     pub unk2: u16,
     pub pid: SceUID,
     pub id: SceFiosOverlayID,
-    pub dst: [crate::ctypes::c_char; 292usize],
-    pub src: [crate::ctypes::c_char; 292usize],
+    pub dst: [core::ffi::c_char; 292usize],
+    pub src: [core::ffi::c_char; 292usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiosResolveSyncSyscallArgs {
-    pub out_path: *mut crate::ctypes::c_char,
-    pub data_0x04: crate::ctypes::c_int,
-    pub data_0x08: crate::ctypes::c_int,
-    pub data_0x0C: crate::ctypes::c_int,
-    pub data_0x10: crate::ctypes::c_int,
-    pub data_0x14: crate::ctypes::c_int,
+    pub out_path: *mut core::ffi::c_char,
+    pub data_0x04: core::ffi::c_int,
+    pub data_0x08: core::ffi::c_int,
+    pub data_0x0C: core::ffi::c_int,
+    pub data_0x10: core::ffi::c_int,
+    pub data_0x14: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFiosResolveWithRangeSyncSyscallArgs {
-    pub out_path: *mut crate::ctypes::c_char,
-    pub data_0x04: crate::ctypes::c_int,
+    pub out_path: *mut core::ffi::c_char,
+    pub data_0x04: core::ffi::c_int,
     pub data_0x08: SceUInt8,
     pub data_0x09: SceUInt8,
-    pub data_0x0C: crate::ctypes::c_int,
-    pub data_0x10: crate::ctypes::c_int,
-    pub data_0x14: crate::ctypes::c_int,
+    pub data_0x0C: core::ffi::c_int,
+    pub data_0x10: core::ffi::c_int,
+    pub data_0x14: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1461,54 +1449,54 @@ pub struct SceFMatrix4 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontCharInfo {
-    pub bitmapWidth: crate::ctypes::c_uint,
-    pub bitmapHeight: crate::ctypes::c_uint,
-    pub bitmapLeft: crate::ctypes::c_uint,
-    pub bitmapTop: crate::ctypes::c_uint,
-    pub sfp26Width: crate::ctypes::c_uint,
-    pub sfp26Height: crate::ctypes::c_uint,
-    pub sfp26Ascender: crate::ctypes::c_int,
-    pub sfp26Descender: crate::ctypes::c_int,
-    pub sfp26BearingHX: crate::ctypes::c_int,
-    pub sfp26BearingHY: crate::ctypes::c_int,
-    pub sfp26BearingVX: crate::ctypes::c_int,
-    pub sfp26BearingVY: crate::ctypes::c_int,
-    pub sfp26AdvanceH: crate::ctypes::c_int,
-    pub sfp26AdvanceV: crate::ctypes::c_int,
-    pub shadowFlags: crate::ctypes::c_short,
-    pub shadowId: crate::ctypes::c_short,
+    pub bitmapWidth: core::ffi::c_uint,
+    pub bitmapHeight: core::ffi::c_uint,
+    pub bitmapLeft: core::ffi::c_uint,
+    pub bitmapTop: core::ffi::c_uint,
+    pub sfp26Width: core::ffi::c_uint,
+    pub sfp26Height: core::ffi::c_uint,
+    pub sfp26Ascender: core::ffi::c_int,
+    pub sfp26Descender: core::ffi::c_int,
+    pub sfp26BearingHX: core::ffi::c_int,
+    pub sfp26BearingHY: core::ffi::c_int,
+    pub sfp26BearingVX: core::ffi::c_int,
+    pub sfp26BearingVY: core::ffi::c_int,
+    pub sfp26AdvanceH: core::ffi::c_int,
+    pub sfp26AdvanceV: core::ffi::c_int,
+    pub shadowFlags: core::ffi::c_short,
+    pub shadowId: core::ffi::c_short,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontGlyphImage {
-    pub pixelFormat: crate::ctypes::c_uint,
-    pub xPos64: crate::ctypes::c_int,
-    pub yPos64: crate::ctypes::c_int,
-    pub bufWidth: crate::ctypes::c_ushort,
-    pub bufHeight: crate::ctypes::c_ushort,
-    pub bytesPerLine: crate::ctypes::c_ushort,
-    pub pad: crate::ctypes::c_ushort,
-    pub bufferPtr: crate::ctypes::c_uint,
+    pub pixelFormat: core::ffi::c_uint,
+    pub xPos64: core::ffi::c_int,
+    pub yPos64: core::ffi::c_int,
+    pub bufWidth: core::ffi::c_ushort,
+    pub bufHeight: core::ffi::c_ushort,
+    pub bytesPerLine: core::ffi::c_ushort,
+    pub pad: core::ffi::c_ushort,
+    pub bufferPtr: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontImageRect {
-    pub width: crate::ctypes::c_ushort,
-    pub height: crate::ctypes::c_ushort,
+    pub width: core::ffi::c_ushort,
+    pub height: core::ffi::c_ushort,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontInfo {
-    pub maxGlyphWidthI: crate::ctypes::c_uint,
-    pub maxGlyphHeightI: crate::ctypes::c_uint,
-    pub maxGlyphAscenderI: crate::ctypes::c_uint,
-    pub maxGlyphDescenderI: crate::ctypes::c_uint,
-    pub maxGlyphLeftXI: crate::ctypes::c_uint,
-    pub maxGlyphBaseYI: crate::ctypes::c_uint,
-    pub minGlyphCenterXI: crate::ctypes::c_uint,
-    pub maxGlyphTopYI: crate::ctypes::c_uint,
-    pub maxGlyphAdvanceXI: crate::ctypes::c_uint,
-    pub maxGlyphAdvanceYI: crate::ctypes::c_uint,
+    pub maxGlyphWidthI: core::ffi::c_uint,
+    pub maxGlyphHeightI: core::ffi::c_uint,
+    pub maxGlyphAscenderI: core::ffi::c_uint,
+    pub maxGlyphDescenderI: core::ffi::c_uint,
+    pub maxGlyphLeftXI: core::ffi::c_uint,
+    pub maxGlyphBaseYI: core::ffi::c_uint,
+    pub minGlyphCenterXI: core::ffi::c_uint,
+    pub maxGlyphTopYI: core::ffi::c_uint,
+    pub maxGlyphAdvanceXI: core::ffi::c_uint,
+    pub maxGlyphAdvanceYI: core::ffi::c_uint,
     pub maxGlyphWidthF: f32,
     pub maxGlyphHeightF: f32,
     pub maxGlyphAscenderF: f32,
@@ -1519,10 +1507,10 @@ pub struct SceFontInfo {
     pub maxGlyphTopYF: f32,
     pub maxGlyphAdvanceXF: f32,
     pub maxGlyphAdvanceYF: f32,
-    pub maxGlyphWidth: crate::ctypes::c_short,
-    pub maxGlyphHeight: crate::ctypes::c_short,
-    pub charMapLength: crate::ctypes::c_uint,
-    pub shadowMapLength: crate::ctypes::c_uint,
+    pub maxGlyphWidth: core::ffi::c_short,
+    pub maxGlyphHeight: core::ffi::c_short,
+    pub charMapLength: core::ffi::c_uint,
+    pub shadowMapLength: core::ffi::c_uint,
     pub fontStyle: SceFontStyle,
     pub BPP: u8,
     pub pad: [u8; 3usize],
@@ -1530,24 +1518,24 @@ pub struct SceFontInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceFontNewLibParams {
-    pub userData: *mut crate::ctypes::c_void,
-    pub numFonts: crate::ctypes::c_uint,
-    pub cacheData: *mut crate::ctypes::c_void,
+    pub userData: *mut core::ffi::c_void,
+    pub numFonts: core::ffi::c_uint,
+    pub cacheData: *mut core::ffi::c_void,
     pub allocFunc: ::core::option::Option<
         unsafe extern "C" fn(
-            arg1: *mut crate::ctypes::c_void,
-            arg2: crate::ctypes::c_uint,
-        ) -> *mut crate::ctypes::c_void,
+            arg1: *mut core::ffi::c_void,
+            arg2: core::ffi::c_uint,
+        ) -> *mut core::ffi::c_void,
     >,
     pub freeFunc: ::core::option::Option<
-        unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void, arg2: *mut crate::ctypes::c_void),
+        unsafe extern "C" fn(arg1: *mut core::ffi::c_void, arg2: *mut core::ffi::c_void),
     >,
-    pub openFunc: *mut crate::ctypes::c_void,
-    pub closeFunc: *mut crate::ctypes::c_void,
-    pub readFunc: *mut crate::ctypes::c_void,
-    pub seekFunc: *mut crate::ctypes::c_void,
-    pub errorFunc: *mut crate::ctypes::c_void,
-    pub ioFinishFunc: *mut crate::ctypes::c_void,
+    pub openFunc: *mut core::ffi::c_void,
+    pub closeFunc: *mut core::ffi::c_void,
+    pub readFunc: *mut core::ffi::c_void,
+    pub seekFunc: *mut core::ffi::c_void,
+    pub errorFunc: *mut core::ffi::c_void,
+    pub ioFinishFunc: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1557,16 +1545,16 @@ pub struct SceFontStyle {
     pub fontHRes: f32,
     pub fontVRes: f32,
     pub fontWeight: f32,
-    pub fontFamily: crate::ctypes::c_ushort,
-    pub fontStyle: crate::ctypes::c_ushort,
-    pub fontStyleSub: crate::ctypes::c_ushort,
-    pub fontLanguage: crate::ctypes::c_ushort,
-    pub fontRegion: crate::ctypes::c_ushort,
-    pub fontCountry: crate::ctypes::c_ushort,
-    pub fontName: [crate::ctypes::c_char; 64usize],
-    pub fontFileName: [crate::ctypes::c_char; 64usize],
-    pub fontAttributes: crate::ctypes::c_uint,
-    pub fontExpire: crate::ctypes::c_uint,
+    pub fontFamily: core::ffi::c_ushort,
+    pub fontStyle: core::ffi::c_ushort,
+    pub fontStyleSub: core::ffi::c_ushort,
+    pub fontLanguage: core::ffi::c_ushort,
+    pub fontRegion: core::ffi::c_ushort,
+    pub fontCountry: core::ffi::c_ushort,
+    pub fontName: [core::ffi::c_char; 64usize],
+    pub fontFileName: [core::ffi::c_char; 64usize],
+    pub fontAttributes: core::ffi::c_uint,
+    pub fontExpire: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1651,7 +1639,7 @@ pub struct SceGxmAuxiliarySurface {
     pub width: u32,
     pub height: u32,
     pub stride: u32,
-    pub data: *mut crate::ctypes::c_void,
+    pub data: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1767,9 +1755,9 @@ impl SceGxmBlendInfo {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceGxmColorSurface {
-    pub pbeSidebandWord: crate::ctypes::c_uint,
-    pub pbeEmitWords: [crate::ctypes::c_uint; 6usize],
-    pub outputRegisterSize: crate::ctypes::c_uint,
+    pub pbeSidebandWord: core::ffi::c_uint,
+    pub pbeEmitWords: [core::ffi::c_uint; 6usize],
+    pub outputRegisterSize: core::ffi::c_uint,
     pub backgroundTex: SceGxmTexture,
 }
 #[repr(C)]
@@ -1785,60 +1773,60 @@ pub struct SceGxmContext {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmContextParams {
-    pub hostMem: *mut crate::ctypes::c_void,
+    pub hostMem: *mut core::ffi::c_void,
     pub hostMemSize: SceSize,
-    pub vdmRingBufferMem: *mut crate::ctypes::c_void,
+    pub vdmRingBufferMem: *mut core::ffi::c_void,
     pub vdmRingBufferMemSize: SceSize,
-    pub vertexRingBufferMem: *mut crate::ctypes::c_void,
+    pub vertexRingBufferMem: *mut core::ffi::c_void,
     pub vertexRingBufferMemSize: SceSize,
-    pub fragmentRingBufferMem: *mut crate::ctypes::c_void,
+    pub fragmentRingBufferMem: *mut core::ffi::c_void,
     pub fragmentRingBufferMemSize: SceSize,
-    pub fragmentUsseRingBufferMem: *mut crate::ctypes::c_void,
+    pub fragmentUsseRingBufferMem: *mut core::ffi::c_void,
     pub fragmentUsseRingBufferMemSize: SceSize,
-    pub fragmentUsseRingBufferOffset: crate::ctypes::c_uint,
+    pub fragmentUsseRingBufferOffset: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmDeferredContextParams {
-    pub hostMem: *mut crate::ctypes::c_void,
+    pub hostMem: *mut core::ffi::c_void,
     pub hostMemSize: SceSize,
     pub vdmCallback: ::core::option::Option<
         unsafe extern "C" fn(
-            args: *mut crate::ctypes::c_void,
+            args: *mut core::ffi::c_void,
             requestedSize: SceSize,
             size: *mut SceSize,
-        ) -> *mut crate::ctypes::c_void,
+        ) -> *mut core::ffi::c_void,
     >,
     pub vertexCallback: ::core::option::Option<
         unsafe extern "C" fn(
-            args: *mut crate::ctypes::c_void,
+            args: *mut core::ffi::c_void,
             requestedSize: SceSize,
             size: *mut SceSize,
-        ) -> *mut crate::ctypes::c_void,
+        ) -> *mut core::ffi::c_void,
     >,
     pub fragmentCallback: ::core::option::Option<
         unsafe extern "C" fn(
-            args: *mut crate::ctypes::c_void,
+            args: *mut core::ffi::c_void,
             requestedSize: SceSize,
             size: *mut SceSize,
-        ) -> *mut crate::ctypes::c_void,
+        ) -> *mut core::ffi::c_void,
     >,
-    pub callbackData: *mut crate::ctypes::c_void,
-    pub vdmRingBufferMem: *mut crate::ctypes::c_void,
+    pub callbackData: *mut core::ffi::c_void,
+    pub vdmRingBufferMem: *mut core::ffi::c_void,
     pub vdmRingBufferMemSize: SceSize,
-    pub vertexRingBufferMem: *mut crate::ctypes::c_void,
+    pub vertexRingBufferMem: *mut core::ffi::c_void,
     pub vertexRingBufferMemSize: SceSize,
-    pub fragmentRingBufferMem: *mut crate::ctypes::c_void,
+    pub fragmentRingBufferMem: *mut core::ffi::c_void,
     pub fragmentRingBufferMemSize: SceSize,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmDepthStencilSurface {
-    pub zlsControl: crate::ctypes::c_uint,
-    pub depthData: *mut crate::ctypes::c_void,
-    pub stencilData: *mut crate::ctypes::c_void,
+    pub zlsControl: core::ffi::c_uint,
+    pub depthData: *mut core::ffi::c_void,
+    pub stencilData: *mut core::ffi::c_void,
     pub backgroundDepth: f32,
-    pub backgroundControl: crate::ctypes::c_uint,
+    pub backgroundControl: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1848,32 +1836,32 @@ pub struct SceGxmFragmentProgram {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmInitializeParams {
-    pub flags: crate::ctypes::c_uint,
-    pub displayQueueMaxPendingCount: crate::ctypes::c_uint,
+    pub flags: core::ffi::c_uint,
+    pub displayQueueMaxPendingCount: core::ffi::c_uint,
     pub displayQueueCallback: SceGxmDisplayQueueCallback,
-    pub displayQueueCallbackDataSize: crate::ctypes::c_uint,
+    pub displayQueueCallbackDataSize: core::ffi::c_uint,
     pub parameterBufferSize: SceSize,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmNotification {
-    pub address: *mut crate::ctypes::c_uint,
-    pub value: crate::ctypes::c_uint,
+    pub address: *mut core::ffi::c_uint,
+    pub value: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmPrecomputedDraw {
-    pub data: [crate::ctypes::c_uint; 11usize],
+    pub data: [core::ffi::c_uint; 11usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmPrecomputedFragmentState {
-    pub data: [crate::ctypes::c_uint; 9usize],
+    pub data: [core::ffi::c_uint; 9usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmPrecomputedVertexState {
-    pub data: [crate::ctypes::c_uint; 7usize],
+    pub data: [core::ffi::c_uint; 7usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1914,23 +1902,23 @@ pub struct SceGxmShaderPatcher {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceGxmShaderPatcherParams {
-    pub userData: *mut crate::ctypes::c_void,
+    pub userData: *mut core::ffi::c_void,
     pub hostAllocCallback: SceGxmShaderPatcherHostAllocCallback,
     pub hostFreeCallback: SceGxmShaderPatcherHostFreeCallback,
     pub bufferAllocCallback: SceGxmShaderPatcherBufferAllocCallback,
     pub bufferFreeCallback: SceGxmShaderPatcherBufferFreeCallback,
-    pub bufferMem: *mut crate::ctypes::c_void,
+    pub bufferMem: *mut core::ffi::c_void,
     pub bufferMemSize: SceSize,
     pub vertexUsseAllocCallback: SceGxmShaderPatcherUsseAllocCallback,
     pub vertexUsseFreeCallback: SceGxmShaderPatcherUsseFreeCallback,
-    pub vertexUsseMem: *mut crate::ctypes::c_void,
+    pub vertexUsseMem: *mut core::ffi::c_void,
     pub vertexUsseMemSize: SceSize,
-    pub vertexUsseOffset: crate::ctypes::c_uint,
+    pub vertexUsseOffset: core::ffi::c_uint,
     pub fragmentUsseAllocCallback: SceGxmShaderPatcherUsseAllocCallback,
     pub fragmentUsseFreeCallback: SceGxmShaderPatcherUsseFreeCallback,
-    pub fragmentUsseMem: *mut crate::ctypes::c_void,
+    pub fragmentUsseMem: *mut core::ffi::c_void,
     pub fragmentUsseMemSize: SceSize,
-    pub fragmentUsseOffset: crate::ctypes::c_uint,
+    pub fragmentUsseOffset: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -2740,144 +2728,144 @@ pub struct SceHidMouseReport {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHttpMemoryPoolStats {
-    pub poolSize: crate::ctypes::c_uint,
-    pub maxInuseSize: crate::ctypes::c_uint,
-    pub currentInuseSize: crate::ctypes::c_uint,
-    pub reserved: crate::ctypes::c_int,
+    pub poolSize: core::ffi::c_uint,
+    pub maxInuseSize: core::ffi::c_uint,
+    pub currentInuseSize: core::ffi::c_uint,
+    pub reserved: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHttpsCaList {
-    pub caCerts: *mut *mut crate::ctypes::c_void,
-    pub caNum: crate::ctypes::c_int,
+    pub caCerts: *mut *mut core::ffi::c_void,
+    pub caNum: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHttpsData {
-    pub ptr: *mut crate::ctypes::c_char,
-    pub size: crate::ctypes::c_uint,
+    pub ptr: *mut core::ffi::c_char,
+    pub size: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceHttpUriElement {
-    pub opaque: crate::ctypes::c_int,
-    pub scheme: *mut crate::ctypes::c_char,
-    pub username: *mut crate::ctypes::c_char,
-    pub password: *mut crate::ctypes::c_char,
-    pub hostname: *mut crate::ctypes::c_char,
-    pub path: *mut crate::ctypes::c_char,
-    pub query: *mut crate::ctypes::c_char,
-    pub fragment: *mut crate::ctypes::c_char,
-    pub port: crate::ctypes::c_ushort,
-    pub reserved: [crate::ctypes::c_uchar; 10usize],
+    pub opaque: core::ffi::c_int,
+    pub scheme: *mut core::ffi::c_char,
+    pub username: *mut core::ffi::c_char,
+    pub password: *mut core::ffi::c_char,
+    pub hostname: *mut core::ffi::c_char,
+    pub path: *mut core::ffi::c_char,
+    pub query: *mut core::ffi::c_char,
+    pub fragment: *mut core::ffi::c_char,
+    pub port: core::ffi::c_ushort,
+    pub reserved: [core::ffi::c_uchar; 10usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceI2cDebugHandlers {
-    pub size: crate::ctypes::c_uint,
+    pub size: core::ffi::c_uint,
     pub write_start: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            addr: crate::ctypes::c_int,
-            buffer: *mut crate::ctypes::c_uchar,
-            size: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            addr: core::ffi::c_int,
+            buffer: *mut core::ffi::c_uchar,
+            size: core::ffi::c_int,
         ),
     >,
     pub write_end: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            error: crate::ctypes::c_int,
-            result: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            error: core::ffi::c_int,
+            result: core::ffi::c_int,
         ),
     >,
     pub read_start: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            addr: crate::ctypes::c_int,
-            buffer: *mut crate::ctypes::c_uchar,
-            size: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            addr: core::ffi::c_int,
+            buffer: *mut core::ffi::c_uchar,
+            size: core::ffi::c_int,
         ),
     >,
     pub read_end: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            error: crate::ctypes::c_int,
-            result: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            error: core::ffi::c_int,
+            result: core::ffi::c_int,
         ),
     >,
     pub write_read_start: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            write_addr: crate::ctypes::c_int,
-            write_buffer: *mut crate::ctypes::c_uchar,
-            write_size: crate::ctypes::c_int,
-            read_addr: crate::ctypes::c_uint,
-            read_buffer: *mut crate::ctypes::c_uchar,
-            read_size: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            write_addr: core::ffi::c_int,
+            write_buffer: *mut core::ffi::c_uchar,
+            write_size: core::ffi::c_int,
+            read_addr: core::ffi::c_uint,
+            read_buffer: *mut core::ffi::c_uchar,
+            read_size: core::ffi::c_int,
         ),
     >,
     pub write_read_end: ::core::option::Option<
         unsafe extern "C" fn(
-            bus: crate::ctypes::c_int,
-            error: crate::ctypes::c_int,
-            result: crate::ctypes::c_int,
+            bus: core::ffi::c_int,
+            error: core::ffi::c_int,
+            result: core::ffi::c_int,
         ),
     >,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIftuConvParams {
-    pub size: crate::ctypes::c_uint,
-    pub unk04: crate::ctypes::c_uint,
+    pub size: core::ffi::c_uint,
+    pub unk04: core::ffi::c_uint,
     pub csc_params1: *mut SceIftuCscParams,
     pub csc_params2: *mut SceIftuCscParams,
-    pub csc_control: crate::ctypes::c_uint,
-    pub unk14: crate::ctypes::c_uint,
-    pub unk18: crate::ctypes::c_uint,
-    pub unk1C: crate::ctypes::c_uint,
-    pub alpha: crate::ctypes::c_uint,
-    pub unk24: crate::ctypes::c_uint,
+    pub csc_control: core::ffi::c_uint,
+    pub unk14: core::ffi::c_uint,
+    pub unk18: core::ffi::c_uint,
+    pub unk1C: core::ffi::c_uint,
+    pub alpha: core::ffi::c_uint,
+    pub unk24: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIftuCscParams {
-    pub post_add_0: crate::ctypes::c_uint,
-    pub post_add_1_2: crate::ctypes::c_uint,
-    pub post_clamp_max_0: crate::ctypes::c_uint,
-    pub post_clamp_min_0: crate::ctypes::c_uint,
-    pub post_clamp_max_1_2: crate::ctypes::c_uint,
-    pub post_clamp_min_1_2: crate::ctypes::c_uint,
-    pub ctm: [[crate::ctypes::c_uint; 3usize]; 3usize],
+    pub post_add_0: core::ffi::c_uint,
+    pub post_add_1_2: core::ffi::c_uint,
+    pub post_clamp_max_0: core::ffi::c_uint,
+    pub post_clamp_min_0: core::ffi::c_uint,
+    pub post_clamp_max_1_2: core::ffi::c_uint,
+    pub post_clamp_min_1_2: core::ffi::c_uint,
+    pub ctm: [[core::ffi::c_uint; 3usize]; 3usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIftuFrameBuf {
-    pub pixelformat: crate::ctypes::c_uint,
-    pub width: crate::ctypes::c_uint,
-    pub height: crate::ctypes::c_uint,
-    pub leftover_stride: crate::ctypes::c_uint,
-    pub leftover_align: crate::ctypes::c_uint,
-    pub paddr0: crate::ctypes::c_uint,
-    pub paddr1: crate::ctypes::c_uint,
-    pub paddr2: crate::ctypes::c_uint,
+    pub pixelformat: core::ffi::c_uint,
+    pub width: core::ffi::c_uint,
+    pub height: core::ffi::c_uint,
+    pub leftover_stride: core::ffi::c_uint,
+    pub leftover_align: core::ffi::c_uint,
+    pub paddr0: core::ffi::c_uint,
+    pub paddr1: core::ffi::c_uint,
+    pub paddr2: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIftuPlaneState {
     pub fb: SceIftuFrameBuf,
-    pub unk20: crate::ctypes::c_uint,
-    pub src_x: crate::ctypes::c_uint,
-    pub src_y: crate::ctypes::c_uint,
-    pub src_w: crate::ctypes::c_uint,
-    pub src_h: crate::ctypes::c_uint,
-    pub dst_x: crate::ctypes::c_uint,
-    pub dst_y: crate::ctypes::c_uint,
-    pub dst_w: crate::ctypes::c_uint,
-    pub dst_h: crate::ctypes::c_uint,
-    pub vtop_padding: crate::ctypes::c_uint,
-    pub vbot_padding: crate::ctypes::c_uint,
-    pub hleft_padding: crate::ctypes::c_uint,
-    pub hright_padding: crate::ctypes::c_uint,
+    pub unk20: core::ffi::c_uint,
+    pub src_x: core::ffi::c_uint,
+    pub src_y: core::ffi::c_uint,
+    pub src_w: core::ffi::c_uint,
+    pub src_h: core::ffi::c_uint,
+    pub dst_x: core::ffi::c_uint,
+    pub dst_y: core::ffi::c_uint,
+    pub dst_w: core::ffi::c_uint,
+    pub dst_h: core::ffi::c_uint,
+    pub vtop_padding: core::ffi::c_uint,
+    pub vbot_padding: core::ffi::c_uint,
+    pub hleft_padding: core::ffi::c_uint,
+    pub hright_padding: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -2968,8 +2956,8 @@ pub struct SceImeParam {
     pub languagesForced: SceBool,
     pub type_: SceUInt32,
     pub option: SceUInt32,
-    pub work: *mut crate::ctypes::c_void,
-    pub arg: *mut crate::ctypes::c_void,
+    pub work: *mut core::ffi::c_void,
+    pub arg: *mut core::ffi::c_void,
     pub handler: SceImeEventHandler,
     pub filter: SceImeTextFilter,
     pub initialText: *mut SceWChar16,
@@ -3015,15 +3003,15 @@ pub struct SceIoDevInfo {
     pub max_size: SceOff,
     pub free_size: SceOff,
     pub cluster_size: SceSize,
-    pub unk: *mut crate::ctypes::c_void,
+    pub unk: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIoDirent {
     pub d_stat: SceIoStat,
-    pub d_name: [crate::ctypes::c_char; 256usize],
-    pub d_private: *mut crate::ctypes::c_void,
-    pub dummy: crate::ctypes::c_int,
+    pub d_name: [core::ffi::c_char; 256usize],
+    pub d_private: *mut core::ffi::c_void,
+    pub dummy: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3034,29 +3022,29 @@ pub struct SceIoFdInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIofileInfo {
-    pub path: [crate::ctypes::c_char; 1024usize],
-    pub path2: [crate::ctypes::c_char; 1024usize],
+    pub path: [core::ffi::c_char; 1024usize],
+    pub path2: [core::ffi::c_char; 1024usize],
     pub pid: SceUID,
-    pub data_0x804: crate::ctypes::c_int,
-    pub data_0x808: crate::ctypes::c_int,
-    pub data_0x80C: crate::ctypes::c_int,
-    pub data_0x810: crate::ctypes::c_int,
-    pub data_0x814: crate::ctypes::c_int,
-    pub data_0x818: crate::ctypes::c_int,
-    pub data_0x81C: crate::ctypes::c_int,
-    pub data_0x820: crate::ctypes::c_int,
-    pub data_0x824: crate::ctypes::c_int,
+    pub data_0x804: core::ffi::c_int,
+    pub data_0x808: core::ffi::c_int,
+    pub data_0x80C: core::ffi::c_int,
+    pub data_0x810: core::ffi::c_int,
+    pub data_0x814: core::ffi::c_int,
+    pub data_0x818: core::ffi::c_int,
+    pub data_0x81C: core::ffi::c_int,
+    pub data_0x820: core::ffi::c_int,
+    pub data_0x824: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceIoStat {
     pub st_mode: SceMode,
-    pub st_attr: crate::ctypes::c_uint,
+    pub st_attr: core::ffi::c_uint,
     pub st_size: SceOff,
     pub st_ctime: SceDateTime,
     pub st_atime: SceDateTime,
     pub st_mtime: SceDateTime,
-    pub st_private: [crate::ctypes::c_uint; 6usize],
+    pub st_private: [core::ffi::c_uint; 6usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3083,12 +3071,12 @@ pub struct SceIVector4 {
 #[derive(Debug, Copy, Clone)]
 pub struct SceJpegEncoderInitParam {
     pub size: SceSize,
-    pub inWidth: crate::ctypes::c_int,
-    pub inHeight: crate::ctypes::c_int,
-    pub pixelFormat: crate::ctypes::c_int,
-    pub outBuffer: *mut crate::ctypes::c_void,
+    pub inWidth: core::ffi::c_int,
+    pub inHeight: core::ffi::c_int,
+    pub pixelFormat: core::ffi::c_int,
+    pub outBuffer: *mut core::ffi::c_void,
     pub outSize: SceSize,
-    pub option: crate::ctypes::c_int,
+    pub option: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3194,9 +3182,9 @@ pub struct SceKernelAllocMemBlockOpt {
     pub attr: SceUInt32,
     pub alignment: SceSize,
     pub uidBaseBlock: SceUInt32,
-    pub strBaseBlockName: *const crate::ctypes::c_char,
-    pub flags: crate::ctypes::c_int,
-    pub reserved: [crate::ctypes::c_int; 10usize],
+    pub strBaseBlockName: *const core::ffi::c_char,
+    pub flags: core::ffi::c_int,
+    pub reserved: [core::ffi::c_int; 10usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3208,22 +3196,22 @@ pub struct SceKernelBootArgs {
 pub struct SceKernelCallbackInfo {
     pub size: SceSize,
     pub callbackId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub threadId: SceUID,
     pub callback: SceKernelCallbackFunction,
-    pub common: *mut crate::ctypes::c_void,
-    pub notifyCount: crate::ctypes::c_int,
-    pub notifyArg: crate::ctypes::c_int,
+    pub common: *mut core::ffi::c_void,
+    pub notifyCount: core::ffi::c_int,
+    pub notifyArg: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelCondInfo {
     pub size: SceSize,
     pub condId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt,
     pub mutexId: SceUID,
-    pub numWaitThreads: crate::ctypes::c_int,
+    pub numWaitThreads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3234,40 +3222,40 @@ pub struct SceKernelCondOptParam {
 #[derive(Copy, Clone)]
 pub struct SceKernelDebugEventLog {
     pub size: SceSize,
-    pub data_0x04: crate::ctypes::c_int,
-    pub titleid: [crate::ctypes::c_char; 12usize],
-    pub flags: crate::ctypes::c_int,
+    pub data_0x04: core::ffi::c_int,
+    pub titleid: [core::ffi::c_char; 12usize],
+    pub flags: core::ffi::c_int,
     pub ppid: SceUID,
     pub data_0x1C: SceUID,
-    pub rsvd: [crate::ctypes::c_int; 4usize],
+    pub rsvd: [core::ffi::c_int; 4usize],
     pub time: SceUInt64,
-    pub data_0x38: crate::ctypes::c_int,
+    pub data_0x38: core::ffi::c_int,
     pub item_size: SceSize,
     pub __bindgen_anon_1: SceKernelDebugEventLog__bindgen_ty_1,
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDebugEventLog1 {
-    pub data_0x40: crate::ctypes::c_int,
+    pub data_0x40: core::ffi::c_int,
     pub pid: SceUID,
-    pub budget_type: crate::ctypes::c_int,
-    pub data_0x4C: crate::ctypes::c_int,
-    pub titleid: [crate::ctypes::c_char; 12usize],
+    pub budget_type: core::ffi::c_int,
+    pub data_0x4C: core::ffi::c_int,
+    pub titleid: [core::ffi::c_char; 12usize],
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDebugEventLog2 {
-    pub data_0x40: crate::ctypes::c_int,
+    pub data_0x40: core::ffi::c_int,
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDebugEventLog3 {
-    pub data_0x40: crate::ctypes::c_int,
-    pub ip1: [crate::ctypes::c_char; 16usize],
-    pub ip2: [crate::ctypes::c_char; 16usize],
-    pub ip3: [crate::ctypes::c_char; 16usize],
-    pub ip4: [crate::ctypes::c_char; 16usize],
-    pub ip5: [crate::ctypes::c_char; 16usize],
+    pub data_0x40: core::ffi::c_int,
+    pub ip1: [core::ffi::c_char; 16usize],
+    pub ip2: [core::ffi::c_char; 16usize],
+    pub ip3: [core::ffi::c_char; 16usize],
+    pub ip4: [core::ffi::c_char; 16usize],
+    pub ip5: [core::ffi::c_char; 16usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3280,9 +3268,9 @@ pub union SceKernelDebugEventLog__bindgen_ty_1 {
 #[derive(Copy, Clone)]
 pub struct SceKernelDebugInfo {
     pub __bindgen_anon_1: SceKernelDebugInfo__bindgen_ty_1,
-    pub func: *const crate::ctypes::c_char,
+    pub func: *const core::ffi::c_char,
     pub line: SceUInt32,
-    pub file: *const crate::ctypes::c_char,
+    pub file: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3314,8 +3302,8 @@ pub struct SceKernelDmaOpChainParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDmaOpDirectParam {
-    pub src: *const crate::ctypes::c_void,
-    pub dst: *mut crate::ctypes::c_void,
+    pub src: *const core::ffi::c_void,
+    pub dst: *mut core::ffi::c_void,
     pub len: SceUInt32,
     pub cmd: SceUInt32,
     pub blockSize: SceUInt32,
@@ -3327,7 +3315,7 @@ pub struct SceKernelDmaOpDirectParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDmaOpEncDec {
     pub keyring: SceUInt32,
-    pub iv: *mut crate::ctypes::c_void,
+    pub iv: *mut core::ffi::c_void,
     pub ivCoherencyMask: SceUInt32,
     pub reserved: SceUInt32,
     pub key: [SceUInt8; 64usize],
@@ -3341,12 +3329,12 @@ pub struct SceKernelDmaOpEncDecChainParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelDmaOpTag {
-    pub src: *const crate::ctypes::c_void,
-    pub dst: *mut crate::ctypes::c_void,
+    pub src: *const core::ffi::c_void,
+    pub dst: *mut core::ffi::c_void,
     pub len: SceUInt32,
     pub cmd: SceUInt32,
     pub keyring: SceUInt32,
-    pub iv: *mut crate::ctypes::c_void,
+    pub iv: *mut core::ffi::c_void,
     pub blockSize: SceUInt32,
     pub pNext: *mut SceKernelDmaOpTag,
 }
@@ -3355,11 +3343,11 @@ pub struct SceKernelDmaOpTag {
 pub struct SceKernelEventFlagInfo {
     pub size: SceSize,
     pub evfId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt,
     pub initPattern: SceUInt,
     pub currentPattern: SceUInt,
-    pub numWaitThreads: crate::ctypes::c_int,
+    pub numWaitThreads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3380,10 +3368,10 @@ pub struct SceKernelFaultingProcessInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelFreeMemorySizeInfo {
-    pub size: crate::ctypes::c_int,
-    pub size_user: crate::ctypes::c_int,
-    pub size_cdram: crate::ctypes::c_int,
-    pub size_phycont: crate::ctypes::c_int,
+    pub size: core::ffi::c_int,
+    pub size_user: core::ffi::c_int,
+    pub size_cdram: core::ffi::c_int,
+    pub size_phycont: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3445,11 +3433,11 @@ pub struct SceKernelLoadModuleOption {
 pub struct SceKernelLwCondInfo {
     pub size: SceSize,
     pub lwcond_id: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub attr: crate::ctypes::c_int,
+    pub name: [core::ffi::c_char; 32usize],
+    pub attr: core::ffi::c_int,
     pub work: *mut SceKernelLwCondWork,
     pub lwmutex: *mut SceKernelLwMutexWork,
-    pub num_wait_threads: crate::ctypes::c_int,
+    pub num_wait_threads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3466,11 +3454,11 @@ pub struct SceKernelLwCondWork {
 pub struct SceKernelLwMutexInfo {
     pub size: SceSize,
     pub mtxid: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub attr: crate::ctypes::c_int,
+    pub name: [core::ffi::c_char; 32usize],
+    pub attr: core::ffi::c_int,
     pub work: *mut SceKernelLwMutexWork,
-    pub init_count: crate::ctypes::c_int,
-    pub current_count: crate::ctypes::c_int,
+    pub init_count: core::ffi::c_int,
+    pub current_count: core::ffi::c_int,
     pub current_owner_id: SceUID,
     pub num_wait_threads: SceUInt32,
 }
@@ -3488,9 +3476,9 @@ pub struct SceKernelLwMutexWork {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMemBlockInfo {
     pub size: SceSize,
-    pub mappedBase: *mut crate::ctypes::c_void,
+    pub mappedBase: *mut core::ffi::c_void,
     pub mappedSize: SceSize,
-    pub memoryType: crate::ctypes::c_int,
+    pub memoryType: core::ffi::c_int,
     pub access: SceUInt32,
     pub type_: SceKernelMemBlockType,
 }
@@ -3501,19 +3489,19 @@ pub struct SceKernelModuleInfo {
     pub modid: SceUID,
     pub modattr: u16,
     pub modver: [u8; 2usize],
-    pub module_name: [crate::ctypes::c_char; 28usize],
+    pub module_name: [core::ffi::c_char; 28usize],
     pub unk28: SceUInt,
-    pub start_entry: *mut crate::ctypes::c_void,
-    pub stop_entry: *mut crate::ctypes::c_void,
-    pub exit_entry: *mut crate::ctypes::c_void,
-    pub exidx_top: *mut crate::ctypes::c_void,
-    pub exidx_btm: *mut crate::ctypes::c_void,
-    pub extab_top: *mut crate::ctypes::c_void,
-    pub extab_btm: *mut crate::ctypes::c_void,
-    pub tlsInit: *mut crate::ctypes::c_void,
+    pub start_entry: *mut core::ffi::c_void,
+    pub stop_entry: *mut core::ffi::c_void,
+    pub exit_entry: *mut core::ffi::c_void,
+    pub exidx_top: *mut core::ffi::c_void,
+    pub exidx_btm: *mut core::ffi::c_void,
+    pub extab_top: *mut core::ffi::c_void,
+    pub extab_btm: *mut core::ffi::c_void,
+    pub tlsInit: *mut core::ffi::c_void,
     pub tlsInitSize: SceSize,
     pub tlsAreaSize: SceSize,
-    pub path: [crate::ctypes::c_char; 256usize],
+    pub path: [core::ffi::c_char; 256usize],
     pub segments: [SceKernelSegmentInfo; 4usize],
     pub state: SceUInt,
 }
@@ -3529,7 +3517,7 @@ pub struct SceKernelModuleLibraryInfo {
     pub entry_num_variable: u16,
     pub unk_0x14: u16,
     pub unk_0x16: u16,
-    pub library_name: [crate::ctypes::c_char; 256usize],
+    pub library_name: [core::ffi::c_char; 256usize],
     pub number_of_imported: SceSize,
     pub modid2: SceUID,
 }
@@ -3541,11 +3529,11 @@ pub struct SceKernelModuleListInfo {
     pub version: u32,
     pub module_version: u32,
     pub unk10: u32,
-    pub unk14: *mut crate::ctypes::c_void,
+    pub unk14: *mut core::ffi::c_void,
     pub unk18: u32,
-    pub unk1C: *mut crate::ctypes::c_void,
-    pub unk20: *mut crate::ctypes::c_void,
-    pub module_name: [crate::ctypes::c_char; 28usize],
+    pub unk1C: *mut core::ffi::c_void,
+    pub unk20: *mut core::ffi::c_void,
+    pub module_name: [core::ffi::c_char; 28usize],
     pub unk40: u32,
     pub unk44: u32,
     pub nid: u32,
@@ -3587,54 +3575,54 @@ pub struct SceKernelModuleListInfo__bindgen_ty_1__bindgen_ty_4 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelModuleName {
-    pub s: [crate::ctypes::c_char; 28usize],
+    pub s: [core::ffi::c_char; 28usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMppInfo {
     pub size: SceSize,
     pub mppId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt,
-    pub bufSize: crate::ctypes::c_int,
-    pub freeSize: crate::ctypes::c_int,
-    pub numSendWaitThreads: crate::ctypes::c_int,
-    pub numReceiveWaitThreads: crate::ctypes::c_int,
+    pub bufSize: core::ffi::c_int,
+    pub freeSize: core::ffi::c_int,
+    pub numSendWaitThreads: core::ffi::c_int,
+    pub numReceiveWaitThreads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMsgPipeInfo {
     pub size: SceSize,
     pub msgpipe_id: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub attr: crate::ctypes::c_int,
+    pub name: [core::ffi::c_char; 32usize],
+    pub attr: core::ffi::c_int,
     pub buffer_size: SceSize,
     pub free_size: SceSize,
-    pub num_send_wait_threads: crate::ctypes::c_int,
-    pub num_receive_wait_threads: crate::ctypes::c_int,
+    pub num_send_wait_threads: core::ffi::c_int,
+    pub num_receive_wait_threads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMutexInfo {
     pub size: SceSize,
     pub mutexId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt,
-    pub initCount: crate::ctypes::c_int,
-    pub currentCount: crate::ctypes::c_int,
+    pub initCount: core::ffi::c_int,
+    pub currentCount: core::ffi::c_int,
     pub currentOwnerId: SceUID,
-    pub numWaitThreads: crate::ctypes::c_int,
+    pub numWaitThreads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelMutexOptParam {
     pub size: SceSize,
-    pub ceilingPriority: crate::ctypes::c_int,
+    pub ceilingPriority: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelOpenPsId {
-    pub id: [crate::ctypes::c_char; 16usize],
+    pub id: [core::ffi::c_char; 16usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3707,18 +3695,18 @@ pub struct SceKernelProcessContext {
 pub struct SceKernelProcessInfo {
     pub size: SceSize,
     pub pid: SceUID,
-    pub unk1: crate::ctypes::c_int,
-    pub unk2: crate::ctypes::c_int,
-    pub unk3: crate::ctypes::c_int,
+    pub unk1: core::ffi::c_int,
+    pub unk2: core::ffi::c_int,
+    pub unk3: core::ffi::c_int,
     pub ppid: SceUID,
-    pub unk: [crate::ctypes::c_int; 52usize],
+    pub unk: [core::ffi::c_int; 52usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelRWLockInfo {
     pub size: SceSize,
     pub rwLockId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt32,
     pub lockCount: SceInt32,
     pub writeOwnerId: SceUID,
@@ -3735,7 +3723,7 @@ pub struct SceKernelRWLockOptParam {
 pub struct SceKernelSegmentInfo {
     pub size: SceSize,
     pub perms: SceUInt,
-    pub vaddr: *mut crate::ctypes::c_void,
+    pub vaddr: *mut core::ffi::c_void,
     pub memsz: SceSize,
     pub filesz: SceSize,
     pub res: SceUInt,
@@ -3744,22 +3732,22 @@ pub struct SceKernelSegmentInfo {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSegmentInfo2 {
     pub size: SceSize,
-    pub perm: crate::ctypes::c_int,
-    pub vaddr: *mut crate::ctypes::c_void,
+    pub perm: core::ffi::c_int,
+    pub vaddr: *mut core::ffi::c_void,
     pub memsz: u32,
-    pub unk_10: crate::ctypes::c_int,
+    pub unk_10: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSemaInfo {
     pub size: SceSize,
     pub semaId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt,
-    pub initCount: crate::ctypes::c_int,
-    pub currentCount: crate::ctypes::c_int,
-    pub maxCount: crate::ctypes::c_int,
-    pub numWaitThreads: crate::ctypes::c_int,
+    pub initCount: core::ffi::c_int,
+    pub currentCount: core::ffi::c_int,
+    pub maxCount: core::ffi::c_int,
+    pub numWaitThreads: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3770,7 +3758,7 @@ pub struct SceKernelSemaOptParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSysrootSelfInfo {
     pub size: SceSize,
-    pub self_data: *mut crate::ctypes::c_void,
+    pub self_data: *mut core::ffi::c_void,
     pub self_size: SceSize,
 }
 #[repr(C)]
@@ -3791,7 +3779,7 @@ pub struct SceKernelSystemInfo__bindgen_ty_1 {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelSystemSwVersion {
     pub size: SceSize,
-    pub versionString: [crate::ctypes::c_char; 28usize],
+    pub versionString: [core::ffi::c_char; 28usize],
     pub version: SceUInt,
     pub unk_24: SceUInt,
 }
@@ -3806,11 +3794,11 @@ pub struct SceKernelThreadContextInfo {
 pub struct SceKernelThreadInfo {
     pub size: SceSize,
     pub processId: SceUID,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub attr: SceUInt32,
     pub status: SceUInt32,
     pub entry: SceKernelThreadEntry,
-    pub stack: *mut crate::ctypes::c_void,
+    pub stack: *mut core::ffi::c_void,
     pub stackSize: SceInt32,
     pub initPriority: SceInt32,
     pub currentPriority: SceInt32,
@@ -3846,7 +3834,7 @@ pub struct SceKernelThreadRunStatus {
 pub struct SceKernelThreadRunStatus__bindgen_ty_1 {
     pub processId: SceUID,
     pub threadId: SceUID,
-    pub priority: crate::ctypes::c_int,
+    pub priority: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3904,8 +3892,8 @@ pub struct SceLocationPermissionInfo {
     pub parentalstatus: SceLocationPermissionStatus,
     pub mainstatus: SceLocationPermissionStatus,
     pub applicationstatus: SceLocationPermissionApplicationStatus,
-    pub unk_0x0C: crate::ctypes::c_int,
-    pub unk_0x10: crate::ctypes::c_int,
+    pub unk_0x0C: core::ffi::c_int,
+    pub unk_0x10: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3970,8 +3958,8 @@ pub struct SceMotionSensorState {
     pub accelerometer: SceFVector3,
     pub gyro: SceFVector3,
     pub reserved1: [u8; 12usize],
-    pub timestamp: crate::ctypes::c_uint,
-    pub counter: crate::ctypes::c_uint,
+    pub timestamp: core::ffi::c_uint,
+    pub counter: core::ffi::c_uint,
     pub reserved2: [u8; 4usize],
     pub hostTimestamp: SceULong64,
     pub unknown: u8,
@@ -3980,7 +3968,7 @@ pub struct SceMotionSensorState {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMotionState {
-    pub timestamp: crate::ctypes::c_uint,
+    pub timestamp: core::ffi::c_uint,
     pub acceleration: SceFVector3,
     pub angularVelocity: SceFVector3,
     pub reserved1: [u8; 12usize],
@@ -3998,11 +3986,11 @@ pub struct SceMotionState {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsgDialogButtonsParam {
-    pub msg1: *const crate::ctypes::c_char,
+    pub msg1: *const core::ffi::c_char,
     pub fontSize1: SceInt32,
-    pub msg2: *const crate::ctypes::c_char,
+    pub msg2: *const core::ffi::c_char,
     pub fontSize2: SceInt32,
-    pub msg3: *const crate::ctypes::c_char,
+    pub msg3: *const core::ffi::c_char,
     pub fontSize3: SceInt32,
     pub reserved: [SceChar8; 32usize],
 }
@@ -4059,12 +4047,12 @@ pub struct SceMsgDialogUserMessageParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceMsInfo {
-    pub unk_0x00: crate::ctypes::c_int,
-    pub unk_0x04: crate::ctypes::c_int,
+    pub unk_0x00: core::ffi::c_int,
+    pub unk_0x04: core::ffi::c_int,
     pub nbytes: SceUInt64,
     pub nbytes2: SceUInt64,
     pub sector_size: SceUInt32,
-    pub unk_0x1C: crate::ctypes::c_int,
+    pub unk_0x1C: core::ffi::c_int,
     pub fs_offset: SceUInt32,
     pub unk_0x24: SceUInt32,
     pub unk_0x28: SceUInt32,
@@ -4074,7 +4062,7 @@ pub struct SceMsInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocctlAdhocId {
-    pub type_: crate::ctypes::c_int,
+    pub type_: core::ffi::c_int,
     pub data: [SceChar8; 9usize],
     pub padding: [SceUChar8; 3usize],
 }
@@ -4097,7 +4085,7 @@ pub struct SceNetAdhocctlNickname {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocctlParameter {
-    pub channel: crate::ctypes::c_int,
+    pub channel: core::ffi::c_int,
     pub groupName: SceNetAdhocctlGroupName,
     pub nickname: SceNetAdhocctlNickname,
     pub bssid: SceNetAdhocctlBSSId,
@@ -4115,35 +4103,35 @@ pub struct SceNetAdhocctlPeerInfo {
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocPdpStat {
     pub next: *mut SceNetAdhocPdpStat,
-    pub id: crate::ctypes::c_int,
+    pub id: core::ffi::c_int,
     pub laddr: SceNetEtherAddr,
     pub lport: SceUShort16,
-    pub rcv_sb_cc: crate::ctypes::c_uint,
+    pub rcv_sb_cc: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocPollSd {
-    pub id: crate::ctypes::c_int,
-    pub events: crate::ctypes::c_int,
-    pub revents: crate::ctypes::c_int,
+    pub id: core::ffi::c_int,
+    pub events: core::ffi::c_int,
+    pub revents: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetAdhocPtpStat {
     pub next: *mut SceNetAdhocPtpStat,
-    pub id: crate::ctypes::c_int,
+    pub id: core::ffi::c_int,
     pub laddr: SceNetEtherAddr,
     pub paddr: SceNetEtherAddr,
     pub lport: SceUShort16,
     pub pport: SceUShort16,
-    pub snd_sb_cc: crate::ctypes::c_uint,
-    pub rcv_sb_cc: crate::ctypes::c_uint,
-    pub state: crate::ctypes::c_int,
+    pub snd_sb_cc: core::ffi::c_uint,
+    pub rcv_sb_cc: core::ffi::c_uint,
+    pub state: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetCheckDialogAgeRestriction {
-    pub countryCode: [crate::ctypes::c_char; 2usize],
+    pub countryCode: [core::ffi::c_char; 2usize],
     pub age: SceInt8,
     pub padding: SceInt8,
 }
@@ -4175,9 +4163,9 @@ pub struct SceNetCheckDialogPS3ConnectInfo {
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetCheckDialogPS3ConnectParam {
     pub action: SceInt32,
-    pub ssid: [crate::ctypes::c_char; 33usize],
-    pub wpaKey: [crate::ctypes::c_char; 65usize],
-    pub titleId: [crate::ctypes::c_char; 10usize],
+    pub ssid: [core::ffi::c_char; 33usize],
+    pub wpaKey: [core::ffi::c_char; 65usize],
+    pub titleId: [core::ffi::c_char; 10usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4195,35 +4183,35 @@ pub struct SceNetCtlAdhocPeerInfo {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceNetCtlInfo {
-    pub cnf_name: [crate::ctypes::c_char; 65usize],
-    pub device: crate::ctypes::c_uint,
+    pub cnf_name: [core::ffi::c_char; 65usize],
+    pub device: core::ffi::c_uint,
     pub ether_addr: SceNetEtherAddr,
-    pub mtu: crate::ctypes::c_uint,
-    pub link: crate::ctypes::c_uint,
+    pub mtu: core::ffi::c_uint,
+    pub link: core::ffi::c_uint,
     pub bssid: SceNetEtherAddr,
-    pub ssid: [crate::ctypes::c_char; 33usize],
-    pub wifi_security: crate::ctypes::c_uint,
-    pub rssi_dbm: crate::ctypes::c_uint,
-    pub rssi_percentage: crate::ctypes::c_uint,
-    pub channel: crate::ctypes::c_uint,
-    pub ip_config: crate::ctypes::c_uint,
-    pub dhcp_hostname: [crate::ctypes::c_char; 256usize],
-    pub pppoe_auth_name: [crate::ctypes::c_char; 128usize],
-    pub ip_address: [crate::ctypes::c_char; 16usize],
-    pub netmask: [crate::ctypes::c_char; 16usize],
-    pub default_route: [crate::ctypes::c_char; 16usize],
-    pub primary_dns: [crate::ctypes::c_char; 16usize],
-    pub secondary_dns: [crate::ctypes::c_char; 16usize],
-    pub http_proxy_config: crate::ctypes::c_uint,
-    pub http_proxy_server: [crate::ctypes::c_char; 256usize],
-    pub http_proxy_port: crate::ctypes::c_uint,
+    pub ssid: [core::ffi::c_char; 33usize],
+    pub wifi_security: core::ffi::c_uint,
+    pub rssi_dbm: core::ffi::c_uint,
+    pub rssi_percentage: core::ffi::c_uint,
+    pub channel: core::ffi::c_uint,
+    pub ip_config: core::ffi::c_uint,
+    pub dhcp_hostname: [core::ffi::c_char; 256usize],
+    pub pppoe_auth_name: [core::ffi::c_char; 128usize],
+    pub ip_address: [core::ffi::c_char; 16usize],
+    pub netmask: [core::ffi::c_char; 16usize],
+    pub default_route: [core::ffi::c_char; 16usize],
+    pub primary_dns: [core::ffi::c_char; 16usize],
+    pub secondary_dns: [core::ffi::c_char; 16usize],
+    pub http_proxy_config: core::ffi::c_uint,
+    pub http_proxy_server: [core::ffi::c_char; 256usize],
+    pub http_proxy_port: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetCtlNatInfo {
-    pub size: crate::ctypes::c_uint,
-    pub stun_status: crate::ctypes::c_int,
-    pub nat_type: crate::ctypes::c_int,
+    pub size: core::ffi::c_uint,
+    pub stun_status: core::ffi::c_int,
+    pub nat_type: core::ffi::c_int,
     pub mapped_addr: SceNetInAddr,
 }
 #[repr(C)]
@@ -4234,144 +4222,144 @@ pub struct SceNetDnsInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEmulationData {
-    pub drop_rate: crate::ctypes::c_ushort,
-    pub drop_duration: crate::ctypes::c_ushort,
-    pub pass_duration: crate::ctypes::c_ushort,
-    pub delay_time: crate::ctypes::c_ushort,
-    pub delay_jitter: crate::ctypes::c_ushort,
-    pub order_rate: crate::ctypes::c_ushort,
-    pub order_delay_time: crate::ctypes::c_ushort,
-    pub duplication_rate: crate::ctypes::c_ushort,
-    pub bps_limit: crate::ctypes::c_uint,
-    pub lower_size_limit: crate::ctypes::c_ushort,
-    pub upper_size_limit: crate::ctypes::c_ushort,
-    pub system_policy_pattern: crate::ctypes::c_uint,
-    pub game_policy_pattern: crate::ctypes::c_uint,
-    pub policy_flags: [crate::ctypes::c_ushort; 64usize],
-    pub reserved: [crate::ctypes::c_uchar; 64usize],
+    pub drop_rate: core::ffi::c_ushort,
+    pub drop_duration: core::ffi::c_ushort,
+    pub pass_duration: core::ffi::c_ushort,
+    pub delay_time: core::ffi::c_ushort,
+    pub delay_jitter: core::ffi::c_ushort,
+    pub order_rate: core::ffi::c_ushort,
+    pub order_delay_time: core::ffi::c_ushort,
+    pub duplication_rate: core::ffi::c_ushort,
+    pub bps_limit: core::ffi::c_uint,
+    pub lower_size_limit: core::ffi::c_ushort,
+    pub upper_size_limit: core::ffi::c_ushort,
+    pub system_policy_pattern: core::ffi::c_uint,
+    pub game_policy_pattern: core::ffi::c_uint,
+    pub policy_flags: [core::ffi::c_ushort; 64usize],
+    pub reserved: [core::ffi::c_uchar; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEmulationParam {
-    pub version: crate::ctypes::c_ushort,
-    pub option_number: crate::ctypes::c_ushort,
-    pub current_version: crate::ctypes::c_ushort,
-    pub result: crate::ctypes::c_ushort,
-    pub flags: crate::ctypes::c_uint,
-    pub reserved1: crate::ctypes::c_uint,
+    pub version: core::ffi::c_ushort,
+    pub option_number: core::ffi::c_ushort,
+    pub current_version: core::ffi::c_ushort,
+    pub result: core::ffi::c_ushort,
+    pub flags: core::ffi::c_uint,
+    pub reserved1: core::ffi::c_uint,
     pub send: SceNetEmulationData,
     pub recv: SceNetEmulationData,
-    pub seed: crate::ctypes::c_uint,
-    pub reserved: [crate::ctypes::c_uchar; 44usize],
+    pub seed: core::ffi::c_uint,
+    pub reserved: [core::ffi::c_uchar; 44usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceNetEpollData {
-    pub ptr: *mut crate::ctypes::c_void,
-    pub fd: crate::ctypes::c_int,
-    pub u32_: crate::ctypes::c_uint,
-    pub u64_: crate::ctypes::c_ulonglong,
+    pub ptr: *mut core::ffi::c_void,
+    pub fd: core::ffi::c_int,
+    pub u32_: core::ffi::c_uint,
+    pub u64_: core::ffi::c_ulonglong,
     pub ext: SceNetEpollDataExt,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEpollDataExt {
-    pub id: crate::ctypes::c_int,
-    pub u32_: crate::ctypes::c_uint,
+    pub id: core::ffi::c_int,
+    pub u32_: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceNetEpollEvent {
-    pub events: crate::ctypes::c_uint,
-    pub reserved: crate::ctypes::c_uint,
+    pub events: core::ffi::c_uint,
+    pub reserved: core::ffi::c_uint,
     pub system: SceNetEpollSystemData,
     pub data: SceNetEpollData,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEpollSystemData {
-    pub system: [crate::ctypes::c_uint; 4usize],
+    pub system: [core::ffi::c_uint; 4usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetEtherAddr {
-    pub data: [crate::ctypes::c_uchar; 6usize],
+    pub data: [core::ffi::c_uchar; 6usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetFdSet {
-    pub bits: [crate::ctypes::c_uint; 32usize],
+    pub bits: [core::ffi::c_uint; 32usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceNetIcmpHeader {
-    pub type_: crate::ctypes::c_uchar,
-    pub code: crate::ctypes::c_uchar,
-    pub checksum: crate::ctypes::c_ushort,
+    pub type_: core::ffi::c_uchar,
+    pub code: core::ffi::c_uchar,
+    pub checksum: core::ffi::c_ushort,
     pub un: SceNetIcmpHeaderUnion,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetIcmpHeaderEcho {
-    pub id: crate::ctypes::c_ushort,
-    pub sequence: crate::ctypes::c_ushort,
+    pub id: core::ffi::c_ushort,
+    pub sequence: core::ffi::c_ushort,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetIcmpHeaderFrag {
-    pub unused: crate::ctypes::c_ushort,
-    pub mtu: crate::ctypes::c_ushort,
+    pub unused: core::ffi::c_ushort,
+    pub mtu: core::ffi::c_ushort,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceNetIcmpHeaderUnion {
     pub echo: SceNetIcmpHeaderEcho,
-    pub gateway: crate::ctypes::c_uint,
+    pub gateway: core::ffi::c_uint,
     pub frag: SceNetIcmpHeaderFrag,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetInAddr {
-    pub s_addr: crate::ctypes::c_uint,
+    pub s_addr: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetInitParam {
-    pub memory: *mut crate::ctypes::c_void,
-    pub size: crate::ctypes::c_int,
-    pub flags: crate::ctypes::c_int,
+    pub memory: *mut core::ffi::c_void,
+    pub size: core::ffi::c_int,
+    pub flags: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetIovec {
-    pub iov_base: *mut crate::ctypes::c_void,
-    pub iov_len: crate::ctypes::c_uint,
+    pub iov_base: *mut core::ffi::c_void,
+    pub iov_len: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceNetIpHeader {
     pub un: SceNetIpHeaderUnion,
-    pub ip_tos: crate::ctypes::c_uchar,
-    pub ip_len: crate::ctypes::c_ushort,
-    pub ip_id: crate::ctypes::c_ushort,
-    pub ip_off: crate::ctypes::c_ushort,
-    pub ip_ttl: crate::ctypes::c_uchar,
-    pub ip_p: crate::ctypes::c_uchar,
-    pub ip_sum: crate::ctypes::c_ushort,
+    pub ip_tos: core::ffi::c_uchar,
+    pub ip_len: core::ffi::c_ushort,
+    pub ip_id: core::ffi::c_ushort,
+    pub ip_off: core::ffi::c_ushort,
+    pub ip_ttl: core::ffi::c_uchar,
+    pub ip_p: core::ffi::c_uchar,
+    pub ip_sum: core::ffi::c_ushort,
     pub ip_src: SceNetInAddr,
     pub ip_dst: SceNetInAddr,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetIpHeaderIpVerHl {
-    pub hl: crate::ctypes::c_uchar,
-    pub ver: crate::ctypes::c_uchar,
+    pub hl: core::ffi::c_uchar,
+    pub ver: core::ffi::c_uchar,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceNetIpHeaderUnion {
     pub ip_ver_hl: SceNetIpHeaderIpVerHl,
-    pub ver_hl: crate::ctypes::c_uchar,
+    pub ver_hl: core::ffi::c_uchar,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4382,74 +4370,74 @@ pub struct SceNetIpMreq {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetLinger {
-    pub l_onoff: crate::ctypes::c_int,
-    pub l_linger: crate::ctypes::c_int,
+    pub l_onoff: core::ffi::c_int,
+    pub l_linger: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetMsghdr {
-    pub msg_name: *mut crate::ctypes::c_void,
-    pub msg_namelen: crate::ctypes::c_uint,
+    pub msg_name: *mut core::ffi::c_void,
+    pub msg_namelen: core::ffi::c_uint,
     pub msg_iov: *mut SceNetIovec,
-    pub msg_iovlen: crate::ctypes::c_int,
-    pub msg_control: *mut crate::ctypes::c_void,
-    pub msg_controllen: crate::ctypes::c_uint,
-    pub msg_flags: crate::ctypes::c_int,
+    pub msg_iovlen: core::ffi::c_int,
+    pub msg_control: *mut core::ffi::c_void,
+    pub msg_controllen: core::ffi::c_uint,
+    pub msg_flags: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetResolverParam {
     pub allocate: SceNetResolverFunctionAllocate,
     pub free: SceNetResolverFunctionFree,
-    pub user: *mut crate::ctypes::c_void,
+    pub user: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetSockaddr {
-    pub sa_len: crate::ctypes::c_uchar,
-    pub sa_family: crate::ctypes::c_uchar,
-    pub sa_data: [crate::ctypes::c_char; 14usize],
+    pub sa_len: core::ffi::c_uchar,
+    pub sa_family: core::ffi::c_uchar,
+    pub sa_data: [core::ffi::c_char; 14usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetSockaddrIn {
-    pub sin_len: crate::ctypes::c_uchar,
-    pub sin_family: crate::ctypes::c_uchar,
-    pub sin_port: crate::ctypes::c_ushort,
+    pub sin_len: core::ffi::c_uchar,
+    pub sin_family: core::ffi::c_uchar,
+    pub sin_port: core::ffi::c_ushort,
     pub sin_addr: SceNetInAddr,
-    pub sin_vport: crate::ctypes::c_ushort,
-    pub sin_zero: [crate::ctypes::c_char; 6usize],
+    pub sin_vport: core::ffi::c_ushort,
+    pub sin_zero: [core::ffi::c_char; 6usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetSockInfo {
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub pid: crate::ctypes::c_int,
-    pub s: crate::ctypes::c_int,
-    pub socket_type: crate::ctypes::c_char,
-    pub policy: crate::ctypes::c_char,
-    pub reserved16: crate::ctypes::c_short,
-    pub recv_queue_length: crate::ctypes::c_int,
-    pub send_queue_length: crate::ctypes::c_int,
+    pub name: [core::ffi::c_char; 32usize],
+    pub pid: core::ffi::c_int,
+    pub s: core::ffi::c_int,
+    pub socket_type: core::ffi::c_char,
+    pub policy: core::ffi::c_char,
+    pub reserved16: core::ffi::c_short,
+    pub recv_queue_length: core::ffi::c_int,
+    pub send_queue_length: core::ffi::c_int,
     pub local_adr: SceNetInAddr,
     pub remote_adr: SceNetInAddr,
-    pub local_port: crate::ctypes::c_ushort,
-    pub remote_port: crate::ctypes::c_ushort,
-    pub local_vport: crate::ctypes::c_ushort,
-    pub remote_vport: crate::ctypes::c_ushort,
-    pub state: crate::ctypes::c_int,
-    pub flags: crate::ctypes::c_int,
-    pub reserved: [crate::ctypes::c_int; 8usize],
+    pub local_port: core::ffi::c_ushort,
+    pub remote_port: core::ffi::c_ushort,
+    pub local_vport: core::ffi::c_ushort,
+    pub remote_vport: core::ffi::c_ushort,
+    pub state: core::ffi::c_int,
+    pub flags: core::ffi::c_int,
+    pub reserved: [core::ffi::c_int; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNetStatisticsInfo {
-    pub kernel_mem_free_size: crate::ctypes::c_int,
-    pub kernel_mem_free_min: crate::ctypes::c_int,
-    pub packet_count: crate::ctypes::c_int,
-    pub packet_qos_count: crate::ctypes::c_int,
-    pub libnet_mem_free_size: crate::ctypes::c_int,
-    pub libnet_mem_free_min: crate::ctypes::c_int,
+    pub kernel_mem_free_size: core::ffi::c_int,
+    pub kernel_mem_free_min: core::ffi::c_int,
+    pub packet_count: core::ffi::c_int,
+    pub packet_qos_count: core::ffi::c_int,
+    pub libnet_mem_free_size: core::ffi::c_int,
+    pub libnet_mem_free_min: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4534,10 +4522,10 @@ pub struct SceNotificationUtilProgressUpdateParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceNpCommunicationId {
-    pub data: [crate::ctypes::c_char; 9usize],
-    pub term: crate::ctypes::c_char,
+    pub data: [core::ffi::c_char; 9usize],
+    pub term: core::ffi::c_char,
     pub num: SceUChar8,
-    pub dummy: crate::ctypes::c_char,
+    pub dummy: core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4564,28 +4552,28 @@ pub struct SceNpDrmLicense {
     pub license_type: SceInt16,
     pub license_flags: SceInt16,
     pub account_id: SceUInt64,
-    pub content_id: [crate::ctypes::c_char; 48usize],
-    pub key_table: [crate::ctypes::c_char; 16usize],
-    pub key1: [crate::ctypes::c_char; 16usize],
+    pub content_id: [core::ffi::c_char; 48usize],
+    pub key_table: [core::ffi::c_char; 16usize],
+    pub key1: [core::ffi::c_char; 16usize],
     pub start_time: SceInt64,
     pub expiration_time: SceInt64,
-    pub ecdsa_signature: [crate::ctypes::c_char; 40usize],
+    pub ecdsa_signature: [core::ffi::c_char; 40usize],
     pub flags: SceInt64,
-    pub key2: [crate::ctypes::c_char; 16usize],
-    pub unk_0xB0: [crate::ctypes::c_char; 16usize],
-    pub open_psid: [crate::ctypes::c_char; 16usize],
-    pub unk_0xD0: [crate::ctypes::c_char; 16usize],
-    pub cmd56_handshake_part: [crate::ctypes::c_char; 20usize],
-    pub debug_upgradable: crate::ctypes::c_int,
-    pub unk_0xF8: crate::ctypes::c_int,
-    pub sku_flag: crate::ctypes::c_int,
-    pub rsa_signature: [crate::ctypes::c_char; 256usize],
+    pub key2: [core::ffi::c_char; 16usize],
+    pub unk_0xB0: [core::ffi::c_char; 16usize],
+    pub open_psid: [core::ffi::c_char; 16usize],
+    pub unk_0xD0: [core::ffi::c_char; 16usize],
+    pub cmd56_handshake_part: [core::ffi::c_char; 20usize],
+    pub debug_upgradable: core::ffi::c_int,
+    pub unk_0xF8: core::ffi::c_int,
+    pub sku_flag: core::ffi::c_int,
+    pub rsa_signature: [core::ffi::c_char; 256usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _sceNpDrmPackageDecrypt {
     pub offset: SceOff,
-    pub identifier: crate::ctypes::c_uint,
+    pub identifier: core::ffi::c_uint,
 }
 #[repr(C)]
 pub struct SceObjectBase {
@@ -4601,7 +4589,7 @@ pub union SceObjectBase__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceObjectBase__bindgen_ty_1__bindgen_ty_1 {
-    pub object: *mut crate::ctypes::c_void,
+    pub object: *mut core::ffi::c_void,
     pub sce_class: *mut SceClass,
 }
 #[repr(C)]
@@ -4613,22 +4601,22 @@ pub struct SceOpenPsId {
 #[derive(Debug, Copy, Clone)]
 pub struct ScePafDateTime {
     pub data: SceDateTime,
-    pub data_0x10: crate::ctypes::c_int,
-    pub data_0x14: crate::ctypes::c_int,
+    pub data_0x10: core::ffi::c_int,
+    pub data_0x14: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePafHeapContext {
-    pub vtable: *mut crate::ctypes::c_void,
-    pub heap: *mut crate::ctypes::c_void,
-    pub membase: *mut crate::ctypes::c_void,
+    pub vtable: *mut core::ffi::c_void,
+    pub heap: *mut core::ffi::c_void,
+    pub membase: *mut core::ffi::c_void,
     pub size: SceSize,
-    pub name: [crate::ctypes::c_char; 32usize],
+    pub name: [core::ffi::c_char; 32usize],
     pub is_import_membase: SceChar8,
     pub is_skip_debug_msg: SceChar8,
-    pub data_0x32: crate::ctypes::c_char,
-    pub data_0x33: crate::ctypes::c_char,
-    pub data_0x34: crate::ctypes::c_int,
+    pub data_0x32: core::ffi::c_char,
+    pub data_0x33: core::ffi::c_char,
+    pub data_0x34: core::ffi::c_int,
     pub lw_mtx: SceKernelLwMutexWork,
     pub memblk_id: SceUID,
     pub mode: SceInt32,
@@ -4636,23 +4624,23 @@ pub struct ScePafHeapContext {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePafHeapOpt {
-    pub a1: crate::ctypes::c_int,
-    pub a2: crate::ctypes::c_int,
+    pub a1: core::ffi::c_int,
+    pub a2: core::ffi::c_int,
     pub is_skip_debug_msg: SceChar8,
-    pub a3: [crate::ctypes::c_char; 3usize],
+    pub a3: [core::ffi::c_char; 3usize],
     pub mode: SceInt32,
-    pub a5: crate::ctypes::c_int,
+    pub a5: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePafSha1Context {
     pub h: [u32; 5usize],
-    pub unk: [crate::ctypes::c_char; 84usize],
+    pub unk: [core::ffi::c_char; 84usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePfsRndDriveId {
-    pub drive_id: [crate::ctypes::c_char; 16usize],
+    pub drive_id: [core::ffi::c_char; 16usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4668,79 +4656,79 @@ pub struct SceProcEventHandler {
         unsafe extern "C" fn(
             pid: SceUID,
             a2: *mut SceProcEventInvokeParam2,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub exit: ::core::option::Option<
         unsafe extern "C" fn(
             pid: SceUID,
             a2: *mut SceProcEventInvokeParam1,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub kill: ::core::option::Option<
         unsafe extern "C" fn(
             pid: SceUID,
             a2: *mut SceProcEventInvokeParam1,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub stop: ::core::option::Option<
         unsafe extern "C" fn(
             pid: SceUID,
-            event_type: crate::ctypes::c_int,
+            event_type: core::ffi::c_int,
             a3: *mut SceProcEventInvokeParam1,
-            a4: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a4: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub start: ::core::option::Option<
         unsafe extern "C" fn(
             pid: SceUID,
-            event_type: crate::ctypes::c_int,
+            event_type: core::ffi::c_int,
             a3: *mut SceProcEventInvokeParam1,
-            a4: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a4: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub switch_process: ::core::option::Option<
         unsafe extern "C" fn(
-            event_id: crate::ctypes::c_int,
-            event_type: crate::ctypes::c_int,
+            event_id: core::ffi::c_int,
+            event_type: core::ffi::c_int,
             a3: *mut SceProcEventInvokeParam2,
-            a4: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a4: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceProcEventInvokeParam1 {
     pub size: SceSize,
-    pub unk_0x04: crate::ctypes::c_int,
-    pub unk_0x08: crate::ctypes::c_int,
-    pub unk_0x0C: crate::ctypes::c_int,
+    pub unk_0x04: core::ffi::c_int,
+    pub unk_0x08: core::ffi::c_int,
+    pub unk_0x0C: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceProcEventInvokeParam2 {
     pub size: SceSize,
     pub pid: SceUID,
-    pub unk_0x08: crate::ctypes::c_int,
-    pub unk_0x0C: crate::ctypes::c_int,
-    pub unk_0x10: crate::ctypes::c_int,
+    pub unk_0x08: core::ffi::c_int,
+    pub unk_0x0C: core::ffi::c_int,
+    pub unk_0x10: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePromoterUtilityImportParams {
-    pub path: [crate::ctypes::c_char; 128usize],
-    pub titleid: [crate::ctypes::c_char; 12usize],
+    pub path: [core::ffi::c_char; 128usize],
+    pub titleid: [core::ffi::c_char; 12usize],
     pub type_: ScePromoterUtilityPackageType,
     pub attribute: u32,
-    pub reserved: [crate::ctypes::c_char; 28usize],
+    pub reserved: [core::ffi::c_char; 28usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePromoterUtilityLAUpdate {
-    pub titleid: [crate::ctypes::c_char; 12usize],
-    pub path: [crate::ctypes::c_char; 128usize],
+    pub titleid: [core::ffi::c_char; 12usize],
+    pub path: [core::ffi::c_char; 128usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4753,7 +4741,7 @@ pub struct ScePsCode {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePsmDrmLicense {
-    pub magic: [crate::ctypes::c_char; 8usize],
+    pub magic: [core::ffi::c_char; 8usize],
     pub unk1: SceUInt32,
     pub unk2: SceUInt32,
     pub account_id: SceUInt64,
@@ -4762,7 +4750,7 @@ pub struct ScePsmDrmLicense {
     pub start_time: SceUInt64,
     pub expiration_time: SceUInt64,
     pub activation_checksum: [SceUInt8; 32usize],
-    pub content_id: [crate::ctypes::c_char; 48usize],
+    pub content_id: [core::ffi::c_char; 48usize],
     pub unk5: [SceUInt8; 128usize],
     pub unk6: [SceUInt8; 32usize],
     pub key: [SceUInt8; 16usize],
@@ -4780,8 +4768,8 @@ pub struct ScePssCryptoHandle {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ScePvfCacheKey {
-    pub keyValue0: crate::ctypes::c_int,
-    pub keyValue1: crate::ctypes::c_int,
+    pub keyValue0: core::ffi::c_int,
+    pub keyValue1: core::ffi::c_int,
     pub keyValue2: f32,
     pub keyValue3: f32,
     pub keyValue4: f32,
@@ -4928,14 +4916,14 @@ pub struct SceRazorGpuLiveEntryFrame {
     pub duration: u32,
     pub frame_number: u32,
     pub gpu_activity_duration_time: u32,
-    pub reserved: crate::ctypes::c_int,
+    pub reserved: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveEntryHeader {
     pub entry_size: u16,
     pub entry_type: u16,
-    pub reserved: crate::ctypes::c_int,
+    pub reserved: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4949,7 +4937,7 @@ pub struct SceRazorGpuLiveEntryJob {
     pub frame_number: u32,
     pub job_values: SceRazorGpuLiveEntryJobValues,
     pub process_id: u32,
-    pub unk: crate::ctypes::c_int,
+    pub unk: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4979,7 +4967,7 @@ pub struct SceRazorGpuLiveEntryJobValues {
     pub fragment_values_type2: SceRazorGpuLiveEntryJobFragmentValues2,
     pub vertex_values_type3: SceRazorGpuLiveEntryJobVertexValues3,
     pub fragment_values_type3: SceRazorGpuLiveEntryJobFragmentValues3,
-    pub reserved: [crate::ctypes::c_int; 8usize],
+    pub reserved: [core::ffi::c_int; 8usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5011,14 +4999,14 @@ pub struct SceRazorGpuLiveEntryParameterBuffer {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceRazorGpuLiveResultInfo {
-    pub result_data: *mut crate::ctypes::c_void,
+    pub result_data: *mut core::ffi::c_void,
     pub entry_count: SceSize,
     pub overflow_count: SceSize,
     pub buffer_size: SceSize,
     pub start_time: u64,
     pub end_time: u64,
     pub metric_group: u32,
-    pub reserved: crate::ctypes::c_int,
+    pub reserved: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5028,12 +5016,12 @@ pub struct SceRtcTick {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblDmac5EncDecParam {
-    pub src: *const crate::ctypes::c_void,
-    pub dst: *mut crate::ctypes::c_void,
+    pub src: *const core::ffi::c_void,
+    pub dst: *mut core::ffi::c_void,
     pub length: SceSize,
-    pub key: *const crate::ctypes::c_void,
+    pub key: *const core::ffi::c_void,
     pub keysize: SceSize,
-    pub iv: *mut crate::ctypes::c_void,
+    pub iv: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5044,43 +5032,43 @@ pub struct SceSblDmac5HashTransformContext {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblDmac5HashTransformParam {
-    pub src: *const crate::ctypes::c_void,
-    pub dst: *mut crate::ctypes::c_void,
+    pub src: *const core::ffi::c_void,
+    pub dst: *mut core::ffi::c_void,
     pub length: SceSize,
-    pub key: *const crate::ctypes::c_void,
+    pub key: *const core::ffi::c_void,
     pub keysize: SceSize,
-    pub ctx: *mut crate::ctypes::c_void,
+    pub ctx: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblRsaDataParam {
-    pub data: *mut crate::ctypes::c_void,
-    pub size: crate::ctypes::c_uint,
+    pub data: *mut core::ffi::c_void,
+    pub size: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblRsaPrivateKeyParam {
-    pub unk_0x00: crate::ctypes::c_int,
-    pub unk_0x04: crate::ctypes::c_int,
-    pub unk_0x08: crate::ctypes::c_int,
-    pub unk_0x0C: crate::ctypes::c_int,
-    pub p: *mut crate::ctypes::c_void,
-    pub q: *mut crate::ctypes::c_void,
-    pub dp: *mut crate::ctypes::c_void,
-    pub dq: *mut crate::ctypes::c_void,
-    pub qp: *mut crate::ctypes::c_void,
+    pub unk_0x00: core::ffi::c_int,
+    pub unk_0x04: core::ffi::c_int,
+    pub unk_0x08: core::ffi::c_int,
+    pub unk_0x0C: core::ffi::c_int,
+    pub p: *mut core::ffi::c_void,
+    pub q: *mut core::ffi::c_void,
+    pub dp: *mut core::ffi::c_void,
+    pub dq: *mut core::ffi::c_void,
+    pub qp: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblRsaPublicKeyParam {
-    pub n: *const crate::ctypes::c_void,
-    pub k: *const crate::ctypes::c_void,
+    pub n: *const core::ffi::c_void,
+    pub k: *const core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSblSmCommPair {
-    pub data_00: crate::ctypes::c_int,
-    pub data_04: crate::ctypes::c_int,
+    pub data_00: core::ffi::c_int,
+    pub data_04: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5088,7 +5076,7 @@ pub struct SceScreenShotParam {
     pub photoTitle: *const SceWChar32,
     pub gameTitle: *const SceWChar32,
     pub gameComment: *const SceWChar32,
-    pub reserved: *mut crate::ctypes::c_void,
+    pub reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5106,8 +5094,8 @@ pub struct SceSha1Context {
     pub usRemains: u16,
     pub usComputed: u16,
     pub ullTotalLen: u64,
-    pub buf: [crate::ctypes::c_char; 64usize],
-    pub result: [crate::ctypes::c_char; 20usize],
+    pub buf: [core::ffi::c_char; 64usize],
+    pub result: [core::ffi::c_char; 20usize],
     pub pad: u32,
 }
 #[repr(C)]
@@ -5118,8 +5106,8 @@ pub struct SceSha224Context {
     pub usRemains: u16,
     pub usComputed: u16,
     pub ullTotalLen: u64,
-    pub buf: [crate::ctypes::c_char; 64usize],
-    pub result: [crate::ctypes::c_char; 28usize],
+    pub buf: [core::ffi::c_char; 64usize],
+    pub result: [core::ffi::c_char; 28usize],
     pub pad2: u32,
 }
 #[repr(C)]
@@ -5130,8 +5118,8 @@ pub struct SceSha256Context {
     pub usRemains: u16,
     pub usComputed: u16,
     pub ullTotalLen: u64,
-    pub buf: [crate::ctypes::c_char; 64usize],
-    pub result: [crate::ctypes::c_char; 32usize],
+    pub buf: [core::ffi::c_char; 64usize],
+    pub result: [core::ffi::c_char; 32usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5146,15 +5134,15 @@ pub struct SceShaccCgCallbackList {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceShaccCgCompileOptions {
-    pub mainSourceFile: *const crate::ctypes::c_char,
+    pub mainSourceFile: *const core::ffi::c_char,
     pub targetProfile: SceShaccCgTargetProfile,
-    pub entryFunctionName: *const crate::ctypes::c_char,
+    pub entryFunctionName: *const core::ffi::c_char,
     pub searchPathCount: SceUInt32,
-    pub searchPaths: *const *const crate::ctypes::c_char,
+    pub searchPaths: *const *const core::ffi::c_char,
     pub macroDefinitionCount: SceUInt32,
-    pub macroDefinitions: *const *const crate::ctypes::c_char,
+    pub macroDefinitions: *const *const core::ffi::c_char,
     pub includeFileCount: SceUInt32,
-    pub includeFiles: *const *const crate::ctypes::c_char,
+    pub includeFiles: *const *const core::ffi::c_char,
     pub suppressedWarningsCount: SceUInt32,
     pub suppressedWarnings: *const SceUInt32,
     pub locale: SceShaccCgLocale,
@@ -5164,14 +5152,14 @@ pub struct SceShaccCgCompileOptions {
     pub useFastmath: SceInt32,
     pub useFastprecision: SceInt32,
     pub useFastint: SceInt32,
-    pub field_48: crate::ctypes::c_int,
+    pub field_48: core::ffi::c_int,
     pub warningsAsErrors: SceInt32,
     pub performanceWarnings: SceInt32,
     pub warningLevel: SceInt32,
     pub pedantic: SceInt32,
     pub pedanticError: SceInt32,
-    pub field_60: crate::ctypes::c_int,
-    pub field_64: crate::ctypes::c_int,
+    pub field_60: core::ffi::c_int,
+    pub field_64: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5187,13 +5175,13 @@ pub struct SceShaccCgDiagnosticMessage {
     pub level: SceShaccCgDiagnosticLevel,
     pub code: SceUInt32,
     pub location: *const SceShaccCgSourceLocation,
-    pub message: *const crate::ctypes::c_char,
+    pub message: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceShaccCgSourceFile {
-    pub fileName: *const crate::ctypes::c_char,
-    pub text: *const crate::ctypes::c_char,
+    pub fileName: *const core::ffi::c_char,
+    pub text: *const core::ffi::c_char,
     pub size: SceUInt32,
 }
 #[repr(C)]
@@ -5206,18 +5194,18 @@ pub struct SceShaccCgSourceLocation {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSharedFbInfo {
-    pub fb_base: *mut crate::ctypes::c_void,
-    pub fb_size: crate::ctypes::c_int,
-    pub fb_base2: *mut crate::ctypes::c_void,
-    pub unk0: [crate::ctypes::c_int; 6usize],
-    pub stride: crate::ctypes::c_int,
-    pub width: crate::ctypes::c_int,
-    pub height: crate::ctypes::c_int,
-    pub unk1: crate::ctypes::c_int,
-    pub index: crate::ctypes::c_int,
-    pub unk2: [crate::ctypes::c_int; 4usize],
-    pub vsync: crate::ctypes::c_int,
-    pub unk3: [crate::ctypes::c_int; 3usize],
+    pub fb_base: *mut core::ffi::c_void,
+    pub fb_size: core::ffi::c_int,
+    pub fb_base2: *mut core::ffi::c_void,
+    pub unk0: [core::ffi::c_int; 6usize],
+    pub stride: core::ffi::c_int,
+    pub width: core::ffi::c_int,
+    pub height: core::ffi::c_int,
+    pub unk1: core::ffi::c_int,
+    pub index: core::ffi::c_int,
+    pub unk2: [core::ffi::c_int; 4usize],
+    pub vsync: core::ffi::c_int,
+    pub unk3: [core::ffi::c_int; 3usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5233,34 +5221,34 @@ pub struct SceSharedSecret {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceShellUtilLaunchAppParam {
-    pub cmd: *const crate::ctypes::c_char,
+    pub cmd: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSqliteMallocMethods {
     pub xMalloc: ::core::option::Option<
-        unsafe extern "C" fn(arg1: crate::ctypes::c_int) -> *mut crate::ctypes::c_void,
+        unsafe extern "C" fn(arg1: core::ffi::c_int) -> *mut core::ffi::c_void,
     >,
     pub xRealloc: ::core::option::Option<
         unsafe extern "C" fn(
-            arg1: *mut crate::ctypes::c_void,
-            arg2: crate::ctypes::c_int,
-        ) -> *mut crate::ctypes::c_void,
+            arg1: *mut core::ffi::c_void,
+            arg2: core::ffi::c_int,
+        ) -> *mut core::ffi::c_void,
     >,
-    pub xFree: ::core::option::Option<unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void)>,
+    pub xFree: ::core::option::Option<unsafe extern "C" fn(arg1: *mut core::ffi::c_void)>,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSslMemoryPoolStats {
-    pub poolSize: crate::ctypes::c_uint,
-    pub maxInuseSize: crate::ctypes::c_uint,
-    pub currentInuseSize: crate::ctypes::c_uint,
-    pub reserved: crate::ctypes::c_int,
+    pub poolSize: core::ffi::c_uint,
+    pub maxInuseSize: core::ffi::c_uint,
+    pub currentInuseSize: core::ffi::c_uint,
+    pub reserved: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysconDebugHandlers {
-    pub size: crate::ctypes::c_int,
+    pub size: core::ffi::c_int,
     pub start: ::core::option::Option<unsafe extern "C" fn(packet: *mut SceSysconPacket)>,
     pub end: ::core::option::Option<unsafe extern "C" fn(packet: *mut SceSysconPacket)>,
 }
@@ -5268,28 +5256,28 @@ pub struct SceSysconDebugHandlers {
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysconPacket {
     pub next: *mut SceSysconPacket,
-    pub status: crate::ctypes::c_uint,
+    pub status: core::ffi::c_uint,
     pub semaId: SceUID,
-    pub unk: crate::ctypes::c_uint,
-    pub tx: [crate::ctypes::c_uchar; 32usize],
-    pub rx: [crate::ctypes::c_uchar; 32usize],
-    pub unk1: [crate::ctypes::c_uint; 4usize],
+    pub unk: core::ffi::c_uint,
+    pub tx: [core::ffi::c_uchar; 32usize],
+    pub rx: [core::ffi::c_uchar; 32usize],
+    pub unk1: [core::ffi::c_uint; 4usize],
     pub callback: ::core::option::Option<
         unsafe extern "C" fn(
             packet: *mut SceSysconPacket,
-            argp: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            argp: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
-    pub argp: *mut crate::ctypes::c_void,
-    pub time: crate::ctypes::c_uint,
-    pub unk2: [crate::ctypes::c_uint; 5usize],
+    pub argp: *mut core::ffi::c_void,
+    pub time: core::ffi::c_uint,
+    pub unk2: [core::ffi::c_uint; 5usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceSysmoduleOpt {
-    pub flags: crate::ctypes::c_int,
-    pub result: *mut crate::ctypes::c_int,
-    pub unused: [crate::ctypes::c_int; 2usize],
+    pub flags: core::ffi::c_int,
+    pub result: *mut core::ffi::c_int,
+    pub unused: [core::ffi::c_int; 2usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5297,125 +5285,110 @@ pub struct SceSysrootDbgpHandler {
     pub size: SceSize,
     pub unk_0x04: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
         ),
     >,
     pub unk_0x08: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
         ),
     >,
-    pub unk_0x0C: ::core::option::Option<unsafe extern "C" fn(a1: crate::ctypes::c_int)>,
+    pub unk_0x0C: ::core::option::Option<unsafe extern "C" fn(a1: core::ffi::c_int)>,
     pub unk_0x10: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
         ),
     >,
     pub unk_0x14: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
         ),
     >,
     pub unk_0x18: ::core::option::Option<
-        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: crate::ctypes::c_int, time: u64),
+        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: core::ffi::c_int, time: u64),
     >,
     pub unk_0x1C: ::core::option::Option<
-        unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ),
+        unsafe extern "C" fn(a1: core::ffi::c_int, a2: core::ffi::c_int, a3: core::ffi::c_int),
     >,
     pub unk_0x20: ::core::option::Option<
-        unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ),
+        unsafe extern "C" fn(a1: core::ffi::c_int, a2: core::ffi::c_int, a3: core::ffi::c_int),
     >,
     pub unk_0x24: ::core::option::Option<
-        unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ),
+        unsafe extern "C" fn(a1: core::ffi::c_int, a2: core::ffi::c_int, a3: core::ffi::c_int),
     >,
     pub unk_0x28:
         ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
     pub unk_0x2C:
         ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
-    pub unk_0x30: ::core::option::Option<unsafe extern "C" fn(pid: SceUID) -> crate::ctypes::c_int>,
+    pub unk_0x30: ::core::option::Option<unsafe extern "C" fn(pid: SceUID) -> core::ffi::c_int>,
     pub unk_0x34: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x38: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x3C: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x40: ::core::option::Option<
-        unsafe extern "C" fn(
-            pid: SceUID,
-            some_flag: *mut crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(pid: SceUID, some_flag: *mut core::ffi::c_int) -> core::ffi::c_int,
     >,
     pub unk_0x44: ::core::option::Option<
         unsafe extern "C" fn(
             pid: SceUID,
             modid: SceUID,
-            flags: crate::ctypes::c_int,
+            flags: core::ffi::c_int,
             time: u64,
-        ) -> crate::ctypes::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x48: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x4C: ::core::option::Option<unsafe extern "C" fn()>,
     pub unk_0x50: ::core::option::Option<unsafe extern "C" fn()>,
     pub unk_0x54: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
-            a5: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
+            a5: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_0x58: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
 }
 #[repr(C)]
@@ -5438,10 +5411,10 @@ pub struct SceSysrootModulemgrHandlers {
 pub struct SceSysrootProcessHandler {
     pub size: SceSize,
     pub unk_4: ::core::option::Option<
-        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: crate::ctypes::c_int, time: u64),
+        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: core::ffi::c_int, time: u64),
     >,
     pub exit: ::core::option::Option<
-        unsafe extern "C" fn(pid: SceUID, flags: crate::ctypes::c_int, time: u64),
+        unsafe extern "C" fn(pid: SceUID, flags: core::ffi::c_int, time: u64),
     >,
     pub kill: ::core::option::Option<unsafe extern "C" fn(pid: SceUID)>,
     pub unk_10: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
@@ -5449,14 +5422,14 @@ pub struct SceSysrootProcessHandler {
     pub unk_18: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
     pub on_process_created: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub unk_20: ::core::option::Option<unsafe extern "C" fn(pid: SceUID, modid: SceUID, time: u64)>,
     pub unk_24: ::core::option::Option<
-        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: crate::ctypes::c_int, time: u64),
+        unsafe extern "C" fn(pid: SceUID, modid: SceUID, flags: core::ffi::c_int, time: u64),
     >,
 }
 #[repr(C)]
@@ -5533,29 +5506,29 @@ pub struct SceTriggerUtilEventParamOneTime {
 pub struct SceTriggerUtilSystemAppInfo {
     pub name: [SceWChar16; 256usize],
     pub iconPath: [SceChar8; 1024usize],
-    pub reserved: [crate::ctypes::c_char; 2usize],
+    pub reserved: [core::ffi::c_char; 2usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceTriggerUtilUserAppInfo {
     pub name: [SceWChar16; 52usize],
     pub iconPath: [SceChar8; 1024usize],
-    pub unk: crate::ctypes::c_short,
+    pub unk: core::ffi::c_short,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdConfigDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub wTotalLength: crate::ctypes::c_ushort,
-    pub bNumInterfaces: crate::ctypes::c_uchar,
-    pub bConfigurationValue: crate::ctypes::c_uchar,
-    pub iConfiguration: crate::ctypes::c_uchar,
-    pub bmAttributes: crate::ctypes::c_uchar,
-    pub bMaxPower: crate::ctypes::c_uchar,
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub wTotalLength: core::ffi::c_ushort,
+    pub bNumInterfaces: core::ffi::c_uchar,
+    pub bConfigurationValue: core::ffi::c_uchar,
+    pub iConfiguration: core::ffi::c_uchar,
+    pub bmAttributes: core::ffi::c_uchar,
+    pub bMaxPower: core::ffi::c_uchar,
     pub settings: *mut SceUdcdInterfaceSettings,
-    pub extra: *mut crate::ctypes::c_uchar,
-    pub extraLength: crate::ctypes::c_int,
+    pub extra: *mut core::ffi::c_uchar,
+    pub extraLength: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5569,70 +5542,70 @@ pub struct SceUdcdConfiguration {
 #[repr(align(4))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub bcdUSB: crate::ctypes::c_ushort,
-    pub bDeviceClass: crate::ctypes::c_uchar,
-    pub bDeviceSubClass: crate::ctypes::c_uchar,
-    pub bDeviceProtocol: crate::ctypes::c_uchar,
-    pub bMaxPacketSize0: crate::ctypes::c_uchar,
-    pub idVendor: crate::ctypes::c_ushort,
-    pub idProduct: crate::ctypes::c_ushort,
-    pub bcdDevice: crate::ctypes::c_ushort,
-    pub iManufacturer: crate::ctypes::c_uchar,
-    pub iProduct: crate::ctypes::c_uchar,
-    pub iSerialNumber: crate::ctypes::c_uchar,
-    pub bNumConfigurations: crate::ctypes::c_uchar,
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub bcdUSB: core::ffi::c_ushort,
+    pub bDeviceClass: core::ffi::c_uchar,
+    pub bDeviceSubClass: core::ffi::c_uchar,
+    pub bDeviceProtocol: core::ffi::c_uchar,
+    pub bMaxPacketSize0: core::ffi::c_uchar,
+    pub idVendor: core::ffi::c_ushort,
+    pub idProduct: core::ffi::c_ushort,
+    pub bcdDevice: core::ffi::c_ushort,
+    pub iManufacturer: core::ffi::c_uchar,
+    pub iProduct: core::ffi::c_uchar,
+    pub iSerialNumber: core::ffi::c_uchar,
+    pub bNumConfigurations: core::ffi::c_uchar,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceInfo {
-    pub info: [crate::ctypes::c_uchar; 64usize],
+    pub info: [core::ffi::c_uchar; 64usize],
 }
 #[repr(C)]
 #[repr(align(4))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceQualifierDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub bcdUSB: crate::ctypes::c_ushort,
-    pub bDeviceClass: crate::ctypes::c_uchar,
-    pub bDeviceSubClass: crate::ctypes::c_uchar,
-    pub bDeviceProtocol: crate::ctypes::c_uchar,
-    pub bMaxPacketSize0: crate::ctypes::c_uchar,
-    pub bNumConfigurations: crate::ctypes::c_uchar,
-    pub bReserved: crate::ctypes::c_uchar,
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub bcdUSB: core::ffi::c_ushort,
+    pub bDeviceClass: core::ffi::c_uchar,
+    pub bDeviceSubClass: core::ffi::c_uchar,
+    pub bDeviceProtocol: core::ffi::c_uchar,
+    pub bMaxPacketSize0: core::ffi::c_uchar,
+    pub bNumConfigurations: core::ffi::c_uchar,
+    pub bReserved: core::ffi::c_uchar,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceRequest {
     pub endpoint: *mut SceUdcdEndpoint,
-    pub data: *mut crate::ctypes::c_void,
-    pub attributes: crate::ctypes::c_uint,
-    pub size: crate::ctypes::c_int,
-    pub isControlRequest: crate::ctypes::c_int,
+    pub data: *mut core::ffi::c_void,
+    pub attributes: core::ffi::c_uint,
+    pub size: core::ffi::c_int,
+    pub isControlRequest: core::ffi::c_int,
     pub onComplete: ::core::option::Option<unsafe extern "C" fn(req: *mut SceUdcdDeviceRequest)>,
-    pub transmitted: crate::ctypes::c_int,
-    pub returnCode: crate::ctypes::c_int,
+    pub transmitted: core::ffi::c_int,
+    pub returnCode: core::ffi::c_int,
     pub next: *mut SceUdcdDeviceRequest,
-    pub unused: *mut crate::ctypes::c_void,
-    pub physicalAddress: *mut crate::ctypes::c_void,
+    pub unused: *mut core::ffi::c_void,
+    pub physicalAddress: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDeviceState {
-    pub unk_00: crate::ctypes::c_int,
-    pub state: crate::ctypes::c_int,
-    pub cable: crate::ctypes::c_int,
-    pub connection: crate::ctypes::c_int,
-    pub use_usb_charging: crate::ctypes::c_int,
-    pub unk_14: crate::ctypes::c_int,
+    pub unk_00: core::ffi::c_int,
+    pub state: core::ffi::c_int,
+    pub cable: core::ffi::c_int,
+    pub connection: core::ffi::c_int,
+    pub use_usb_charging: core::ffi::c_int,
+    pub unk_14: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDriver {
-    pub driverName: *const crate::ctypes::c_char,
-    pub numEndpoints: crate::ctypes::c_int,
+    pub driverName: *const core::ffi::c_char,
+    pub numEndpoints: core::ffi::c_int,
     pub endpoints: *mut SceUdcdEndpoint,
     pub interface: *mut SceUdcdInterface,
     pub descriptor_hi: *mut SceUdcdDeviceDescriptor,
@@ -5644,165 +5617,165 @@ pub struct SceUdcdDriver {
     pub stringDescriptorSerial: *mut SceUdcdStringDescriptor,
     pub processRequest: ::core::option::Option<
         unsafe extern "C" fn(
-            recipient: crate::ctypes::c_int,
-            arg: crate::ctypes::c_int,
+            recipient: core::ffi::c_int,
+            arg: core::ffi::c_int,
             req: *mut SceUdcdEP0DeviceRequest,
-            user_data: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            user_data: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
     pub changeSetting: ::core::option::Option<
         unsafe extern "C" fn(
-            interfaceNumber: crate::ctypes::c_int,
-            alternateSetting: crate::ctypes::c_int,
-            bus: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            interfaceNumber: core::ffi::c_int,
+            alternateSetting: core::ffi::c_int,
+            bus: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub attach: ::core::option::Option<
         unsafe extern "C" fn(
-            usb_version: crate::ctypes::c_int,
-            user_data: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            usb_version: core::ffi::c_int,
+            user_data: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
-    pub detach: ::core::option::Option<unsafe extern "C" fn(user_data: *mut crate::ctypes::c_void)>,
+    pub detach: ::core::option::Option<unsafe extern "C" fn(user_data: *mut core::ffi::c_void)>,
     pub configure: ::core::option::Option<
         unsafe extern "C" fn(
-            usb_version: crate::ctypes::c_int,
-            desc_count: crate::ctypes::c_int,
+            usb_version: core::ffi::c_int,
+            desc_count: core::ffi::c_int,
             settings: *mut SceUdcdInterfaceSettings,
-            user_data: *mut crate::ctypes::c_void,
+            user_data: *mut core::ffi::c_void,
         ),
     >,
     pub start: ::core::option::Option<
         unsafe extern "C" fn(
-            size: crate::ctypes::c_int,
-            args: *mut crate::ctypes::c_void,
-            user_data: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            size: core::ffi::c_int,
+            args: *mut core::ffi::c_void,
+            user_data: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
     pub stop: ::core::option::Option<
         unsafe extern "C" fn(
-            size: crate::ctypes::c_int,
-            args: *mut crate::ctypes::c_void,
-            user_data: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            size: core::ffi::c_int,
+            args: *mut core::ffi::c_void,
+            user_data: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
-    pub user_data: *mut crate::ctypes::c_void,
-    pub bus: crate::ctypes::c_int,
+    pub user_data: *mut core::ffi::c_void,
+    pub bus: core::ffi::c_int,
     pub link: *mut SceUdcdDriver,
 }
 #[repr(C)]
 #[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdDriverName {
-    pub size: crate::ctypes::c_int,
-    pub name: [crate::ctypes::c_char; 32usize],
-    pub flags: crate::ctypes::c_int,
+    pub size: core::ffi::c_int,
+    pub name: [core::ffi::c_char; 32usize],
+    pub flags: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEndpoint {
-    pub direction: crate::ctypes::c_int,
-    pub driverEndpointNumber: crate::ctypes::c_int,
-    pub endpointNumber: crate::ctypes::c_int,
-    pub transmittedBytes: crate::ctypes::c_int,
+    pub direction: core::ffi::c_int,
+    pub driverEndpointNumber: core::ffi::c_int,
+    pub endpointNumber: core::ffi::c_int,
+    pub transmittedBytes: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEndpointDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub bEndpointAddress: crate::ctypes::c_uchar,
-    pub bmAttributes: crate::ctypes::c_uchar,
-    pub wMaxPacketSize: crate::ctypes::c_ushort,
-    pub bInterval: crate::ctypes::c_uchar,
-    pub extra: *mut crate::ctypes::c_uchar,
-    pub extraLength: crate::ctypes::c_int,
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub bEndpointAddress: core::ffi::c_uchar,
+    pub bmAttributes: core::ffi::c_uchar,
+    pub wMaxPacketSize: core::ffi::c_ushort,
+    pub bInterval: core::ffi::c_uchar,
+    pub extra: *mut core::ffi::c_uchar,
+    pub extraLength: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdEP0DeviceRequest {
-    pub bmRequestType: crate::ctypes::c_uchar,
-    pub bRequest: crate::ctypes::c_uchar,
-    pub wValue: crate::ctypes::c_ushort,
-    pub wIndex: crate::ctypes::c_ushort,
-    pub wLength: crate::ctypes::c_ushort,
+    pub bmRequestType: core::ffi::c_uchar,
+    pub bRequest: core::ffi::c_uchar,
+    pub wValue: core::ffi::c_ushort,
+    pub wIndex: core::ffi::c_ushort,
+    pub wLength: core::ffi::c_ushort,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterface {
-    pub expectNumber: crate::ctypes::c_int,
-    pub interfaceNumber: crate::ctypes::c_int,
-    pub numInterfaces: crate::ctypes::c_int,
+    pub expectNumber: core::ffi::c_int,
+    pub interfaceNumber: core::ffi::c_int,
+    pub numInterfaces: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterfaceDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub bInterfaceNumber: crate::ctypes::c_uchar,
-    pub bAlternateSetting: crate::ctypes::c_uchar,
-    pub bNumEndpoints: crate::ctypes::c_uchar,
-    pub bInterfaceClass: crate::ctypes::c_uchar,
-    pub bInterfaceSubClass: crate::ctypes::c_uchar,
-    pub bInterfaceProtocol: crate::ctypes::c_uchar,
-    pub iInterface: crate::ctypes::c_uchar,
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub bInterfaceNumber: core::ffi::c_uchar,
+    pub bAlternateSetting: core::ffi::c_uchar,
+    pub bNumEndpoints: core::ffi::c_uchar,
+    pub bInterfaceClass: core::ffi::c_uchar,
+    pub bInterfaceSubClass: core::ffi::c_uchar,
+    pub bInterfaceProtocol: core::ffi::c_uchar,
+    pub iInterface: core::ffi::c_uchar,
     pub endpoints: *mut SceUdcdEndpointDescriptor,
-    pub extra: *mut crate::ctypes::c_uchar,
-    pub extraLength: crate::ctypes::c_int,
+    pub extra: *mut core::ffi::c_uchar,
+    pub extraLength: core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdInterfaceSettings {
     pub descriptors: *mut SceUdcdInterfaceDescriptor,
-    pub alternateSetting: crate::ctypes::c_uint,
-    pub numDescriptors: crate::ctypes::c_uint,
+    pub alternateSetting: core::ffi::c_uint,
+    pub numDescriptors: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdStringDescriptor {
-    pub bLength: crate::ctypes::c_uchar,
-    pub bDescriptorType: crate::ctypes::c_uchar,
-    pub bString: [crate::ctypes::c_short; 31usize],
+    pub bLength: core::ffi::c_uchar,
+    pub bDescriptorType: core::ffi::c_uchar,
+    pub bString: [core::ffi::c_short; 31usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUdcdWaitParam {
-    pub unk_00: crate::ctypes::c_int,
-    pub status: crate::ctypes::c_int,
-    pub unk_08: crate::ctypes::c_int,
-    pub unk_0C: crate::ctypes::c_int,
-    pub unk_10: crate::ctypes::c_int,
-    pub driverName: *const crate::ctypes::c_char,
+    pub unk_00: core::ffi::c_int,
+    pub status: core::ffi::c_int,
+    pub unk_08: core::ffi::c_int,
+    pub unk_0C: core::ffi::c_int,
+    pub unk_10: core::ffi::c_int,
+    pub driverName: *const core::ffi::c_char,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUIDSysrootObject {
-    pub object: *mut crate::ctypes::c_void,
+    pub object: *mut core::ffi::c_void,
     pub sce_class: *mut SceClass,
     pub size: SceSize,
     pub magic1: SceUInt32,
-    pub cpu_intr: crate::ctypes::c_int,
+    pub cpu_intr: core::ffi::c_int,
     pub boot_alloc_memory_size: SceSize,
-    pub boot_alloc_memory: *mut crate::ctypes::c_void,
-    pub unk_0x1C: crate::ctypes::c_int,
-    pub unk_0x20: *mut crate::ctypes::c_void,
+    pub boot_alloc_memory: *mut core::ffi::c_void,
+    pub unk_0x1C: core::ffi::c_int,
+    pub unk_0x20: *mut core::ffi::c_void,
     pub boot_flags: SceUInt32,
     pub status: SceUInt32,
     pub corelock_context: SceCorelockContext,
-    pub unk_0x34: crate::ctypes::c_int,
-    pub unk_0x38: crate::ctypes::c_int,
-    pub unk_0x3C: *mut crate::ctypes::c_void,
-    pub unk_0x40: *mut crate::ctypes::c_void,
-    pub unk_0x44: *mut crate::ctypes::c_void,
-    pub unk_0x48: *mut crate::ctypes::c_void,
-    pub unk_0x4C: *mut crate::ctypes::c_void,
-    pub unk_0x50: *mut crate::ctypes::c_void,
-    pub unk_0x54: crate::ctypes::c_int,
-    pub unk_0x58: *mut crate::ctypes::c_void,
-    pub unk_0x5C: crate::ctypes::c_int,
-    pub unk_0x60: crate::ctypes::c_int,
-    pub unk_0x64: crate::ctypes::c_int,
-    pub unk_0x68: crate::ctypes::c_int,
+    pub unk_0x34: core::ffi::c_int,
+    pub unk_0x38: core::ffi::c_int,
+    pub unk_0x3C: *mut core::ffi::c_void,
+    pub unk_0x40: *mut core::ffi::c_void,
+    pub unk_0x44: *mut core::ffi::c_void,
+    pub unk_0x48: *mut core::ffi::c_void,
+    pub unk_0x4C: *mut core::ffi::c_void,
+    pub unk_0x50: *mut core::ffi::c_void,
+    pub unk_0x54: core::ffi::c_int,
+    pub unk_0x58: *mut core::ffi::c_void,
+    pub unk_0x5C: core::ffi::c_int,
+    pub unk_0x60: core::ffi::c_int,
+    pub unk_0x64: core::ffi::c_int,
+    pub unk_0x68: core::ffi::c_int,
     pub kbl_param: *mut SceKblParam,
     pub boot_args: *mut SceKernelBootArgs,
     pub soc_revision: SceUInt32,
@@ -5810,126 +5783,118 @@ pub struct SceUIDSysrootObject {
     pub soc_revision2: SceUInt32,
     pub model_info: SceUInt32,
     pub model_capability: SceUInt32,
-    pub longtime5base: *mut crate::ctypes::c_void,
-    pub cpu_intr_for_init_callback: crate::ctypes::c_int,
+    pub longtime5base: *mut core::ffi::c_void,
+    pub cpu_intr_for_init_callback: core::ffi::c_int,
     pub init_callback_registable_base_number: SceUInt32,
     pub init_callback_slot: [[SceUIDSysrootObject__bindgen_ty_1; 8usize]; 9usize],
     pub funcThreadMgrStartAfterProcess:
-        ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub funcIofilemgrStart: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub unk_0x2DC: *mut crate::ctypes::c_void,
-    pub unk_0x2E0: *mut crate::ctypes::c_void,
-    pub sysroot_names: [*mut crate::ctypes::c_char; 9usize],
+        ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub funcIofilemgrStart: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub unk_0x2DC: *mut core::ffi::c_void,
+    pub unk_0x2E0: *mut core::ffi::c_void,
+    pub sysroot_names: [*mut core::ffi::c_char; 9usize],
     pub this_object_uid: SceUID,
-    pub unk_0x30C: *mut crate::ctypes::c_void,
-    pub unk_0x310: *mut crate::ctypes::c_void,
-    pub unk_0x314: *mut crate::ctypes::c_void,
-    pub VBAR: *mut crate::ctypes::c_void,
-    pub MVBAR: *mut crate::ctypes::c_void,
-    pub unk_0x320: *mut crate::ctypes::c_void,
-    pub unk_func_0x324: *mut *mut crate::ctypes::c_void,
+    pub unk_0x30C: *mut core::ffi::c_void,
+    pub unk_0x310: *mut core::ffi::c_void,
+    pub unk_0x314: *mut core::ffi::c_void,
+    pub VBAR: *mut core::ffi::c_void,
+    pub MVBAR: *mut core::ffi::c_void,
+    pub unk_0x320: *mut core::ffi::c_void,
+    pub unk_func_0x324: *mut *mut core::ffi::c_void,
     pub funcGetThreadId: ::core::option::Option<unsafe extern "C" fn() -> SceUID>,
-    pub funcThreadFunction3: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
+    pub funcThreadFunction3: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
     pub funcGetProcessId: ::core::option::Option<unsafe extern "C" fn() -> SceUID>,
-    pub funcThreadFunction4: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub funcThreadFunction5: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub funcThreadFunction6: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
+    pub funcThreadFunction4: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub funcThreadFunction5: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub funcThreadFunction6: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
     pub funcThreadFunction7: ::core::option::Option<unsafe extern "C" fn()>,
-    pub funcThreadFunction8: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
+    pub funcThreadFunction8: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
     pub funcThreadFunction9: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
-    pub funcThreadFunction10: ::core::option::Option<
-        unsafe extern "C" fn(a1: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
+    pub funcThreadFunction10:
+        ::core::option::Option<unsafe extern "C" fn(a1: core::ffi::c_int) -> core::ffi::c_int>,
     pub modulemgr_handlers: *mut SceSysrootModulemgrHandlers,
-    pub unk_0x354: crate::ctypes::c_int,
+    pub unk_0x354: core::ffi::c_int,
     pub processmgr_callbacks1: *mut SceSysrootForKernel_D29BCA77_struct,
     pub processmgr_callbacks2: *mut SceSysrootForDriver_733C243E_struct,
-    pub unk_func_0x360: *mut crate::ctypes::c_void,
+    pub unk_func_0x360: *mut core::ffi::c_void,
     pub funcGetBusError: ::core::option::Option<
-        unsafe extern "C" fn(dst: *mut crate::ctypes::c_void, len: u32) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(dst: *mut core::ffi::c_void, len: u32) -> core::ffi::c_int,
     >,
     pub funcAppMgrFunction1: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-            a3: crate::ctypes::c_int,
-            a4: crate::ctypes::c_int,
-            a5: crate::ctypes::c_int,
-            a6: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            a2: core::ffi::c_int,
+            a3: core::ffi::c_int,
+            a4: core::ffi::c_int,
+            a5: core::ffi::c_int,
+            a6: core::ffi::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub funcGetShellPid: ::core::option::Option<unsafe extern "C" fn() -> SceUID>,
-    pub unk_func_0x370: *mut crate::ctypes::c_void,
-    pub unk_func_0x374: *mut crate::ctypes::c_void,
-    pub unk_func_0x378: *mut crate::ctypes::c_void,
-    pub unk_0x37C: crate::ctypes::c_int,
-    pub unk_func_0x380: *mut crate::ctypes::c_void,
-    pub unk_func_0x384: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub unk_func_0x388: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub unk_func_0x38C: *mut crate::ctypes::c_void,
-    pub unk_func_0x390: *mut crate::ctypes::c_void,
-    pub funcHasNpTestFlag: ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>,
-    pub unk_func_0x398: *mut crate::ctypes::c_void,
+    pub unk_func_0x370: *mut core::ffi::c_void,
+    pub unk_func_0x374: *mut core::ffi::c_void,
+    pub unk_func_0x378: *mut core::ffi::c_void,
+    pub unk_0x37C: core::ffi::c_int,
+    pub unk_func_0x380: *mut core::ffi::c_void,
+    pub unk_func_0x384: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub unk_func_0x388: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub unk_func_0x38C: *mut core::ffi::c_void,
+    pub unk_func_0x390: *mut core::ffi::c_void,
+    pub funcHasNpTestFlag: ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>,
+    pub unk_func_0x398: *mut core::ffi::c_void,
     pub funcLedSetMode: ::core::option::Option<
         unsafe extern "C" fn(
-            led: crate::ctypes::c_int,
-            mode: crate::ctypes::c_int,
-            led_configuration: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            led: core::ffi::c_int,
+            mode: core::ffi::c_int,
+            led_configuration: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
     pub cached_sm_info_ranges: *mut SceKernelVARange,
     pub funcGetFunctionNameByNID: ::core::option::Option<
         unsafe extern "C" fn(
             funcnid: SceNID,
-            name: *mut *const crate::ctypes::c_char,
-        ) -> crate::ctypes::c_int,
+            name: *mut *const core::ffi::c_char,
+        ) -> core::ffi::c_int,
     >,
-    pub unk_0x3A8: *mut crate::ctypes::c_void,
-    pub unk_0x3AC: *mut crate::ctypes::c_void,
-    pub unk_struct_0x3B0: *mut crate::ctypes::c_void,
-    pub unk_0x3B4: *mut crate::ctypes::c_void,
-    pub unk_0x3B8: *mut crate::ctypes::c_void,
-    pub unk_0x3BC: *mut crate::ctypes::c_void,
-    pub unk_0x3C0: *mut crate::ctypes::c_void,
+    pub unk_0x3A8: *mut core::ffi::c_void,
+    pub unk_0x3AC: *mut core::ffi::c_void,
+    pub unk_struct_0x3B0: *mut core::ffi::c_void,
+    pub unk_0x3B4: *mut core::ffi::c_void,
+    pub unk_0x3B8: *mut core::ffi::c_void,
+    pub unk_0x3BC: *mut core::ffi::c_void,
+    pub unk_0x3C0: *mut core::ffi::c_void,
     pub process_handler: *mut SceSysrootProcessHandler,
     pub dbgp_handler: *mut SceSysrootDbgpHandler,
-    pub unk_func_0x3CC: *mut crate::ctypes::c_void,
-    pub unk_func_0x3D0: *mut crate::ctypes::c_void,
-    pub unk_func_0x3D4: *mut crate::ctypes::c_void,
-    pub unk_func_0x3D8: *mut crate::ctypes::c_void,
-    pub unk_func_0x3DC: *mut crate::ctypes::c_void,
-    pub unk_func_0x3E0: *mut crate::ctypes::c_void,
+    pub unk_func_0x3CC: *mut core::ffi::c_void,
+    pub unk_func_0x3D0: *mut core::ffi::c_void,
+    pub unk_func_0x3D4: *mut core::ffi::c_void,
+    pub unk_func_0x3D8: *mut core::ffi::c_void,
+    pub unk_func_0x3DC: *mut core::ffi::c_void,
+    pub unk_func_0x3E0: *mut core::ffi::c_void,
     pub funcAppMgrFunction3: ::core::option::Option<
-        unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(a1: core::ffi::c_int, a2: core::ffi::c_int) -> core::ffi::c_int,
     >,
     pub funcAppMgrFunction4: ::core::option::Option<
-        unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            a2: crate::ctypes::c_int,
-        ) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(a1: core::ffi::c_int, a2: core::ffi::c_int) -> core::ffi::c_int,
     >,
-    pub funcAppMgrFunction5: ::core::option::Option<
-        unsafe extern "C" fn(a1: crate::ctypes::c_int) -> crate::ctypes::c_int,
-    >,
-    pub unk_func_0x3F0: *mut crate::ctypes::c_void,
-    pub unk_struct_0x3F4: *mut crate::ctypes::c_void,
-    pub unk_struct_0x3F8: *mut crate::ctypes::c_void,
-    pub unk_struct_0x3FC: *mut crate::ctypes::c_void,
-    pub unk_data_0x400: *mut crate::ctypes::c_void,
-    pub unk_func_0x404: *mut crate::ctypes::c_void,
-    pub unk_func_0x408: *mut crate::ctypes::c_void,
-    pub unk_func_0x40C: *mut crate::ctypes::c_void,
-    pub unk_func_0x410: *mut crate::ctypes::c_void,
-    pub unk_func_0x414: *mut crate::ctypes::c_void,
+    pub funcAppMgrFunction5:
+        ::core::option::Option<unsafe extern "C" fn(a1: core::ffi::c_int) -> core::ffi::c_int>,
+    pub unk_func_0x3F0: *mut core::ffi::c_void,
+    pub unk_struct_0x3F4: *mut core::ffi::c_void,
+    pub unk_struct_0x3F8: *mut core::ffi::c_void,
+    pub unk_struct_0x3FC: *mut core::ffi::c_void,
+    pub unk_data_0x400: *mut core::ffi::c_void,
+    pub unk_func_0x404: *mut core::ffi::c_void,
+    pub unk_func_0x408: *mut core::ffi::c_void,
+    pub unk_func_0x40C: *mut core::ffi::c_void,
+    pub unk_func_0x410: *mut core::ffi::c_void,
+    pub unk_func_0x414: *mut core::ffi::c_void,
     pub magic2: SceUInt32,
 }
 #[repr(C)]
@@ -5937,11 +5902,11 @@ pub struct SceUIDSysrootObject {
 pub struct SceUIDSysrootObject__bindgen_ty_1 {
     pub callback: ::core::option::Option<
         unsafe extern "C" fn(
-            a1: crate::ctypes::c_int,
-            args: *mut crate::ctypes::c_void,
-        ) -> crate::ctypes::c_int,
+            a1: core::ffi::c_int,
+            args: *mut core::ffi::c_void,
+        ) -> core::ffi::c_int,
     >,
-    pub args: *mut crate::ctypes::c_void,
+    pub args: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5967,18 +5932,18 @@ pub struct SceUsbdAttachCompositeParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdCompositeDriver {
-    pub name: *const crate::ctypes::c_char,
+    pub name: *const core::ffi::c_char,
     pub probe: ::core::option::Option<
         unsafe extern "C" fn(
-            device_id: crate::ctypes::c_int,
+            device_id: core::ffi::c_int,
             desc: *mut SceUsbdEndpointDescriptor,
-        ) -> crate::ctypes::c_int,
+        ) -> core::ffi::c_int,
     >,
     pub attach: ::core::option::Option<
-        unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(device_id: core::ffi::c_int) -> core::ffi::c_int,
     >,
     pub detach: ::core::option::Option<
-        unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(device_id: core::ffi::c_int) -> core::ffi::c_int,
     >,
 }
 #[repr(C)]
@@ -5996,8 +5961,8 @@ pub struct SceUsbdConfigurationDescriptor {
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdDeviceAddress {
-    pub unk0: crate::ctypes::c_uint,
-    pub unk1: crate::ctypes::c_ushort,
+    pub unk0: core::ffi::c_uint,
+    pub unk1: core::ffi::c_ushort,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6020,19 +5985,19 @@ pub struct SceUsbdDeviceDescriptor {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdDeviceInfo {
-    pub port: crate::ctypes::c_uint,
-    pub device_num: crate::ctypes::c_uint,
-    pub unk3: crate::ctypes::c_uint,
+    pub port: core::ffi::c_uint,
+    pub device_num: core::ffi::c_uint,
+    pub unk3: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdDevicePipe {
-    pub device_id: crate::ctypes::c_uint,
-    pub unk1: crate::ctypes::c_uint,
-    pub unk2: crate::ctypes::c_uint,
-    pub unk3: crate::ctypes::c_uint,
-    pub unk4: crate::ctypes::c_uint,
-    pub unk5: crate::ctypes::c_uint,
+    pub device_id: core::ffi::c_uint,
+    pub unk1: core::ffi::c_uint,
+    pub unk2: core::ffi::c_uint,
+    pub unk3: core::ffi::c_uint,
+    pub unk4: core::ffi::c_uint,
+    pub unk5: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6046,15 +6011,15 @@ pub struct SceUsbdDeviceRequest {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdDriver {
-    pub name: *const crate::ctypes::c_char,
+    pub name: *const core::ffi::c_char,
     pub probe: ::core::option::Option<
-        unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(device_id: core::ffi::c_int) -> core::ffi::c_int,
     >,
     pub attach: ::core::option::Option<
-        unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(device_id: core::ffi::c_int) -> core::ffi::c_int,
     >,
     pub detach: ::core::option::Option<
-        unsafe extern "C" fn(device_id: crate::ctypes::c_int) -> crate::ctypes::c_int,
+        unsafe extern "C" fn(device_id: core::ffi::c_int) -> core::ffi::c_int,
     >,
 }
 #[repr(C)]
@@ -6101,16 +6066,16 @@ pub struct SceUsbdInterfaceDescriptor {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdIsochTransfer {
-    pub unk0: crate::ctypes::c_uint,
-    pub unk1: crate::ctypes::c_uint,
-    pub unk2: crate::ctypes::c_uint,
-    pub unk3: crate::ctypes::c_uint,
-    pub unk4: crate::ctypes::c_uint,
-    pub unk5: crate::ctypes::c_uint,
-    pub unk6: crate::ctypes::c_uint,
-    pub unk7: crate::ctypes::c_uint,
-    pub unk8: crate::ctypes::c_uint,
-    pub unk9: crate::ctypes::c_uint,
+    pub unk0: core::ffi::c_uint,
+    pub unk1: core::ffi::c_uint,
+    pub unk2: core::ffi::c_uint,
+    pub unk3: core::ffi::c_uint,
+    pub unk4: core::ffi::c_uint,
+    pub unk5: core::ffi::c_uint,
+    pub unk6: core::ffi::c_uint,
+    pub unk7: core::ffi::c_uint,
+    pub unk8: core::ffi::c_uint,
+    pub unk9: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6123,13 +6088,13 @@ pub struct SceUsbdIsochTransferStatus {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdReceiveEvent {
-    pub unk0: crate::ctypes::c_uint,
-    pub unk1: crate::ctypes::c_uint,
-    pub unk2: crate::ctypes::c_uint,
-    pub unk3: crate::ctypes::c_uint,
-    pub unk4: crate::ctypes::c_uint,
-    pub unk5: crate::ctypes::c_uint,
-    pub transfer_id: crate::ctypes::c_uint,
+    pub unk0: core::ffi::c_uint,
+    pub unk1: core::ffi::c_uint,
+    pub unk2: core::ffi::c_uint,
+    pub unk3: core::ffi::c_uint,
+    pub unk4: core::ffi::c_uint,
+    pub unk5: core::ffi::c_uint,
+    pub transfer_id: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug)]
@@ -6141,11 +6106,11 @@ pub struct SceUsbdStringDescriptor {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SceUsbdTransferData {
-    pub pipe: crate::ctypes::c_uint,
-    pub data: *const crate::ctypes::c_void,
-    pub data_size: crate::ctypes::c_uint,
-    pub transferred: *mut crate::ctypes::c_void,
-    pub timeout: crate::ctypes::c_uint,
+    pub pipe: core::ffi::c_uint,
+    pub data: *const core::ffi::c_void,
+    pub data_size: core::ffi::c_uint,
+    pub transferred: *mut core::ffi::c_void,
+    pub timeout: core::ffi::c_uint,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6189,14 +6154,14 @@ pub struct SulphaNgsRegistration {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoExportInputParam {
-    pub path: [crate::ctypes::c_char; 1024usize],
-    pub reserved: [crate::ctypes::c_char; 64usize],
+    pub path: [core::ffi::c_char; 1024usize],
+    pub reserved: [core::ffi::c_char; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoExportOutputParam {
-    pub path: [crate::ctypes::c_char; 1024usize],
-    pub reserved: [crate::ctypes::c_char; 8usize],
+    pub path: [core::ffi::c_char; 1024usize],
+    pub reserved: [core::ffi::c_char; 8usize],
 }
 pub const BOOT_INTF_SUBCLASS: u32 = 1;
 pub const BOOT_PROTOCOL: SceUdcdProtocol = 0;
@@ -10236,15 +10201,15 @@ extern "C" {}
 #[link(name = "SceAppMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceAppMgrForDriver_stub")]
 extern "C" {
-    pub fn ksceAppMgrKillProcess(pid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceAppMgrKillProcess(pid: SceUID) -> core::ffi::c_int;
     pub fn ksceAppMgrLaunchAppByPath(
-        path: *const crate::ctypes::c_char,
-        args: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
+        args: *const core::ffi::c_char,
         arg_size: SceSize,
-        type_: crate::ctypes::c_uint,
+        type_: core::ffi::c_uint,
         param: *const SceAppMgrLaunchParam,
-        unk: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        unk: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceAppMgr_stub", kind = "static")]
 #[cfg(feature = "SceAppMgr_stub")]
@@ -10253,325 +10218,311 @@ extern "C" {
         appState: *mut SceAppMgrAppState,
         len: SceSize,
         version: u32,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceSharedFbOpen(index: crate::ctypes::c_int, sysver: crate::ctypes::c_int) -> SceUID;
-    pub fn sceAppMgrAcquireBgmPort() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceSharedFbOpen(index: core::ffi::c_int, sysver: core::ffi::c_int) -> SceUID;
+    pub fn sceAppMgrAcquireBgmPort() -> core::ffi::c_int;
     pub fn sceAppMgrAppDataMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        mount_point: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrAppDataMountById(
-        id: crate::ctypes::c_int,
-        titleid: *const crate::ctypes::c_char,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        titleid: *const core::ffi::c_char,
+        mount_point: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrAppParamGetString(
-        pid: crate::ctypes::c_int,
-        param: crate::ctypes::c_int,
-        string: *mut crate::ctypes::c_char,
+        pid: core::ffi::c_int,
+        param: core::ffi::c_int,
+        string: *mut core::ffi::c_char,
         length: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrConvertVs0UserDrivePath(
-        path: *mut crate::ctypes::c_char,
-        mount_point: *mut crate::ctypes::c_char,
-        unk: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrDestroyAppByAppId(appId: SceInt32) -> crate::ctypes::c_int;
-    pub fn sceAppMgrDestroyAppByName(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceAppMgrDestroyOtherApp() -> crate::ctypes::c_int;
+        path: *mut core::ffi::c_char,
+        mount_point: *mut core::ffi::c_char,
+        unk: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAppMgrDestroyAppByAppId(appId: SceInt32) -> core::ffi::c_int;
+    pub fn sceAppMgrDestroyAppByName(name: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceAppMgrDestroyOtherApp() -> core::ffi::c_int;
     pub fn sceAppMgrDrmOpen(param: *const SceAppMgrDrmOpenParam) -> SceInt32;
     pub fn sceAppMgrGameDataMount(
-        app_path: *const crate::ctypes::c_char,
-        patch_path: *const crate::ctypes::c_char,
-        rif_path: *const crate::ctypes::c_char,
-        mount_point: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        app_path: *const core::ffi::c_char,
+        patch_path: *const core::ffi::c_char,
+        rif_path: *const core::ffi::c_char,
+        mount_point: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrGetAppInfo(
-        unk: *const crate::ctypes::c_char,
+        unk: *const core::ffi::c_char,
         state: *mut SceAppMgrAppState,
     ) -> SceInt32;
-    pub fn sceAppMgrGetAppParam(param: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceAppMgrGetBudgetInfo(info: *mut SceAppMgrBudgetInfo) -> crate::ctypes::c_int;
+    pub fn sceAppMgrGetAppParam(param: *mut core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceAppMgrGetBudgetInfo(info: *mut SceAppMgrBudgetInfo) -> core::ffi::c_int;
     pub fn sceAppMgrGetCoredumpStateForShell(
         state: *mut SceAppMgrCoredumpState,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrGetDevInfo(
-        dev: *const crate::ctypes::c_char,
+        dev: *const core::ffi::c_char,
         max_size: *mut u64,
         free_size: *mut u64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrGetIdByName(
         pid: *mut SceUID,
-        name: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrGetNameById(
-        pid: SceUID,
-        name: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceAppMgrGetNameById(pid: SceUID, name: *mut core::ffi::c_char) -> core::ffi::c_int;
     pub fn sceAppMgrGetProcessIdByAppIdForShell(appId: SceInt32) -> SceUID;
     pub fn sceAppMgrGetRawPath(
-        path: *mut crate::ctypes::c_char,
-        resolved_path: *mut crate::ctypes::c_char,
-        resolved_path_size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        path: *mut core::ffi::c_char,
+        resolved_path: *mut core::ffi::c_char,
+        resolved_path_size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrGetRawPathOfApp0ByAppIdForShell(
-        appId: crate::ctypes::c_int,
-        resolved_path: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        appId: core::ffi::c_int,
+        resolved_path: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrGetRunningAppIdListForShell(
         appIds: *mut SceInt32,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrLaunchAppByName(
-        flags: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+        param: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrLaunchAppByName2(
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
+        param: *const core::ffi::c_char,
         optParam: *mut SceAppMgrLaunchAppOptParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrLaunchAppByName2ForShell(
-        name: *const crate::ctypes::c_char,
-        param: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
+        param: *const core::ffi::c_char,
         optParam: *mut SceAppMgrLaunchAppOptParam,
     ) -> SceUID;
     pub fn sceAppMgrLaunchAppByUri(
-        flags: crate::ctypes::c_int,
-        uri: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+        uri: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrLoadExec(
-        appPath: *const crate::ctypes::c_char,
-        argv: *const *mut crate::ctypes::c_char,
+        appPath: *const core::ffi::c_char,
+        argv: *const *mut core::ffi::c_char,
         optParam: *const SceAppMgrExecOptParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrMmsMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrPspSaveDataRootMount(
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrReceiveSystemEvent(
-        systemEvent: *mut SceAppMgrSystemEvent,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrReleaseBgmPort() -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataDataRemove(
-        data: *mut SceAppMgrSaveDataDataDelete,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataDataSave(data: *mut SceAppMgrSaveDataData) -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataSlotCreate(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataSlotDelete(
-        data: *mut SceAppMgrSaveDataSlotDelete,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataSlotGetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
-    pub fn sceAppMgrSaveDataSlotSetParam(data: *mut SceAppMgrSaveDataSlot) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        mount_point: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceAppMgrPspSaveDataRootMount(mount_point: *const core::ffi::c_char)
+        -> core::ffi::c_int;
+    pub fn sceAppMgrReceiveSystemEvent(systemEvent: *mut SceAppMgrSystemEvent) -> core::ffi::c_int;
+    pub fn sceAppMgrReleaseBgmPort() -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataDataRemove(data: *mut SceAppMgrSaveDataDataDelete) -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataDataSave(data: *mut SceAppMgrSaveDataData) -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataSlotCreate(data: *mut SceAppMgrSaveDataSlot) -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataSlotDelete(data: *mut SceAppMgrSaveDataSlotDelete) -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataSlotGetParam(data: *mut SceAppMgrSaveDataSlot) -> core::ffi::c_int;
+    pub fn sceAppMgrSaveDataSlotSetParam(data: *mut SceAppMgrSaveDataSlot) -> core::ffi::c_int;
     pub fn sceAppMgrSetInfobarState(
         visibility: SceAppMgrInfoBarVisibility,
         color: SceAppMgrInfoBarColor,
         transparency: SceAppMgrInfoBarTransparency,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppMgrUmount(mount_point: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAppMgrUmount(mount_point: *const core::ffi::c_char) -> core::ffi::c_int;
     pub fn sceAppMgrWorkDirMount(
-        id: crate::ctypes::c_int,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        mount_point: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppMgrWorkDirMountById(
-        id: crate::ctypes::c_int,
-        titleid: *const crate::ctypes::c_char,
-        mount_point: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceSharedFbBegin(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
-    pub fn sceSharedFbClose(fb_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceSharedFbEnd(fb_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceSharedFbGetInfo(fb_id: SceUID, info: *mut SceSharedFbInfo) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        titleid: *const core::ffi::c_char,
+        mount_point: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceSharedFbBegin(fb_id: SceUID, info: *mut SceSharedFbInfo) -> core::ffi::c_int;
+    pub fn sceSharedFbClose(fb_id: SceUID) -> core::ffi::c_int;
+    pub fn sceSharedFbEnd(fb_id: SceUID) -> core::ffi::c_int;
+    pub fn sceSharedFbGetInfo(fb_id: SceUID, info: *mut SceSharedFbInfo) -> core::ffi::c_int;
 }
 #[link(name = "SceAppUtil_stub", kind = "static")]
 #[cfg(feature = "SceAppUtil_stub")]
 extern "C" {
     pub fn sceAppUtilAppEventParseLiveArea(
         eventParam: *const SceAppUtilAppEventParam,
-        buffer: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        buffer: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilAppParamGetInt(
         paramId: SceAppUtilAppParamId,
-        value: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppUtilBgdlGetStatus(stat: *mut SceAppUtilBgdlStatus) -> crate::ctypes::c_int;
-    pub fn sceAppUtilCacheMount() -> crate::ctypes::c_int;
-    pub fn sceAppUtilCacheUmount() -> crate::ctypes::c_int;
+        value: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAppUtilBgdlGetStatus(stat: *mut SceAppUtilBgdlStatus) -> core::ffi::c_int;
+    pub fn sceAppUtilCacheMount() -> core::ffi::c_int;
+    pub fn sceAppUtilCacheUmount() -> core::ffi::c_int;
     pub fn sceAppUtilInit(
         initParam: *mut SceAppUtilInitParam,
         bootParam: *mut SceAppUtilBootParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppUtilLaunchWebBrowser(
-        param: *mut SceAppUtilWebBrowserParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAppUtilLaunchWebBrowser(param: *mut SceAppUtilWebBrowserParam) -> core::ffi::c_int;
     pub fn sceAppUtilLoadSafeMemory(
-        buf: *mut crate::ctypes::c_void,
+        buf: *mut core::ffi::c_void,
         bufSize: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppUtilMusicMount() -> crate::ctypes::c_int;
-    pub fn sceAppUtilMusicUmount() -> crate::ctypes::c_int;
-    pub fn sceAppUtilPhotoMount() -> crate::ctypes::c_int;
-    pub fn sceAppUtilPhotoUmount() -> crate::ctypes::c_int;
-    pub fn sceAppUtilReceiveAppEvent(
-        eventParam: *mut SceAppUtilAppEventParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAppUtilMusicMount() -> core::ffi::c_int;
+    pub fn sceAppUtilMusicUmount() -> core::ffi::c_int;
+    pub fn sceAppUtilPhotoMount() -> core::ffi::c_int;
+    pub fn sceAppUtilPhotoUmount() -> core::ffi::c_int;
+    pub fn sceAppUtilReceiveAppEvent(eventParam: *mut SceAppUtilAppEventParam) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataDataRemove(
         slot: *mut SceAppUtilSaveDataFileSlot,
         files: *mut SceAppUtilSaveDataRemoveItem,
-        fileNum: crate::ctypes::c_uint,
+        fileNum: core::ffi::c_uint,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataDataSave(
         slot: *mut SceAppUtilSaveDataFileSlot,
         files: *mut SceAppUtilSaveDataFile,
-        fileNum: crate::ctypes::c_uint,
+        fileNum: core::ffi::c_uint,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
         requiredSizeKB: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataSlotCreate(
-        slotId: crate::ctypes::c_uint,
+        slotId: core::ffi::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataSlotDelete(
-        slotId: crate::ctypes::c_uint,
+        slotId: core::ffi::c_uint,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataSlotGetParam(
-        slotId: crate::ctypes::c_uint,
+        slotId: core::ffi::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveDataSlotSetParam(
-        slotId: crate::ctypes::c_uint,
+        slotId: core::ffi::c_uint,
         param: *mut SceAppUtilSaveDataSlotParam,
         mountPoint: *mut SceAppUtilSaveDataMountPoint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSaveSafeMemory(
-        buf: *mut crate::ctypes::c_void,
+        buf: *mut core::ffi::c_void,
         bufSize: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAppUtilShutdown() -> crate::ctypes::c_int;
-    pub fn sceAppUtilStoreBrowse(param: *mut SceAppUtilStoreBrowseParam) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAppUtilShutdown() -> core::ffi::c_int;
+    pub fn sceAppUtilStoreBrowse(param: *mut SceAppUtilStoreBrowseParam) -> core::ffi::c_int;
     pub fn sceAppUtilSystemParamGetInt(
-        paramId: crate::ctypes::c_uint,
-        value: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        paramId: core::ffi::c_uint,
+        value: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAppUtilSystemParamGetString(
-        paramId: crate::ctypes::c_uint,
+        paramId: core::ffi::c_uint,
         buf: *mut SceChar8,
         bufSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceAtrac_stub", kind = "static")]
 #[cfg(feature = "SceAtrac_stub")]
 extern "C" {
     pub fn sceAtracAddStreamData(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         addSize: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracCreateDecoderGroup(
         atracType: SceUInt32,
         pDecoderGroup: *const SceAtracDecoderGroup,
-        pvWorkMem: *mut crate::ctypes::c_void,
-        initAudiodecFlag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        pvWorkMem: *mut core::ffi::c_void,
+        initAudiodecFlag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAtracDecode(
-        atracHandle: crate::ctypes::c_int,
-        pOutputBuffer: *mut crate::ctypes::c_void,
+        atracHandle: core::ffi::c_int,
+        pOutputBuffer: *mut core::ffi::c_void,
         pOutputSamples: *mut SceUInt32,
         pDecoderStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracDeleteDecoderGroup(
         atracType: SceUInt32,
-        termAudiodecFlag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        termAudiodecFlag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetContentInfo(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pContentInfo: *mut SceAtracContentInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetDecoderGroupInfo(
         atracType: SceUInt32,
         pCreatedDecoder: *mut SceAtracDecoderGroup,
         pAvailableDecoder: *mut SceAtracDecoderGroup,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetDecoderStatus(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pDecoderStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetInternalError(
-        atracHandle: crate::ctypes::c_int,
-        pInternalError: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        atracHandle: core::ffi::c_int,
+        pInternalError: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetLoopInfo(
-        atracHandle: crate::ctypes::c_int,
-        pLoopNum: *mut crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
+        pLoopNum: *mut core::ffi::c_int,
         pLoopStatus: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetNextOutputPosition(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pNextOutputSample: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetOutputSamples(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pOutputSamples: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetOutputableSamples(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pOutputableSamples: *mut SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetRemainSamples(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pRemainSamples: *mut SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetStreamInfo(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pStreamInfo: *mut SceAtracStreamInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetSubBufferInfo(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pReadPosition: *mut SceUInt32,
         pMinSubBufferSize: *mut SceUInt32,
         pDataSize: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracGetVacantSize(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pVacantSize: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAtracIsSubBufferNeeded(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAtracIsSubBufferNeeded(atracHandle: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceAtracQueryDecoderGroupMemSize(
         atracType: SceUInt32,
         pDecoderGroup: *const SceAtracDecoderGroup,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAtracReleaseHandle(atracHandle: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAtracReleaseHandle(atracHandle: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceAtracResetNextOutputPosition(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         resetSample: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracSetDataAndAcquireHandle(
         pucBuffer: *mut SceUChar8,
         uiReadSize: SceUInt32,
         uiBufferSize: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracSetLoopNum(
-        atracHandle: crate::ctypes::c_int,
-        loopNum: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        atracHandle: core::ffi::c_int,
+        loopNum: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceAtracSetOutputSamples(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         outputSamples: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAtracSetSubBuffer(
-        atracHandle: crate::ctypes::c_int,
+        atracHandle: core::ffi::c_int,
         pSubBuffer: *mut SceUChar8,
         subBufferSize: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceAudiodec_stub", kind = "static")]
 #[cfg(feature = "SceAudiodec_stub")]
@@ -10610,116 +10561,116 @@ extern "C" {
 #[link(name = "SceAudioenc_stub", kind = "static")]
 #[cfg(feature = "SceAudioenc_stub")]
 extern "C" {
-    pub fn sceAudioencClearContext(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+    pub fn sceAudioencClearContext(pCtrl: *mut SceAudioencCtrl) -> core::ffi::c_int;
     pub fn sceAudioencCreateEncoder(
         pCtrl: *mut SceAudioencCtrl,
-        codecType: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioencDeleteEncoder(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
-    pub fn sceAudioencEncode(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+        codecType: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAudioencDeleteEncoder(pCtrl: *mut SceAudioencCtrl) -> core::ffi::c_int;
+    pub fn sceAudioencEncode(pCtrl: *mut SceAudioencCtrl) -> core::ffi::c_int;
     pub fn sceAudioencGetInternalError(
         pCtrl: *mut SceAudioencCtrl,
-        pInternalError: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioencGetOptInfo(pCtrl: *mut SceAudioencCtrl) -> crate::ctypes::c_int;
+        pInternalError: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAudioencGetOptInfo(pCtrl: *mut SceAudioencCtrl) -> core::ffi::c_int;
     pub fn sceAudioencInitLibrary(
-        codecType: crate::ctypes::c_int,
+        codecType: core::ffi::c_int,
         pInitParam: *mut SceAudioencInitParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioencTermLibrary(codecType: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAudioencTermLibrary(codecType: core::ffi::c_uint) -> core::ffi::c_int;
 }
 #[link(name = "SceAudioIn_stub", kind = "static")]
 #[cfg(feature = "SceAudioIn_stub")]
 extern "C" {
-    pub fn sceAudioInGetAdopt(portType: SceAudioInPortType) -> crate::ctypes::c_int;
-    pub fn sceAudioInGetStatus(select: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceAudioInGetAdopt(portType: SceAudioInPortType) -> core::ffi::c_int;
+    pub fn sceAudioInGetStatus(select: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceAudioInInput(
-        port: crate::ctypes::c_int,
-        destPtr: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        destPtr: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceAudioInOpenPort(
         portType: SceAudioInPortType,
-        grain: crate::ctypes::c_int,
-        freq: crate::ctypes::c_int,
+        grain: core::ffi::c_int,
+        freq: core::ffi::c_int,
         param: SceAudioInParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioInReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAudioInReleasePort(port: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceAudio_stub", kind = "static")]
 #[cfg(feature = "SceAudio_stub")]
 extern "C" {
-    pub fn sceAudioOutGetAdopt(type_: SceAudioOutPortType) -> crate::ctypes::c_int;
+    pub fn sceAudioOutGetAdopt(type_: SceAudioOutPortType) -> core::ffi::c_int;
     pub fn sceAudioOutGetConfig(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         type_: SceAudioOutConfigType,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioOutGetRestSample(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAudioOutGetRestSample(port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceAudioOutOpenPort(
         type_: SceAudioOutPortType,
-        len: crate::ctypes::c_int,
-        freq: crate::ctypes::c_int,
+        len: core::ffi::c_int,
+        freq: core::ffi::c_int,
         mode: SceAudioOutMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAudioOutOutput(
-        port: crate::ctypes::c_int,
-        buf: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAudioOutReleasePort(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceAudioOutSetAlcMode(mode: SceAudioOutAlcMode) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        buf: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceAudioOutReleasePort(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceAudioOutSetAlcMode(mode: SceAudioOutAlcMode) -> core::ffi::c_int;
     pub fn sceAudioOutSetConfig(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         len: SceSize,
-        freq: crate::ctypes::c_int,
+        freq: core::ffi::c_int,
         mode: SceAudioOutMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAudioOutSetVolume(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         ch: SceAudioOutChannelFlag,
-        vol: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        vol: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceAvcodecForDriver_stub", kind = "static")]
 #[cfg(feature = "SceAvcodecForDriver_stub")]
 extern "C" {
     pub fn ksceJpegEncoderCsc(
         context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        inBuffer: *const crate::ctypes::c_void,
-        inPitch: crate::ctypes::c_int,
+        outBuffer: *mut core::ffi::c_void,
+        inBuffer: *const core::ffi::c_void,
+        inPitch: core::ffi::c_int,
         inPixelFormat: SceJpegEncoderPixelFormat,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceJpegEncoderEncode(
         context: SceJpegEncoderContext,
-        inBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
-    pub fn ksceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
+        inBuffer: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceJpegEncoderEnd(context: SceJpegEncoderContext) -> core::ffi::c_int;
+    pub fn ksceJpegEncoderGetContextSize() -> core::ffi::c_int;
     pub fn ksceJpegEncoderInit(
         context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
+        inWidth: core::ffi::c_int,
+        inHeight: core::ffi::c_int,
         pixelformat: SceJpegEncoderPixelFormat,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceJpegEncoderSetCompressionRatio(
         context: SceJpegEncoderContext,
-        ratio: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        ratio: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceJpegEncoderSetHeaderMode(
         context: SceJpegEncoderContext,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceJpegEncoderSetOutputAddr(
         context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceJpegEncoderSetValidRegion(
         context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        inWidth: core::ffi::c_int,
+        inHeight: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceAvcodec_stub", kind = "static")]
 #[cfg(feature = "SceAvcodec_stub")]
@@ -10731,25 +10682,23 @@ extern "C" {}
 #[cfg(feature = "SceAVConfig_stub")]
 extern "C" {
     pub fn sceAVConfigGetDisplayMaxBrightness(
-        maxBrightness: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAVConfigGetShutterVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceAVConfigGetSystemVol(volume: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceAVConfigMuteOn() -> crate::ctypes::c_int;
-    pub fn sceAVConfigSetDisplayBrightness(
-        brightness: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAVConfigSetDisplayColorSpaceMode(csm: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceAVConfigSetSystemVol(volume: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        maxBrightness: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAVConfigGetShutterVol(volume: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceAVConfigGetSystemVol(volume: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceAVConfigMuteOn() -> core::ffi::c_int;
+    pub fn sceAVConfigSetDisplayBrightness(brightness: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceAVConfigSetDisplayColorSpaceMode(csm: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceAVConfigSetSystemVol(volume: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceAvPlayer_stub", kind = "static")]
 #[cfg(feature = "SceAvPlayer_stub")]
 extern "C" {
     pub fn sceAvPlayerAddSource(
         handle: SceAvPlayerHandle,
-        filename: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerClose(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+        filename: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceAvPlayerClose(handle: SceAvPlayerHandle) -> core::ffi::c_int;
     pub fn sceAvPlayerCurrentTime(handle: SceAvPlayerHandle) -> u64;
     pub fn sceAvPlayerGetAudioData(
         handle: SceAvPlayerHandle,
@@ -10759,26 +10708,23 @@ extern "C" {
         handle: SceAvPlayerHandle,
         id: u32,
         info: *mut SceAvPlayerStreamInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAvPlayerGetVideoData(
         handle: SceAvPlayerHandle,
         info: *mut SceAvPlayerFrameInfo,
     ) -> SceBool;
     pub fn sceAvPlayerInit(data: *mut SceAvPlayerInitData) -> SceAvPlayerHandle;
     pub fn sceAvPlayerIsActive(handle: SceAvPlayerHandle) -> SceBool;
-    pub fn sceAvPlayerJumpToTime(handle: SceAvPlayerHandle, offset: u64) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerPause(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerResume(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerSetLooping(
-        handle: SceAvPlayerHandle,
-        looping: SceBool,
-    ) -> crate::ctypes::c_int;
+    pub fn sceAvPlayerJumpToTime(handle: SceAvPlayerHandle, offset: u64) -> core::ffi::c_int;
+    pub fn sceAvPlayerPause(handle: SceAvPlayerHandle) -> core::ffi::c_int;
+    pub fn sceAvPlayerResume(handle: SceAvPlayerHandle) -> core::ffi::c_int;
+    pub fn sceAvPlayerSetLooping(handle: SceAvPlayerHandle, looping: SceBool) -> core::ffi::c_int;
     pub fn sceAvPlayerSetTrickSpeed(
         handle: SceAvPlayerHandle,
-        speed: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerStart(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
-    pub fn sceAvPlayerStop(handle: SceAvPlayerHandle) -> crate::ctypes::c_int;
+        speed: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceAvPlayerStart(handle: SceAvPlayerHandle) -> core::ffi::c_int;
+    pub fn sceAvPlayerStop(handle: SceAvPlayerHandle) -> core::ffi::c_int;
 }
 #[link(name = "SceBacktraceForDriver_stub", kind = "static")]
 #[cfg(feature = "SceBacktraceForDriver_stub")]
@@ -10789,223 +10735,220 @@ extern "C" {}
 #[link(name = "SceBgAppUtil_stub", kind = "static")]
 #[cfg(feature = "SceBgAppUtil_stub")]
 extern "C" {
-    pub fn sceBgAppUtilStartBgApp(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceBgAppUtilStartBgApp(mode: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceBtForDriver_stub", kind = "static")]
 #[cfg(feature = "SceBtForDriver_stub")]
 extern "C" {
     pub fn ksceBtAvrcpReadVolume(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtAvrcpSendButton(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtAvrcpSendVolume(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtAvrcpSetPlayStatus(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtAvrcpSetTitle(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtDeleteRegisteredInfo(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceBtFreqAudio(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtGetConfiguration() -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtGetConfiguration() -> core::ffi::c_int;
     pub fn ksceBtGetConnectingInfo(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceBtGetDeviceName(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-        name: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+        name: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn ksceBtGetInfoForTest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtGetLastError() -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtGetLastError() -> core::ffi::c_int;
     pub fn ksceBtGetRegisteredInfo(
-        device: crate::ctypes::c_int,
-        unk: crate::ctypes::c_int,
+        device: core::ffi::c_int,
+        unk: core::ffi::c_int,
         info: *mut SceBtRegisteredInfo,
         info_size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceBtGetStatusForTest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtGetVidPid(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-        vid_pid: *mut crate::ctypes::c_ushort,
-    ) -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+        vid_pid: *mut core::ffi::c_ushort,
+    ) -> core::ffi::c_int;
     pub fn ksceBtHfpGetCurrentPhoneNumber(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtHfpRequest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtHidGetReportDescriptor(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-        buffer: *mut crate::ctypes::c_void,
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+        buffer: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceBtHidTransfer(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
         request: *mut SceBtHidRequest,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceBtPushBip(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtPushOpp(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtReadEvent(
         events: *mut SceBtEvent,
-        num_events: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        num_events: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtRecvAudio(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtRecvBip(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtRecvOpp(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtRecvSpp(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtRegisterCallback(
         cb: SceUID,
-        unused: crate::ctypes::c_int,
-        flags1: crate::ctypes::c_int,
-        flags2: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        unused: core::ffi::c_int,
+        flags1: core::ffi::c_int,
+        flags2: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtReplyPinCode(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-        code: *mut crate::ctypes::c_uchar,
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+        code: *mut core::ffi::c_uchar,
         length: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceBtReplyUserConfirmation(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-        unk: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+        unk: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtSendAudio(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtSendL2capEchoRequestForTest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtSendSpp(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtSetConfiguration(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceBtSetContentProtection(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceBtSetInquiryResultForTest(arg1: *mut crate::ctypes::c_uchar)
-        -> crate::ctypes::c_int;
-    pub fn ksceBtSetInquiryScan(r0: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtSetConfiguration(r0: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceBtSetContentProtection(r0: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceBtSetInquiryResultForTest(arg1: *mut core::ffi::c_uchar) -> core::ffi::c_int;
+    pub fn ksceBtSetInquiryScan(r0: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceBtSetL2capEchoResponseBufferForTest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtSetStatusForTest(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceBtStartAudio(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtStartConnect(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtStartConnect(mac0: core::ffi::c_uint, mac1: core::ffi::c_uint)
+        -> core::ffi::c_int;
     pub fn ksceBtStartDisconnect(
-        mac0: crate::ctypes::c_uint,
-        mac1: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtStartInquiry() -> crate::ctypes::c_int;
+        mac0: core::ffi::c_uint,
+        mac1: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtStartInquiry() -> core::ffi::c_int;
     pub fn ksceBtStopAudio(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceBtStopInquiry() -> crate::ctypes::c_int;
-    pub fn ksceBtUnregisterCallback(cb: SceUID) -> crate::ctypes::c_int;
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceBtStopInquiry() -> core::ffi::c_int;
+    pub fn ksceBtUnregisterCallback(cb: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "SceBt_stub", kind = "static")]
 #[cfg(feature = "SceBt_stub")]
@@ -11016,174 +10959,154 @@ extern "C" {}
 #[link(name = "SceCamera_stub", kind = "static")]
 #[cfg(feature = "SceCamera_stub")]
 extern "C" {
-    pub fn sceCameraClose(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceCameraClose(devnum: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceCameraGetAntiFlicker(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetAutoControlHold(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetBacklight(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetBrightness(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetContrast(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetDeviceLocation(
-        devnum: crate::ctypes::c_int,
+        devnum: core::ffi::c_int,
         pLocation: *mut SceFVector3,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetEV(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetEffect(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetExposureCeiling(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetGain(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetISO(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetImageQuality(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetNightmode(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetNoiseReduction(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetReverse(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetSaturation(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetSharpness(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetSharpnessOff(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetWhiteBalance(
-        devnum: crate::ctypes::c_int,
-        pMode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pMode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraGetZoom(
-        devnum: crate::ctypes::c_int,
-        pLevel: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraIsActive(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCameraOpen(
-        devnum: crate::ctypes::c_int,
-        pInfo: *mut SceCameraInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraRead(
-        devnum: crate::ctypes::c_int,
-        pRead: *mut SceCameraRead,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        pLevel: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCameraIsActive(devnum: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCameraOpen(devnum: core::ffi::c_int, pInfo: *mut SceCameraInfo) -> core::ffi::c_int;
+    pub fn sceCameraRead(devnum: core::ffi::c_int, pRead: *mut SceCameraRead) -> core::ffi::c_int;
     pub fn sceCameraSetAntiFlicker(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetAutoControlHold(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetBacklight(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetBrightness(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetContrast(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraSetEV(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraSetEffect(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCameraSetEV(devnum: core::ffi::c_int, level: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCameraSetEffect(devnum: core::ffi::c_int, mode: core::ffi::c_int)
+        -> core::ffi::c_int;
     pub fn sceCameraSetExposureCeiling(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraSetGain(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraSetISO(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCameraSetGain(devnum: core::ffi::c_int, mode: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCameraSetISO(devnum: core::ffi::c_int, mode: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceCameraSetImageQuality(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetNightmode(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetNoiseReduction(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetReverse(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetSaturation(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetSharpness(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetSharpnessOff(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        level: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCameraSetWhiteBalance(
-        devnum: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraSetZoom(
-        devnum: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCameraStart(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCameraStop(devnum: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        devnum: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCameraSetZoom(devnum: core::ffi::c_int, level: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCameraStart(devnum: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCameraStop(devnum: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceClipboard_stub", kind = "static")]
 #[cfg(feature = "SceClipboard_stub")]
@@ -11205,33 +11128,33 @@ extern "C" {}
 extern "C" {
     pub fn sceCommonDialogSetConfigParam(
         configParam: *const SceCommonDialogConfigParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceCommonDialogUpdate(
         updateParam: *const SceCommonDialogUpdateParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceImeDialogAbort() -> SceInt32;
     pub fn sceImeDialogGetResult(result: *mut SceImeDialogResult) -> SceInt32;
     pub fn sceImeDialogGetStatus() -> SceCommonDialogStatus;
     pub fn sceImeDialogInit(param: *const SceImeDialogParam) -> SceInt32;
     pub fn sceImeDialogTerm() -> SceInt32;
-    pub fn sceMsgDialogAbort() -> crate::ctypes::c_int;
-    pub fn sceMsgDialogClose() -> crate::ctypes::c_int;
-    pub fn sceMsgDialogGetResult(result: *mut SceMsgDialogResult) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogAbort() -> core::ffi::c_int;
+    pub fn sceMsgDialogClose() -> core::ffi::c_int;
+    pub fn sceMsgDialogGetResult(result: *mut SceMsgDialogResult) -> core::ffi::c_int;
     pub fn sceMsgDialogGetStatus() -> SceCommonDialogStatus;
-    pub fn sceMsgDialogInit(param: *const SceMsgDialogParam) -> crate::ctypes::c_int;
+    pub fn sceMsgDialogInit(param: *const SceMsgDialogParam) -> core::ffi::c_int;
     pub fn sceMsgDialogProgressBarInc(
         target: SceMsgDialogProgressBarTarget,
         delta: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMsgDialogProgressBarSetMsg(
         target: SceMsgDialogProgressBarTarget,
         barMsg: *const SceChar8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMsgDialogProgressBarSetValue(
         target: SceMsgDialogProgressBarTarget,
         rate: SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMsgDialogTerm() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMsgDialogTerm() -> core::ffi::c_int;
     pub fn sceNetCheckDialogAbort() -> SceInt32;
     pub fn sceNetCheckDialogGetPS3ConnectInfo(
         info: *mut SceNetCheckDialogPS3ConnectInfo,
@@ -11244,57 +11167,52 @@ extern "C" {
 #[link(name = "SceCompat_stub", kind = "static")]
 #[cfg(feature = "SceCompat_stub")]
 extern "C" {
-    pub fn sceCompatAllocCdramWithHole(cdram: *mut SceCompatCdram) -> crate::ctypes::c_int;
-    pub fn sceCompatAvailableColorSpaceSetting() -> crate::ctypes::c_int;
+    pub fn sceCompatAllocCdramWithHole(cdram: *mut SceCompatCdram) -> core::ffi::c_int;
+    pub fn sceCompatAvailableColorSpaceSetting() -> core::ffi::c_int;
     pub fn sceCompatCache(
-        mode: crate::ctypes::c_int,
-        addr: *mut crate::ctypes::c_void,
+        mode: core::ffi::c_int,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatCheckPocketStation() -> crate::ctypes::c_int;
-    pub fn sceCompatFrameBufferInit(
-        framebuffer: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceCompatGetDevInf(info: *mut SceIoDevInfo) -> crate::ctypes::c_int;
-    pub fn sceCompatGetPeripheralState(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCompatGetPrimaryHead() -> crate::ctypes::c_int;
-    pub fn sceCompatGetPspSystemSoftwareVersion() -> crate::ctypes::c_int;
-    pub fn sceCompatGetStatus() -> crate::ctypes::c_int;
-    pub fn sceCompatGetTitleList(
-        buf: *mut crate::ctypes::c_void,
-        length: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatGetUpdateState() -> crate::ctypes::c_int;
-    pub fn sceCompatInitEx(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCompatInterrupt(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCompatIsPocketStationTitle() -> crate::ctypes::c_int;
-    pub fn sceCompatLCDCSync() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceCompatCheckPocketStation() -> core::ffi::c_int;
+    pub fn sceCompatFrameBufferInit(framebuffer: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn sceCompatGetCurrentSecureTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceCompatGetDevInf(info: *mut SceIoDevInfo) -> core::ffi::c_int;
+    pub fn sceCompatGetPeripheralState(mode: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCompatGetPrimaryHead() -> core::ffi::c_int;
+    pub fn sceCompatGetPspSystemSoftwareVersion() -> core::ffi::c_int;
+    pub fn sceCompatGetStatus() -> core::ffi::c_int;
+    pub fn sceCompatGetTitleList(buf: *mut core::ffi::c_void, length: SceSize) -> core::ffi::c_int;
+    pub fn sceCompatGetUpdateState() -> core::ffi::c_int;
+    pub fn sceCompatInitEx(unk: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCompatInterrupt(intr_code: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCompatIsPocketStationTitle() -> core::ffi::c_int;
+    pub fn sceCompatLCDCSync() -> core::ffi::c_int;
     pub fn sceCompatReadShared32(
-        location: crate::ctypes::c_int,
-        value: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        location: core::ffi::c_int,
+        value: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCompatSetDisplayConfig(
-        unk0: crate::ctypes::c_int,
-        unk1: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatSetRif(rif: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceCompatSetSuspendSema(semaid1: SceUID, semaid2: SceUID) -> crate::ctypes::c_int;
-    pub fn sceCompatSetUpdateState(state: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCompatStart() -> crate::ctypes::c_int;
-    pub fn sceCompatStop() -> crate::ctypes::c_int;
-    pub fn sceCompatSuspendResume(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCompatUninit() -> crate::ctypes::c_int;
+        unk0: core::ffi::c_int,
+        unk1: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCompatSetRif(rif: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceCompatSetSuspendSema(semaid1: SceUID, semaid2: SceUID) -> core::ffi::c_int;
+    pub fn sceCompatSetUpdateState(state: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCompatStart() -> core::ffi::c_int;
+    pub fn sceCompatStop() -> core::ffi::c_int;
+    pub fn sceCompatSuspendResume(unk: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCompatUninit() -> core::ffi::c_int;
     pub fn sceCompatWaitAndGetRequest(
-        mode: crate::ctypes::c_int,
-        id: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatWaitSpecialRequest(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        mode: core::ffi::c_int,
+        id: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCompatWaitSpecialRequest(unk: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceCompatWriteShared32(
-        location: crate::ctypes::c_int,
-        value: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCompatWriteSharedCtrl(pad_data: *mut SceCtrlDataPsp) -> crate::ctypes::c_int;
+        location: core::ffi::c_int,
+        value: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceCompatWriteSharedCtrl(pad_data: *mut SceCtrlDataPsp) -> core::ffi::c_int;
 }
 #[link(name = "SceCoredumpForDriver_stub", kind = "static")]
 #[cfg(feature = "SceCoredumpForDriver_stub")]
@@ -11305,17 +11223,17 @@ extern "C" {}
 #[link(name = "SceCpuForDriver_stub", kind = "static")]
 #[cfg(feature = "SceCpuForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const core::ffi::c_void, len: SceSize);
     pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
+        ptr: *const core::ffi::c_void,
         len: SceSize,
     );
-    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
-    pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
-    pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
+    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const core::ffi::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const core::ffi::c_void, len: SceSize);
+    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const core::ffi::c_void, len: SceSize);
+    pub fn ksceKernelCpuDisableInterrupts() -> core::ffi::c_int;
+    pub fn ksceKernelCpuEnableInterrupts(flags: core::ffi::c_int);
+    pub fn ksceKernelCpuGetCpuId() -> core::ffi::c_int;
     pub fn ksceKernelRWSpinlockLowReadLock(lock: *mut SceKernelRWSpinlock);
     pub fn ksceKernelRWSpinlockLowReadLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
@@ -11325,15 +11243,11 @@ extern "C" {
         lock: *mut SceKernelRWSpinlock,
         intr_status: SceKernelIntrStatus,
     );
-    pub fn ksceKernelRWSpinlockLowTryReadLock(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRWSpinlockLowTryReadLock(lock: *mut SceKernelRWSpinlock) -> core::ffi::c_int;
     pub fn ksceKernelRWSpinlockLowTryReadLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
-    pub fn ksceKernelRWSpinlockLowTryWriteLock(
-        lock: *mut SceKernelRWSpinlock,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRWSpinlockLowTryWriteLock(lock: *mut SceKernelRWSpinlock) -> core::ffi::c_int;
     pub fn ksceKernelRWSpinlockLowTryWriteLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
     ) -> SceKernelIntrStatus;
@@ -11350,7 +11264,7 @@ extern "C" {
     pub fn ksceKernelSpinlockLowLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
-    pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
+    pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> core::ffi::c_int;
     pub fn ksceKernelSpinlockLowTryLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
@@ -11371,16 +11285,13 @@ extern "C" {
     pub fn ksceKernelCpuDcacheInvalidateAll();
     pub fn ksceKernelCpuDcacheWritebackAll();
     pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
-    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
-    );
+    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(ptr: *const core::ffi::c_void, len: SceSize);
     pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
+        ptr: *const core::ffi::c_void,
         len: SceSize,
     );
-    pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
-    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelCpuIcacheInvalidateAll() -> core::ffi::c_int;
+    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const core::ffi::c_void, len: SceSize);
 }
 #[link(name = "SceCpuForKernel_stub", kind = "static")]
 #[cfg(feature = "SceCpuForKernel_stub")]
@@ -11389,238 +11300,224 @@ extern "C" {}
 #[cfg(feature = "SceCtrlForDriver_stub")]
 extern "C" {
     pub fn ksceCtrlClearRapidFire(
-        port: crate::ctypes::c_int,
-        idx: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
-    pub fn ksceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
-    pub fn ksceCtrlGetMaskForAll(mask: *mut u32) -> crate::ctypes::c_int;
-    pub fn ksceCtrlGetMaskForNonShell(mask: *mut u32) -> crate::ctypes::c_int;
-    pub fn ksceCtrlGetSamplingMode(pMode: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        idx: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceCtrlGetButtonIntercept(intercept: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> core::ffi::c_int;
+    pub fn ksceCtrlGetMaskForAll(mask: *mut u32) -> core::ffi::c_int;
+    pub fn ksceCtrlGetMaskForNonShell(mask: *mut u32) -> core::ffi::c_int;
+    pub fn ksceCtrlGetSamplingMode(pMode: *mut core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceCtrlPeekBufferNegative(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlPeekBufferPositive(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlReadBufferNegative(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlReadBufferPositive(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlRegisterVirtualControllerDriver(
         driver: *mut SceCtrlVirtualControllerDriver,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlSetAnalogEmulation(
-        port: crate::ctypes::c_uint,
-        slot: crate::ctypes::c_uchar,
-        user_lX: crate::ctypes::c_uchar,
-        user_lY: crate::ctypes::c_uchar,
-        user_rX: crate::ctypes::c_uchar,
-        user_rY: crate::ctypes::c_uchar,
-        kernel_lX: crate::ctypes::c_uchar,
-        kernel_lY: crate::ctypes::c_uchar,
-        kernel_rX: crate::ctypes::c_uchar,
-        kernel_rY: crate::ctypes::c_uchar,
-        uiMake: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_uint,
+        slot: core::ffi::c_uchar,
+        user_lX: core::ffi::c_uchar,
+        user_lY: core::ffi::c_uchar,
+        user_rX: core::ffi::c_uchar,
+        user_rY: core::ffi::c_uchar,
+        kernel_lX: core::ffi::c_uchar,
+        kernel_lY: core::ffi::c_uchar,
+        kernel_rX: core::ffi::c_uchar,
+        kernel_rY: core::ffi::c_uchar,
+        uiMake: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlSetButtonEmulation(
-        port: crate::ctypes::c_uint,
-        slot: crate::ctypes::c_uchar,
-        userButtons: crate::ctypes::c_uint,
-        kernelButtons: crate::ctypes::c_uint,
-        uiMake: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        port: core::ffi::c_uint,
+        slot: core::ffi::c_uchar,
+        userButtons: core::ffi::c_uint,
+        kernelButtons: core::ffi::c_uint,
+        uiMake: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceCtrlSetButtonIntercept(intercept: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceCtrlSetRapidFire(
-        port: crate::ctypes::c_int,
-        idx: crate::ctypes::c_int,
+        port: core::ffi::c_int,
+        idx: core::ffi::c_int,
         pRule: *const SceCtrlRapidFireRule,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceCtrlSetSamplingMode(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceCtrlSetSamplingMode(mode: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceCtrlUpdateMaskForAll(
-        clear_mask: crate::ctypes::c_int,
-        set_mask: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        clear_mask: core::ffi::c_int,
+        set_mask: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceCtrlUpdateMaskForNonShell(
-        clear_mask: crate::ctypes::c_int,
-        set_mask: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        clear_mask: core::ffi::c_int,
+        set_mask: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceCtrl_stub", kind = "static")]
 #[cfg(feature = "SceCtrl_stub")]
 extern "C" {
-    pub fn sceCtrlClearRapidFire(
-        port: crate::ctypes::c_int,
-        idx: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCtrlGetBatteryInfo(
-        port: crate::ctypes::c_int,
-        batt: *mut SceUInt8,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCtrlGetButtonIntercept(intercept: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> crate::ctypes::c_int;
-    pub fn sceCtrlGetSamplingMode(pMode: *mut SceCtrlPadInputMode) -> crate::ctypes::c_int;
-    pub fn sceCtrlIsMultiControllerSupported() -> crate::ctypes::c_int;
+    pub fn sceCtrlClearRapidFire(port: core::ffi::c_int, idx: core::ffi::c_int)
+        -> core::ffi::c_int;
+    pub fn sceCtrlGetBatteryInfo(port: core::ffi::c_int, batt: *mut SceUInt8) -> core::ffi::c_int;
+    pub fn sceCtrlGetButtonIntercept(intercept: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceCtrlGetControllerPortInfo(info: *mut SceCtrlPortInfo) -> core::ffi::c_int;
+    pub fn sceCtrlGetSamplingMode(pMode: *mut SceCtrlPadInputMode) -> core::ffi::c_int;
+    pub fn sceCtrlIsMultiControllerSupported() -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferNegative(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferNegative2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferPositive(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferPositive2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferPositiveExt(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlPeekBufferPositiveExt2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferNegative(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferNegative2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferPositive(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferPositive2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferPositiveExt(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlReadBufferPositiveExt2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pad_data: *mut SceCtrlData,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceCtrlSetActuator(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         pState: *const SceCtrlActuator,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCtrlSetButtonIntercept(intercept: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceCtrlSetButtonIntercept(intercept: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceCtrlSetLightBar(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         r: SceUInt8,
         g: SceUInt8,
         b: SceUInt8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceCtrlSetRapidFire(
-        port: crate::ctypes::c_int,
-        idx: crate::ctypes::c_int,
+        port: core::ffi::c_int,
+        idx: core::ffi::c_int,
         pRule: *const SceCtrlRapidFireRule,
-    ) -> crate::ctypes::c_int;
-    pub fn sceCtrlSetSamplingMode(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
-    pub fn sceCtrlSetSamplingModeExt(mode: SceCtrlPadInputMode) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceCtrlSetSamplingMode(mode: SceCtrlPadInputMode) -> core::ffi::c_int;
+    pub fn sceCtrlSetSamplingModeExt(mode: SceCtrlPadInputMode) -> core::ffi::c_int;
 }
 #[link(name = "SceDebugForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDebugForDriver_stub")]
 extern "C" {
     pub fn ksceEventLogGetInfo(
-        buf: *mut crate::ctypes::c_void,
+        buf: *mut core::ffi::c_void,
         buf_size: SceSize,
         read_blocks: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelAssert(
         condition: SceBool,
         dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
+        lr: *const core::ffi::c_void,
     );
     pub fn ksceKernelAssertLevel(
         level: SceUInt32,
         condition: SceBool,
         dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
+        lr: *const core::ffi::c_void,
     );
-    pub fn ksceKernelGetAssertLevel() -> crate::ctypes::c_int;
-    pub fn ksceKernelGetTtyInfo(
-        buf: *mut crate::ctypes::c_char,
-        buf_size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelPanic(
-        dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-    ) -> !;
-    pub fn ksceKernelPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetAssertLevel() -> core::ffi::c_int;
+    pub fn ksceKernelGetTtyInfo(buf: *mut core::ffi::c_char, buf_size: SceSize)
+        -> core::ffi::c_int;
+    pub fn ksceKernelPanic(dbginfo: *const SceKernelDebugInfo, lr: *const core::ffi::c_void) -> !;
+    pub fn ksceKernelPrintf(fmt: *const core::ffi::c_char, ...) -> core::ffi::c_int;
     pub fn ksceKernelPrintfAssertLevel(
         level: SceUInt32,
         condition: SceBool,
         dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
+        lr: *const core::ffi::c_void,
+        fmt: *const core::ffi::c_char,
         ...
     );
     pub fn ksceKernelPrintfLevel(
         level: SceUInt32,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelPrintfLevelWithInfo(
         level: SceUInt32,
         flags: SceUInt32,
         dbginfo: *const SceKernelDebugInfo,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelPrintfPanic(
         dbginfo: *const SceKernelDebugInfo,
-        lr: *const crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
+        lr: *const core::ffi::c_void,
+        fmt: *const core::ffi::c_char,
         ...
     ) -> !;
     pub fn ksceKernelPrintfWithInfo(
         flags: SceUInt32,
         dbginfo: *const SceKernelDebugInfo,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelVprintf(
-        fmt: *const crate::ctypes::c_char,
-        arg: va_list,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelVprintf(fmt: *const core::ffi::c_char, arg: va_list) -> core::ffi::c_int;
     pub fn ksceKernelVprintfLevel(
         level: SceUInt32,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         arg: va_list,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceDebugForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceDebugForKernel_363_stub")]
@@ -11630,66 +11527,66 @@ extern "C" {}
     feature = "SceDebugForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
-    pub fn ksceDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceDebugDisableInfoDump(flag: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceDebugGetPutcharHandler() -> *mut core::ffi::c_void;
+    pub fn ksceDebugPutchar(character: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceDebugRegisterPutcharHandler(
         func: ::core::option::Option<
             unsafe extern "C" fn(
-                args: *mut crate::ctypes::c_void,
-                c: crate::ctypes::c_char,
-            ) -> crate::ctypes::c_int,
+                args: *mut core::ffi::c_void,
+                c: core::ffi::c_char,
+            ) -> core::ffi::c_int,
         >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceDebugSetHandlers(
         func: ::core::option::Option<
             unsafe extern "C" fn(
-                unk: crate::ctypes::c_int,
-                format: *const crate::ctypes::c_char,
+                unk: core::ffi::c_int,
+                format: *const core::ffi::c_char,
                 args: va_list,
-            ) -> crate::ctypes::c_int,
+            ) -> core::ffi::c_int,
         >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceDebugForKernel_stub", kind = "static")]
 #[cfg(feature = "SceDebugForKernel_stub")]
 extern "C" {
-    pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelSetMinimumAssertionLevel(level: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceDebugLedForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDebugLedForDriver_stub")]
 extern "C" {
     pub fn ksceDebugLedInvokeHandle0(
-        a1: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
+        a1: core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+        a4: core::ffi::c_int,
     );
     pub fn ksceDebugLedInvokeHandle1(
-        a1: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
+        a1: core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+        a4: core::ffi::c_int,
     );
     pub fn ksceDebugLedRegisterHandle0(
         func: ::core::option::Option<
             unsafe extern "C" fn(
-                a1: crate::ctypes::c_int,
-                a2: crate::ctypes::c_int,
-                a3: crate::ctypes::c_int,
-                a4: crate::ctypes::c_int,
+                a1: core::ffi::c_int,
+                a2: core::ffi::c_int,
+                a3: core::ffi::c_int,
+                a4: core::ffi::c_int,
             ),
         >,
     );
     pub fn ksceDebugLedRegisterHandle1(
         func: ::core::option::Option<
             unsafe extern "C" fn(
-                a1: crate::ctypes::c_int,
-                a2: crate::ctypes::c_int,
-                a3: crate::ctypes::c_int,
-                a4: crate::ctypes::c_int,
+                a1: core::ffi::c_int,
+                a2: core::ffi::c_int,
+                a3: core::ffi::c_int,
+                a4: core::ffi::c_int,
             ),
         >,
     );
@@ -11709,20 +11606,20 @@ extern "C" {
     pub fn sceKernelDeci4pEnableWatchpoint() -> SceInt32;
     pub fn sceKernelDeci4pIsProcessAttached() -> SceInt32;
     pub fn sceKernelDeci4pOpen(
-        protoname: *const crate::ctypes::c_char,
+        protoname: *const core::ffi::c_char,
         protonum: SceUInt32,
         bufsize: SceSize,
     ) -> SceUID;
     pub fn sceKernelDeci4pRead(
         socketid: SceUID,
-        buffer: *mut crate::ctypes::c_void,
+        buffer: *mut core::ffi::c_void,
         size: SceSize,
         reserved: SceUInt32,
     ) -> SceInt32;
     pub fn sceKernelDeci4pRegisterCallback(socketid: SceUID, cbid: SceUID) -> SceInt32;
     pub fn sceKernelDeci4pWrite(
         socketid: SceUID,
-        buffer: *const crate::ctypes::c_void,
+        buffer: *const core::ffi::c_void,
         size: SceSize,
         reserved: SceUInt32,
     ) -> SceInt32;
@@ -11730,88 +11627,82 @@ extern "C" {
 #[link(name = "SceDipswForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDipswForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelCheckDipsw(bit: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn ksceKernelClearDipsw(bit: crate::ctypes::c_uint);
-    pub fn ksceKernelGetDipswInfo(idx: crate::ctypes::c_uint) -> SceUInt32;
-    pub fn ksceKernelSetDipsw(bit: crate::ctypes::c_uint);
+    pub fn ksceKernelCheckDipsw(bit: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn ksceKernelClearDipsw(bit: core::ffi::c_uint);
+    pub fn ksceKernelGetDipswInfo(idx: core::ffi::c_uint) -> SceUInt32;
+    pub fn ksceKernelSetDipsw(bit: core::ffi::c_uint);
 }
 #[link(name = "SceDisplayForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDisplayForDriver_stub")]
 extern "C" {
     pub fn ksceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        sync: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceDisplayGetMaximumFrameBufResolution(
-        width: *mut crate::ctypes::c_int,
-        height: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
+        width: *mut core::ffi::c_int,
+        height: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceDisplayGetPrimaryHead() -> core::ffi::c_int;
     pub fn ksceDisplayGetProcFrameBufInternal(
         pid: SceUID,
-        head: crate::ctypes::c_int,
-        index: crate::ctypes::c_int,
+        head: core::ffi::c_int,
+        index: core::ffi::c_int,
         info: *mut SceDisplayFrameBufInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceDisplayRegisterFrameBufCallback(uid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceDisplayGetVcountInternal(display: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceDisplayRegisterFrameBufCallback(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceDisplayRegisterFrameBufCallbackInternal(
-        display: crate::ctypes::c_int,
+        display: core::ffi::c_int,
         uid: SceUID,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceDisplayRegisterVblankStartCallback(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceDisplayRegisterVblankStartCallbackInternal(
-        display: crate::ctypes::c_int,
+        display: core::ffi::c_int,
         uid: SceUID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        sync: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceDisplaySetFrameBufInternal(
-        head: crate::ctypes::c_int,
-        index: crate::ctypes::c_int,
+        head: core::ffi::c_int,
+        index: core::ffi::c_int,
         pParam: *const SceDisplayFrameBuf,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        sync: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceDisplaySetInvertColors(
-        display: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        display: core::ffi::c_int,
+        enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceDisplaySetOwner(
-        head: crate::ctypes::c_int,
-        index: crate::ctypes::c_int,
+        head: core::ffi::c_int,
+        index: core::ffi::c_int,
         pid: SceUID,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceDisplayUnregisterVblankStartCallback(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceDisplayUnregisterVblankStartCallbackInternal(
-        display: crate::ctypes::c_int,
+        display: core::ffi::c_int,
         uid: SceUID,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint)
-        -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStart() -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStartCBInternal(
-        display: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStartInternal(
-        display: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn ksceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint)
-        -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitSetFrameBuf() -> core::ffi::c_int;
+    pub fn ksceDisplayWaitSetFrameBufCB() -> core::ffi::c_int;
+    pub fn ksceDisplayWaitSetFrameBufMulti(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitSetFrameBufMultiCB(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStart() -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStartCB() -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStartCBInternal(display: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStartInternal(display: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStartMulti(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn ksceDisplayWaitVblankStartMultiCB(vcount: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn ksceDisplayWaitVblankStartMultiCBInternal(
-        display: crate::ctypes::c_int,
-        vcount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        display: core::ffi::c_int,
+        vcount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceDisplayWaitVblankStartMultiInternal(
-        display: crate::ctypes::c_int,
-        vcount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        display: core::ffi::c_int,
+        vcount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceDisplay_stub", kind = "static")]
 #[cfg(feature = "SceDisplay_stub")]
@@ -11819,80 +11710,80 @@ extern "C" {
     pub fn sceDisplayGetFrameBuf(
         pParam: *mut SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceDisplayGetMaximumFrameBufResolution(
-        width: *mut crate::ctypes::c_int,
-        height: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceDisplayGetPrimaryHead() -> crate::ctypes::c_int;
-    pub fn sceDisplayGetRefreshRate(pFps: *mut f32) -> crate::ctypes::c_int;
-    pub fn sceDisplayGetVcount() -> crate::ctypes::c_int;
-    pub fn sceDisplayGetVcountInternal(display: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceDisplayRegisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
+        width: *mut core::ffi::c_int,
+        height: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceDisplayGetPrimaryHead() -> core::ffi::c_int;
+    pub fn sceDisplayGetRefreshRate(pFps: *mut f32) -> core::ffi::c_int;
+    pub fn sceDisplayGetVcount() -> core::ffi::c_int;
+    pub fn sceDisplayGetVcountInternal(display: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceDisplayRegisterVblankStartCallback(uid: SceUID) -> core::ffi::c_int;
     pub fn sceDisplaySetFrameBuf(
         pParam: *const SceDisplayFrameBuf,
         sync: SceDisplaySetBufSync,
-    ) -> crate::ctypes::c_int;
-    pub fn sceDisplayUnregisterVblankStartCallback(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitSetFrameBuf() -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitSetFrameBufCB() -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitSetFrameBufMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitSetFrameBufMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitVblankStart() -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitVblankStartCB() -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitVblankStartMulti(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceDisplayWaitVblankStartMultiCB(vcount: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceDisplayUnregisterVblankStartCallback(uid: SceUID) -> core::ffi::c_int;
+    pub fn sceDisplayWaitSetFrameBuf() -> core::ffi::c_int;
+    pub fn sceDisplayWaitSetFrameBufCB() -> core::ffi::c_int;
+    pub fn sceDisplayWaitSetFrameBufMulti(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceDisplayWaitSetFrameBufMultiCB(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceDisplayWaitVblankStart() -> core::ffi::c_int;
+    pub fn sceDisplayWaitVblankStartCB() -> core::ffi::c_int;
+    pub fn sceDisplayWaitVblankStartMulti(vcount: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceDisplayWaitVblankStartMultiCB(vcount: core::ffi::c_uint) -> core::ffi::c_int;
 }
 #[link(name = "SceDmacmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDmacmgrForDriver_stub")]
 extern "C" {
     pub fn ksceDmacMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceDmacMemset(
-        dst: *mut crate::ctypes::c_void,
-        c: crate::ctypes::c_int,
+        dst: *mut core::ffi::c_void,
+        c: core::ffi::c_int,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelDmaOpAlloc(name: *const crate::ctypes::c_char) -> SceKernelDmaOpId;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelDmaOpAlloc(name: *const core::ffi::c_char) -> SceKernelDmaOpId;
     pub fn ksceKernelDmaOpAssign(
         opid: SceKernelDmaOpId,
         dmac: SceKernelDmacId,
         channel: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelDmaOpConcatenate(
         opid: SceKernelDmaOpId,
         pTag: *mut SceKernelDmaOpTag,
         flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelDmaOpDeQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-    pub fn ksceKernelDmaOpEnQueue(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-    pub fn ksceKernelDmaOpFree(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
-    pub fn ksceKernelDmaOpQuit(opid: SceKernelDmaOpId) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelDmaOpDeQueue(opid: SceKernelDmaOpId) -> core::ffi::c_int;
+    pub fn ksceKernelDmaOpEnQueue(opid: SceKernelDmaOpId) -> core::ffi::c_int;
+    pub fn ksceKernelDmaOpFree(opid: SceKernelDmaOpId) -> core::ffi::c_int;
+    pub fn ksceKernelDmaOpQuit(opid: SceKernelDmaOpId) -> core::ffi::c_int;
     pub fn ksceKernelDmaOpSetCallback(
         opid: SceKernelDmaOpId,
         callback: SceKernelDmaOpCallback,
-        pUserData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        pUserData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelDmaOpSetupChain(
         opid: SceKernelDmaOpId,
         pTag: *mut SceKernelDmaOpTag,
         pParam: *mut SceKernelDmaOpChainParam,
         flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelDmaOpSetupDirect(
         opid: SceKernelDmaOpId,
         pParam: *mut SceKernelDmaOpDirectParam,
         flag: SceKernelDmaOpFlag,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelDmaOpSync(
         opid: SceKernelDmaOpId,
         syncMode: SceKernelDmaOpSyncMode,
         pTimeout: *mut SceUInt32,
         ppErrorTag: *mut *mut SceKernelDmaOpTag,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceDriverUser_stub", kind = "static")]
 #[cfg(feature = "SceDriverUser_stub")]
@@ -11901,46 +11792,43 @@ extern "C" {}
 #[cfg(feature = "SceDsiForDriver_stub")]
 extern "C" {
     pub fn ksceDsiDcsRead(
-        head: crate::ctypes::c_int,
-        param: crate::ctypes::c_ushort,
-        buff: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        head: core::ffi::c_int,
+        param: core::ffi::c_ushort,
+        buff: *mut core::ffi::c_void,
+        size: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceDsiDcsShortWrite(
-        head: crate::ctypes::c_int,
-        param0: crate::ctypes::c_ushort,
-        param1: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDsiDisableHead(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceDsiEnableHead(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        head: core::ffi::c_int,
+        param0: core::ffi::c_ushort,
+        param1: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceDsiDisableHead(head: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceDsiEnableHead(head: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceDsiGenericReadRequest(
-        head: crate::ctypes::c_int,
-        param: crate::ctypes::c_int,
-        buff: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        head: core::ffi::c_int,
+        param: core::ffi::c_int,
+        buff: *mut core::ffi::c_void,
+        size: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceDsiGenericShortWrite(
-        head: crate::ctypes::c_int,
-        param0: crate::ctypes::c_int,
-        param1: crate::ctypes::c_int,
-        param2: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDsiGetPixelClock(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        head: core::ffi::c_int,
+        param0: core::ffi::c_int,
+        param1: core::ffi::c_int,
+        param2: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceDsiGetPixelClock(head: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceDsiGetVicResolution(
-        vic: crate::ctypes::c_int,
-        width: *mut crate::ctypes::c_int,
-        height: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDsiSendBlankingPacket(head: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        vic: core::ffi::c_int,
+        width: *mut core::ffi::c_int,
+        height: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceDsiSendBlankingPacket(head: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceDsiSetLanesAndPixelSize(
-        head: crate::ctypes::c_int,
-        lanes: crate::ctypes::c_int,
-        pixelsize: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceDsiSetVic(
-        head: crate::ctypes::c_int,
-        vic: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        head: core::ffi::c_int,
+        lanes: core::ffi::c_int,
+        pixelsize: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceDsiSetVic(head: core::ffi::c_int, vic: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceDTrace_stub", kind = "static")]
 #[cfg(feature = "SceDTrace_stub")]
@@ -11959,9 +11847,9 @@ extern "C" {
     pub fn ksceExcpmgrGetData() -> *mut SceExcpmgrData;
     pub fn ksceExcpmgrRegisterHandler(
         kind: SceExcpKind,
-        priority: crate::ctypes::c_int,
-        handler: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        priority: core::ffi::c_int,
+        handler: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceExcpmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceExcpmgrForKernel_stub")]
@@ -11974,10 +11862,10 @@ extern "C" {}
 extern "C" {
     pub fn _sceFiberInitializeImpl(
         fiber: *mut SceFiber,
-        name: *mut crate::ctypes::c_char,
+        name: *mut core::ffi::c_char,
         entry: SceFiberEntry,
         argOnInitialize: SceUInt32,
-        addrContext: *mut crate::ctypes::c_void,
+        addrContext: *mut core::ffi::c_void,
         sizeContext: SceSize,
         params: *mut SceFiberOptParam,
     ) -> SceInt32;
@@ -12003,23 +11891,23 @@ extern "C" {
     pub fn ksceFiosKernelOverlayAdd(
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceFiosKernelOverlayAddForProcess(
         pid: SceUID,
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceFiosKernelOverlayRemoveForProcess(
         pid: SceUID,
         id: SceFiosOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceFiosKernelOverlayResolveSync(
         pid: SceUID,
-        resolveFlag: crate::ctypes::c_int,
-        inPath: *const crate::ctypes::c_char,
-        outPath: *mut crate::ctypes::c_char,
+        resolveFlag: core::ffi::c_int,
+        inPath: *const core::ffi::c_char,
+        outPath: *mut core::ffi::c_char,
         maxPath: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceFios2Kernel_stub", kind = "static")]
 #[cfg(feature = "SceFios2Kernel_stub")]
@@ -12027,89 +11915,89 @@ extern "C" {
     pub fn _sceFiosKernelOverlayAdd(
         overlay: *const SceFiosKernelOverlay,
         out_id: *mut SceFiosKernelOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayAddForProcess(
         target_process: SceUID,
         overlay: *const SceFiosKernelOverlay,
         out_id: *mut SceFiosKernelOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayDHChstatSync(
         dh: SceFiosKernelOverlayDH,
         new_stat: *const SceFiosNativeStat,
-        cbit: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceFiosKernelOverlayDHCloseSync(dh: SceFiosKernelOverlayDH) -> crate::ctypes::c_int;
+        cbit: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn _sceFiosKernelOverlayDHCloseSync(dh: SceFiosKernelOverlayDH) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayDHOpenSync(
         out_dh: *mut SceFiosKernelOverlayDH,
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         from_order: SceUInt8,
         args: *mut SceFiosDHOpenSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayDHReadSync(
         dh: SceFiosKernelOverlayDH,
         out_entry: *mut SceFiosNativeDirEntry,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayDHStatSync(
         dh: SceFiosKernelOverlayDH,
         out_stat: *mut SceFiosNativeStat,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayDHSyncSync(
         dh: SceFiosKernelOverlayDH,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayGetInfo(
         id: SceFiosKernelOverlayID,
         out_overlay: *mut SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayGetInfoForProcess(
         target_process: SceUID,
         id: SceFiosKernelOverlayID,
         out_overlay: *mut SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayGetList(
         pid: SceUID,
         min_order: SceUInt8,
         max_order: SceUInt8,
         args: *mut SceFiosGetListSyscallArgs,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayGetRecommendedScheduler(
-        avail: crate::ctypes::c_int,
-        partially_resolved_path: *const crate::ctypes::c_char,
+        avail: core::ffi::c_int,
+        partially_resolved_path: *const core::ffi::c_char,
         a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayModify(
         id: SceFiosKernelOverlayID,
         new_value: *const SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayModifyForProcess(
         target_process: SceUID,
         id: SceFiosKernelOverlayID,
         new_value: *const SceFiosKernelOverlay,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceFiosKernelOverlayRemove(id: SceFiosKernelOverlayID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceFiosKernelOverlayRemove(id: SceFiosKernelOverlayID) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayRemoveForProcess(
         target_process: SceUID,
         id: SceFiosKernelOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayResolveSync(
         pid: SceUID,
-        resolve_flag: crate::ctypes::c_int,
-        in_path: *const crate::ctypes::c_char,
+        resolve_flag: core::ffi::c_int,
+        in_path: *const core::ffi::c_char,
         args: *mut SceFiosResolveSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceFiosKernelOverlayResolveWithRangeSync(
         pid: SceUID,
-        resolve_flag: crate::ctypes::c_int,
-        in_path: *const crate::ctypes::c_char,
+        resolve_flag: core::ffi::c_int,
+        in_path: *const core::ffi::c_char,
         args: *mut SceFiosResolveWithRangeSyncSyscallArgs,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceFiosKernelOverlayThreadIsDisabled() -> crate::ctypes::c_int;
-    pub fn _sceFiosKernelOverlayThreadSetDisabled(disabled: SceInt32) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceFiosKernelOverlayThreadIsDisabled() -> core::ffi::c_int;
+    pub fn _sceFiosKernelOverlayThreadSetDisabled(disabled: SceInt32) -> core::ffi::c_int;
     pub fn sceFiosKernelOverlayAddForProcess02(
         pid: SceUID,
         overlay: *mut SceFiosOverlay,
         outID: *mut SceFiosOverlayID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceFios2_stub", kind = "static")]
 #[cfg(feature = "SceFios2_stub")]
@@ -12120,92 +12008,65 @@ extern "C" {}
 #[link(name = "SceGpioForDriver_stub", kind = "static")]
 #[cfg(feature = "SceGpioForDriver_stub")]
 extern "C" {
-    pub fn ksceGpioAcquireIntr(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioGetIntrMode(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioGetPortMode(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioPortClear(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioPortRead(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioPortReset(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioPortSet(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGpioQueryIntr(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceGpioAcquireIntr(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioGetIntrMode(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioGetPortMode(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioPortClear(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioPortRead(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioPortReset(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioPortSet(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceGpioQueryIntr(bus: core::ffi::c_int, port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceGpioSetIntrMode(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-        intr_mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+        port: core::ffi::c_int,
+        intr_mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceGpioSetPortMode(
-        bus: crate::ctypes::c_int,
-        port: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+        port: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceGps_stub", kind = "static")]
 #[cfg(feature = "SceGps_stub")]
 extern "C" {
-    pub fn _sceGpsClose() -> crate::ctypes::c_int;
+    pub fn _sceGpsClose() -> core::ffi::c_int;
     pub fn _sceGpsGetData(
         pos: *mut SceGpsPositionData,
         sat: *mut SceGpsSatelliteData,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceGpsGetDeviceInfo(dev_info: *mut SceGpsDeviceInfo) -> crate::ctypes::c_int;
-    pub fn _sceGpsGetState(state: *mut SceGpsStatus) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceGpsGetDeviceInfo(dev_info: *mut SceGpsDeviceInfo) -> core::ffi::c_int;
+    pub fn _sceGpsGetState(state: *mut SceGpsStatus) -> core::ffi::c_int;
     pub fn _sceGpsIoctl(
         ioctl_command: SceUInt32,
         arg: *mut SceVoid,
         arg_size: SceSize,
         a4: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceGpsIsDevice() -> crate::ctypes::c_int;
-    pub fn _sceGpsOpen(cbid: SceUID) -> crate::ctypes::c_int;
-    pub fn _sceGpsResumeCallback() -> crate::ctypes::c_int;
-    pub fn _sceGpsSelectDevice(device_type: SceUInt32) -> crate::ctypes::c_int;
-    pub fn _sceGpsStart(mode: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn _sceGpsStop() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceGpsIsDevice() -> core::ffi::c_int;
+    pub fn _sceGpsOpen(cbid: SceUID) -> core::ffi::c_int;
+    pub fn _sceGpsResumeCallback() -> core::ffi::c_int;
+    pub fn _sceGpsSelectDevice(device_type: SceUInt32) -> core::ffi::c_int;
+    pub fn _sceGpsStart(mode: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn _sceGpsStop() -> core::ffi::c_int;
 }
 #[link(name = "SceGpuEs4ForDriver_stub", kind = "static")]
 #[cfg(feature = "SceGpuEs4ForDriver_stub")]
 extern "C" {
-    pub fn PVRSRVGetMiscInfoKM(info: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-    pub fn ksceGpuGetRegisterDump(
-        dst: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
+    pub fn PVRSRVGetMiscInfoKM(info: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn ksceGpuGetRegisterDump(dst: *mut core::ffi::c_void, size: SceSize) -> core::ffi::c_int;
     pub fn ksceGpuMmuMapMemory(
-        mmuContext: *mut crate::ctypes::c_void,
+        mmuContext: *mut core::ffi::c_void,
         vaddr: u32,
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         size: u32,
         flags: u32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceGpuMmuUnmapMemory(
-        mmuContext: *mut crate::ctypes::c_void,
+        mmuContext: *mut core::ffi::c_void,
         vaddr: u32,
         size: u32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceGpuEs4_stub", kind = "static")]
 #[cfg(feature = "SceGpuEs4_stub")]
@@ -12213,27 +12074,25 @@ extern "C" {}
 #[link(name = "SceGxm_stub", kind = "static")]
 #[cfg(feature = "SceGxm_stub")]
 extern "C" {
-    pub fn sceGxmBeginCommandList(context: *mut SceGxmContext) -> crate::ctypes::c_int;
+    pub fn sceGxmBeginCommandList(context: *mut SceGxmContext) -> core::ffi::c_int;
     pub fn sceGxmBeginScene(
         context: *mut SceGxmContext,
-        flags: crate::ctypes::c_uint,
+        flags: core::ffi::c_uint,
         renderTarget: *const SceGxmRenderTarget,
         validRegion: *const SceGxmValidRegion,
         vertexSyncObject: *mut SceGxmSyncObject,
         fragmentSyncObject: *mut SceGxmSyncObject,
         colorSurface: *const SceGxmColorSurface,
         depthStencil: *const SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceGetClip(
         surface: *const SceGxmColorSurface,
-        xMin: *mut crate::ctypes::c_uint,
-        yMin: *mut crate::ctypes::c_uint,
-        xMax: *mut crate::ctypes::c_uint,
-        yMax: *mut crate::ctypes::c_uint,
+        xMin: *mut core::ffi::c_uint,
+        yMin: *mut core::ffi::c_uint,
+        xMax: *mut core::ffi::c_uint,
+        yMax: *mut core::ffi::c_uint,
     );
-    pub fn sceGxmColorSurfaceGetData(
-        surface: *const SceGxmColorSurface,
-    ) -> *mut crate::ctypes::c_void;
+    pub fn sceGxmColorSurfaceGetData(surface: *const SceGxmColorSurface) -> *mut core::ffi::c_void;
     pub fn sceGxmColorSurfaceGetDitherMode(
         surface: *const SceGxmColorSurface,
     ) -> SceGxmColorSurfaceDitherMode;
@@ -12246,7 +12105,7 @@ extern "C" {
     ) -> SceGxmColorSurfaceScaleMode;
     pub fn sceGxmColorSurfaceGetStrideInPixels(
         surface: *const SceGxmColorSurface,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmColorSurfaceGetType(surface: *const SceGxmColorSurface) -> SceGxmColorSurfaceType;
     pub fn sceGxmColorSurfaceInit(
         surface: *mut SceGxmColorSurface,
@@ -12254,37 +12113,36 @@ extern "C" {
         surfaceType: SceGxmColorSurfaceType,
         scaleMode: SceGxmColorSurfaceScaleMode,
         outputRegisterSize: SceGxmOutputRegisterSize,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        strideInPixels: crate::ctypes::c_uint,
-        data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmColorSurfaceInitDisabled(surface: *mut SceGxmColorSurface)
-        -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        strideInPixels: core::ffi::c_uint,
+        data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceGxmColorSurfaceInitDisabled(surface: *mut SceGxmColorSurface) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceIsEnabled(surface: *const SceGxmColorSurface) -> SceBool;
     pub fn sceGxmColorSurfaceSetClip(
         surface: *mut SceGxmColorSurface,
-        xMin: crate::ctypes::c_uint,
-        yMin: crate::ctypes::c_uint,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
+        xMin: core::ffi::c_uint,
+        yMin: core::ffi::c_uint,
+        xMax: core::ffi::c_uint,
+        yMax: core::ffi::c_uint,
     );
     pub fn sceGxmColorSurfaceSetData(
         surface: *mut SceGxmColorSurface,
-        data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceSetDitherMode(
         surface: *mut SceGxmColorSurface,
         ditherMode: SceGxmColorSurfaceDitherMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceSetFormat(
         surface: *mut SceGxmColorSurface,
         format: SceGxmColorFormat,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceSetGammaMode(
         surface: *mut SceGxmColorSurface,
         gammaMode: SceGxmColorSurfaceGammaMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmColorSurfaceSetScaleMode(
         surface: *mut SceGxmColorSurface,
         scaleMode: SceGxmColorSurfaceScaleMode,
@@ -12292,21 +12150,21 @@ extern "C" {
     pub fn sceGxmCreateContext(
         params: *const SceGxmContextParams,
         context: *mut *mut SceGxmContext,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmCreateDeferredContext(
         params: *const SceGxmDeferredContextParams,
         context: *mut *mut SceGxmContext,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmCreateRenderTarget(
         params: *const SceGxmRenderTargetParams,
         renderTarget: *mut *mut SceGxmRenderTarget,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmDepthStencilSurfaceGetBackgroundDepth(
         surface: *const SceGxmDepthStencilSurface,
     ) -> f32;
     pub fn sceGxmDepthStencilSurfaceGetBackgroundStencil(
         surface: *const SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_uchar;
+    ) -> core::ffi::c_uchar;
     pub fn sceGxmDepthStencilSurfaceGetForceLoadMode(
         surface: *const SceGxmDepthStencilSurface,
     ) -> SceGxmDepthStencilForceLoadMode;
@@ -12318,18 +12176,18 @@ extern "C" {
     ) -> SceGxmDepthStencilFormat;
     pub fn sceGxmDepthStencilSurfaceGetStrideInSamples(
         surface: *const SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmDepthStencilSurfaceInit(
         surface: *mut SceGxmDepthStencilSurface,
         depthStencilFormat: SceGxmDepthStencilFormat,
         surfaceType: SceGxmDepthStencilSurfaceType,
-        strideInSamples: crate::ctypes::c_uint,
-        depthData: *mut crate::ctypes::c_void,
-        stencilData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        strideInSamples: core::ffi::c_uint,
+        depthData: *mut core::ffi::c_void,
+        stencilData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmDepthStencilSurfaceInitDisabled(
         surface: *mut SceGxmDepthStencilSurface,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmDepthStencilSurfaceIsEnabled(surface: *const SceGxmDepthStencilSurface)
         -> SceBool;
     pub fn sceGxmDepthStencilSurfaceSetBackgroundDepth(
@@ -12338,7 +12196,7 @@ extern "C" {
     );
     pub fn sceGxmDepthStencilSurfaceSetBackgroundStencil(
         surface: *mut SceGxmDepthStencilSurface,
-        backgroundStencil: crate::ctypes::c_uchar,
+        backgroundStencil: core::ffi::c_uchar,
     );
     pub fn sceGxmDepthStencilSurfaceSetForceLoadMode(
         surface: *mut SceGxmDepthStencilSurface,
@@ -12348,239 +12206,238 @@ extern "C" {
         surface: *mut SceGxmDepthStencilSurface,
         forceStore: SceGxmDepthStencilForceStoreMode,
     );
-    pub fn sceGxmDestroyContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-    pub fn sceGxmDestroyDeferredContext(context: *mut SceGxmContext) -> crate::ctypes::c_int;
-    pub fn sceGxmDestroyRenderTarget(renderTarget: *mut SceGxmRenderTarget)
-        -> crate::ctypes::c_int;
+    pub fn sceGxmDestroyContext(context: *mut SceGxmContext) -> core::ffi::c_int;
+    pub fn sceGxmDestroyDeferredContext(context: *mut SceGxmContext) -> core::ffi::c_int;
+    pub fn sceGxmDestroyRenderTarget(renderTarget: *mut SceGxmRenderTarget) -> core::ffi::c_int;
     pub fn sceGxmDisplayQueueAddEntry(
         oldBuffer: *mut SceGxmSyncObject,
         newBuffer: *mut SceGxmSyncObject,
-        callbackData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmDisplayQueueFinish() -> crate::ctypes::c_int;
+        callbackData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceGxmDisplayQueueFinish() -> core::ffi::c_int;
     pub fn sceGxmDraw(
         context: *mut SceGxmContext,
         primType: SceGxmPrimitiveType,
         indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        indexData: *const core::ffi::c_void,
+        indexCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmDrawInstanced(
         context: *mut SceGxmContext,
         primType: SceGxmPrimitiveType,
         indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-        indexWrap: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        indexData: *const core::ffi::c_void,
+        indexCount: core::ffi::c_uint,
+        indexWrap: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmDrawPrecomputed(
         context: *mut SceGxmContext,
         precomputedDraw: *const SceGxmPrecomputedDraw,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmEndCommandList(
         context: *mut SceGxmContext,
         list: *mut SceGxmCommandList,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmEndScene(
         context: *mut SceGxmContext,
         vertexNotification: *const SceGxmNotification,
         fragmentNotification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmExecuteCommandList(
         context: *mut SceGxmContext,
         list: *mut SceGxmCommandList,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmFinish(context: *mut SceGxmContext);
     pub fn sceGxmFragmentProgramGetProgram(
         fragmentProgram: *const SceGxmFragmentProgram,
     ) -> *const SceGxmProgram;
-    pub fn sceGxmGetNotificationRegion() -> *mut crate::ctypes::c_uint;
+    pub fn sceGxmGetNotificationRegion() -> *mut core::ffi::c_uint;
     pub fn sceGxmGetPrecomputedDrawSize(
         vertexProgram: *const SceGxmVertexProgram,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmGetPrecomputedFragmentStateSize(
         fragmentProgram: *const SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmGetPrecomputedVertexStateSize(
         vertexProgram: *const SceGxmVertexProgram,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmGetRenderTargetMemSize(
         params: *const SceGxmRenderTargetParams,
-        driverMemSize: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
+        driverMemSize: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceGxmInitialize(params: *const SceGxmInitializeParams) -> core::ffi::c_int;
     pub fn sceGxmMapFragmentUsseMemory(
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         size: SceSize,
-        offset: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        offset: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmMapMemory(
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         size: SceSize,
         attr: SceGxmMemoryAttribFlags,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmMapVertexUsseMemory(
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         size: SceSize,
-        offset: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        offset: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmMidSceneFlush(
         context: *mut SceGxmContext,
-        flags: crate::ctypes::c_uint,
+        flags: core::ffi::c_uint,
         vertexSyncObject: *mut SceGxmSyncObject,
         vertexNotification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmNotificationWait(notification: *const SceGxmNotification) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceGxmNotificationWait(notification: *const SceGxmNotification) -> core::ffi::c_int;
     pub fn sceGxmPadHeartbeat(
         displaySurface: *const SceGxmColorSurface,
         displaySyncObject: *mut SceGxmSyncObject,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmPadTriggerGpuPaTrace() -> crate::ctypes::c_int;
-    pub fn sceGxmPopUserMarker(context: *mut SceGxmContext) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceGxmPadTriggerGpuPaTrace() -> core::ffi::c_int;
+    pub fn sceGxmPopUserMarker(context: *mut SceGxmContext) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedDrawInit(
         precomputedDraw: *mut SceGxmPrecomputedDraw,
         vertexProgram: *const SceGxmVertexProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        memBlock: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedDrawSetAllVertexStreams(
         precomputedDraw: *mut SceGxmPrecomputedDraw,
-        streamDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        streamDataArray: *const *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedDrawSetParams(
         precomputedDraw: *mut SceGxmPrecomputedDraw,
         primType: SceGxmPrimitiveType,
         indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
+        indexData: *const core::ffi::c_void,
+        indexCount: core::ffi::c_uint,
     );
     pub fn sceGxmPrecomputedDrawSetParamsInstanced(
         precomputedDraw: *mut SceGxmPrecomputedDraw,
         primType: SceGxmPrimitiveType,
         indexType: SceGxmIndexFormat,
-        indexData: *const crate::ctypes::c_void,
-        indexCount: crate::ctypes::c_uint,
-        indexWrap: crate::ctypes::c_uint,
+        indexData: *const core::ffi::c_void,
+        indexCount: core::ffi::c_uint,
+        indexWrap: core::ffi::c_uint,
     );
     pub fn sceGxmPrecomputedDrawSetVertexStream(
         precomputedDraw: *mut SceGxmPrecomputedDraw,
-        streamIndex: crate::ctypes::c_uint,
-        streamData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        streamIndex: core::ffi::c_uint,
+        streamData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateGetDefaultUniformBuffer(
         precomputedState: *const SceGxmPrecomputedFragmentState,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceGxmPrecomputedFragmentStateInit(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
         fragmentProgram: *const SceGxmFragmentProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        memBlock: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetAllAuxiliarySurfaces(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
         auxSurfaceArray: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetAllTextures(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
         textureArray: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetAllUniformBuffers(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
-        bufferDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        bufferDataArray: *const *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetDefaultUniformBuffer(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
-        defaultBuffer: *mut crate::ctypes::c_void,
+        defaultBuffer: *mut core::ffi::c_void,
     );
     pub fn sceGxmPrecomputedFragmentStateSetTexture(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
-        textureIndex: crate::ctypes::c_uint,
+        textureIndex: core::ffi::c_uint,
         texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetUniformBuffer(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        bufferIndex: core::ffi::c_uint,
+        bufferData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedVertexStateGetDefaultUniformBuffer(
         precomputedState: *const SceGxmPrecomputedVertexState,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceGxmPrecomputedVertexStateInit(
         precomputedState: *mut SceGxmPrecomputedVertexState,
         vertexProgram: *const SceGxmVertexProgram,
-        memBlock: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        memBlock: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedVertexStateSetAllTextures(
         precomputedState: *mut SceGxmPrecomputedVertexState,
         textures: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedVertexStateSetAllUniformBuffers(
         precomputedState: *mut SceGxmPrecomputedVertexState,
-        bufferDataArray: *const *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        bufferDataArray: *const *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedVertexStateSetDefaultUniformBuffer(
         precomputedState: *mut SceGxmPrecomputedVertexState,
-        defaultBuffer: *mut crate::ctypes::c_void,
+        defaultBuffer: *mut core::ffi::c_void,
     );
     pub fn sceGxmPrecomputedVertexStateSetTexture(
         precomputedState: *mut SceGxmPrecomputedVertexState,
-        textureIndex: crate::ctypes::c_uint,
+        textureIndex: core::ffi::c_uint,
         texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmPrecomputedVertexStateSetUniformBuffer(
         precomputedState: *mut SceGxmPrecomputedVertexState,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmProgramCheck(program: *const SceGxmProgram) -> crate::ctypes::c_int;
+        bufferIndex: core::ffi::c_uint,
+        bufferData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceGxmProgramCheck(program: *const SceGxmProgram) -> core::ffi::c_int;
     pub fn sceGxmProgramFindParameterByName(
         program: *const SceGxmProgram,
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
     ) -> *const SceGxmProgramParameter;
     pub fn sceGxmProgramFindParameterBySemantic(
         program: *const SceGxmProgram,
         semantic: SceGxmParameterSemantic,
-        index: crate::ctypes::c_uint,
+        index: core::ffi::c_uint,
     ) -> *const SceGxmProgramParameter;
     pub fn sceGxmProgramGetDefaultUniformBufferSize(
         program: *const SceGxmProgram,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramGetParameter(
         program: *const SceGxmProgram,
-        index: crate::ctypes::c_uint,
+        index: core::ffi::c_uint,
     ) -> *const SceGxmProgramParameter;
-    pub fn sceGxmProgramGetParameterCount(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
-    pub fn sceGxmProgramGetSize(program: *const SceGxmProgram) -> crate::ctypes::c_uint;
+    pub fn sceGxmProgramGetParameterCount(program: *const SceGxmProgram) -> core::ffi::c_uint;
+    pub fn sceGxmProgramGetSize(program: *const SceGxmProgram) -> core::ffi::c_uint;
     pub fn sceGxmProgramGetType(program: *const SceGxmProgram) -> SceGxmProgramType;
     pub fn sceGxmProgramIsDepthReplaceUsed(program: *const SceGxmProgram) -> SceBool;
     pub fn sceGxmProgramIsDiscardUsed(program: *const SceGxmProgram) -> SceBool;
     pub fn sceGxmProgramIsSpriteCoordUsed(program: *const SceGxmProgram) -> SceBool;
     pub fn sceGxmProgramParameterGetArraySize(
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetCategory(
         parameter: *const SceGxmProgramParameter,
     ) -> SceGxmParameterCategory;
     pub fn sceGxmProgramParameterGetComponentCount(
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetContainerIndex(
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetIndex(
         program: *const SceGxmProgram,
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetName(
         parameter: *const SceGxmProgramParameter,
-    ) -> *const crate::ctypes::c_char;
+    ) -> *const core::ffi::c_char;
     pub fn sceGxmProgramParameterGetResourceIndex(
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetSemantic(
         parameter: *const SceGxmProgramParameter,
     ) -> SceGxmParameterSemantic;
     pub fn sceGxmProgramParameterGetSemanticIndex(
         parameter: *const SceGxmProgramParameter,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmProgramParameterGetType(
         parameter: *const SceGxmProgramParameter,
     ) -> SceGxmParameterType;
@@ -12588,33 +12445,33 @@ extern "C" {
         -> SceBool;
     pub fn sceGxmPushUserMarker(
         context: *mut SceGxmContext,
-        tag: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        tag: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceGxmRenderTargetGetDriverMemBlock(
         renderTarget: *const SceGxmRenderTarget,
         driverMemBlock: *mut SceUID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmRenderTargetGetHostMem(
         renderTarget: *const SceGxmRenderTarget,
-        hostMem: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        hostMem: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmReserveFragmentDefaultUniformBuffer(
         context: *mut SceGxmContext,
-        uniformBuffer: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        uniformBuffer: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmReserveVertexDefaultUniformBuffer(
         context: *mut SceGxmContext,
-        uniformBuffer: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        uniformBuffer: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetAuxiliarySurface(
         context: *mut SceGxmContext,
-        surfaceIndex: crate::ctypes::c_uint,
+        surfaceIndex: core::ffi::c_uint,
         surface: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetBackDepthBias(
         context: *mut SceGxmContext,
-        factor: crate::ctypes::c_int,
-        units: crate::ctypes::c_int,
+        factor: core::ffi::c_int,
+        units: core::ffi::c_int,
     );
     pub fn sceGxmSetBackDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
     pub fn sceGxmSetBackDepthWriteEnable(context: *mut SceGxmContext, enable: SceGxmDepthWriteMode);
@@ -12626,7 +12483,7 @@ extern "C" {
         context: *mut SceGxmContext,
         enable: SceGxmLineFillLastPixelMode,
     );
-    pub fn sceGxmSetBackPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
+    pub fn sceGxmSetBackPointLineWidth(context: *mut SceGxmContext, width: core::ffi::c_uint);
     pub fn sceGxmSetBackPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
     pub fn sceGxmSetBackStencilFunc(
         context: *mut SceGxmContext,
@@ -12634,47 +12491,44 @@ extern "C" {
         stencilFail: SceGxmStencilOp,
         depthFail: SceGxmStencilOp,
         depthPass: SceGxmStencilOp,
-        compareMask: crate::ctypes::c_uchar,
-        writeMask: crate::ctypes::c_uchar,
+        compareMask: core::ffi::c_uchar,
+        writeMask: core::ffi::c_uchar,
     );
-    pub fn sceGxmSetBackStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
+    pub fn sceGxmSetBackStencilRef(context: *mut SceGxmContext, sref: core::ffi::c_uint);
     pub fn sceGxmSetBackVisibilityTestEnable(
         context: *mut SceGxmContext,
         enable: SceGxmVisibilityTestMode,
     );
-    pub fn sceGxmSetBackVisibilityTestIndex(
-        context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
-    );
+    pub fn sceGxmSetBackVisibilityTestIndex(context: *mut SceGxmContext, index: core::ffi::c_uint);
     pub fn sceGxmSetBackVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
     pub fn sceGxmSetCullMode(context: *mut SceGxmContext, mode: SceGxmCullMode);
     pub fn sceGxmSetDefaultRegionClipAndViewport(
         context: *mut SceGxmContext,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
+        xMax: core::ffi::c_uint,
+        yMax: core::ffi::c_uint,
     );
     pub fn sceGxmSetFragmentDefaultUniformBuffer(
         context: *mut SceGxmContext,
-        uniformBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        uniformBuffer: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetFragmentProgram(
         context: *mut SceGxmContext,
         fragmentProgram: *const SceGxmFragmentProgram,
     );
     pub fn sceGxmSetFragmentTexture(
         context: *mut SceGxmContext,
-        textureIndex: crate::ctypes::c_uint,
+        textureIndex: core::ffi::c_uint,
         texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetFragmentUniformBuffer(
         context: *mut SceGxmContext,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        bufferIndex: core::ffi::c_uint,
+        bufferData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetFrontDepthBias(
         context: *mut SceGxmContext,
-        factor: crate::ctypes::c_int,
-        units: crate::ctypes::c_int,
+        factor: core::ffi::c_int,
+        units: core::ffi::c_int,
     );
     pub fn sceGxmSetFrontDepthFunc(context: *mut SceGxmContext, depthFunc: SceGxmDepthFunc);
     pub fn sceGxmSetFrontDepthWriteEnable(
@@ -12689,7 +12543,7 @@ extern "C" {
         context: *mut SceGxmContext,
         enable: SceGxmLineFillLastPixelMode,
     );
-    pub fn sceGxmSetFrontPointLineWidth(context: *mut SceGxmContext, width: crate::ctypes::c_uint);
+    pub fn sceGxmSetFrontPointLineWidth(context: *mut SceGxmContext, width: core::ffi::c_uint);
     pub fn sceGxmSetFrontPolygonMode(context: *mut SceGxmContext, mode: SceGxmPolygonMode);
     pub fn sceGxmSetFrontStencilFunc(
         context: *mut SceGxmContext,
@@ -12697,18 +12551,15 @@ extern "C" {
         stencilFail: SceGxmStencilOp,
         depthFail: SceGxmStencilOp,
         depthPass: SceGxmStencilOp,
-        compareMask: crate::ctypes::c_uchar,
-        writeMask: crate::ctypes::c_uchar,
+        compareMask: core::ffi::c_uchar,
+        writeMask: core::ffi::c_uchar,
     );
-    pub fn sceGxmSetFrontStencilRef(context: *mut SceGxmContext, sref: crate::ctypes::c_uint);
+    pub fn sceGxmSetFrontStencilRef(context: *mut SceGxmContext, sref: core::ffi::c_uint);
     pub fn sceGxmSetFrontVisibilityTestEnable(
         context: *mut SceGxmContext,
         enable: SceGxmVisibilityTestMode,
     );
-    pub fn sceGxmSetFrontVisibilityTestIndex(
-        context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
-    );
+    pub fn sceGxmSetFrontVisibilityTestIndex(context: *mut SceGxmContext, index: core::ffi::c_uint);
     pub fn sceGxmSetFrontVisibilityTestOp(context: *mut SceGxmContext, op: SceGxmVisibilityTestOp);
     pub fn sceGxmSetPrecomputedFragmentState(
         context: *mut SceGxmContext,
@@ -12721,47 +12572,47 @@ extern "C" {
     pub fn sceGxmSetRegionClip(
         context: *mut SceGxmContext,
         mode: SceGxmRegionClipMode,
-        xMin: crate::ctypes::c_uint,
-        yMin: crate::ctypes::c_uint,
-        xMax: crate::ctypes::c_uint,
-        yMax: crate::ctypes::c_uint,
+        xMin: core::ffi::c_uint,
+        yMin: core::ffi::c_uint,
+        xMax: core::ffi::c_uint,
+        yMax: core::ffi::c_uint,
     );
     pub fn sceGxmSetTwoSidedEnable(context: *mut SceGxmContext, enable: SceGxmTwoSidedMode);
     pub fn sceGxmSetUniformDataF(
-        uniformBuffer: *mut crate::ctypes::c_void,
+        uniformBuffer: *mut core::ffi::c_void,
         parameter: *const SceGxmProgramParameter,
-        componentOffset: crate::ctypes::c_uint,
-        componentCount: crate::ctypes::c_uint,
+        componentOffset: core::ffi::c_uint,
+        componentCount: core::ffi::c_uint,
         sourceData: *const f32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetUserMarker(
         context: *mut SceGxmContext,
-        tag: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        tag: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetValidationEnable(context: *mut SceGxmContext, enable: SceBool);
     pub fn sceGxmSetVertexDefaultUniformBuffer(
         context: *mut SceGxmContext,
-        uniformBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        uniformBuffer: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetVertexProgram(
         context: *mut SceGxmContext,
         vertexProgram: *const SceGxmVertexProgram,
     );
     pub fn sceGxmSetVertexStream(
         context: *mut SceGxmContext,
-        streamIndex: crate::ctypes::c_uint,
-        streamData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        streamIndex: core::ffi::c_uint,
+        streamData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetVertexTexture(
         context: *mut SceGxmContext,
-        textureIndex: crate::ctypes::c_uint,
+        textureIndex: core::ffi::c_uint,
         texture: *const SceGxmTexture,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetVertexUniformBuffer(
         context: *mut SceGxmContext,
-        bufferIndex: crate::ctypes::c_uint,
-        bufferData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        bufferIndex: core::ffi::c_uint,
+        bufferData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetViewport(
         context: *mut SceGxmContext,
         xOffset: f32,
@@ -12774,29 +12625,29 @@ extern "C" {
     pub fn sceGxmSetViewportEnable(context: *mut SceGxmContext, enable: SceGxmViewportMode);
     pub fn sceGxmSetVisibilityBuffer(
         context: *mut SceGxmContext,
-        bufferBase: *mut crate::ctypes::c_void,
-        stridePerCore: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        bufferBase: *mut core::ffi::c_void,
+        stridePerCore: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmSetWBufferEnable(context: *mut SceGxmContext, enable: SceGxmWBufferMode);
     pub fn sceGxmSetWClampEnable(context: *mut SceGxmContext, enable: SceGxmWClampMode);
     pub fn sceGxmSetWClampValue(context: *mut SceGxmContext, clampValue: f32);
     pub fn sceGxmSetYuvProfile(
         context: *mut SceGxmContext,
-        index: crate::ctypes::c_uint,
+        index: core::ffi::c_uint,
         profile: SceGxmYuvProfile,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherAddRefFragmentProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         fragmentProgram: *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherAddRefVertexProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         vertexProgram: *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherCreate(
         params: *const SceGxmShaderPatcherParams,
         shaderPatcher: *mut *mut SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherCreateFragmentProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         programId: SceGxmShaderPatcherId,
@@ -12805,204 +12656,202 @@ extern "C" {
         blendInfo: *const SceGxmBlendInfo,
         vertexProgram: *const SceGxmProgram,
         fragmentProgram: *mut *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherCreateMaskUpdateFragmentProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         fragmentProgram: *mut *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherCreateVertexProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         programId: SceGxmShaderPatcherId,
         attributes: *const SceGxmVertexAttribute,
-        attributeCount: crate::ctypes::c_uint,
+        attributeCount: core::ffi::c_uint,
         streams: *const SceGxmVertexStream,
-        streamCount: crate::ctypes::c_uint,
+        streamCount: core::ffi::c_uint,
         vertexProgram: *mut *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmShaderPatcherDestroy(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceGxmShaderPatcherDestroy(shaderPatcher: *mut SceGxmShaderPatcher) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherForceUnregisterProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         programId: SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherGetBufferMemAllocated(
         shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmShaderPatcherGetFragmentProgramRefCount(
         shaderPatcher: *mut SceGxmShaderPatcher,
         fragmentProgram: *mut SceGxmFragmentProgram,
-        count: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        count: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherGetFragmentUsseMemAllocated(
         shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmShaderPatcherGetHostMemAllocated(
         shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmShaderPatcherGetProgramFromId(
         programId: SceGxmShaderPatcherId,
     ) -> *const SceGxmProgram;
     pub fn sceGxmShaderPatcherGetUserData(
         shaderPatcher: *mut SceGxmShaderPatcher,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceGxmShaderPatcherGetVertexProgramRefCount(
         shaderPatcher: *mut SceGxmShaderPatcher,
         fragmentProgram: *mut SceGxmVertexProgram,
-        count: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        count: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherGetVertexUsseMemAllocated(
         shaderPatcher: *const SceGxmShaderPatcher,
-    ) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_uint;
     pub fn sceGxmShaderPatcherRegisterProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         programHeader: *const SceGxmProgram,
         programId: *mut SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherReleaseFragmentProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         fragmentProgram: *mut SceGxmFragmentProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherReleaseVertexProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         vertexProgram: *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherSetAuxiliarySurface(
         shaderPatcher: *mut SceGxmShaderPatcher,
-        auxSurfaceIndex: crate::ctypes::c_uint,
+        auxSurfaceIndex: core::ffi::c_uint,
         auxSurface: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherSetUserData(
         shaderPatcher: *mut SceGxmShaderPatcher,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        userData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmShaderPatcherUnregisterProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         programId: SceGxmShaderPatcherId,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmSyncObjectCreate(syncObject: *mut *mut SceGxmSyncObject) -> crate::ctypes::c_int;
-    pub fn sceGxmSyncObjectDestroy(syncObject: *mut SceGxmSyncObject) -> crate::ctypes::c_int;
-    pub fn sceGxmTerminate() -> crate::ctypes::c_int;
-    pub fn sceGxmTextureGetData(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
+    ) -> core::ffi::c_int;
+    pub fn sceGxmSyncObjectCreate(syncObject: *mut *mut SceGxmSyncObject) -> core::ffi::c_int;
+    pub fn sceGxmSyncObjectDestroy(syncObject: *mut SceGxmSyncObject) -> core::ffi::c_int;
+    pub fn sceGxmTerminate() -> core::ffi::c_int;
+    pub fn sceGxmTextureGetData(texture: *const SceGxmTexture) -> *mut core::ffi::c_void;
     pub fn sceGxmTextureGetFormat(texture: *const SceGxmTexture) -> SceGxmTextureFormat;
     pub fn sceGxmTextureGetGammaMode(texture: *const SceGxmTexture) -> SceGxmTextureGammaMode;
-    pub fn sceGxmTextureGetHeight(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-    pub fn sceGxmTextureGetLodBias(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetHeight(texture: *const SceGxmTexture) -> core::ffi::c_uint;
+    pub fn sceGxmTextureGetLodBias(texture: *const SceGxmTexture) -> core::ffi::c_uint;
     pub fn sceGxmTextureGetMagFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
     pub fn sceGxmTextureGetMinFilter(texture: *const SceGxmTexture) -> SceGxmTextureFilter;
     pub fn sceGxmTextureGetMipFilter(texture: *const SceGxmTexture) -> SceGxmTextureMipFilter;
-    pub fn sceGxmTextureGetMipmapCount(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
-    pub fn sceGxmTextureGetPalette(texture: *const SceGxmTexture) -> *mut crate::ctypes::c_void;
-    pub fn sceGxmTextureGetStride(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetMipmapCount(texture: *const SceGxmTexture) -> core::ffi::c_uint;
+    pub fn sceGxmTextureGetPalette(texture: *const SceGxmTexture) -> *mut core::ffi::c_void;
+    pub fn sceGxmTextureGetStride(texture: *const SceGxmTexture) -> core::ffi::c_uint;
     pub fn sceGxmTextureGetType(texture: *const SceGxmTexture) -> SceGxmTextureType;
     pub fn sceGxmTextureGetUAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
     pub fn sceGxmTextureGetVAddrMode(texture: *const SceGxmTexture) -> SceGxmTextureAddrMode;
-    pub fn sceGxmTextureGetWidth(texture: *const SceGxmTexture) -> crate::ctypes::c_uint;
+    pub fn sceGxmTextureGetWidth(texture: *const SceGxmTexture) -> core::ffi::c_uint;
     pub fn sceGxmTextureInitCube(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureInitLinear(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureInitLinearStrided(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        byteStride: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        byteStride: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureInitSwizzled(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureInitSwizzledArbitrary(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureInitTiled(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         texFormat: SceGxmTextureFormat,
-        width: crate::ctypes::c_uint,
-        height: crate::ctypes::c_uint,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+        height: core::ffi::c_uint,
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetData(
         texture: *mut SceGxmTexture,
-        data: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        data: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetFormat(
         texture: *mut SceGxmTexture,
         texFormat: SceGxmTextureFormat,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetGammaMode(
         texture: *mut SceGxmTexture,
         gammaMode: SceGxmTextureGammaMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetHeight(
         texture: *mut SceGxmTexture,
-        height: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        height: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetLodBias(
         texture: *mut SceGxmTexture,
-        bias: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        bias: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetMagFilter(
         texture: *mut SceGxmTexture,
         magFilter: SceGxmTextureFilter,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetMinFilter(
         texture: *mut SceGxmTexture,
         minFilter: SceGxmTextureFilter,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetMipFilter(
         texture: *mut SceGxmTexture,
         mipFilter: SceGxmTextureMipFilter,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetMipmapCount(
         texture: *mut SceGxmTexture,
-        mipCount: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        mipCount: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetPalette(
         texture: *mut SceGxmTexture,
-        paletteData: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        paletteData: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetStride(
         texture: *mut SceGxmTexture,
-        byteStride: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        byteStride: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetUAddrMode(
         texture: *mut SceGxmTexture,
         addrMode: SceGxmTextureAddrMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetVAddrMode(
         texture: *mut SceGxmTexture,
         addrMode: SceGxmTextureAddrMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTextureSetWidth(
         texture: *mut SceGxmTexture,
-        width: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmTextureValidate(texture: *const SceGxmTexture) -> crate::ctypes::c_int;
+        width: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceGxmTextureValidate(texture: *const SceGxmTexture) -> core::ffi::c_int;
     pub fn sceGxmTransferCopy(
         width: u32,
         height: u32,
@@ -13011,41 +12860,41 @@ extern "C" {
         colorKeyMode: SceGxmTransferColorKeyMode,
         srcFormat: SceGxmTransferFormat,
         srcType: SceGxmTransferType,
-        srcAddress: *const crate::ctypes::c_void,
+        srcAddress: *const core::ffi::c_void,
         srcX: u32,
         srcY: u32,
         srcStride: i32,
         destFormat: SceGxmTransferFormat,
         destType: SceGxmTransferType,
-        destAddress: *mut crate::ctypes::c_void,
+        destAddress: *mut core::ffi::c_void,
         destX: u32,
         destY: u32,
         destStride: i32,
         syncObject: *mut SceGxmSyncObject,
         syncFlags: u32,
         notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTransferDownscale(
         srcFormat: SceGxmTransferFormat,
-        srcAddress: *const crate::ctypes::c_void,
-        srcX: crate::ctypes::c_uint,
-        srcY: crate::ctypes::c_uint,
-        srcWidth: crate::ctypes::c_uint,
-        srcHeight: crate::ctypes::c_uint,
-        srcStride: crate::ctypes::c_int,
+        srcAddress: *const core::ffi::c_void,
+        srcX: core::ffi::c_uint,
+        srcY: core::ffi::c_uint,
+        srcWidth: core::ffi::c_uint,
+        srcHeight: core::ffi::c_uint,
+        srcStride: core::ffi::c_int,
         destFormat: SceGxmTransferFormat,
-        destAddress: *mut crate::ctypes::c_void,
-        destX: crate::ctypes::c_uint,
-        destY: crate::ctypes::c_uint,
-        destStride: crate::ctypes::c_int,
+        destAddress: *mut core::ffi::c_void,
+        destX: core::ffi::c_uint,
+        destY: core::ffi::c_uint,
+        destStride: core::ffi::c_int,
         syncObject: *mut SceGxmSyncObject,
-        syncFlags: crate::ctypes::c_uint,
+        syncFlags: core::ffi::c_uint,
         notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceGxmTransferFill(
         color: u32,
         destFormat: SceGxmTransferFormat,
-        destAddress: *mut crate::ctypes::c_void,
+        destAddress: *mut core::ffi::c_void,
         destX: u32,
         destY: u32,
         destWidth: u32,
@@ -13054,15 +12903,15 @@ extern "C" {
         syncObject: *mut SceGxmSyncObject,
         syncFlags: u32,
         notification: *const SceGxmNotification,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmTransferFinish() -> crate::ctypes::c_int;
-    pub fn sceGxmUnmapFragmentUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-    pub fn sceGxmUnmapMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-    pub fn sceGxmUnmapVertexUsseMemory(base: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceGxmTransferFinish() -> core::ffi::c_int;
+    pub fn sceGxmUnmapFragmentUsseMemory(base: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn sceGxmUnmapMemory(base: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn sceGxmUnmapVertexUsseMemory(base: *mut core::ffi::c_void) -> core::ffi::c_int;
     pub fn sceGxmVertexProgramGetProgram(
         vertexProgram: *const SceGxmVertexProgram,
     ) -> *const SceGxmProgram;
-    pub fn sceGxmVshInitialize(params: *const SceGxmInitializeParams) -> crate::ctypes::c_int;
+    pub fn sceGxmVshInitialize(params: *const SceGxmInitializeParams) -> core::ffi::c_int;
 }
 #[link(name = "SceHandwriting_stub", kind = "static")]
 #[cfg(feature = "SceHandwriting_stub")]
@@ -13074,306 +12923,298 @@ extern "C" {}
 #[cfg(feature = "SceHid_stub")]
 extern "C" {
     pub fn sceHidKeyboardEnumerate(
-        handle: *mut crate::ctypes::c_int,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        handle: *mut core::ffi::c_int,
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHidKeyboardPeek(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
-        nReports: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        nReports: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHidKeyboardRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidKeyboardReport,
-        nReports: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        nReports: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHidMouseEnumerate(
-        handle: *mut crate::ctypes::c_int,
-        count: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        handle: *mut core::ffi::c_int,
+        count: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHidMouseRead(
         handle: SceUInt32,
         reports: *mut *mut SceHidMouseReport,
-        nReports: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        nReports: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceHttp_stub", kind = "static")]
 #[cfg(feature = "SceHttp_stub")]
 extern "C" {
-    pub fn sceHttpAbortRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceHttpAbortRequest(reqId: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceHttpAddCookie(
-        url: *const crate::ctypes::c_char,
-        cookie: *const crate::ctypes::c_char,
-        cookieLength: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        url: *const core::ffi::c_char,
+        cookie: *const core::ffi::c_char,
+        cookieLength: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpAddRequestHeader(
-        id: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        value: *const crate::ctypes::c_char,
-        mode: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+        value: *const core::ffi::c_char,
+        mode: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpCreateConnection(
-        tmplId: crate::ctypes::c_int,
-        serverName: *const crate::ctypes::c_char,
-        scheme: *const crate::ctypes::c_char,
-        port: crate::ctypes::c_ushort,
-        enableKeepalive: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        tmplId: core::ffi::c_int,
+        serverName: *const core::ffi::c_char,
+        scheme: *const core::ffi::c_char,
+        port: core::ffi::c_ushort,
+        enableKeepalive: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpCreateConnectionWithURL(
-        tmplId: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        enableKeepalive: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        tmplId: core::ffi::c_int,
+        url: *const core::ffi::c_char,
+        enableKeepalive: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpCreateRequest(
-        connId: crate::ctypes::c_int,
-        method: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
+        connId: core::ffi::c_int,
+        method: core::ffi::c_int,
+        path: *const core::ffi::c_char,
+        contentLength: core::ffi::c_ulonglong,
+    ) -> core::ffi::c_int;
     pub fn sceHttpCreateRequestWithURL(
-        connId: crate::ctypes::c_int,
-        method: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
+        connId: core::ffi::c_int,
+        method: core::ffi::c_int,
+        url: *const core::ffi::c_char,
+        contentLength: core::ffi::c_ulonglong,
+    ) -> core::ffi::c_int;
     pub fn sceHttpCreateTemplate(
-        userAgent: *const crate::ctypes::c_char,
-        httpVer: crate::ctypes::c_int,
-        autoProxyConf: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpDeleteConnection(connId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceHttpDeleteRequest(reqId: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceHttpDeleteTemplate(tmplId: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        userAgent: *const core::ffi::c_char,
+        httpVer: core::ffi::c_int,
+        autoProxyConf: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpDeleteConnection(connId: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceHttpDeleteRequest(reqId: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceHttpDeleteTemplate(tmplId: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceHttpGetAllResponseHeaders(
-        reqId: crate::ctypes::c_int,
-        header: *mut *mut crate::ctypes::c_char,
-        headerSize: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        reqId: core::ffi::c_int,
+        header: *mut *mut core::ffi::c_char,
+        headerSize: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpGetAuthEnabled(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpGetAutoRedirect(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpGetCookie(
-        url: *const crate::ctypes::c_char,
-        cookie: *mut crate::ctypes::c_char,
-        cookieLength: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        secure: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        url: *const core::ffi::c_char,
+        cookie: *mut core::ffi::c_char,
+        cookieLength: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
+        secure: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpGetCookieEnabled(
-        id: crate::ctypes::c_int,
-        enable: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpGetMemoryPoolStats(
-        currentStat: *mut SceHttpMemoryPoolStats,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpGetMemoryPoolStats(currentStat: *mut SceHttpMemoryPoolStats) -> core::ffi::c_int;
     pub fn sceHttpGetResponseContentLength(
-        reqId: crate::ctypes::c_int,
-        contentLength: *mut crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
+        reqId: core::ffi::c_int,
+        contentLength: *mut core::ffi::c_ulonglong,
+    ) -> core::ffi::c_int;
     pub fn sceHttpGetStatusCode(
-        reqId: crate::ctypes::c_int,
-        statusCode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpInit(poolSize: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+        reqId: core::ffi::c_int,
+        statusCode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpInit(poolSize: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn sceHttpParseResponseHeader(
-        header: *const crate::ctypes::c_char,
-        headerLen: crate::ctypes::c_uint,
-        fieldStr: *const crate::ctypes::c_char,
-        fieldValue: *mut *const crate::ctypes::c_char,
-        valueLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        header: *const core::ffi::c_char,
+        headerLen: core::ffi::c_uint,
+        fieldStr: *const core::ffi::c_char,
+        fieldValue: *mut *const core::ffi::c_char,
+        valueLen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpParseStatusLine(
-        statusLine: *const crate::ctypes::c_char,
-        lineLen: crate::ctypes::c_uint,
-        httpMajorVer: *mut crate::ctypes::c_int,
-        httpMinorVer: *mut crate::ctypes::c_int,
-        responseCode: *mut crate::ctypes::c_int,
-        reasonPhrase: *mut *const crate::ctypes::c_char,
-        phraseLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        statusLine: *const core::ffi::c_char,
+        lineLen: core::ffi::c_uint,
+        httpMajorVer: *mut core::ffi::c_int,
+        httpMinorVer: *mut core::ffi::c_int,
+        responseCode: *mut core::ffi::c_int,
+        reasonPhrase: *mut *const core::ffi::c_char,
+        phraseLen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpReadData(
-        reqId: crate::ctypes::c_int,
-        data: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        reqId: core::ffi::c_int,
+        data: *mut core::ffi::c_void,
+        size: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpRemoveRequestHeader(
-        id: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSendRequest(
-        reqId: crate::ctypes::c_int,
-        postData: *const crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        reqId: core::ffi::c_int,
+        postData: *const core::ffi::c_void,
+        size: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetAuthEnabled(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetAuthInfoCallback(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         cbfunc: SceHttpAuthInfoCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetAutoRedirect(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetConnectTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        usec: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetCookieEnabled(
-        id: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetCookieRecvCallback(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         cbfunc: SceHttpCookieRecvCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetCookieSendCallback(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         cbfunc: SceHttpCookieSendCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpSetRecvTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpSetRecvTimeOut(id: core::ffi::c_int, usec: core::ffi::c_uint)
+        -> core::ffi::c_int;
     pub fn sceHttpSetRedirectCallback(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         cbfunc: SceHttpRedirectCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetRequestContentLength(
-        id: crate::ctypes::c_int,
-        contentLength: crate::ctypes::c_ulonglong,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        contentLength: core::ffi::c_ulonglong,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetResolveRetry(
-        id: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        retry: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetResolveTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        usec: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpSetResponseHeaderMaxSize(
-        id: crate::ctypes::c_int,
-        headerSize: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpSetSendTimeOut(
-        id: crate::ctypes::c_int,
-        usec: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpTerm() -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        headerSize: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpSetSendTimeOut(id: core::ffi::c_int, usec: core::ffi::c_uint)
+        -> core::ffi::c_int;
+    pub fn sceHttpTerm() -> core::ffi::c_int;
     pub fn sceHttpUriBuild(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
+        out: *mut core::ffi::c_char,
+        require: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
         srcElement: *const SceHttpUriElement,
-        option: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        option: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpUriEscape(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        in_: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        out: *mut core::ffi::c_char,
+        require: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
+        in_: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceHttpUriMerge(
-        mergedUrl: *mut crate::ctypes::c_char,
-        url: *const crate::ctypes::c_char,
-        relativeUrl: *const crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        option: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        mergedUrl: *mut core::ffi::c_char,
+        url: *const core::ffi::c_char,
+        relativeUrl: *const core::ffi::c_char,
+        require: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
+        option: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpUriParse(
         out: *mut SceHttpUriElement,
-        srcUrl: *const crate::ctypes::c_char,
-        pool: *mut crate::ctypes::c_void,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        srcUrl: *const core::ffi::c_char,
+        pool: *mut core::ffi::c_void,
+        require: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpUriSweepPath(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        srcSize: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
+        srcSize: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpUriUnescape(
-        out: *mut crate::ctypes::c_char,
-        require: *mut crate::ctypes::c_uint,
-        prepare: crate::ctypes::c_uint,
-        in_: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpsDisableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceHttpsEnableOption(sslFlags: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceHttpsFreeCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
-    pub fn sceHttpsGetCaList(caList: *mut SceHttpsCaList) -> crate::ctypes::c_int;
+        out: *mut core::ffi::c_char,
+        require: *mut core::ffi::c_uint,
+        prepare: core::ffi::c_uint,
+        in_: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpsDisableOption(sslFlags: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceHttpsEnableOption(sslFlags: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceHttpsFreeCaList(caList: *mut SceHttpsCaList) -> core::ffi::c_int;
+    pub fn sceHttpsGetCaList(caList: *mut SceHttpsCaList) -> core::ffi::c_int;
     pub fn sceHttpsGetSslError(
-        id: crate::ctypes::c_int,
-        errNum: *mut crate::ctypes::c_int,
-        detail: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        errNum: *mut core::ffi::c_int,
+        detail: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceHttpsLoadCert(
-        caCertNum: crate::ctypes::c_int,
+        caCertNum: core::ffi::c_int,
         caList: *mut *const SceHttpsData,
         cert: *const SceHttpsData,
         privKey: *const SceHttpsData,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceHttpsSetSslCallback(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         cbfunc: SceHttpsCallback,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceHttpsUnloadCert() -> crate::ctypes::c_int;
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceHttpsUnloadCert() -> core::ffi::c_int;
 }
 #[link(name = "SceI2cForDriver_stub", kind = "static")]
 #[cfg(feature = "SceI2cForDriver_stub")]
 extern "C" {
-    pub fn ksceI2cInit(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceI2cReset(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceI2cInit(bus: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceI2cReset(bus: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceI2cSetDebugHandlers(
-        bus: crate::ctypes::c_int,
+        bus: core::ffi::c_int,
         debug_handlers: *mut SceI2cDebugHandlers,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceI2cTransferRead(
-        bus: crate::ctypes::c_int,
-        addr: crate::ctypes::c_uint,
-        buffer: *mut crate::ctypes::c_uchar,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+        addr: core::ffi::c_uint,
+        buffer: *mut core::ffi::c_uchar,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceI2cTransferWrite(
-        bus: crate::ctypes::c_int,
-        addr: crate::ctypes::c_uint,
-        buffer: *const crate::ctypes::c_uchar,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+        addr: core::ffi::c_uint,
+        buffer: *const core::ffi::c_uchar,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceI2cTransferWriteRead(
-        bus: crate::ctypes::c_int,
-        write_addr: crate::ctypes::c_uint,
-        write_buffer: *mut crate::ctypes::c_uchar,
-        write_size: crate::ctypes::c_int,
-        read_addr: crate::ctypes::c_uint,
-        read_buffer: *mut crate::ctypes::c_uchar,
-        read_size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+        write_addr: core::ffi::c_uint,
+        write_buffer: *mut core::ffi::c_uchar,
+        write_size: core::ffi::c_int,
+        read_addr: core::ffi::c_uint,
+        read_buffer: *mut core::ffi::c_uchar,
+        read_size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceIdStorageForDriver_stub", kind = "static")]
 #[cfg(feature = "SceIdStorageForDriver_stub")]
 extern "C" {
-    pub fn ksceIdStorageReadLeaf(
-        leafnum: SceSize,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceIdStorageReadLeaf(leafnum: SceSize, buf: *mut core::ffi::c_void)
+        -> core::ffi::c_int;
     pub fn ksceIdStorageWriteLeaf(
         leafnum: SceSize,
-        buf: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        buf: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceIftuForDriver_stub", kind = "static")]
 #[cfg(feature = "SceIftuForDriver_stub")]
@@ -13382,7 +13223,7 @@ extern "C" {
         dst: *mut SceIftuFrameBuf,
         src: *mut SceIftuPlaneState,
         params: *mut SceIftuConvParams,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceIme_stub", kind = "static")]
 #[cfg(feature = "SceIme_stub")]
@@ -13400,84 +13241,83 @@ extern "C" {
     pub fn sceIncomingDialogClose() -> SceInt32;
     pub fn sceIncomingDialogFinish() -> SceInt32;
     pub fn sceIncomingDialogGetStatus() -> SceInt32;
-    pub fn sceIncomingDialogInitialize(init_type: crate::ctypes::c_int) -> SceInt32;
+    pub fn sceIncomingDialogInitialize(init_type: core::ffi::c_int) -> SceInt32;
     pub fn sceIncomingDialogOpen(dialogParam: *mut SceIncomingDialogParam) -> SceInt32;
     pub fn sceIncomingDialogSwitchToDialog() -> SceInt32;
 }
 #[link(name = "SceIntrmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceIntrmgrForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelClearIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceKernelDisableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelClearIntrPending(intr_code: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceKernelDisableIntr(intr_code: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelDisableSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelEnableIntr(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelEnableIntr(intr_code: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelEnableSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetIntrPriority(
-        intr_code: crate::ctypes::c_int,
-        priority: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        priority: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetIntrTarget(
-        intr_code: crate::ctypes::c_int,
-        cpu_target_list: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelIsIntrAllowedInCurrentContext(
-        intr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelIsIntrPending(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        cpu_target_list: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelIsIntrAllowedInCurrentContext(intr_code: core::ffi::c_int)
+        -> core::ffi::c_int;
+    pub fn ksceKernelIsIntrPending(intr_code: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelRegisterIntrHandler(
-        intr_code: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        interrupt_type: crate::ctypes::c_int,
+        intr_code: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+        interrupt_type: core::ffi::c_int,
         handler: SceKernelIntrHandler,
-        user_ctx: *mut crate::ctypes::c_void,
-        priority: crate::ctypes::c_int,
-        target_cpu: crate::ctypes::c_int,
+        user_ctx: *mut core::ffi::c_void,
+        priority: core::ffi::c_int,
+        target_cpu: core::ffi::c_int,
         opt: *mut SceKernelIntrOptParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelRegisterSubIntrHandler(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+        name: *const core::ffi::c_char,
         handler: SceKernelSubIntrHandler,
-        register_arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelReleaseIntrHandler(intr_code: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        register_arg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelReleaseIntrHandler(intr_code: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelReleaseSubIntrHandler(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelResumeIntr(
-        intr_code: crate::ctypes::c_int,
-        enabled: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        enabled: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSetIntrPriority(
-        intr_code: crate::ctypes::c_int,
-        priority: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        priority: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSetIntrTarget(
-        intr_code: crate::ctypes::c_int,
-        cpu_target_list: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        cpu_target_list: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSuspendIntr(
-        intr_code: crate::ctypes::c_int,
-        enabled: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        enabled: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelTriggerSGI(
-        intr_code: crate::ctypes::c_int,
-        target_list_filter: crate::ctypes::c_uint,
-        cpu_target_list: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        target_list_filter: core::ffi::c_uint,
+        cpu_target_list: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelTriggerSubIntr(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-        subintr_arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+        subintr_arg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceIntrmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceIntrmgrForKernel_stub")]
@@ -13486,128 +13326,113 @@ extern "C" {}
 #[cfg(feature = "SceIofilemgrForDriver_stub")]
 extern "C" {
     pub fn ksceIoChstat(
-        file: *const crate::ctypes::c_char,
+        file: *const core::ffi::c_char,
         stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bits: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceIoChstatByFd(
         fd: SceUID,
         stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoClose(fd: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
+        bits: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceIoClose(fd: SceUID) -> core::ffi::c_int;
+    pub fn ksceIoDclose(fd: SceUID) -> core::ffi::c_int;
     pub fn ksceIoDevctl(
-        dev: *const crate::ctypes::c_char,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
-    pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
-    pub fn ksceIoGetFileInfo(
-        fd: SceUID,
-        pid: SceUID,
-        info: *mut SceIofileInfo,
-    ) -> crate::ctypes::c_int;
+        dev: *const core::ffi::c_char,
+        cmd: core::ffi::c_uint,
+        indata: *mut core::ffi::c_void,
+        inlen: core::ffi::c_int,
+        outdata: *mut core::ffi::c_void,
+        outlen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceIoDopen(dirname: *const core::ffi::c_char) -> SceUID;
+    pub fn ksceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> core::ffi::c_int;
+    pub fn ksceIoGetFileInfo(fd: SceUID, pid: SceUID, info: *mut SceIofileInfo)
+        -> core::ffi::c_int;
     pub fn ksceIoGetGUIDFdListForDebugger(
-        vis_level: crate::ctypes::c_int,
+        vis_level: core::ffi::c_int,
         dst: *mut SceIoFdInfo,
         max_size: SceSize,
         res_size: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceIoGetPUIDFdListForDebugger(
-        vis_level: crate::ctypes::c_int,
+        vis_level: core::ffi::c_int,
         dst: *mut SceIoFdInfo,
         max_size: SceSize,
         res_size: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoGetRemoteKPLSData(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoGetstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
-    pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
-    pub fn ksceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceIoGetRemoteKPLSData(pid: SceUID, dst: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn ksceIoGetstat(file: *const core::ffi::c_char, stat: *mut SceIoStat) -> core::ffi::c_int;
+    pub fn ksceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> core::ffi::c_int;
+    pub fn ksceIoLseek(fd: SceUID, offset: SceOff, whence: core::ffi::c_int) -> SceOff;
+    pub fn ksceIoMkdir(dir: *const core::ffi::c_char, mode: SceMode) -> core::ffi::c_int;
     pub fn ksceIoMount(
-        id: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-        a6: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        path: *const core::ffi::c_char,
+        permission: core::ffi::c_int,
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+        a6: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceIoOpen(
-        file: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        file: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
         mode: SceMode,
     ) -> SceUID;
     pub fn ksceIoPread(
         fd: SceUID,
-        data: *mut crate::ctypes::c_void,
+        data: *mut core::ffi::c_void,
         size: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceIoPwrite(
         fd: SceUID,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         size: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoRead(
-        fd: SceUID,
-        data: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceIoRead(fd: SceUID, data: *mut core::ffi::c_void, size: SceSize) -> core::ffi::c_int;
+    pub fn ksceIoRemove(file: *const core::ffi::c_char) -> core::ffi::c_int;
     pub fn ksceIoRename(
-        oldname: *const crate::ctypes::c_char,
-        newname: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn ksceIoSync(
-        device: *const crate::ctypes::c_char,
-        unk: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceIoSyncByFd(fd: SceUID) -> crate::ctypes::c_int;
+        oldname: *const core::ffi::c_char,
+        newname: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn ksceIoRmdir(path: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn ksceIoSync(device: *const core::ffi::c_char, unk: core::ffi::c_uint)
+        -> core::ffi::c_int;
+    pub fn ksceIoSyncByFd(fd: SceUID) -> core::ffi::c_int;
     pub fn ksceIoUmount(
-        id: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+        a4: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceIoWrite(
         fd: SceUID,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceIofilemgr_stub", kind = "static")]
 #[cfg(feature = "SceIofilemgr_stub")]
 extern "C" {
-    pub fn sceIoCancel(fd: SceUID) -> crate::ctypes::c_int;
-    pub fn sceIoClose(fd: SceUID) -> crate::ctypes::c_int;
-    pub fn sceIoDclose(fd: SceUID) -> crate::ctypes::c_int;
-    pub fn sceIoGetPriority(fd: SceUID) -> crate::ctypes::c_int;
-    pub fn sceIoGetProcessDefaultPriority() -> crate::ctypes::c_int;
-    pub fn sceIoGetThreadDefaultPriority() -> crate::ctypes::c_int;
+    pub fn sceIoCancel(fd: SceUID) -> core::ffi::c_int;
+    pub fn sceIoClose(fd: SceUID) -> core::ffi::c_int;
+    pub fn sceIoDclose(fd: SceUID) -> core::ffi::c_int;
+    pub fn sceIoGetPriority(fd: SceUID) -> core::ffi::c_int;
+    pub fn sceIoGetProcessDefaultPriority() -> core::ffi::c_int;
+    pub fn sceIoGetThreadDefaultPriority() -> core::ffi::c_int;
     pub fn sceIoLseek32(
         fd: SceUID,
-        offset: crate::ctypes::c_long,
-        whence: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_long;
-    pub fn sceIoRead(fd: SceUID, buf: *mut crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
-    pub fn sceIoSetPriority(fd: SceUID, priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceIoSetProcessDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceIoSetThreadDefaultPriority(priority: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceIoSyncByFd(fd: SceUID, flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceIoWrite(fd: SceUID, buf: *const crate::ctypes::c_void, nbyte: SceSize) -> SceSSize;
+        offset: core::ffi::c_long,
+        whence: core::ffi::c_int,
+    ) -> core::ffi::c_long;
+    pub fn sceIoRead(fd: SceUID, buf: *mut core::ffi::c_void, nbyte: SceSize) -> SceSSize;
+    pub fn sceIoSetPriority(fd: SceUID, priority: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceIoSetProcessDefaultPriority(priority: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceIoSetThreadDefaultPriority(priority: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceIoSyncByFd(fd: SceUID, flag: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceIoWrite(fd: SceUID, buf: *const core::ffi::c_void, nbyte: SceSize) -> SceSSize;
 }
 #[link(name = "SceJpegArm_stub", kind = "static")]
 #[cfg(feature = "SceJpegArm_stub")]
@@ -13616,110 +13441,110 @@ extern "C" {
         pJpeg: *const SceUInt8,
         isize_: SceSize,
         decodeMode: SceInt,
-        pRGBA: *mut crate::ctypes::c_void,
+        pRGBA: *mut core::ffi::c_void,
         osize: SceSize,
-        pCoefBuffer: *mut crate::ctypes::c_void,
+        pCoefBuffer: *mut core::ffi::c_void,
         coefBufferSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmDecodeMJpegYCbCr(
         pJpeg: *const SceUInt8,
         isize_: SceSize,
         decodeMode: SceInt,
         pYCbCr: *mut SceUInt8,
         osize: SceSize,
-        pCoefBuffer: *mut crate::ctypes::c_void,
+        pCoefBuffer: *mut core::ffi::c_void,
         coefBufferSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmGetOutputInfo(
         pJpeg: *const SceUInt8,
         isize_: SceSize,
         decodeMode: SceInt,
         outputFormat: SceInt,
         pOutputInfo: *mut SceJpegOutputInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceJpegEncArm_stub", kind = "static")]
 #[cfg(feature = "SceJpegEncArm_stub")]
 extern "C" {
     pub fn sceJpegArmEncoderEncode(
         context: SceJpegArmEncoderContext,
-        inBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceJpegArmEncoderEnd(context: SceJpegArmEncoderContext) -> crate::ctypes::c_int;
+        inBuffer: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceJpegArmEncoderEnd(context: SceJpegArmEncoderContext) -> core::ffi::c_int;
     pub fn sceJpegArmEncoderGetContextSize() -> SceSize;
     pub fn sceJpegArmEncoderInit(
         context: SceJpegArmEncoderContext,
         inWidth: SceUInt16,
         inHeight: SceUInt16,
         pixelformat: SceJpegArmEncoderPixelFormat,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmEncoderSetCompressionRatio(
         context: SceJpegArmEncoderContext,
         ratio: SceUInt8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmEncoderSetHeaderMode(
         context: SceJpegArmEncoderContext,
         mode: SceJpegArmEncoderHeaderMode,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmEncoderSetOutputAddr(
         context: SceJpegArmEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegArmEncoderSetValidRegion(
         context: SceJpegArmEncoderContext,
         regionWidth: SceUInt16,
         regionHeight: SceUInt16,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceJpegEnc_stub", kind = "static")]
 #[cfg(feature = "SceJpegEnc_stub")]
 extern "C" {
     pub fn sceJpegEncoderCsc(
         context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
-        inBuffer: *const crate::ctypes::c_void,
-        inPitch: crate::ctypes::c_int,
+        outBuffer: *mut core::ffi::c_void,
+        inBuffer: *const core::ffi::c_void,
+        inPitch: core::ffi::c_int,
         inPixelFormat: SceJpegEncoderPixelFormat,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderEncode(
         context: SceJpegEncoderContext,
-        inBuffer: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceJpegEncoderEnd(context: SceJpegEncoderContext) -> crate::ctypes::c_int;
-    pub fn sceJpegEncoderGetContextSize() -> crate::ctypes::c_int;
+        inBuffer: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceJpegEncoderEnd(context: SceJpegEncoderContext) -> core::ffi::c_int;
+    pub fn sceJpegEncoderGetContextSize() -> core::ffi::c_int;
     pub fn sceJpegEncoderInit(
         context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
+        inWidth: core::ffi::c_int,
+        inHeight: core::ffi::c_int,
         pixelformat: SceJpegEncoderPixelFormat,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderInitWithParam(
         context: SceJpegEncoderContext,
         initParam: *const SceJpegEncoderInitParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderSetCompressionRatio(
         context: SceJpegEncoderContext,
-        ratio: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        ratio: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderSetHeaderMode(
         context: SceJpegEncoderContext,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderSetOutputAddr(
         context: SceJpegEncoderContext,
-        outBuffer: *mut crate::ctypes::c_void,
+        outBuffer: *mut core::ffi::c_void,
         outSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceJpegEncoderSetValidRegion(
         context: SceJpegEncoderContext,
-        inWidth: crate::ctypes::c_int,
-        inHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        inWidth: core::ffi::c_int,
+        inHeight: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceJpeg_stub", kind = "static")]
 #[cfg(feature = "SceJpeg_stub")]
@@ -13730,19 +13555,19 @@ extern "C" {
         mode: SceInt32,
         output: *mut SceUInt8,
         outputSize: SceSize,
-        buffer: *mut crate::ctypes::c_void,
+        buffer: *mut core::ffi::c_void,
         bufferSize: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceJpegFinishMJpeg() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceJpegFinishMJpeg() -> core::ffi::c_int;
     pub fn sceJpegGetOutputInfo(
         jpegData: *const SceUInt8,
         jpegSize: SceSize,
         format: SceInt32,
         mode: SceInt32,
         output: *mut SceJpegOutputInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceJpegInitMJpeg(decoderCount: SceInt32) -> crate::ctypes::c_int;
-    pub fn sceJpegInitMJpegWithParam(params: *const SceJpegMJpegInitParam) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceJpegInitMJpeg(decoderCount: SceInt32) -> core::ffi::c_int;
+    pub fn sceJpegInitMJpegWithParam(params: *const SceJpegMJpegInitParam) -> core::ffi::c_int;
     pub fn sceJpegMJpegCsc(
         rgba: *mut SceUInt8,
         yuv: *const SceUInt8,
@@ -13750,7 +13575,7 @@ extern "C" {
         imageWidth: SceInt32,
         format: SceInt32,
         sampling: SceInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceKernelBootimage_stub", kind = "static")]
 #[cfg(feature = "SceKernelBootimage_stub")]
@@ -13759,15 +13584,15 @@ extern "C" {}
 #[cfg(feature = "SceKernelDmacMgr_stub")]
 extern "C" {
     pub fn sceDmacMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceDmacMemset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
+        dst: *mut core::ffi::c_void,
+        ch: core::ffi::c_int,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceKernelModulemgr_stub", kind = "static")]
 #[cfg(feature = "SceKernelModulemgr_stub")]
@@ -13775,308 +13600,285 @@ extern "C" {
     pub fn _sceKernelCloseModule(
         modid: SceUID,
         args: SceSize,
-        argp: *const crate::ctypes::c_void,
+        argp: *const core::ffi::c_void,
         flags: SceUInt32,
     ) -> SceUID;
     pub fn _sceKernelLoadModule(
-        module_filename: *const crate::ctypes::c_char,
+        module_filename: *const core::ffi::c_char,
         flags: SceUInt32,
         option: *const SceKernelLoadModuleOption,
     ) -> SceUID;
     pub fn _sceKernelLoadStartModule(
-        module_filename: *const crate::ctypes::c_char,
+        module_filename: *const core::ffi::c_char,
         args: SceSize,
-        argp: *const crate::ctypes::c_void,
+        argp: *const core::ffi::c_void,
         flags: SceUInt32,
     ) -> SceUID;
     pub fn _sceKernelOpenModule(
-        module_filename: *const crate::ctypes::c_char,
+        module_filename: *const core::ffi::c_char,
         args: SceSize,
-        argp: *const crate::ctypes::c_void,
+        argp: *const core::ffi::c_void,
         flags: SceUInt32,
     ) -> SceUID;
     pub fn _sceKernelStopModule(
         uid: SceUID,
         args: SceSize,
-        argp: *const crate::ctypes::c_void,
+        argp: *const core::ffi::c_void,
         flags: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceKernelStopUnloadModule(
         uid: SceUID,
         args: SceSize,
-        argp: *const crate::ctypes::c_void,
+        argp: *const core::ffi::c_void,
         flags: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceKernelUnloadModule(
         uid: SceUID,
         flags: SceUInt32,
         option: *const SceKernelUnloadModuleOption,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelGetAllowedSdkVersionOnSystem() -> SceUInt32;
     pub fn sceKernelGetLibraryInfoByNID(
         modid: SceUID,
         libnid: SceNID,
         info: *mut SceKernelLibraryInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetModuleIdByAddr(addr: *mut crate::ctypes::c_void) -> SceUID;
-    pub fn sceKernelGetModuleInfo(
-        uid: SceUID,
-        info: *mut SceKernelModuleInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetModuleIdByAddr(addr: *mut core::ffi::c_void) -> SceUID;
+    pub fn sceKernelGetModuleInfo(uid: SceUID, info: *mut SceKernelModuleInfo) -> core::ffi::c_int;
     pub fn sceKernelGetModuleList(
         type_: SceUInt8,
         uids: *mut SceUID,
         num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetSystemSwVersion(
-        version: *mut SceKernelSystemSwVersion,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelIsCalledFromSysModule(lr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetSystemSwVersion(version: *mut SceKernelSystemSwVersion) -> core::ffi::c_int;
+    pub fn sceKernelIsCalledFromSysModule(lr: *mut core::ffi::c_void) -> core::ffi::c_int;
 }
 #[link(name = "SceKernelSuspendForDriver_stub", kind = "static")]
 #[cfg(feature = "SceKernelSuspendForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    pub fn ksceKernelPowerTick(type_: SceKernelPowerTickType) -> core::ffi::c_int;
     pub fn ksceKernelRegisterSysEventHandler(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         handler: SceSysEventHandler,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceKernelThreadMgr_stub", kind = "static")]
 #[cfg(feature = "SceKernelThreadMgr_stub")]
 extern "C" {
-    pub fn sceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelCancelCallback(cb: SceUID) -> core::ffi::c_int;
     pub fn sceKernelChangeThreadCpuAffinityMask(
         thid: SceUID,
-        mask: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        mask: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelChangeThreadPriority(
         thid: SceUID,
-        priority: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelCheckCallback() -> crate::ctypes::c_int;
-    pub fn sceKernelClearEventFlag(
-        evid: SceUID,
-        bits: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelCloseCond(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelCloseMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelCloseSema(semaid: SceUID) -> crate::ctypes::c_int;
+        priority: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelCheckCallback() -> core::ffi::c_int;
+    pub fn sceKernelClearEventFlag(evid: SceUID, bits: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceKernelCloseCond(condId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelCloseMutex(mutexid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelCloseRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelCloseSema(semaid: SceUID) -> core::ffi::c_int;
     pub fn sceKernelCreateCallback(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
+        name: *const core::ffi::c_char,
+        attr: core::ffi::c_uint,
         func: SceKernelCallbackFunction,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-    pub fn sceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteEventFlag(evid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+        userData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelDelayThread(delay: SceUInt) -> core::ffi::c_int;
+    pub fn sceKernelDelayThreadCB(delay: SceUInt) -> core::ffi::c_int;
+    pub fn sceKernelDeleteCallback(cb: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteCond(condId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteEventFlag(evid: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelDeleteMsgPipe(uid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteMutex(mutexid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteSema(semaid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelDeleteThread(thid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelExitDeleteThread(status: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelExitThread(status: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelGetCallbackCount(cb: SceUID) -> core::ffi::c_int;
     pub fn sceKernelGetProcessId() -> SceUID;
     pub fn sceKernelGetSystemTimeWide() -> SceInt64;
-    pub fn sceKernelGetThreadCpuAffinityMask(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelGetThreadTLSAddr(
-        thid: SceUID,
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
+    pub fn sceKernelGetThreadCpuAffinityMask(thid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelGetThreadStackFreeSize(thid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelGetThreadTLSAddr(thid: SceUID, key: core::ffi::c_int)
+        -> *mut core::ffi::c_void;
     pub fn sceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
-    pub fn sceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelOpenCond(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceKernelOpenMutex(name: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceKernelOpenRWLock(name: *const crate::ctypes::c_char) -> SceUID;
-    pub fn sceKernelOpenSema(name: *const crate::ctypes::c_char) -> SceUID;
-    pub fn sceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelSendSignal(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelSetEventFlag(evid: SceUID, bits: crate::ctypes::c_uint)
-        -> crate::ctypes::c_int;
-    pub fn sceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelSignalSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelTryLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelTryLockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelTryLockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelUnlockMutex(
-        mutexid: SceUID,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelNotifyCallback(cb: SceUID, arg2: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelOpenCond(name: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceKernelOpenMutex(name: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceKernelOpenRWLock(name: *const core::ffi::c_char) -> SceUID;
+    pub fn sceKernelOpenSema(name: *const core::ffi::c_char) -> SceUID;
+    pub fn sceKernelPollSema(semaid: SceUID, signal: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelSendSignal(thid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelSetEventFlag(evid: SceUID, bits: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceKernelSignalCond(condId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelSignalCondAll(condId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelSignalSema(semaid: SceUID, signal: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelTryLockMutex(mutexid: SceUID, lockCount: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelTryLockReadRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelTryLockWriteRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelUnlockMutex(mutexid: SceUID, unlockCount: core::ffi::c_int)
+        -> core::ffi::c_int;
+    pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "SceKernelUtilsForDriver_stub", kind = "static")]
 #[cfg(feature = "SceKernelUtilsForDriver_stub")]
 extern "C" {
     pub fn ksceAesDecrypt1(
         ctx: *mut SceAesContext,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesDecrypt2(
         ctx: *mut SceAesContext,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesEncrypt1(
         ctx: *mut SceAesContext,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesEncrypt2(
         ctx: *mut SceAesContext,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesInit1(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
-        key: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        key: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesInit2(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
-        key: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        key: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceAesInit3(
         ctx: *mut SceAesContext,
         blocksize: SceSize,
         keysize: SceSize,
-        key: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        key: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceDeflateDecompress(
-        dst: *mut crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
         dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        next: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        next: *mut *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceDeflateDecompressPartial(
-        dst: *mut crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
         dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
-        next: *mut *const crate::ctypes::c_void,
+        src: *const core::ffi::c_void,
+        next: *mut *const core::ffi::c_void,
         cbInfo: *mut SceDeflatePartialInputParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceGzipDecompress(
-        dst: *mut crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
         dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
+        src: *const core::ffi::c_void,
         crc32: *mut u32,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGzipGetComment(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
-    pub fn ksceGzipGetCompressedData(
-        src: *const crate::ctypes::c_void,
-    ) -> *const crate::ctypes::c_void;
+    ) -> core::ffi::c_int;
+    pub fn ksceGzipGetComment(src: *const core::ffi::c_void) -> *const core::ffi::c_char;
+    pub fn ksceGzipGetCompressedData(src: *const core::ffi::c_void) -> *const core::ffi::c_void;
     pub fn ksceGzipGetInfo(
-        src: *const crate::ctypes::c_void,
-        extra: *mut *const crate::ctypes::c_void,
-        name: *mut *const crate::ctypes::c_char,
-        comment: *mut *const crate::ctypes::c_char,
-        crc: *mut crate::ctypes::c_ushort,
-        data: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGzipGetName(src: *const crate::ctypes::c_void) -> *const crate::ctypes::c_char;
-    pub fn ksceGzipIsValid(src: *const crate::ctypes::c_void) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        extra: *mut *const core::ffi::c_void,
+        name: *mut *const core::ffi::c_char,
+        comment: *mut *const core::ffi::c_char,
+        crc: *mut core::ffi::c_ushort,
+        data: *mut *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceGzipGetName(src: *const core::ffi::c_void) -> *const core::ffi::c_char;
+    pub fn ksceGzipIsValid(src: *const core::ffi::c_void) -> core::ffi::c_int;
     pub fn ksceHmacSha1Digest(
-        key: *const crate::ctypes::c_void,
+        key: *const core::ffi::c_void,
         key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceHmacSha224Digest(
-        key: *const crate::ctypes::c_void,
+        key: *const core::ffi::c_void,
         key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceHmacSha256Digest(
-        key: *const crate::ctypes::c_void,
+        key: *const core::ffi::c_void,
         key_len: SceSize,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSha1BlockInit(ctx: *mut SceSha1Context) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceSha1BlockInit(ctx: *mut SceSha1Context) -> core::ffi::c_int;
     pub fn ksceSha1BlockResult(
         ctx: *mut SceSha1Context,
-        result: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        result: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceSha1BlockUpdate(
         ctx: *mut SceSha1Context,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSha1Digest(
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSha224BlockInit(ctx: *mut SceSha224Context) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceSha224BlockInit(ctx: *mut SceSha224Context) -> core::ffi::c_int;
     pub fn ksceSha224BlockResult(
         ctx: *mut SceSha224Context,
-        result: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        result: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceSha224BlockUpdate(
         ctx: *mut SceSha224Context,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSha224Digest(
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSha256BlockInit(ctx: *mut SceSha256Context) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceSha256BlockInit(ctx: *mut SceSha256Context) -> core::ffi::c_int;
     pub fn ksceSha256BlockResult(
         ctx: *mut SceSha256Context,
-        result: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        result: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceSha256BlockUpdate(
         ctx: *mut SceSha256Context,
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSha256Digest(
-        plain: *const crate::ctypes::c_void,
+        plain: *const core::ffi::c_void,
         len: SceSize,
-        digest: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        digest: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceZlibDecompress(
-        dst: *mut crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
         dst_size: SceSize,
-        src: *const crate::ctypes::c_void,
+        src: *const core::ffi::c_void,
         adler32: *mut u32,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceZlibGetCompressedData(
-        src: *const crate::ctypes::c_void,
-    ) -> *const crate::ctypes::c_void;
+    ) -> core::ffi::c_int;
+    pub fn ksceZlibGetCompressedData(src: *const core::ffi::c_void) -> *const core::ffi::c_void;
     pub fn ksceZlibGetInfo(
-        src: *const crate::ctypes::c_void,
-        cmf: *mut crate::ctypes::c_uchar,
-        flg: *mut crate::ctypes::c_uchar,
-        dictid: *mut crate::ctypes::c_uint,
-        data: *mut *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        cmf: *mut core::ffi::c_uchar,
+        flg: *mut core::ffi::c_uchar,
+        dictid: *mut core::ffi::c_uint,
+        data: *mut *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceLcdForDriver_stub", kind = "static")]
 #[cfg(feature = "SceLcdForDriver_stub")]
@@ -14090,102 +13892,96 @@ extern "C" {}
 #[cfg(any(feature = "SceLibc_stub", feature = "SceSysclibForDriver_stub"))]
 extern "C" {
     pub fn memchr(
-        src: *const crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        n: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        src: *const core::ffi::c_void,
+        ch: core::ffi::c_int,
+        n: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn memcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        s1: *const core::ffi::c_void,
+        s2: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn memcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn memmove(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn memset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        ch: core::ffi::c_int,
+        len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn snprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        max: core::ffi::c_uint,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
-    pub fn strchr(
-        src: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
-    pub fn strcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn strlen(s: *const crate::ctypes::c_char) -> crate::ctypes::c_uint;
+    ) -> core::ffi::c_int;
+    pub fn strchr(src: *const core::ffi::c_char, ch: core::ffi::c_int) -> *mut core::ffi::c_char;
+    pub fn strcmp(s1: *const core::ffi::c_char, s2: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn strlen(s: *const core::ffi::c_char) -> core::ffi::c_uint;
     pub fn strncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+        n: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn strncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_char;
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
+        n: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_char;
     pub fn strstr(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> *mut crate::ctypes::c_char;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+    ) -> *mut core::ffi::c_char;
     pub fn strtol(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_long;
+        str_: *const core::ffi::c_char,
+        endptr: *mut *mut core::ffi::c_char,
+        base: core::ffi::c_int,
+    ) -> core::ffi::c_long;
     pub fn strtoll(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_longlong;
+        str_: *const core::ffi::c_char,
+        endptr: *mut *mut core::ffi::c_char,
+        base: core::ffi::c_int,
+    ) -> core::ffi::c_longlong;
     pub fn strtoul(
-        str_: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
-        base: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_ulong;
-    pub fn tolower(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn toupper(ch: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        str_: *const core::ffi::c_char,
+        endptr: *mut *mut core::ffi::c_char,
+        base: core::ffi::c_int,
+    ) -> core::ffi::c_ulong;
+    pub fn tolower(ch: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn toupper(ch: core::ffi::c_int) -> core::ffi::c_int;
     pub fn vsnprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        max: core::ffi::c_uint,
+        fmt: *const core::ffi::c_char,
         arg: u32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceLibDbg_stub", kind = "static")]
 #[cfg(feature = "SceLibDbg_stub")]
 extern "C" {
     pub fn sceDbgAssertionHandler(
-        file: *const crate::ctypes::c_char,
-        line: crate::ctypes::c_int,
-        unk: crate::ctypes::c_int,
-        component: *const crate::ctypes::c_char,
-        msg: *const crate::ctypes::c_char,
+        file: *const core::ffi::c_char,
+        line: core::ffi::c_int,
+        unk: core::ffi::c_int,
+        component: *const core::ffi::c_char,
+        msg: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceDbgLoggingHandler(
-        file: *const crate::ctypes::c_char,
-        line: crate::ctypes::c_int,
+        file: *const core::ffi::c_char,
+        line: core::ffi::c_int,
         logLevel: SceDbgLogLevel,
-        component: *const crate::ctypes::c_char,
-        msg: *const crate::ctypes::c_char,
+        component: *const core::ffi::c_char,
+        msg: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceDbgSetBreakOnErrorState(breakOnError: SceBool);
     pub fn sceDbgSetBreakOnWarningState(breakOnWarning: SceBool);
     pub fn sceDbgSetMinimumLogLevel(level: SceDbgLogLevel);
@@ -14200,191 +13996,182 @@ extern "C" {}
 #[cfg(feature = "SceLibKernel_stub")]
 extern "C" {
     pub fn sceClibAbort();
-    pub fn sceClibLookCtypeTable(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
+    pub fn sceClibLookCtypeTable(ch: core::ffi::c_char) -> core::ffi::c_char;
     pub fn sceClibMemchr(
-        src: *const crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
+        src: *const core::ffi::c_void,
+        ch: core::ffi::c_int,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMemcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
+        s1: *const core::ffi::c_void,
+        s2: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceClibMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMemcpy_safe(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMemmove(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMemset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
+        dst: *mut core::ffi::c_void,
+        ch: core::ffi::c_int,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMspaceCalloc(
         mspace: SceClibMspace,
         num: SceSize,
         size: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-    pub fn sceClibMspaceCreate(
-        memblock: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> SceClibMspace;
+    ) -> *mut core::ffi::c_void;
+    pub fn sceClibMspaceCreate(memblock: *mut core::ffi::c_void, size: SceSize) -> SceClibMspace;
     pub fn sceClibMspaceDestroy(mspace: SceClibMspace);
-    pub fn sceClibMspaceFree(mspace: SceClibMspace, ptr: *mut crate::ctypes::c_void);
+    pub fn sceClibMspaceFree(mspace: SceClibMspace, ptr: *mut core::ffi::c_void);
     pub fn sceClibMspaceIsHeapEmpty(mspace: SceClibMspace) -> SceBool;
-    pub fn sceClibMspaceMalloc(mspace: SceClibMspace, size: SceSize) -> *mut crate::ctypes::c_void;
+    pub fn sceClibMspaceMalloc(mspace: SceClibMspace, size: SceSize) -> *mut core::ffi::c_void;
     pub fn sceClibMspaceMallocStats(mspace: SceClibMspace, stats: *mut SceClibMspaceStats);
     pub fn sceClibMspaceMallocStatsFast(mspace: SceClibMspace, stats: *mut SceClibMspaceStats);
-    pub fn sceClibMspaceMallocUsableSize(ptr: *mut crate::ctypes::c_void) -> SceSize;
+    pub fn sceClibMspaceMallocUsableSize(ptr: *mut core::ffi::c_void) -> SceSize;
     pub fn sceClibMspaceMemalign(
         mspace: SceClibMspace,
         alignment: SceSize,
         size: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMspaceRealloc(
         mspace: SceClibMspace,
-        ptr: *mut crate::ctypes::c_void,
+        ptr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sceClibMspaceReallocalign(
         mspace: SceClibMspace,
-        ptr: *mut crate::ctypes::c_void,
+        ptr: *mut core::ffi::c_void,
         size: SceSize,
         alignment: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-    pub fn sceClibPrintf(fmt: *const crate::ctypes::c_char, ...) -> crate::ctypes::c_int;
+    ) -> *mut core::ffi::c_void;
+    pub fn sceClibPrintf(fmt: *const core::ffi::c_char, ...) -> core::ffi::c_int;
     pub fn sceClibSnprintf(
-        dst: *mut crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
         dst_max_size: SceSize,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceClibStrchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
+        s: *const core::ffi::c_char,
+        ch: core::ffi::c_int,
+    ) -> *mut core::ffi::c_char;
     pub fn sceClibStrcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceClibStrncasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceClibStrncat(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
+    ) -> *mut core::ffi::c_char;
     pub fn sceClibStrncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceClibStrncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
-    pub fn sceClibStrnlen(s1: *const crate::ctypes::c_char, max_len: SceSize) -> SceSize;
+    ) -> *mut core::ffi::c_char;
+    pub fn sceClibStrnlen(s1: *const core::ffi::c_char, max_len: SceSize) -> SceSize;
     pub fn sceClibStrrchr(
-        src: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
+        src: *const core::ffi::c_char,
+        ch: core::ffi::c_int,
+    ) -> *mut core::ffi::c_char;
     pub fn sceClibStrstr(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> *mut crate::ctypes::c_char;
-    pub fn sceClibTolower(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceClibToupper(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+    ) -> *mut core::ffi::c_char;
+    pub fn sceClibTolower(ch: core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceClibToupper(ch: core::ffi::c_char) -> core::ffi::c_int;
     pub fn sceClibVsnprintf(
-        dst: *mut crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
         dst_max_size: SceSize,
-        fmt: *const crate::ctypes::c_char,
+        fmt: *const core::ffi::c_char,
         args: va_list,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceIoChstat(
-        file: *const crate::ctypes::c_char,
+        file: *const core::ffi::c_char,
         stat: *mut SceIoStat,
-        bits: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bits: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceIoChstatByFd(
         fd: SceUID,
         buf: *const SceIoStat,
-        cbit: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        cbit: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceIoDevctl(
-        dev: *const crate::ctypes::c_char,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceIoDopen(dirname: *const crate::ctypes::c_char) -> SceUID;
-    pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> crate::ctypes::c_int;
-    pub fn sceIoGetstat(
-        file: *const crate::ctypes::c_char,
-        stat: *mut SceIoStat,
-    ) -> crate::ctypes::c_int;
-    pub fn sceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> crate::ctypes::c_int;
+        dev: *const core::ffi::c_char,
+        cmd: core::ffi::c_uint,
+        indata: *mut core::ffi::c_void,
+        inlen: core::ffi::c_int,
+        outdata: *mut core::ffi::c_void,
+        outlen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceIoDopen(dirname: *const core::ffi::c_char) -> SceUID;
+    pub fn sceIoDread(fd: SceUID, dir: *mut SceIoDirent) -> core::ffi::c_int;
+    pub fn sceIoGetstat(file: *const core::ffi::c_char, stat: *mut SceIoStat) -> core::ffi::c_int;
+    pub fn sceIoGetstatByFd(fd: SceUID, stat: *mut SceIoStat) -> core::ffi::c_int;
     pub fn sceIoIoctl(
         fd: SceUID,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        cmd: core::ffi::c_uint,
+        indata: *mut core::ffi::c_void,
+        inlen: core::ffi::c_int,
+        outdata: *mut core::ffi::c_void,
+        outlen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceIoIoctlAsync(
         fd: SceUID,
-        cmd: crate::ctypes::c_uint,
-        indata: *mut crate::ctypes::c_void,
-        inlen: crate::ctypes::c_int,
-        outdata: *mut crate::ctypes::c_void,
-        outlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: crate::ctypes::c_int) -> SceOff;
-    pub fn sceIoMkdir(dir: *const crate::ctypes::c_char, mode: SceMode) -> crate::ctypes::c_int;
+        cmd: core::ffi::c_uint,
+        indata: *mut core::ffi::c_void,
+        inlen: core::ffi::c_int,
+        outdata: *mut core::ffi::c_void,
+        outlen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceIoLseek(fd: SceUID, offset: SceOff, whence: core::ffi::c_int) -> SceOff;
+    pub fn sceIoMkdir(dir: *const core::ffi::c_char, mode: SceMode) -> core::ffi::c_int;
     pub fn sceIoOpen(
-        file: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        file: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
         mode: SceMode,
     ) -> SceUID;
     pub fn sceIoPread(
         fd: SceUID,
-        data: *mut crate::ctypes::c_void,
+        data: *mut core::ffi::c_void,
         size: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceIoPwrite(
         fd: SceUID,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         size: SceSize,
         offset: SceOff,
-    ) -> crate::ctypes::c_int;
-    pub fn sceIoRemove(file: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceIoRemove(file: *const core::ffi::c_char) -> core::ffi::c_int;
     pub fn sceIoRename(
-        oldname: *const crate::ctypes::c_char,
-        newname: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceIoRmdir(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceIoSync(
-        device: *const crate::ctypes::c_char,
-        unk: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        oldname: *const core::ffi::c_char,
+        newname: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceIoRmdir(path: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceIoSync(device: *const core::ffi::c_char, unk: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn sceKernelAtomicAddAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
     pub fn sceKernelAtomicAddAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
     pub fn sceKernelAtomicAddAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
@@ -14488,330 +14275,317 @@ extern "C" {
     pub fn sceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
     pub fn sceKernelCancelMsgPipe(
         uid: SceUID,
-        psend: *mut crate::ctypes::c_int,
-        precv: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        psend: *mut core::ffi::c_int,
+        precv: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelCancelMutex(
         mutexid: SceUID,
-        newCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        newCount: core::ffi::c_int,
+        numWaitThreads: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelCancelSema(
         semaid: SceUID,
-        setCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        setCount: core::ffi::c_int,
+        numWaitThreads: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelChangeCurrentThreadAttr(
         clearAttr: SceUInt,
         setAttr: SceUInt,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelCheckThreadStack() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelCheckThreadStack() -> core::ffi::c_int;
     pub fn sceKernelCreateCond(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
     pub fn sceKernelCreateEventFlag(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        bits: crate::ctypes::c_int,
+        name: *const core::ffi::c_char,
+        attr: core::ffi::c_int,
+        bits: core::ffi::c_int,
         opt: *mut SceKernelEventFlagOptParam,
     ) -> SceUID;
     pub fn sceKernelCreateLwCond(
         pWork: *mut SceKernelLwCondWork,
-        pName: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
+        pName: *const core::ffi::c_char,
+        attr: core::ffi::c_uint,
         pLwMutex: *mut SceKernelLwMutexWork,
         pOptParam: *const SceKernelLwCondOptParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelCreateLwMutex(
         pWork: *mut SceKernelLwMutexWork,
-        pName: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
-        initCount: crate::ctypes::c_int,
+        pName: *const core::ffi::c_char,
+        attr: core::ffi::c_uint,
+        initCount: core::ffi::c_int,
         pOptParam: *const SceKernelLwMutexOptParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelCreateMsgPipe(
-        name: *const crate::ctypes::c_char,
-        type_: crate::ctypes::c_int,
-        attr: crate::ctypes::c_int,
-        bufSize: crate::ctypes::c_uint,
-        opt: *mut crate::ctypes::c_void,
+        name: *const core::ffi::c_char,
+        type_: core::ffi::c_int,
+        attr: core::ffi::c_int,
+        bufSize: core::ffi::c_uint,
+        opt: *mut core::ffi::c_void,
     ) -> SceUID;
     pub fn sceKernelCreateMutex(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
-        initCount: crate::ctypes::c_int,
+        initCount: core::ffi::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
     pub fn sceKernelCreateRWLock(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt32,
         opt_param: *const SceKernelRWLockOptParam,
     ) -> SceUID;
     pub fn sceKernelCreateSema(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
-        initVal: crate::ctypes::c_int,
-        maxVal: crate::ctypes::c_int,
+        initVal: core::ffi::c_int,
+        maxVal: core::ffi::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
     pub fn sceKernelCreateThread(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         entry: SceKernelThreadEntry,
-        initPriority: crate::ctypes::c_int,
+        initPriority: core::ffi::c_int,
         stackSize: SceSize,
         attr: SceUInt,
-        cpuAffinityMask: crate::ctypes::c_int,
+        cpuAffinityMask: core::ffi::c_int,
         option: *const SceKernelThreadOptParam,
     ) -> SceUID;
-    pub fn sceKernelDeleteLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
-    pub fn sceKernelDeleteLwMutex(pWork: *mut SceKernelLwMutexWork) -> crate::ctypes::c_int;
-    pub fn sceKernelExitProcess(res: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceKernelDeleteLwCond(pWork: *mut SceKernelLwCondWork) -> core::ffi::c_int;
+    pub fn sceKernelDeleteLwMutex(pWork: *mut SceKernelLwMutexWork) -> core::ffi::c_int;
+    pub fn sceKernelExitProcess(res: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceKernelGetCallbackInfo(
         cb: SceUID,
         infop: *mut SceKernelCallbackInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelGetEventFlagInfo(
         event: SceUID,
         info: *mut SceKernelEventFlagInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetMsgPipeInfo(
-        uid: SceUID,
-        info: *mut SceKernelMppInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetMsgPipeInfo(uid: SceUID, info: *mut SceKernelMppInfo) -> core::ffi::c_int;
     pub fn sceKernelGetMutexInfo(
         mutexid: SceUID,
         info: *mut SceKernelMutexInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetOpenPsId(id: *mut SceKernelOpenPsId) -> crate::ctypes::c_int;
-    pub fn sceKernelGetProcessTime(pSysClock: *mut SceKernelSysClock) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetOpenPsId(id: *mut SceKernelOpenPsId) -> core::ffi::c_int;
+    pub fn sceKernelGetProcessTime(pSysClock: *mut SceKernelSysClock) -> core::ffi::c_int;
     pub fn sceKernelGetProcessTimeLow() -> SceUInt32;
     pub fn sceKernelGetProcessTimeWide() -> SceUInt64;
     pub fn sceKernelGetRWLockInfo(
         rwlock_id: SceUID,
         info: *mut SceKernelRWLockInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelGetRandomNumber(
-        output: *mut crate::ctypes::c_void,
+        output: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetSemaInfo(
-        semaid: SceUID,
-        info: *mut SceKernelSemaInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetSystemInfo(info: *mut SceKernelSystemInfo) -> crate::ctypes::c_int;
-    pub fn sceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
-    pub fn sceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetSemaInfo(semaid: SceUID, info: *mut SceKernelSemaInfo) -> core::ffi::c_int;
+    pub fn sceKernelGetSystemInfo(info: *mut SceKernelSystemInfo) -> core::ffi::c_int;
+    pub fn sceKernelGetTLSAddr(key: core::ffi::c_int) -> *mut core::ffi::c_void;
+    pub fn sceKernelGetThreadCurrentPriority() -> core::ffi::c_int;
     pub fn sceKernelGetThreadExitStatus(
         thid: SceUID,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetThreadId() -> crate::ctypes::c_int;
-    pub fn sceKernelGetThreadInfo(
-        thid: SceUID,
-        info: *mut SceKernelThreadInfo,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetThreadId() -> core::ffi::c_int;
+    pub fn sceKernelGetThreadInfo(thid: SceUID, info: *mut SceKernelThreadInfo)
+        -> core::ffi::c_int;
     pub fn sceKernelGetThreadRunStatus(
         thid: SceUID,
         status: *mut SceKernelThreadRunStatus,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelLoadModule(
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        path: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
     pub fn sceKernelLoadStartModule(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
+        status: *mut core::ffi::c_int,
     ) -> SceUID;
     pub fn sceKernelLockLwMutex(
         pWork: *mut SceKernelLwMutexWork,
-        lockCount: crate::ctypes::c_int,
-        pTimeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        lockCount: core::ffi::c_int,
+        pTimeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockMutex(
         mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        lockCount: core::ffi::c_int,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockMutexCB(
         mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        lockCount: core::ffi::c_int,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockReadRWLock(
         rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockReadRWLockCB(
         rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockWriteRWLock(
         rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelLockWriteRWLockCB(
         rwlock_id: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelPollEventFlag(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        evid: core::ffi::c_int,
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelReceiveMsgPipe(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
+        message: *mut core::ffi::c_void,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelReceiveMsgPipeCB(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
+        message: *mut core::ffi::c_void,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelSendMsgPipe(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        message: *mut core::ffi::c_void,
+        size: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelSendMsgPipeCB(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelSignalLwCond(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
-    pub fn sceKernelSignalLwCondAll(pWork: *mut SceKernelLwCondWork) -> crate::ctypes::c_int;
+        message: *mut core::ffi::c_void,
+        size: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelSignalLwCond(pWork: *mut SceKernelLwCondWork) -> core::ffi::c_int;
+    pub fn sceKernelSignalLwCondAll(pWork: *mut SceKernelLwCondWork) -> core::ffi::c_int;
     pub fn sceKernelSignalLwCondTo(
         pWork: *mut SceKernelLwCondWork,
         threadId: SceUID,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelStartModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut crate::ctypes::c_void,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
+        option: *mut core::ffi::c_void,
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelStartThread(
         thid: SceUID,
         arglen: SceSize,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceKernelStopModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-        option: *mut crate::ctypes::c_void,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
+        option: *mut core::ffi::c_void,
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelStopUnloadModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelTryLockLwMutex(
         pWork: *mut SceKernelLwMutexWork,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lockCount: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceKernelTryReceiveMsgPipe(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
+        message: *mut core::ffi::c_void,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceKernelTrySendMsgPipe(
         uid: SceUID,
-        message: *mut crate::ctypes::c_void,
+        message: *mut core::ffi::c_void,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceKernelUnloadModule(
         modid: SceUID,
-        flags: crate::ctypes::c_int,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelUnlockLwMutex(
         pWork: *mut SceKernelLwMutexWork,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelWaitCond(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelWaitCondCB(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        unlockCount: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelWaitCond(condId: SceUID, timeout: *mut core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceKernelWaitCondCB(condId: SceUID, timeout: *mut core::ffi::c_uint)
+        -> core::ffi::c_int;
     pub fn sceKernelWaitEventFlag(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
+        evid: core::ffi::c_int,
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitEventFlagCB(
-        evid: crate::ctypes::c_int,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
+        evid: core::ffi::c_int,
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitLwCond(
         pWork: *mut SceKernelLwCondWork,
-        pTimeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        pTimeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitSema(
         semaid: SceUID,
-        signal: crate::ctypes::c_int,
+        signal: core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitSemaCB(
         semaid: SceUID,
-        signal: crate::ctypes::c_int,
+        signal: core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitSignal(
         unk0: SceUInt32,
         delay: SceUInt32,
         timeout: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitThreadEnd(
         thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
+        stat: *mut core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelWaitThreadEndCB(
         thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
+        stat: *mut core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceSblACMgrIsGameProgram(result: *mut SceBool) -> SceInt32;
 }
 #[cfg(any(feature = "SceLibKernel_stub", feature = "SceSysclibForDriver_stub"))]
@@ -14821,19 +14595,19 @@ extern "C" {
 #[link(name = "SceLibMonoBridge_stub", kind = "static")]
 #[cfg(feature = "SceLibMonoBridge_stub")]
 extern "C" {
-    pub fn pss_code_mem_alloc(arg1: *mut SceSize) -> *mut crate::ctypes::c_void;
-    pub fn pss_code_mem_flush_icache(arg1: *const crate::ctypes::c_void, arg2: SceSize);
+    pub fn pss_code_mem_alloc(arg1: *mut SceSize) -> *mut core::ffi::c_void;
+    pub fn pss_code_mem_flush_icache(arg1: *const core::ffi::c_void, arg2: SceSize);
     pub fn pss_code_mem_lock();
     pub fn pss_code_mem_unlock();
-    pub fn pss_crypto_close(handle: *mut ScePssCryptoHandle) -> crate::ctypes::c_int;
+    pub fn pss_crypto_close(handle: *mut ScePssCryptoHandle) -> core::ffi::c_int;
     pub fn pss_crypto_open(
         handle: *mut ScePssCryptoHandle,
-        path: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        path: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn pss_crypto_read(
         handle: *mut ScePssCryptoHandle,
-        mode: *mut crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
+        mode: *mut core::ffi::c_int,
+    ) -> *mut core::ffi::c_char;
 }
 #[link(name = "SceLibMono_stub", kind = "static")]
 #[cfg(feature = "SceLibMono_stub")]
@@ -14895,18 +14669,18 @@ extern "C" {
         locateMethod: SceLocationLocationMethod,
         headingMethod: SceLocationHeadingMethod,
     ) -> SceInt32;
-    pub fn sceLocationSetGpsEmulationFile(filename: *mut crate::ctypes::c_uchar) -> SceInt32;
+    pub fn sceLocationSetGpsEmulationFile(filename: *mut core::ffi::c_uchar) -> SceInt32;
     pub fn sceLocationStartHeadingCallback(
         handle: SceLocationHandle,
         difference: SceUInt32,
         callback: SceLocationHeadingInfoCallback,
-        userdata: *mut crate::ctypes::c_void,
+        userdata: *mut core::ffi::c_void,
     ) -> SceInt32;
     pub fn sceLocationStartLocationCallback(
         handle: SceLocationHandle,
         distance: SceUInt32,
         callback: SceLocationLocationInfoCallback,
-        userdata: *mut crate::ctypes::c_void,
+        userdata: *mut core::ffi::c_void,
     ) -> SceInt32;
     pub fn sceLocationStopHeadingCallback(handle: SceLocationHandle) -> SceInt32;
     pub fn sceLocationStopLocationCallback(handle: SceLocationHandle) -> SceInt32;
@@ -14917,86 +14691,86 @@ extern "C" {}
 #[link(name = "SceModulemgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetSystemSwVersion(data: *mut SceKernelFwInfo) -> core::ffi::c_int;
     pub fn ksceKernelLoadModule(
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        path: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
     pub fn ksceKernelLoadStartModule(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
+        status: *mut core::ffi::c_int,
     ) -> SceUID;
     pub fn ksceKernelLoadStartModuleForPid(
         pid: SceUID,
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
+        status: *mut core::ffi::c_int,
     ) -> SceUID;
     pub fn ksceKernelLoadStartSharedModuleForPid(
         pid: SceUID,
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
+        status: *mut core::ffi::c_int,
     ) -> SceUID;
-    pub fn ksceKernelSearchModuleByName(module_name: *const crate::ctypes::c_char) -> SceUID;
+    pub fn ksceKernelSearchModuleByName(module_name: *const core::ffi::c_char) -> SceUID;
     pub fn ksceKernelStartModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelStopModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelStopUnloadModule(
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelStopUnloadModuleForPid(
         pid: SceUID,
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelStopUnloadSharedModuleForPid(
         pid: SceUID,
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelUnloadModule(
         modid: SceUID,
-        flags: crate::ctypes::c_int,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceModulemgrForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForKernel_363_stub")]
@@ -15010,48 +14784,46 @@ extern "C" {
         pid: SceUID,
         modid: SceUID,
         info: *mut SceKernelModuleInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModuleList(
         pid: SceUID,
-        flags1: crate::ctypes::c_int,
-        flags2: crate::ctypes::c_int,
+        flags1: core::ffi::c_int,
+        flags2: core::ffi::c_int,
         modids: *mut SceUID,
         num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelLoadModuleForPid(
         pid: SceUID,
-        path: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        path: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
-    pub fn ksceKernelMountBootfs(
-        bootImagePath: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelMountBootfs(bootImagePath: *const core::ffi::c_char) -> core::ffi::c_int;
     pub fn ksceKernelStartModuleForPid(
         pid: SceUID,
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelLMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelStopModuleForPid(
         pid: SceUID,
         modid: SceUID,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelUmountBootfs() -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelUmountBootfs() -> core::ffi::c_int;
     pub fn ksceKernelUnloadModuleForPid(
         pid: SceUID,
         modid: SceUID,
-        flags: crate::ctypes::c_int,
+        flags: core::ffi::c_int,
         option: *mut SceKernelULMOption,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceModulemgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForKernel_stub")]
@@ -15060,40 +14832,40 @@ extern "C" {
         pid: SceUID,
         library_id: SceUID,
         info: *mut SceKernelModuleLibraryInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModuleCB(
         modid: SceUID,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        info: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModuleCBByAddr(
         pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        module_addr: *const core::ffi::c_void,
+        info: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModuleIdByAddrForDebugger(
         pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
+        module_addr: *const core::ffi::c_void,
     ) -> SceUID;
     pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
     pub fn ksceKernelGetModuleInfoForDebugger(
         pid: SceUID,
         infolists: *mut SceKernelModuleListInfo,
         num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModuleInfoMinByAddr(
         pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
+        module_addr: *const core::ffi::c_void,
         module_nid: *mut u32,
-        program_text_addr: *mut *const crate::ctypes::c_void,
+        program_text_addr: *mut *const core::ffi::c_void,
         module_name: *mut SceKernelModuleName,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetModulePath(
         modid: SceUID,
-        path: *mut crate::ctypes::c_char,
+        path: *mut core::ffi::c_char,
         pathlen: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelRegisterModulesAfterBoot();
-    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
+    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const core::ffi::c_void);
 }
 #[link(name = "SceMotionDevForDriver_stub", kind = "static")]
 #[cfg(feature = "SceMotionDevForDriver_stub")]
@@ -15101,131 +14873,125 @@ extern "C" {}
 #[link(name = "SceMotionDev_stub", kind = "static")]
 #[cfg(feature = "SceMotionDev_stub")]
 extern "C" {
-    pub fn sceMotionDevGetAccCalibData(data: *mut SceMotionDevAccCalibData)
-        -> crate::ctypes::c_int;
+    pub fn sceMotionDevGetAccCalibData(data: *mut SceMotionDevAccCalibData) -> core::ffi::c_int;
     pub fn sceMotionDevGetAccCalibData2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         data: *mut SceMotionDevAccCalibData,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevGetCalibrationData(
         block_id: SceUInt32,
         data: *mut SceMotionDevCalibrationData,
         data_num: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevGetCalibrationHeader(
         block_id: SceUInt32,
         calib_header: *mut SceMotionDevCalibrationHeader,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevGetCurrentMagnCalibData(
         data: *mut SceMotionDevMagnCalibData,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevGetCurrentMagnStabilityLevel(level: *mut SceUInt32) -> crate::ctypes::c_int;
-    pub fn sceMotionDevGetDeviceInfo(
-        device_info: *mut SceMotionDevDeviceInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevGetCurrentMagnStabilityLevel(level: *mut SceUInt32) -> core::ffi::c_int;
+    pub fn sceMotionDevGetDeviceInfo(device_info: *mut SceMotionDevDeviceInfo) -> core::ffi::c_int;
     pub fn sceMotionDevGetDeviceLocation(
         location: *mut SceMotionDevDeviceLocation,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevGetFactoryMagnCalibData(
         data: *mut SceMotionDevMagnCalibData,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevGetGyroBias(bias: *mut SceMotionDevGyroBiasData) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevGetGyroBias(bias: *mut SceMotionDevGyroBiasData) -> core::ffi::c_int;
     pub fn sceMotionDevGetGyroBias2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         bias: *mut SceMotionDevGyroBiasData,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevGetGyroCalibData(
-        data: *mut SceMotionDevGyroCalibData,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevGetGyroCalibData(data: *mut SceMotionDevGyroCalibData) -> core::ffi::c_int;
     pub fn sceMotionDevGetGyroCalibData2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         data: *mut SceMotionDevGyroCalibData,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevGetMeasMode(mode_info: *mut SceMotionDevModeInfo) -> crate::ctypes::c_int;
-    pub fn sceMotionDevIsReady() -> crate::ctypes::c_int;
-    pub fn sceMotionDevMagnSamplingStart() -> crate::ctypes::c_int;
-    pub fn sceMotionDevMagnSamplingStop() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevGetMeasMode(mode_info: *mut SceMotionDevModeInfo) -> core::ffi::c_int;
+    pub fn sceMotionDevIsReady() -> core::ffi::c_int;
+    pub fn sceMotionDevMagnSamplingStart() -> core::ffi::c_int;
+    pub fn sceMotionDevMagnSamplingStop() -> core::ffi::c_int;
     pub fn sceMotionDevRead(
         data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
+        data_num: core::ffi::c_int,
         info: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevRead2(
-        port: crate::ctypes::c_int,
+        port: core::ffi::c_int,
         data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
+        data_num: core::ffi::c_int,
         info: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceMotionDevReadForMagnCalib(
         data: *mut SceMotionDevData,
-        data_num: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevSamplingStart() -> crate::ctypes::c_int;
-    pub fn sceMotionDevSamplingStart2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMotionDevSamplingStop() -> crate::ctypes::c_int;
-    pub fn sceMotionDevSamplingStop2(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMotionDevSetSamplingMode(mode: SceUInt32) -> crate::ctypes::c_int;
+        data_num: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevSamplingStart() -> core::ffi::c_int;
+    pub fn sceMotionDevSamplingStart2(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMotionDevSamplingStop() -> core::ffi::c_int;
+    pub fn sceMotionDevSamplingStop2(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMotionDevSetSamplingMode(mode: SceUInt32) -> core::ffi::c_int;
     pub fn sceMotionDevUpdateMagnCalibData(
         data: *const SceMotionDevMagnCalibData,
         tag: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionDevUpdateMagnStabilityLevel(level: SceUInt32) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionDevUpdateMagnStabilityLevel(level: SceUInt32) -> core::ffi::c_int;
 }
 #[link(name = "SceMotion_stub", kind = "static")]
 #[cfg(feature = "SceMotion_stub")]
 extern "C" {
     pub fn sceMotionGetAngleThreshold() -> f32;
-    pub fn sceMotionGetBasicOrientation(basicOrientation: *mut SceFVector3)
-        -> crate::ctypes::c_int;
-    pub fn sceMotionGetDeadband() -> crate::ctypes::c_int;
+    pub fn sceMotionGetBasicOrientation(basicOrientation: *mut SceFVector3) -> core::ffi::c_int;
+    pub fn sceMotionGetDeadband() -> core::ffi::c_int;
     pub fn sceMotionGetDeviceLocation(
         deviceLocation: *mut SceMotionDeviceLocation,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionGetGyroBiasCorrection() -> crate::ctypes::c_int;
-    pub fn sceMotionGetMagnetometerState() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceMotionGetGyroBiasCorrection() -> core::ffi::c_int;
+    pub fn sceMotionGetMagnetometerState() -> core::ffi::c_int;
     pub fn sceMotionGetSensorState(
         sensorState: *mut SceMotionSensorState,
-        numRecords: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceMotionGetState(motionState: *mut SceMotionState) -> crate::ctypes::c_int;
-    pub fn sceMotionGetTiltCorrection() -> crate::ctypes::c_int;
-    pub fn sceMotionMagnetometerOff() -> crate::ctypes::c_int;
-    pub fn sceMotionMagnetometerOn() -> crate::ctypes::c_int;
-    pub fn sceMotionReset() -> crate::ctypes::c_int;
-    pub fn sceMotionRotateYaw(radians: f32) -> crate::ctypes::c_int;
-    pub fn sceMotionSetAngleThreshold(angle: f32) -> crate::ctypes::c_int;
-    pub fn sceMotionSetDeadband(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMotionSetGyroBiasCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMotionSetTiltCorrection(setValue: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMotionStartSampling() -> crate::ctypes::c_int;
-    pub fn sceMotionStopSampling() -> crate::ctypes::c_int;
+        numRecords: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceMotionGetState(motionState: *mut SceMotionState) -> core::ffi::c_int;
+    pub fn sceMotionGetTiltCorrection() -> core::ffi::c_int;
+    pub fn sceMotionMagnetometerOff() -> core::ffi::c_int;
+    pub fn sceMotionMagnetometerOn() -> core::ffi::c_int;
+    pub fn sceMotionReset() -> core::ffi::c_int;
+    pub fn sceMotionRotateYaw(radians: f32) -> core::ffi::c_int;
+    pub fn sceMotionSetAngleThreshold(angle: f32) -> core::ffi::c_int;
+    pub fn sceMotionSetDeadband(setValue: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMotionSetGyroBiasCorrection(setValue: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMotionSetTiltCorrection(setValue: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMotionStartSampling() -> core::ffi::c_int;
+    pub fn sceMotionStopSampling() -> core::ffi::c_int;
 }
 #[link(name = "SceMsifForDriver_stub", kind = "static")]
 #[cfg(feature = "SceMsifForDriver_stub")]
 extern "C" {
-    pub fn ksceMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
+    pub fn ksceMsifGetMsInfo(info: *mut SceMsInfo) -> core::ffi::c_int;
 }
 #[link(name = "SceMtpIfDriver_stub", kind = "static")]
 #[cfg(feature = "SceMtpIfDriver_stub")]
 extern "C" {
-    pub fn sceMtpIfStartDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceMtpIfStopDriver(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceMtpIfStartDriver(flags: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceMtpIfStopDriver(flags: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceMusicExport_stub", kind = "static")]
 #[cfg(feature = "SceMusicExport_stub")]
 extern "C" {
     pub fn sceMusicExportFromFile(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         param: *const MusicExportParam,
-        workingMemory: *mut crate::ctypes::c_void,
-        cancelCb: *mut crate::ctypes::c_void,
+        workingMemory: *mut core::ffi::c_void,
+        cancelCb: *mut core::ffi::c_void,
         progress: ::core::option::Option<
-            unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void, arg2: crate::ctypes::c_int),
+            unsafe extern "C" fn(arg1: *mut core::ffi::c_void, arg2: core::ffi::c_int),
         >,
-        user: *mut crate::ctypes::c_void,
-        outPath: *mut crate::ctypes::c_char,
+        user: *mut core::ffi::c_void,
+        outPath: *mut core::ffi::c_char,
         outPathSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceNearDialogUtil_stub", kind = "static")]
 #[cfg(feature = "SceNearDialogUtil_stub")]
@@ -15239,467 +15005,434 @@ extern "C" {}
 #[link(name = "SceNetCtl_stub", kind = "static")]
 #[cfg(feature = "SceNetCtl_stub")]
 extern "C" {
-    pub fn sceNetCtlAdhocDisconnect() -> crate::ctypes::c_int;
-    pub fn sceNetCtlAdhocGetInAddr(inaddr: *mut SceNetInAddr) -> crate::ctypes::c_int;
+    pub fn sceNetCtlAdhocDisconnect() -> core::ffi::c_int;
+    pub fn sceNetCtlAdhocGetInAddr(inaddr: *mut SceNetInAddr) -> core::ffi::c_int;
     pub fn sceNetCtlAdhocGetPeerList(
-        buflen: *mut crate::ctypes::c_uint,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        buflen: *mut core::ffi::c_uint,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetCtlAdhocGetResult(
-        eventType: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetCtlAdhocGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+        eventType: core::ffi::c_int,
+        errorCode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetCtlAdhocGetState(state: *mut core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetCtlAdhocRegisterCallback(
         func: SceNetCtlCallback,
-        arg: *mut crate::ctypes::c_void,
-        cid: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetCtlAdhocUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceNetCtlCheckCallback() -> crate::ctypes::c_int;
-    pub fn sceNetCtlGetNatInfo(natinfo: *mut SceNetCtlNatInfo) -> crate::ctypes::c_int;
+        arg: *mut core::ffi::c_void,
+        cid: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetCtlAdhocUnregisterCallback(cid: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetCtlCheckCallback() -> core::ffi::c_int;
+    pub fn sceNetCtlGetNatInfo(natinfo: *mut SceNetCtlNatInfo) -> core::ffi::c_int;
     pub fn sceNetCtlInetGetInfo(
-        code: crate::ctypes::c_int,
+        code: core::ffi::c_int,
         info: *mut SceNetCtlInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceNetCtlInetGetResult(
-        eventType: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetCtlInetGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
+        eventType: core::ffi::c_int,
+        errorCode: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetCtlInetGetState(state: *mut core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetCtlInetRegisterCallback(
         func: SceNetCtlCallback,
-        arg: *mut crate::ctypes::c_void,
-        cid: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetCtlInetUnregisterCallback(cid: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceNetCtlInit() -> crate::ctypes::c_int;
+        arg: *mut core::ffi::c_void,
+        cid: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetCtlInetUnregisterCallback(cid: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetCtlInit() -> core::ffi::c_int;
     pub fn sceNetCtlTerm();
 }
 #[link(name = "SceNetPsForDriver_stub", kind = "static")]
 #[cfg(feature = "SceNetPsForDriver_stub")]
 extern "C" {
     pub fn ksceNetAccept(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         addr: *mut SceNetSockaddr,
-        addrlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        addrlen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceNetBind(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         addr: *const SceNetSockaddr,
-        addrlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceNetClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        addrlen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceNetClose(s: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceNetConnect(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         name: *const SceNetSockaddr,
-        namelen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceNetListen(
-        s: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        namelen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceNetListen(s: core::ffi::c_int, backlog: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceNetRecvfrom(
-        s: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
+        s: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
         from: *mut SceNetSockaddr,
-        fromlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        fromlen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceNetSendto(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
+        s: core::ffi::c_int,
+        msg: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
         to: *const SceNetSockaddr,
-        tolen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        tolen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceNetSetsockopt(
-        s: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-        optname: crate::ctypes::c_int,
-        optval: *const crate::ctypes::c_void,
-        optlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        level: core::ffi::c_int,
+        optname: core::ffi::c_int,
+        optval: *const core::ffi::c_void,
+        optlen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceNetSocket(
-        name: *const crate::ctypes::c_char,
-        domain: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        protocol: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        domain: core::ffi::c_int,
+        type_: core::ffi::c_int,
+        protocol: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceNetPs_stub", kind = "static")]
 #[cfg(feature = "SceNetPs_stub")]
 extern "C" {
     pub fn sceNetSyscallAccept(
-        s: crate::ctypes::c_int,
-        addr: *mut crate::ctypes::c_void,
-        addrlen: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        addr: *mut core::ffi::c_void,
+        addrlen: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallBind(
-        s: crate::ctypes::c_int,
-        addr: *const crate::ctypes::c_void,
-        addrlen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        addr: *const core::ffi::c_void,
+        addrlen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallClose(s: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSyscallConnect(
-        s: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_void,
-        namelen: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        name: *const core::ffi::c_void,
+        namelen: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallControl(
-        if_index: crate::ctypes::c_int,
-        code: crate::ctypes::c_int,
-        ptr: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallDescriptorClose(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        if_index: core::ffi::c_int,
+        code: core::ffi::c_int,
+        ptr: *mut core::ffi::c_void,
+        len: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallDescriptorClose(id: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSyscallDescriptorCreate(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallDescriptorCtl(
-        id: crate::ctypes::c_int,
-        op: crate::ctypes::c_int,
-        s: crate::ctypes::c_int,
-        info: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        op: core::ffi::c_int,
+        s: core::ffi::c_int,
+        info: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallDumpAbort(
-        id: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallDumpClose(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallDumpClose(id: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSyscallDumpCreate(
-        name: *const crate::ctypes::c_char,
-        len: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        len: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallDumpRead(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_int,
-        pflags: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: core::ffi::c_int,
+        pflags: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallEpollAbort(
-        eid: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallEpollClose(eid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        eid: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallEpollClose(eid: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSyscallEpollCreate(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallEpollCtl(
-        eid: crate::ctypes::c_int,
-        op: crate::ctypes::c_int,
-        id: crate::ctypes::c_int,
-        event: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallEpollWait(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+        eid: core::ffi::c_int,
+        op: core::ffi::c_int,
+        id: core::ffi::c_int,
+        event: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallEpollWait(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
     pub fn sceNetSyscallGetIfList(
-        list: *mut crate::ctypes::c_void,
-        n: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        list: *mut core::ffi::c_void,
+        n: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallGetSockinfo(
-        s: crate::ctypes::c_int,
-        ptr: *mut crate::ctypes::c_void,
-        n: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        ptr: *mut core::ffi::c_void,
+        n: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallGetpeername(
-        s: crate::ctypes::c_int,
-        name: *mut crate::ctypes::c_void,
-        namelen: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        name: *mut core::ffi::c_void,
+        namelen: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallGetsockname(
-        s: crate::ctypes::c_int,
-        name: *mut crate::ctypes::c_void,
-        namelen: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallGetsockopt(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        name: *mut core::ffi::c_void,
+        namelen: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallGetsockopt(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
     pub fn sceNetSyscallIcmConnect(
-        s: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallIoctl(
-        s: crate::ctypes::c_int,
-        com: crate::ctypes::c_uint,
-        data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallListen(
-        s: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallRecvfrom(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        com: core::ffi::c_uint,
+        data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallListen(s: core::ffi::c_int, backlog: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetSyscallRecvfrom(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
     pub fn sceNetSyscallRecvmsg(
-        s: crate::ctypes::c_int,
-        msg: *mut crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        msg: *mut core::ffi::c_void,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallSendmsg(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallSendto(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallSetsockopt(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallShutdown(
-        s: crate::ctypes::c_int,
-        how: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        msg: *const core::ffi::c_void,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallSendto(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
+    pub fn sceNetSyscallSetsockopt(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
+    pub fn sceNetSyscallShutdown(s: core::ffi::c_int, how: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSyscallSocket(
-        name: *const crate::ctypes::c_char,
-        domain: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        protocol: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        domain: core::ffi::c_int,
+        type_: core::ffi::c_int,
+        protocol: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSyscallSocketAbort(
-        s: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSyscallSysctl(param: *mut SceNetSyscallParameter) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSyscallSysctl(param: *mut SceNetSyscallParameter) -> core::ffi::c_int;
 }
 #[link(name = "SceNet_stub", kind = "static")]
 #[cfg(feature = "SceNet_stub")]
 extern "C" {
     pub fn sceNetAccept(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         addr: *mut SceNetSockaddr,
-        addrlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        addrlen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceNetBind(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         addr: *const SceNetSockaddr,
-        addrlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetClearDnsCache(flags: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        addrlen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceNetClearDnsCache(flags: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetConnect(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         name: *const SceNetSockaddr,
-        namelen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetDumpAbort(
-        id: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        namelen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceNetDumpAbort(id: core::ffi::c_int, flags: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetDumpCreate(
-        name: *const crate::ctypes::c_char,
-        len: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetDumpDestroy(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        len: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetDumpDestroy(id: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetDumpRead(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_int,
-        pflags: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: core::ffi::c_int,
+        pflags: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetEmulationGet(
         param: *mut SceNetEmulationParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetEmulationSet(
         param: *mut SceNetEmulationParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetEpollAbort(
-        eid: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetEpollAbort(eid: core::ffi::c_int, flags: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetEpollControl(
-        eid: crate::ctypes::c_int,
-        op: crate::ctypes::c_int,
-        id: crate::ctypes::c_int,
+        eid: core::ffi::c_int,
+        op: core::ffi::c_int,
+        id: core::ffi::c_int,
         event: *mut SceNetEpollEvent,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceNetEpollCreate(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetEpollDestroy(eid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetEpollDestroy(eid: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetEpollWait(
-        eid: crate::ctypes::c_int,
+        eid: core::ffi::c_int,
         events: *mut SceNetEpollEvent,
-        maxevents: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        maxevents: core::ffi::c_int,
+        timeout: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetEpollWaitCB(
-        eid: crate::ctypes::c_int,
+        eid: core::ffi::c_int,
         events: *mut SceNetEpollEvent,
-        maxevents: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetErrnoLoc() -> *mut crate::ctypes::c_int;
+        maxevents: core::ffi::c_int,
+        timeout: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetErrnoLoc() -> *mut core::ffi::c_int;
     pub fn sceNetEtherNtostr(
         n: *const SceNetEtherAddr,
-        str_: *mut crate::ctypes::c_char,
-        len: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        str_: *mut core::ffi::c_char,
+        len: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceNetEtherStrton(
-        str_: *const crate::ctypes::c_char,
+        str_: *const core::ffi::c_char,
         n: *mut SceNetEtherAddr,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceNetGetMacAddress(
         addr: *mut SceNetEtherAddr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetSockIdInfo(
         fds: *mut SceNetFdSet,
-        sockinfoflags: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        sockinfoflags: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetSockInfo(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         info: *mut SceNetSockInfo,
-        n: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        n: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetStatisticsInfo(
         info: *mut SceNetStatisticsInfo,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetpeername(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         name: *mut SceNetSockaddr,
-        namelen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        namelen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetsockname(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         name: *mut SceNetSockaddr,
-        namelen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        namelen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceNetGetsockopt(
-        s: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-        optname: crate::ctypes::c_int,
-        optval: *mut crate::ctypes::c_void,
-        optlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetHtonl(host32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
-    pub fn sceNetHtonll(host64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
-    pub fn sceNetHtons(host16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
+        s: core::ffi::c_int,
+        level: core::ffi::c_int,
+        optname: core::ffi::c_int,
+        optval: *mut core::ffi::c_void,
+        optlen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceNetHtonl(host32: core::ffi::c_uint) -> core::ffi::c_uint;
+    pub fn sceNetHtonll(host64: core::ffi::c_ulonglong) -> core::ffi::c_ulonglong;
+    pub fn sceNetHtons(host16: core::ffi::c_ushort) -> core::ffi::c_ushort;
     pub fn sceNetInetNtop(
-        af: crate::ctypes::c_int,
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_char,
-        size: crate::ctypes::c_uint,
-    ) -> *const crate::ctypes::c_char;
+        af: core::ffi::c_int,
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_char,
+        size: core::ffi::c_uint,
+    ) -> *const core::ffi::c_char;
     pub fn sceNetInetPton(
-        af: crate::ctypes::c_int,
-        src: *const crate::ctypes::c_char,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetInit(param: *mut SceNetInitParam) -> crate::ctypes::c_int;
-    pub fn sceNetListen(
-        s: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetNtohl(net32: crate::ctypes::c_uint) -> crate::ctypes::c_uint;
-    pub fn sceNetNtohll(net64: crate::ctypes::c_ulonglong) -> crate::ctypes::c_ulonglong;
-    pub fn sceNetNtohs(net16: crate::ctypes::c_ushort) -> crate::ctypes::c_ushort;
+        af: core::ffi::c_int,
+        src: *const core::ffi::c_char,
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetInit(param: *mut SceNetInitParam) -> core::ffi::c_int;
+    pub fn sceNetListen(s: core::ffi::c_int, backlog: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetNtohl(net32: core::ffi::c_uint) -> core::ffi::c_uint;
+    pub fn sceNetNtohll(net64: core::ffi::c_ulonglong) -> core::ffi::c_ulonglong;
+    pub fn sceNetNtohs(net16: core::ffi::c_ushort) -> core::ffi::c_ushort;
     pub fn sceNetRecv(
-        s: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetRecvfrom(
-        s: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
+        s: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
         from: *mut SceNetSockaddr,
-        fromlen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        fromlen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceNetRecvmsg(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         msg: *mut SceNetMsghdr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetResolverAbort(
-        rid: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetResolverAbort(rid: core::ffi::c_int, flags: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetResolverCreate(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         param: *mut SceNetResolverParam,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetResolverDestroy(rid: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetResolverDestroy(rid: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetResolverGetError(
-        rid: crate::ctypes::c_int,
-        result: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        rid: core::ffi::c_int,
+        result: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetResolverStartAton(
-        rid: crate::ctypes::c_int,
+        rid: core::ffi::c_int,
         addr: *const SceNetInAddr,
-        hostname: *mut crate::ctypes::c_char,
-        len: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        hostname: *mut core::ffi::c_char,
+        len: core::ffi::c_int,
+        timeout: core::ffi::c_int,
+        retry: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetResolverStartNtoa(
-        rid: crate::ctypes::c_int,
-        hostname: *const crate::ctypes::c_char,
+        rid: core::ffi::c_int,
+        hostname: *const core::ffi::c_char,
         addr: *mut SceNetInAddr,
-        timeout: crate::ctypes::c_int,
-        retry: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_int,
+        retry: core::ffi::c_int,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSend(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        msg: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSendmsg(
-        s: crate::ctypes::c_int,
+        s: core::ffi::c_int,
         msg: *const SceNetMsghdr,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetSendto(
-        s: crate::ctypes::c_int,
-        msg: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        flags: crate::ctypes::c_int,
+        s: core::ffi::c_int,
+        msg: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        flags: core::ffi::c_int,
         to: *const SceNetSockaddr,
-        tolen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSetDnsInfo(
-        info: *mut SceNetDnsInfo,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        tolen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSetDnsInfo(info: *mut SceNetDnsInfo, flags: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSetsockopt(
-        s: crate::ctypes::c_int,
-        level: crate::ctypes::c_int,
-        optname: crate::ctypes::c_int,
-        optval: *const crate::ctypes::c_void,
-        optlen: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetShowIfconfig(
-        p: *mut crate::ctypes::c_void,
-        b: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetShowNetstat() -> crate::ctypes::c_int;
-    pub fn sceNetShowRoute() -> crate::ctypes::c_int;
-    pub fn sceNetShutdown(
-        s: crate::ctypes::c_int,
-        how: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        s: core::ffi::c_int,
+        level: core::ffi::c_int,
+        optname: core::ffi::c_int,
+        optval: *const core::ffi::c_void,
+        optlen: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceNetShowIfconfig(p: *mut core::ffi::c_void, b: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetShowNetstat() -> core::ffi::c_int;
+    pub fn sceNetShowRoute() -> core::ffi::c_int;
+    pub fn sceNetShutdown(s: core::ffi::c_int, how: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetSocket(
-        name: *const crate::ctypes::c_char,
-        domain: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        protocol: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSocketAbort(
-        s: crate::ctypes::c_int,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetSocketClose(s: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceNetTerm() -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        domain: core::ffi::c_int,
+        type_: core::ffi::c_int,
+        protocol: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetSocketAbort(s: core::ffi::c_int, flags: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetSocketClose(s: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceNetTerm() -> core::ffi::c_int;
 }
 #[link(name = "SceNgs_stub", kind = "static")]
 #[cfg(feature = "SceNgs_stub")]
@@ -15852,7 +15585,7 @@ extern "C" {
     pub fn sceNgsVoiceGetParamsOutOfRangeBufferedInternal(
         handle: SceNgsHVoice,
         module: SceUInt32,
-        message_buffer: *mut crate::ctypes::c_char,
+        message_buffer: *mut core::ffi::c_char,
     ) -> SceInt32;
     pub fn sceNgsVoiceInitInternal(
         handle: SceNgsHVoice,
@@ -15868,13 +15601,13 @@ extern "C" {
     pub fn sceNgsVoiceSetFinishedCallbackInternal(
         handle: SceNgsHVoice,
         callback: SceNgsCallbackFunc,
-        userdata: *mut crate::ctypes::c_void,
+        userdata: *mut core::ffi::c_void,
     ) -> SceInt32;
     pub fn sceNgsVoiceSetModuleCallbackInternal(
         handle: SceNgsHVoice,
         module: SceUInt32,
         callback: SceNgsModuleCallbackFunc,
-        callback_userdata: *mut crate::ctypes::c_void,
+        callback_userdata: *mut core::ffi::c_void,
     ) -> SceInt32;
     pub fn sceNgsVoiceSetPresetInternal(
         handle: SceNgsHVoice,
@@ -15916,125 +15649,117 @@ extern "C" {}
 #[cfg(feature = "SceNpDrmForDriver_stub")]
 extern "C" {
     pub fn ksceNpDrmCheckActData(
-        act_type: *mut crate::ctypes::c_int,
-        version_flag: *mut crate::ctypes::c_int,
+        act_type: *mut core::ffi::c_int,
+        version_flag: *mut core::ffi::c_int,
         account_id: *mut SceUInt64,
         act_start_time: *mut SceUInt64,
         act_end_time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmEbootSigConvert(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        old_eboot_signature: *const crate::ctypes::c_void,
-        new_eboot_signature: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        old_eboot_signature: *const core::ffi::c_void,
+        new_eboot_signature: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmEbootSigGenMultiDisc(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        sce_discinfo: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        sce_discinfo: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmEbootSigGenPs1(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmEbootSigGenPsp(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmEbootSigVerify(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_signature: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_signature: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmGetFixedRifName(
-        name: *mut crate::ctypes::c_char,
+        name: *mut core::ffi::c_char,
         aid: SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmGetRifInfo(
-        license: *const crate::ctypes::c_void,
+        license: *const core::ffi::c_void,
         license_size: SceSize,
-        check_sign: crate::ctypes::c_int,
-        content_id: *mut crate::ctypes::c_char,
+        check_sign: core::ffi::c_int,
+        content_id: *mut core::ffi::c_char,
         account_id: *mut SceUInt64,
-        license_version: *mut crate::ctypes::c_int,
-        license_flags: *mut crate::ctypes::c_int,
-        flags: *mut crate::ctypes::c_int,
-        sku_flags: *mut crate::ctypes::c_int,
+        license_version: *mut core::ffi::c_int,
+        license_flags: *mut core::ffi::c_int,
+        flags: *mut core::ffi::c_int,
+        sku_flags: *mut core::ffi::c_int,
         lic_start_time: *mut SceInt64,
         lic_exp_time: *mut SceInt64,
         flags2: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceNpDrmGetRifName(
-        name: *mut crate::ctypes::c_char,
-        aid: SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceNpDrmGetRifName(name: *mut core::ffi::c_char, aid: SceUInt64) -> core::ffi::c_int;
     pub fn ksceNpDrmGetRifPspKey(
-        license: *const crate::ctypes::c_void,
-        klicense: *mut crate::ctypes::c_void,
-        flags: *mut crate::ctypes::c_int,
+        license: *const core::ffi::c_void,
+        klicense: *mut core::ffi::c_void,
+        flags: *mut core::ffi::c_int,
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmGetRifVitaKey(
-        license: *const crate::ctypes::c_void,
-        klicense: *mut crate::ctypes::c_void,
-        flags: *mut crate::ctypes::c_int,
-        sku_flags: *mut crate::ctypes::c_int,
+        license: *const core::ffi::c_void,
+        klicense: *mut core::ffi::c_void,
+        flags: *mut core::ffi::c_int,
+        sku_flags: *mut core::ffi::c_int,
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmPspEbootSigGen(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceNpDrmPspEbootVerify(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_signature: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_signature: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceNpDrmReadActData(act_data: *mut SceNpDrmActivationData) -> core::ffi::c_int;
 }
 #[link(name = "SceNpDrm_stub", kind = "static")]
 #[cfg(feature = "SceNpDrm_stub")]
 extern "C" {
     pub fn _sceNpDrmCheckActData(
-        act_type: *mut crate::ctypes::c_int,
-        version_flag: *mut crate::ctypes::c_int,
+        act_type: *mut core::ffi::c_int,
+        version_flag: *mut core::ffi::c_int,
         account_id: *mut SceUInt64,
         act_exp_time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceNpDrmGetFixedRifName(
-        rif_name: *mut crate::ctypes::c_char,
-        aid: u64,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceNpDrmGetRifName(
-        rif_name: *mut crate::ctypes::c_char,
-        aid: u64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceNpDrmGetFixedRifName(rif_name: *mut core::ffi::c_char, aid: u64)
+        -> core::ffi::c_int;
+    pub fn _sceNpDrmGetRifName(rif_name: *mut core::ffi::c_char, aid: u64) -> core::ffi::c_int;
     pub fn _sceNpDrmGetRifNameForInstall(
-        rif_name: *mut crate::ctypes::c_char,
-        rif_data: *const crate::ctypes::c_void,
-        unk: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        rif_name: *mut core::ffi::c_char,
+        rif_data: *const core::ffi::c_void,
+        unk: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn _sceNpDrmPackageCheck(
-        buffer: *const crate::ctypes::c_void,
+        buffer: *const core::ffi::c_void,
         size: SceSize,
-        zero: crate::ctypes::c_int,
-        identifier: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        zero: core::ffi::c_int,
+        identifier: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn _sceNpDrmPackageDecrypt(
-        buffer: *mut crate::ctypes::c_void,
+        buffer: *mut core::ffi::c_void,
         size: SceSize,
         opt: *mut _sceNpDrmPackageDecrypt_opt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn scePsmDrmGetRifKey(
         license_buf: *const ScePsmDrmLicense,
-        keydata: *mut crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        keydata: *mut core::ffi::c_char,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceNpManager_stub", kind = "static")]
 #[cfg(feature = "SceNpManager_stub")]
@@ -16077,154 +15802,151 @@ extern "C" {}
 extern "C" {
     pub fn scePafCreateHeap(
         context: *mut ScePafHeapContext,
-        membase: *mut crate::ctypes::c_void,
+        membase: *mut core::ffi::c_void,
         size: SceSize,
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         opt: *mut ScePafHeapOpt,
     );
     pub fn scePafDeleteHeap(context: *mut ScePafHeapContext);
-    pub fn scePafFreeWithContext(context: *mut ScePafHeapContext, ptr: *mut crate::ctypes::c_void);
-    pub fn scePafGetCurrentClockLocalTime(data: *mut ScePafDateTime) -> crate::ctypes::c_int;
+    pub fn scePafFreeWithContext(context: *mut ScePafHeapContext, ptr: *mut core::ffi::c_void);
+    pub fn scePafGetCurrentClockLocalTime(data: *mut ScePafDateTime) -> core::ffi::c_int;
     pub static mut scePafGraphicsCurrentWave: SceUInt32;
     pub fn scePafGraphicsUpdateCurrentWave(
         index: SceUInt32,
         update_interval: SceFloat32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn scePafMallocAlignWithContext(
         context: *mut ScePafHeapContext,
         align: SceUInt32,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn scePafMallocWithContext(
         context: *mut ScePafHeapContext,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn scePafReallocWithContext(
         context: *mut ScePafHeapContext,
-        ptr: *mut crate::ctypes::c_void,
+        ptr: *mut core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-    pub fn scePafSha1Init(context: *mut ScePafSha1Context) -> crate::ctypes::c_int;
+    ) -> *mut core::ffi::c_void;
+    pub fn scePafSha1Init(context: *mut ScePafSha1Context) -> core::ffi::c_int;
     pub fn scePafSha1Result(
         context: *mut ScePafSha1Context,
-        dst: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        dst: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn scePafSha1Update(
         context: *mut ScePafSha1Context,
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         length: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_bcmp(
-        ptr1: *const crate::ctypes::c_void,
-        ptr2: *const crate::ctypes::c_void,
+        ptr1: *const core::ffi::c_void,
+        ptr2: *const core::ffi::c_void,
         num: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_bcopy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         n: SceSize,
-    ) -> *mut crate::ctypes::c_void;
-    pub fn sce_paf_bzero(dst: *mut crate::ctypes::c_void, n: SceSize)
-        -> *mut crate::ctypes::c_void;
-    pub fn sce_paf_free(ptr: *mut crate::ctypes::c_void);
-    pub fn sce_paf_malloc(size: SceSize) -> *mut crate::ctypes::c_void;
-    pub fn sce_paf_memalign(align: SceSize, length: SceSize) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
+    pub fn sce_paf_bzero(dst: *mut core::ffi::c_void, n: SceSize) -> *mut core::ffi::c_void;
+    pub fn sce_paf_free(ptr: *mut core::ffi::c_void);
+    pub fn sce_paf_malloc(size: SceSize) -> *mut core::ffi::c_void;
+    pub fn sce_paf_memalign(align: SceSize, length: SceSize) -> *mut core::ffi::c_void;
     pub fn sce_paf_memchr(
-        src: *const crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
+        src: *const core::ffi::c_void,
+        ch: core::ffi::c_int,
         length: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sce_paf_memcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
+        s1: *const core::ffi::c_void,
+        s2: *const core::ffi::c_void,
         n: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_memcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sce_paf_memmove(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sce_paf_memset(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
+        dst: *mut core::ffi::c_void,
+        ch: core::ffi::c_int,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn sce_paf_snprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        max: core::ffi::c_uint,
+        fmt: *const core::ffi::c_char,
         ...
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_strcasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sce_paf_strchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
+        s: *const core::ffi::c_char,
+        ch: core::ffi::c_int,
+    ) -> *mut core::ffi::c_char;
     pub fn sce_paf_strcmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sce_paf_strlen(s: *const crate::ctypes::c_char) -> usize;
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sce_paf_strlen(s: *const core::ffi::c_char) -> usize;
     pub fn sce_paf_strncasecmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_strncmp(
-        s1: *const crate::ctypes::c_char,
-        s2: *const crate::ctypes::c_char,
+        s1: *const core::ffi::c_char,
+        s2: *const core::ffi::c_char,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sce_paf_strncpy(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
-    ) -> *mut crate::ctypes::c_char;
+    ) -> *mut core::ffi::c_char;
     pub fn sce_paf_strrchr(
-        s: *const crate::ctypes::c_char,
-        ch: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_char;
+        s: *const core::ffi::c_char,
+        ch: core::ffi::c_int,
+    ) -> *mut core::ffi::c_char;
     pub fn sce_paf_strtod(
-        nptr: *const crate::ctypes::c_char,
-        endptr: *mut *mut crate::ctypes::c_char,
+        nptr: *const core::ffi::c_char,
+        endptr: *mut *mut core::ffi::c_char,
     ) -> f64;
     pub fn sce_paf_vsnprintf(
-        dst: *mut crate::ctypes::c_char,
-        max: crate::ctypes::c_uint,
-        fmt: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        max: core::ffi::c_uint,
+        fmt: *const core::ffi::c_char,
         arg: va_list,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "ScePamgr_stub", kind = "static")]
 #[cfg(feature = "ScePamgr_stub")]
 extern "C" {
     pub fn _sceKernelPaAddArmTraceByKey(
-        key: crate::ctypes::c_int,
+        key: core::ffi::c_int,
         param: *const SceKernelPaArmTraceParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceKernelPaAddCounterTraceByKey(
-        key: crate::ctypes::c_int,
+        key: core::ffi::c_int,
         param: *const SceKernelPaCounterTraceParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceKernelPaAddGpuTraceByKey(
-        key: crate::ctypes::c_int,
+        key: core::ffi::c_int,
         param: *const SceKernelPaGpuTraceParam,
-    ) -> crate::ctypes::c_int;
-    pub fn _sceKernelPaGetGpuSampledData(
-        data: *mut SceKernelPaGpuSampledData,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn _sceKernelPaGetGpuSampledData(data: *mut SceKernelPaGpuSampledData) -> core::ffi::c_int;
     pub fn _sceKernelPaSetupTraceBufferByKey(
-        key: crate::ctypes::c_int,
+        key: core::ffi::c_int,
         param: *const SceKernelPaTraceBufferParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelPaGetIoBaseAddress() -> SceUInt32;
     pub fn sceKernelPaGetTimebaseFrequency() -> SceUInt32;
     pub fn sceKernelPaGetTimebaseValue() -> SceUInt64;
@@ -16235,34 +15957,34 @@ extern "C" {
         fifo: SceUInt32,
         channel: SceUInt32,
         data: SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelPaRegister() -> crate::ctypes::c_int;
-    pub fn sceKernelPaRemoveArmTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelPaRemoveCounterTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelPaRemoveGpuTraceByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelPaRegister() -> core::ffi::c_int;
+    pub fn sceKernelPaRemoveArmTraceByKey(key: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelPaRemoveCounterTraceByKey(key: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelPaRemoveGpuTraceByKey(key: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceKernelPaSetBookmarkChannelEnableByKey(
-        key: crate::ctypes::c_int,
+        key: core::ffi::c_int,
         fifo: SceUInt32,
         mask: SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelPaStartByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelPaStopByKey(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelPaUnregister(key: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceKernelPerfArmPmonClose() -> crate::ctypes::c_int;
-    pub fn sceKernelPerfArmPmonOpen() -> crate::ctypes::c_int;
-    pub fn sceKernelPerfArmPmonReset(threadId: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelPaStartByKey(key: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelPaStopByKey(key: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelPaUnregister(key: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceKernelPerfArmPmonClose() -> core::ffi::c_int;
+    pub fn sceKernelPerfArmPmonOpen() -> core::ffi::c_int;
+    pub fn sceKernelPerfArmPmonReset(threadId: SceUID) -> core::ffi::c_int;
     pub fn sceKernelPerfArmPmonSelectEvent(
         threadId: SceUID,
         counter: SceUInt32,
         eventCode: SceUInt8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelPerfArmPmonSetCounterValue(
         threadId: SceUID,
         counter: SceUInt32,
         value: SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelPerfArmPmonStart(threadId: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelPerfArmPmonStop(threadId: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelPerfArmPmonStart(threadId: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelPerfArmPmonStop(threadId: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "ScePerf_stub", kind = "static")]
 #[cfg(feature = "ScePerf_stub")]
@@ -16271,21 +15993,21 @@ extern "C" {
         thid: SceUID,
         counter: SceUInt32,
         value: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn scePerfArmPmonReset(thid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn scePerfArmPmonReset(thid: SceUID) -> core::ffi::c_int;
     pub fn scePerfArmPmonSelectEvent(
         thid: SceUID,
         counter: SceUInt32,
         event_code: SceUInt8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn scePerfArmPmonSetCounterValue(
         thid: SceUID,
         counter: SceUInt32,
         value: SceUInt32,
-    ) -> crate::ctypes::c_int;
-    pub fn scePerfArmPmonSoftwareIncrement(mask: SceUInt32) -> crate::ctypes::c_int;
-    pub fn scePerfArmPmonStart(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn scePerfArmPmonStop(thid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn scePerfArmPmonSoftwareIncrement(mask: SceUInt32) -> core::ffi::c_int;
+    pub fn scePerfArmPmonStart(thid: SceUID) -> core::ffi::c_int;
+    pub fn scePerfArmPmonStop(thid: SceUID) -> core::ffi::c_int;
     pub fn scePerfGetTimebaseFrequency() -> SceUInt32;
     pub fn scePerfGetTimebaseValue() -> SceUInt64;
 }
@@ -16293,48 +16015,48 @@ extern "C" {
 #[cfg(feature = "ScePervasiveForDriver_stub")]
 extern "C" {
     pub fn kscePervasiveDsiClockDisable(
-        port: crate::ctypes::c_int,
-        mask: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        mask: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn kscePervasiveDsiClockEnable(
-        port: crate::ctypes::c_int,
-        mask: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        mask: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn kscePervasiveDsiResetDisable(
-        port: crate::ctypes::c_int,
-        mask: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        mask: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn kscePervasiveDsiResetEnable(
-        port: crate::ctypes::c_int,
-        mask: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        mask: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn kscePervasiveDsiSetPixelClock(
-        port: crate::ctypes::c_int,
-        pixelclock: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        pixelclock: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn kscePervasiveGetSoCRevision() -> SceUInt32;
-    pub fn kscePervasiveGpioClockDisable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveGpioClockEnable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveGpioResetDisable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveGpioResetEnable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveMsifClockDisable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveMsifClockEnable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveMsifResetDisable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveMsifResetEnable() -> crate::ctypes::c_int;
-    pub fn kscePervasiveMsifSetClock(clock: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn kscePervasiveRemovableMemoryGetCardInsertState() -> crate::ctypes::c_int;
-    pub fn kscePervasiveSpiClockDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveSpiClockEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveSpiResetDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveSpiResetEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveUartClockDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveUartClockEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveUartResetDisable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePervasiveUartResetEnable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn kscePervasiveGpioClockDisable() -> core::ffi::c_int;
+    pub fn kscePervasiveGpioClockEnable() -> core::ffi::c_int;
+    pub fn kscePervasiveGpioResetDisable() -> core::ffi::c_int;
+    pub fn kscePervasiveGpioResetEnable() -> core::ffi::c_int;
+    pub fn kscePervasiveMsifClockDisable() -> core::ffi::c_int;
+    pub fn kscePervasiveMsifClockEnable() -> core::ffi::c_int;
+    pub fn kscePervasiveMsifResetDisable() -> core::ffi::c_int;
+    pub fn kscePervasiveMsifResetEnable() -> core::ffi::c_int;
+    pub fn kscePervasiveMsifSetClock(clock: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn kscePervasiveRemovableMemoryGetCardInsertState() -> core::ffi::c_int;
+    pub fn kscePervasiveSpiClockDisable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveSpiClockEnable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveSpiResetDisable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveSpiResetEnable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveUartClockDisable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveUartClockEnable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveUartResetDisable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePervasiveUartResetEnable(port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn kscePervasiveUartSetBaudrate(
-        port: crate::ctypes::c_int,
-        baudrate: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        baudrate: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "ScePfsMgrForKernel_stub", kind = "static")]
 #[cfg(feature = "ScePfsMgrForKernel_stub")]
@@ -16342,256 +16064,254 @@ extern "C" {
     pub fn kscePfsApprove(
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn kscePfsDisapprove(
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn kscePfsMount(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
         program_authority_id: SceUInt64,
-        klicensee: *const crate::ctypes::c_void,
+        klicensee: *const core::ffi::c_void,
         mode_index: u16,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn kscePfsMount2(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         rnd_drive_id: *const ScePfsRndDriveId,
-        klicensee: *const crate::ctypes::c_void,
+        klicensee: *const core::ffi::c_void,
         mode_index: u16,
-    ) -> crate::ctypes::c_int;
-    pub fn kscePfsUnmount(rnd_drive_id: *const ScePfsRndDriveId) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn kscePfsUnmount(rnd_drive_id: *const ScePfsRndDriveId) -> core::ffi::c_int;
 }
 #[link(name = "ScePgf_stub", kind = "static")]
 #[cfg(feature = "ScePgf_stub")]
 extern "C" {
-    pub fn sceFontClose(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
-    pub fn sceFontDoneLib(libHandle: SceFontLibHandle) -> crate::ctypes::c_int;
+    pub fn sceFontClose(fontHandle: SceFontHandle) -> core::ffi::c_int;
+    pub fn sceFontDoneLib(libHandle: SceFontLibHandle) -> core::ffi::c_int;
     pub fn sceFontFindFont(
         libHandle: SceFontLibHandle,
         fontStyle: *mut SceFontStyle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        errorCode: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceFontFindOptimumFont(
         libHandle: SceFontLibHandle,
         fontStyle: *mut SceFontStyle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceFontFlush(fontHandle: SceFontHandle) -> crate::ctypes::c_int;
+        errorCode: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceFontFlush(fontHandle: SceFontHandle) -> core::ffi::c_int;
     pub fn sceFontGetCharGlyphImage(
         fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
+        charCode: core::ffi::c_uint,
         glyphImage: *mut SceFontGlyphImage,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceFontGetCharGlyphImage_Clip(
         fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
+        charCode: core::ffi::c_uint,
         glyphImage: *mut SceFontGlyphImage,
-        clipXPos: crate::ctypes::c_int,
-        clipYPos: crate::ctypes::c_int,
-        clipWidth: crate::ctypes::c_int,
-        clipHeight: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        clipXPos: core::ffi::c_int,
+        clipYPos: core::ffi::c_int,
+        clipWidth: core::ffi::c_int,
+        clipHeight: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceFontGetCharImageRect(
         fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
+        charCode: core::ffi::c_uint,
         charRect: *mut SceFontImageRect,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceFontGetCharInfo(
         fontHandle: SceFontHandle,
-        charCode: crate::ctypes::c_uint,
+        charCode: core::ffi::c_uint,
         charInfo: *mut SceFontCharInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceFontGetFontInfo(
         fontHandle: SceFontHandle,
         fontInfo: *mut SceFontInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceFontGetFontInfoByIndexNumber(
         libHandle: SceFontLibHandle,
         fontStyle: *mut SceFontStyle,
-        unknown: crate::ctypes::c_int,
-        fontIndex: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        unknown: core::ffi::c_int,
+        fontIndex: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceFontGetFontList(
         libHandle: SceFontLibHandle,
         fontStyle: *mut SceFontStyle,
-        numFonts: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        numFonts: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceFontGetNumFontList(
         libHandle: SceFontLibHandle,
-        errorCode: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        errorCode: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceFontNewLib(
         params: *mut SceFontNewLibParams,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> SceFontLibHandle;
     pub fn sceFontOpen(
         libHandle: SceFontLibHandle,
-        index: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_uint,
+        index: core::ffi::c_int,
+        mode: core::ffi::c_int,
+        errorCode: *mut core::ffi::c_uint,
     ) -> SceFontHandle;
     pub fn sceFontOpenUserFile(
         libHandle: SceFontLibHandle,
-        file: *mut crate::ctypes::c_char,
-        mode: crate::ctypes::c_int,
-        errorCode: *mut crate::ctypes::c_uint,
+        file: *mut core::ffi::c_char,
+        mode: core::ffi::c_int,
+        errorCode: *mut core::ffi::c_uint,
     ) -> SceFontHandle;
     pub fn sceFontOpenUserMemory(
         libHandle: SceFontLibHandle,
-        pMemoryFont: *mut crate::ctypes::c_void,
+        pMemoryFont: *mut core::ffi::c_void,
         pMemoryFontSize: SceSize,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> SceFontHandle;
     pub fn sceFontPixelToPointH(
         libHandle: SceFontLibHandle,
         fontPixelsH: f32,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> f32;
     pub fn sceFontPixelToPointV(
         libHandle: SceFontLibHandle,
         fontPixelsV: f32,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> f32;
     pub fn sceFontPointToPixelH(
         libHandle: SceFontLibHandle,
         fontPointsH: f32,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> f32;
     pub fn sceFontPointToPixelV(
         libHandle: SceFontLibHandle,
         fontPointsV: f32,
-        errorCode: *mut crate::ctypes::c_uint,
+        errorCode: *mut core::ffi::c_uint,
     ) -> f32;
     pub fn sceFontSetAltCharacterCode(
         libHandle: SceFontLibHandle,
-        charCode: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        charCode: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceFontSetResolution(
         libHandle: SceFontLibHandle,
         hRes: f32,
         vRes: f32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "ScePhotoExport_stub", kind = "static")]
 #[cfg(feature = "ScePhotoExport_stub")]
 extern "C" {
     pub fn scePhotoExportFromData(
-        data: *const crate::ctypes::c_void,
+        data: *const core::ffi::c_void,
         size: SceSize,
         param: *const PhotoExportParam,
-        workingMemory: *mut crate::ctypes::c_void,
-        cancelCb: *mut crate::ctypes::c_void,
-        user: *mut crate::ctypes::c_void,
-        outPath: *mut crate::ctypes::c_char,
+        workingMemory: *mut core::ffi::c_void,
+        cancelCb: *mut core::ffi::c_void,
+        user: *mut core::ffi::c_void,
+        outPath: *mut core::ffi::c_char,
         outPathSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn scePhotoExportFromFile(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         param: *const PhotoExportParam,
-        workingMemory: *mut crate::ctypes::c_void,
-        cancelCb: *mut crate::ctypes::c_void,
-        user: *mut crate::ctypes::c_void,
-        outPath: *mut crate::ctypes::c_char,
+        workingMemory: *mut core::ffi::c_void,
+        cancelCb: *mut core::ffi::c_void,
+        user: *mut core::ffi::c_void,
+        outPath: *mut core::ffi::c_char,
         outPathSize: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "ScePmMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "ScePmMgrForDriver_stub")]
 extern "C" {
-    pub fn kscePmMgrGetProductMode(result: *mut SceProductMode) -> crate::ctypes::c_int;
-    pub fn kscePmMgrIsExternalBootMode() -> crate::ctypes::c_int;
+    pub fn kscePmMgrGetProductMode(result: *mut SceProductMode) -> core::ffi::c_int;
+    pub fn kscePmMgrIsExternalBootMode() -> core::ffi::c_int;
 }
 #[link(name = "ScePowerForDriver_stub", kind = "static")]
 #[cfg(feature = "ScePowerForDriver_stub")]
 extern "C" {
-    pub fn kscePowerGetArmClockFrequency() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatterySOH() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryTemp() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBatteryVolt() -> crate::ctypes::c_int;
-    pub fn kscePowerGetBusClockFrequency() -> crate::ctypes::c_int;
-    pub fn kscePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
-    pub fn kscePowerGetSysClockFrequency() -> crate::ctypes::c_int;
+    pub fn kscePowerGetArmClockFrequency() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryCycleCount() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryFullCapacity() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryLifePercent() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryLifeTime() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryRemainCapacity() -> core::ffi::c_int;
+    pub fn kscePowerGetBatterySOH() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryTemp() -> core::ffi::c_int;
+    pub fn kscePowerGetBatteryVolt() -> core::ffi::c_int;
+    pub fn kscePowerGetBusClockFrequency() -> core::ffi::c_int;
+    pub fn kscePowerGetGpuXbarClockFrequency() -> core::ffi::c_int;
+    pub fn kscePowerGetSysClockFrequency() -> core::ffi::c_int;
     pub fn kscePowerIsBatteryCharging() -> SceBool;
     pub fn kscePowerIsLowBattery() -> SceBool;
     pub fn kscePowerIsPowerOnline() -> SceBool;
     pub fn kscePowerIsSuspendRequired() -> SceBool;
-    pub fn kscePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-    pub fn kscePowerRequestColdReset() -> crate::ctypes::c_int;
-    pub fn kscePowerRequestDisplayOff() -> crate::ctypes::c_int;
-    pub fn kscePowerRequestSoftReset() -> crate::ctypes::c_int;
-    pub fn kscePowerRequestStandby() -> crate::ctypes::c_int;
-    pub fn kscePowerRequestSuspend() -> crate::ctypes::c_int;
-    pub fn kscePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePowerSetDisplayBrightness(brightness: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn kscePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn kscePowerRegisterCallback(cbid: SceUID) -> core::ffi::c_int;
+    pub fn kscePowerRequestColdReset() -> core::ffi::c_int;
+    pub fn kscePowerRequestDisplayOff() -> core::ffi::c_int;
+    pub fn kscePowerRequestSoftReset() -> core::ffi::c_int;
+    pub fn kscePowerRequestStandby() -> core::ffi::c_int;
+    pub fn kscePowerRequestSuspend() -> core::ffi::c_int;
+    pub fn kscePowerSetArmClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePowerSetBusClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePowerSetDisplayBrightness(brightness: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePowerSetGpuClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePowerSetGpuXbarClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn kscePowerUnregisterCallback(cbid: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "ScePower_stub", kind = "static")]
 #[cfg(feature = "ScePower_stub")]
 extern "C" {
-    pub fn scePowerGetArmClockFrequency() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryCycleCount() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryFullCapacity() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryLifePercent() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryLifeTime() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryRemainCapacity() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatterySOH() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryTemp() -> crate::ctypes::c_int;
-    pub fn scePowerGetBatteryVolt() -> crate::ctypes::c_int;
-    pub fn scePowerGetBusClockFrequency() -> crate::ctypes::c_int;
-    pub fn scePowerGetGpuClockFrequency() -> crate::ctypes::c_int;
-    pub fn scePowerGetGpuXbarClockFrequency() -> crate::ctypes::c_int;
-    pub fn scePowerGetUsingWireless() -> crate::ctypes::c_int;
+    pub fn scePowerGetArmClockFrequency() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryCycleCount() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryFullCapacity() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryLifePercent() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryLifeTime() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryRemainCapacity() -> core::ffi::c_int;
+    pub fn scePowerGetBatterySOH() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryTemp() -> core::ffi::c_int;
+    pub fn scePowerGetBatteryVolt() -> core::ffi::c_int;
+    pub fn scePowerGetBusClockFrequency() -> core::ffi::c_int;
+    pub fn scePowerGetGpuClockFrequency() -> core::ffi::c_int;
+    pub fn scePowerGetGpuXbarClockFrequency() -> core::ffi::c_int;
+    pub fn scePowerGetUsingWireless() -> core::ffi::c_int;
     pub fn scePowerIsBatteryCharging() -> SceBool;
     pub fn scePowerIsLowBattery() -> SceBool;
     pub fn scePowerIsPowerOnline() -> SceBool;
     pub fn scePowerIsSuspendRequired() -> SceBool;
-    pub fn scePowerRegisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-    pub fn scePowerRequestColdReset() -> crate::ctypes::c_int;
-    pub fn scePowerRequestDisplayOff() -> crate::ctypes::c_int;
-    pub fn scePowerRequestDisplayOn() -> crate::ctypes::c_int;
-    pub fn scePowerRequestStandby() -> crate::ctypes::c_int;
-    pub fn scePowerRequestSuspend() -> crate::ctypes::c_int;
-    pub fn scePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetConfigurationMode(conf: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetUsingWireless(enabled: SceBool) -> crate::ctypes::c_int;
-    pub fn scePowerUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn scePowerRegisterCallback(cbid: SceUID) -> core::ffi::c_int;
+    pub fn scePowerRequestColdReset() -> core::ffi::c_int;
+    pub fn scePowerRequestDisplayOff() -> core::ffi::c_int;
+    pub fn scePowerRequestDisplayOn() -> core::ffi::c_int;
+    pub fn scePowerRequestStandby() -> core::ffi::c_int;
+    pub fn scePowerRequestSuspend() -> core::ffi::c_int;
+    pub fn scePowerSetArmClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePowerSetBusClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePowerSetConfigurationMode(conf: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePowerSetGpuClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePowerSetGpuXbarClockFrequency(freq: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePowerSetUsingWireless(enabled: SceBool) -> core::ffi::c_int;
+    pub fn scePowerUnregisterCallback(cbid: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "SceProcessmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgrForDriver_stub")]
 extern "C" {
     pub fn ksceKernelCreateProcessLocalStorage(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetProcessInfo(
         pid: SceUID,
         info: *mut SceKernelProcessInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetProcessLocalStorageAddr(
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelGetProcessLocalStorageAddr(key: core::ffi::c_int) -> *mut core::ffi::c_void;
     pub fn ksceKernelGetProcessLocalStorageAddrForPid(
         pid: SceUID,
-        key: crate::ctypes::c_int,
-        out_addr: *mut *mut crate::ctypes::c_void,
-        create_if_doesnt_exist: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        key: core::ffi::c_int,
+        out_addr: *mut *mut core::ffi::c_void,
+        create_if_doesnt_exist: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetProcessStatus(
         pid: SceUID,
-        status: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceProcessmgrForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgrForKernel_363_stub")]
@@ -16601,34 +16321,31 @@ extern "C" {}
     feature = "SceProcessmgrForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut core::ffi::c_void;
 }
 #[link(name = "SceProcessmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgrForKernel_stub")]
 extern "C" {
     pub fn ksceKernelCreateProcess(
-        titleid: *const crate::ctypes::c_char,
+        titleid: *const core::ffi::c_char,
         type_: SceKernelProcessType,
-        path: *const crate::ctypes::c_char,
-        opt: *mut crate::ctypes::c_void,
+        path: *const core::ffi::c_char,
+        opt: *mut core::ffi::c_void,
     ) -> SceUID;
     pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
     pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
     pub fn ksceKernelGetProcessSelfAuthInfo(
         pid: SceUID,
         self_auth_info: *mut SceSelfAuthInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelSuspendProcess(
-        pid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelResumeProcess(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelSuspendProcess(pid: SceUID, status: core::ffi::c_int) -> core::ffi::c_int;
 }
 #[link(name = "SceProcessmgr_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgr_stub")]
 extern "C" {
     pub fn sceKernelGetCurrentProcess() -> SceUID;
-    pub fn sceKernelGetProcessParam() -> *const crate::ctypes::c_void;
+    pub fn sceKernelGetProcessParam() -> *const core::ffi::c_void;
     pub fn sceKernelGetRemoteProcessTime(
         processId: SceUID,
         pClock: *mut SceKernelSysClock,
@@ -16640,58 +16357,56 @@ extern "C" {
     pub fn sceKernelLibcGettimeofday(
         tv: *mut SceKernelTimeval,
         tz: *mut SceKernelTimezone,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
-    pub fn sceKernelPowerLock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-    pub fn sceKernelPowerTick(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
-    pub fn sceKernelPowerUnlock(type_: SceKernelPowerTickType) -> crate::ctypes::c_int;
+    pub fn sceKernelPowerLock(type_: SceKernelPowerTickType) -> core::ffi::c_int;
+    pub fn sceKernelPowerTick(type_: SceKernelPowerTickType) -> core::ffi::c_int;
+    pub fn sceKernelPowerUnlock(type_: SceKernelPowerTickType) -> core::ffi::c_int;
 }
 #[link(name = "SceProcEventForDriver_stub", kind = "static")]
 #[cfg(feature = "SceProcEventForDriver_stub")]
 extern "C" {
     pub fn ksceKernelInvokeProcEventHandler(
         pid: SceUID,
-        event_id: crate::ctypes::c_int,
-        event_type: crate::ctypes::c_int,
-        param: *mut crate::ctypes::c_void,
-        a5: *mut crate::ctypes::c_void,
-        a6: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        event_id: core::ffi::c_int,
+        event_type: core::ffi::c_int,
+        param: *mut core::ffi::c_void,
+        a5: *mut core::ffi::c_void,
+        a6: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelRegisterProcEventHandler(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         handler: *const SceProcEventHandler,
-        a3: crate::ctypes::c_int,
+        a3: core::ffi::c_int,
     ) -> SceUID;
-    pub fn ksceKernelUnregisterProcEventHandler(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnregisterProcEventHandler(uid: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "ScePromoterUtil_stub", kind = "static")]
 #[cfg(feature = "ScePromoterUtil_stub")]
 extern "C" {
     pub fn scePromoterUtilityCheckExist(
-        titleid: *const crate::ctypes::c_char,
-        res: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn scePromoterUtilityDeletePkg(
-        titleid: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn scePromoterUtilityExit() -> crate::ctypes::c_int;
-    pub fn scePromoterUtilityGetResult(res: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePromoterUtilityGetState(state: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePromoterUtilityInit() -> crate::ctypes::c_int;
+        titleid: *const core::ffi::c_char,
+        res: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn scePromoterUtilityDeletePkg(titleid: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn scePromoterUtilityExit() -> core::ffi::c_int;
+    pub fn scePromoterUtilityGetResult(res: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePromoterUtilityGetState(state: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn scePromoterUtilityInit() -> core::ffi::c_int;
     pub fn scePromoterUtilityPromoteImport(
         params: *mut ScePromoterUtilityImportParams,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn scePromoterUtilityPromotePkg(
-        path: *const crate::ctypes::c_char,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        path: *const core::ffi::c_char,
+        sync: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn scePromoterUtilityPromotePkgWithRif(
-        path: *const crate::ctypes::c_char,
-        sync: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        path: *const core::ffi::c_char,
+        sync: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn scePromoterUtilityUpdateLiveArea(
         args: *mut ScePromoterUtilityLAUpdate,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "ScePsmDrmForDriver_stub", kind = "static")]
 #[cfg(feature = "ScePsmDrmForDriver_stub")]
@@ -16700,136 +16415,128 @@ extern "C" {}
 #[cfg(feature = "ScePspnetAdhoc_stub")]
 extern "C" {
     pub fn sceNetAdhocGetPdpStat(
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        buflen: *mut core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocGetPtpStat(
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        buflen: *mut core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocGetSocketAlert(
-        id: crate::ctypes::c_int,
-        flag: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocInit() -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        flag: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocInit() -> core::ffi::c_int;
     pub fn sceNetAdhocPdpCreate(
         saddr: *const SceNetEtherAddr,
         sport: SceUShort16,
-        bufsize: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocPdpDelete(
-        id: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bufsize: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocPdpDelete(id: core::ffi::c_int, flag: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetAdhocPdpRecv(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         saddr: *mut SceNetEtherAddr,
         sport: *mut SceUShort16,
-        buf: *mut crate::ctypes::c_void,
-        len: *mut crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        buf: *mut core::ffi::c_void,
+        len: *mut core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPdpSend(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         daddr: *const SceNetEtherAddr,
         dport: SceUShort16,
-        data: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        data: *const core::ffi::c_void,
+        len: core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPollSocket(
         sds: *mut SceNetAdhocPollSd,
-        nsds: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        nsds: core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpAccept(
-        id: crate::ctypes::c_int,
+        id: core::ffi::c_int,
         addr: *mut SceNetEtherAddr,
         port: *mut SceUShort16,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocPtpClose(
-        id: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocPtpClose(id: core::ffi::c_int, flag: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpConnect(
-        id: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpFlush(
-        id: crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpListen(
         saddr: *const SceNetEtherAddr,
         sport: SceUShort16,
-        bufsize: crate::ctypes::c_uint,
-        rexmt_int: crate::ctypes::c_uint,
-        rexmt_cnt: crate::ctypes::c_int,
-        backlog: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bufsize: core::ffi::c_uint,
+        rexmt_int: core::ffi::c_uint,
+        rexmt_cnt: core::ffi::c_int,
+        backlog: core::ffi::c_int,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpOpen(
         saddr: *const SceNetEtherAddr,
         sport: SceUShort16,
         daddr: *const SceNetEtherAddr,
         dport: SceUShort16,
-        bufsize: crate::ctypes::c_uint,
-        rexmt_int: crate::ctypes::c_uint,
-        rexmt_cnt: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bufsize: core::ffi::c_uint,
+        rexmt_int: core::ffi::c_uint,
+        rexmt_cnt: core::ffi::c_int,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpRecv(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-        len: *mut crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+        len: *mut core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocPtpSend(
-        id: crate::ctypes::c_int,
-        data: *const crate::ctypes::c_void,
-        len: *mut crate::ctypes::c_int,
-        timeout: crate::ctypes::c_uint,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        data: *const core::ffi::c_void,
+        len: *mut core::ffi::c_int,
+        timeout: core::ffi::c_uint,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocSetSocketAlert(
-        id: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocTerm() -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocTerm() -> core::ffi::c_int;
     pub fn sceNetAdhocctlGetAddrByName(
         nickname: *const SceNetAdhocctlNickname,
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocctlGetAdhocId(adhocId: *mut SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocctlGetEtherAddr(addr: *mut SceNetEtherAddr) -> crate::ctypes::c_int;
+        buflen: *mut core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocctlGetAdhocId(adhocId: *mut SceNetAdhocctlAdhocId) -> core::ffi::c_int;
+    pub fn sceNetAdhocctlGetEtherAddr(addr: *mut SceNetEtherAddr) -> core::ffi::c_int;
     pub fn sceNetAdhocctlGetNameByAddr(
         addr: *const SceNetEtherAddr,
         nickname: *mut SceNetAdhocctlNickname,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocctlGetParameter(
-        parameter: *mut SceNetAdhocctlParameter,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocctlGetParameter(parameter: *mut SceNetAdhocctlParameter) -> core::ffi::c_int;
     pub fn sceNetAdhocctlGetPeerInfo(
         addr: *const SceNetEtherAddr,
-        size: crate::ctypes::c_int,
+        size: core::ffi::c_int,
         peerInfo: *mut SceNetAdhocctlPeerInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceNetAdhocctlGetPeerList(
-        buflen: *mut crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocctlInit(adhocId: *const SceNetAdhocctlAdhocId) -> crate::ctypes::c_int;
-    pub fn sceNetAdhocctlTerm() -> crate::ctypes::c_int;
+        buflen: *mut core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceNetAdhocctlInit(adhocId: *const SceNetAdhocctlAdhocId) -> core::ffi::c_int;
+    pub fn sceNetAdhocctlTerm() -> core::ffi::c_int;
 }
 #[link(name = "ScePvf_stub", kind = "static")]
 #[cfg(feature = "ScePvf_stub")]
@@ -16976,124 +16683,124 @@ extern "C" {}
 #[link(name = "SceRazorCapture_stub", kind = "static")]
 #[cfg(feature = "SceRazorCapture_stub")]
 extern "C" {
-    pub fn sceRazorGpuCaptureEnableSalvage(filename: *const crate::ctypes::c_char);
-    pub fn sceRazorGpuCaptureSetTriggerNextFrame(filename: *const crate::ctypes::c_char);
+    pub fn sceRazorGpuCaptureEnableSalvage(filename: *const core::ffi::c_char);
+    pub fn sceRazorGpuCaptureSetTriggerNextFrame(filename: *const core::ffi::c_char);
 }
 #[link(name = "SceRazorHud_stub", kind = "static")]
 #[cfg(feature = "SceRazorHud_stub")]
 extern "C" {
     pub fn sceRazorGpuLiveSetBuffer(
-        buffer: *mut crate::ctypes::c_void,
+        buffer: *mut core::ffi::c_void,
         buf_size: SceSize,
         results: *mut SceRazorGpuLiveResultInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRazorGpuLiveSetMetricsGroup(metrics: u32) -> crate::ctypes::c_int;
-    pub fn sceRazorGpuLiveStart() -> crate::ctypes::c_int;
-    pub fn sceRazorGpuLiveStop() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceRazorGpuLiveSetMetricsGroup(metrics: u32) -> core::ffi::c_int;
+    pub fn sceRazorGpuLiveStart() -> core::ffi::c_int;
+    pub fn sceRazorGpuLiveStop() -> core::ffi::c_int;
 }
 #[link(name = "SceRegistryMgr_stub", kind = "static")]
 #[cfg(feature = "SceRegistryMgr_stub")]
 extern "C" {
     pub fn sceRegMgrGetInitVals(
-        category: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        elements_number: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
+        elements_number: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrGetKeyBin(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_void,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrGetKeyInt(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrGetKeyStr(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrGetKeys(
-        category: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        elements_number: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
+        elements_number: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrGetRegVersion(
-        version: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        version: core::ffi::c_int,
+        buf: *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSetKeyBin(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_void,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSetKeyInt(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSetKeyStr(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSetKeys(
-        category: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
-        elements_number: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
+        elements_number: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSystemParamGetInt(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        buf: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRegMgrSystemParamGetStr(
-        id: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        buf: *mut core::ffi::c_char,
+        size: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceRegMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRegMgrForDriver_stub")]
 extern "C" {
     pub fn ksceRegMgrGetKeyBin(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_void,
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceRegMgrGetKeyInt(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceRegMgrGetKeyStr(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceRegMgrSetKeyBin(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_void,
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceRegMgrSetKeyInt(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceRegMgrSetKeyStr(
-        category: *const crate::ctypes::c_char,
-        name: *const crate::ctypes::c_char,
-        buf: *mut crate::ctypes::c_char,
+        category: *const core::ffi::c_char,
+        name: *const core::ffi::c_char,
+        buf: *mut core::ffi::c_char,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceRegMgrServiceForDriver_stub", kind = "static")]
 #[cfg(feature = "SceRegMgrServiceForDriver_stub")]
@@ -17107,24 +16814,24 @@ extern "C" {
     pub fn ksceRtcConvertDateTimeToUnixTime(
         src: *const SceDateTime,
         dst: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceRtcConvertTickToDateTime(
         dst: *mut SceDateTime,
         src: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceRtcGetCurrentClock(
         time: *mut SceDateTime,
-        time_zone: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
-    pub fn ksceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcGetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcGetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcSetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcSetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcSetCurrentSecureTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn ksceRtcSetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+        time_zone: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> core::ffi::c_int;
+    pub fn ksceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcGetCurrentSecureTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcGetCurrentTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcSetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcSetCurrentNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcSetCurrentSecureTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn ksceRtcSetCurrentTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
 }
 #[link(name = "SceRtc_stub", kind = "static")]
 #[cfg(feature = "SceRtc_stub")]
@@ -17132,167 +16839,167 @@ extern "C" {
     pub fn _sceRtcConvertLocalTimeToUtc(
         localtime: *const SceRtcTick,
         utc: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceRtcConvertUtcToLocalTime(
         utc: *const SceRtcTick,
         localtime: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceRtcFormatRFC2822(
-        datetime: *mut crate::ctypes::c_char,
+        datetime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-        offset: crate::ctypes::c_int,
+        offset: core::ffi::c_int,
         a4: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceRtcFormatRFC2822LocalTime(
-        datetime: *mut crate::ctypes::c_char,
+        datetime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
         a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceRtcFormatRFC3339(
-        datetime: *mut crate::ctypes::c_char,
+        datetime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-        offset: crate::ctypes::c_int,
+        offset: core::ffi::c_int,
         a4: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn _sceRtcFormatRFC3339LocalTime(
-        datetime: *mut crate::ctypes::c_char,
+        datetime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
         a3: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcCheckValid(time: *const SceDateTime) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceRtcCheckValid(time: *const SceDateTime) -> core::ffi::c_int;
     pub fn sceRtcCompareTick(
         pTick1: *const SceRtcTick,
         pTick2: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcConvertLocalTimeToUtc(
         local_time: *const SceRtcTick,
         utc: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcConvertUtcToLocalTime(
         utc: *const SceRtcTick,
         local_time: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcFormatRFC2822(
-        pszDateTime: *mut crate::ctypes::c_char,
+        pszDateTime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-        iTimeZoneMinutes: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        iTimeZoneMinutes: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcFormatRFC2822LocalTime(
-        pszDateTime: *mut crate::ctypes::c_char,
+        pszDateTime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcFormatRFC3339(
-        pszDateTime: *mut crate::ctypes::c_char,
+        pszDateTime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-        iTimeZoneMinutes: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        iTimeZoneMinutes: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcFormatRFC3339LocalTime(
-        pszDateTime: *mut crate::ctypes::c_char,
+        pszDateTime: *mut core::ffi::c_char,
         utc: *const SceRtcTick,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcGetAccumulativeTime() -> SceULong64;
-    pub fn sceRtcGetCurrentAdNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+    pub fn sceRtcGetCurrentAdNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
     pub fn sceRtcGetCurrentClock(
         time: *mut SceDateTime,
-        time_zone: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentGpsTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentRetainedNetworkTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetCurrentTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
+        time_zone: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentClockLocalTime(time: *mut SceDateTime) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentDebugNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentGpsTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentRetainedNetworkTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetCurrentTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
     pub fn sceRtcGetDayOfWeek(
-        year: crate::ctypes::c_int,
-        month: crate::ctypes::c_int,
-        day: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        year: core::ffi::c_int,
+        month: core::ffi::c_int,
+        day: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcGetDaysInMonth(
-        year: crate::ctypes::c_int,
-        month: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        year: core::ffi::c_int,
+        month: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcGetDosTime(
         time: *const SceDateTime,
-        puiDosTime: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcGetLastAdjustedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetLastReincarnatedTick(tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetTick(time: *const SceDateTime, tick: *mut SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcGetTickResolution() -> crate::ctypes::c_uint;
+        puiDosTime: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceRtcGetLastAdjustedTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetLastReincarnatedTick(tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetTick(time: *const SceDateTime, tick: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcGetTickResolution() -> core::ffi::c_uint;
     pub fn sceRtcGetTime64_t(
         time: *const SceDateTime,
         pullTime: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcGetTime_t(time: *const SceDateTime, piTime: *mut time_t) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceRtcGetTime_t(time: *const SceDateTime, piTime: *mut time_t) -> core::ffi::c_int;
     pub fn sceRtcGetWin32FileTime(
         time: *const SceDateTime,
         ulWin32Time: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcIsLeapYear(year: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceRtcIsLeapYear(year: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceRtcParseDateTime(
         utc: *mut SceRtcTick,
-        pszDateTime: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        pszDateTime: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceRtcParseRFC3339(
         utc: *mut SceRtcTick,
-        pszDateTime: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        pszDateTime: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn sceRtcSetDosTime(
         time: *mut SceDateTime,
-        uiDosTime: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceRtcSetTick(time: *mut SceDateTime, tick: *const SceRtcTick) -> crate::ctypes::c_int;
-    pub fn sceRtcSetTime64_t(time: *mut SceDateTime, ullTime: SceUInt64) -> crate::ctypes::c_int;
-    pub fn sceRtcSetTime_t(time: *mut SceDateTime, iTime: time_t) -> crate::ctypes::c_int;
+        uiDosTime: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceRtcSetTick(time: *mut SceDateTime, tick: *const SceRtcTick) -> core::ffi::c_int;
+    pub fn sceRtcSetTime64_t(time: *mut SceDateTime, ullTime: SceUInt64) -> core::ffi::c_int;
+    pub fn sceRtcSetTime_t(time: *mut SceDateTime, iTime: time_t) -> core::ffi::c_int;
     pub fn sceRtcSetWin32FileTime(
         time: *mut SceDateTime,
         ulWin32Time: SceUInt64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddDays(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lAdd: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddHours(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lAdd: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddMicroseconds(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
         lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddMinutes(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
         lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddMonths(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lAdd: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddSeconds(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
         lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddTicks(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
         lAdd: SceLong64,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddWeeks(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lAdd: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceRtcTickAddYears(
         pTick0: *mut SceRtcTick,
         pTick1: *const SceRtcTick,
-        lAdd: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        lAdd: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceRudp_stub", kind = "static")]
 #[cfg(feature = "SceRudp_stub")]
@@ -17304,21 +17011,21 @@ extern "C" {}
 #[cfg(feature = "SceSblACMgrForDriver_stub")]
 extern "C" {
     pub fn ksceSblACMgrGetMediaType(
-        path: *const crate::ctypes::c_char,
+        path: *const core::ffi::c_char,
         media_type: *mut SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSblACMgrGetProcessProgramAuthId(
         pid: SceUID,
         authid: *mut SceUInt64,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsDevelopmentMode() -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsFself(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsGameProgram(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsNonGameProgram(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsPspEmu(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsRootProgram(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsSceShell(pid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceSblACMgrIsSystemProgram(pid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsDevelopmentMode() -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsFself(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsGameProgram(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsNonGameProgram(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsPspEmu(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsRootProgram(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsSceShell(pid: SceUID) -> core::ffi::c_int;
+    pub fn ksceSblACMgrIsSystemProgram(pid: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "SceSblACMgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSblACMgrForKernel_stub")]
@@ -17329,17 +17036,17 @@ extern "C" {}
 #[link(name = "SceSblAIMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblAIMgrForDriver_stub")]
 extern "C" {
-    pub fn ksceSblAimgrGetProductCode() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrGetProductSubCode() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsCEX() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsDEX() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsDolce() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsTest() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsTool() -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrIsVITA() -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrGetProductCode() -> core::ffi::c_int;
+    pub fn ksceSblAimgrGetProductSubCode() -> core::ffi::c_int;
+    pub fn ksceSblAimgrGetSMI(info: *mut SceUInt32) -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsCEX() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsDEX() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsDolce() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsGenuineDolce() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsGenuineVITA() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsTest() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsTool() -> core::ffi::c_int;
+    pub fn ksceSblAimgrIsVITA() -> core::ffi::c_int;
 }
 #[link(name = "SceSblAuthMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblAuthMgrForDriver_stub")]
@@ -17348,15 +17055,15 @@ extern "C" {}
 #[cfg(feature = "SceSblAuthMgrForKernel_stub")]
 extern "C" {
     pub fn ksceSblAuthMgrClearDmac5Key(
-        slot_id: crate::ctypes::c_int,
-        val: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        slot_id: core::ffi::c_int,
+        val: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSblAuthMgrSetDmac5Key(
-        key: *const crate::ctypes::c_void,
+        key: *const core::ffi::c_void,
         keylen: SceSize,
-        slot_id: crate::ctypes::c_int,
-        key_id: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        slot_id: core::ffi::c_int,
+        key_id: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSblFwLoaderForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblFwLoaderForDriver_stub")]
@@ -17371,14 +17078,14 @@ extern "C" {
         rsa_signature: *mut SceSblRsaDataParam,
         hash: *mut SceSblRsaDataParam,
         private_key: *mut SceSblRsaPrivateKeyParam,
-        type_: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        type_: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSblRSA2048VerifySignature(
         rsa_signature: *mut SceSblRsaDataParam,
         hash: *mut SceSblRsaDataParam,
         public_key: *mut SceSblRsaPublicKeyParam,
-        type_: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        type_: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSblPostSsMgr_stub", kind = "static")]
 #[cfg(feature = "SceSblPostSsMgr_stub")]
@@ -17390,20 +17097,20 @@ extern "C" {
         id: SceSblSmCommId,
         service_id: SceUInt32,
         service_result: *mut SceUInt32,
-        data: *mut crate::ctypes::c_void,
+        data: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSblSmCommStartSmFromFile(
         priority: SceUInt32,
-        sm_path: *const crate::ctypes::c_char,
+        sm_path: *const core::ffi::c_char,
         cmd_id: SceUInt32,
         auth_info: *mut SceAuthInfo,
         id: *mut SceSblSmCommId,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSblSmCommStopSm(
         id: SceSblSmCommId,
         result: *mut SceSblSmCommPair,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSblSmSchedProxyForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSblSmSchedProxyForKernel_stub")]
@@ -17411,46 +17118,46 @@ extern "C" {}
 #[link(name = "SceSblSsMgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblSsMgrForDriver_stub")]
 extern "C" {
-    pub fn ksceSblAimgrGetConsoleId(cid: *mut SceConsoleId) -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrGetOpenPsId(open_psid: *mut SceOpenPsId) -> crate::ctypes::c_int;
-    pub fn ksceSblAimgrGetPscode(pscode: *mut ScePsCode) -> crate::ctypes::c_int;
+    pub fn ksceSblAimgrGetConsoleId(cid: *mut SceConsoleId) -> core::ffi::c_int;
+    pub fn ksceSblAimgrGetOpenPsId(open_psid: *mut SceOpenPsId) -> core::ffi::c_int;
+    pub fn ksceSblAimgrGetPscode(pscode: *mut ScePsCode) -> core::ffi::c_int;
     pub fn ksceSblDmac5AesCbcDec(
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_int,
-        key: *const crate::ctypes::c_void,
-        key_size: crate::ctypes::c_int,
-        iv: *mut crate::ctypes::c_void,
-        mask_enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+        size: core::ffi::c_int,
+        key: *const core::ffi::c_void,
+        key_size: core::ffi::c_int,
+        iv: *mut core::ffi::c_void,
+        mask_enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSblDmac5AesCbcEnc(
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_int,
-        key: *const crate::ctypes::c_void,
-        key_size: crate::ctypes::c_int,
-        iv: *mut crate::ctypes::c_void,
-        mask_enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+        size: core::ffi::c_int,
+        key: *const core::ffi::c_void,
+        key_size: core::ffi::c_int,
+        iv: *mut core::ffi::c_void,
+        mask_enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSblDmac5AesCtrDec(
-        src: *const crate::ctypes::c_void,
-        dst: *mut crate::ctypes::c_void,
-        size: crate::ctypes::c_int,
-        key: *const crate::ctypes::c_void,
-        key_size: crate::ctypes::c_int,
-        iv: *mut crate::ctypes::c_void,
-        mask_enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        src: *const core::ffi::c_void,
+        dst: *mut core::ffi::c_void,
+        size: core::ffi::c_int,
+        key: *const core::ffi::c_void,
+        key_size: core::ffi::c_int,
+        iv: *mut core::ffi::c_void,
+        mask_enable: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSblRngPseudoRandomNumber(
-        result: *mut crate::ctypes::c_void,
+        result: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSblSsDecryptWithPortability(
         key_type: SceUInt32,
-        iv: *mut crate::ctypes::c_void,
+        iv: *mut core::ffi::c_void,
         src: *mut ScePortabilityData,
         dst: *mut ScePortabilityData,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSblSsMgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSblSsMgrForKernel_stub")]
@@ -17461,31 +17168,31 @@ extern "C" {
     pub fn sceSblDmac5EncDec(
         param: *mut SceSblDmac5EncDecParam,
         command: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceSblDmac5HashTransform(
         param: *mut SceSblDmac5HashTransformParam,
         command: SceUInt32,
         extra: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSblUpdateMgr_stub", kind = "static")]
 #[cfg(feature = "SceSblUpdateMgr_stub")]
 extern "C" {
-    pub fn sceSblUsGetUpdateMode(mode: *mut SceUpdateMode) -> crate::ctypes::c_int;
-    pub fn sceSblUsSetUpdateMode(mode: SceUpdateMode) -> crate::ctypes::c_int;
-    pub fn sceSblUsVerifyPup(path: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceSblUsGetUpdateMode(mode: *mut SceUpdateMode) -> core::ffi::c_int;
+    pub fn sceSblUsSetUpdateMode(mode: SceUpdateMode) -> core::ffi::c_int;
+    pub fn sceSblUsVerifyPup(path: *const core::ffi::c_char) -> core::ffi::c_int;
 }
 #[link(name = "SceScreenShot_stub", kind = "static")]
 #[cfg(feature = "SceScreenShot_stub")]
 extern "C" {
-    pub fn sceScreenShotDisable() -> crate::ctypes::c_int;
-    pub fn sceScreenShotEnable() -> crate::ctypes::c_int;
+    pub fn sceScreenShotDisable() -> core::ffi::c_int;
+    pub fn sceScreenShotEnable() -> core::ffi::c_int;
     pub fn sceScreenShotSetOverlayImage(
-        filepath: *const crate::ctypes::c_char,
-        offsetX: crate::ctypes::c_int,
-        offsetY: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> crate::ctypes::c_int;
+        filepath: *const core::ffi::c_char,
+        offsetX: core::ffi::c_int,
+        offsetY: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceScreenShotSetParam(param: *const SceScreenShotParam) -> core::ffi::c_int;
 }
 #[link(name = "SceSdifForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSdifForDriver_stub")]
@@ -17496,46 +17203,45 @@ extern "C" {
     pub fn sceShaccCgCompileProgram(
         options: *const SceShaccCgCompileOptions,
         callbacks: *const SceShaccCgCallbackList,
-        unk: crate::ctypes::c_int,
+        unk: core::ffi::c_int,
     ) -> *const SceShaccCgCompileOutput;
     pub fn sceShaccCgDestroyCompileOutput(output: *const SceShaccCgCompileOutput);
-    pub fn sceShaccCgGetVersionString() -> *const crate::ctypes::c_char;
+    pub fn sceShaccCgGetVersionString() -> *const core::ffi::c_char;
     pub fn sceShaccCgInitializeCallbackList(
         callbacks: *mut SceShaccCgCallbackList,
         defaults: SceShaccCgCallbackDefaults,
     );
     pub fn sceShaccCgInitializeCompileOptions(
         options: *mut SceShaccCgCompileOptions,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceShaccCgReleaseCompiler();
     pub fn sceShaccCgSetDefaultAllocator(
         malloc_cb: ::core::option::Option<
-            unsafe extern "C" fn(arg1: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void,
+            unsafe extern "C" fn(arg1: core::ffi::c_uint) -> *mut core::ffi::c_void,
         >,
-        free_cb: ::core::option::Option<unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void)>,
-    ) -> crate::ctypes::c_int;
+        free_cb: ::core::option::Option<unsafe extern "C" fn(arg1: *mut core::ffi::c_void)>,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceShellSvc_stub", kind = "static")]
 #[cfg(feature = "SceShellSvc_stub")]
 extern "C" {
-    pub fn sceShellUtilInitEvents(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceShellUtilInitEvents(unk: core::ffi::c_int) -> core::ffi::c_int;
     pub fn sceShellUtilLaunchAppRequestLaunchApp(
         param: *mut SceShellUtilLaunchAppParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceShellUtilLock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceShellUtilLock(type_: SceShellUtilLockType) -> core::ffi::c_int;
     pub fn sceShellUtilRegisterEventHandler(
         handler: SceShellUtilEventHandler,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceShellUtilRequestLaunchApp(
-        param: *mut SceShellUtilLaunchAppParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceShellUtilUnlock(type_: SceShellUtilLockType) -> crate::ctypes::c_int;
+        userData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn sceShellUtilRequestLaunchApp(param: *mut SceShellUtilLaunchAppParam)
+        -> core::ffi::c_int;
+    pub fn sceShellUtilUnlock(type_: SceShellUtilLockType) -> core::ffi::c_int;
 }
 #[link(name = "SceShutterSound_stub", kind = "static")]
 #[cfg(feature = "SceShutterSound_stub")]
 extern "C" {
-    pub fn sceShutterSoundPlay(type_: u32) -> crate::ctypes::c_int;
+    pub fn sceShutterSoundPlay(type_: u32) -> core::ffi::c_int;
 }
 #[link(name = "SceSmart_stub", kind = "static")]
 #[cfg(feature = "SceSmart_stub")]
@@ -17543,44 +17249,35 @@ extern "C" {}
 #[link(name = "SceSqlite_stub", kind = "static")]
 #[cfg(feature = "SceSqlite_stub")]
 extern "C" {
-    pub fn sceSqliteConfigMallocMethods(
-        methods: *mut SceSqliteMallocMethods,
-    ) -> crate::ctypes::c_int;
+    pub fn sceSqliteConfigMallocMethods(methods: *mut SceSqliteMallocMethods) -> core::ffi::c_int;
 }
 #[link(name = "SceSsl_stub", kind = "static")]
 #[cfg(feature = "SceSsl_stub")]
 extern "C" {
-    pub fn sceSslFreeSslCertName(certName: *mut SceSslCertName) -> crate::ctypes::c_int;
+    pub fn sceSslFreeSslCertName(certName: *mut SceSslCertName) -> core::ffi::c_int;
     pub fn sceSslGetIssuerName(sslCert: *mut SceSslCert) -> *mut SceSslCertName;
-    pub fn sceSslGetMemoryPoolStats(
-        currentStat: *mut SceSslMemoryPoolStats,
-    ) -> crate::ctypes::c_int;
-    pub fn sceSslGetNameEntryCount(certName: *mut SceSslCertName) -> crate::ctypes::c_int;
+    pub fn sceSslGetMemoryPoolStats(currentStat: *mut SceSslMemoryPoolStats) -> core::ffi::c_int;
+    pub fn sceSslGetNameEntryCount(certName: *mut SceSslCertName) -> core::ffi::c_int;
     pub fn sceSslGetNameEntryInfo(
         certName: *mut SceSslCertName,
-        entryNum: crate::ctypes::c_int,
-        oidname: *mut crate::ctypes::c_char,
-        maxOidnameLen: crate::ctypes::c_uint,
-        value: *mut crate::ctypes::c_char,
-        maxValueLen: crate::ctypes::c_uint,
-        valueLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn sceSslGetNotAfter(
-        sslCert: *mut SceSslCert,
-        limit: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
-    pub fn sceSslGetNotBefore(
-        sslCert: *mut SceSslCert,
-        begin: *mut SceRtcTick,
-    ) -> crate::ctypes::c_int;
+        entryNum: core::ffi::c_int,
+        oidname: *mut core::ffi::c_char,
+        maxOidnameLen: core::ffi::c_uint,
+        value: *mut core::ffi::c_char,
+        maxValueLen: core::ffi::c_uint,
+        valueLen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn sceSslGetNotAfter(sslCert: *mut SceSslCert, limit: *mut SceRtcTick) -> core::ffi::c_int;
+    pub fn sceSslGetNotBefore(sslCert: *mut SceSslCert, begin: *mut SceRtcTick)
+        -> core::ffi::c_int;
     pub fn sceSslGetSerialNumber(
         sslCert: *mut SceSslCert,
-        sboData: *mut *const crate::ctypes::c_char,
-        sboLen: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        sboData: *mut *const core::ffi::c_char,
+        sboLen: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceSslGetSubjectName(sslCert: *mut SceSslCert) -> *mut SceSslCertName;
-    pub fn sceSslInit(poolSize: crate::ctypes::c_uint) -> crate::ctypes::c_int;
-    pub fn sceSslTerm() -> crate::ctypes::c_int;
+    pub fn sceSslInit(poolSize: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn sceSslTerm() -> core::ffi::c_int;
 }
 #[link(name = "SceStdio_0931_stub", kind = "static")]
 #[cfg(feature = "SceStdio_0931_stub")]
@@ -17592,149 +17289,140 @@ extern "C" {}
 #[cfg(feature = "SceSysclibForDriver_stub")]
 extern "C" {
     pub fn __memcpy_chk(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        dst_len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        dst_len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn __memmove_chk(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        dst_len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        dst_len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn __memset_chk(
-        dst: *mut crate::ctypes::c_void,
-        ch: crate::ctypes::c_int,
-        len: crate::ctypes::c_uint,
-        dst_len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void;
+        dst: *mut core::ffi::c_void,
+        ch: core::ffi::c_int,
+        len: core::ffi::c_uint,
+        dst_len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void;
     pub fn __prnt(
         callback: SceSysclibPrntCallback,
-        argp: *mut crate::ctypes::c_void,
-        fmt: *const crate::ctypes::c_char,
+        argp: *mut core::ffi::c_void,
+        fmt: *const core::ffi::c_char,
         list: va_list,
     );
     pub fn __strncpy_chk(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-        dst_len: crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_char;
-    pub fn look_ctype_table(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
-    pub fn strnlen(
-        s: *const crate::ctypes::c_char,
-        n: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_uint;
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
+        n: core::ffi::c_uint,
+        dst_len: core::ffi::c_uint,
+    ) -> *mut core::ffi::c_char;
+    pub fn look_ctype_table(ch: core::ffi::c_char) -> core::ffi::c_char;
+    pub fn strnlen(s: *const core::ffi::c_char, n: core::ffi::c_uint) -> core::ffi::c_uint;
     pub fn timingsafe_memcmp(
-        s1: *const crate::ctypes::c_void,
-        s2: *const crate::ctypes::c_void,
+        s1: *const core::ffi::c_void,
+        s2: *const core::ffi::c_void,
         n: usize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSysconForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSysconForDriver_stub")]
 extern "C" {
-    pub fn ksceSysconBeginConfigstorageTransaction() -> crate::ctypes::c_int;
-    pub fn ksceSysconClearTemperatureLog(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceSysconBeginConfigstorageTransaction() -> core::ffi::c_int;
+    pub fn ksceSysconClearTemperatureLog(arg1: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceSysconCmdExec(
         packet: *mut SceSysconPacket,
-        flags: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        flags: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceSysconCmdExecAsync(
         packet: *mut SceSysconPacket,
-        flags: crate::ctypes::c_uint,
+        flags: core::ffi::c_uint,
         cb: SceSysconCmdExecAsyncCallback,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceSysconCmdSync(
         packet: *mut SceSysconPacket,
-        noWait: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconCommitConfigstorageTransaction() -> crate::ctypes::c_int;
-    pub fn ksceSysconCtrlHdmiCecPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconCtrlLED(
-        led: crate::ctypes::c_int,
-        enable: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconCtrlManualChargeMode(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconCtrlRMRPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconCtrlSdPower(power: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconEnableHibernateIO(arg1: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconEndConfigstorageTransaction() -> crate::ctypes::c_int;
-    pub fn ksceSysconGetBaryonTimestamp() -> crate::ctypes::c_ulonglong;
-    pub fn ksceSysconGetBaryonVersion() -> crate::ctypes::c_int;
+        noWait: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconCommitConfigstorageTransaction() -> core::ffi::c_int;
+    pub fn ksceSysconCtrlHdmiCecPower(power: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconCtrlLED(led: core::ffi::c_int, enable: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconCtrlManualChargeMode(arg1: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconCtrlRMRPower(power: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconCtrlSdPower(power: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconEnableHibernateIO(arg1: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconEndConfigstorageTransaction() -> core::ffi::c_int;
+    pub fn ksceSysconGetBaryonTimestamp() -> core::ffi::c_ulonglong;
+    pub fn ksceSysconGetBaryonVersion() -> core::ffi::c_int;
     pub fn ksceSysconGetBatteryCalibData(
-        arg1: *mut crate::ctypes::c_int,
-        arg2: *mut crate::ctypes::c_int,
-        arg3: *mut crate::ctypes::c_int,
-        arg4: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetControlsInfo(ctrl: *mut SceUInt32) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetHardwareInfo() -> crate::ctypes::c_int;
+        arg1: *mut core::ffi::c_int,
+        arg2: *mut core::ffi::c_int,
+        arg3: *mut core::ffi::c_int,
+        arg4: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconGetControlsInfo(ctrl: *mut SceUInt32) -> core::ffi::c_int;
+    pub fn ksceSysconGetHardwareInfo() -> core::ffi::c_int;
     pub fn ksceSysconGetHardwareInfo2(
-        arg1: *mut crate::ctypes::c_int,
-        arg2: *mut crate::ctypes::c_int,
-        arg3: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetLogInfo(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetManualChargeMode(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetManufacturesStatus(arg1: *mut crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
-    pub fn ksceSysconGetTemperatureLog(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconGetUsbDetStatus(arg1: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceSysconIduModeClear() -> crate::ctypes::c_int;
-    pub fn ksceSysconIduModeSet() -> crate::ctypes::c_int;
-    pub fn ksceSysconIsDownLoaderMode() -> crate::ctypes::c_int;
+        arg1: *mut core::ffi::c_int,
+        arg2: *mut core::ffi::c_int,
+        arg3: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconGetLogInfo(arg1: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconGetManualChargeMode(arg1: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconGetManufacturesStatus(arg1: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconGetTemperatureLog(arg1: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconGetUsbDetStatus(arg1: *mut core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceSysconIduModeClear() -> core::ffi::c_int;
+    pub fn ksceSysconIduModeSet() -> core::ffi::c_int;
+    pub fn ksceSysconIsDownLoaderMode() -> core::ffi::c_int;
     pub fn ksceSysconLoadConfigstorageScript(
-        arg1: crate::ctypes::c_ushort,
-        buff: *const crate::ctypes::c_void,
+        arg1: core::ffi::c_ushort,
+        buff: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSysconLogReadData(
-        arg1: crate::ctypes::c_ushort,
-        buff: *mut crate::ctypes::c_void,
+        arg1: core::ffi::c_ushort,
+        buff: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconLogStart() -> crate::ctypes::c_int;
-    pub fn ksceSysconLogStartWaiting() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconLogStart() -> core::ffi::c_int;
+    pub fn ksceSysconLogStartWaiting() -> core::ffi::c_int;
     pub fn ksceSysconReadCommand(
-        cmd: crate::ctypes::c_ushort,
-        buffer: *mut crate::ctypes::c_void,
+        cmd: core::ffi::c_ushort,
+        buffer: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSysconSendCommand(
-        cmd: crate::ctypes::c_ushort,
-        buffer: *const crate::ctypes::c_void,
+        cmd: core::ffi::c_ushort,
+        buffer: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSysconSetAlarmCallback(
         callback: SceSysconCallback,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconSetDebugHandlers(
-        handlers: *const SceSysconDebugHandlers,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconSetDebugHandlers(handlers: *const SceSysconDebugHandlers) -> core::ffi::c_int;
     pub fn ksceSysconSetLowBatteryCallback(
         callback: SceSysconCallback,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceSysconSetPowerMode(
-        type_: crate::ctypes::c_int,
-        mode: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        type_: core::ffi::c_int,
+        mode: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceSysconSetThermalAlertCallback(
         callback: SceSysconCallback,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconShowModeClear() -> crate::ctypes::c_int;
-    pub fn ksceSysconShowModeSet() -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconShowModeClear() -> core::ffi::c_int;
+    pub fn ksceSysconShowModeSet() -> core::ffi::c_int;
     pub fn ksceSysconVerifyConfigstorageScript(
-        arg1: crate::ctypes::c_ushort,
-        buff: *const crate::ctypes::c_void,
+        arg1: core::ffi::c_ushort,
+        buff: *const core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysconWaitInitialized() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceSysconWaitInitialized() -> core::ffi::c_int;
 }
 #[link(name = "SceSysmemForDriver_0990_stub", kind = "static")]
 #[cfg(feature = "SceSysmemForDriver_0990_stub")]
@@ -17742,215 +17430,203 @@ extern "C" {}
 #[link(name = "SceSysmemForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSysmemForDriver_stub")]
 extern "C" {
-    pub fn ksceGUIDClose(guid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceGUIDReferObject(
-        guid: SceUID,
-        object: *mut *mut SceObjectBase,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceGUIDClose(guid: SceUID) -> core::ffi::c_int;
+    pub fn ksceGUIDReferObject(guid: SceUID, object: *mut *mut SceObjectBase) -> core::ffi::c_int;
     pub fn ksceGUIDReferObjectWithClass(
         guid: SceUID,
         sce_class: *mut SceClass,
         object: *mut *mut SceObjectBase,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceGUIDReferObjectWithClassLevel(
         guid: SceUID,
         pClass: *mut SceClass,
         level: SceUInt32,
         entry: *mut *mut SceObjectBase,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceGUIDReleaseObject(guid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelAllocHeapMemory(uid: SceUID, size: SceSize) -> *mut crate::ctypes::c_void;
+    ) -> core::ffi::c_int;
+    pub fn ksceGUIDReleaseObject(guid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelAllocHeapMemory(uid: SceUID, size: SceSize) -> *mut core::ffi::c_void;
     pub fn ksceKernelAllocHeapMemoryWithOption(
         heapid: SceUID,
         len: SceSize,
         opt: *mut SceAllocOpt,
-    ) -> *mut crate::ctypes::c_void;
+    ) -> *mut core::ffi::c_void;
     pub fn ksceKernelAllocMemBlock(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         type_: SceKernelMemBlockType,
         size: SceSize,
         opt: *mut SceKernelAllocMemBlockKernelOpt,
     ) -> SceUID;
     pub fn ksceKernelCreateClass(
         cls: *mut SceClass,
-        name: *const crate::ctypes::c_char,
-        uidclass: *mut crate::ctypes::c_void,
+        name: *const core::ffi::c_char,
+        uidclass: *mut core::ffi::c_void,
         itemsize: SceSize,
         create: SceClassCallback,
         destroy: SceClassCallback,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelCreateHeap(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         size: SceSize,
         opt: *mut SceKernelHeapCreateOpt,
     ) -> SceUID;
-    pub fn ksceKernelDeleteHeap(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelFindMemBlockByAddr(
-        addr: *const crate::ctypes::c_void,
-        size: SceSize,
-    ) -> SceUID;
+    pub fn ksceKernelDeleteHeap(uid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelFindMemBlockByAddr(addr: *const core::ffi::c_void, size: SceSize) -> SceUID;
     pub fn ksceKernelFindMemBlockByAddrForPid(
         pid: SceUID,
-        addr: *const crate::ctypes::c_void,
+        addr: *const core::ffi::c_void,
         size: SceSize,
     ) -> SceUID;
-    pub fn ksceKernelFreeHeapMemory(
-        uid: SceUID,
-        ptr: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelFreeHeapMemory(uid: SceUID, ptr: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn ksceKernelFreeMemBlock(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelGetMemBlockAllocMapSize(
         memid: SceUID,
         alloc_map_size: *mut SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetMemBlockBase(
         uid: SceUID,
-        base: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        base: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetPidContext(
         pid: SceUID,
         ctx: *mut *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetUidClass() -> *mut SceClass;
-    pub fn ksceKernelMapBlockUserVisible(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelMapBlockUserVisible(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelMapUserBlock(
-        name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
+        name: *const core::ffi::c_char,
+        permission: core::ffi::c_int,
+        type_: core::ffi::c_int,
+        user_buf: *const core::ffi::c_void,
         size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_page: *mut *mut core::ffi::c_void,
         kernel_size: *mut SceSize,
-        kernel_offset: *mut crate::ctypes::c_uint,
+        kernel_offset: *mut core::ffi::c_uint,
     ) -> SceUID;
-    pub fn ksceKernelMemBlockRelease(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelMemBlockRelease(uid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeRelease(
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeReleaseForPid(
         pid: SceUID,
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeReleaseWithPerm(
         perm: SceKernelMemoryRefPerm,
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeRetain(
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeRetainForPid(
         pid: SceUID,
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemRangeRetainWithPerm(
         perm: SceKernelMemoryRefPerm,
-        addr: *mut crate::ctypes::c_void,
+        addr: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemcpyFromUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemcpyToUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcMemcpyFromUser(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcMemcpyToUser(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcStrncpyFromUser(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
     ) -> SceSSize;
     pub fn ksceKernelProcStrncpyToUser(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
     ) -> SceSSize;
     pub fn ksceKernelProcStrnlenUser(
         pid: SceUID,
-        s: *const crate::ctypes::c_char,
+        s: *const core::ffi::c_char,
         n: SceSize,
     ) -> SceSSize;
     pub fn ksceKernelProcUserMap(
         pid: SceUID,
-        name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
+        name: *const core::ffi::c_char,
+        permission: core::ffi::c_int,
+        user_buf: *const core::ffi::c_void,
         size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_page: *mut *mut core::ffi::c_void,
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
     pub fn ksceKernelProcUserMemcpy(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcessGetContext(
         pid: SceUID,
         ctx: *mut *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcessSwitchContext(
         new_context: *const SceKernelProcessContext,
         prev_context: *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> core::ffi::c_int;
     pub fn ksceKernelStrncpyFromUser(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
     ) -> SceSSize;
     pub fn ksceKernelStrncpyToUser(
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
+        dst: *mut core::ffi::c_char,
+        src: *const core::ffi::c_char,
         len: SceSize,
     ) -> SceSSize;
-    pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
-    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelStrnlenUser(s: *const core::ffi::c_char, n: SceSize) -> SceSize;
+    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelUserMap(
-        name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
+        name: *const core::ffi::c_char,
+        permission: core::ffi::c_int,
+        user_buf: *const core::ffi::c_void,
         size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_page: *mut *mut core::ffi::c_void,
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
     pub fn ksceKernelUserMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelVARangeToPAVector(
         va_range: *const SceKernelVARange,
         pa_vector: *mut SceKernelPAVector,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelVAtoPA(
-        va: *const crate::ctypes::c_void,
-        pa: *mut usize,
-    ) -> crate::ctypes::c_int;
-    pub fn kscePUIDClose(pid: SceUID, puid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelVAtoPA(va: *const core::ffi::c_void, pa: *mut usize) -> core::ffi::c_int;
+    pub fn kscePUIDClose(pid: SceUID, puid: SceUID) -> core::ffi::c_int;
     pub fn kscePUIDOpenByGUID(pid: SceUID, guid: SceUID) -> SceUID;
     pub fn kscePUIDtoGUID(pid: SceUID, puid: SceUID) -> SceUID;
 }
@@ -17964,163 +17640,156 @@ extern "C" {}
 extern "C" {
     pub fn ksceGUIDKernelCreateWithOpt(
         sce_class: *mut SceClass,
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         opt: *mut SceGUIDKernelCreateOpt,
         obj: *mut *mut SceObjectBase,
     ) -> SceUID;
     pub fn ksceKernelFindClassByName(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         cls: *mut *mut SceClass,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetMemBlockType(
         uid: SceUID,
-        type_: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        type_: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelProcMemcpyToUserRx(
         pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSysmemForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSysmemForKernel_stub")]
 extern "C" {
     pub fn ksceGUIDGetUIDVectorByClass(
         cls: *mut SceClass,
-        vis_level: crate::ctypes::c_int,
+        vis_level: core::ffi::c_int,
         vector: *mut SceUID,
         num: SceSize,
         ret_num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
-    pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelAlloc(size: core::ffi::c_uint) -> *mut core::ffi::c_void;
+    pub fn ksceKernelFree(ptr: *mut core::ffi::c_void) -> core::ffi::c_int;
     pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
     pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
     pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
     pub fn ksceKernelMemcpyToUserRo(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelMemcpyToUserRx(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
+        dst: *mut core::ffi::c_void,
+        src: *const core::ffi::c_void,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSysmem_stub", kind = "static")]
 #[cfg(feature = "SceSysmem_stub")]
 extern "C" {
     pub fn sceKernelAllocMemBlock(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         type_: SceKernelMemBlockType,
         size: SceSize,
         opt: *mut SceKernelAllocMemBlockOpt,
     ) -> SceUID;
-    pub fn sceKernelAllocMemBlockForVM(name: *const crate::ctypes::c_char, size: SceSize)
-        -> SceUID;
-    pub fn sceKernelCloseMemBlock(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelCloseVMDomain() -> crate::ctypes::c_int;
-    pub fn sceKernelFindMemBlockByAddr(addr: *const crate::ctypes::c_void, size: SceSize)
-        -> SceUID;
-    pub fn sceKernelFreeMemBlock(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceKernelGetCpuId() -> crate::ctypes::c_int;
-    pub fn sceKernelGetFreeMemorySize(
-        info: *mut SceKernelFreeMemorySizeInfo,
-    ) -> crate::ctypes::c_int;
+    pub fn sceKernelAllocMemBlockForVM(name: *const core::ffi::c_char, size: SceSize) -> SceUID;
+    pub fn sceKernelCloseMemBlock(uid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelCloseVMDomain() -> core::ffi::c_int;
+    pub fn sceKernelFindMemBlockByAddr(addr: *const core::ffi::c_void, size: SceSize) -> SceUID;
+    pub fn sceKernelFreeMemBlock(uid: SceUID) -> core::ffi::c_int;
+    pub fn sceKernelGetCpuId() -> core::ffi::c_int;
+    pub fn sceKernelGetFreeMemorySize(info: *mut SceKernelFreeMemorySizeInfo) -> core::ffi::c_int;
     pub fn sceKernelGetMemBlockBase(
         uid: SceUID,
-        base: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        base: *mut *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn sceKernelGetMemBlockInfoByAddr(
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         info: *mut SceKernelMemBlockInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceKernelGetMemBlockInfoByRange(
-        base: *mut crate::ctypes::c_void,
+        base: *mut core::ffi::c_void,
         size: SceSize,
         info: *mut SceKernelMemBlockInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelGetModel() -> crate::ctypes::c_int;
-    pub fn sceKernelGetModelForCDialog() -> crate::ctypes::c_int;
-    pub fn sceKernelIsPSVitaTV() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceKernelGetModel() -> core::ffi::c_int;
+    pub fn sceKernelGetModelForCDialog() -> core::ffi::c_int;
+    pub fn sceKernelIsPSVitaTV() -> core::ffi::c_int;
     pub fn sceKernelOpenMemBlock(
-        name: *const crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceKernelOpenVMDomain() -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        flags: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn sceKernelOpenVMDomain() -> core::ffi::c_int;
     pub fn sceKernelSyncVMDomain(
         uid: SceUID,
-        data: *mut crate::ctypes::c_void,
+        data: *mut core::ffi::c_void,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSysmodule_stub", kind = "static")]
 #[cfg(feature = "SceSysmodule_stub")]
 extern "C" {
-    pub fn sceSysmoduleIsLoaded(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-    pub fn sceSysmoduleIsLoadedInternal(id: SceSysmoduleInternalModuleId) -> crate::ctypes::c_int;
-    pub fn sceSysmoduleLoadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-    pub fn sceSysmoduleLoadModuleInternal(id: SceSysmoduleInternalModuleId)
-        -> crate::ctypes::c_int;
+    pub fn sceSysmoduleIsLoaded(id: SceSysmoduleModuleId) -> core::ffi::c_int;
+    pub fn sceSysmoduleIsLoadedInternal(id: SceSysmoduleInternalModuleId) -> core::ffi::c_int;
+    pub fn sceSysmoduleLoadModule(id: SceSysmoduleModuleId) -> core::ffi::c_int;
+    pub fn sceSysmoduleLoadModuleInternal(id: SceSysmoduleInternalModuleId) -> core::ffi::c_int;
     pub fn sceSysmoduleLoadModuleInternalWithArg(
         id: SceSysmoduleInternalModuleId,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
+        argp: *mut core::ffi::c_void,
         option: *const SceSysmoduleOpt,
-    ) -> crate::ctypes::c_int;
-    pub fn sceSysmoduleUnloadModule(id: SceSysmoduleModuleId) -> crate::ctypes::c_int;
-    pub fn sceSysmoduleUnloadModuleInternal(
-        id: SceSysmoduleInternalModuleId,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceSysmoduleUnloadModule(id: SceSysmoduleModuleId) -> core::ffi::c_int;
+    pub fn sceSysmoduleUnloadModuleInternal(id: SceSysmoduleInternalModuleId) -> core::ffi::c_int;
     pub fn sceSysmoduleUnloadModuleInternalWithArg(
         id: SceSysmoduleInternalModuleId,
         args: SceSize,
-        argp: *mut crate::ctypes::c_void,
+        argp: *mut core::ffi::c_void,
         option: *const SceSysmoduleOpt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceSysrootForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSysrootForDriver_stub")]
 extern "C" {
     pub fn ksceKernelSysrootGetShellPid() -> SceUID;
-    pub fn ksceKernelSysrootGetSystemSwVersion() -> crate::ctypes::c_int;
+    pub fn ksceKernelSysrootGetSystemSwVersion() -> core::ffi::c_int;
     pub fn ksceKernelSysrootRegisterCoredumpTrigger(func: SceKernelCoredumpTriggerFunc);
     pub fn ksceKernelSysrootSetGetSystemSwVersionFunc(func: SceKernelGetSystemSwVersionFunc);
     pub fn ksceKernelSysrootSetProcessHandler(
         handlers: *const SceSysrootProcessHandler,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceSysrootGetHardwareFlags(flags: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-    pub fn ksceSysrootUseExternalStorage() -> crate::ctypes::c_int;
-    pub fn ksceSysrootUseInternalStorage() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceSysrootGetHardwareFlags(flags: *mut core::ffi::c_void) -> core::ffi::c_int;
+    pub fn ksceSysrootUseExternalStorage() -> core::ffi::c_int;
+    pub fn ksceSysrootUseInternalStorage() -> core::ffi::c_int;
 }
 #[link(name = "SceSysrootForKernel_stub", kind = "static")]
 #[cfg(feature = "SceSysrootForKernel_stub")]
 extern "C" {
-    pub fn ksceKernelSysrootGetKblParam() -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelSysrootGetKblParam() -> *mut core::ffi::c_void;
     pub fn ksceKernelSysrootGetProcessTitleId(
         pid: SceUID,
-        titleid: *mut crate::ctypes::c_char,
+        titleid: *mut core::ffi::c_char,
         len: SceSize,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSysrootRegisterDbgpHandler(
         handlers: *const SceSysrootDbgpHandler,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSysrootSetSysroot(sysroot_uid: SceUID);
     pub fn ksceKernelSysrootUnregisterDbgpHandler();
     pub fn ksceSysrootGetSelfInfo(
         index: SceKernelSysrootSelfIndex,
         info: *mut SceKernelSysrootSelfInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceSysrootGetSysroot() -> *mut SceSysroot;
-    pub fn ksceSysrootIsBsodReboot() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsExternalBootMode() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsManufacturingMode() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsNonRemovableCardMode() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsSafeMode() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsUpdateMode() -> crate::ctypes::c_int;
-    pub fn ksceSysrootIsUsbEnumWakeup() -> crate::ctypes::c_int;
+    pub fn ksceSysrootIsBsodReboot() -> core::ffi::c_int;
+    pub fn ksceSysrootIsExternalBootMode() -> core::ffi::c_int;
+    pub fn ksceSysrootIsManufacturingMode() -> core::ffi::c_int;
+    pub fn ksceSysrootIsNonRemovableCardMode() -> core::ffi::c_int;
+    pub fn ksceSysrootIsSafeMode() -> core::ffi::c_int;
+    pub fn ksceSysrootIsUpdateMode() -> core::ffi::c_int;
+    pub fn ksceSysrootIsUsbEnumWakeup() -> core::ffi::c_int;
 }
 #[link(name = "SceSystemGesture_stub", kind = "static")]
 #[cfg(feature = "SceSystemGesture_stub")]
@@ -18129,33 +17798,33 @@ extern "C" {}
 #[cfg(feature = "SceSystimerForDriver_stub")]
 extern "C" {
     pub fn ksceKernelSysTimerAlloc(timerType: SceSysTimerType) -> SceSysTimerId;
-    pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    pub fn ksceKernelSysTimerFree(timerId: SceSysTimerId) -> core::ffi::c_int;
     pub fn ksceKernelSysTimerGetCount(
         timerId: SceSysTimerId,
         pCount: *mut SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelSysTimerResetCount(timerId: SceSysTimerId) -> core::ffi::c_int;
     pub fn ksceKernelSysTimerSetClockSource(
         timerId: SceSysTimerId,
         clockSource: SceSysTimerClockSource,
         prescaleFactor: SceUInt8,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSysTimerSetCount(
         timerId: SceSysTimerId,
         count: SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSysTimerSetHandler(
         timerId: SceSysTimerId,
         callback: SceSysTimerCallback,
         targetCPU: SceUInt32,
-        pUserData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        pUserData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSysTimerSetInterval(
         timerId: SceSysTimerId,
         interval: SceKernelSysClock,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelSysTimerStartCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
-    pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelSysTimerStartCount(timerId: SceSysTimerId) -> core::ffi::c_int;
+    pub fn ksceKernelSysTimerStopCount(timerId: SceSysTimerId) -> core::ffi::c_int;
 }
 #[link(name = "SceTeleportClient_stub", kind = "static")]
 #[cfg(feature = "SceTeleportClient_stub")]
@@ -18166,291 +17835,266 @@ extern "C" {}
 #[link(name = "SceThreadmgrForDriver_stub", kind = "static")]
 #[cfg(feature = "SceThreadmgrForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelCancelCallback(cb: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelCancelCallback(cb: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelCancelMsgPipe(
         uid: SceUID,
-        psend: *mut crate::ctypes::c_int,
-        precv: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        psend: *mut core::ffi::c_int,
+        precv: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelCancelMutex(
         mutexid: SceUID,
-        newCount: crate::ctypes::c_int,
-        numWaitThreads: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        newCount: core::ffi::c_int,
+        numWaitThreads: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelChangeThreadPriority(
         thid: SceUID,
-        priority: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        priority: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelChangeThreadSuspendStatus(
         thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelCheckCallback() -> crate::ctypes::c_int;
-    pub fn ksceKernelClearEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        status: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelCheckCallback() -> core::ffi::c_int;
+    pub fn ksceKernelClearEventFlag(evfid: SceUID, bits: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn ksceKernelCreateCallback(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_uint,
+        name: *const core::ffi::c_char,
+        attr: core::ffi::c_uint,
         func: SceKernelCallbackFunction,
-        arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        arg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelCreateCond(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
         mutexId: SceUID,
         option: *const SceKernelCondOptParam,
     ) -> SceUID;
     pub fn ksceKernelCreateEventFlag(
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        bits: crate::ctypes::c_int,
+        name: *const core::ffi::c_char,
+        attr: core::ffi::c_int,
+        bits: core::ffi::c_int,
         opt: *mut SceKernelEventFlagOptParam,
     ) -> SceUID;
     pub fn ksceKernelCreateMsgPipe(
-        name: *const crate::ctypes::c_char,
-        type_: crate::ctypes::c_int,
-        attr: crate::ctypes::c_int,
+        name: *const core::ffi::c_char,
+        type_: core::ffi::c_int,
+        attr: core::ffi::c_int,
         bufSize: SceSize,
-        opt: *mut crate::ctypes::c_void,
+        opt: *mut core::ffi::c_void,
     ) -> SceUID;
     pub fn ksceKernelCreateMutex(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
-        initCount: crate::ctypes::c_int,
+        initCount: core::ffi::c_int,
         option: *mut SceKernelMutexOptParam,
     ) -> SceUID;
     pub fn ksceKernelCreateSema(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         attr: SceUInt,
-        initVal: crate::ctypes::c_int,
-        maxVal: crate::ctypes::c_int,
+        initVal: core::ffi::c_int,
+        maxVal: core::ffi::c_int,
         option: *mut SceKernelSemaOptParam,
     ) -> SceUID;
     pub fn ksceKernelCreateThread(
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         entry: SceKernelThreadEntry,
-        initPriority: crate::ctypes::c_int,
+        initPriority: core::ffi::c_int,
         stackSize: SceSize,
         attr: SceUInt,
-        cpuAffinityMask: crate::ctypes::c_int,
+        cpuAffinityMask: core::ffi::c_int,
         option: *const SceKernelThreadOptParam,
     ) -> SceUID;
-    pub fn ksceKernelDebugResumeThread(
-        thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelDebugSuspendThread(
-        thid: SceUID,
-        status: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelDelayThread(delay: SceUInt) -> crate::ctypes::c_int;
-    pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteCallback(cb: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteCond(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteEventFlag(evfid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteMsgPipe(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteMutex(mutexid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteSema(semaid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelDeleteThread(thid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelDebugResumeThread(thid: SceUID, status: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceKernelDebugSuspendThread(thid: SceUID, status: core::ffi::c_int)
+        -> core::ffi::c_int;
+    pub fn ksceKernelDelayThread(delay: SceUInt) -> core::ffi::c_int;
+    pub fn ksceKernelDelayThreadCB(delay: SceUInt) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteCallback(cb: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteCond(condId: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteEventFlag(evfid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteMsgPipe(uid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteMutex(mutexid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteSema(semaid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelDeleteThread(thid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelEnqueueWorkQueue(
         uid: SceUID,
-        name: *const crate::ctypes::c_char,
+        name: *const core::ffi::c_char,
         work: SceKernelWorkQueueWorkFunction,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelExitDeleteThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceKernelExitThread(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex)
-        -> crate::ctypes::c_int;
-    pub fn ksceKernelGetCallbackCount(cb: SceUID) -> crate::ctypes::c_int;
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelExitDeleteThread(status: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceKernelExitThread(status: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceKernelFinalizeFastMutex(fast_mutex: *mut SceKernelFastMutex) -> core::ffi::c_int;
+    pub fn ksceKernelGetCallbackCount(cb: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelGetEventFlagInfo(
         evfid: SceUID,
         info: *mut SceKernelEventFlagInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetFastMutexInfo(
         fast_mutex: *mut SceKernelFastMutex,
-        info: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        info: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetLwCondInfo(
         lwcond_id: SceUID,
         info: *mut SceKernelLwCondInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetLwMutexInfo(
         lwmtxid: SceUID,
         info: *mut SceKernelLwMutexInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetMsgPipeInfo(
         msgpipe_id: SceUID,
         info: *mut SceKernelMsgPipeInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetMutexInfo(
         mutexid: SceUID,
         info: *mut SceKernelMutexInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetProcessId() -> SceUID;
     pub fn ksceKernelGetProcessIdFromTLS() -> SceUID;
-    pub fn ksceKernelGetSemaInfo(
-        semaid: SceUID,
-        info: *mut SceKernelSemaInfo,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetSemaInfo(semaid: SceUID, info: *mut SceKernelSemaInfo) -> core::ffi::c_int;
     pub fn ksceKernelGetSystemTimeLow() -> SceUInt32;
     pub fn ksceKernelGetSystemTimeWide() -> SceInt64;
-    pub fn ksceKernelGetTLSAddr(key: crate::ctypes::c_int) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetTLSAddr(key: core::ffi::c_int) -> *mut core::ffi::c_void;
     pub fn ksceKernelGetThreadCpuRegisters(
         thid: SceUID,
         registers: *mut SceThreadCpuRegisters,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetThreadCurrentPriority() -> crate::ctypes::c_int;
-    pub fn ksceKernelGetThreadId() -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelGetThreadCurrentPriority() -> core::ffi::c_int;
+    pub fn ksceKernelGetThreadId() -> core::ffi::c_int;
     pub fn ksceKernelGetThreadIdList(
         pid: SceUID,
         ids: *mut SceUID,
-        n: crate::ctypes::c_int,
-        copy_count: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        n: core::ffi::c_int,
+        copy_count: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetThreadInfo(
         thid: SceUID,
         info: *mut SceKernelThreadInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelGetThreadInfoForDebugger(
         thid: SceUID,
-        a2: crate::ctypes::c_int,
-        pInfo: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetThreadStackFreeSize(thid: SceUID) -> crate::ctypes::c_int;
+        a2: core::ffi::c_int,
+        pInfo: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelGetThreadStackFreeSize(thid: SceUID) -> core::ffi::c_int;
     pub fn ksceKernelGetThreadTLSAddr(
         thid: SceUID,
-        key: crate::ctypes::c_int,
-    ) -> *mut crate::ctypes::c_void;
+        key: core::ffi::c_int,
+    ) -> *mut core::ffi::c_void;
     pub fn ksceKernelGetThreadmgrUIDClass(uid: SceUID) -> SceKernelIdListType;
     pub fn ksceKernelGetUserThreadId(thid: SceUID) -> SceUID;
     pub fn ksceKernelGetVfpRegisterForDebugger(
         thid: SceUID,
-        pVfpRegister: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        pVfpRegister: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelInitializeFastMutex(
         fast_mutex: *mut SceKernelFastMutex,
-        name: *const crate::ctypes::c_char,
-        attr: crate::ctypes::c_int,
-        opt: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        attr: core::ffi::c_int,
+        opt: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelIsThreadDebugSuspended(thid: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> core::ffi::c_int;
     pub fn ksceKernelLockMutex(
         mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
+        lockCount: core::ffi::c_int,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelNotifyCallback(cb: SceUID, arg2: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelPollEventFlag(
         evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelPollSema(semaid: SceUID, signal: crate::ctypes::c_int)
-        -> crate::ctypes::c_int;
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelPollSema(semaid: SceUID, signal: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelReceiveMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeRecvData,
-        n: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        n: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelRunWithStack(
         stack_size: SceSize,
         to_call: ::core::option::Option<
-            unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
+            unsafe extern "C" fn(arg1: *mut core::ffi::c_void) -> core::ffi::c_int,
         >,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelSendMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeSendData,
-        n: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelSetEventFlag(
-        evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelSetPermission(value: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        n: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+        timeout: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelSetEventFlag(evfid: SceUID, bits: core::ffi::c_uint) -> core::ffi::c_int;
+    pub fn ksceKernelSetPermission(value: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelSetProcessIdToTLS(pid: SceUID) -> SceUID;
-    pub fn ksceKernelSignalCond(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelSignalCondAll(condId: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelSignalSema(
-        semaid: SceUID,
-        signal: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSignalCond(condId: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelSignalCondAll(condId: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelSignalCondTo(condId: SceUID, threadId: SceUID) -> core::ffi::c_int;
+    pub fn ksceKernelSignalSema(semaid: SceUID, signal: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceKernelStartThread(
         thid: SceUID,
         arglen: SceSize,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelTryLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
-    pub fn ksceKernelTryLockMutex(
-        mutexid: SceUID,
-        lockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelTryLockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> core::ffi::c_int;
+    pub fn ksceKernelTryLockMutex(mutexid: SceUID, lockCount: core::ffi::c_int)
+        -> core::ffi::c_int;
     pub fn ksceKernelTryReceiveMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeRecvData,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceKernelTrySendMsgPipeVector(
         uid: SceUID,
         v: *const MsgPipeSendData,
         size: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> crate::ctypes::c_int;
+        unk1: core::ffi::c_int,
+        unk2: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelUnlockFastMutex(fast_mutex: *mut SceKernelFastMutex) -> core::ffi::c_int;
     pub fn ksceKernelUnlockMutex(
         mutexid: SceUID,
-        unlockCount: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelWaitCond(
-        condId: SceUID,
-        timeout: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        unlockCount: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceKernelWaitCond(condId: SceUID, timeout: *mut core::ffi::c_uint) -> core::ffi::c_int;
     pub fn ksceKernelWaitEventFlag(
         evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelWaitEventFlagCB(
         evfid: SceUID,
-        bits: crate::ctypes::c_uint,
-        wait: crate::ctypes::c_uint,
-        outBits: *mut crate::ctypes::c_uint,
+        bits: core::ffi::c_uint,
+        wait: core::ffi::c_uint,
+        outBits: *mut core::ffi::c_uint,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelWaitSema(
         semaid: SceUID,
-        signal: crate::ctypes::c_int,
+        signal: core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelWaitThreadEnd(
         thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
+        stat: *mut core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn ksceKernelWaitThreadEndCB(
         thid: SceUID,
-        stat: *mut crate::ctypes::c_int,
+        stat: *mut core::ffi::c_int,
         timeout: *mut SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceThreadmgrForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceThreadmgrForKernel_363_stub")]
@@ -18462,7 +18106,7 @@ extern "C" {}
 extern "C" {
     pub fn ksceKernelGetThreadContextInfo(
         pInfo: *mut SceKernelThreadContextInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceThreadmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceThreadmgrForKernel_stub")]
@@ -18470,100 +18114,100 @@ extern "C" {}
 #[link(name = "SceTouchForDriver_stub", kind = "static")]
 #[cfg(feature = "SceTouchForDriver_stub")]
 extern "C" {
-    pub fn ksceTouchSetEnableFlag(port: SceUInt32, enable: SceBool) -> crate::ctypes::c_int;
+    pub fn ksceTouchSetEnableFlag(port: SceUInt32, enable: SceBool) -> core::ffi::c_int;
 }
 #[link(name = "SceTouch_stub", kind = "static")]
 #[cfg(feature = "SceTouch_stub")]
 extern "C" {
-    pub fn sceTouchDisableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
-    pub fn sceTouchEnableTouchForce(port: SceUInt32) -> crate::ctypes::c_int;
+    pub fn sceTouchDisableTouchForce(port: SceUInt32) -> core::ffi::c_int;
+    pub fn sceTouchEnableTouchForce(port: SceUInt32) -> core::ffi::c_int;
     pub fn sceTouchGetPanelInfo(
         port: SceUInt32,
         pPanelInfo: *mut SceTouchPanelInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceTouchGetSamplingState(
         port: SceUInt32,
         pState: *mut SceTouchSamplingState,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceTouchPeek(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceTouchRead(
         port: SceUInt32,
         pData: *mut SceTouchData,
         nBufs: SceUInt32,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceTouchSetSamplingState(
         port: SceUInt32,
         state: SceTouchSamplingState,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceTriggerUtil_stub", kind = "static")]
 #[cfg(feature = "SceTriggerUtil_stub")]
 extern "C" {
     pub fn sceTriggerUtilGetAutoStartStatus(
-        status: *mut crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        status: *mut core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetDailyEventInfo(
-        eventId: crate::ctypes::c_int,
+        eventId: core::ffi::c_int,
         param: *mut SceTriggerUtilEventParamDaily,
-        a5: crate::ctypes::c_int,
-        a6: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        a5: core::ffi::c_int,
+        a6: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetOneTimeEventInfo(
-        eventId: crate::ctypes::c_int,
+        eventId: core::ffi::c_int,
         triggerTime: *mut SceRtcTick,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetRegisteredSystemTitleIdList(
-        buffer: *mut crate::ctypes::c_char,
-        numOfIds: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        buffer: *mut core::ffi::c_char,
+        numOfIds: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetRegisteredUserTitleIdList(
-        titleIdBuffer: *mut crate::ctypes::c_char,
-        numOfIds: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        titleIdBuffer: *mut core::ffi::c_char,
+        numOfIds: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetSystemAppInfo(
-        titleid: *const crate::ctypes::c_char,
+        titleid: *const core::ffi::c_char,
         appInfo: *mut SceTriggerUtilSystemAppInfo,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilGetUserAppInfo(
-        titleid: *const crate::ctypes::c_char,
+        titleid: *const core::ffi::c_char,
         appInfo: *mut SceTriggerUtilUserAppInfo,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilRegisterDailyEvent(
-        titleid: *const crate::ctypes::c_char,
+        titleid: *const core::ffi::c_char,
         param: *const SceTriggerUtilEventParamDaily,
-        eventId: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eventId: core::ffi::c_int,
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilRegisterOneTimeEvent(
-        titleid: *const crate::ctypes::c_char,
+        titleid: *const core::ffi::c_char,
         param: *const SceTriggerUtilEventParamOneTime,
-        eventId: crate::ctypes::c_int,
-        a4: crate::ctypes::c_int,
-        a5: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eventId: core::ffi::c_int,
+        a4: core::ffi::c_int,
+        a5: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilUnregisterDailyEvent(
-        eventId: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eventId: core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn sceTriggerUtilUnregisterOneTimeEvent(
-        eventId: crate::ctypes::c_int,
-        a2: crate::ctypes::c_int,
-        a3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eventId: core::ffi::c_int,
+        a2: core::ffi::c_int,
+        a3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceUartForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceUartForKernel_363_stub")]
@@ -18573,13 +18217,10 @@ extern "C" {}
     feature = "SceUartForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceUartInit(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUartRead(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUartReadAvailable(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUartWrite(
-        port: crate::ctypes::c_int,
-        data: crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+    pub fn ksceUartInit(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUartRead(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUartReadAvailable(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUartWrite(port: core::ffi::c_int, data: core::ffi::c_char) -> core::ffi::c_int;
 }
 #[link(name = "SceUartForKernel_stub", kind = "static")]
 #[cfg(feature = "SceUartForKernel_stub")]
@@ -18587,113 +18228,110 @@ extern "C" {}
 #[link(name = "SceUdcdForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUdcdForDriver_stub")]
 extern "C" {
-    pub fn ksceUdcdActivate(productId: crate::ctypes::c_uint) -> crate::ctypes::c_int;
+    pub fn ksceUdcdActivate(productId: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn ksceUdcdActivateInternal(
-        productId: crate::ctypes::c_uint,
-        bus_powered: crate::ctypes::c_uint,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdClearFIFO(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
+        productId: core::ffi::c_uint,
+        bus_powered: core::ffi::c_uint,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdClearFIFO(endp: *mut SceUdcdEndpoint) -> core::ffi::c_int;
     pub fn ksceUdcdClearFIFOInternal(
         endp: *mut SceUdcdEndpoint,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdDeactivate() -> crate::ctypes::c_int;
-    pub fn ksceUdcdDeactivateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdDeactivate() -> core::ffi::c_int;
+    pub fn ksceUdcdDeactivateInternal(bus: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> core::ffi::c_int;
     pub fn ksceUdcdGetDeviceInfoInternal(
         devInfo: *mut SceUdcdDeviceInfo,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdGetDeviceState() -> crate::ctypes::c_int;
-    pub fn ksceUdcdGetDeviceStateInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdGetDeviceState() -> core::ffi::c_int;
+    pub fn ksceUdcdGetDeviceStateInternal(bus: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUdcdGetDrvState(driverName: *const core::ffi::c_char) -> core::ffi::c_int;
     pub fn ksceUdcdGetDrvStateInternal(
-        driverName: *const crate::ctypes::c_char,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdRegister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
+        driverName: *const core::ffi::c_char,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdRegister(drv: *mut SceUdcdDriver) -> core::ffi::c_int;
     pub fn ksceUdcdRegisterInternal(
         drv: *mut SceUdcdDriver,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdReqCancelAll(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
-    pub fn ksceUdcdReqRecv(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdReqCancelAll(endp: *mut SceUdcdEndpoint) -> core::ffi::c_int;
+    pub fn ksceUdcdReqRecv(req: *mut SceUdcdDeviceRequest) -> core::ffi::c_int;
     pub fn ksceUdcdReqRecvInternal(
         req: *mut SceUdcdDeviceRequest,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdReqSend(req: *mut SceUdcdDeviceRequest) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdReqSend(req: *mut SceUdcdDeviceRequest) -> core::ffi::c_int;
     pub fn ksceUdcdReqSendInternal(
         req: *mut SceUdcdDeviceRequest,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdStall(endp: *mut SceUdcdEndpoint) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdStall(endp: *mut SceUdcdEndpoint) -> core::ffi::c_int;
     pub fn ksceUdcdStallInternal(
         endp: *mut SceUdcdEndpoint,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdStart(
-        driverName: *const crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        driverName: *const core::ffi::c_char,
+        size: core::ffi::c_int,
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdStartCurrentInternal(
-        unused: crate::ctypes::c_int,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        unused: core::ffi::c_int,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdStartInternal(
-        driverName: *const crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-        args: *mut crate::ctypes::c_void,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        driverName: *const core::ffi::c_char,
+        size: core::ffi::c_int,
+        args: *mut core::ffi::c_void,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdStop(
-        driverName: *const crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-        args: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdStopCurrentInternal(bus: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        driverName: *const core::ffi::c_char,
+        size: core::ffi::c_int,
+        args: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdStopCurrentInternal(bus: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceUdcdStopInternal(
-        driverName: *const crate::ctypes::c_char,
-        size: crate::ctypes::c_int,
-        args: *mut crate::ctypes::c_void,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUdcdUnregister(drv: *mut SceUdcdDriver) -> crate::ctypes::c_int;
+        driverName: *const core::ffi::c_char,
+        size: core::ffi::c_int,
+        args: *mut core::ffi::c_void,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUdcdUnregister(drv: *mut SceUdcdDriver) -> core::ffi::c_int;
     pub fn ksceUdcdUnregisterInternal(
         drv: *mut SceUdcdDriver,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdWaitBusInitialized(
-        timeout: crate::ctypes::c_uint,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_uint,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdWaitState(
         waitParam: *mut SceUdcdWaitParam,
-        timeout: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn ksceUdcdWaitStateInternal(
         waitParam: *mut SceUdcdWaitParam,
-        timeout: crate::ctypes::c_uint,
-        bus: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_uint,
+        bus: core::ffi::c_int,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceUdcd_stub", kind = "static")]
 #[cfg(feature = "SceUdcd_stub")]
 extern "C" {
-    pub fn sceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> crate::ctypes::c_int;
-    pub fn sceUdcdGetDeviceState(state: *mut SceUdcdDeviceState) -> crate::ctypes::c_int;
-    pub fn sceUdcdGetDrvState(driverName: *const crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn sceUdcdRegisterCallback(
-        cbid: SceUID,
-        state: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUdcdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUdcdGetDeviceInfo(devInfo: *mut SceUdcdDeviceInfo) -> core::ffi::c_int;
+    pub fn sceUdcdGetDeviceState(state: *mut SceUdcdDeviceState) -> core::ffi::c_int;
+    pub fn sceUdcdGetDrvState(driverName: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceUdcdRegisterCallback(cbid: SceUID, state: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceUdcdUnregisterCallback(cbid: SceUID) -> core::ffi::c_int;
     pub fn sceUdcdWaitState(
         waitParam: *mut SceUdcdWaitParam,
-        timeout: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        timeout: core::ffi::c_uint,
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceUlobjMgr_stub", kind = "static")]
 #[cfg(feature = "SceUlobjMgr_stub")]
@@ -18725,12 +18363,11 @@ extern "C" {
         device_id: SceUInt32,
         volume: *mut SceUInt32,
     ) -> SceInt32;
-    pub fn sceUsbAudioInInput(device_id: SceUInt32, buffer: *mut crate::ctypes::c_void)
-        -> SceInt32;
+    pub fn sceUsbAudioInInput(device_id: SceUInt32, buffer: *mut core::ffi::c_void) -> SceInt32;
     pub fn sceUsbAudioInOpenDevice(
         device_id: SceUInt32,
-        bits: crate::ctypes::c_int,
-        rate: crate::ctypes::c_int,
+        bits: core::ffi::c_int,
+        rate: core::ffi::c_int,
     ) -> SceInt32;
     pub fn sceUsbAudioInSetCurrentValueOfVolume(
         device_id: SceUInt32,
@@ -18742,75 +18379,70 @@ extern "C" {
 extern "C" {
     pub fn ksceUsbdBulkTransfer(
         pipe_id: SceUID,
-        buffer: *mut crate::ctypes::c_uchar,
-        length: crate::ctypes::c_uint,
+        buffer: *mut core::ffi::c_uchar,
+        length: core::ffi::c_uint,
         cb: ksceUsbdDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        user_data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceUsbdBulkTransfer2(
-        pipe_id: crate::ctypes::c_int,
-        buffer: *mut crate::ctypes::c_uchar,
-        length: crate::ctypes::c_uint,
+        pipe_id: core::ffi::c_int,
+        buffer: *mut core::ffi::c_uchar,
+        length: core::ffi::c_uint,
         cb: ksceUsbdDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbdClosePipe(pipe_id: SceUID) -> crate::ctypes::c_int;
+        user_data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceUsbdClosePipe(pipe_id: SceUID) -> core::ffi::c_int;
     pub fn ksceUsbdControlTransfer(
         pipe_id: SceUID,
         req: *const SceUsbdDeviceRequest,
-        buffer: *mut crate::ctypes::c_uchar,
+        buffer: *mut core::ffi::c_uchar,
         cb: ksceUsbdDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbdGetDeviceLocation(device_id: SceUID, location: *mut u8) -> crate::ctypes::c_int;
-    pub fn ksceUsbdGetDeviceSpeed(
-        device_id: crate::ctypes::c_int,
-        speed: *mut u8,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbdHostStart(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUsbdHostStop(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+        user_data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
+    pub fn ksceUsbdGetDeviceLocation(device_id: SceUID, location: *mut u8) -> core::ffi::c_int;
+    pub fn ksceUsbdGetDeviceSpeed(device_id: core::ffi::c_int, speed: *mut u8) -> core::ffi::c_int;
+    pub fn ksceUsbdHostStart(port: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUsbdHostStop(port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceUsbdInterruptTransfer(
         pipe_id: SceUID,
-        buffer: *mut crate::ctypes::c_uchar,
+        buffer: *mut core::ffi::c_uchar,
         length: SceSize,
         cb: ksceUsbdDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        user_data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceUsbdIsochronousTransfer(
         pipe_id: SceUID,
         transfer: *mut ksceUsbdIsochTransfer,
         cb: ksceUsbdIsochDoneCallback,
-        user_data: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        user_data: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn ksceUsbdOpenPipe(
-        device_id: crate::ctypes::c_int,
+        device_id: core::ffi::c_int,
         endpoint: *mut SceUsbdEndpointDescriptor,
     ) -> SceUID;
-    pub fn ksceUsbdRegisterCompositeLdd(
-        driver: *const SceUsbdCompositeDriver,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbdRegisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
-    pub fn ksceUsbdResume(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceUsbdRegisterCompositeLdd(driver: *const SceUsbdCompositeDriver) -> core::ffi::c_int;
+    pub fn ksceUsbdRegisterDriver(driver: *const SceUsbdDriver) -> core::ffi::c_int;
+    pub fn ksceUsbdResume(port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceUsbdScanStaticDescriptor(
         device_id: SceUID,
-        start: *mut crate::ctypes::c_void,
+        start: *mut core::ffi::c_void,
         type_: SceUsbdDescriptorType,
-    ) -> *mut crate::ctypes::c_void;
-    pub fn ksceUsbdSuspend(port: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    ) -> *mut core::ffi::c_void;
+    pub fn ksceUsbdSuspend(port: core::ffi::c_int) -> core::ffi::c_int;
     pub fn ksceUsbdSuspendPhase2(
-        port: crate::ctypes::c_int,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        port: core::ffi::c_int,
+        flag: core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn ksceUsbdUnregisterCompositeLdd(
         driver: *const SceUsbdCompositeDriver,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbdUnregisterDriver(driver: *const SceUsbdDriver) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn ksceUsbdUnregisterDriver(driver: *const SceUsbdDriver) -> core::ffi::c_int;
     pub fn ksceUsbd_05073925(
         device_id: SceUID,
-        unk1: *mut crate::ctypes::c_int,
-        unk2: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceUsbd_7938DAC7(pipe_id: SceUID) -> crate::ctypes::c_int;
+        unk1: *mut core::ffi::c_int,
+        unk2: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn ksceUsbd_7938DAC7(pipe_id: SceUID) -> core::ffi::c_int;
 }
 #[link(name = "SceUsbd_stub", kind = "static")]
 #[cfg(feature = "SceUsbd_stub")]
@@ -18820,71 +18452,59 @@ extern "C" {
         driver_id: SceUID,
         bus: SceUInt,
         device: SceUInt,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceUsbdAttachCompositeLdd(
         uid: SceUID,
         param: *mut SceUsbdAttachCompositeParam,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbdClosePipe(uid: SceUID, pipe_id: SceUID) -> crate::ctypes::c_int;
-    pub fn sceUsbdEnd(uid: SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceUsbdClosePipe(uid: SceUID, pipe_id: SceUID) -> core::ffi::c_int;
+    pub fn sceUsbdEnd(uid: SceUID) -> core::ffi::c_int;
     pub fn sceUsbdGetDescriptor(
         uid: SceUID,
         device_id: SceUID,
-        descriptor: *mut crate::ctypes::c_uchar,
+        descriptor: *mut core::ffi::c_uchar,
         size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbdGetDescriptorSize(
-        uid: SceUID,
-        device_id: crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceUsbdGetDescriptorSize(uid: SceUID, device_id: core::ffi::c_uint) -> core::ffi::c_int;
     pub fn sceUsbdGetDeviceAddress(
         uid: SceUID,
         device_id: SceUID,
         addr: *mut SceUsbdDeviceAddress,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceUsbdGetDeviceList(
         uid: SceUID,
         num: SceSize,
         info: *mut SceUsbdDeviceInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceUsbdGetDeviceSpeed(
         uid: SceUID,
         device_id: SceUID,
-        speed: *mut crate::ctypes::c_uint,
-    ) -> crate::ctypes::c_int;
+        speed: *mut core::ffi::c_uint,
+    ) -> core::ffi::c_int;
     pub fn sceUsbdGetIsochTransferStatus(
         transfer_id: SceUID,
         status: *mut SceUsbdIsochTransferStatus,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceUsbdGetTransferStatus(
         transfer_id: SceUID,
         status: *mut SceUsbdTransferStatus,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbdInit(uid: *mut SceUID) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceUsbdInit(uid: *mut SceUID) -> core::ffi::c_int;
     pub fn sceUsbdIsochTransferData(
         uid: SceUID,
         pipe_id: SceUID,
         transfer: *mut SceUsbdIsochTransfer,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceUsbdOpenDefaultPipe(uid: SceUID, device_id: SceUID) -> SceUID;
     pub fn sceUsbdOpenPipe(uid: SceUID, pipe: *mut SceUsbdDevicePipe) -> SceUID;
-    pub fn sceUsbdReceiveEvent(
-        uid: SceUID,
-        event: *mut SceUsbdReceiveEvent,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbdRegisterCallback(
-        cbid: SceUID,
-        flag: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbdRegisterCompositeLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
-    pub fn sceUsbdRegisterLdd(uid: SceUID, name: *mut crate::ctypes::c_char) -> SceUID;
-    pub fn sceUsbdResetDevice(uid: SceUID, device_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceUsbdReceiveEvent(uid: SceUID, event: *mut SceUsbdReceiveEvent) -> core::ffi::c_int;
+    pub fn sceUsbdRegisterCallback(cbid: SceUID, flag: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceUsbdRegisterCompositeLdd(uid: SceUID, name: *mut core::ffi::c_char) -> SceUID;
+    pub fn sceUsbdRegisterLdd(uid: SceUID, name: *mut core::ffi::c_char) -> SceUID;
+    pub fn sceUsbdResetDevice(uid: SceUID, device_id: SceUID) -> core::ffi::c_int;
     pub fn sceUsbdTransferData(uid: SceUID, data: *mut SceUsbdTransferData) -> SceUID;
-    pub fn sceUsbdUnregisterCallback(cbid: SceUID) -> crate::ctypes::c_int;
-    pub fn sceUsbdUnregisterLdd(
-        uid: SceUID,
-        name: *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+    pub fn sceUsbdUnregisterCallback(cbid: SceUID) -> core::ffi::c_int;
+    pub fn sceUsbdUnregisterLdd(uid: SceUID, name: *mut core::ffi::c_char) -> core::ffi::c_int;
 }
 #[link(name = "SceUsbPspcm_stub", kind = "static")]
 #[cfg(feature = "SceUsbPspcm_stub")]
@@ -18892,74 +18512,72 @@ extern "C" {}
 #[link(name = "SceUsbSerialForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbSerialForDriver_stub")]
 extern "C" {
-    pub fn ksceUsbSerialClose() -> crate::ctypes::c_int;
-    pub fn ksceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
+    pub fn ksceUsbSerialClose() -> core::ffi::c_int;
+    pub fn ksceUsbSerialGetRecvBufferSize() -> core::ffi::c_uint;
     pub fn ksceUsbSerialRecv(
-        buffer: *mut crate::ctypes::c_void,
+        buffer: *mut core::ffi::c_void,
         max_len: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
+        unk1: core::ffi::c_int,
+        unk2: core::ffi::c_int,
     ) -> SceSize;
     pub fn ksceUsbSerialSend(
-        buffer: *const crate::ctypes::c_void,
+        buffer: *const core::ffi::c_void,
         len: SceSize,
-        unk1: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
+        unk1: core::ffi::c_int,
+        unk2: core::ffi::c_int,
     ) -> SceSize;
-    pub fn ksceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceUsbSerialStart() -> crate::ctypes::c_int;
-    pub fn ksceUsbSerialStatus() -> crate::ctypes::c_int;
+    pub fn ksceUsbSerialSetup(unk: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn ksceUsbSerialStart() -> core::ffi::c_int;
+    pub fn ksceUsbSerialStatus() -> core::ffi::c_int;
 }
 #[link(name = "SceUsbSerial_stub", kind = "static")]
 #[cfg(feature = "SceUsbSerial_stub")]
 extern "C" {
-    pub fn sceUsbSerialClose() -> crate::ctypes::c_int;
-    pub fn sceUsbSerialGetRecvBufferSize() -> crate::ctypes::c_uint;
+    pub fn sceUsbSerialClose() -> core::ffi::c_int;
+    pub fn sceUsbSerialGetRecvBufferSize() -> core::ffi::c_uint;
     pub fn sceUsbSerialRecv(
-        buffer: *mut crate::ctypes::c_void,
-        max_len: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_uint;
+        buffer: *mut core::ffi::c_void,
+        max_len: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: core::ffi::c_int,
+    ) -> core::ffi::c_uint;
     pub fn sceUsbSerialSend(
-        buffer: *const crate::ctypes::c_void,
-        len: crate::ctypes::c_uint,
-        unk1: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_uint;
-    pub fn sceUsbSerialSetup(unk: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn sceUsbSerialStart() -> crate::ctypes::c_int;
-    pub fn sceUsbSerialStatus() -> crate::ctypes::c_int;
+        buffer: *const core::ffi::c_void,
+        len: core::ffi::c_uint,
+        unk1: core::ffi::c_int,
+        unk2: core::ffi::c_int,
+    ) -> core::ffi::c_uint;
+    pub fn sceUsbSerialSetup(unk: core::ffi::c_int) -> core::ffi::c_int;
+    pub fn sceUsbSerialStart() -> core::ffi::c_int;
+    pub fn sceUsbSerialStatus() -> core::ffi::c_int;
 }
 #[link(name = "SceUsbServForDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbServForDriver_stub")]
 extern "C" {
-    pub fn ksceUsbServAccessoryActivate() -> crate::ctypes::c_int;
-    pub fn ksceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
-    pub fn ksceUsbServDisableEtherSuspend() -> crate::ctypes::c_int;
-    pub fn ksceUsbServEtherDisable() -> crate::ctypes::c_int;
-    pub fn ksceUsbServEtherEnable() -> crate::ctypes::c_int;
+    pub fn ksceUsbServAccessoryActivate() -> core::ffi::c_int;
+    pub fn ksceUsbServAccessoryDeactivate() -> core::ffi::c_int;
+    pub fn ksceUsbServDisableEtherSuspend() -> core::ffi::c_int;
+    pub fn ksceUsbServEtherDisable() -> core::ffi::c_int;
+    pub fn ksceUsbServEtherEnable() -> core::ffi::c_int;
     pub fn ksceUsbServMacGet(usbPort: SceUInt) -> SceBool;
-    pub fn ksceUsbServMacSelect(usbPort: SceUInt, clientMode: SceBool) -> crate::ctypes::c_int;
+    pub fn ksceUsbServMacSelect(usbPort: SceUInt, clientMode: SceBool) -> core::ffi::c_int;
 }
 #[link(name = "SceUsbServ_stub", kind = "static")]
 #[cfg(feature = "SceUsbServ_stub")]
 extern "C" {
-    pub fn sceUsbServAccessoryActivate() -> crate::ctypes::c_int;
-    pub fn sceUsbServAccessoryDeactivate() -> crate::ctypes::c_int;
+    pub fn sceUsbServAccessoryActivate() -> core::ffi::c_int;
+    pub fn sceUsbServAccessoryDeactivate() -> core::ffi::c_int;
 }
 #[link(name = "SceUsbstorVStorDriver_stub", kind = "static")]
 #[cfg(feature = "SceUsbstorVStorDriver_stub")]
 extern "C" {
     pub fn sceUsbstorVStorSetDeviceInfo(
-        name: *const crate::ctypes::c_char,
-        version: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbstorVStorSetImgFilePath(
-        path: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn sceUsbstorVStorStart(type_: SceUsbstorVstorType) -> crate::ctypes::c_int;
-    pub fn sceUsbstorVStorStop() -> crate::ctypes::c_int;
+        name: *const core::ffi::c_char,
+        version: *const core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn sceUsbstorVStorSetImgFilePath(path: *const core::ffi::c_char) -> core::ffi::c_int;
+    pub fn sceUsbstorVStorStart(type_: SceUsbstorVstorType) -> core::ffi::c_int;
+    pub fn sceUsbstorVStorStop() -> core::ffi::c_int;
 }
 #[link(name = "SceVideodec_stub", kind = "static")]
 #[cfg(feature = "SceVideodec_stub")]
@@ -18968,39 +18586,39 @@ extern "C" {
         codec: SceVideodecType,
         decoder: *mut SceAvcdecCtrl,
         query: *const SceAvcdecQueryDecoderInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceAvcdecDecode(
         decoder: *const SceAvcdecCtrl,
         au: *const SceAvcdecAu,
         array_picture: *mut SceAvcdecArrayPicture,
-    ) -> crate::ctypes::c_int;
-    pub fn sceAvcdecDeleteDecoder(decoder: *mut SceAvcdecCtrl) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceAvcdecDeleteDecoder(decoder: *mut SceAvcdecCtrl) -> core::ffi::c_int;
     pub fn sceAvcdecQueryDecoderMemSize(
         codec: SceVideodecType,
         query: *const SceAvcdecQueryDecoderInfo,
         decoderInfo: *mut SceAvcdecDecoderInfo,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
     pub fn sceVideodecInitLibrary(
         codec: SceVideodecType,
         initInfo: *const SceVideodecQueryInitInfoHwAvcdec,
-    ) -> crate::ctypes::c_int;
-    pub fn sceVideodecTermLibrary(codec: SceVideodecType) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
+    pub fn sceVideodecTermLibrary(codec: SceVideodecType) -> core::ffi::c_int;
 }
 #[link(name = "SceVideoExport_stub", kind = "static")]
 #[cfg(feature = "SceVideoExport_stub")]
 extern "C" {
     pub fn sceVideoExportFromFile(
         in_param: *const VideoExportInputParam,
-        unk: crate::ctypes::c_int,
-        workingMemory: *mut crate::ctypes::c_void,
-        cancelCb: *mut crate::ctypes::c_void,
+        unk: core::ffi::c_int,
+        workingMemory: *mut core::ffi::c_void,
+        cancelCb: *mut core::ffi::c_void,
         progress: ::core::option::Option<
-            unsafe extern "C" fn(arg1: *mut crate::ctypes::c_void, arg2: crate::ctypes::c_int),
+            unsafe extern "C" fn(arg1: *mut core::ffi::c_void, arg2: core::ffi::c_int),
         >,
-        user: *mut crate::ctypes::c_void,
-        unk2: crate::ctypes::c_int,
+        user: *mut core::ffi::c_void,
+        unk2: core::ffi::c_int,
         out_param: *mut VideoExportOutputParam,
-    ) -> crate::ctypes::c_int;
+    ) -> core::ffi::c_int;
 }
 #[link(name = "SceVoiceQoS_stub", kind = "static")]
 #[cfg(feature = "SceVoiceQoS_stub")]
@@ -19012,94 +18630,91 @@ extern "C" {}
 #[cfg(feature = "SceVshBridge_stub")]
 extern "C" {
     pub fn _vshIoMount(
-        id: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        path: *const core::ffi::c_char,
+        permission: core::ffi::c_int,
+        buf: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn _vshKernelSearchModuleByName(
-        module_name: *const crate::ctypes::c_char,
-        buffer: *const crate::ctypes::c_void,
+        module_name: *const core::ffi::c_char,
+        buffer: *const core::ffi::c_void,
     ) -> SceUID;
     pub fn _vshNpDrmEbootSigConvert(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        old_eboot_signature: *const crate::ctypes::c_void,
-        new_eboot_signature: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        old_eboot_signature: *const core::ffi::c_void,
+        new_eboot_signature: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmEbootSigGenMultiDisc(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        sce_discinfo: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        sce_discinfo: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmEbootSigGenPs1(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmEbootSigGenPsp(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-        sw_version: *mut crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+        sw_version: *mut core::ffi::c_int,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmEbootSigVerify(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_signature: *const crate::ctypes::c_char,
-        eboot_signature_header: *mut *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_signature: *const core::ffi::c_char,
+        eboot_signature_header: *mut *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmPspEbootSigGen(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_sha256: *const crate::ctypes::c_void,
-        eboot_signature: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_sha256: *const core::ffi::c_void,
+        eboot_signature: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn _vshNpDrmPspEbootVerify(
-        eboot_pbp_path: *const crate::ctypes::c_char,
-        eboot_signature: *const crate::ctypes::c_char,
-        eboot_signature_header: *mut *mut crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int;
-    pub fn _vshSblAimgrGetConsoleId(CID: *mut crate::ctypes::c_char) -> crate::ctypes::c_int;
-    pub fn _vshSblAimgrGetSMI(info: *mut SceUInt32) -> crate::ctypes::c_int;
-    pub fn _vshSblGetSystemSwVersion(data: *mut SceKernelFwInfo) -> crate::ctypes::c_int;
-    pub fn vshIdStorageIsDirty() -> crate::ctypes::c_int;
-    pub fn vshIdStorageIsFormatted() -> crate::ctypes::c_int;
-    pub fn vshIdStorageIsReadOnly() -> crate::ctypes::c_int;
-    pub fn vshIdStorageReadLeaf(
-        leafnum: SceSize,
-        buf: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        eboot_pbp_path: *const core::ffi::c_char,
+        eboot_signature: *const core::ffi::c_char,
+        eboot_signature_header: *mut *mut core::ffi::c_char,
+    ) -> core::ffi::c_int;
+    pub fn _vshSblAimgrGetConsoleId(CID: *mut core::ffi::c_char) -> core::ffi::c_int;
+    pub fn _vshSblAimgrGetSMI(info: *mut SceUInt32) -> core::ffi::c_int;
+    pub fn _vshSblGetSystemSwVersion(data: *mut SceKernelFwInfo) -> core::ffi::c_int;
+    pub fn vshIdStorageIsDirty() -> core::ffi::c_int;
+    pub fn vshIdStorageIsFormatted() -> core::ffi::c_int;
+    pub fn vshIdStorageIsReadOnly() -> core::ffi::c_int;
+    pub fn vshIdStorageReadLeaf(leafnum: SceSize, buf: *mut core::ffi::c_void) -> core::ffi::c_int;
     pub fn vshIdStorageWriteLeaf(
         leafnum: SceSize,
-        buf: *const crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
+        buf: *const core::ffi::c_void,
+    ) -> core::ffi::c_int;
     pub fn vshIoUmount(
-        id: crate::ctypes::c_int,
-        force: crate::ctypes::c_int,
-        unk2: crate::ctypes::c_int,
-        unk3: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int;
-    pub fn vshMemoryCardGetCardInsertState() -> crate::ctypes::c_int;
-    pub fn vshMsifGetMsInfo(info: *mut SceMsInfo) -> crate::ctypes::c_int;
-    pub fn vshRemovableMemoryGetCardInsertState() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsCEX() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsDEX() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsDolce() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsGenuineDolce() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsGenuineVITA() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsTest() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsTool() -> crate::ctypes::c_int;
-    pub fn vshSblAimgrIsVITA() -> crate::ctypes::c_int;
-    pub fn vshSblSsIsDevelopmentMode() -> crate::ctypes::c_int;
-    pub fn vshSysconHasWWAN() -> crate::ctypes::c_int;
-    pub fn vshSysconIduModeClear() -> crate::ctypes::c_int;
-    pub fn vshSysconIduModeSet() -> crate::ctypes::c_int;
-    pub fn vshSysconIsDownLoaderMode() -> crate::ctypes::c_int;
-    pub fn vshSysconIsIduMode() -> crate::ctypes::c_int;
-    pub fn vshSysconIsMCEmuCapable() -> crate::ctypes::c_int;
-    pub fn vshSysconIsShowMode() -> crate::ctypes::c_int;
-    pub fn vshSysconShowModeClear() -> crate::ctypes::c_int;
-    pub fn vshSysconShowModeSet() -> crate::ctypes::c_int;
+        id: core::ffi::c_int,
+        force: core::ffi::c_int,
+        unk2: core::ffi::c_int,
+        unk3: core::ffi::c_int,
+    ) -> core::ffi::c_int;
+    pub fn vshMemoryCardGetCardInsertState() -> core::ffi::c_int;
+    pub fn vshMsifGetMsInfo(info: *mut SceMsInfo) -> core::ffi::c_int;
+    pub fn vshRemovableMemoryGetCardInsertState() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsCEX() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsDEX() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsDolce() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsGenuineDolce() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsGenuineVITA() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsTest() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsTool() -> core::ffi::c_int;
+    pub fn vshSblAimgrIsVITA() -> core::ffi::c_int;
+    pub fn vshSblSsIsDevelopmentMode() -> core::ffi::c_int;
+    pub fn vshSysconHasWWAN() -> core::ffi::c_int;
+    pub fn vshSysconIduModeClear() -> core::ffi::c_int;
+    pub fn vshSysconIduModeSet() -> core::ffi::c_int;
+    pub fn vshSysconIsDownLoaderMode() -> core::ffi::c_int;
+    pub fn vshSysconIsIduMode() -> core::ffi::c_int;
+    pub fn vshSysconIsMCEmuCapable() -> core::ffi::c_int;
+    pub fn vshSysconIsShowMode() -> core::ffi::c_int;
+    pub fn vshSysconShowModeClear() -> core::ffi::c_int;
+    pub fn vshSysconShowModeSet() -> core::ffi::c_int;
 }
 #[link(name = "SceWlanBtForDriver_stub", kind = "static")]
 #[cfg(feature = "SceWlanBtForDriver_stub")]
@@ -19110,9 +18725,9 @@ extern "C" {}
 #[link(name = "vitasdk-utils", kind = "static")]
 #[cfg(feature = "vitasdk-utils")]
 extern "C" {
-    pub fn vitasdk_delete_thread_reent(thid: SceUID) -> crate::ctypes::c_int;
-    pub fn vitasdk_get_pthread_data(thid: SceUID) -> *mut crate::ctypes::c_void;
-    pub fn vitasdk_get_tls_data(thid: SceUID) -> *mut crate::ctypes::c_void;
+    pub fn vitasdk_delete_thread_reent(thid: SceUID) -> core::ffi::c_int;
+    pub fn vitasdk_get_pthread_data(thid: SceUID) -> *mut core::ffi::c_void;
+    pub fn vitasdk_get_tls_data(thid: SceUID) -> *mut core::ffi::c_void;
 }
 pub type ArmCpuRegisters = SceArmCpuRegisters;
 pub type __gnuc_va_list = u32;
@@ -19124,366 +18739,354 @@ pub type int_least16_t = i16;
 pub type int_least32_t = i32;
 pub type int_least64_t = i64;
 pub type int_least8_t = i8;
-pub type intmax_t = crate::ctypes::c_longlong;
+pub type intmax_t = core::ffi::c_longlong;
 pub type ksceUsbdDoneCallback = ::core::option::Option<
-    unsafe extern "C" fn(result: i32, count: i32, arg: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(result: i32, count: i32, arg: *mut core::ffi::c_void),
 >;
 pub type ksceUsbdIsochDoneCallback = ::core::option::Option<
-    unsafe extern "C" fn(
-        result: i32,
-        req: *mut ksceUsbdIsochTransfer,
-        arg: *mut crate::ctypes::c_void,
-    ),
+    unsafe extern "C" fn(result: i32, req: *mut ksceUsbdIsochTransfer, arg: *mut core::ffi::c_void),
 >;
-pub type SceAppMgrApplicationMode = crate::ctypes::c_uint;
-pub type SceAppMgrErrorCode = crate::ctypes::c_uint;
-pub type SceAppMgrInfoBarColor = crate::ctypes::c_uint;
-pub type SceAppMgrInfoBarTransparency = crate::ctypes::c_uint;
-pub type SceAppMgrInfoBarVisibility = crate::ctypes::c_uint;
-pub type SceAppMgrSystemEventType = crate::ctypes::c_uint;
-pub type SceAppUtilAppEventType = crate::ctypes::c_uint;
-pub type SceAppUtilAppParamId = crate::ctypes::c_uint;
-pub type SceAppUtilBgdlStatusType = crate::ctypes::c_uint;
-pub type SceAppUtilBootAttribute = crate::ctypes::c_uint;
-pub type SceAppUtilErrorCode = crate::ctypes::c_uint;
-pub type SceAppUtilSaveDataRemoveMode = crate::ctypes::c_uint;
-pub type SceAppUtilSaveDataSaveMode = crate::ctypes::c_uint;
-pub type SceAppUtilSaveDataSlotId = crate::ctypes::c_uint;
-pub type SceAppUtilSaveDataSlotStatus = crate::ctypes::c_uint;
-pub type SceAtracDecoderStatus = crate::ctypes::c_uint;
-pub type SceAtracErrorCode = crate::ctypes::c_uint;
-pub type SceAtracLoopStatus = crate::ctypes::c_uint;
-pub type SceAudiodecCelpBitrate = crate::ctypes::c_uint;
-pub type SceAudiodecErrorCode = crate::ctypes::c_uint;
-pub type SceAudiodecMpegVersion = crate::ctypes::c_uint;
-pub type SceAudiodecType = crate::ctypes::c_uint;
-pub type SceAudioencCelpBitrate = crate::ctypes::c_uint;
-pub type SceAudioencCelpErrorCode = crate::ctypes::c_uint;
-pub type SceAudioencErrorCode = crate::ctypes::c_uint;
-pub type SceAudioInErrorCode = crate::ctypes::c_uint;
-pub type SceAudioInParam = crate::ctypes::c_uint;
-pub type SceAudioInPortType = crate::ctypes::c_uint;
-pub type SceAudioOutAlcMode = crate::ctypes::c_uint;
-pub type SceAudioOutChannelFlag = crate::ctypes::c_uint;
-pub type SceAudioOutConfigType = crate::ctypes::c_uint;
-pub type SceAudioOutErrorCode = crate::ctypes::c_uint;
-pub type SceAudioOutMode = crate::ctypes::c_uint;
-pub type SceAudioOutParam = crate::ctypes::c_uint;
-pub type SceAudioOutPortType = crate::ctypes::c_uint;
-pub type SceAvcdecErrorCode = crate::ctypes::c_uint;
-pub type SceAvcdecPixelFormat = crate::ctypes::c_uint;
-pub type SceAVConfigColorSpaceMode = crate::ctypes::c_uint;
+pub type SceAppMgrApplicationMode = core::ffi::c_uint;
+pub type SceAppMgrErrorCode = core::ffi::c_uint;
+pub type SceAppMgrInfoBarColor = core::ffi::c_uint;
+pub type SceAppMgrInfoBarTransparency = core::ffi::c_uint;
+pub type SceAppMgrInfoBarVisibility = core::ffi::c_uint;
+pub type SceAppMgrSystemEventType = core::ffi::c_uint;
+pub type SceAppUtilAppEventType = core::ffi::c_uint;
+pub type SceAppUtilAppParamId = core::ffi::c_uint;
+pub type SceAppUtilBgdlStatusType = core::ffi::c_uint;
+pub type SceAppUtilBootAttribute = core::ffi::c_uint;
+pub type SceAppUtilErrorCode = core::ffi::c_uint;
+pub type SceAppUtilSaveDataRemoveMode = core::ffi::c_uint;
+pub type SceAppUtilSaveDataSaveMode = core::ffi::c_uint;
+pub type SceAppUtilSaveDataSlotId = core::ffi::c_uint;
+pub type SceAppUtilSaveDataSlotStatus = core::ffi::c_uint;
+pub type SceAtracDecoderStatus = core::ffi::c_uint;
+pub type SceAtracErrorCode = core::ffi::c_uint;
+pub type SceAtracLoopStatus = core::ffi::c_uint;
+pub type SceAudiodecCelpBitrate = core::ffi::c_uint;
+pub type SceAudiodecErrorCode = core::ffi::c_uint;
+pub type SceAudiodecMpegVersion = core::ffi::c_uint;
+pub type SceAudiodecType = core::ffi::c_uint;
+pub type SceAudioencCelpBitrate = core::ffi::c_uint;
+pub type SceAudioencCelpErrorCode = core::ffi::c_uint;
+pub type SceAudioencErrorCode = core::ffi::c_uint;
+pub type SceAudioInErrorCode = core::ffi::c_uint;
+pub type SceAudioInParam = core::ffi::c_uint;
+pub type SceAudioInPortType = core::ffi::c_uint;
+pub type SceAudioOutAlcMode = core::ffi::c_uint;
+pub type SceAudioOutChannelFlag = core::ffi::c_uint;
+pub type SceAudioOutConfigType = core::ffi::c_uint;
+pub type SceAudioOutErrorCode = core::ffi::c_uint;
+pub type SceAudioOutMode = core::ffi::c_uint;
+pub type SceAudioOutParam = core::ffi::c_uint;
+pub type SceAudioOutPortType = core::ffi::c_uint;
+pub type SceAvcdecErrorCode = core::ffi::c_uint;
+pub type SceAvcdecPixelFormat = core::ffi::c_uint;
+pub type SceAVConfigColorSpaceMode = core::ffi::c_uint;
 pub type SceAvPlayerAlloc = ::core::option::Option<
     unsafe extern "C" fn(
-        arg: *mut crate::ctypes::c_void,
+        arg: *mut core::ffi::c_void,
         alignment: u32,
         size: u32,
-    ) -> *mut crate::ctypes::c_void,
+    ) -> *mut core::ffi::c_void,
 >;
 pub type SceAvPlayerAllocFrame = ::core::option::Option<
     unsafe extern "C" fn(
-        arg: *mut crate::ctypes::c_void,
+        arg: *mut core::ffi::c_void,
         alignment: u32,
         size: u32,
-    ) -> *mut crate::ctypes::c_void,
+    ) -> *mut core::ffi::c_void,
 >;
-pub type SceAvPlayerCloseFile = ::core::option::Option<
-    unsafe extern "C" fn(p: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
->;
-pub type SceAvPlayerErrorCode = crate::ctypes::c_uint;
+pub type SceAvPlayerCloseFile =
+    ::core::option::Option<unsafe extern "C" fn(p: *mut core::ffi::c_void) -> core::ffi::c_int>;
+pub type SceAvPlayerErrorCode = core::ffi::c_uint;
 pub type SceAvPlayerEventCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        p: *mut crate::ctypes::c_void,
+        p: *mut core::ffi::c_void,
         argEventId: i32,
         argSourceId: i32,
-        argEventData: *mut crate::ctypes::c_void,
+        argEventData: *mut core::ffi::c_void,
     ),
 >;
 pub type SceAvPlayerFree = ::core::option::Option<
-    unsafe extern "C" fn(arg: *mut crate::ctypes::c_void, ptr: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(arg: *mut core::ffi::c_void, ptr: *mut core::ffi::c_void),
 >;
 pub type SceAvPlayerFreeFrame = ::core::option::Option<
-    unsafe extern "C" fn(arg: *mut crate::ctypes::c_void, ptr: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(arg: *mut core::ffi::c_void, ptr: *mut core::ffi::c_void),
 >;
-pub type SceAvPlayerHandle = crate::ctypes::c_int;
+pub type SceAvPlayerHandle = core::ffi::c_int;
 pub type SceAvPlayerOpenFile = ::core::option::Option<
     unsafe extern "C" fn(
-        p: *mut crate::ctypes::c_void,
-        filename: *const crate::ctypes::c_char,
-    ) -> crate::ctypes::c_int,
+        p: *mut core::ffi::c_void,
+        filename: *const core::ffi::c_char,
+    ) -> core::ffi::c_int,
 >;
 pub type SceAvPlayerReadOffsetFile = ::core::option::Option<
     unsafe extern "C" fn(
-        p: *mut crate::ctypes::c_void,
+        p: *mut core::ffi::c_void,
         buffer: *mut u8,
         position: u64,
         length: u32,
-    ) -> crate::ctypes::c_int,
+    ) -> core::ffi::c_int,
 >;
 pub type SceAvPlayerSizeFile =
-    ::core::option::Option<unsafe extern "C" fn(p: *mut crate::ctypes::c_void) -> u64>;
-pub type SceAvPlayerStreamType = crate::ctypes::c_uint;
-pub type SceAvPlayerTrickSpeeds = crate::ctypes::c_int;
-pub type SceBgAppUtilErrorCode = crate::ctypes::c_uint;
-pub type SceBool = crate::ctypes::c_int;
+    ::core::option::Option<unsafe extern "C" fn(p: *mut core::ffi::c_void) -> u64>;
+pub type SceAvPlayerStreamType = core::ffi::c_uint;
+pub type SceAvPlayerTrickSpeeds = core::ffi::c_int;
+pub type SceBgAppUtilErrorCode = core::ffi::c_uint;
+pub type SceBool = core::ffi::c_int;
 pub type SceBtCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        r0: crate::ctypes::c_int,
-        r1: crate::ctypes::c_int,
-        r2: crate::ctypes::c_int,
-        r3: crate::ctypes::c_int,
+        r0: core::ffi::c_int,
+        r1: core::ffi::c_int,
+        r2: core::ffi::c_int,
+        r3: core::ffi::c_int,
     ),
 >;
-pub type SceBtErrorCode = crate::ctypes::c_uint;
+pub type SceBtErrorCode = core::ffi::c_uint;
 pub type SceBtHidRequest = _SceBtHidRequest;
-pub type SceByte = crate::ctypes::c_uchar;
-pub type SceByte8 = crate::ctypes::c_uchar;
-pub type SceCameraAntiFlicker = crate::ctypes::c_uint;
-pub type SceCameraBacklight = crate::ctypes::c_uint;
-pub type SceCameraDevice = crate::ctypes::c_uint;
-pub type SceCameraEffect = crate::ctypes::c_uint;
-pub type SceCameraErrorCode = crate::ctypes::c_uint;
-pub type SceCameraExposureCompensation = crate::ctypes::c_int;
-pub type SceCameraFormat = crate::ctypes::c_uint;
-pub type SceCameraFrameRate = crate::ctypes::c_uint;
-pub type SceCameraGain = crate::ctypes::c_uint;
-pub type SceCameraISO = crate::ctypes::c_uint;
-pub type SceCameraNightmode = crate::ctypes::c_uint;
-pub type SceCameraPriority = crate::ctypes::c_uint;
-pub type SceCameraResolution = crate::ctypes::c_uint;
-pub type SceCameraReverse = crate::ctypes::c_uint;
-pub type SceCameraSaturation = crate::ctypes::c_uint;
-pub type SceCameraSharpness = crate::ctypes::c_uint;
-pub type SceCameraWhiteBalance = crate::ctypes::c_uint;
+pub type SceByte = core::ffi::c_uchar;
+pub type SceByte8 = core::ffi::c_uchar;
+pub type SceCameraAntiFlicker = core::ffi::c_uint;
+pub type SceCameraBacklight = core::ffi::c_uint;
+pub type SceCameraDevice = core::ffi::c_uint;
+pub type SceCameraEffect = core::ffi::c_uint;
+pub type SceCameraErrorCode = core::ffi::c_uint;
+pub type SceCameraExposureCompensation = core::ffi::c_int;
+pub type SceCameraFormat = core::ffi::c_uint;
+pub type SceCameraFrameRate = core::ffi::c_uint;
+pub type SceCameraGain = core::ffi::c_uint;
+pub type SceCameraISO = core::ffi::c_uint;
+pub type SceCameraNightmode = core::ffi::c_uint;
+pub type SceCameraPriority = core::ffi::c_uint;
+pub type SceCameraResolution = core::ffi::c_uint;
+pub type SceCameraReverse = core::ffi::c_uint;
+pub type SceCameraSaturation = core::ffi::c_uint;
+pub type SceCameraSharpness = core::ffi::c_uint;
+pub type SceCameraWhiteBalance = core::ffi::c_uint;
 pub type SceChar8 = i8;
-pub type SceClassCallback = ::core::option::Option<
-    unsafe extern "C" fn(item: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
->;
-pub type SceClibMspace = *mut crate::ctypes::c_void;
+pub type SceClassCallback =
+    ::core::option::Option<unsafe extern "C" fn(item: *mut core::ffi::c_void) -> core::ffi::c_int>;
+pub type SceClibMspace = *mut core::ffi::c_void;
 pub type SceCommonDialogBgColor = SceCommonDialogColor;
-pub type SceCommonDialogErrorCode = crate::ctypes::c_uint;
-pub type SceCommonDialogResult = crate::ctypes::c_uint;
-pub type SceCommonDialogStatus = crate::ctypes::c_uint;
-pub type SceCompatCacheMode = crate::ctypes::c_uint;
-pub type SceCompatPeripheralMode = crate::ctypes::c_uint;
+pub type SceCommonDialogErrorCode = core::ffi::c_uint;
+pub type SceCommonDialogResult = core::ffi::c_uint;
+pub type SceCommonDialogStatus = core::ffi::c_uint;
+pub type SceCompatCacheMode = core::ffi::c_uint;
+pub type SceCompatPeripheralMode = core::ffi::c_uint;
 pub type SceCreateUidObjOpt = SceGUIDKernelCreateOpt;
-pub type SceCtrlButtons = crate::ctypes::c_uint;
-pub type SceCtrlErrorCode = crate::ctypes::c_uint;
-pub type SceCtrlExternalInputMode = crate::ctypes::c_uint;
-pub type SceCtrlPadInputMode = crate::ctypes::c_uint;
-pub type SceCTypeFlag = crate::ctypes::c_uint;
-pub type SceDbgLogLevel = crate::ctypes::c_uint;
-pub type SceDisplayErrorCode = crate::ctypes::c_uint;
-pub type SceDisplayPixelFormat = crate::ctypes::c_uint;
-pub type SceDisplaySetBufSync = crate::ctypes::c_uint;
+pub type SceCtrlButtons = core::ffi::c_uint;
+pub type SceCtrlErrorCode = core::ffi::c_uint;
+pub type SceCtrlExternalInputMode = core::ffi::c_uint;
+pub type SceCtrlPadInputMode = core::ffi::c_uint;
+pub type SceCTypeFlag = core::ffi::c_uint;
+pub type SceDbgLogLevel = core::ffi::c_uint;
+pub type SceDisplayErrorCode = core::ffi::c_uint;
+pub type SceDisplayPixelFormat = core::ffi::c_uint;
+pub type SceDisplaySetBufSync = core::ffi::c_uint;
 pub type SceDouble = f64;
 pub type SceDouble64 = f64;
-pub type SceDsiErrorCode = crate::ctypes::c_uint;
-pub type SceDsiHead = crate::ctypes::c_uint;
-pub type SceEventFlagAttributes = crate::ctypes::c_uint;
-pub type SceEventFlagWaitTypes = crate::ctypes::c_uint;
-pub type SceExcpHandlingCode = crate::ctypes::c_uint;
-pub type SceExcpKind = crate::ctypes::c_uint;
+pub type SceDsiErrorCode = core::ffi::c_uint;
+pub type SceDsiHead = core::ffi::c_uint;
+pub type SceEventFlagAttributes = core::ffi::c_uint;
+pub type SceEventFlagWaitTypes = core::ffi::c_uint;
+pub type SceExcpHandlingCode = core::ffi::c_uint;
+pub type SceExcpKind = core::ffi::c_uint;
 pub type SceExcpmgrExceptionHandler = ::core::option::Option<
     unsafe extern "C" fn(context: *mut SceExcpmgrExceptionContext, code: SceExcpHandlingCode),
 >;
 pub type SceFiberEntry =
     ::core::option::Option<unsafe extern "C" fn(argOnInitialize: SceUInt32, argOnRun: SceUInt32)>;
-pub type SceFiberErrorCode = crate::ctypes::c_uint;
+pub type SceFiberErrorCode = core::ffi::c_uint;
 pub type SceFiosKernelOverlayDH = i32;
 pub type SceFiosKernelOverlayID = i32;
 pub type SceFiosOverlayID = i32;
-pub type SceFiosOverlayType = crate::ctypes::c_uint;
+pub type SceFiosOverlayType = core::ffi::c_uint;
 pub type SceFloat = f32;
 pub type SceFloat32 = f32;
-pub type SceFontErrorCode = crate::ctypes::c_uint;
-pub type SceFontFamilyCode = crate::ctypes::c_uint;
-pub type SceFontHandle = *mut crate::ctypes::c_void;
-pub type SceFontLanguageCode = crate::ctypes::c_uint;
-pub type SceFontLibHandle = *mut crate::ctypes::c_void;
-pub type SceFontPixelFormatCode = crate::ctypes::c_uint;
-pub type SceFontStyleCode = crate::ctypes::c_uint;
-pub type SceGpioErrorCode = crate::ctypes::c_uint;
-pub type SceGpioPortMasks = crate::ctypes::c_uint;
-pub type SceGpioPortMode = crate::ctypes::c_uint;
-pub type SceGxmAttributeFormat = crate::ctypes::c_uint;
-pub type SceGxmBlendFactor = crate::ctypes::c_uint;
-pub type SceGxmBlendFunc = crate::ctypes::c_uint;
-pub type SceGxmColorBaseFormat = crate::ctypes::c_uint;
-pub type SceGxmColorFormat = crate::ctypes::c_uint;
-pub type SceGxmColorMask = crate::ctypes::c_uint;
-pub type SceGxmColorSurfaceDitherMode = crate::ctypes::c_uint;
-pub type SceGxmColorSurfaceGammaMode = crate::ctypes::c_uint;
-pub type SceGxmColorSurfaceScaleMode = crate::ctypes::c_uint;
-pub type SceGxmColorSurfaceType = crate::ctypes::c_uint;
-pub type SceGxmColorSwizzle1Mode = crate::ctypes::c_uint;
-pub type SceGxmColorSwizzle2Mode = crate::ctypes::c_uint;
-pub type SceGxmColorSwizzle3Mode = crate::ctypes::c_uint;
-pub type SceGxmColorSwizzle4Mode = crate::ctypes::c_uint;
-pub type SceGxmCullMode = crate::ctypes::c_uint;
-pub type SceGxmDepthFunc = crate::ctypes::c_uint;
-pub type SceGxmDepthStencilForceLoadMode = crate::ctypes::c_uint;
-pub type SceGxmDepthStencilForceStoreMode = crate::ctypes::c_uint;
-pub type SceGxmDepthStencilFormat = crate::ctypes::c_uint;
-pub type SceGxmDepthStencilSurfaceType = crate::ctypes::c_uint;
-pub type SceGxmDepthWriteMode = crate::ctypes::c_uint;
+pub type SceFontErrorCode = core::ffi::c_uint;
+pub type SceFontFamilyCode = core::ffi::c_uint;
+pub type SceFontHandle = *mut core::ffi::c_void;
+pub type SceFontLanguageCode = core::ffi::c_uint;
+pub type SceFontLibHandle = *mut core::ffi::c_void;
+pub type SceFontPixelFormatCode = core::ffi::c_uint;
+pub type SceFontStyleCode = core::ffi::c_uint;
+pub type SceGpioErrorCode = core::ffi::c_uint;
+pub type SceGpioPortMasks = core::ffi::c_uint;
+pub type SceGpioPortMode = core::ffi::c_uint;
+pub type SceGxmAttributeFormat = core::ffi::c_uint;
+pub type SceGxmBlendFactor = core::ffi::c_uint;
+pub type SceGxmBlendFunc = core::ffi::c_uint;
+pub type SceGxmColorBaseFormat = core::ffi::c_uint;
+pub type SceGxmColorFormat = core::ffi::c_uint;
+pub type SceGxmColorMask = core::ffi::c_uint;
+pub type SceGxmColorSurfaceDitherMode = core::ffi::c_uint;
+pub type SceGxmColorSurfaceGammaMode = core::ffi::c_uint;
+pub type SceGxmColorSurfaceScaleMode = core::ffi::c_uint;
+pub type SceGxmColorSurfaceType = core::ffi::c_uint;
+pub type SceGxmColorSwizzle1Mode = core::ffi::c_uint;
+pub type SceGxmColorSwizzle2Mode = core::ffi::c_uint;
+pub type SceGxmColorSwizzle3Mode = core::ffi::c_uint;
+pub type SceGxmColorSwizzle4Mode = core::ffi::c_uint;
+pub type SceGxmCullMode = core::ffi::c_uint;
+pub type SceGxmDepthFunc = core::ffi::c_uint;
+pub type SceGxmDepthStencilForceLoadMode = core::ffi::c_uint;
+pub type SceGxmDepthStencilForceStoreMode = core::ffi::c_uint;
+pub type SceGxmDepthStencilFormat = core::ffi::c_uint;
+pub type SceGxmDepthStencilSurfaceType = core::ffi::c_uint;
+pub type SceGxmDepthWriteMode = core::ffi::c_uint;
 pub type SceGxmDisplayQueueCallback =
-    ::core::option::Option<unsafe extern "C" fn(callbackData: *const crate::ctypes::c_void)>;
-pub type SceGxmEdgeEnableFlags = crate::ctypes::c_uint;
-pub type SceGxmErrorCode = crate::ctypes::c_uint;
-pub type SceGxmFragmentProgramMode = crate::ctypes::c_uint;
-pub type SceGxmIndexFormat = crate::ctypes::c_uint;
-pub type SceGxmIndexSource = crate::ctypes::c_uint;
-pub type SceGxmLineFillLastPixelMode = crate::ctypes::c_uint;
-pub type SceGxmMemoryAttribFlags = crate::ctypes::c_uint;
-pub type SceGxmMidSceneFlags = crate::ctypes::c_uint;
-pub type SceGxmMultisampleMode = crate::ctypes::c_uint;
-pub type SceGxmOutputRegisterFormat = crate::ctypes::c_uint;
-pub type SceGxmOutputRegisterSize = crate::ctypes::c_uint;
-pub type SceGxmParameterCategory = crate::ctypes::c_uint;
-pub type SceGxmParameterSemantic = crate::ctypes::c_uint;
-pub type SceGxmParameterType = crate::ctypes::c_uint;
-pub type SceGxmPassType = crate::ctypes::c_uint;
-pub type SceGxmPolygonMode = crate::ctypes::c_uint;
-pub type SceGxmPrecomputedWordCount = crate::ctypes::c_uint;
-pub type SceGxmPrimitiveType = crate::ctypes::c_uint;
-pub type SceGxmProgramType = crate::ctypes::c_uint;
-pub type SceGxmRegionClipMode = crate::ctypes::c_uint;
-pub type SceGxmRenderTargetFlags = crate::ctypes::c_uint;
-pub type SceGxmSceneFlags = crate::ctypes::c_uint;
+    ::core::option::Option<unsafe extern "C" fn(callbackData: *const core::ffi::c_void)>;
+pub type SceGxmEdgeEnableFlags = core::ffi::c_uint;
+pub type SceGxmErrorCode = core::ffi::c_uint;
+pub type SceGxmFragmentProgramMode = core::ffi::c_uint;
+pub type SceGxmIndexFormat = core::ffi::c_uint;
+pub type SceGxmIndexSource = core::ffi::c_uint;
+pub type SceGxmLineFillLastPixelMode = core::ffi::c_uint;
+pub type SceGxmMemoryAttribFlags = core::ffi::c_uint;
+pub type SceGxmMidSceneFlags = core::ffi::c_uint;
+pub type SceGxmMultisampleMode = core::ffi::c_uint;
+pub type SceGxmOutputRegisterFormat = core::ffi::c_uint;
+pub type SceGxmOutputRegisterSize = core::ffi::c_uint;
+pub type SceGxmParameterCategory = core::ffi::c_uint;
+pub type SceGxmParameterSemantic = core::ffi::c_uint;
+pub type SceGxmParameterType = core::ffi::c_uint;
+pub type SceGxmPassType = core::ffi::c_uint;
+pub type SceGxmPolygonMode = core::ffi::c_uint;
+pub type SceGxmPrecomputedWordCount = core::ffi::c_uint;
+pub type SceGxmPrimitiveType = core::ffi::c_uint;
+pub type SceGxmProgramType = core::ffi::c_uint;
+pub type SceGxmRegionClipMode = core::ffi::c_uint;
+pub type SceGxmRenderTargetFlags = core::ffi::c_uint;
+pub type SceGxmSceneFlags = core::ffi::c_uint;
 pub type SceGxmShaderPatcherBufferAllocCallback = ::core::option::Option<
-    unsafe extern "C" fn(
-        userData: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> *mut crate::ctypes::c_void,
+    unsafe extern "C" fn(userData: *mut core::ffi::c_void, size: SceSize) -> *mut core::ffi::c_void,
 >;
 pub type SceGxmShaderPatcherBufferFreeCallback = ::core::option::Option<
-    unsafe extern "C" fn(userData: *mut crate::ctypes::c_void, mem: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(userData: *mut core::ffi::c_void, mem: *mut core::ffi::c_void),
 >;
 pub type SceGxmShaderPatcherHostAllocCallback = ::core::option::Option<
-    unsafe extern "C" fn(
-        userData: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> *mut crate::ctypes::c_void,
+    unsafe extern "C" fn(userData: *mut core::ffi::c_void, size: SceSize) -> *mut core::ffi::c_void,
 >;
 pub type SceGxmShaderPatcherHostFreeCallback = ::core::option::Option<
-    unsafe extern "C" fn(userData: *mut crate::ctypes::c_void, mem: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(userData: *mut core::ffi::c_void, mem: *mut core::ffi::c_void),
 >;
 pub type SceGxmShaderPatcherId = *mut SceGxmRegisteredProgram;
 pub type SceGxmShaderPatcherUsseAllocCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        userData: *mut crate::ctypes::c_void,
+        userData: *mut core::ffi::c_void,
         size: SceSize,
-        usseOffset: *mut crate::ctypes::c_uint,
-    ) -> *mut crate::ctypes::c_void,
+        usseOffset: *mut core::ffi::c_uint,
+    ) -> *mut core::ffi::c_void,
 >;
 pub type SceGxmShaderPatcherUsseFreeCallback = ::core::option::Option<
-    unsafe extern "C" fn(userData: *mut crate::ctypes::c_void, mem: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(userData: *mut core::ffi::c_void, mem: *mut core::ffi::c_void),
 >;
-pub type SceGxmStencilFunc = crate::ctypes::c_uint;
-pub type SceGxmStencilOp = crate::ctypes::c_uint;
-pub type SceGxmTextureAddrMode = crate::ctypes::c_uint;
-pub type SceGxmTextureBaseFormat = crate::ctypes::c_uint;
-pub type SceGxmTextureFilter = crate::ctypes::c_uint;
-pub type SceGxmTextureFormat = crate::ctypes::c_uint;
-pub type SceGxmTextureGammaMode = crate::ctypes::c_uint;
-pub type SceGxmTextureMipFilter = crate::ctypes::c_uint;
-pub type SceGxmTextureNormalizeMode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzle1Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzle2Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzle2ModeAlt = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzle3Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzle4Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzleYUV420Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureSwizzleYUV422Mode = crate::ctypes::c_uint;
-pub type SceGxmTextureType = crate::ctypes::c_uint;
-pub type SceGxmTransferColorKeyMode = crate::ctypes::c_uint;
-pub type SceGxmTransferFlags = crate::ctypes::c_uint;
-pub type SceGxmTransferFormat = crate::ctypes::c_uint;
-pub type SceGxmTransferType = crate::ctypes::c_uint;
-pub type SceGxmTwoSidedMode = crate::ctypes::c_uint;
-pub type SceGxmViewportMode = crate::ctypes::c_uint;
-pub type SceGxmVisibilityTestMode = crate::ctypes::c_uint;
-pub type SceGxmVisibilityTestOp = crate::ctypes::c_uint;
-pub type SceGxmWBufferMode = crate::ctypes::c_uint;
-pub type SceGxmWClampMode = crate::ctypes::c_uint;
-pub type SceGxmYuvProfile = crate::ctypes::c_uint;
-pub type SceGxtErrorCode = crate::ctypes::c_uint;
-pub type SceHttpAddHeaderMode = crate::ctypes::c_uint;
+pub type SceGxmStencilFunc = core::ffi::c_uint;
+pub type SceGxmStencilOp = core::ffi::c_uint;
+pub type SceGxmTextureAddrMode = core::ffi::c_uint;
+pub type SceGxmTextureBaseFormat = core::ffi::c_uint;
+pub type SceGxmTextureFilter = core::ffi::c_uint;
+pub type SceGxmTextureFormat = core::ffi::c_uint;
+pub type SceGxmTextureGammaMode = core::ffi::c_uint;
+pub type SceGxmTextureMipFilter = core::ffi::c_uint;
+pub type SceGxmTextureNormalizeMode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzle1Mode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzle2Mode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzle2ModeAlt = core::ffi::c_uint;
+pub type SceGxmTextureSwizzle3Mode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzle4Mode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzleYUV420Mode = core::ffi::c_uint;
+pub type SceGxmTextureSwizzleYUV422Mode = core::ffi::c_uint;
+pub type SceGxmTextureType = core::ffi::c_uint;
+pub type SceGxmTransferColorKeyMode = core::ffi::c_uint;
+pub type SceGxmTransferFlags = core::ffi::c_uint;
+pub type SceGxmTransferFormat = core::ffi::c_uint;
+pub type SceGxmTransferType = core::ffi::c_uint;
+pub type SceGxmTwoSidedMode = core::ffi::c_uint;
+pub type SceGxmViewportMode = core::ffi::c_uint;
+pub type SceGxmVisibilityTestMode = core::ffi::c_uint;
+pub type SceGxmVisibilityTestOp = core::ffi::c_uint;
+pub type SceGxmWBufferMode = core::ffi::c_uint;
+pub type SceGxmWClampMode = core::ffi::c_uint;
+pub type SceGxmYuvProfile = core::ffi::c_uint;
+pub type SceGxtErrorCode = core::ffi::c_uint;
+pub type SceHttpAddHeaderMode = core::ffi::c_uint;
 pub type SceHttpAuthInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        request: crate::ctypes::c_int,
+        request: core::ffi::c_int,
         authType: SceHttpAuthType,
-        realm: *const crate::ctypes::c_char,
-        username: *mut crate::ctypes::c_char,
-        password: *mut crate::ctypes::c_char,
-        needEntity: crate::ctypes::c_int,
-        entityBody: *mut *mut crate::ctypes::c_uchar,
-        entitySize: *mut crate::ctypes::c_uint,
-        save: *mut crate::ctypes::c_int,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        realm: *const core::ffi::c_char,
+        username: *mut core::ffi::c_char,
+        password: *mut core::ffi::c_char,
+        needEntity: core::ffi::c_int,
+        entityBody: *mut *mut core::ffi::c_uchar,
+        entitySize: *mut core::ffi::c_uint,
+        save: *mut core::ffi::c_int,
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceHttpAuthType = crate::ctypes::c_uint;
+pub type SceHttpAuthType = core::ffi::c_uint;
 pub type SceHttpCookieRecvCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        request: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        cookieHeader: *const crate::ctypes::c_char,
-        headerLen: crate::ctypes::c_uint,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        request: core::ffi::c_int,
+        url: *const core::ffi::c_char,
+        cookieHeader: *const core::ffi::c_char,
+        headerLen: core::ffi::c_uint,
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
 pub type SceHttpCookieSendCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        request: crate::ctypes::c_int,
-        url: *const crate::ctypes::c_char,
-        cookieHeader: *const crate::ctypes::c_char,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        request: core::ffi::c_int,
+        url: *const core::ffi::c_char,
+        cookieHeader: *const core::ffi::c_char,
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceHttpErrorCode = crate::ctypes::c_uint;
-pub type SceHttpMethods = crate::ctypes::c_uint;
-pub type SceHttpProxyMode = crate::ctypes::c_uint;
+pub type SceHttpErrorCode = core::ffi::c_uint;
+pub type SceHttpMethods = core::ffi::c_uint;
+pub type SceHttpProxyMode = core::ffi::c_uint;
 pub type SceHttpRedirectCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        request: crate::ctypes::c_int,
-        statusCode: crate::ctypes::c_int,
-        method: *mut crate::ctypes::c_int,
-        location: *const crate::ctypes::c_char,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        request: core::ffi::c_int,
+        statusCode: core::ffi::c_int,
+        method: *mut core::ffi::c_int,
+        location: *const core::ffi::c_char,
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
 pub type SceHttpsCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        verifyEsrr: crate::ctypes::c_uint,
-        sslCert: *const *mut crate::ctypes::c_void,
-        certNum: crate::ctypes::c_int,
-        userArg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        verifyEsrr: core::ffi::c_uint,
+        sslCert: *const *mut core::ffi::c_void,
+        certNum: core::ffi::c_int,
+        userArg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceHttpsErrorCode = crate::ctypes::c_uint;
-pub type SceHttpsFlag = crate::ctypes::c_uint;
-pub type SceHttpSslVersion = crate::ctypes::c_uint;
-pub type SceHttpsSslErrorCode = crate::ctypes::c_uint;
-pub type SceHttpStatusCode = crate::ctypes::c_uint;
-pub type SceHttpUriBuildType = crate::ctypes::c_uint;
-pub type SceHttpVersion = crate::ctypes::c_uint;
-pub type SceI2cErrorCode = crate::ctypes::c_uint;
-pub type SceIftuErrorCode = crate::ctypes::c_uint;
-pub type SceIftuPixelformat = crate::ctypes::c_uint;
-pub type SceImeDialogButton = crate::ctypes::c_uint;
-pub type SceImeDialogDialogMode = crate::ctypes::c_uint;
-pub type SceImeDialogErrorCode = crate::ctypes::c_uint;
-pub type SceImeDialogTextboxMode = crate::ctypes::c_uint;
-pub type SceImeEnterLabel = crate::ctypes::c_uint;
-pub type SceImeErrorCode = crate::ctypes::c_uint;
-pub type SceImeEvent = crate::ctypes::c_uint;
+pub type SceHttpsErrorCode = core::ffi::c_uint;
+pub type SceHttpsFlag = core::ffi::c_uint;
+pub type SceHttpSslVersion = core::ffi::c_uint;
+pub type SceHttpsSslErrorCode = core::ffi::c_uint;
+pub type SceHttpStatusCode = core::ffi::c_uint;
+pub type SceHttpUriBuildType = core::ffi::c_uint;
+pub type SceHttpVersion = core::ffi::c_uint;
+pub type SceI2cErrorCode = core::ffi::c_uint;
+pub type SceIftuErrorCode = core::ffi::c_uint;
+pub type SceIftuPixelformat = core::ffi::c_uint;
+pub type SceImeDialogButton = core::ffi::c_uint;
+pub type SceImeDialogDialogMode = core::ffi::c_uint;
+pub type SceImeDialogErrorCode = core::ffi::c_uint;
+pub type SceImeDialogTextboxMode = core::ffi::c_uint;
+pub type SceImeEnterLabel = core::ffi::c_uint;
+pub type SceImeErrorCode = core::ffi::c_uint;
+pub type SceImeEvent = core::ffi::c_uint;
 pub type SceImeEventHandler = ::core::option::Option<
-    unsafe extern "C" fn(arg: *mut crate::ctypes::c_void, e: *const SceImeEventData),
+    unsafe extern "C" fn(arg: *mut core::ffi::c_void, e: *const SceImeEventData),
 >;
-pub type SceImeLanguage = crate::ctypes::c_uint;
-pub type SceImeOption = crate::ctypes::c_uint;
+pub type SceImeLanguage = core::ffi::c_uint;
+pub type SceImeOption = core::ffi::c_uint;
 pub type SceImeTextFilter = ::core::option::Option<
     unsafe extern "C" fn(
         outText: *mut SceWChar16,
@@ -19492,57 +19095,57 @@ pub type SceImeTextFilter = ::core::option::Option<
         srcTextLength: SceUInt32,
     ) -> SceInt32,
 >;
-pub type SceImeType = crate::ctypes::c_uint;
-pub type SceIncomingDialogErrorCode = crate::ctypes::c_uint;
-pub type SceIncomingDialogStatus = crate::ctypes::c_uint;
+pub type SceImeType = core::ffi::c_uint;
+pub type SceIncomingDialogErrorCode = core::ffi::c_uint;
+pub type SceIncomingDialogStatus = core::ffi::c_uint;
 pub type SceInt = i32;
 pub type SceInt16 = i16;
 pub type SceInt32 = i32;
 pub type SceInt64 = i64;
 pub type SceInt8 = i8;
-pub type SceIntPtr = crate::ctypes::c_int;
-pub type SceIoAccessMode = crate::ctypes::c_uint;
-pub type SceIoDevType = crate::ctypes::c_uint;
-pub type SceIoFileMode = crate::ctypes::c_uint;
-pub type SceIoMode = crate::ctypes::c_uint;
-pub type SceIoSeekMode = crate::ctypes::c_uint;
-pub type SceJpegArmEncoderContext = *mut crate::ctypes::c_void;
-pub type SceJpegArmEncoderHeaderMode = crate::ctypes::c_uint;
-pub type SceJpegArmEncoderPixelFormat = crate::ctypes::c_uint;
-pub type SceJpegArmErrorCode = crate::ctypes::c_uint;
-pub type SceJpegEncArmErrorCode = crate::ctypes::c_uint;
-pub type SceJpegEncErrorCode = crate::ctypes::c_uint;
-pub type SceJpegEncoderContext = *mut crate::ctypes::c_void;
-pub type SceJpegEncoderHeaderMode = crate::ctypes::c_uint;
-pub type SceJpegEncoderInitParamOption = crate::ctypes::c_uint;
-pub type SceJpegEncoderPixelFormat = crate::ctypes::c_uint;
-pub type SceKernelAllocMemBlockAttr = crate::ctypes::c_uint;
-pub type SceKernelAssertLevel = crate::ctypes::c_uint;
+pub type SceIntPtr = core::ffi::c_int;
+pub type SceIoAccessMode = core::ffi::c_uint;
+pub type SceIoDevType = core::ffi::c_uint;
+pub type SceIoFileMode = core::ffi::c_uint;
+pub type SceIoMode = core::ffi::c_uint;
+pub type SceIoSeekMode = core::ffi::c_uint;
+pub type SceJpegArmEncoderContext = *mut core::ffi::c_void;
+pub type SceJpegArmEncoderHeaderMode = core::ffi::c_uint;
+pub type SceJpegArmEncoderPixelFormat = core::ffi::c_uint;
+pub type SceJpegArmErrorCode = core::ffi::c_uint;
+pub type SceJpegEncArmErrorCode = core::ffi::c_uint;
+pub type SceJpegEncErrorCode = core::ffi::c_uint;
+pub type SceJpegEncoderContext = *mut core::ffi::c_void;
+pub type SceJpegEncoderHeaderMode = core::ffi::c_uint;
+pub type SceJpegEncoderInitParamOption = core::ffi::c_uint;
+pub type SceJpegEncoderPixelFormat = core::ffi::c_uint;
+pub type SceKernelAllocMemBlockAttr = core::ffi::c_uint;
+pub type SceKernelAssertLevel = core::ffi::c_uint;
 pub type SceKernelCallbackFunction = ::core::option::Option<
     unsafe extern "C" fn(
-        notifyId: crate::ctypes::c_int,
-        notifyCount: crate::ctypes::c_int,
-        notifyArg: crate::ctypes::c_int,
-        userData: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        notifyId: core::ffi::c_int,
+        notifyCount: core::ffi::c_int,
+        notifyArg: core::ffi::c_int,
+        userData: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelClock = SceUInt64;
 pub type SceKernelCoredumpStateFinishCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        task_id: crate::ctypes::c_int,
+        task_id: core::ffi::c_int,
         pid: SceUID,
-        result: crate::ctypes::c_int,
-        path: *const crate::ctypes::c_char,
+        result: core::ffi::c_int,
+        path: *const core::ffi::c_char,
         path_len: SceSize,
-        unk: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int,
+        unk: core::ffi::c_int,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelCoredumpStateUpdateCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        task_id: crate::ctypes::c_int,
+        task_id: core::ffi::c_int,
         pid: SceUID,
-        progress: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int,
+        progress: core::ffi::c_int,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelCoredumpTriggerFunc = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19550,174 +19153,173 @@ pub type SceKernelCoredumpTriggerFunc = ::core::option::Option<
         update_func: SceKernelCoredumpStateUpdateCallback,
         finish_func: SceKernelCoredumpStateFinishCallback,
         param: *mut SceCoredumpTriggerParam,
-    ) -> crate::ctypes::c_int,
+    ) -> core::ffi::c_int,
 >;
-pub type SceKernelDebugInfoFlags = crate::ctypes::c_uint;
-pub type SceKernelDebugLevel = crate::ctypes::c_uint;
+pub type SceKernelDebugInfoFlags = core::ffi::c_uint;
+pub type SceKernelDebugLevel = core::ffi::c_uint;
 pub type SceKernelDebugMessageContext = SceKernelDebugInfo;
-pub type SceKernelDmacId = crate::ctypes::c_uint;
+pub type SceKernelDmacId = core::ffi::c_uint;
 pub type SceKernelDmaOpCallback = ::core::option::Option<
     unsafe extern "C" fn(
         opid: SceKernelDmaOpId,
         stat: SceUInt32,
-        pUserData: *mut crate::ctypes::c_void,
+        pUserData: *mut core::ffi::c_void,
         pTag: *mut SceKernelDmaOpTag,
     ),
 >;
-pub type SceKernelDmaOpFlag = crate::ctypes::c_uint;
+pub type SceKernelDmaOpFlag = core::ffi::c_uint;
 pub type SceKernelDmaOpId = SceInt32;
-pub type SceKernelDmaOpSyncMode = crate::ctypes::c_uint;
-pub type SceKernelErrorCode = crate::ctypes::c_uint;
+pub type SceKernelDmaOpSyncMode = core::ffi::c_uint;
+pub type SceKernelErrorCode = core::ffi::c_uint;
 pub type SceKernelFwInfo = SceKernelSystemSwVersion;
 pub type SceKernelGetSystemSwVersionFunc =
-    ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>;
-pub type SceKernelHeapAttr = crate::ctypes::c_uint;
-pub type SceKernelIdListType = crate::ctypes::c_uint;
+    ::core::option::Option<unsafe extern "C" fn() -> core::ffi::c_int>;
+pub type SceKernelHeapAttr = core::ffi::c_uint;
+pub type SceKernelIdListType = core::ffi::c_uint;
 pub type SceKernelIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
-        unk: crate::ctypes::c_int,
-        userCtx: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        unk: core::ffi::c_int,
+        userCtx: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelIntrOptHandlersCb1 = ::core::option::Option<
     unsafe extern "C" fn(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-    ) -> crate::ctypes::c_int,
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelIntrOptHandlersCb2 = ::core::option::Option<
     unsafe extern "C" fn(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
-        arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
+        arg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelIntrOptHandlersCb3 = ::core::option::Option<
     unsafe extern "C" fn(
-        intr_code: crate::ctypes::c_int,
-        subintr_code: crate::ctypes::c_int,
+        intr_code: core::ffi::c_int,
+        subintr_code: core::ffi::c_int,
         handler: SceKernelSubIntrHandler,
-        register_arg: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        register_arg: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceKernelIntrStatus = crate::ctypes::c_int;
+pub type SceKernelIntrStatus = core::ffi::c_int;
 pub type SceKernelMemBlockType = SceUInt32;
-pub type SceKernelMemoryAccessType = crate::ctypes::c_uint;
-pub type SceKernelMemoryRefPerm = crate::ctypes::c_uint;
-pub type SceKernelMemoryType = crate::ctypes::c_uint;
-pub type SceKernelModel = crate::ctypes::c_uint;
-pub type SceKernelModuleState = crate::ctypes::c_uint;
-pub type SceKernelMutexAttribute = crate::ctypes::c_uint;
+pub type SceKernelMemoryAccessType = core::ffi::c_uint;
+pub type SceKernelMemoryRefPerm = core::ffi::c_uint;
+pub type SceKernelMemoryType = core::ffi::c_uint;
+pub type SceKernelModel = core::ffi::c_uint;
+pub type SceKernelModuleState = core::ffi::c_uint;
+pub type SceKernelMutexAttribute = core::ffi::c_uint;
 pub type SceKernelPaddrList = SceKernelPAVector;
-pub type SceKernelPowerTickType = crate::ctypes::c_uint;
-pub type SceKernelPreloadInhibit = crate::ctypes::c_uint;
-pub type SceKernelProcessPrioritySystem = crate::ctypes::c_uint;
-pub type SceKernelProcessPriorityUser = crate::ctypes::c_uint;
+pub type SceKernelPowerTickType = core::ffi::c_uint;
+pub type SceKernelPreloadInhibit = core::ffi::c_uint;
+pub type SceKernelProcessPrioritySystem = core::ffi::c_uint;
+pub type SceKernelProcessPriorityUser = core::ffi::c_uint;
 pub type SceKernelProcessType = SceUInt32;
-pub type SceKernelRWSpinlock = crate::ctypes::c_int;
-pub type SceKernelSpinlock = crate::ctypes::c_int;
+pub type SceKernelRWSpinlock = core::ffi::c_int;
+pub type SceKernelSpinlock = core::ffi::c_int;
 pub type SceKernelSubIntrHandler = ::core::option::Option<
     unsafe extern "C" fn(
-        subintr_arg: *mut crate::ctypes::c_void,
-        register_arg: *mut crate::ctypes::c_void,
-        intr_priority: crate::ctypes::c_uchar,
-    ) -> crate::ctypes::c_int,
+        subintr_arg: *mut core::ffi::c_void,
+        register_arg: *mut core::ffi::c_void,
+        intr_priority: core::ffi::c_uchar,
+    ) -> core::ffi::c_int,
 >;
 pub type SceKernelSysClock = SceUInt64;
-pub type SceKernelSysrootSelfIndex = crate::ctypes::c_uint;
+pub type SceKernelSysrootSelfIndex = core::ffi::c_uint;
 pub type SceKernelThreadEntry = ::core::option::Option<
-    unsafe extern "C" fn(args: SceSize, argp: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
+    unsafe extern "C" fn(args: SceSize, argp: *mut core::ffi::c_void) -> core::ffi::c_int,
 >;
 pub type SceKernelTime = SceUInt32;
-pub type SceKernelWaitableAttribute = crate::ctypes::c_uint;
-pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
-    unsafe extern "C" fn(args: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
->;
-pub type SceLocationDialogResult = crate::ctypes::c_uint;
-pub type SceLocationDialogStatus = crate::ctypes::c_uint;
-pub type SceLocationErrorCode = crate::ctypes::c_uint;
+pub type SceKernelWaitableAttribute = core::ffi::c_uint;
+pub type SceKernelWorkQueueWorkFunction =
+    ::core::option::Option<unsafe extern "C" fn(args: *mut core::ffi::c_void) -> core::ffi::c_int>;
+pub type SceLocationDialogResult = core::ffi::c_uint;
+pub type SceLocationDialogStatus = core::ffi::c_uint;
+pub type SceLocationErrorCode = core::ffi::c_uint;
 pub type SceLocationHandle = SceUInt32;
 pub type SceLocationHeadingInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(
         result: SceInt32,
         handle: SceLocationHandle,
         heading: *const SceLocationHeadingInfo,
-        userdata: *mut crate::ctypes::c_void,
+        userdata: *mut core::ffi::c_void,
     ),
 >;
-pub type SceLocationHeadingMethod = crate::ctypes::c_uint;
+pub type SceLocationHeadingMethod = core::ffi::c_uint;
 pub type SceLocationLocationInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(
         result: SceInt32,
         handle: SceLocationHandle,
         location: *const SceLocationLocationInfo,
-        userdata: *mut crate::ctypes::c_void,
+        userdata: *mut core::ffi::c_void,
     ),
 >;
-pub type SceLocationLocationMethod = crate::ctypes::c_uint;
-pub type SceLocationPermissionApplicationStatus = crate::ctypes::c_uint;
-pub type SceLocationPermissionStatus = crate::ctypes::c_uint;
+pub type SceLocationLocationMethod = core::ffi::c_uint;
+pub type SceLocationPermissionApplicationStatus = core::ffi::c_uint;
+pub type SceLocationPermissionStatus = core::ffi::c_uint;
 pub type SceLong64 = i64;
-pub type SceMode = crate::ctypes::c_int;
-pub type SceMotionErrorCode = crate::ctypes::c_uint;
-pub type SceMotionMagFieldStability = crate::ctypes::c_uint;
-pub type SceMsgDialogButtonId = crate::ctypes::c_uint;
-pub type SceMsgDialogButtonType = crate::ctypes::c_uint;
-pub type SceMsgDialogEnvFlag = crate::ctypes::c_uint;
-pub type SceMsgDialogErrorCode = crate::ctypes::c_uint;
-pub type SceMsgDialogFontSize = crate::ctypes::c_uint;
-pub type SceMsgDialogMode = crate::ctypes::c_uint;
-pub type SceMsgDialogProgressBarTarget = crate::ctypes::c_uint;
-pub type SceMsgDialogProgressBarType = crate::ctypes::c_uint;
-pub type SceMsgDialogSystemMessageType = crate::ctypes::c_uint;
-pub type SceName = *mut crate::ctypes::c_char;
-pub type SceNetCheckDialoErrorCode = crate::ctypes::c_uint;
-pub type SceNetCheckDialogMode = crate::ctypes::c_uint;
-pub type SceNetCheckDialogPS3ConnectAction = crate::ctypes::c_uint;
+pub type SceMode = core::ffi::c_int;
+pub type SceMotionErrorCode = core::ffi::c_uint;
+pub type SceMotionMagFieldStability = core::ffi::c_uint;
+pub type SceMsgDialogButtonId = core::ffi::c_uint;
+pub type SceMsgDialogButtonType = core::ffi::c_uint;
+pub type SceMsgDialogEnvFlag = core::ffi::c_uint;
+pub type SceMsgDialogErrorCode = core::ffi::c_uint;
+pub type SceMsgDialogFontSize = core::ffi::c_uint;
+pub type SceMsgDialogMode = core::ffi::c_uint;
+pub type SceMsgDialogProgressBarTarget = core::ffi::c_uint;
+pub type SceMsgDialogProgressBarType = core::ffi::c_uint;
+pub type SceMsgDialogSystemMessageType = core::ffi::c_uint;
+pub type SceName = *mut core::ffi::c_char;
+pub type SceNetCheckDialoErrorCode = core::ffi::c_uint;
+pub type SceNetCheckDialogMode = core::ffi::c_uint;
+pub type SceNetCheckDialogPS3ConnectAction = core::ffi::c_uint;
 pub type SceNetCtlCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        event_type: crate::ctypes::c_int,
-        arg: *mut crate::ctypes::c_void,
-    ) -> *mut crate::ctypes::c_void,
+        event_type: core::ffi::c_int,
+        arg: *mut core::ffi::c_void,
+    ) -> *mut core::ffi::c_void,
 >;
-pub type SceNetCtlInfoType = crate::ctypes::c_uint;
-pub type SceNetCtlState = crate::ctypes::c_uint;
-pub type SceNetDumpType = crate::ctypes::c_uint;
-pub type SceNetEmulationFlag = crate::ctypes::c_uint;
-pub type SceNetEpollControlFlag = crate::ctypes::c_uint;
-pub type SceNetEpollEventType = crate::ctypes::c_uint;
-pub type SceNetErrorCode = crate::ctypes::c_uint;
-pub type SceNetIcmpCode = crate::ctypes::c_uint;
-pub type SceNetIcmpType = crate::ctypes::c_uint;
-pub type SceNetKernelErrorCode = crate::ctypes::c_uint;
-pub type SceNetLibnetErrorCode = crate::ctypes::c_uint;
-pub type SceNetMsgFlag = crate::ctypes::c_uint;
-pub type SceNetProtocol = crate::ctypes::c_uint;
-pub type SceNetResolverAbortFlag = crate::ctypes::c_uint;
-pub type SceNetResolverErrorCode = crate::ctypes::c_uint;
-pub type SceNetResolverFlag = crate::ctypes::c_uint;
+pub type SceNetCtlInfoType = core::ffi::c_uint;
+pub type SceNetCtlState = core::ffi::c_uint;
+pub type SceNetDumpType = core::ffi::c_uint;
+pub type SceNetEmulationFlag = core::ffi::c_uint;
+pub type SceNetEpollControlFlag = core::ffi::c_uint;
+pub type SceNetEpollEventType = core::ffi::c_uint;
+pub type SceNetErrorCode = core::ffi::c_uint;
+pub type SceNetIcmpCode = core::ffi::c_uint;
+pub type SceNetIcmpType = core::ffi::c_uint;
+pub type SceNetKernelErrorCode = core::ffi::c_uint;
+pub type SceNetLibnetErrorCode = core::ffi::c_uint;
+pub type SceNetMsgFlag = core::ffi::c_uint;
+pub type SceNetProtocol = core::ffi::c_uint;
+pub type SceNetResolverAbortFlag = core::ffi::c_uint;
+pub type SceNetResolverErrorCode = core::ffi::c_uint;
+pub type SceNetResolverFlag = core::ffi::c_uint;
 pub type SceNetResolverFunctionAllocate = ::core::option::Option<
     unsafe extern "C" fn(
-        size: crate::ctypes::c_uint,
-        rid: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        user: *mut crate::ctypes::c_void,
-    ) -> *mut crate::ctypes::c_void,
+        size: core::ffi::c_uint,
+        rid: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+        user: *mut core::ffi::c_void,
+    ) -> *mut core::ffi::c_void,
 >;
 pub type SceNetResolverFunctionFree = ::core::option::Option<
     unsafe extern "C" fn(
-        ptr: *mut crate::ctypes::c_void,
-        rid: crate::ctypes::c_int,
-        name: *const crate::ctypes::c_char,
-        user: *mut crate::ctypes::c_void,
+        ptr: *mut core::ffi::c_void,
+        rid: core::ffi::c_int,
+        name: *const core::ffi::c_char,
+        user: *mut core::ffi::c_void,
     ),
 >;
-pub type SceNetShutdownFlag = crate::ctypes::c_uint;
-pub type SceNetSocketAbortFlag = crate::ctypes::c_uint;
-pub type SceNetSocketOption = crate::ctypes::c_uint;
-pub type SceNetSocketType = crate::ctypes::c_uint;
-pub type SceNetSockInfoFlag = crate::ctypes::c_uint;
-pub type SceNetSockInfoState = crate::ctypes::c_uint;
+pub type SceNetShutdownFlag = core::ffi::c_uint;
+pub type SceNetSocketAbortFlag = core::ffi::c_uint;
+pub type SceNetSocketOption = core::ffi::c_uint;
+pub type SceNetSocketType = core::ffi::c_uint;
+pub type SceNetSockInfoFlag = core::ffi::c_uint;
+pub type SceNetSockInfoState = core::ffi::c_uint;
 pub type SceNgsCallbackFunc =
     ::core::option::Option<unsafe extern "C" fn(callback_info: *const SceNgsCallbackInfo)>;
 pub type SceNgsHPatch = SceUInt32;
@@ -19728,45 +19330,45 @@ pub type SceNgsModuleCallbackFunc = SceNgsCallbackFunc;
 pub type SceNgsModuleID = SceUInt32;
 pub type SceNgsParamsErrorCallbackFunc = SceNgsCallbackFunc;
 pub type SceNgsRackReleaseCallbackFunc = SceNgsCallbackFunc;
-pub type SceNgsSulphaUpdateCallback = *mut crate::ctypes::c_void;
-pub type SceNID = crate::ctypes::c_uint;
-pub type SceNotificationUitlErrorCode = crate::ctypes::c_uint;
+pub type SceNgsSulphaUpdateCallback = *mut core::ffi::c_void;
+pub type SceNID = core::ffi::c_uint;
+pub type SceNotificationUitlErrorCode = core::ffi::c_uint;
 pub type SceNotificationUtilProgressEventHandler =
-    ::core::option::Option<unsafe extern "C" fn(eventId: crate::ctypes::c_int)>;
+    ::core::option::Option<unsafe extern "C" fn(eventId: core::ffi::c_int)>;
 pub type _sceNpDrmPackageDecrypt_opt = _sceNpDrmPackageDecrypt;
 pub type SceOff = SceInt64;
-pub type _ScePerfArmPmonEventCode = crate::ctypes::c_uint;
-pub type ScePID = crate::ctypes::c_int;
+pub type _ScePerfArmPmonEventCode = core::ffi::c_uint;
+pub type ScePID = core::ffi::c_int;
 pub type ScePowerCallback = ::core::option::Option<
     unsafe extern "C" fn(
-        notifyId: crate::ctypes::c_int,
-        notifyCount: crate::ctypes::c_int,
-        powerInfo: crate::ctypes::c_int,
-        userData: *mut crate::ctypes::c_void,
+        notifyId: core::ffi::c_int,
+        notifyCount: core::ffi::c_int,
+        powerInfo: core::ffi::c_int,
+        userData: *mut core::ffi::c_void,
     ),
 >;
-pub type ScePowerCallbackType = crate::ctypes::c_uint;
-pub type ScePowerConfigurationMode = crate::ctypes::c_uint;
-pub type ScePowerErrorCode = crate::ctypes::c_uint;
-pub type SceProductCode = crate::ctypes::c_uint;
-pub type SceProductMode = crate::ctypes::c_char;
-pub type ScePromoterUtilityPackageType = crate::ctypes::c_uint;
-pub type ScePspnetAdhocctlAdhocType = crate::ctypes::c_uint;
-pub type ScePspnetAdhocctlErrorCode = crate::ctypes::c_uint;
-pub type ScePspnetAdhocErrorCode = crate::ctypes::c_uint;
-pub type ScePspnetAdhocEvent = crate::ctypes::c_uint;
-pub type ScePspnetAdhocFlags = crate::ctypes::c_uint;
-pub type ScePspnetAdhocPtpState = crate::ctypes::c_uint;
+pub type ScePowerCallbackType = core::ffi::c_uint;
+pub type ScePowerConfigurationMode = core::ffi::c_uint;
+pub type ScePowerErrorCode = core::ffi::c_uint;
+pub type SceProductCode = core::ffi::c_uint;
+pub type SceProductMode = core::ffi::c_char;
+pub type ScePromoterUtilityPackageType = core::ffi::c_uint;
+pub type ScePspnetAdhocctlAdhocType = core::ffi::c_uint;
+pub type ScePspnetAdhocctlErrorCode = core::ffi::c_uint;
+pub type ScePspnetAdhocErrorCode = core::ffi::c_uint;
+pub type ScePspnetAdhocEvent = core::ffi::c_uint;
+pub type ScePspnetAdhocFlags = core::ffi::c_uint;
+pub type ScePspnetAdhocPtpState = core::ffi::c_uint;
 pub type ScePvfAllocFunc = ::core::option::Option<
     unsafe extern "C" fn(userData: ScePvfPointer, size: ScePvfU32) -> ScePvfPointer,
 >;
 pub type ScePvfBool = ScePvfU32;
-pub type ScePvfBoolValue = crate::ctypes::c_uint;
+pub type ScePvfBoolValue = core::ffi::c_uint;
 pub type ScePvfCharCode = ScePvfU16;
-pub type ScePvfDataAccessMode = crate::ctypes::c_uint;
+pub type ScePvfDataAccessMode = core::ffi::c_uint;
 pub type ScePvfError = ScePvfS32;
-pub type ScePvfErrorCode = crate::ctypes::c_uint;
-pub type ScePvfFamilyCode = crate::ctypes::c_uint;
+pub type ScePvfErrorCode = core::ffi::c_uint;
+pub type ScePvfFamilyCode = core::ffi::c_uint;
 pub type ScePvfFloat32 = f32;
 pub type ScePvfFontCacheLockFunc =
     ::core::option::Option<unsafe extern "C" fn(cacheInstance: ScePvfPointer) -> ScePvfS32>;
@@ -19802,17 +19404,17 @@ pub type ScePvfFontChcheWriteToCacheFunc = ::core::option::Option<
         size: ScePvfInt,
     ) -> ScePvfS32,
 >;
-pub type ScePvfFontId = *mut crate::ctypes::c_void;
+pub type ScePvfFontId = *mut core::ffi::c_void;
 pub type ScePvfFontIndex = ScePvfS32;
-pub type ScePvfFontVendorCountryCode = crate::ctypes::c_uint;
+pub type ScePvfFontVendorCountryCode = core::ffi::c_uint;
 pub type ScePvfFreeFunc =
     ::core::option::Option<unsafe extern "C" fn(userData: ScePvfPointer, ptr: ScePvfPointer)>;
-pub type ScePvfHandle = *mut crate::ctypes::c_void;
-pub type ScePvfImageByfferPixelFormatType = crate::ctypes::c_uint;
+pub type ScePvfHandle = *mut core::ffi::c_void;
+pub type ScePvfImageByfferPixelFormatType = core::ffi::c_uint;
 pub type ScePvfInt = ScePvfS32;
-pub type ScePvfLanguageCode = crate::ctypes::c_uint;
-pub type ScePvfLibId = *mut crate::ctypes::c_void;
-pub type ScePvfPointer = *mut crate::ctypes::c_void;
+pub type ScePvfLanguageCode = core::ffi::c_uint;
+pub type ScePvfLibId = *mut core::ffi::c_void;
+pub type ScePvfPointer = *mut core::ffi::c_void;
 pub type ScePvfReallocFunc = ::core::option::Option<
     unsafe extern "C" fn(
         userData: ScePvfPointer,
@@ -19820,31 +19422,31 @@ pub type ScePvfReallocFunc = ::core::option::Option<
         size: ScePvfU32,
     ) -> ScePvfPointer,
 >;
-pub type ScePvfRegionCode = crate::ctypes::c_uint;
-pub type ScePvfS32 = crate::ctypes::c_int;
-pub type ScePvfStyleCode = crate::ctypes::c_uint;
-pub type ScePvfSubstyle = crate::ctypes::c_uint;
-pub type ScePvfU16 = crate::ctypes::c_ushort;
-pub type ScePvfU32 = crate::ctypes::c_uint;
-pub type ScePvfU8 = crate::ctypes::c_uchar;
-pub type ScePVoid = *mut crate::ctypes::c_void;
-pub type SceRazorGpuLiveMetricsGroup = crate::ctypes::c_uint;
-pub type SceRazorLiveTraceMetricEntryType = crate::ctypes::c_uint;
-pub type SceRazorLiveTraceMetricJobType = crate::ctypes::c_uint;
-pub type SceRtcDayOfWeek = crate::ctypes::c_uint;
-pub type SceRtcErrorCode = crate::ctypes::c_uint;
-pub type SceSblSmCommId = crate::ctypes::c_int;
-pub type SceSByte = crate::ctypes::c_schar;
-pub type SceSByte8 = crate::ctypes::c_schar;
-pub type SceScreenshotErrorCode = crate::ctypes::c_uint;
+pub type ScePvfRegionCode = core::ffi::c_uint;
+pub type ScePvfS32 = core::ffi::c_int;
+pub type ScePvfStyleCode = core::ffi::c_uint;
+pub type ScePvfSubstyle = core::ffi::c_uint;
+pub type ScePvfU16 = core::ffi::c_ushort;
+pub type ScePvfU32 = core::ffi::c_uint;
+pub type ScePvfU8 = core::ffi::c_uchar;
+pub type ScePVoid = *mut core::ffi::c_void;
+pub type SceRazorGpuLiveMetricsGroup = core::ffi::c_uint;
+pub type SceRazorLiveTraceMetricEntryType = core::ffi::c_uint;
+pub type SceRazorLiveTraceMetricJobType = core::ffi::c_uint;
+pub type SceRtcDayOfWeek = core::ffi::c_uint;
+pub type SceRtcErrorCode = core::ffi::c_uint;
+pub type SceSblSmCommId = core::ffi::c_int;
+pub type SceSByte = core::ffi::c_schar;
+pub type SceSByte8 = core::ffi::c_schar;
+pub type SceScreenshotErrorCode = core::ffi::c_uint;
 pub type SceShaccCgCallbackAbsolutePath = ::core::option::Option<
     unsafe extern "C" fn(
-        fileName: *const crate::ctypes::c_char,
+        fileName: *const core::ffi::c_char,
         includedFrom: *const SceShaccCgSourceLocation,
         compileOptions: *const SceShaccCgCompileOptions,
-    ) -> *const crate::ctypes::c_char,
+    ) -> *const core::ffi::c_char,
 >;
-pub type SceShaccCgCallbackDefaults = crate::ctypes::c_uint;
+pub type SceShaccCgCallbackDefaults = core::ffi::c_uint;
 pub type SceShaccCgCallbackFileDate = ::core::option::Option<
     unsafe extern "C" fn(
         file: *const SceShaccCgSourceFile,
@@ -19856,20 +19458,20 @@ pub type SceShaccCgCallbackFileDate = ::core::option::Option<
 >;
 pub type SceShaccCgCallbackLocateFile = ::core::option::Option<
     unsafe extern "C" fn(
-        fileName: *const crate::ctypes::c_char,
+        fileName: *const core::ffi::c_char,
         includedFrom: *const SceShaccCgSourceLocation,
         searchPathCount: SceUInt32,
-        searchPaths: *const *const crate::ctypes::c_char,
+        searchPaths: *const *const core::ffi::c_char,
         compileOptions: *const SceShaccCgCompileOptions,
-        errorString: *mut *const crate::ctypes::c_char,
-    ) -> *const crate::ctypes::c_char,
+        errorString: *mut *const core::ffi::c_char,
+    ) -> *const core::ffi::c_char,
 >;
 pub type SceShaccCgCallbackOpenFile = ::core::option::Option<
     unsafe extern "C" fn(
-        fileName: *const crate::ctypes::c_char,
+        fileName: *const core::ffi::c_char,
         includedFrom: *const SceShaccCgSourceLocation,
         compileOptions: *const SceShaccCgCompileOptions,
-        errorString: *mut *const crate::ctypes::c_char,
+        errorString: *mut *const core::ffi::c_char,
     ) -> *mut SceShaccCgSourceFile,
 >;
 pub type SceShaccCgCallbackReleaseFile = ::core::option::Option<
@@ -19880,116 +19482,116 @@ pub type SceShaccCgCallbackReleaseFile = ::core::option::Option<
 >;
 pub type SceShaccCgCallbackReleaseFileName = ::core::option::Option<
     unsafe extern "C" fn(
-        fileName: *const crate::ctypes::c_char,
+        fileName: *const core::ffi::c_char,
         compileOptions: *const SceShaccCgCompileOptions,
     ),
 >;
-pub type SceShaccCgDiagnosticLevel = crate::ctypes::c_uint;
-pub type SceShaccCgLocale = crate::ctypes::c_uint;
-pub type SceShaccCgParameter = *const crate::ctypes::c_void;
-pub type SceShaccCgTargetProfile = crate::ctypes::c_uint;
+pub type SceShaccCgDiagnosticLevel = core::ffi::c_uint;
+pub type SceShaccCgLocale = core::ffi::c_uint;
+pub type SceShaccCgParameter = *const core::ffi::c_void;
+pub type SceShaccCgTargetProfile = core::ffi::c_uint;
 pub type SceShellUtilEventHandler = ::core::option::Option<
     unsafe extern "C" fn(
-        result: crate::ctypes::c_int,
+        result: core::ffi::c_int,
         mode: SceShellUtilLockMode,
         type_: SceShellUtilLockType,
-        userData: *mut crate::ctypes::c_void,
+        userData: *mut core::ffi::c_void,
     ),
 >;
-pub type SceShellUtilLockMode = crate::ctypes::c_uint;
-pub type SceShellUtilLockType = crate::ctypes::c_uint;
+pub type SceShellUtilLockMode = core::ffi::c_uint;
+pub type SceShellUtilLockType = core::ffi::c_uint;
 pub type SceShort16 = i16;
-pub type SceShutterSoundErrorCode = crate::ctypes::c_uint;
-pub type SceShutterSoundType = crate::ctypes::c_uint;
-pub type SceSize = crate::ctypes::c_uint;
-pub type SceSSize = crate::ctypes::c_int;
-pub type SceSslCert = crate::ctypes::c_void;
-pub type SceSslCertName = crate::ctypes::c_void;
-pub type SceSslErrorCode = crate::ctypes::c_uint;
+pub type SceShutterSoundErrorCode = core::ffi::c_uint;
+pub type SceShutterSoundType = core::ffi::c_uint;
+pub type SceSize = core::ffi::c_uint;
+pub type SceSSize = core::ffi::c_int;
+pub type SceSslCert = core::ffi::c_void;
+pub type SceSslCertName = core::ffi::c_void;
+pub type SceSslErrorCode = core::ffi::c_uint;
 pub type SceSysclibPrntCallback = ::core::option::Option<
-    unsafe extern "C" fn(argp: *mut crate::ctypes::c_void, ch: crate::ctypes::c_int),
+    unsafe extern "C" fn(argp: *mut core::ffi::c_void, ch: core::ffi::c_int),
 >;
 pub type SceSysconCallback = ::core::option::Option<
-    unsafe extern "C" fn(enable: crate::ctypes::c_int, argp: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(enable: core::ffi::c_int, argp: *mut core::ffi::c_void),
 >;
-pub type SceSysconCmd = crate::ctypes::c_uint;
+pub type SceSysconCmd = core::ffi::c_uint;
 pub type SceSysconCmdExecAsyncCallback = ::core::option::Option<
     unsafe extern "C" fn(
         packet: *mut SceSysconPacket,
-        argp: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        argp: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceSysconControl = crate::ctypes::c_uint;
-pub type SceSysconResetType = crate::ctypes::c_uint;
+pub type SceSysconControl = core::ffi::c_uint;
+pub type SceSysconResetType = core::ffi::c_uint;
 pub type SceSysEventHandler = ::core::option::Option<
     unsafe extern "C" fn(
-        resume: crate::ctypes::c_int,
-        eventid: crate::ctypes::c_int,
-        args: *mut crate::ctypes::c_void,
-        opt: *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int,
+        resume: core::ffi::c_int,
+        eventid: core::ffi::c_int,
+        args: *mut core::ffi::c_void,
+        opt: *mut core::ffi::c_void,
+    ) -> core::ffi::c_int,
 >;
-pub type SceSysmoduleErrorCode = crate::ctypes::c_uint;
-pub type SceSysmoduleInternalModuleId = crate::ctypes::c_uint;
-pub type SceSysmoduleModuleId = crate::ctypes::c_uint;
+pub type SceSysmoduleErrorCode = core::ffi::c_uint;
+pub type SceSysmoduleInternalModuleId = core::ffi::c_uint;
+pub type SceSysmoduleModuleId = core::ffi::c_uint;
 pub type SceSysroot = SceUIDSysrootObject;
-pub type SceSystemParamDateFormat = crate::ctypes::c_uint;
-pub type SceSystemParamEnterButtonAssign = crate::ctypes::c_uint;
-pub type SceSystemParamId = crate::ctypes::c_uint;
-pub type SceSystemParamLang = crate::ctypes::c_uint;
-pub type SceSystemParamTimeFormat = crate::ctypes::c_uint;
+pub type SceSystemParamDateFormat = core::ffi::c_uint;
+pub type SceSystemParamEnterButtonAssign = core::ffi::c_uint;
+pub type SceSystemParamId = core::ffi::c_uint;
+pub type SceSystemParamLang = core::ffi::c_uint;
+pub type SceSystemParamTimeFormat = core::ffi::c_uint;
 pub type SceSysTimerCallback = ::core::option::Option<
-    unsafe extern "C" fn(timer: SceSysTimerId, pUserData: *mut crate::ctypes::c_void),
+    unsafe extern "C" fn(timer: SceSysTimerId, pUserData: *mut core::ffi::c_void),
 >;
-pub type SceSysTimerClockSource = crate::ctypes::c_uint;
+pub type SceSysTimerClockSource = core::ffi::c_uint;
 pub type SceSysTimerId = SceInt32;
-pub type SceSysTimerType = crate::ctypes::c_uint;
-pub type SceThreadStatus = crate::ctypes::c_uint;
-pub type SceTouchErrorCode = crate::ctypes::c_uint;
-pub type SceTouchPortType = crate::ctypes::c_uint;
-pub type SceTouchReportInfo = crate::ctypes::c_uint;
-pub type SceTouchSamplingState = crate::ctypes::c_uint;
-pub type SceTriggerUtilDays = crate::ctypes::c_uint;
-pub type SceTriggerUtilErrorCode = crate::ctypes::c_uint;
+pub type SceSysTimerType = core::ffi::c_uint;
+pub type SceThreadStatus = core::ffi::c_uint;
+pub type SceTouchErrorCode = core::ffi::c_uint;
+pub type SceTouchPortType = core::ffi::c_uint;
+pub type SceTouchReportInfo = core::ffi::c_uint;
+pub type SceTouchSamplingState = core::ffi::c_uint;
+pub type SceTriggerUtilDays = core::ffi::c_uint;
+pub type SceTriggerUtilErrorCode = core::ffi::c_uint;
 pub type SceUChar8 = u8;
-pub type SceUdcdDeviceRequestAttr = crate::ctypes::c_uint;
-pub type SceUdcdErrorCode = crate::ctypes::c_uint;
-pub type SceUdcdHidDescriptor = crate::ctypes::c_uint;
-pub type SceUdcdHidProtocol = crate::ctypes::c_uint;
-pub type SceUdcdHidRequest = crate::ctypes::c_uint;
-pub type SceUdcdProtocol = crate::ctypes::c_uint;
-pub type SceUdcdRetcode = crate::ctypes::c_int;
-pub type SceUdcdStatus = crate::ctypes::c_uint;
-pub type SceUdcdStatusDriver = crate::ctypes::c_uint;
-pub type SceUdcdUsbClass = crate::ctypes::c_uint;
-pub type SceUdcdUsbDt = crate::ctypes::c_uint;
-pub type SceUdcdUsbReq = crate::ctypes::c_uint;
-pub type SceUID = crate::ctypes::c_int;
+pub type SceUdcdDeviceRequestAttr = core::ffi::c_uint;
+pub type SceUdcdErrorCode = core::ffi::c_uint;
+pub type SceUdcdHidDescriptor = core::ffi::c_uint;
+pub type SceUdcdHidProtocol = core::ffi::c_uint;
+pub type SceUdcdHidRequest = core::ffi::c_uint;
+pub type SceUdcdProtocol = core::ffi::c_uint;
+pub type SceUdcdRetcode = core::ffi::c_int;
+pub type SceUdcdStatus = core::ffi::c_uint;
+pub type SceUdcdStatusDriver = core::ffi::c_uint;
+pub type SceUdcdUsbClass = core::ffi::c_uint;
+pub type SceUdcdUsbDt = core::ffi::c_uint;
+pub type SceUdcdUsbReq = core::ffi::c_uint;
+pub type SceUID = core::ffi::c_int;
 pub type SceUInt = u32;
 pub type SceUInt16 = u16;
 pub type SceUInt32 = u32;
 pub type SceUInt64 = u64;
 pub type SceUInt8 = u8;
-pub type SceUIntPtr = crate::ctypes::c_uint;
+pub type SceUIntPtr = core::ffi::c_uint;
 pub type SceUIntVAddr = SceUIntPtr;
 pub type SceULong64 = u64;
-pub type SceUpdateMode = crate::ctypes::c_char;
-pub type SceUsbAudioInErrorCode = crate::ctypes::c_uint;
-pub type SceUsbdDescriptorType = crate::ctypes::c_uint;
-pub type SceUsbdErrorCode = crate::ctypes::c_uint;
-pub type SceUsbdReqtype = crate::ctypes::c_uint;
-pub type SceUsbdRequest = crate::ctypes::c_uint;
-pub type SceUsbservErrorCode = crate::ctypes::c_uint;
-pub type SceUsbstorVstorType = crate::ctypes::c_uint;
+pub type SceUpdateMode = core::ffi::c_char;
+pub type SceUsbAudioInErrorCode = core::ffi::c_uint;
+pub type SceUsbdDescriptorType = core::ffi::c_uint;
+pub type SceUsbdErrorCode = core::ffi::c_uint;
+pub type SceUsbdReqtype = core::ffi::c_uint;
+pub type SceUsbdRequest = core::ffi::c_uint;
+pub type SceUsbservErrorCode = core::ffi::c_uint;
+pub type SceUsbstorVstorType = core::ffi::c_uint;
 pub type SceUShort16 = u16;
-pub type SceVideodecErrorCode = crate::ctypes::c_uint;
-pub type SceVideodecType = crate::ctypes::c_uint;
-pub type SceVoid = crate::ctypes::c_void;
+pub type SceVideodecErrorCode = core::ffi::c_uint;
+pub type SceVideodecType = core::ffi::c_uint;
+pub type SceVoid = core::ffi::c_void;
 pub type SceWChar16 = u16;
 pub type SceWChar32 = u32;
 pub type SulphaNgsModuleQueryType = SceUInt32;
 pub type ThreadCpuRegisters = SceThreadCpuRegisters;
-pub type time_t = crate::ctypes::c_long;
+pub type time_t = core::ffi::c_long;
 pub type uint_fast16_t = u16;
 pub type uint_fast32_t = u32;
 pub type uint_fast64_t = u64;
@@ -19998,6 +19600,6 @@ pub type uint_least16_t = u16;
 pub type uint_least32_t = u32;
 pub type uint_least64_t = u64;
 pub type uint_least8_t = u8;
-pub type uintmax_t = crate::ctypes::c_ulonglong;
+pub type uintmax_t = core::ffi::c_ulonglong;
 pub type va_list = u32;
-pub type wchar_t = crate::ctypes::c_uint;
+pub type wchar_t = core::ffi::c_uint;

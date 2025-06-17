@@ -91,7 +91,7 @@ fn generate_preprocessed_bindings(
         .clang_arg("-I".to_string() + vita_headers_include.to_str().unwrap())
         .clang_args(&["-target", "armv7a-none-eabihf"])
         .use_core()
-        .ctypes_prefix("crate::ctypes")
+        .ctypes_prefix("core::ffi")
         .generate_comments(false)
         .prepend_enum_name(false)
         .layout_tests(false)
