@@ -244,6 +244,15 @@ fn foreign_item_ident(foreign_item: &ForeignItem) -> String {
 }
 
 /// Gets foreign mod identifier as the feature cfgs concatenated by `+`
+///
+/// e.g. for the following declaration:
+///
+/// ```rust
+/// #[cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub"))]
+/// extern "C" {}
+/// ```
+///
+/// this function returns `SceCpuForKernel_363_stub+SceCpuForKernel_stub`.
 fn foreign_mod_ident(foreign_mod: &ItemForeignMod) -> String {
     let ident = foreign_mod.attrs.iter().find_map(|attribute| {
         if attribute.style != AttrStyle::Outer {
