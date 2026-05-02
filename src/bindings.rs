@@ -80,13 +80,38 @@ where
 }
 pub type _bindgen_ty_1 = crate::ctypes::c_uint;
 pub type _bindgen_ty_2 = crate::ctypes::c_uint;
+pub use self::_ScePerfArmPmonEventCode as ScePerfArmPmonEventCode;
 pub use self::SceAppUtilSaveDataRemoveMode as SceAppUtilSaveDataDataRemoveMode;
 pub use self::SceAppUtilSaveDataSaveMode as SceAppUtilSaveDataDataSaveMode;
 pub use self::SceHttpStatusCode as SceHttpStatuscode;
 pub use self::SceHttpVersion as SceHttpHttpVersion;
 pub use self::SceImeDialogErrorCode as SceImeDialogError;
 pub use self::SceNotificationUitlErrorCode as SceNotificationUtilErrorCode;
-pub use self::_ScePerfArmPmonEventCode as ScePerfArmPmonEventCode;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct BuffCache {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct DebugPath {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct FdLock {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct Flock {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct Fumount {
+    pub _address: u8,
+}
 #[repr(C)]
 #[derive(Default)]
 pub struct __IncompleteArrayField<T>(::core::marker::PhantomData<T>, [T; 0]);
@@ -190,6 +215,11 @@ pub struct MsgPipeSendData {
 #[derive(Debug, Copy, Clone)]
 pub struct MusicExportParam {
     pub reserved: [crate::ctypes::c_char; 128usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct Ncache {
+    pub _address: u8,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1343,6 +1373,173 @@ pub struct SceExcpmgrExceptionContext {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsDateTime {
+    pub year: SceUInt16,
+    pub month: SceUInt16,
+    pub day: SceUInt16,
+    pub hour: SceUInt16,
+    pub minute: SceUInt16,
+    pub second: SceUInt16,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsDrive {
+    pub state: SceUInt32,
+    pub unk_0x04: [crate::ctypes::c_int; 47usize],
+    pub assignName: *const crate::ctypes::c_char,
+    pub unk_0xC4: [crate::ctypes::c_int; 71usize],
+    pub fastmutex: SceKernelFastMutex,
+    pub VfsMount2: *mut SceVfsMount2,
+    pub vp: *mut crate::ctypes::c_void,
+    pub unk_0x228: *mut crate::ctypes::c_void,
+    pub unk_0x22C: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFile {
+    pub fnode: *mut SceExfatfsFnode,
+    pub mode: crate::ctypes::c_int,
+    pub Position: SceOff,
+    pub Buf: *mut crate::ctypes::c_void,
+    pub BufTop: *mut crate::ctypes::c_void,
+    pub Cluster: SceUInt32,
+    pub clusterIndex: SceUInt32,
+    pub unk_0x20: crate::ctypes::c_int,
+    pub unk_0x24: crate::ctypes::c_int,
+    pub cacheIndex: SceUInt64,
+    pub unk_0x30: crate::ctypes::c_int,
+    pub unk_0x34: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFileSystem {
+    pub devname: *const crate::ctypes::c_char,
+    pub unk_4: crate::ctypes::c_int,
+    pub unk_8: crate::ctypes::c_int,
+    pub rsvd_sector: crate::ctypes::c_int,
+    pub unk_10: crate::ctypes::c_int,
+    pub available_clusters: crate::ctypes::c_int,
+    pub PBRBuf: *mut crate::ctypes::c_void,
+    pub unk_1C: crate::ctypes::c_int,
+    pub unk_20: crate::ctypes::c_int,
+    pub unk_24: crate::ctypes::c_int,
+    pub unk_28: *mut crate::ctypes::c_void,
+    pub unk_2C: crate::ctypes::c_int,
+    pub unk_30: crate::ctypes::c_int,
+    pub unk_34: *mut crate::ctypes::c_void,
+    pub unk_38: *mut crate::ctypes::c_void,
+    pub unk_3C: crate::ctypes::c_int,
+    pub unk_40: crate::ctypes::c_int,
+    pub unk_44: crate::ctypes::c_int,
+    pub unk_48: crate::ctypes::c_int,
+    pub unk_4C: crate::ctypes::c_int,
+    pub unk_50: *mut crate::ctypes::c_void,
+    pub unk_54: *mut crate::ctypes::c_void,
+    pub unk_58: crate::ctypes::c_int,
+    pub unk_5C: crate::ctypes::c_int,
+    pub unk_60: crate::ctypes::c_int,
+    pub unk_64: crate::ctypes::c_int,
+    pub unk_68: crate::ctypes::c_int,
+    pub unk_6C: crate::ctypes::c_int,
+    pub unk_70: crate::ctypes::c_int,
+    pub unk_74: crate::ctypes::c_int,
+    pub unk_78: crate::ctypes::c_int,
+    pub unk_7C: crate::ctypes::c_int,
+    pub unk_80: crate::ctypes::c_int,
+    pub unk_84: crate::ctypes::c_int,
+    pub unk_88: crate::ctypes::c_int,
+    pub unk_8C: crate::ctypes::c_int,
+    pub unk_90: crate::ctypes::c_int,
+    pub unk_94: crate::ctypes::c_int,
+    pub unk_98: crate::ctypes::c_int,
+    pub unk_9C: crate::ctypes::c_int,
+    pub unk_A0: crate::ctypes::c_int,
+    pub unk_A4: crate::ctypes::c_int,
+    pub unk_A8: crate::ctypes::c_int,
+    pub drive: *mut SceExfatfsDrive,
+    pub mount_mode: SceUInt32,
+    pub unk_B4: crate::ctypes::c_int,
+    pub unk_B8: crate::ctypes::c_int,
+    pub sectorSize: SceSize,
+    pub clusterSectorCount: SceUInt32,
+    pub firstClusterOfRoot: SceUInt32,
+    pub devSectors: SceUInt32,
+    pub unk_CC: crate::ctypes::c_int,
+    pub data_0xD0: [crate::ctypes::c_char; 72usize],
+    pub file: SceExfatfsFile,
+    pub fnode: SceExfatfsFnode,
+    pub rootFastMutex: *mut SceKernelFastMutex,
+    pub unk_0x3E4: *mut crate::ctypes::c_void,
+    pub unk_0x3E8: SceUID,
+    pub unk_0x3EC: *mut crate::ctypes::c_void,
+    pub fastmutex: SceKernelFastMutex,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFnode {
+    pub FilePath: [SceUInt16; 260usize],
+    pub FileName: *mut SceUInt16,
+    pub fileSystem: *mut _SceExfatfsFileSystem,
+    pub Stat: _SceExfatfsFnode__bindgen_ty_1,
+    pub DirCluster: SceUInt32,
+    pub data_0x254: crate::ctypes::c_int,
+    pub DirOffset: SceOff,
+    pub DirOffClust: SceUInt32,
+    pub data_0x264: crate::ctypes::c_int,
+    pub dirSize: SceSize,
+    pub dirGeneralSecondaryFlags: SceUInt8,
+    pub data_0x26D: SceUInt8,
+    pub data_0x26E: SceUInt8,
+    pub data_0x26F: SceUInt8,
+    pub refCount: SceUInt16,
+    pub fdCount: SceUInt16,
+    pub data_0x274: crate::ctypes::c_int,
+    pub cache_element_count: SceUInt32,
+    pub cluster_cache_array: *mut crate::ctypes::c_void,
+    pub tailCluster: SceUInt32,
+    pub tailIndex: SceUInt32,
+    pub clusterCount: SceUInt32,
+    pub chunkCount: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsFnode__bindgen_ty_1 {
+    pub st_mode: SceUInt16,
+    pub st_type: SceUInt16,
+    pub st_dev: SceUInt16,
+    pub st_uid: SceUInt16,
+    pub Size: SceOff,
+    pub ctime: SceExfatfsDateTime,
+    pub atime: SceExfatfsDateTime,
+    pub mtime: SceExfatfsDateTime,
+    pub StartCluster: SceUInt32,
+    pub data_0x248: SceUInt8,
+    pub data_0x249: SceUInt8,
+    pub data_0x24A: SceUInt8,
+    pub data_0x24B: SceUInt8,
+    pub data_0x24C: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceExfatfsMbr {
+    pub data: [crate::ctypes::c_char; 512usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceExfatfsSharedResource {
+    pub fileSystem: [SceExfatfsFileSystem; 15usize],
+    pub mbr: [SceExfatfsMbr; 15usize],
+    pub data_0x5CD0: *mut crate::ctypes::c_void,
+    pub data_0x5CD4: crate::ctypes::c_int,
+    pub fnode: [SceExfatfsFnode; 4096usize],
+    pub data_0x295CD8: [crate::ctypes::c_int; 30usize],
+    pub data_0x295D50: crate::ctypes::c_int,
+    pub data_0x295D54: crate::ctypes::c_int,
+    pub data_0x295D58: crate::ctypes::c_int,
+    pub data_0x295D5C: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct SceFColor {
     pub r: SceFloat,
     pub g: SceFloat,
@@ -1642,16 +1839,6 @@ pub struct SceGUIDKernelCreateOpt {
 pub union SceGUIDKernelCreateOpt__bindgen_ty_1 {
     pub flags: SceUInt32,
     pub attr: SceUInt32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SceGxmAuxiliarySurface {
-    pub colorFormat: u32,
-    pub type_: u32,
-    pub width: u32,
-    pub height: u32,
-    pub stride: u32,
-    pub data: *mut crate::ctypes::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3217,6 +3404,14 @@ pub struct SceKernelCallbackInfo {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct _SceKernelCompatibilityShimInfo {
+    pub title_id: *const crate::ctypes::c_char,
+    pub unk_04: SceUInt32,
+    pub library_shims_count: SceUInt32,
+    pub library_shims: *mut SceKernelLibraryShimInfo,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct SceKernelCondInfo {
     pub size: SceSize,
     pub condId: SceUID,
@@ -3386,6 +3581,12 @@ pub struct SceKernelFreeMemorySizeInfo {
     pub size_phycont: crate::ctypes::c_int,
 }
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceKernelFunctionShimInfo {
+    pub replaced_function_nid: SceNID,
+    pub replacing_function_nid: SceNID,
+}
+#[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SceKernelHeapCreateOpt {
     pub size: SceSize,
@@ -3429,6 +3630,14 @@ pub struct SceKernelIntrOptParam {
 #[derive(Debug, Copy, Clone)]
 pub struct SceKernelLibraryInfo {
     _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceKernelLibraryShimInfo {
+    pub library_name: *const crate::ctypes::c_char,
+    pub unk_04: SceUInt32,
+    pub function_shims_count: SceUInt32,
+    pub function_shims: *mut SceKernelFunctionShimInfo,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3493,6 +3702,26 @@ pub struct SceKernelMemBlockInfo {
     pub memoryType: crate::ctypes::c_int,
     pub access: SceUInt32,
     pub type_: SceKernelMemBlockType,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceKernelModuleExportEntry {
+    pub libnid: SceNID,
+    pub entry: *mut crate::ctypes::c_void,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceKernelModuleImportNonlinkedInfo {
+    pub size: SceSize,
+    pub modid: SceUID,
+    pub libnid: SceNID,
+    pub libname: [crate::ctypes::c_char; 256usize],
+    pub data_0x10C: crate::ctypes::c_int,
+    pub data_0x110: crate::ctypes::c_int,
+    pub data_0x114: crate::ctypes::c_int,
+    pub data_0x118: crate::ctypes::c_int,
+    pub data_0x11C: crate::ctypes::c_int,
+    pub data_0x120: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3834,6 +4063,11 @@ pub struct SceKernelThreadInfo {
 pub struct SceKernelThreadOptParam {
     pub size: SceSize,
     pub attr: SceUInt32,
+    pub kStackMemType: SceUInt32,
+    pub uStackMemType: SceUInt32,
+    pub uTLSMemType: SceUInt32,
+    pub uStackMemid: SceUInt32,
+    pub data_0x18: SceUInt32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3874,6 +4108,21 @@ pub struct SceKernelUnloadModuleOption {
 pub struct SceKernelVARange {
     pub addr: u32,
     pub size: SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceLoadProcessParam {
+    pub sysver: SceUInt32,
+    pub thread_name: [crate::ctypes::c_char; 32usize],
+    pub initial_thread_priority: SceUInt32,
+    pub initial_thread_stack_size: SceSize,
+    pub unk_0x2C: SceUInt32,
+    pub unk_0x30: SceUInt32,
+    pub threadOptParam: SceKernelThreadOptParam,
+    pub unk_0x50: crate::ctypes::c_int,
+    pub process_name: [crate::ctypes::c_char; 32usize],
+    pub preload_disabled: SceUInt32,
+    pub module_proc_param: *mut crate::ctypes::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4113,8 +4362,13 @@ pub struct SceNetAdhocctlPeerInfo {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct SceNetAdhocPdpStat {
-    pub next: *mut SceNetAdhocPdpStat,
+pub struct SceNetAdhocMatchingMember {
+    pub addr: SceNetInAddr,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceNetAdhocPdpStat {
+    pub next: *mut _SceNetAdhocPdpStat,
     pub id: crate::ctypes::c_int,
     pub laddr: SceNetEtherAddr,
     pub lport: SceUShort16,
@@ -4122,15 +4376,15 @@ pub struct SceNetAdhocPdpStat {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct SceNetAdhocPollSd {
+pub struct _SceNetAdhocPollSd {
     pub id: crate::ctypes::c_int,
     pub events: crate::ctypes::c_int,
     pub revents: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct SceNetAdhocPtpStat {
-    pub next: *mut SceNetAdhocPtpStat,
+pub struct _SceNetAdhocPtpStat {
+    pub next: *mut _SceNetAdhocPtpStat,
     pub id: crate::ctypes::c_int,
     pub laddr: SceNetEtherAddr,
     pub paddr: SceNetEtherAddr,
@@ -4567,8 +4821,8 @@ pub struct SceNpDrmLicense {
     pub content_id: [crate::ctypes::c_char; 48usize],
     pub key_table: [crate::ctypes::c_char; 16usize],
     pub key1: [crate::ctypes::c_char; 16usize],
-    pub start_time: SceInt64,
-    pub expiration_time: SceInt64,
+    pub start_time: SceRtcTick,
+    pub expiration_time: SceRtcTick,
     pub ecdsa_signature: [crate::ctypes::c_char; 40usize],
     pub flags: SceInt64,
     pub key2: [crate::ctypes::c_char; 16usize],
@@ -4653,6 +4907,53 @@ pub struct ScePafSha1Context {
 #[derive(Debug, Copy, Clone)]
 pub struct ScePfsRndDriveId {
     pub drive_id: [crate::ctypes::c_char; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _ScePhotoImportDialogImportInfo {
+    pub path: [crate::ctypes::c_char; 1024usize],
+    pub unk_0x400: [crate::ctypes::c_char; 256usize],
+    pub unk_0x500: [SceUInt8; 32usize],
+    pub unk_0x520: crate::ctypes::c_int,
+    pub unk_0x524: crate::ctypes::c_int,
+    pub unk_0x528: crate::ctypes::c_int,
+    pub unk_0x52C: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _ScePhotoImportDialogParam {
+    pub sdkVersion: SceUInt32,
+    pub commonParam: SceCommonDialogParam,
+    pub unk_0x50: SceUInt32,
+    pub unk_0x54: SceUInt32,
+    pub unk_0x58: SceUInt32,
+    pub unk_0x5C: *mut crate::ctypes::c_void,
+    pub unk_0x60: [SceUInt8; 32usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _ScePhotoImportDialogResult {
+    pub result: SceInt32,
+    pub unk_0x04: SceInt32,
+    pub reserved: [SceChar8; 32usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _ScePhotoReviewDialogParam {
+    pub sdkVersion: SceUInt32,
+    pub commonParam: SceCommonDialogParam,
+    pub unk_0x50: SceUInt32,
+    pub path: [SceUInt8; 1024usize],
+    pub internal_memory: *mut crate::ctypes::c_void,
+    pub internal_memory_size: SceSize,
+    pub unk_0x454: [SceUInt8; 32usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _ScePhotoReviewDialogResult {
+    pub result: SceInt32,
+    pub unk_0x04: SceInt32,
+    pub reserved: [SceChar8; 28usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4752,6 +5053,20 @@ pub struct ScePsCode {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct ScePsmDrmExpireTime {
+    pub start_date: *mut SceRtcTick,
+    pub end_date: *mut SceRtcTick,
+    pub pad: [crate::ctypes::c_int; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ScePsmDrmKeySet {
+    pub hmac_key: [SceUInt8; 32usize],
+    pub key: [SceUInt8; 16usize],
+    pub signature: [SceUInt8; 464usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ScePsmDrmLicense {
     pub magic: [crate::ctypes::c_char; 8usize],
     pub unk1: SceUInt32,
@@ -4759,14 +5074,12 @@ pub struct ScePsmDrmLicense {
     pub account_id: SceUInt64,
     pub unk3: SceUInt32,
     pub unk4: SceUInt32,
-    pub start_time: SceUInt64,
-    pub expiration_time: SceUInt64,
+    pub start_time: SceRtcTick,
+    pub expiration_time: SceRtcTick,
     pub activation_checksum: [SceUInt8; 32usize],
     pub content_id: [crate::ctypes::c_char; 48usize],
     pub unk5: [SceUInt8; 128usize],
-    pub unk6: [SceUInt8; 32usize],
-    pub key: [SceUInt8; 16usize],
-    pub signature: [SceUInt8; 464usize],
+    pub keyset: ScePsmDrmKeySet,
     pub rsa_signature: [SceUInt8; 256usize],
 }
 #[repr(C)]
@@ -4938,7 +5251,7 @@ pub struct SceRazorGpuLiveEntryHeader {
     pub reserved: crate::ctypes::c_int,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct SceRazorGpuLiveEntryJob {
     pub header: SceRazorGpuLiveEntryHeader,
     pub start_time: u64,
@@ -4972,14 +5285,19 @@ pub struct SceRazorGpuLiveEntryJobFragmentValues3 {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct SceRazorGpuLiveEntryJobValues {
+pub struct SceRazorGpuLiveEntryJobGeneric {
+    pub reserved: [crate::ctypes::c_int; 8usize],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union SceRazorGpuLiveEntryJobValues {
     pub vertex_values_type1: SceRazorGpuLiveEntryJobVertexValues1,
     pub fragment_values_type1: SceRazorGpuLiveEntryJobFragmentValues1,
     pub vertex_values_type2: SceRazorGpuLiveEntryJobVertexValues2,
     pub fragment_values_type2: SceRazorGpuLiveEntryJobFragmentValues2,
     pub vertex_values_type3: SceRazorGpuLiveEntryJobVertexValues3,
     pub fragment_values_type3: SceRazorGpuLiveEntryJobFragmentValues3,
-    pub reserved: [crate::ctypes::c_int; 8usize],
+    pub generic_values_type: SceRazorGpuLiveEntryJobGeneric,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5007,6 +5325,7 @@ pub struct SceRazorGpuLiveEntryParameterBuffer {
     pub peak_usage_value: u32,
     pub partial_render: u8,
     pub vertex_job_paused: u8,
+    pub reserved: u16,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5089,6 +5408,87 @@ pub struct SceScreenShotParam {
     pub gameTitle: *const SceWChar32,
     pub gameComment: *const SceWChar32,
     pub reserved: *mut crate::ctypes::c_void,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorFd {
+    pub fastmutex: SceKernelFastMutex,
+    pub unk_40: SceUInt32,
+    pub start_lba: SceUInt32,
+    pub n_sectors: SceUInt32,
+    pub flags: crate::ctypes::c_int,
+    pub pentry: *mut SceSdstorPartitionEntry,
+    pub sddev: *mut SceSdstorSddev,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorOpHandle {
+    pub pentry: *mut SceSdstorPartitionEntry,
+    pub sddev: *mut SceSdstorSddev,
+    pub unk_0x08: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorPartitionEntry {
+    pub start_lba: SceUInt32,
+    pub n_sectors: SceUInt32,
+    pub sdpart: *mut _SceSdstorSdpart,
+    pub partition_entry: *mut crate::ctypes::c_void,
+    pub numeric_name: [crate::ctypes::c_char; 4usize],
+    pub type_: SceUInt8,
+    pub flag: SceUInt8,
+    pub acl: SceUInt16,
+    pub unused: SceUInt16,
+    pub unk: SceUInt16,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSddev {
+    pub fastmutex: SceKernelFastMutex,
+    pub kind: SceUInt8,
+    pub port: SceSdstorSdpartPort,
+    pub stat: SceUInt8,
+    pub prev_stat: SceUInt8,
+    pub unk_44: SceUInt32,
+    pub unk_48: SceUInt32,
+    pub unk_4C: SceUInt32,
+    pub sdif_ctx: *mut crate::ctypes::c_void,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSdintr {
+    pub unk_0x00: crate::ctypes::c_int,
+    pub request_id: SceUID,
+    pub op_sync_id: SceUID,
+    pub unk_0x0C: crate::ctypes::c_int,
+    pub unk_0x10: crate::ctypes::c_int,
+    pub mediaid: [SceUInt32; 4usize],
+    pub port: SceSdstorSdpartPort,
+    pub stat: SceUInt8,
+    pub unk_0x26: SceUInt8,
+    pub unk_0x27: SceUInt8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _SceSdstorSdpart {
+    pub fastmutex: SceKernelFastMutex,
+    pub unk_40: SceUInt32,
+    pub sddev: *mut SceSdstorSddev,
+    pub unk_48: SceUInt32,
+    pub unk_4C: SceUInt32,
+    pub unk_50: SceUInt32,
+    pub mbr_ptr: *mut crate::ctypes::c_void,
+    pub pentry: [SceSdstorPartitionEntry; 17usize],
+    pub stat: SceUInt8,
+    pub prev_stat: SceUInt8,
+    pub unk_236: SceUInt8,
+    pub unk_237: SceUInt8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceSelfAppInfo {
+    pub vendor_id: crate::ctypes::c_int,
+    pub self_type: crate::ctypes::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6156,6 +6556,250 @@ pub struct SceUsbdTransferStatus {
     pub unk3: u32,
 }
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsFile {
+    pub is_dir: SceUInt32,
+    pub flags: SceUInt32,
+    pub position: SceOff,
+    pub state: SceUInt32,
+    pub pid: SceUID,
+    pub vp: *mut SceVfsVnode,
+    pub next: *mut SceVfsFile,
+    pub fd: SceUInt32,
+    pub flock_busy_count: SceUInt16,
+    pub is_locked: SceUInt8,
+    pub has_flock_ent: SceUInt8,
+    pub fd_lock: *mut FdLock,
+    pub idata: SceUInt32,
+    pub debug_path: *mut DebugPath,
+    pub ioSchedData: [SceUInt32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsInfo {
+    pub vfs_ops: *const SceVfsOpTable,
+    pub vfs_name: *const crate::ctypes::c_char,
+    pub vfs_name_len: SceSize,
+    pub ref_count: SceUInt32,
+    pub type_: SceUInt32,
+    pub default_vops: *const SceVopTable,
+    pub vfs_data: *mut crate::ctypes::c_void,
+    pub next: *mut SceVfsInfo,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsMount {
+    pub fast_mutex: SceKernelFastMutex,
+    pub mnt_vnode: *mut SceVfsVnode,
+    pub allocator: SceUID,
+    pub state: SceUInt32,
+    pub fs_type: SceUInt8,
+    pub opt: SceUInt16,
+    pub mnt_flags: SceUInt32,
+    pub vnode_list: *mut SceVfsVnode,
+    pub vnode_num: SceUInt32,
+    pub mnt_vfs_inf: *mut SceVfsInfo,
+    pub mnt_ref_count: SceUInt32,
+    pub opened_entry_num: SceUInt32,
+    pub available_entry_num: SceUInt32,
+    pub pid: SceUID,
+    pub mnted_on_list: *mut SceVfsMount,
+    pub mnted_on_list_prev: *mut SceVfsMount,
+    pub mnt_list_next: *mut SceVfsMount,
+    pub mnt_data: *mut SceVfsMountData,
+    pub path: [crate::ctypes::c_char; 64usize],
+    pub default_io_cache_size: SceUInt32,
+    pub data: *mut crate::ctypes::c_void,
+    pub fd_lock: *mut FdLock,
+    pub fumount: *mut Fumount,
+    pub opaque: [SceUInt32; 4usize],
+    pub opaque2: [SceUInt32; 4usize],
+    pub padding: [SceUInt8; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsMount2 {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsMountData {
+    pub assign_name: *const crate::ctypes::c_char,
+    pub fs_name: *const crate::ctypes::c_char,
+    pub blockdev_name: *const crate::ctypes::c_char,
+    pub blockdev_name_no_part: *const crate::ctypes::c_char,
+    pub mnt_id: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsMountParam {
+    pub root_path: *const crate::ctypes::c_char,
+    pub blockdev_name: *const crate::ctypes::c_char,
+    pub fs_type: SceUInt8,
+    pub opt: SceUInt16,
+    pub mnt_flags: SceUInt32,
+    pub vfs_name: *const crate::ctypes::c_char,
+    pub data: *mut crate::ctypes::c_void,
+    pub misc: *mut SceVfsMountData,
+    pub vops: *mut SceVopTable,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpDecodePathElemArgs {
+    pub mnt: *mut SceVfsMount,
+    pub path: *const crate::ctypes::c_char,
+    pub path2: *mut *const crate::ctypes::c_char,
+    pub path3: *mut *const crate::ctypes::c_char,
+    pub buf: *mut crate::ctypes::c_char,
+    pub buf_len: SceSize,
+    pub decode_len: *mut SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpDevctlArg {
+    pub mnt: *mut SceVfsMount,
+    pub dev: *const crate::ctypes::c_char,
+    pub cmd: crate::ctypes::c_uint,
+    pub arg: *const crate::ctypes::c_void,
+    pub arg_len: SceSize,
+    pub buf: *mut crate::ctypes::c_void,
+    pub buf_len: SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpFiniArgs {
+    pub vfs_inf: *mut SceVfsInfo,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpGetRootArgs {
+    pub mnt: *mut SceVfsMount,
+    pub unk: crate::ctypes::c_int,
+    pub vpp: *mut *mut SceVfsVnode,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpInitArgs {
+    pub vfs_inf: *mut SceVfsInfo,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpMountArgs {
+    pub mnt: *mut SceVfsMount,
+    pub dev_file_path: *mut SceVfsPath,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpSetRootArgs {
+    pub mnt: *mut SceVfsMount,
+    pub unk: crate::ctypes::c_int,
+    pub vp: *mut SceVfsVnode,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpSyncArgs {
+    pub mnt: *mut SceVfsMount,
+    pub flags: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpTable {
+    pub vfs_mount: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpMountArgs) -> crate::ctypes::c_int,
+    >,
+    pub vfs_umount: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpUmountArgs) -> crate::ctypes::c_int,
+    >,
+    pub vfs_set_root: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpSetRootArgs) -> crate::ctypes::c_int,
+    >,
+    pub vfs_get_root: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpGetRootArgs) -> crate::ctypes::c_int,
+    >,
+    pub reserved: [*mut crate::ctypes::c_void; 2usize],
+    pub vfs_sync: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpSyncArgs) -> crate::ctypes::c_int,
+    >,
+    pub reserved2: *mut crate::ctypes::c_void,
+    pub vfs_init: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpInitArgs) -> crate::ctypes::c_int,
+    >,
+    pub vfs_fini: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpFiniArgs) -> crate::ctypes::c_int,
+    >,
+    pub reserved3: *mut crate::ctypes::c_void,
+    pub vfs_devctl: ::core::option::Option<
+        unsafe extern "C" fn(arg: *mut SceVfsOpDevctlArg) -> crate::ctypes::c_int,
+    >,
+    pub vfs_decode_path_elem: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVfsOpDecodePathElemArgs) -> crate::ctypes::c_int,
+    >,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsOpUmountArgs {
+    pub mnt: *mut SceVfsMount,
+    pub flags: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsPath {
+    pub name: *const crate::ctypes::c_char,
+    pub name_length: SceSize,
+    pub path: *const crate::ctypes::c_char,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsUmountParam {
+    pub assign_name: *const crate::ctypes::c_char,
+    pub flag: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsVnode {
+    pub vdlock: SceVfsVnode__bindgen_ty_1,
+    pub padding: [SceUInt8; 44usize],
+    pub core: SceVfsVnode__bindgen_ty_2,
+    pub padding2: [SceUInt8; 40usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsVnode__bindgen_ty_1 {
+    pub waiter: SceUInt32,
+    pub owner_id: SceUID,
+    pub recursive_count: SceUInt32,
+    pub wait_id: SceUID,
+    pub wait_pattern: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVfsVnode__bindgen_ty_2 {
+    pub ops: *mut SceVopTable,
+    pub node_inf: SceUInt32,
+    pub node_data: *mut crate::ctypes::c_void,
+    pub mnt: *mut SceVfsMount,
+    pub dd: *mut SceVfsVnode,
+    pub next: *mut SceVfsVnode,
+    pub ref_count: SceUInt32,
+    pub bc: *mut BuffCache,
+    pub fid: [SceUInt32; 2usize],
+    pub flock: *mut Flock,
+    pub allocator: SceUID,
+    pub ncache: *mut Ncache,
+    pub state: SceUInt32,
+    pub type_: SceUInt32,
+    pub vop_tbl: *mut SceVopTable,
+    pub size: SceUInt64,
+    pub acl_data: [SceUInt32; 2usize],
+    pub fd_list: *mut SceVfsFile,
+    pub fd_num: SceUInt32,
+    pub link_to: *mut SceVfsVnode,
+    pub linked_num: SceUInt32,
+    pub unused: [SceUInt8; 48usize],
+    pub mnt_opt: SceUInt32,
+    pub unk_0xd4: SceUInt32,
+}
+#[repr(C)]
 #[derive(Copy, Clone)]
 pub union SceVideodecQueryInitInfo {
     pub reserved: [u8; 32usize],
@@ -6175,6 +6819,303 @@ pub struct SceVideodecQueryInitInfoHwAvcdec {
 pub struct SceVideodecTimeStamp {
     pub upper: u32,
     pub lower: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopChstatArgs {
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub stat: *mut SceIoStat,
+    pub bit: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopCleanupArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopCloseArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopCreateArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vpp: *mut *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub flags: crate::ctypes::c_int,
+    pub mode: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopDcloseArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopDopenAgrs {
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub file: *mut SceVfsFile,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopDreadArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub dir: *mut SceIoDirent,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopFchstatArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub stat: *mut SceIoStat,
+    pub bit: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopFgetstatArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub stat: *mut SceIoStat,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopGetstatArgs {
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub stat: *mut SceIoStat,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopInactiveArgs {
+    pub vp: *mut SceVfsVnode,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopIoctlArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub cmd: crate::ctypes::c_int,
+    pub in_data: *const crate::ctypes::c_void,
+    pub in_len: SceSize,
+    pub out_data: *mut crate::ctypes::c_void,
+    pub out_len: SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopLinkArgs {
+    pub fvp: *mut SceVfsVnode,
+    pub tvp: *mut SceVfsVnode,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopLookupArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vpp: *mut *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub flags: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopLseekArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub offset: SceOff,
+    pub whence: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopMkdirArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vpp: *mut *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub mode: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopOpenArgs {
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub flags: crate::ctypes::c_int,
+    pub file: *mut SceVfsFile,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopPreadArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub buf: *mut crate::ctypes::c_void,
+    pub nbyte: SceSize,
+    pub offset: SceOff,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopPwriteArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub buf: *const crate::ctypes::c_void,
+    pub nbyte: SceSize,
+    pub offset: SceOff,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopReadArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub buf: *mut crate::ctypes::c_void,
+    pub nbyte: SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopRemoveArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+    pub flags: SceUInt32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopRenameArgs {
+    pub odvp: *mut SceVfsVnode,
+    pub ovp: *mut SceVfsVnode,
+    pub old_path: *mut SceVfsPath,
+    pub ndvp: *mut SceVfsVnode,
+    pub nvpp: *mut *mut SceVfsVnode,
+    pub new_path: *mut SceVfsPath,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopRmdirArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vp: *mut SceVfsVnode,
+    pub path: *mut SceVfsPath,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopSyncArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub flags: crate::ctypes::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopTable {
+    pub vop_open: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopOpenArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_create: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopCreateArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_close: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopCloseArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_lookup: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopLookupArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_read:
+        ::core::option::Option<unsafe extern "C" fn(argp: *mut SceVopReadArgs) -> SceSSize>,
+    pub vop_write:
+        ::core::option::Option<unsafe extern "C" fn(argp: *mut SceVopWriteArgs) -> SceSSize>,
+    pub vop_lseek:
+        ::core::option::Option<unsafe extern "C" fn(argp: *mut SceVopLseekArgs) -> SceOff>,
+    pub vop_ioctl: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopIoctlArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_remove: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopRemoveArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_mkdir: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopMkdirArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_rmdir: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopRmdirArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_dopen: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopDopenAgrs) -> crate::ctypes::c_int,
+    >,
+    pub vop_dclose: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopDcloseArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_dread: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopDreadArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_getstat: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopGetstatArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_chstat: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopChstatArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_rename: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopRenameArgs) -> crate::ctypes::c_int,
+    >,
+    pub reserved: *const crate::ctypes::c_void,
+    pub vop_pread:
+        ::core::option::Option<unsafe extern "C" fn(argp: *mut SceVopPreadArgs) -> SceSSize>,
+    pub vop_pwrite:
+        ::core::option::Option<unsafe extern "C" fn(argp: *mut SceVopPwriteArgs) -> SceSSize>,
+    pub vop_inactive: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopInactiveArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_link: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopLinkArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_unlink: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopUnlinkArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_sync: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopSyncArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_fgetstat: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopFgetstatArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_fchstat: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopFchstatArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_whiteout: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopWhiteoutArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_cleanup: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopCleanupArgs) -> crate::ctypes::c_int,
+    >,
+    pub vop_verofill: ::core::option::Option<
+        unsafe extern "C" fn(argp: *mut SceVopZerofillArgs) -> crate::ctypes::c_int,
+    >,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopUnlinkArgs {
+    pub fvp: *mut SceVfsVnode,
+    pub tvp: *mut SceVfsVnode,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopWhiteoutArgs {
+    pub dvp: *mut SceVfsVnode,
+    pub vp: *mut SceVfsVnode,
+    pub old_path: *mut SceVfsPath,
+    pub new_path: *mut SceVfsPath,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopWriteArgs {
+    pub vp: *mut SceVfsVnode,
+    pub file: *mut SceVfsFile,
+    pub buf: *const crate::ctypes::c_void,
+    pub nbyte: SceSize,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SceVopZerofillArgs {
+    pub vp: *mut SceVfsVnode,
+    pub unk: SceUInt64,
+    pub unk1: SceUInt64,
+    pub unk2: SceUInt64,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7047,6 +7988,10 @@ pub const SCE_EXCP_RESET: SceExcpKind = 0;
 pub const SCE_EXCP_SVC: SceExcpKind = 2;
 pub const SCE_EXCP_UNDEF_INSTRUCTION: SceExcpKind = 1;
 pub const SCE_EXCP_UNUSED: SceExcpKind = 5;
+pub const SCE_EXFATFS_MAX_FILE_SYSTEM: u32 = 15;
+pub const SCE_EXFATFS_MAX_FNODE: u32 = 4096;
+pub const SCE_EXFATFS_TYPE_EXFAT: u32 = 2;
+pub const SCE_EXFATFS_TYPE_FAT: u32 = 1;
 pub const SCE_FALSE: _bindgen_ty_1 = 0;
 pub const SCE_FIBER_ERROR_AGAIN: SceFiberErrorCode = 2153316360;
 pub const SCE_FIBER_ERROR_ALIGNMENT: SceFiberErrorCode = 2153316354;
@@ -7145,12 +8090,6 @@ pub const SCE_GUID_PHYMEM_PART_TOOL: _bindgen_ty_2 = 65553;
 pub const SCE_GUID_PROCESS_BUDGET_FULL_GAME: _bindgen_ty_2 = 65629;
 pub const SCE_GUID_PROCESS_BUDGET_KERNEL: _bindgen_ty_2 = 65625;
 pub const SCE_GUID_PROCESS_BUDGET_SHELL: _bindgen_ty_2 = 65627;
-pub const SCE_GUID_RESERVED_29: _bindgen_ty_2 = 65577;
-pub const SCE_GUID_RESERVED_2D: _bindgen_ty_2 = 65581;
-pub const SCE_GUID_RESERVED_2F: _bindgen_ty_2 = 65583;
-pub const SCE_GUID_RESERVED_31: _bindgen_ty_2 = 65585;
-pub const SCE_GUID_RESERVED_49: _bindgen_ty_2 = 65609;
-pub const SCE_GUID_RESERVED_5F: _bindgen_ty_2 = 65631;
 pub const SCE_GUID_SYSROOT: _bindgen_ty_2 = 65537;
 pub const SCE_GUID_THREAD_ID_PROCESS_ALL: _bindgen_ty_2 = 65575;
 pub const SCE_GUID_THREAD_ID_SYSTEM_ALL: _bindgen_ty_2 = 65573;
@@ -7354,7 +8293,6 @@ pub const SCE_GXM_EDGE_ENABLE_20: SceGxmEdgeEnableFlags = 1024;
 pub const SCE_GXM_ERROR_ALREADY_INITIALIZED: SceGxmErrorCode = 2153447425;
 pub const SCE_GXM_ERROR_DRIVER: SceGxmErrorCode = 2153447447;
 pub const SCE_GXM_ERROR_INVALID_ALIGNMENT: SceGxmErrorCode = 2153447429;
-pub const SCE_GXM_ERROR_INVALID_AUXILIARY_SURFACE: SceGxmErrorCode = 2153447443;
 pub const SCE_GXM_ERROR_INVALID_INDEX_COUNT: SceGxmErrorCode = 2153447437;
 pub const SCE_GXM_ERROR_INVALID_POINTER: SceGxmErrorCode = 2153447428;
 pub const SCE_GXM_ERROR_INVALID_POLYGON_MODE: SceGxmErrorCode = 2153447438;
@@ -7387,9 +8325,18 @@ pub const SCE_GXM_INDEX_SOURCE_INDEX_16BIT: SceGxmIndexSource = 0;
 pub const SCE_GXM_INDEX_SOURCE_INDEX_32BIT: SceGxmIndexSource = 1;
 pub const SCE_GXM_INDEX_SOURCE_INSTANCE_16BIT: SceGxmIndexSource = 2;
 pub const SCE_GXM_INDEX_SOURCE_INSTANCE_32BIT: SceGxmIndexSource = 3;
+pub const SCE_GXM_INITIALIZE_FLAG_DEFAULT: SceGxmInitializeFlags = 0;
+pub const SCE_GXM_INITIALIZE_FLAG_DISPLAY_QUEUE_THREAD_AFFINITY_CPU_1: SceGxmInitializeFlags =
+    65536;
+pub const SCE_GXM_INITIALIZE_FLAG_DISPLAY_QUEUE_THREAD_AFFINITY_CPU_2: SceGxmInitializeFlags =
+    131072;
+pub const SCE_GXM_INITIALIZE_FLAG_EXTENDED_FORMAT: SceGxmInitializeFlags = 16;
+pub const SCE_GXM_INITIALIZE_FLAG_PB_LPDDR: SceGxmInitializeFlags = 1;
+pub const SCE_GXM_INITIALIZE_FLAG_SHAREDPB_CREATE: SceGxmInitializeFlags = 4;
+pub const SCE_GXM_INITIALIZE_FLAG_SHAREDPB_OPEN: SceGxmInitializeFlags = 8;
+pub const SCE_GXM_INITIALIZE_FLAG_SHARED_SYNC: SceGxmInitializeFlags = 2;
 pub const SCE_GXM_LINE_FILL_LAST_PIXEL_DISABLED: SceGxmLineFillLastPixelMode = 0;
 pub const SCE_GXM_LINE_FILL_LAST_PIXEL_ENABLED: SceGxmLineFillLastPixelMode = 524288;
-pub const SCE_GXM_MAX_AUXILIARY_SURFACES: u32 = 3;
 pub const SCE_GXM_MAX_TEXTURE_UNITS: u32 = 16;
 pub const SCE_GXM_MAX_UNIFORM_BUFFERS: u32 = 14;
 pub const SCE_GXM_MAX_VERTEX_ATTRIBUTES: u32 = 16;
@@ -7415,7 +8362,6 @@ pub const SCE_GXM_OUTPUT_REGISTER_SIZE_32BIT: SceGxmOutputRegisterSize = 0;
 pub const SCE_GXM_OUTPUT_REGISTER_SIZE_64BIT: SceGxmOutputRegisterSize = 1;
 pub const SCE_GXM_PALETTE_ALIGNMENT: u32 = 64;
 pub const SCE_GXM_PARAMETER_CATEGORY_ATTRIBUTE: SceGxmParameterCategory = 0;
-pub const SCE_GXM_PARAMETER_CATEGORY_AUXILIARY_SURFACE: SceGxmParameterCategory = 3;
 pub const SCE_GXM_PARAMETER_CATEGORY_SAMPLER: SceGxmParameterCategory = 2;
 pub const SCE_GXM_PARAMETER_CATEGORY_UNIFORM: SceGxmParameterCategory = 1;
 pub const SCE_GXM_PARAMETER_CATEGORY_UNIFORM_BUFFER: SceGxmParameterCategory = 4;
@@ -7499,6 +8445,7 @@ pub const SCE_GXM_TEXTURE_ADDR_MIRROR_CLAMP: SceGxmTextureAddrMode = 3;
 pub const SCE_GXM_TEXTURE_ADDR_REPEAT: SceGxmTextureAddrMode = 0;
 pub const SCE_GXM_TEXTURE_ADDR_REPEAT_IGNORE_BORDER: SceGxmTextureAddrMode = 4;
 pub const SCE_GXM_TEXTURE_ALIGNMENT: u32 = 16;
+pub const SCE_GXM_TEXTURE_BASE_FORMAT_ETC1: SceGxmTextureBaseFormat = 2214592512;
 pub const SCE_GXM_TEXTURE_BASE_FORMAT_F11F11F10: SceGxmTextureBaseFormat = 436207616;
 pub const SCE_GXM_TEXTURE_BASE_FORMAT_F16: SceGxmTextureBaseFormat = 184549376;
 pub const SCE_GXM_TEXTURE_BASE_FORMAT_F16F16: SceGxmTextureBaseFormat = 285212672;
@@ -7567,6 +8514,7 @@ pub const SCE_GXM_TEXTURE_FORMAT_AF16LF16: SceGxmTextureFormat = 285220864;
 pub const SCE_GXM_TEXTURE_FORMAT_AF32M: SceGxmTextureFormat = 318791680;
 pub const SCE_GXM_TEXTURE_FORMAT_D16: SceGxmTextureFormat = 150994944;
 pub const SCE_GXM_TEXTURE_FORMAT_DF32M: SceGxmTextureFormat = 318767104;
+pub const SCE_GXM_TEXTURE_FORMAT_ETC1_1BGR: SceGxmTextureFormat = 2214592512;
 pub const SCE_GXM_TEXTURE_FORMAT_F10F10F10U2_BGRA: SceGxmTextureFormat = 2583703552;
 pub const SCE_GXM_TEXTURE_FORMAT_F10F10F10U2_RGBA: SceGxmTextureFormat = 2583699456;
 pub const SCE_GXM_TEXTURE_FORMAT_F10F10F10X2_BGR1: SceGxmTextureFormat = 2583719936;
@@ -8280,6 +9228,7 @@ pub const SCE_KERNEL_64MiB: u32 = 67108864;
 pub const SCE_KERNEL_8GiB: u64 = 8589934592;
 pub const SCE_KERNEL_8KiB: u32 = 8192;
 pub const SCE_KERNEL_8MiB: u32 = 8388608;
+pub const SCE_KERNEL_ADDRESS_SPACE_ID: _bindgen_ty_2 = 65543;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_ALLOW_PARTIAL_OP: SceKernelAllocMemBlockAttr = 67108864;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_ALIGNMENT: SceKernelAllocMemBlockAttr = 4;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_MIRROR_BLOCKID: SceKernelAllocMemBlockAttr = 64;
@@ -8287,12 +9236,14 @@ pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PADDR: SceKernelAllocMemBlockAttr =
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PADDR_LIST: SceKernelAllocMemBlockAttr = 4096;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_HAS_PID: SceKernelAllocMemBlockAttr = 128;
 pub const SCE_KERNEL_ALLOC_MEMBLOCK_ATTR_PHYCONT: SceKernelAllocMemBlockAttr = 2097152;
+pub const SCE_KERNEL_ALL_PROCESS_ID: _bindgen_ty_2 = 65569;
 pub const SCE_KERNEL_ASSERT_LEVEL_0: SceKernelAssertLevel = 0;
 pub const SCE_KERNEL_ASSERT_LEVEL_1: SceKernelAssertLevel = 1;
 pub const SCE_KERNEL_ASSERT_LEVEL_2: SceKernelAssertLevel = 2;
 pub const SCE_KERNEL_ATTR_OPENABLE: SceKernelWaitableAttribute = 128;
 pub const SCE_KERNEL_ATTR_THREAD_FIFO: SceKernelWaitableAttribute = 0;
 pub const SCE_KERNEL_ATTR_THREAD_PRIO: SceKernelWaitableAttribute = 8192;
+pub const SCE_KERNEL_CLEANER_THREAD_ID: _bindgen_ty_2 = 65559;
 pub const SCE_KERNEL_CPU_MASK_SYSTEM: u32 = 524288;
 pub const SCE_KERNEL_CPU_MASK_USER_0: u32 = 65536;
 pub const SCE_KERNEL_CPU_MASK_USER_1: u32 = 131072;
@@ -8372,6 +9323,8 @@ pub const SCE_KERNEL_DMA_OP_SYNC_WAIT: SceKernelDmaOpSyncMode = 2;
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_ADDR: SceKernelDmaOpFlag = 17;
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_DST_ADDR: SceKernelDmaOpFlag = 16;
 pub const SCE_KERNEL_DMA_OP_VIRTUAL_SRC_ADDR: SceKernelDmaOpFlag = 1;
+pub const SCE_KERNEL_DUMMY_PROCESS_GAME_ID: _bindgen_ty_2 = 65555;
+pub const SCE_KERNEL_DUMMY_PROCESS_SYSTEM_ID: _bindgen_ty_2 = 65557;
 pub const SCE_KERNEL_ERROR_ADDRESS_SPACE_CANNOT_FIND_PARTITION_BY_ADDR: SceKernelErrorCode =
     2147633667;
 pub const SCE_KERNEL_ERROR_ALARM_CAN_NOT_CANCEL: SceKernelErrorCode = 2147647682;
@@ -8688,8 +9641,25 @@ pub const SCE_KERNEL_ERROR_WAIT_DELETE_LW_MUTEX: SceKernelErrorCode = 2147647938
 pub const SCE_KERNEL_ERROR_WAIT_DELETE_MUTEX: SceKernelErrorCode = 2147647906;
 pub const SCE_KERNEL_ERROR_WAIT_TIMEOUT: SceKernelErrorCode = 2147647493;
 pub const SCE_KERNEL_ERROR_WORK_QUEUE: SceKernelErrorCode = 2147648256;
+pub const SCE_KERNEL_FIXED_HEAP_128B_ID: _bindgen_ty_2 = 65595;
+pub const SCE_KERNEL_FIXED_HEAP_16B_ID: _bindgen_ty_2 = 65587;
+pub const SCE_KERNEL_FIXED_HEAP_256B_ID: _bindgen_ty_2 = 65597;
+pub const SCE_KERNEL_FIXED_HEAP_32B_ID: _bindgen_ty_2 = 65589;
+pub const SCE_KERNEL_FIXED_HEAP_48B_ID: _bindgen_ty_2 = 65591;
+pub const SCE_KERNEL_FIXED_HEAP_512B_ID: _bindgen_ty_2 = 65599;
+pub const SCE_KERNEL_FIXED_HEAP_64B_ID: _bindgen_ty_2 = 65593;
+pub const SCE_KERNEL_FIXED_HEAP_L2_OBJECT_ID: _bindgen_ty_2 = 65601;
+pub const SCE_KERNEL_GLOBAL_WORK_QUEUE_ID: _bindgen_ty_2 = 65571;
+pub const SCE_KERNEL_GUID_ENTRY_HEAP_ID: _bindgen_ty_2 = 65539;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_AUTO_EXTEND: SceKernelHeapAttr = 1;
 pub const SCE_KERNEL_HEAP_ATTR_HAS_MEMORY_TYPE: SceKernelHeapAttr = 1024;
+pub const SCE_KERNEL_HEAP_ID: _bindgen_ty_2 = 65547;
+pub const SCE_KERNEL_HEAP_TOOL_ID: _bindgen_ty_2 = 65579;
+pub const SCE_KERNEL_HEAP_UNCACHE_ID: _bindgen_ty_2 = 65549;
+pub const SCE_KERNEL_IDLE_THREAD_0_ID: _bindgen_ty_2 = 65561;
+pub const SCE_KERNEL_IDLE_THREAD_1_ID: _bindgen_ty_2 = 65563;
+pub const SCE_KERNEL_IDLE_THREAD_2_ID: _bindgen_ty_2 = 65565;
+pub const SCE_KERNEL_IDLE_THREAD_3_ID: _bindgen_ty_2 = 65567;
 pub const SCE_KERNEL_MEMBLOCK_TYPE_KERNEL_CDRAM_L1WBWA_RW: u32 = 1077952518;
 pub const SCE_KERNEL_MEMBLOCK_TYPE_KERNEL_CDRAM_RW: u32 = 1077968902;
 pub const SCE_KERNEL_MEMBLOCK_TYPE_KERNEL_IO_NC_R: u32 = 537952260;
@@ -8806,6 +9776,19 @@ pub const SCE_KERNEL_MODULE_STATE_STARTED: SceKernelModuleState = 6;
 pub const SCE_KERNEL_MUTEX_ATTR_CEILING: SceKernelMutexAttribute = 4;
 pub const SCE_KERNEL_MUTEX_ATTR_RECURSIVE: SceKernelMutexAttribute = 2;
 pub const SCE_KERNEL_OK: SceKernelErrorCode = 0;
+pub const SCE_KERNEL_PARTITION_CDRAM_ID: _bindgen_ty_2 = 65607;
+pub const SCE_KERNEL_PARTITION_IO_ID: _bindgen_ty_2 = 65605;
+pub const SCE_KERNEL_PARTITION_KMP_ID: _bindgen_ty_2 = 65615;
+pub const SCE_KERNEL_PARTITION_ROOT_ID: _bindgen_ty_2 = 65545;
+pub const SCE_KERNEL_PARTITION_ROOT_TOOL_ID: _bindgen_ty_2 = 65621;
+pub const SCE_KERNEL_PARTITION_ROOT_TOOL_UNCACHE_ID: _bindgen_ty_2 = 65623;
+pub const SCE_KERNEL_PARTITION_ROOT_UNCACHE_GPU_GAME_ID: _bindgen_ty_2 = 65617;
+pub const SCE_KERNEL_PARTITION_ROOT_UNCACHE_ID: _bindgen_ty_2 = 65613;
+pub const SCE_KERNEL_PARTITION_TMP_FS_GAME_ID: _bindgen_ty_2 = 65619;
+pub const SCE_KERNEL_PARTITION_TMP_ID: _bindgen_ty_2 = 65611;
+pub const SCE_KERNEL_PARTITION_USER_SHARED_ID: _bindgen_ty_2 = 65603;
+pub const SCE_KERNEL_PHYMEMPART_ID: _bindgen_ty_2 = 65551;
+pub const SCE_KERNEL_PHYMEMPART_TOOL_ID: _bindgen_ty_2 = 65553;
 pub const SCE_KERNEL_POWER_TICK_DEFAULT: SceKernelPowerTickType = 0;
 pub const __SCE_KERNEL_POWER_TICK_DISABLE: SceKernelPowerTickType = 4294967295;
 pub const SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND: SceKernelPowerTickType = 1;
@@ -8821,6 +9804,10 @@ pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBPVF: SceKernelPreloadInhibit = 16777216;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBSCEFT2: SceKernelPreloadInhibit = 8388608;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_LIBSHELLSVC: SceKernelPreloadInhibit = 524288;
 pub const SCE_KERNEL_PRELOAD_INHIBIT_NONE: SceKernelPreloadInhibit = 0;
+pub const SCE_KERNEL_PROCESS_BUDGET_FULL_GAME_ID: _bindgen_ty_2 = 65629;
+pub const SCE_KERNEL_PROCESS_BUDGET_KERNEL_ID: _bindgen_ty_2 = 65625;
+pub const SCE_KERNEL_PROCESS_BUDGET_SHELL_ID: _bindgen_ty_2 = 65627;
+pub const SCE_KERNEL_PROCESS_ID: _bindgen_ty_2 = 65541;
 pub const SCE_KERNEL_PROCESS_ID_SELF: u32 = 0;
 pub const __SCE_KERNEL_PROCESS_PRIORITY_SYSTEM: SceKernelProcessPrioritySystem = 4294967295;
 pub const SCE_KERNEL_PROCESS_PRIORITY_SYSTEM_DEFAULT: SceKernelProcessPrioritySystem = 96;
@@ -8830,6 +9817,12 @@ pub const __SCE_KERNEL_PROCESS_PRIORITY_USER: SceKernelProcessPriorityUser = 429
 pub const SCE_KERNEL_PROCESS_PRIORITY_USER_DEFAULT: SceKernelProcessPriorityUser = 96;
 pub const SCE_KERNEL_PROCESS_PRIORITY_USER_HIGH: SceKernelProcessPriorityUser = 64;
 pub const SCE_KERNEL_PROCESS_PRIORITY_USER_LOW: SceKernelProcessPriorityUser = 127;
+pub const SCE_KERNEL_RESERVED_GUID_29: _bindgen_ty_2 = 65577;
+pub const SCE_KERNEL_RESERVED_GUID_2D: _bindgen_ty_2 = 65581;
+pub const SCE_KERNEL_RESERVED_GUID_2F: _bindgen_ty_2 = 65583;
+pub const SCE_KERNEL_RESERVED_GUID_31: _bindgen_ty_2 = 65585;
+pub const SCE_KERNEL_RESERVED_GUID_49: _bindgen_ty_2 = 65609;
+pub const SCE_KERNEL_RESERVED_GUID_5F: _bindgen_ty_2 = 65631;
 pub const SCE_KERNEL_START_FAILED: u32 = 2;
 pub const SCE_KERNEL_START_NO_RESIDENT: u32 = 1;
 pub const SCE_KERNEL_START_RESIDENT: u32 = 0;
@@ -8837,11 +9830,16 @@ pub const SCE_KERNEL_START_SUCCESS: u32 = 0;
 pub const SCE_KERNEL_STOP_CANCEL: u32 = 1;
 pub const SCE_KERNEL_STOP_FAIL: u32 = 1;
 pub const SCE_KERNEL_STOP_SUCCESS: u32 = 0;
+pub const SCE_KERNEL_SYSROOT_ID: _bindgen_ty_2 = 65537;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_ENCDEC_W_PORTABILITY_SM: SceKernelSysrootSelfIndex = 2;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_GCAUTHMGR_SM: SceKernelSysrootSelfIndex = 0;
 pub const SCE_KERNEL_SYSROOT_SELF_INDEX_RMAUTH_SM: SceKernelSysrootSelfIndex = 1;
 pub const SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT: u32 = 0;
+pub const SCE_KERNEL_THREAD_EVENT_TYPE_EXIT: SceKernelThreadEventType = 8;
+pub const SCE_KERNEL_THREAD_EVENT_TYPE_START: SceKernelThreadEventType = 4;
+pub const SCE_KERNEL_THREAD_ID_PROCESS_ALL_ID: _bindgen_ty_2 = 65575;
 pub const SCE_KERNEL_THREAD_ID_SELF: u32 = 0;
+pub const SCE_KERNEL_THREAD_ID_SYSTEM_ALL_ID: _bindgen_ty_2 = 65573;
 pub const SCE_KERNEL_TMID_Alarm: SceKernelIdListType = 10;
 pub const SCE_KERNEL_TMID_Callback: SceKernelIdListType = 8;
 pub const SCE_KERNEL_TMID_DelayThread: SceKernelIdListType = 65;
@@ -8857,6 +9855,14 @@ pub const SCE_KERNEL_TMID_Thread: SceKernelIdListType = 1;
 pub const SCE_KERNEL_TMID_ThreadEventHandler: SceKernelIdListType = 9;
 pub const SCE_KERNEL_TMID_Vpl: SceKernelIdListType = 5;
 pub const SCE_KERNEL_TMID_VTimer: SceKernelIdListType = 11;
+pub const SCE_KERNEL_VFP_EXCP_ALL: u32 = 134217887;
+pub const SCE_KERNEL_VFP_EXCP_DZC: u32 = 2;
+pub const SCE_KERNEL_VFP_EXCP_IDC: u32 = 128;
+pub const SCE_KERNEL_VFP_EXCP_IOC: u32 = 1;
+pub const SCE_KERNEL_VFP_EXCP_IXC: u32 = 16;
+pub const SCE_KERNEL_VFP_EXCP_OFC: u32 = 4;
+pub const SCE_KERNEL_VFP_EXCP_QC: u32 = 134217728;
+pub const SCE_KERNEL_VFP_EXCP_UFC: u32 = 8;
 pub const SCE_LOCATION_DATA_INVALID: f64 = -9999.0;
 pub const __SCE_LOCATION_DIALOG_RESULT: SceLocationDialogResult = 4294967295;
 pub const SCE_LOCATION_DIALOG_RESULT_DISABLE: SceLocationDialogResult = 1;
@@ -8987,6 +9993,38 @@ pub const SCE_NET_ADHOC_F_ALERTPOLL: ScePspnetAdhocFlags = 64;
 pub const SCE_NET_ADHOC_F_ALERTRECV: ScePspnetAdhocFlags = 32;
 pub const SCE_NET_ADHOC_F_ALERTSEND: ScePspnetAdhocFlags = 16;
 pub const SCE_NET_ADHOC_F_NONBLOCK: ScePspnetAdhocFlags = 1;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_ALREADY_ESTABLISHED: SceNetAdhocMatchingErrorCode =
+    2151756048;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_ALREADY_INITIALIZED: SceNetAdhocMatchingErrorCode =
+    2151756050;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_BUSY: SceNetAdhocMatchingErrorCode = 2151756049;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_DATA_BUSY: SceNetAdhocMatchingErrorCode = 2151756056;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_EXCEED_MAXNUM: SceNetAdhocMatchingErrorCode = 2151756046;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_ID_NOT_AVAIL: SceNetAdhocMatchingErrorCode = 2151756040;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_ALIGNMENT: SceNetAdhocMatchingErrorCode = 2151756057;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_ARG: SceNetAdhocMatchingErrorCode = 2151756038;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_DATALEN: SceNetAdhocMatchingErrorCode = 2151756054;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_ID: SceNetAdhocMatchingErrorCode = 2151756039;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_MAXNUM: SceNetAdhocMatchingErrorCode = 2151756035;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_MODE: SceNetAdhocMatchingErrorCode = 2151756033;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_OPTLEN: SceNetAdhocMatchingErrorCode = 2151756037;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_INVALID_PORT: SceNetAdhocMatchingErrorCode = 2151756034;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_IS_RUNNING: SceNetAdhocMatchingErrorCode = 2151756042;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_NO_SPACE: SceNetAdhocMatchingErrorCode = 2151756041;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_NOT_ESTABLISHED: SceNetAdhocMatchingErrorCode = 2151756055;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_NOT_INITIALIZED: SceNetAdhocMatchingErrorCode = 2151756051;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_NOT_RUNNING: SceNetAdhocMatchingErrorCode = 2151756043;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_PORT_IN_USE: SceNetAdhocMatchingErrorCode = 2151756052;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_REQUEST_IN_PROGRESS: SceNetAdhocMatchingErrorCode =
+    2151756047;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_RXBUF_TOO_SHORT: SceNetAdhocMatchingErrorCode = 2151756036;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_STACKSIZE_TOO_SHORT: SceNetAdhocMatchingErrorCode =
+    2151756053;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_TARGET_NOT_READY: SceNetAdhocMatchingErrorCode = 2151756045;
+pub const SCE_NET_ADHOC_MATCHING_ERROR_UNKNOWN_TARGET: SceNetAdhocMatchingErrorCode = 2151756044;
+pub const SCE_NET_ADHOC_MATCHING_MODE_CHILD: SceNetAdhocMatchingMode = 2;
+pub const SCE_NET_ADHOC_MATCHING_MODE_P2P: SceNetAdhocMatchingMode = 3;
+pub const SCE_NET_ADHOC_MATCHING_MODE_PARENT: SceNetAdhocMatchingMode = 1;
 pub const SCE_NET_ADHOC_PDP_MFS: u32 = 1444;
 pub const SCE_NET_ADHOC_PDP_MTU: u32 = 65523;
 pub const SCE_NET_ADHOC_PORT: u32 = 3658;
@@ -9527,10 +10565,6 @@ pub const SCE_POWER_CB_UNK_0x100000: ScePowerCallbackType = 1048576;
 pub const SCE_POWER_CB_VALID_MASK_KERNEL: ScePowerCallbackType = 4244053888;
 pub const SCE_POWER_CB_VALID_MASK_NON_SYSTEM: ScePowerCallbackType = 3543424;
 pub const SCE_POWER_CB_VALID_MASK_SYSTEM: ScePowerCallbackType = 4244053888;
-pub const __SCE_POWER_CONFIGURATION_MODE: ScePowerConfigurationMode = 4294967295;
-pub const SCE_POWER_CONFIGURATION_MODE_A: ScePowerConfigurationMode = 128;
-pub const SCE_POWER_CONFIGURATION_MODE_B: ScePowerConfigurationMode = 2048;
-pub const SCE_POWER_CONFIGURATION_MODE_C: ScePowerConfigurationMode = 67712;
 pub const SCE_POWER_ERROR_ALREADY_REGISTERED: ScePowerErrorCode = 2150301697;
 pub const SCE_POWER_ERROR_CALLBACK_NOT_REGISTERED: ScePowerErrorCode = 2150301698;
 pub const SCE_POWER_ERROR_CANT_SUSPEND: ScePowerErrorCode = 2150301699;
@@ -9625,6 +10659,7 @@ pub const SCE_PVF_SUBSTYLE_VERTICALLAYOUT: ScePvfSubstyle = 1;
 pub const SCE_PVF_TRUE: ScePvfBoolValue = 1;
 pub const SCE_PVF_USERIMAGE_DIRECT4_L: ScePvfImageByfferPixelFormatType = 0;
 pub const SCE_PVF_USERIMAGE_DIRECT8: ScePvfImageByfferPixelFormatType = 2;
+pub const SCE_RAZOR_GPU_LIVE_METRICS_GROUP_NUM: SceRazorGpuLiveMetricsGroup = 4;
 pub const SCE_RAZOR_GPU_LIVE_METRICS_GROUP_OVERVIEW_1: SceRazorGpuLiveMetricsGroup = 1;
 pub const SCE_RAZOR_GPU_LIVE_METRICS_GROUP_OVERVIEW_2: SceRazorGpuLiveMetricsGroup = 2;
 pub const SCE_RAZOR_GPU_LIVE_METRICS_GROUP_OVERVIEW_3: SceRazorGpuLiveMetricsGroup = 3;
@@ -9676,6 +10711,27 @@ pub const SCE_SCREENSHOT_MAX_GAME_TITLE_LEN: u32 = 64;
 pub const SCE_SCREENSHOT_MAX_GAME_TITLE_SIZE: u32 = 256;
 pub const SCE_SCREENSHOT_MAX_PHOTO_TITLE_LEN: u32 = 64;
 pub const SCE_SCREENSHOT_MAX_PHOTO_TITLE_SIZE: u32 = 256;
+pub const SCE_SDIF_DEVICE_EMMC: SceSdifDeviceIndex = 0;
+pub const SCE_SDIF_DEVICE_GC: SceSdifDeviceIndex = 1;
+pub const SCE_SDIF_DEVICE_SD: SceSdifDeviceIndex = 3;
+pub const SCE_SDIF_DEVICE_SDIO: SceSdifDeviceIndex = 2;
+pub const SCE_SDIF_DEVICE_TYPE_INVALID: SceSdifDeviceType = 0;
+pub const SCE_SDIF_DEVICE_TYPE_MMC: SceSdifDeviceType = 1;
+pub const SCE_SDIF_DEVICE_TYPE_SD: SceSdifDeviceType = 2;
+pub const SCE_SDIF_DEVICE_TYPE_SDIO: SceSdifDeviceType = 3;
+pub const SCE_SDSTOR_SDPART_KIND_GC: SceSdstorSdpartKind = 1;
+pub const SCE_SDSTOR_SDPART_KIND_INVALID: SceSdstorSdpartKind = 0;
+pub const SCE_SDSTOR_SDPART_KIND_RM: SceSdstorSdpartKind = 2;
+pub const SCE_SDSTOR_SDPART_KIND_USD: SceSdstorSdpartKind = 3;
+pub const SCE_SDSTOR_SDPART_PORT_EMMC: SceSdstorSdpartPort = 0;
+pub const SCE_SDSTOR_SDPART_PORT_GC: SceSdstorSdpartPort = 1;
+pub const SCE_SDSTOR_SDPART_PORT_PSUDO_MC: SceSdstorSdpartPort = 255;
+pub const SCE_SDSTOR_SDPART_PORT_RM: SceSdstorSdpartPort = 2;
+pub const SCE_SDSTOR_SDPART_PORT_UMA: SceSdstorSdpartPort = 3;
+pub const SCE_SDSTOR_SDPART_PORT_USD: SceSdstorSdpartPort = 4;
+pub const SCE_SDSTOR_SDPART_STAT_ACT: SceSdstorSdpartStat = 1;
+pub const SCE_SDSTOR_SDPART_STAT_IGN: SceSdstorSdpartStat = 2;
+pub const SCE_SDSTOR_SDPART_STAT_INA: SceSdstorSdpartStat = 0;
 pub const SCE_SEEK_CUR: SceIoSeekMode = 1;
 pub const SCE_SEEK_END: SceIoSeekMode = 2;
 pub const SCE_SEEK_SET: SceIoSeekMode = 0;
@@ -10145,6 +11201,32 @@ pub const SCE_USBSERV_ERROR_NOT_SUPPORTED: SceUsbservErrorCode = 2149875716;
 pub const SCE_USBSERV_ERROR_UNAVAILABLE: SceUsbservErrorCode = 2149875714;
 pub const SCE_USBSTOR_VSTOR_TYPE_CDROM: SceUsbstorVstorType = 5;
 pub const SCE_USBSTOR_VSTOR_TYPE_FAT: SceUsbstorVstorType = 0;
+pub const SCE_VFS_FILE_STATE_CLOSED: u32 = 512;
+pub const SCE_VFS_FILE_STATE_DUMMY: u32 = 65536;
+pub const SCE_VFS_FILE_STATE_OPEN: u32 = 1;
+pub const SCE_VFS_FILE_STATE_UNK: u32 = 2048;
+pub const SCE_VFS_FS_TYPE_BLKDEV: u32 = 16;
+pub const SCE_VFS_FS_TYPE_CHRDEV: u32 = 32;
+pub const SCE_VFS_FS_TYPE_FS: u32 = 1;
+pub const SCE_VFS_FS_TYPE_HOSTFS: u32 = 4;
+pub const SCE_VFS_FS_TYPE_PFS: u32 = 3;
+pub const SCE_VFS_MOUNT_FLAG_EXTERNAL: u32 = 131072;
+pub const SCE_VFS_MOUNT_FLAG_INTERNAL: u32 = 65536;
+pub const SCE_VFS_MOUNT_FLAG_NOBUF: u32 = 8192;
+pub const SCE_VFS_MOUNT_FLAG_NO_RECLAIM: u32 = 1048576;
+pub const SCE_VFS_MOUNT_FLAG_NUMBERED: u32 = 16384;
+pub const SCE_VFS_MOUNT_FLAG_RDONLY: u32 = 4096;
+pub const SCE_VFS_MOUNT_FLAG_REMOTE: u32 = 32768;
+pub const SCE_VFS_MOUNT_FLAG_TYPE_MASK: u32 = 255;
+pub const SCE_VFS_MOUNT_FLAG_WRITE_CACHE: u32 = 262144;
+pub const SCE_VFS_MOUNT_TYPE_DEVFS: u32 = 3;
+pub const SCE_VFS_MOUNT_TYPE_FSROOT: u32 = 2;
+pub const SCE_VFS_MOUNT_TYPE_HOSTFS: u32 = 6;
+pub const SCE_VFS_MOUNT_TYPE_PFS: u32 = 1;
+pub const SCE_VFS_MOUNT_TYPE_STACKFS: u32 = 5;
+pub const SCE_VFS_TYPE_DEVFS: u32 = 16;
+pub const SCE_VFS_TYPE_FS: u32 = 0;
+pub const SCE_VFS_UMOUNT_FLAG_FORCE: u32 = 1;
 pub const SCE_VIDEODEC_ERROR_ALREADY_USED: SceVideodecErrorCode = 2153908232;
 pub const SCE_VIDEODEC_ERROR_ES_BUFFER_FULL: SceVideodecErrorCode = 2153908234;
 pub const SCE_VIDEODEC_ERROR_INITIALIZE: SceVideodecErrorCode = 2153908235;
@@ -10160,6 +11242,40 @@ pub const SCE_VIDEODEC_ERROR_NOT_PHY_CONTINUOUS_MEMORY: SceVideodecErrorCode = 2
 pub const SCE_VIDEODEC_ERROR_OUT_OF_MEMORY: SceVideodecErrorCode = 2153908227;
 pub const SCE_VIDEODEC_ERROR_UNSUPPORT_IMAGE_SIZE: SceVideodecErrorCode = 2153908229;
 pub const SCE_VIDEODEC_TYPE_HW_AVCDEC: SceVideodecType = 4097;
+pub const SCE_VNODE_STATE_ACTIVE: u32 = 1;
+pub const SCE_VNODE_STATE_DELETED: u32 = 1024;
+pub const SCE_VNODE_STATE_INACTIVE: u32 = 256;
+pub const SCE_VNODE_STATE_NEW: u32 = 32768;
+pub const SCE_VNODE_STATE_RECLAIMED: u32 = 8192;
+pub const SCE_VNODE_STATE_UNMOUNTED: u32 = 512;
+pub const SCE_VNODE_TYPE_CHR: u32 = 16;
+pub const SCE_VNODE_TYPE_CHRDEV: u32 = 8208;
+pub const SCE_VNODE_TYPE_DEV: u32 = 8192;
+pub const SCE_VNODE_TYPE_DIR: u32 = 2;
+pub const SCE_VNODE_TYPE_MOUNTED: u32 = 16384;
+pub const SCE_VNODE_TYPE_REG: u32 = 1;
+pub const SCE_VNODE_TYPE_ROOT: u32 = 4096;
+pub const SCE_VNODE_TYPE_ROOTDIR: u32 = 4098;
+pub const SCE_VNODE_TYPE_ROOTDIR_DEVFS: u32 = 65568;
+pub const SCE_VSH_MOUNT_GRO0: SceVshMountId = 2304;
+pub const SCE_VSH_MOUNT_GRW0: SceVshMountId = 2560;
+pub const SCE_VSH_MOUNT_IMC0: SceVshMountId = 3328;
+pub const SCE_VSH_MOUNT_LMA0: SceVshMountId = 65536;
+pub const SCE_VSH_MOUNT_LMB0: SceVshMountId = 131072;
+pub const SCE_VSH_MOUNT_MFA0: SceVshMountId = 327680;
+pub const SCE_VSH_MOUNT_MFB0: SceVshMountId = 393216;
+pub const SCE_VSH_MOUNT_OS0: SceVshMountId = 512;
+pub const SCE_VSH_MOUNT_PD0: SceVshMountId = 3072;
+pub const SCE_VSH_MOUNT_SA0: SceVshMountId = 2816;
+pub const SCE_VSH_MOUNT_SD0: SceVshMountId = 256;
+pub const SCE_VSH_MOUNT_TM0: SceVshMountId = 1280;
+pub const SCE_VSH_MOUNT_UD0: SceVshMountId = 1792;
+pub const SCE_VSH_MOUNT_UMA0: SceVshMountId = 3840;
+pub const SCE_VSH_MOUNT_UR0: SceVshMountId = 1536;
+pub const SCE_VSH_MOUNT_UX0: SceVshMountId = 2048;
+pub const SCE_VSH_MOUNT_VD0: SceVshMountId = 1024;
+pub const SCE_VSH_MOUNT_VS0: SceVshMountId = 768;
+pub const SCE_VSH_MOUNT_XMC0: SceVshMountId = 3584;
 pub const USB_CLASS_AUDIO: SceUdcdUsbClass = 1;
 pub const USB_CLASS_COMM: SceUdcdUsbClass = 2;
 pub const USB_CLASS_DATA: SceUdcdUsbClass = 10;
@@ -11240,6 +12356,20 @@ extern "C" {
     pub fn sceNetCheckDialogGetStatus() -> SceCommonDialogStatus;
     pub fn sceNetCheckDialogInit(param: *mut SceNetCheckDialogParam) -> SceInt32;
     pub fn sceNetCheckDialogTerm() -> SceInt32;
+    pub fn scePhotoImportDialogAbort() -> crate::ctypes::c_int;
+    pub fn scePhotoImportDialogGetResult(
+        result: *mut ScePhotoImportDialogResult,
+    ) -> crate::ctypes::c_int;
+    pub fn scePhotoImportDialogGetStatus() -> crate::ctypes::c_int;
+    pub fn scePhotoImportDialogInit(param: *mut ScePhotoImportDialogParam) -> crate::ctypes::c_int;
+    pub fn scePhotoImportDialogTerm() -> crate::ctypes::c_int;
+    pub fn scePhotoReviewDialogAbort() -> crate::ctypes::c_int;
+    pub fn scePhotoReviewDialogGetResult(
+        result: *mut ScePhotoReviewDialogResult,
+    ) -> crate::ctypes::c_int;
+    pub fn scePhotoReviewDialogGetStatus() -> crate::ctypes::c_int;
+    pub fn scePhotoReviewDialogInit(param: *mut ScePhotoReviewDialogParam) -> crate::ctypes::c_int;
+    pub fn scePhotoReviewDialogTerm() -> crate::ctypes::c_int;
 }
 #[link(name = "SceCompat_stub", kind = "static")]
 #[cfg(feature = "SceCompat_stub")]
@@ -11305,17 +12435,138 @@ extern "C" {}
 #[link(name = "SceCpuForDriver_stub", kind = "static")]
 #[cfg(feature = "SceCpuForDriver_stub")]
 extern "C" {
-    pub fn ksceKernelCpuDcacheAndL2InvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelAtomicAddAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicAddAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicAddAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicAddAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicAddUnless16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        cmpv: SceInt16,
+    ) -> SceBool;
+    pub fn ksceKernelAtomicAddUnless32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        cmpv: SceInt32,
+    ) -> SceBool;
+    pub fn ksceKernelAtomicAddUnless64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        cmpv: SceInt64,
+    ) -> SceBool;
+    pub fn ksceKernelAtomicAddUnless8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        cmpv: SceInt8,
+    ) -> SceBool;
+    pub fn ksceKernelAtomicAndAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicAndAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicAndAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicAndAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicClearAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicClearAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicClearAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicClearAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicClearMask16(store: *mut SceInt16, value: SceInt16);
+    pub fn ksceKernelAtomicClearMask32(store: *mut SceInt32, value: SceInt32);
+    pub fn ksceKernelAtomicClearMask64(store: *mut SceInt64, value: SceInt64);
+    pub fn ksceKernelAtomicClearMask8(store: *mut SceInt8, value: SceInt8);
+    pub fn ksceKernelAtomicCompareAndSet16(
+        store: *mut SceInt16,
+        value: SceInt16,
+        new_value: SceInt16,
+    ) -> SceInt16;
+    pub fn ksceKernelAtomicCompareAndSet32(
+        store: *mut SceInt32,
+        value: SceInt32,
+        new_value: SceInt32,
+    ) -> SceInt32;
+    pub fn ksceKernelAtomicCompareAndSet64(
+        store: *mut SceInt64,
+        value: SceInt64,
+        new_value: SceInt64,
+    ) -> SceInt64;
+    pub fn ksceKernelAtomicCompareAndSet8(
+        store: *mut SceInt8,
+        value: SceInt8,
+        new_value: SceInt8,
+    ) -> SceInt8;
+    pub fn ksceKernelAtomicDecIfPositive16(store: *mut SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicDecIfPositive32(store: *mut SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicDecIfPositive64(store: *mut SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicDecIfPositive8(store: *mut SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndAdd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndAdd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndAdd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndAdd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndAnd16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndAnd32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndAnd64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndAnd8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndClear16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndClear32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndClear64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndClear8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndOr16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndOr32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndOr64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndOr8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndSet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndSet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndSet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndSet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndSub16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndSub32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndSub64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndSub8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicGetAndXor16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicGetAndXor32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGetAndXor64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicGetAndXor8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicOrAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicOrAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicOrAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicOrAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicSet16(store: *mut SceInt16, value: SceInt16);
+    pub fn ksceKernelAtomicSet32(store: *mut SceInt32, value: SceInt32);
+    pub fn ksceKernelAtomicSet64(store: *mut SceInt64, value: SceInt64);
+    pub fn ksceKernelAtomicSet8(store: *mut SceInt8, value: SceInt8);
+    pub fn ksceKernelAtomicSubAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicSubAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicSubAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicSubAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelAtomicXorAndGet16(store: *mut SceInt16, value: SceInt16) -> SceInt16;
+    pub fn ksceKernelAtomicXorAndGet32(store: *mut SceInt32, value: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicXorAndGet64(store: *mut SceInt64, value: SceInt64) -> SceInt64;
+    pub fn ksceKernelAtomicXorAndGet8(store: *mut SceInt8, value: SceInt8) -> SceInt8;
+    pub fn ksceKernelCpuId() -> crate::ctypes::c_int;
+    pub fn ksceKernelCpuResumeIntr(prev_state: SceKernelIntrStatus) -> SceKernelIntrStatus;
+    pub fn ksceKernelCpuSuspendIntr() -> SceKernelIntrStatus;
+    pub fn ksceKernelDcacheCleanInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
     );
-    pub fn ksceKernelCpuDcacheAndL2WritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDcacheWritebackRange(ptr: *const crate::ctypes::c_void, len: SceSize);
-    pub fn ksceKernelCpuDisableInterrupts() -> crate::ctypes::c_int;
-    pub fn ksceKernelCpuEnableInterrupts(flags: crate::ctypes::c_int);
-    pub fn ksceKernelCpuGetCpuId() -> crate::ctypes::c_int;
+    pub fn ksceKernelDcacheCleanInvalidateRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelDcacheCleanRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelDcacheCleanRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelDcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelDcacheInvalidateRangeForL1WBWA(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelIsUncacheAddressInTmpFsGame(address: *mut crate::ctypes::c_void) -> SceBool;
     pub fn ksceKernelRWSpinlockLowReadLock(lock: *mut SceKernelRWSpinlock);
     pub fn ksceKernelRWSpinlockLowReadLockCpuSuspendIntr(
         lock: *mut SceKernelRWSpinlock,
@@ -11350,8 +12601,8 @@ extern "C" {
     pub fn ksceKernelSpinlockLowLockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
-    pub fn ksceKernelSpinlockLowTryLock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
-    pub fn ksceKernelSpinlockLowTryLockCpuSuspendIntr(
+    pub fn ksceKernelSpinlockLowTrylock(lock: *mut SceKernelSpinlock) -> crate::ctypes::c_int;
+    pub fn ksceKernelSpinlockLowTrylockCpuSuspendIntr(
         lock: *mut SceKernelSpinlock,
     ) -> SceKernelIntrStatus;
     pub fn ksceKernelSpinlockLowUnlock(lock: *mut SceKernelSpinlock);
@@ -11365,22 +12616,74 @@ extern "C" {
 extern "C" {}
 #[cfg(any(feature = "SceCpuForKernel_363_stub", feature = "SceCpuForKernel_stub"))]
 extern "C" {
+    pub fn ksceKernelAtomicAdd32AndGet64InHiLoRange(
+        val: *mut SceUInt64,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+    pub fn ksceKernelAtomicAdd32AndGet64InRange(
+        val: *mut SceUInt64,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+    pub fn ksceKernelAtomicAddAndGetPositive32InRange(
+        val: *mut SceInt32,
+        add_val: SceInt32,
+        limit: SceInt32,
+    ) -> SceInt32;
+    pub fn ksceKernelAtomicDecIfLowPositive32(addr: *mut SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGet32AndSet64(result: *mut SceUInt64, src: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicGet32AndSet64_2(result: *mut SceUInt64, src: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicIncrementHighwaterCounter(counter: *mut SceUInt32) -> SceUInt32;
+    pub fn ksceKernelAtomicLimit64(result: *mut SceUInt64, limit: SceInt32) -> SceInt32;
+    pub fn ksceKernelAtomicSubIfGreater64(a1: *mut SceUInt64, a2: SceUInt32) -> SceInt32;
     pub fn ksceKernelCorelockInitialize(ctx: *mut SceCorelockContext);
     pub fn ksceKernelCorelockLock(ctx: *mut SceCorelockContext, core: SceUInt32);
     pub fn ksceKernelCorelockUnlock(ctx: *mut SceCorelockContext);
-    pub fn ksceKernelCpuDcacheInvalidateAll();
-    pub fn ksceKernelCpuDcacheWritebackAll();
-    pub fn ksceKernelCpuDcacheWritebackInvalidateAll();
-    pub fn ksceKernelCpuDcacheWritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelCpuBranchPredictorInvalidateAll();
+    pub fn ksceKernelCpuBranchPredictorInvalidateAllIS();
+    pub fn ksceKernelCpuGetCONTEXTIDR() -> SceUInt8;
+    pub fn ksceKernelCpuUpdateSCTLR();
+    pub fn ksceKernelGetVmaccessRange(pRangeStart: *mut SceUIntPtr, pRangeEnd: *mut SceUIntPtr);
+    pub fn ksceKernelIcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
     );
-    pub fn ksceKernelCpuIcacheAndL2WritebackInvalidateRange(
-        ptr: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelL1DcacheClean(start: *mut crate::ctypes::c_void);
+    pub fn ksceKernelL1DcacheCleanAll();
+    pub fn ksceKernelL1DcacheCleanInvalidate(start: *mut crate::ctypes::c_void);
+    pub fn ksceKernelL1DcacheCleanInvalidateAll();
+    pub fn ksceKernelL1DcacheCleanInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
     );
-    pub fn ksceKernelCpuIcacheInvalidateAll() -> crate::ctypes::c_int;
-    pub fn ksceKernelCpuIcacheInvalidateRange(ptr: *const crate::ctypes::c_void, len: SceSize);
+    pub fn ksceKernelL1DcacheCleanRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelL1DcacheInvalidate(start: *mut crate::ctypes::c_void);
+    pub fn ksceKernelL1DcacheInvalidateAll();
+    pub fn ksceKernelL1DcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelL1IcacheInvalidateEntire();
+    pub fn ksceKernelL1IcacheInvalidateEntireAllCore();
+    pub fn ksceKernelL1IcacheInvalidateRange(
+        start: *mut crate::ctypes::c_void,
+        size: crate::ctypes::c_uint,
+    );
+    pub fn ksceKernelMMUGetMemoryType(vaddr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceKernelMMUVAtoPA(
+        va: *mut crate::ctypes::c_void,
+        pa: *mut SceUIntPtr,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelMMUVAtoPAWithMode(
+        mode: crate::ctypes::c_int,
+        va: *mut crate::ctypes::c_void,
+        pa: *mut SceUIntPtr,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelPleFlushRequest();
 }
 #[link(name = "SceCpuForKernel_stub", kind = "static")]
 #[cfg(feature = "SceCpuForKernel_stub")]
@@ -11630,34 +12933,33 @@ extern "C" {}
     feature = "SceDebugForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceDebugDisableInfoDump(flag: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceDebugGetPutcharHandler() -> *mut crate::ctypes::c_void;
-    pub fn ksceDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn ksceDebugRegisterPutcharHandler(
-        func: ::core::option::Option<
+    pub fn ksceKernelDebugPutchar(character: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelEnableCrashDump(enable: SceBool) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetDebugPutcharHandler() -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelRegisterDebugPutcharHandler(
+        handler: ::core::option::Option<
             unsafe extern "C" fn(
-                args: *mut crate::ctypes::c_void,
+                argp: *mut crate::ctypes::c_void,
                 c: crate::ctypes::c_char,
             ) -> crate::ctypes::c_int,
         >,
-        args: *mut crate::ctypes::c_void,
+        argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    pub fn ksceDebugSetHandlers(
-        func: ::core::option::Option<
+    pub fn ksceKernelRegisterKprintfHandler(
+        handler: ::core::option::Option<
             unsafe extern "C" fn(
                 unk: crate::ctypes::c_int,
                 format: *const crate::ctypes::c_char,
                 args: va_list,
             ) -> crate::ctypes::c_int,
         >,
-        args: *mut crate::ctypes::c_void,
+        argp: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelSetAssertLevel(level: SceUInt32) -> SceUInt32;
 }
 #[link(name = "SceDebugForKernel_stub", kind = "static")]
 #[cfg(feature = "SceDebugForKernel_stub")]
-extern "C" {
-    pub fn ksceKernelSetMinimumAssertionLevel(level: crate::ctypes::c_int) -> crate::ctypes::c_int;
-}
+extern "C" {}
 #[link(name = "SceDebugLedForDriver_stub", kind = "static")]
 #[cfg(feature = "SceDebugLedForDriver_stub")]
 extern "C" {
@@ -11947,7 +13249,12 @@ extern "C" {
 extern "C" {}
 #[link(name = "SceError_stub", kind = "static")]
 #[cfg(feature = "SceError_stub")]
-extern "C" {}
+extern "C" {
+    pub fn _sceErrorGetExternalString(
+        error_string: *mut crate::ctypes::c_char,
+        error_code: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
 #[link(name = "SceExcpmgrForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceExcpmgrForKernel_363_stub")]
 extern "C" {}
@@ -12474,10 +13781,6 @@ extern "C" {
         fragmentProgram: *const SceGxmFragmentProgram,
         memBlock: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    pub fn sceGxmPrecomputedFragmentStateSetAllAuxiliarySurfaces(
-        precomputedState: *mut SceGxmPrecomputedFragmentState,
-        auxSurfaceArray: *const SceGxmAuxiliarySurface,
-    ) -> crate::ctypes::c_int;
     pub fn sceGxmPrecomputedFragmentStateSetAllTextures(
         precomputedState: *mut SceGxmPrecomputedFragmentState,
         textureArray: *const SceGxmTexture,
@@ -12594,10 +13897,6 @@ extern "C" {
         renderTarget: *const SceGxmRenderTarget,
         driverMemBlock: *mut SceUID,
     ) -> crate::ctypes::c_int;
-    pub fn sceGxmRenderTargetGetHostMem(
-        renderTarget: *const SceGxmRenderTarget,
-        hostMem: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
     pub fn sceGxmReserveFragmentDefaultUniformBuffer(
         context: *mut SceGxmContext,
         uniformBuffer: *mut *mut crate::ctypes::c_void,
@@ -12605,11 +13904,6 @@ extern "C" {
     pub fn sceGxmReserveVertexDefaultUniformBuffer(
         context: *mut SceGxmContext,
         uniformBuffer: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmSetAuxiliarySurface(
-        context: *mut SceGxmContext,
-        surfaceIndex: crate::ctypes::c_uint,
-        surface: *const SceGxmAuxiliarySurface,
     ) -> crate::ctypes::c_int;
     pub fn sceGxmSetBackDepthBias(
         context: *mut SceGxmContext,
@@ -12866,11 +14160,6 @@ extern "C" {
     pub fn sceGxmShaderPatcherReleaseVertexProgram(
         shaderPatcher: *mut SceGxmShaderPatcher,
         vertexProgram: *mut SceGxmVertexProgram,
-    ) -> crate::ctypes::c_int;
-    pub fn sceGxmShaderPatcherSetAuxiliarySurface(
-        shaderPatcher: *mut SceGxmShaderPatcher,
-        auxSurfaceIndex: crate::ctypes::c_uint,
-        auxSurface: *const SceGxmAuxiliarySurface,
     ) -> crate::ctypes::c_int;
     pub fn sceGxmShaderPatcherSetUserData(
         shaderPatcher: *mut SceGxmShaderPatcher,
@@ -13479,6 +14768,20 @@ extern "C" {
         subintr_arg: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
 }
+#[link(name = "SceIntrmgrForKernel_363_stub", kind = "static")]
+#[cfg(feature = "SceIntrmgrForKernel_363_stub")]
+extern "C" {}
+#[cfg(any(
+    feature = "SceIntrmgrForKernel_363_stub",
+    feature = "SceIntrmgrForKernel_stub"
+))]
+extern "C" {
+    pub fn ksceKernelQueryIntrHandlerInfo(
+        intr_code: crate::ctypes::c_uint,
+        a2: crate::ctypes::c_uint,
+        a3: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+}
 #[link(name = "SceIntrmgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceIntrmgrForKernel_stub")]
 extern "C" {}
@@ -13575,7 +14878,7 @@ extern "C" {
         device: *const crate::ctypes::c_char,
         unk: crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
-    pub fn ksceIoSyncByFd(fd: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceIoSyncByFd(fd: SceUID, status: *mut crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn ksceIoUmount(
         id: crate::ctypes::c_int,
         a2: crate::ctypes::c_int,
@@ -13587,6 +14890,188 @@ extern "C" {
         data: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceVfsAddVfs(vfs_info: *mut SceVfsInfo) -> crate::ctypes::c_int;
+    pub fn ksceVfsDeleteVfs(
+        name: *const crate::ctypes::c_char,
+        vfs_info: *mut *mut SceVfsInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopChstat(
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        stat: *mut SceIoStat,
+        bit: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopCleanup(vp: *mut SceVfsVnode, file: *mut SceVfsFile) -> crate::ctypes::c_int;
+    pub fn ksceVopClose(vp: *mut SceVfsVnode, file: *mut SceVfsFile) -> crate::ctypes::c_int;
+    pub fn ksceVopCreate(
+        dvp: *mut SceVfsVnode,
+        vpp: *mut *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        flags: crate::ctypes::c_int,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopDclose(vp: *mut SceVfsVnode, file: *mut SceVfsFile) -> crate::ctypes::c_int;
+    pub fn ksceVopDopen(
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        file: *mut SceVfsFile,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopDread(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        dir: *mut SceIoDirent,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopFchstat(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        stat: *mut SceIoStat,
+        bit: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopFgetstat(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        stat: *mut SceIoStat,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopGetstat(
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        stat: *mut SceIoStat,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopInactive(vp: *mut SceVfsVnode) -> crate::ctypes::c_int;
+    pub fn ksceVopIoctl(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        cmd: crate::ctypes::c_int,
+        in_data: *const crate::ctypes::c_void,
+        in_len: SceSize,
+        out_data: *mut crate::ctypes::c_void,
+        out_len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopLink(fvp: *mut SceVfsVnode, tvp: *mut SceVfsVnode) -> crate::ctypes::c_int;
+    pub fn ksceVopLookup(
+        dvp: *mut SceVfsVnode,
+        vpp: *mut *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        flags: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopLseek(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        offset: SceOff,
+        whence: crate::ctypes::c_int,
+    ) -> SceOff;
+    pub fn ksceVopMkdir(
+        dvp: *mut SceVfsVnode,
+        vpp: *mut *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        mode: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopOpen(
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        flags: crate::ctypes::c_int,
+        file: *mut SceVfsFile,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopPread(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        data: *mut crate::ctypes::c_void,
+        nbyte: SceSize,
+        offset: SceOff,
+        pResult: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopPwrite(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        data: *const crate::ctypes::c_void,
+        nbyte: SceSize,
+        offset: SceOff,
+        result: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopRead(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        data: *mut crate::ctypes::c_void,
+        nbyte: SceSize,
+        result: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopRemove(
+        dvp: *mut SceVfsVnode,
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+        flags: SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopRename(
+        odvp: *mut SceVfsVnode,
+        ovp: *mut SceVfsVnode,
+        old_path: *mut SceVfsPath,
+        ndvp: *mut SceVfsVnode,
+        nvpp: *mut *mut SceVfsVnode,
+        new_path: *mut SceVfsPath,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopRmdir(
+        dvp: *mut SceVfsVnode,
+        vp: *mut SceVfsVnode,
+        path: *mut SceVfsPath,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopSync(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopUnlink(fvp: *mut SceVfsVnode, tvp: *mut SceVfsVnode) -> crate::ctypes::c_int;
+    pub fn ksceVopWhiteout(
+        dvp: *mut SceVfsVnode,
+        vp: *mut SceVfsVnode,
+        old_path: *mut SceVfsPath,
+        new_path: *mut SceVfsPath,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopWrite(
+        vp: *mut SceVfsVnode,
+        file: *mut SceVfsFile,
+        data: *const crate::ctypes::c_void,
+        nbyte: SceSize,
+        result: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceVopZerofill(
+        vp: *mut SceVfsVnode,
+        unk: SceUInt64,
+        unk1: SceUInt64,
+        unk2: SceUInt64,
+    ) -> crate::ctypes::c_int;
+    pub fn vfsAllocateFile(
+        vp: *mut SceVfsVnode,
+        file: *mut *mut SceVfsFile,
+        name: *const crate::ctypes::c_char,
+    ) -> SceUID;
+    pub fn vfsFreeFile(vp: *mut SceVfsVnode, fd: SceUID) -> crate::ctypes::c_int;
+    pub fn vfsFreeVnode(vp: *mut SceVfsVnode) -> crate::ctypes::c_int;
+    pub fn vfsGetNewVnode(
+        mnt: *mut SceVfsMount,
+        vops: *mut SceVopTable,
+        unk: crate::ctypes::c_int,
+        vpp: *mut *mut SceVfsVnode,
+    ) -> crate::ctypes::c_int;
+    pub fn vfsGetVnodeName(
+        vp: *mut SceVfsVnode,
+        name: *mut crate::ctypes::c_char,
+        n: SceSize,
+        result: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn vfsIsLockedMnt(mnt: *mut SceVfsMount) -> SceBool;
+    pub fn vfsIsOwnerVnode(vp: *mut SceVfsVnode) -> SceBool;
+    pub fn vfsLockMnt(mnt: *mut SceVfsMount) -> crate::ctypes::c_int;
+    pub fn vfsLockVnode(vp: *mut SceVfsVnode) -> crate::ctypes::c_int;
+    pub fn vfsMount(param: *mut SceVfsMountParam) -> crate::ctypes::c_int;
+    pub fn vfsMountForPFS(param: *mut SceVfsMountParam) -> crate::ctypes::c_int;
+    pub fn vfsUmount(param: *mut SceVfsUmountParam) -> crate::ctypes::c_int;
+    pub fn vfsUmountForPFS(
+        param: *mut SceVfsUmountParam,
+        unk: crate::ctypes::c_int,
+        unk2: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn vfsUnlockMnt(mnt: *mut SceVfsMount) -> crate::ctypes::c_int;
+    pub fn vfsUnlockVnode(vp: *mut SceVfsVnode) -> crate::ctypes::c_int;
 }
 #[link(name = "SceIofilemgr_stub", kind = "static")]
 #[cfg(feature = "SceIofilemgr_stub")]
@@ -13855,6 +15340,10 @@ extern "C" {
         thid: SceUID,
         priority: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn sceKernelChangeThreadVfpException(
+        clear: SceUInt32,
+        set: SceUInt32,
+    ) -> crate::ctypes::c_int;
     pub fn sceKernelCheckCallback() -> crate::ctypes::c_int;
     pub fn sceKernelClearEventFlag(
         evid: SceUID,
@@ -13920,6 +15409,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     pub fn sceKernelUnlockReadRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
     pub fn sceKernelUnlockWriteRWLock(rwlock_id: SceUID) -> crate::ctypes::c_int;
+    pub fn sceKernelUnregisterThreadEventHandler(id: SceUID) -> SceUID;
 }
 #[link(name = "SceKernelUtilsForDriver_stub", kind = "static")]
 #[cfg(feature = "SceKernelUtilsForDriver_stub")]
@@ -14200,6 +15690,11 @@ extern "C" {}
 #[cfg(feature = "SceLibKernel_stub")]
 extern "C" {
     pub fn sceClibAbort();
+    pub fn sceClibDprintf(
+        fd: SceUID,
+        fmt: *const crate::ctypes::c_char,
+        ...
+    ) -> crate::ctypes::c_int;
     pub fn sceClibLookCtypeTable(ch: crate::ctypes::c_char) -> crate::ctypes::c_char;
     pub fn sceClibMemchr(
         src: *const crate::ctypes::c_void,
@@ -14309,6 +15804,8 @@ extern "C" {
     ) -> *mut crate::ctypes::c_char;
     pub fn sceClibTolower(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
     pub fn sceClibToupper(ch: crate::ctypes::c_char) -> crate::ctypes::c_int;
+    pub fn sceClibVprintf(fmt: *const crate::ctypes::c_char, args: va_list)
+        -> crate::ctypes::c_int;
     pub fn sceClibVsnprintf(
         dst: *mut crate::ctypes::c_char,
         dst_max_size: SceSize,
@@ -14683,6 +16180,13 @@ extern "C" {
         unk2: *mut crate::ctypes::c_void,
         timeout: *mut crate::ctypes::c_uint,
     ) -> crate::ctypes::c_int;
+    pub fn sceKernelRegisterThreadEventHandler(
+        name: *const crate::ctypes::c_char,
+        thid: SceUID,
+        eventMask: SceInt32,
+        handler: SceKernelThreadEventHandler,
+        common: *mut crate::ctypes::c_void,
+    ) -> SceUID;
     pub fn sceKernelSendMsgPipe(
         uid: SceUID,
         message: *mut crate::ctypes::c_void,
@@ -15006,10 +16510,113 @@ extern "C" {}
     feature = "SceModulemgrForKernel_stub"
 ))]
 extern "C" {
+    pub fn ksceKernelFinalizeKbl();
+    pub fn ksceKernelGetExportedLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetImportedLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibEntCBListForSyslibtrace(
+        ppList: *mut *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibraryClientList(
+        pid: SceUID,
+        library_id: SceUID,
+        modids: *mut SceUID,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibraryDBFlags(
+        pid: SceUID,
+        pFlags: *mut crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibraryExportInfoForDebugger(
+        pid: SceUID,
+        library_id: SceUID,
+        list: *mut SceKernelModuleExportEntry,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibraryInfoForDebugger(
+        pid: SceUID,
+        library_id: SceUID,
+        info: *mut SceKernelModuleLibraryInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLibraryList(
+        pid: SceUID,
+        library_ids: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLostLibraryInfo(
+        pid: SceUID,
+        modid: SceUID,
+        libnid: SceNID,
+        info: *mut SceKernelModuleImportNonlinkedInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLostLibraryList(
+        pid: SceUID,
+        a2: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetLostLibraryListInModule(
+        pid: SceUID,
+        modid: SceUID,
+        pList: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetMetaDataForDebugger(
+        pid: SceUID,
+        uModuleId: SceUID,
+        start: *mut *mut crate::ctypes::c_void,
+        stop: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleCB(
+        modid: SceUID,
+        info: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleCBByAddr(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+        info: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleEntryPoint(modid: SceUID) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelGetModuleFingerprint(
+        moduleId: SceUID,
+        pFingerprint: *mut SceUInt32,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleIdByAddrForDebugger(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
     pub fn ksceKernelGetModuleInfo(
         pid: SceUID,
         modid: SceUID,
         info: *mut SceKernelModuleInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleInfoForDebugger(
+        pid: SceUID,
+        infolists: *mut SceKernelModuleListInfo,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleInfoMinByAddr(
+        pid: SceUID,
+        module_addr: *const crate::ctypes::c_void,
+        module_nid: *mut u32,
+        program_text_addr: *mut *const crate::ctypes::c_void,
+        module_name: *mut SceKernelModuleName,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModuleIsSharedByAddr(
+        pid: SceUID,
+        addr: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelGetModuleList(
         pid: SceUID,
@@ -15018,15 +16625,66 @@ extern "C" {
         modids: *mut SceUID,
         num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetModulePath(
+        modid: SceUID,
+        path: *mut crate::ctypes::c_char,
+        pathlen: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProgramIdentificationInfo(
+        path: *const crate::ctypes::c_char,
+        pAuthid: *mut SceUInt64,
+        pInfo: *mut SceSelfAppInfo,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetStubInfoForDebugger(
+        pid: SceUID,
+        stubid: SceUID,
+        a3: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetStubList(
+        pid: SceUID,
+        stub: *mut SceUID,
+        num: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetStubNidTableForDebugger(
+        pid: SceUID,
+        stubid: SceUID,
+        a3: *mut crate::ctypes::c_void,
+        num: *mut SceSize,
+        cpy_skip_num: SceSize,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelLoadModuleForPid(
         pid: SceUID,
         path: *const crate::ctypes::c_char,
         flags: crate::ctypes::c_int,
         option: *mut SceKernelLMOption,
     ) -> SceUID;
+    pub fn ksceKernelLoadPreloadingModules(
+        pid: SceUID,
+        pParam: *const SceLoadProcessParam,
+        flags: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelLoadProcessImage(
+        pid: SceUID,
+        path: *const crate::ctypes::c_char,
+        flags: crate::ctypes::c_int,
+        auth_info: *mut SceSelfAuthInfo,
+        param: *mut SceLoadProcessParam,
+        shim_info: *mut SceKernelCompatibilityShimInfo,
+    ) -> SceUID;
+    pub fn ksceKernelLoadPtLoadSegForFwloader(
+        path: *const crate::ctypes::c_char,
+        e_phnum: crate::ctypes::c_int,
+        buffer: *mut crate::ctypes::c_void,
+        bufsize: SceSize,
+        zero_unk: crate::ctypes::c_int,
+        bytes_read: *mut SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelModuleUnloadMySelf() -> crate::ctypes::c_int;
     pub fn ksceKernelMountBootfs(
         bootImagePath: *const crate::ctypes::c_char,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelRegisterModulesAfterBoot();
+    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
     pub fn ksceKernelStartModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -15036,6 +16694,7 @@ extern "C" {
         option: *mut SceKernelLMOption,
         status: *mut crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelStartPreloadingModules(pid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceKernelStopModuleForPid(
         pid: SceUID,
         modid: SceUID,
@@ -15052,49 +16711,11 @@ extern "C" {
         flags: crate::ctypes::c_int,
         option: *mut SceKernelULMOption,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnloadProcessModules(pid: SceUID) -> crate::ctypes::c_int;
 }
 #[link(name = "SceModulemgrForKernel_stub", kind = "static")]
 #[cfg(feature = "SceModulemgrForKernel_stub")]
-extern "C" {
-    pub fn ksceKernelGetLibraryInfoForDebugger(
-        pid: SceUID,
-        library_id: SceUID,
-        info: *mut SceKernelModuleLibraryInfo,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetModuleCB(
-        modid: SceUID,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetModuleCBByAddr(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-        info: *mut *mut crate::ctypes::c_void,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetModuleIdByAddrForDebugger(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-    ) -> SceUID;
-    pub fn ksceKernelGetModuleIdByPid(pid: SceUID) -> SceUID;
-    pub fn ksceKernelGetModuleInfoForDebugger(
-        pid: SceUID,
-        infolists: *mut SceKernelModuleListInfo,
-        num: *mut SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetModuleInfoMinByAddr(
-        pid: SceUID,
-        module_addr: *const crate::ctypes::c_void,
-        module_nid: *mut u32,
-        program_text_addr: *mut *const crate::ctypes::c_void,
-        module_name: *mut SceKernelModuleName,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetModulePath(
-        modid: SceUID,
-        path: *mut crate::ctypes::c_char,
-        pathlen: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelRegisterModulesAfterBoot();
-    pub fn ksceKernelRegisterSyscall(syscall_id: SceSize, func: *const crate::ctypes::c_void);
-}
+extern "C" {}
 #[link(name = "SceMotionDevForDriver_stub", kind = "static")]
 #[cfg(feature = "SceMotionDevForDriver_stub")]
 extern "C" {}
@@ -15235,7 +16856,75 @@ extern "C" {}
 extern "C" {}
 #[link(name = "SceNetAdhocMatching_stub", kind = "static")]
 #[cfg(feature = "SceNetAdhocMatching_stub")]
-extern "C" {}
+extern "C" {
+    pub fn sceNetAdhocMatchingAbortSendData(
+        id: crate::ctypes::c_int,
+        addr: *mut SceNetInAddr,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingCancelTarget(
+        id: crate::ctypes::c_int,
+        target: *mut SceNetInAddr,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingCancelTargetWithOpt(
+        id: crate::ctypes::c_int,
+        target: *mut SceNetInAddr,
+        opt_len: crate::ctypes::c_int,
+        opt: *mut crate::ctypes::c_char,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingCreate(
+        mode: SceNetAdhocMatchingMode,
+        max_members: crate::ctypes::c_int,
+        port: SceUShort16,
+        rx_buffer_len: crate::ctypes::c_int,
+        hello_interval: crate::ctypes::c_uint,
+        keep_alive_interval: crate::ctypes::c_uint,
+        retry_count: crate::ctypes::c_int,
+        rexmt_interval: crate::ctypes::c_uint,
+        handler_callback: SceNetAdhocMatchingCallback,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingDelete(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingGetHelloOpt(
+        id: crate::ctypes::c_int,
+        opt_len: *mut crate::ctypes::c_uint,
+        opt: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingGetMembers(
+        id: crate::ctypes::c_int,
+        members_count: *mut crate::ctypes::c_uint,
+        members: *mut SceNetAdhocMatchingMember,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingInit(
+        pool_size: crate::ctypes::c_uint,
+        pool_ptr: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingSelectTarget(
+        id: crate::ctypes::c_int,
+        target: *mut SceNetInAddr,
+        opt_len: crate::ctypes::c_int,
+        opt: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingSendData(
+        id: crate::ctypes::c_int,
+        addr: *mut SceNetInAddr,
+        data_len: crate::ctypes::c_int,
+        data: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingSetHelloOpt(
+        id: crate::ctypes::c_int,
+        opt_len: crate::ctypes::c_int,
+        opt: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingStart(
+        id: crate::ctypes::c_int,
+        thread_priority: crate::ctypes::c_int,
+        thread_stack_size: crate::ctypes::c_int,
+        thread_cpu_affinity_mask: crate::ctypes::c_int,
+        hello_opt_len: crate::ctypes::c_int,
+        hello_opt: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingStop(id: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn sceNetAdhocMatchingTerm() -> crate::ctypes::c_int;
+}
 #[link(name = "SceNetCtl_stub", kind = "static")]
 #[cfg(feature = "SceNetCtl_stub")]
 extern "C" {
@@ -15954,7 +17643,7 @@ extern "C" {
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
     pub fn ksceNpDrmGetRifInfo(
-        license: *const crate::ctypes::c_void,
+        license: *const SceNpDrmLicense,
         license_size: SceSize,
         check_sign: crate::ctypes::c_int,
         content_id: *mut crate::ctypes::c_char,
@@ -15972,14 +17661,14 @@ extern "C" {
         aid: SceUInt64,
     ) -> crate::ctypes::c_int;
     pub fn ksceNpDrmGetRifPspKey(
-        license: *const crate::ctypes::c_void,
+        license: *const SceNpDrmLicense,
         klicense: *mut crate::ctypes::c_void,
         flags: *mut crate::ctypes::c_int,
         lic_start_time: *mut SceUInt64,
         lic_exp_time: *mut SceUInt64,
     ) -> crate::ctypes::c_int;
     pub fn ksceNpDrmGetRifVitaKey(
-        license: *const crate::ctypes::c_void,
+        license: *const SceNpDrmLicense,
         klicense: *mut crate::ctypes::c_void,
         flags: *mut crate::ctypes::c_int,
         sku_flags: *mut crate::ctypes::c_int,
@@ -16016,7 +17705,7 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     pub fn _sceNpDrmGetRifNameForInstall(
         rif_name: *mut crate::ctypes::c_char,
-        rif_data: *const crate::ctypes::c_void,
+        rif_data: *const SceNpDrmLicense,
         unk: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
     pub fn _sceNpDrmPackageCheck(
@@ -16032,8 +17721,9 @@ extern "C" {
     ) -> crate::ctypes::c_int;
     pub fn scePsmDrmGetRifKey(
         license_buf: *const ScePsmDrmLicense,
-        keydata: *mut crate::ctypes::c_char,
-        flags: crate::ctypes::c_int,
+        keydata: *mut ScePsmDrmKeySet,
+        flags: *mut crate::ctypes::c_int,
+        exp_time: *mut ScePsmDrmExpireTime,
     ) -> crate::ctypes::c_int;
 }
 #[link(name = "SceNpManager_stub", kind = "static")]
@@ -16562,7 +18252,7 @@ extern "C" {
     pub fn scePowerRequestSuspend() -> crate::ctypes::c_int;
     pub fn scePowerSetArmClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn scePowerSetBusClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
-    pub fn scePowerSetConfigurationMode(conf: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn scePowerSetConfigurationMode(mode: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn scePowerSetGpuClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn scePowerSetGpuXbarClockFrequency(freq: crate::ctypes::c_int) -> crate::ctypes::c_int;
     pub fn scePowerSetUsingWireless(enabled: SceBool) -> crate::ctypes::c_int;
@@ -16601,29 +18291,35 @@ extern "C" {}
     feature = "SceProcessmgrForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
-}
-#[link(name = "SceProcessmgrForKernel_stub", kind = "static")]
-#[cfg(feature = "SceProcessmgrForKernel_stub")]
-extern "C" {
     pub fn ksceKernelCreateProcess(
         titleid: *const crate::ctypes::c_char,
         type_: SceKernelProcessType,
         path: *const crate::ctypes::c_char,
         opt: *mut crate::ctypes::c_void,
     ) -> SceUID;
+    pub fn ksceKernelExitProcess(status: crate::ctypes::c_int) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetProcessKernelBuf(pid: SceUID) -> *mut crate::ctypes::c_void;
     pub fn ksceKernelGetProcessMainThread(pid: SceUID) -> SceUID;
     pub fn ksceKernelGetProcessModuleInfo(pid: SceUID) -> ScePVoid;
     pub fn ksceKernelGetProcessSelfAuthInfo(
         pid: SceUID,
         self_auth_info: *mut SceSelfAuthInfo,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetUIDProcessClass() -> *mut SceClass;
+    pub fn ksceKernelLibcGettimeofday(
+        tv: *mut SceKernelTimeval,
+        tz: *mut SceKernelTimezone,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelLibcTime(tloc: *mut SceKernelTime) -> SceKernelTime;
     pub fn ksceKernelResumeProcess(pid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceKernelSuspendProcess(
         pid: SceUID,
         status: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
 }
+#[link(name = "SceProcessmgrForKernel_stub", kind = "static")]
+#[cfg(feature = "SceProcessmgrForKernel_stub")]
+extern "C" {}
 #[link(name = "SceProcessmgr_stub", kind = "static")]
 #[cfg(feature = "SceProcessmgr_stub")]
 extern "C" {
@@ -17361,6 +19057,22 @@ extern "C" {
 #[link(name = "SceSblFwLoaderForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSblFwLoaderForDriver_stub")]
 extern "C" {}
+#[link(name = "SceSblGcAuthMgrDrmBBForDriver_stub", kind = "static")]
+#[cfg(feature = "SceSblGcAuthMgrDrmBBForDriver_stub")]
+extern "C" {
+    pub fn ksceSblGcAuthMgrDrmBBCheckCartHash(
+        hash: *const crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSblGcAuthMgrDrmBBClearCartSecret() -> crate::ctypes::c_int;
+    pub fn ksceSblGcAuthMgrDrmBBGetCartSecret(
+        secret: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+}
+#[link(name = "SceSblGcAuthMgrGcAuthForDriver_stub", kind = "static")]
+#[cfg(feature = "SceSblGcAuthMgrGcAuthForDriver_stub")]
+extern "C" {
+    pub fn ksceSblGcAuthMgrGcAuthCartAuthentication(key_id: SceUInt32) -> crate::ctypes::c_int;
+}
 #[link(name = "SceSblGcAuthMgr_stub", kind = "static")]
 #[cfg(feature = "SceSblGcAuthMgr_stub")]
 extern "C" {}
@@ -17489,7 +19201,25 @@ extern "C" {
 }
 #[link(name = "SceSdifForDriver_stub", kind = "static")]
 #[cfg(feature = "SceSdifForDriver_stub")]
-extern "C" {}
+extern "C" {
+    pub fn ksceSdifGetSdContextPartValidateMmc(
+        dev_index: SceSdifDeviceIndex,
+    ) -> *mut SceSdifDeviceContext;
+    pub fn ksceSdifInitializeMmcDevice(
+        dev_index: SceSdifDeviceIndex,
+        dev_ctx: *mut SceSdifDeviceContext,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSdifReadCmd56(
+        dev_ctx: *mut SceSdifDeviceContext,
+        buf: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceSdifWriteCmd56(
+        dev_ctx: *mut SceSdifDeviceContext,
+        buf: *const crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+}
 #[link(name = "SceShaccCg_stub", kind = "static")]
 #[cfg(feature = "SceShaccCg_stub")]
 extern "C" {
@@ -17771,13 +19501,38 @@ extern "C" {
         size: SceSize,
         opt: *mut SceKernelAllocMemBlockKernelOpt,
     ) -> SceUID;
-    pub fn ksceKernelCreateClass(
-        cls: *mut SceClass,
-        name: *const crate::ctypes::c_char,
-        uidclass: *mut crate::ctypes::c_void,
-        itemsize: SceSize,
-        create: SceClassCallback,
-        destroy: SceClassCallback,
+    pub fn ksceKernelCopyFromToUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyFromToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyFromUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyFromUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyToUser(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelCreateHeap(
         name: *const crate::ctypes::c_char,
@@ -17789,7 +19544,7 @@ extern "C" {
         addr: *const crate::ctypes::c_void,
         size: SceSize,
     ) -> SceUID;
-    pub fn ksceKernelFindMemBlockByAddrForPid(
+    pub fn ksceKernelFindProcMemBlockByAddr(
         pid: SceUID,
         addr: *const crate::ctypes::c_void,
         size: SceSize,
@@ -17807,90 +19562,26 @@ extern "C" {
         uid: SceUID,
         base: *mut *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetPidContext(
-        pid: SceUID,
-        ctx: *mut *mut SceKernelProcessContext,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetUidClass() -> *mut SceClass;
-    pub fn ksceKernelMapBlockUserVisible(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelMapUserBlock(
-        name: *const crate::ctypes::c_char,
-        permission: crate::ctypes::c_int,
-        type_: crate::ctypes::c_int,
-        user_buf: *const crate::ctypes::c_void,
-        size: SceSize,
-        kernel_page: *mut *mut crate::ctypes::c_void,
-        kernel_size: *mut SceSize,
-        kernel_offset: *mut crate::ctypes::c_uint,
-    ) -> SceUID;
-    pub fn ksceKernelMemBlockRelease(uid: SceUID) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeRelease(
+    pub fn ksceKernelGetUIDClass() -> *mut SceClass;
+    pub fn ksceKernelLockRange(
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeReleaseForPid(
+    pub fn ksceKernelLockRangeProc(
         pid: SceUID,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeReleaseWithPerm(
+    pub fn ksceKernelLockRangeWithMode(
         perm: SceKernelMemoryRefPerm,
         addr: *mut crate::ctypes::c_void,
         size: SceSize,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeRetain(
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
+    pub fn ksceKernelMapMemBlock(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelMapMemBlockWithFlag(
+        uid: SceUID,
+        flag: crate::ctypes::c_int,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeRetainForPid(
-        pid: SceUID,
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemRangeRetainWithPerm(
-        perm: SceKernelMemoryRefPerm,
-        addr: *mut crate::ctypes::c_void,
-        size: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemcpyFromUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemcpyToUser(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelProcMemcpyFromUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelProcMemcpyToUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelProcStrncpyFromUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-    pub fn ksceKernelProcStrncpyToUser(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_char,
-        src: *const crate::ctypes::c_char,
-        len: SceSize,
-    ) -> SceSSize;
-    pub fn ksceKernelProcStrnlenUser(
-        pid: SceUID,
-        s: *const crate::ctypes::c_char,
-        n: SceSize,
-    ) -> SceSSize;
     pub fn ksceKernelProcUserMap(
         pid: SceUID,
         name: *const crate::ctypes::c_char,
@@ -17901,12 +19592,6 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
-    pub fn ksceKernelProcUserMemcpy(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
     pub fn ksceKernelProcessGetContext(
         pid: SceUID,
         ctx: *mut *mut SceKernelProcessContext,
@@ -17915,8 +19600,17 @@ extern "C" {
         new_context: *const SceKernelProcessContext,
         prev_context: *mut SceKernelProcessContext,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelRemapBlock(uid: SceUID, type_: SceKernelMemBlockType) -> crate::ctypes::c_int;
+    pub fn ksceKernelRemapMemBlock(
+        uid: SceUID,
+        type_: SceKernelMemBlockType,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelStrncpyFromUser(
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+    pub fn ksceKernelStrncpyFromUserProc(
+        pid: SceUID,
         dst: *mut crate::ctypes::c_char,
         src: *const crate::ctypes::c_char,
         len: SceSize,
@@ -17926,8 +19620,33 @@ extern "C" {
         src: *const crate::ctypes::c_char,
         len: SceSize,
     ) -> SceSSize;
-    pub fn ksceKernelStrnlenUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
-    pub fn ksceKernelSwitchVmaForPid(pid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelStrncpyToUserProc(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_char,
+        src: *const crate::ctypes::c_char,
+        len: SceSize,
+    ) -> SceSSize;
+    pub fn ksceKernelStrnlenFromUser(s: *const crate::ctypes::c_char, n: SceSize) -> SceSize;
+    pub fn ksceKernelStrnlenFromUserProc(
+        pid: SceUID,
+        s: *const crate::ctypes::c_char,
+        n: SceSize,
+    ) -> SceSSize;
+    pub fn ksceKernelUnlockRange(
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnlockRangeProc(
+        pid: SceUID,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnlockRangeWithMode(
+        perm: SceKernelMemoryRefPerm,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelUnmapMemBlock(uid: SceUID) -> crate::ctypes::c_int;
     pub fn ksceKernelUserMap(
         name: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
@@ -17937,10 +19656,20 @@ extern "C" {
         kernel_size: *mut SceSize,
         kernel_offset: *mut SceUInt32,
     ) -> SceUID;
-    pub fn ksceKernelUserMemcpy(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelUserMapWithFlags(
+        name: *const crate::ctypes::c_char,
+        permission: crate::ctypes::c_int,
+        flags: crate::ctypes::c_int,
+        user_buf: *const crate::ctypes::c_void,
+        size: SceSize,
+        kernel_page: *mut *mut crate::ctypes::c_void,
+        kernel_size: *mut SceSize,
+        kernel_offset: *mut crate::ctypes::c_uint,
+    ) -> SceUID;
+    pub fn ksceKernelUserUnmap(uid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelVARangeToPARange(
+        va_range: *const SceKernelVARange,
+        pa_range: *mut SceKernelPARange,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelVARangeToPAVector(
         va_range: *const SceKernelVARange,
@@ -17953,6 +19682,14 @@ extern "C" {
     pub fn kscePUIDClose(pid: SceUID, puid: SceUID) -> crate::ctypes::c_int;
     pub fn kscePUIDOpenByGUID(pid: SceUID, guid: SceUID) -> SceUID;
     pub fn kscePUIDtoGUID(pid: SceUID, puid: SceUID) -> SceUID;
+    pub fn ksceUIDClassInitClass(
+        cls: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        uidclass: *mut crate::ctypes::c_void,
+        itemsize: SceSize,
+        create: SceClassCallback,
+        destroy: SceClassCallback,
+    ) -> crate::ctypes::c_int;
 }
 #[link(name = "SceSysmemForKernel_363_stub", kind = "static")]
 #[cfg(feature = "SceSysmemForKernel_363_stub")]
@@ -17962,30 +19699,11 @@ extern "C" {}
     feature = "SceSysmemForKernel_stub"
 ))]
 extern "C" {
-    pub fn ksceGUIDKernelCreateWithOpt(
-        sce_class: *mut SceClass,
-        name: *const crate::ctypes::c_char,
-        opt: *mut SceGUIDKernelCreateOpt,
-        obj: *mut *mut SceObjectBase,
-    ) -> SceUID;
-    pub fn ksceKernelFindClassByName(
-        name: *const crate::ctypes::c_char,
-        cls: *mut *mut SceClass,
-    ) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetMemBlockType(
+    pub fn ksceGUIDGetObjectWithClass(
         uid: SceUID,
-        type_: *mut crate::ctypes::c_uint,
+        pClass: *mut SceClass,
+        obj: *mut *mut SceObjectBase,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelProcMemcpyToUserRx(
-        pid: SceUID,
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
-    ) -> crate::ctypes::c_int;
-}
-#[link(name = "SceSysmemForKernel_stub", kind = "static")]
-#[cfg(feature = "SceSysmemForKernel_stub")]
-extern "C" {
     pub fn ksceGUIDGetUIDVectorByClass(
         cls: *mut SceClass,
         vis_level: crate::ctypes::c_int,
@@ -17993,22 +19711,104 @@ extern "C" {
         num: SceSize,
         ret_num: *mut SceSize,
     ) -> crate::ctypes::c_int;
+    pub fn ksceGUIDKernelCreateWithAttr(
+        pClass: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        attr: SceUInt32,
+        ppEntry: *mut *mut SceObjectBase,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceGUIDKernelCreateWithOpt(
+        sce_class: *mut SceClass,
+        name: *const crate::ctypes::c_char,
+        opt: *mut SceGUIDKernelCreateOpt,
+        obj: *mut *mut SceObjectBase,
+    ) -> SceUID;
+    pub fn ksceGUIDOpenByGUID(guid: SceUID) -> SceUID;
+    pub fn ksceKernelAddressSpaceFreeAllMemBlock(guid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelAddressSpaceSetPhyMemPart(
+        guid: SceUID,
+        index: SceUInt32,
+        pPhyMemPart: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelAddressSpaceUnmap(
+        uid: SceUID,
+        a2: crate::ctypes::c_int,
+        a3: crate::ctypes::c_int,
+        addr: *mut crate::ctypes::c_void,
+        size: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelAddressSpaceVAtoPA(
+        pAS: *mut crate::ctypes::c_void,
+        mode: SceUInt32,
+        pVA: *mut crate::ctypes::c_void,
+        pPA: *mut *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelAlloc(size: crate::ctypes::c_uint) -> *mut crate::ctypes::c_void;
+    pub fn ksceKernelAllocPartitionMemBlock(
+        part: SceUID,
+        name: *const crate::ctypes::c_char,
+        type_: SceKernelMemBlockType,
+        size: SceSize,
+        pOpt: *const SceKernelAllocMemBlockOptKernel,
+    ) -> SceUID;
+    pub fn ksceKernelCopyToUserDomain(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyToUserProcTextDomain(
+        pid: SceUID,
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCopyToUserTextDomain(
+        dst: *mut crate::ctypes::c_void,
+        src: *const crate::ctypes::c_void,
+        len: SceSize,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelCreateAddressSpace(
+        pid: SceUID,
+        name: *const crate::ctypes::c_char,
+        type_: SceUInt32,
+        pOpt: *mut crate::ctypes::c_void,
+    ) -> SceUID;
+    pub fn ksceKernelDeleteAddressSpace(guid: SceUID) -> crate::ctypes::c_int;
+    pub fn ksceKernelFindClassByName(
+        name: *const crate::ctypes::c_char,
+        cls: *mut *mut SceClass,
+    ) -> crate::ctypes::c_int;
     pub fn ksceKernelFree(ptr: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
-    pub fn ksceKernelGetUidDLinkClass() -> *mut SceClass;
-    pub fn ksceKernelGetUidHeapClass() -> *mut SceClass;
-    pub fn ksceKernelGetUidMemBlockClass() -> *mut SceClass;
-    pub fn ksceKernelMemcpyToUserRo(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelFreeSimpleMemBlock(a1: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetFixedHeapInfoByPointer(
+        pFixedHeap: *mut crate::ctypes::c_void,
+        pInfo: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
-    pub fn ksceKernelMemcpyToUserRx(
-        dst: *mut crate::ctypes::c_void,
-        src: *const crate::ctypes::c_void,
-        len: SceSize,
+    pub fn ksceKernelGetHeapInfo(
+        heapid: SceUID,
+        level: SceUInt32,
+        pInfo: *mut crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetHeapInfoByPtr(
+        pObject: *mut crate::ctypes::c_void,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetMemBlockType(
+        uid: SceUID,
+        type_: *mut crate::ctypes::c_uint,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelGetUIDDLinkClass() -> *mut SceClass;
+    pub fn ksceKernelGetUIDHeapClass() -> *mut SceClass;
+    pub fn ksceKernelGetUIDMemBlockClass() -> *mut SceClass;
+    pub fn ksceKernelNameHeapGetInfo(pInfo: *mut crate::ctypes::c_void) -> crate::ctypes::c_int;
+    pub fn ksceKernelUIDEntryHeapGetInfo(
+        entryHeapId: SceUID,
+        pInfo: *mut crate::ctypes::c_void,
+    ) -> SceInt32;
 }
+#[link(name = "SceSysmemForKernel_stub", kind = "static")]
+#[cfg(feature = "SceSysmemForKernel_stub")]
+extern "C" {}
 #[link(name = "SceSysmem_stub", kind = "static")]
 #[cfg(feature = "SceSysmem_stub")]
 extern "C" {
@@ -18184,6 +19984,10 @@ extern "C" {
     pub fn ksceKernelChangeThreadSuspendStatus(
         thid: SceUID,
         status: crate::ctypes::c_int,
+    ) -> crate::ctypes::c_int;
+    pub fn ksceKernelChangeThreadVfpException(
+        clear: SceUInt32,
+        set: SceUInt32,
     ) -> crate::ctypes::c_int;
     pub fn ksceKernelCheckCallback() -> crate::ctypes::c_int;
     pub fn ksceKernelClearEventFlag(
@@ -19012,7 +20816,7 @@ extern "C" {}
 #[cfg(feature = "SceVshBridge_stub")]
 extern "C" {
     pub fn _vshIoMount(
-        id: crate::ctypes::c_int,
+        id: SceVshMountId,
         path: *const crate::ctypes::c_char,
         permission: crate::ctypes::c_int,
         buf: *mut crate::ctypes::c_void,
@@ -19074,7 +20878,7 @@ extern "C" {
         buf: *const crate::ctypes::c_void,
     ) -> crate::ctypes::c_int;
     pub fn vshIoUmount(
-        id: crate::ctypes::c_int,
+        id: SceVshMountId,
         force: crate::ctypes::c_int,
         unk2: crate::ctypes::c_int,
         unk3: crate::ctypes::c_int,
@@ -19287,6 +21091,12 @@ pub type SceExcpKind = crate::ctypes::c_uint;
 pub type SceExcpmgrExceptionHandler = ::core::option::Option<
     unsafe extern "C" fn(context: *mut SceExcpmgrExceptionContext, code: SceExcpHandlingCode),
 >;
+pub type SceExfatfsDateTime = _SceExfatfsDateTime;
+pub type SceExfatfsDrive = _SceExfatfsDrive;
+pub type SceExfatfsFile = _SceExfatfsFile;
+pub type SceExfatfsFileSystem = _SceExfatfsFileSystem;
+pub type SceExfatfsFnode = _SceExfatfsFnode;
+pub type SceExfatfsSharedResource = _SceExfatfsSharedResource;
 pub type SceFiberEntry =
     ::core::option::Option<unsafe extern "C" fn(argOnInitialize: SceUInt32, argOnRun: SceUInt32)>;
 pub type SceFiberErrorCode = crate::ctypes::c_uint;
@@ -19334,6 +21144,7 @@ pub type SceGxmErrorCode = crate::ctypes::c_uint;
 pub type SceGxmFragmentProgramMode = crate::ctypes::c_uint;
 pub type SceGxmIndexFormat = crate::ctypes::c_uint;
 pub type SceGxmIndexSource = crate::ctypes::c_uint;
+pub type SceGxmInitializeFlags = crate::ctypes::c_uint;
 pub type SceGxmLineFillLastPixelMode = crate::ctypes::c_uint;
 pub type SceGxmMemoryAttribFlags = crate::ctypes::c_uint;
 pub type SceGxmMidSceneFlags = crate::ctypes::c_uint;
@@ -19517,6 +21328,7 @@ pub type SceJpegEncoderHeaderMode = crate::ctypes::c_uint;
 pub type SceJpegEncoderInitParamOption = crate::ctypes::c_uint;
 pub type SceJpegEncoderPixelFormat = crate::ctypes::c_uint;
 pub type SceKernelAllocMemBlockAttr = crate::ctypes::c_uint;
+pub type SceKernelAllocMemBlockOptKernel = SceKernelAllocMemBlockKernelOpt;
 pub type SceKernelAssertLevel = crate::ctypes::c_uint;
 pub type SceKernelCallbackFunction = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19527,6 +21339,7 @@ pub type SceKernelCallbackFunction = ::core::option::Option<
     ) -> crate::ctypes::c_int,
 >;
 pub type SceKernelClock = SceUInt64;
+pub type SceKernelCompatibilityShimInfo = _SceKernelCompatibilityShimInfo;
 pub type SceKernelCoredumpStateFinishCallback = ::core::option::Option<
     unsafe extern "C" fn(
         task_id: crate::ctypes::c_int,
@@ -19568,6 +21381,7 @@ pub type SceKernelDmaOpFlag = crate::ctypes::c_uint;
 pub type SceKernelDmaOpId = SceInt32;
 pub type SceKernelDmaOpSyncMode = crate::ctypes::c_uint;
 pub type SceKernelErrorCode = crate::ctypes::c_uint;
+pub type SceKernelFunctionShimInfo = _SceKernelFunctionShimInfo;
 pub type SceKernelFwInfo = SceKernelSystemSwVersion;
 pub type SceKernelGetSystemSwVersionFunc =
     ::core::option::Option<unsafe extern "C" fn() -> crate::ctypes::c_int>;
@@ -19601,6 +21415,7 @@ pub type SceKernelIntrOptHandlersCb3 = ::core::option::Option<
     ) -> crate::ctypes::c_int,
 >;
 pub type SceKernelIntrStatus = crate::ctypes::c_int;
+pub type SceKernelLibraryShimInfo = _SceKernelLibraryShimInfo;
 pub type SceKernelMemBlockType = SceUInt32;
 pub type SceKernelMemoryAccessType = crate::ctypes::c_uint;
 pub type SceKernelMemoryRefPerm = crate::ctypes::c_uint;
@@ -19628,6 +21443,15 @@ pub type SceKernelSysrootSelfIndex = crate::ctypes::c_uint;
 pub type SceKernelThreadEntry = ::core::option::Option<
     unsafe extern "C" fn(args: SceSize, argp: *mut crate::ctypes::c_void) -> crate::ctypes::c_int,
 >;
+pub type SceKernelThreadEventHandler = ::core::option::Option<
+    unsafe extern "C" fn(
+        type_: SceInt32,
+        threadId: SceUID,
+        arg: SceInt32,
+        pCommon: *mut crate::ctypes::c_void,
+    ) -> crate::ctypes::c_int,
+>;
+pub type SceKernelThreadEventType = crate::ctypes::c_uint;
 pub type SceKernelTime = SceUInt32;
 pub type SceKernelWaitableAttribute = crate::ctypes::c_uint;
 pub type SceKernelWorkQueueWorkFunction = ::core::option::Option<
@@ -19671,14 +21495,25 @@ pub type SceMsgDialogProgressBarTarget = crate::ctypes::c_uint;
 pub type SceMsgDialogProgressBarType = crate::ctypes::c_uint;
 pub type SceMsgDialogSystemMessageType = crate::ctypes::c_uint;
 pub type SceName = *mut crate::ctypes::c_char;
+pub type SceNetAdhocMatchingCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        id: crate::ctypes::c_int,
+        type_: crate::ctypes::c_int,
+        addr: *mut SceNetInAddr,
+        opt_len: SceSize,
+        opt: *mut crate::ctypes::c_void,
+    ),
+>;
+pub type SceNetAdhocMatchingErrorCode = crate::ctypes::c_uint;
+pub type SceNetAdhocMatchingMode = crate::ctypes::c_uint;
+pub type SceNetAdhocPdpStat = _SceNetAdhocPdpStat;
+pub type SceNetAdhocPollSd = _SceNetAdhocPollSd;
+pub type SceNetAdhocPtpStat = _SceNetAdhocPtpStat;
 pub type SceNetCheckDialoErrorCode = crate::ctypes::c_uint;
 pub type SceNetCheckDialogMode = crate::ctypes::c_uint;
 pub type SceNetCheckDialogPS3ConnectAction = crate::ctypes::c_uint;
 pub type SceNetCtlCallback = ::core::option::Option<
-    unsafe extern "C" fn(
-        event_type: crate::ctypes::c_int,
-        arg: *mut crate::ctypes::c_void,
-    ) -> *mut crate::ctypes::c_void,
+    unsafe extern "C" fn(event_type: crate::ctypes::c_int, arg: *mut crate::ctypes::c_void),
 >;
 pub type SceNetCtlInfoType = crate::ctypes::c_uint;
 pub type SceNetCtlState = crate::ctypes::c_uint;
@@ -19736,6 +21571,11 @@ pub type SceNotificationUtilProgressEventHandler =
 pub type _sceNpDrmPackageDecrypt_opt = _sceNpDrmPackageDecrypt;
 pub type SceOff = SceInt64;
 pub type _ScePerfArmPmonEventCode = crate::ctypes::c_uint;
+pub type ScePhotoImportDialogImportInfo = _ScePhotoImportDialogImportInfo;
+pub type ScePhotoImportDialogParam = _ScePhotoImportDialogParam;
+pub type ScePhotoImportDialogResult = _ScePhotoImportDialogResult;
+pub type ScePhotoReviewDialogParam = _ScePhotoReviewDialogParam;
+pub type ScePhotoReviewDialogResult = _ScePhotoReviewDialogResult;
 pub type ScePID = crate::ctypes::c_int;
 pub type ScePowerCallback = ::core::option::Option<
     unsafe extern "C" fn(
@@ -19746,7 +21586,6 @@ pub type ScePowerCallback = ::core::option::Option<
     ),
 >;
 pub type ScePowerCallbackType = crate::ctypes::c_uint;
-pub type ScePowerConfigurationMode = crate::ctypes::c_uint;
 pub type ScePowerErrorCode = crate::ctypes::c_uint;
 pub type SceProductCode = crate::ctypes::c_uint;
 pub type SceProductMode = crate::ctypes::c_char;
@@ -19837,6 +21676,18 @@ pub type SceSblSmCommId = crate::ctypes::c_int;
 pub type SceSByte = crate::ctypes::c_schar;
 pub type SceSByte8 = crate::ctypes::c_schar;
 pub type SceScreenshotErrorCode = crate::ctypes::c_uint;
+pub type SceSdifDeviceContext = *mut crate::ctypes::c_void;
+pub type SceSdifDeviceIndex = crate::ctypes::c_uint;
+pub type SceSdifDeviceType = crate::ctypes::c_uint;
+pub type SceSdstorFd = _SceSdstorFd;
+pub type SceSdstorOpHandle = _SceSdstorOpHandle;
+pub type SceSdstorPartitionEntry = _SceSdstorPartitionEntry;
+pub type SceSdstorSddev = _SceSdstorSddev;
+pub type SceSdstorSdintr = _SceSdstorSdintr;
+pub type SceSdstorSdpart = _SceSdstorSdpart;
+pub type SceSdstorSdpartKind = crate::ctypes::c_uint;
+pub type SceSdstorSdpartPort = crate::ctypes::c_uint;
+pub type SceSdstorSdpartStat = crate::ctypes::c_uint;
 pub type SceShaccCgCallbackAbsolutePath = ::core::option::Option<
     unsafe extern "C" fn(
         fileName: *const crate::ctypes::c_char,
@@ -19985,6 +21836,7 @@ pub type SceUShort16 = u16;
 pub type SceVideodecErrorCode = crate::ctypes::c_uint;
 pub type SceVideodecType = crate::ctypes::c_uint;
 pub type SceVoid = crate::ctypes::c_void;
+pub type SceVshMountId = crate::ctypes::c_uint;
 pub type SceWChar16 = u16;
 pub type SceWChar32 = u32;
 pub type SulphaNgsModuleQueryType = SceUInt32;
